@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/zaza-logo.png" as="image">
+    
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    
+    <!-- Critical CSS (inlined) -->
+    <style>
+        /* Critical above-the-fold styles */
+        body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+        .hero-section { min-height: 100vh; background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #f59e0b 100%); }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 1rem; }
+    </style>
+    
+    <!-- Favicon and icons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#7c3aed">
+    
+    <!-- Security headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
+    <title>Zaza Promptly - AI-Powered Feedback Generation for Teachers</title>
+</head>
+<body>
+    <noscript>
+        <div style="padding: 20px; background: #fee; border: 1px solid #fcc; margin: 20px; border-radius: 4px;">
+            <h2>JavaScript Required</h2>
+            <p>This website requires JavaScript to function properly. Please enable JavaScript in your browser settings.</p>
+        </div>
+    </noscript>
+    
+    <div id="root"></div>
+    
+    <!-- Load non-critical CSS asynchronously -->
+    <link rel="preload" href="/styles/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/styles/main.css"></noscript>
+</body>
+</html>

@@ -1,0 +1,362 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * Zaza Shared Global Styles
+ * 
+ * This file contains consistent design tokens, CSS variables, and base styles
+ * that ensure uniform branding and theming across all Zaza products.
+ */
+
+@layer base {
+  /* CSS Variables for Theme Switching */
+  :root {
+    /* Base colors for light mode */
+    --background: 0 0% 100%;                    /* Pure white background */
+    --foreground: 222.2 84% 4.9%;              /* Dark text for light mode */
+    
+    /* Card and popover colors */
+    --card: 0 0% 100%;                         /* White card backgrounds */
+    --card-foreground: 222.2 84% 4.9%;         /* Dark text on cards */
+    --popover: 0 0% 100%;                      /* White popover backgrounds */
+    --popover-foreground: 222.2 84% 4.9%;      /* Dark text on popovers */
+    
+    /* Primary brand colors */
+    --primary: 222.2 47.4% 11.2%;              /* Dark primary color */
+    --primary-foreground: 210 40% 98%;         /* Light text on primary */
+    
+    /* Secondary and accent colors */
+    --secondary: 210 40% 96%;                  /* Light gray secondary */
+    --secondary-foreground: 222.2 47.4% 11.2%; /* Dark text on secondary */
+    --accent: 210 40% 96%;                     /* Light accent color */
+    --accent-foreground: 222.2 47.4% 11.2%;    /* Dark text on accent */
+    
+    /* Muted colors for subtle elements */
+    --muted: 210 40% 96%;                      /* Light muted background */
+    --muted-foreground: 215.4 16.3% 46.9%;     /* Medium gray muted text */
+    
+    /* Destructive colors for errors and warnings */
+    --destructive: 0 84.2% 60.2%;              /* Red destructive color */
+    --destructive-foreground: 210 40% 98%;     /* Light text on destructive */
+    
+    /* Border and input colors */
+    --border: 214.3 31.8% 91.4%;               /* Light gray borders */
+    --input: 214.3 31.8% 91.4%;                /* Light gray input borders */
+    --ring: 222.2 84% 4.9%;                    /* Dark ring color for focus */
+    
+    /* Border radius for consistent rounded corners */
+    --radius: 0.5rem;                          /* 8px border radius */
+    
+    /* Chart colors for data visualization */
+    --chart-1: 222.2 84% 4.9%;                 /* Chart color 1 */
+    --chart-2: 210 40% 96%;                    /* Chart color 2 */
+    --chart-3: 215.4 16.3% 46.9%;              /* Chart color 3 */
+    --chart-4: 214.3 31.8% 91.4%;              /* Chart color 4 */
+    --chart-5: 210 40% 98%;                    /* Chart color 5 */
+    
+    /* Sidebar colors for navigation */
+    --sidebar-background: 0 0% 100%;           /* White sidebar background */
+    --sidebar-foreground: 222.2 84% 4.9%;      /* Dark sidebar text */
+    --sidebar-primary: 222.2 47.4% 11.2%;      /* Dark sidebar primary */
+    --sidebar-primary-foreground: 210 40% 98%; /* Light sidebar primary text */
+    --sidebar-accent: 210 40% 96%;             /* Light sidebar accent */
+    --sidebar-accent-foreground: 222.2 47.4% 11.2%; /* Dark sidebar accent text */
+    --sidebar-border: 214.3 31.8% 91.4%;       /* Light sidebar border */
+    --sidebar-ring: 222.2 84% 4.9%;            /* Dark sidebar ring */
+  }
+
+  /* Dark mode color variables */
+  .dark {
+    --background: 222.2 84% 4.9%;              /* Dark background */
+    --foreground: 210 40% 98%;                 /* Light text for dark mode */
+    
+    /* Card and popover colors for dark mode */
+    --card: 222.2 84% 4.9%;                    /* Dark card backgrounds */
+    --card-foreground: 210 40% 98%;            /* Light text on cards */
+    --popover: 222.2 84% 4.9%;                 /* Dark popover backgrounds */
+    --popover-foreground: 210 40% 98%;         /* Light text on popovers */
+    
+    /* Primary brand colors for dark mode */
+    --primary: 210 40% 98%;                    /* Light primary color */
+    --primary-foreground: 222.2 47.4% 11.2%;   /* Dark text on primary */
+    
+    /* Secondary and accent colors for dark mode */
+    --secondary: 217.2 32.6% 17.5%;            /* Dark gray secondary */
+    --secondary-foreground: 210 40% 98%;       /* Light text on secondary */
+    --accent: 217.2 32.6% 17.5%;               /* Dark accent color */
+    --accent-foreground: 210 40% 98%;          /* Light text on accent */
+    
+    /* Muted colors for dark mode */
+    --muted: 217.2 32.6% 17.5%;                /* Dark muted background */
+    --muted-foreground: 215 20.2% 65.1%;       /* Medium gray muted text */
+    
+    /* Destructive colors for dark mode */
+    --destructive: 0 62.8% 30.6%;              /* Dark red destructive */
+    --destructive-foreground: 210 40% 98%;     /* Light text on destructive */
+    
+    /* Border and input colors for dark mode */
+    --border: 217.2 32.6% 17.5%;               /* Dark gray borders */
+    --input: 217.2 32.6% 17.5%;                /* Dark gray input borders */
+    --ring: 212.7 26.8% 83.9%;                 /* Light ring color for focus */
+    
+    /* Chart colors for dark mode */
+    --chart-1: 210 40% 98%;                    /* Light chart color 1 */
+    --chart-2: 217.2 32.6% 17.5%;              /* Dark chart color 2 */
+    --chart-3: 215 20.2% 65.1%;                /* Medium chart color 3 */
+    --chart-4: 217.2 32.6% 17.5%;              /* Dark chart color 4 */
+    --chart-5: 210 40% 98%;                    /* Light chart color 5 */
+    
+    /* Sidebar colors for dark mode */
+    --sidebar-background: 222.2 84% 4.9%;      /* Dark sidebar background */
+    --sidebar-foreground: 210 40% 98%;         /* Light sidebar text */
+    --sidebar-primary: 210 40% 98%;            /* Light sidebar primary */
+    --sidebar-primary-foreground: 222.2 47.4% 11.2%; /* Dark sidebar primary text */
+    --sidebar-accent: 217.2 32.6% 17.5%;       /* Dark sidebar accent */
+    --sidebar-accent-foreground: 210 40% 98%;  /* Light sidebar accent text */
+    --sidebar-border: 217.2 32.6% 17.5%;       /* Dark sidebar border */
+    --sidebar-ring: 212.7 26.8% 83.9%;         /* Light sidebar ring */
+  }
+}
+
+@layer base {
+  /* Base element styles */
+  * {
+    @apply border-border;                       /* Apply consistent border colors */
+  }
+  
+  html {
+    scroll-behavior: smooth;                    /* Smooth scrolling for better UX */
+    font-family: var(--font-inter), Inter, system-ui, sans-serif;
+  }
+  
+  body {
+    @apply bg-background text-foreground;      /* Apply theme colors to body */
+    font-feature-settings: "rlig" 1, "calt" 1; /* Enable ligatures for better typography */
+  }
+  
+  /* Typography improvements */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;        /* Consistent heading styles */
+  }
+  
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    @apply focus-zaza;                         /* Apply custom Zaza focus styles */
+  }
+}
+
+@layer components {
+  /* Zaza Brand Components */
+  
+  /* Gradient text components */
+  .gradient-text {
+    @apply bg-gradient-to-r from-zaza-coral via-zaza-yellow to-zaza-mint bg-clip-text text-transparent;
+  }
+  
+  .gradient-text-purple {
+    @apply bg-gradient-to-r from-purple-600 via-purple-500 to-purple-400 bg-clip-text text-transparent;
+  }
+  
+  .gradient-text-orange {
+    @apply bg-gradient-to-r from-zaza-coral via-orange-500 to-orange-400 bg-clip-text text-transparent;
+  }
+  
+  /* Button variants */
+  .btn-primary {
+    @apply bg-purple-600 hover:bg-purple-700 text-white font-medium px-6 py-3 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-100 hover:bg-gray-200 text-gray-900 font-medium px-6 py-3 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white font-medium px-6 py-3 rounded-lg transition-colors duration-200;
+  }
+  
+  /* Card components */
+  .card-zaza {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-6;
+  }
+  
+  .card-zaza-hover {
+    @apply card-zaza hover:shadow-xl transition-shadow duration-300;
+  }
+  
+  /* Navigation components */
+  .nav-link {
+    @apply text-gray-600 hover:text-purple-600 transition-colors duration-200 font-medium;
+  }
+  
+  .nav-link-active {
+    @apply text-purple-600 font-semibold;
+  }
+  
+  /* Form components */
+  .input-zaza {
+    @apply w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-200 bg-white dark:bg-gray-800 text-gray-900 dark:text-white;
+  }
+  
+  .label-zaza {
+    @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2;
+  }
+}
+
+@layer utilities {
+  /* Zaza Brand Utilities */
+  
+  /* Animation utilities */
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out;
+  }
+  
+  .animate-bounce-in {
+    animation: bounceIn 0.6s ease-out;
+  }
+  
+  /* Spacing utilities */
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  .container-zaza {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Text utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  
+  /* Background utilities */
+  .bg-gradient-zaza {
+    @apply bg-gradient-to-br from-purple-600 via-purple-500 to-purple-400;
+  }
+  
+  .bg-gradient-zaza-reverse {
+    @apply bg-gradient-to-tl from-purple-600 via-purple-500 to-purple-400;
+  }
+  
+  /* Border utilities */
+  .border-gradient-zaza {
+    @apply border-2 border-transparent bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-border;
+  }
+  
+  /* Shadow utilities */
+  .shadow-zaza {
+    @apply shadow-lg shadow-purple-500/25;
+  }
+  
+  .shadow-zaza-hover {
+    @apply shadow-zaza hover:shadow-xl hover:shadow-purple-500/30 transition-shadow duration-300;
+  }
+}
+
+/* Custom Keyframe Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-break {
+    page-break-before: always;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn-primary {
+    @apply bg-black text-white border-2 border-black;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-black border-2 border-black;
+  }
+  
+  .card-zaza {
+    @apply border-2 border-black;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+} 

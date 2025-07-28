@@ -1,0 +1,56 @@
+{
+  "name": "@zaza/shared-components",
+  "version": "1.0.0",
+  "description": "Shared Header and Footer components for Zaza websites",
+  "main": "index.ts",
+  "types": "index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./lib/seo": "./lib/seo.ts",
+    "./lib/utils": "./lib/utils.ts",
+    "./Header": "./Header.tsx",
+    "./Footer": "./Footer.tsx",
+    "./hooks/use-theme": "./hooks/use-theme.tsx",
+    "./ui/button": "./ui/button.tsx",
+    "./ui/card": "./ui/card.tsx",
+    "./ui/badge": "./ui/badge.tsx",
+    "./seo/seo-component": "./seo/seo-component.tsx",
+    "./seo/metadata-config": "./seo/metadata-config.ts"
+  },
+  "scripts": {
+    "build": "echo 'No build step required for TypeScript components'",
+    "test": "echo 'No tests configured'"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.0.2",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "lucide-react": "^0.294.0",
+    "next": "^14.0.0",
+    "react": "^18.0.0",
+    "tailwind-merge": "^2.0.0"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "next": "^14.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "zaza",
+    "components",
+    "header",
+    "footer",
+    "react",
+    "nextjs",
+    "typescript"
+  ],
+  "author": "Zaza Technologies",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zazatechnologies/shared-components"
+  }
+} 

@@ -1,0 +1,721 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Force text selection on all elements by default */
+  * {
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+  }
+  
+  /* Allow text selection on all text elements */
+  p, h1, h2, h3, h4, h5, h6, span, div, li, td, th, label, input, textarea, blockquote, cite {
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+  }
+  
+  /* Ensure text content is selectable even with conflicting styles */
+  .text-content, .content, main, section, article {
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+  }
+  
+  /* Specific rules for testimonials and quotes */
+  blockquote, .testimonial-content, .quote-content {
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+  }
+  
+  /* Override any select-none classes on text content */
+  .select-none {
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+  }
+  
+  /* Ensure all text content is selectable regardless of other classes */
+  p.select-none, h1.select-none, h2.select-none, h3.select-none, h4.select-none, h5.select-none, h6.select-none, span.select-none, div.select-none {
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+  }
+  
+  /* Force text selection on main content and sections */
+  main, section, article, .content, .text-content {
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+  }
+  
+  /* Ensure all text within main content is selectable */
+  main *, section *, article * {
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+  }
+  
+  /* Additional force for all text elements */
+  body, html {
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+  }
+  
+  /* Force text selection on all text nodes */
+  ::selection {
+    background: #3b82f6;
+    color: white;
+  }
+  
+  ::-moz-selection {
+    background: #3b82f6;
+    color: white;
+  }
+  
+  /* Force text selection on ALL elements with maximum specificity */
+  * {
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+  }
+  
+  /* Force text selection on specific text elements */
+  p, h1, h2, h3, h4, h5, h6, span, div, li, td, th, label, input, textarea, blockquote, cite, section, article, main {
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+  }
+  
+  /* Override any Tailwind select-none classes with maximum specificity */
+  .select-none, [class*="select-none"] {
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+  }
+  
+  /* Ensure body and html allow text selection */
+  body, html {
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+  }
+  
+  /* Disable any pointer events that might interfere */
+  * {
+    pointer-events: auto !important;
+  }
+  
+  /* Disable any animations that might interfere with text selection */
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  /* But allow specific animations we want to keep */
+  .animate-fade-in, .animate-fade-in-out {
+    animation: fade-in 0.5s ease-out !important;
+  }
+  
+  /* Prevent selection only on specific interactive elements where needed */
+  button, a, .no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
+
+@layer utilities {
+  @keyframes gradient-shift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes fade-in-out {
+    0%,
+    100% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    10%,
+    90% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float-slow {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(180deg);
+    }
+  }
+
+  @keyframes float-medium {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-15px) rotate(90deg);
+    }
+  }
+
+  @keyframes float-fast {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(270deg);
+    }
+  }
+
+  .animate-gradient-shift {
+    background-size: 400% 400%;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  .animate-fade-in-out {
+    animation: fade-in-out 3s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float-slow 6s ease-in-out infinite;
+  }
+
+  .animate-float-medium {
+    animation: float-medium 4s ease-in-out infinite;
+  }
+
+  .animate-float-fast {
+    animation: float-fast 3s ease-in-out infinite;
+  }
+
+  @keyframes gentle-shake {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-2px) rotate(-0.5deg);
+    }
+    75% {
+      transform: translateX(2px) rotate(0.5deg);
+    }
+  }
+
+  @keyframes float-gentle {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-8px) rotate(2deg);
+    }
+  }
+
+  @keyframes float-gentle-delayed {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-6px) rotate(-2deg);
+    }
+  }
+
+  @keyframes float-gentle-slow {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(1deg);
+    }
+  }
+
+  @keyframes gentle-bounce {
+    0%,
+    100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-4px) scale(1.05);
+    }
+  }
+
+  @keyframes float-sparkle {
+    0%,
+    100% {
+      transform: translateY(0px) scale(1);
+      opacity: 0.4;
+    }
+    50% {
+      transform: translateY(-12px) scale(1.2);
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes float-sparkle-delayed {
+    0%,
+    100% {
+      transform: translateY(0px) scale(1);
+      opacity: 0.3;
+    }
+    50% {
+      transform: translateY(-8px) scale(1.1);
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes float-sparkle-slow {
+    0%,
+    100% {
+      transform: translateY(0px) scale(1);
+      opacity: 0.5;
+    }
+    50% {
+      transform: translateY(-10px) scale(1.15);
+      opacity: 0.9;
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes check-bounce {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+  }
+
+  @keyframes x-shake {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(-5deg);
+    }
+    75% {
+      transform: rotate(5deg);
+    }
+  }
+
+  .animate-gentle-shake {
+    animation: gentle-shake 0.6s ease-in-out;
+  }
+
+  .animate-float-gentle {
+    animation: float-gentle 4s ease-in-out infinite;
+  }
+
+  .animate-float-gentle-delayed {
+    animation: float-gentle-delayed 5s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+
+  .animate-float-gentle-slow {
+    animation: float-gentle-slow 6s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  .animate-gentle-bounce {
+    animation: gentle-bounce 0.8s ease-in-out;
+  }
+
+  .animate-float-sparkle {
+    animation: float-sparkle 3s ease-in-out infinite;
+  }
+
+  .animate-float-sparkle-delayed {
+    animation: float-sparkle-delayed 4s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+
+  .animate-float-sparkle-slow {
+    animation: float-sparkle-slow 5s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out;
+  }
+
+  .animate-check-bounce {
+    animation: check-bounce 0.6s ease-in-out;
+  }
+
+  .animate-x-shake {
+    animation: x-shake 0.5s ease-in-out;
+  }
+
+  @keyframes optimized-fade-in {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 20px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .animate-optimized-fade-in {
+    animation: optimized-fade-in 0.6s ease-out;
+    will-change: transform, opacity;
+  }
+}
+
+/* Add these mobile optimization styles at the end */
+
+/* Touch optimization */
+.touch-manipulation {
+  touch-action: manipulation;
+}
+
+/* Smooth scrolling for mobile */
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Mobile-specific animations */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Responsive breakpoints */
+@media (max-width: 320px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1440px) {
+  .xl\:max-w-7xl {
+    max-width: 80rem;
+  }
+}
+
+/* Add these accessibility and performance styles */
+
+/* High contrast focus indicators */
+*:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .bg-gradient-to-r {
+    background: #000 !important;
+    color: #fff !important;
+  }
+
+  .text-gray-600 {
+    color: #000 !important;
+  }
+
+  .border-gray-200 {
+    border-color: #000 !important;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Optimize font rendering */
+body {
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Prevent layout shift */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Color contrast improvements */
+:root {
+  --text-high-contrast: #000000;
+  --text-medium-contrast: #374151;
+  --text-low-contrast: #6b7280;
+  --bg-high-contrast: #ffffff;
+  --bg-medium-contrast: #f9fafb;
+  --bg-low-contrast: #f3f4f6;
+}
+
+/* Ensure minimum color contrast ratios */
+.text-gray-600 {
+  color: #374151; /* 4.5:1 contrast ratio */
+}
+
+.text-gray-500 {
+  color: #6b7280; /* 4.5:1 contrast ratio on white */
+}
+
+.bg-gray-50 {
+  background-color: #f9fafb;
+}
+
+/* Skip link styling */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 1000;
+  border-radius: 4px;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Improve button accessibility */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button:disabled:hover {
+  transform: none;
+}
+
+/* Optimize critical rendering path */
+.critical-css {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Prevent flash of unstyled content */
+.font-loading {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.font-loaded {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Mobile-friendly focus states */
+@media (max-width: 768px) {
+  button:focus,
+  a:focus,
+  input:focus,
+  textarea:focus {
+    outline: 2px solid #7c3aed;
+    outline-offset: 2px;
+  }
+}
+
+/* Prevent zoom on iOS */
+input[type="text"],
+input[type="email"],
+textarea {
+  font-size: 16px;
+}
+
+/* Optimize images for mobile */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mobile-specific utility classes */
+.mobile-padding {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .mobile-padding {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-padding {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}

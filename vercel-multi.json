@@ -1,0 +1,136 @@
+{
+  "projects": [
+    {
+      "name": "claritydeck-landing",
+      "rootDirectory": "apps/claritydeck-landing"
+    },
+    {
+      "name": "newsletter-signup",
+      "rootDirectory": "apps/newsletter-signup"
+    },
+    {
+      "name": "privacy-policy-page",
+      "rootDirectory": "apps/privacy-policy-page"
+    },
+    {
+      "name": "promptly",
+      "rootDirectory": "apps/promptly"
+    },
+    {
+      "name": "schwoop-challenge",
+      "rootDirectory": "apps/schwoop-challenge"
+    },
+    {
+      "name": "schwoop-homepage",
+      "rootDirectory": "apps/schwoop-homepage"
+    },
+    {
+      "name": "teach",
+      "rootDirectory": "apps/teach"
+    },
+    {
+      "name": "teacher-hero",
+      "rootDirectory": "apps/teacher-hero"
+    },
+    {
+      "name": "terms-of-service-page",
+      "rootDirectory": "apps/terms-of-service-page"
+    },
+    {
+      "name": "zaza-about-page",
+      "rootDirectory": "apps/zaza-about-page"
+    },
+    {
+      "name": "zaza-blog-post",
+      "rootDirectory": "apps/zaza-blog-post"
+    },
+    {
+      "name": "zaza-comparison-page",
+      "rootDirectory": "apps/zaza-comparison-page"
+    },
+    {
+      "name": "zaza-contact-page",
+      "rootDirectory": "apps/zaza-contact-page"
+    },
+    {
+      "name": "zaza-faq",
+      "rootDirectory": "apps/zaza-faq"
+    },
+    {
+      "name": "zaza-feature-request",
+      "rootDirectory": "apps/zaza-feature-request"
+    },
+    {
+      "name": "zaza-features-page",
+      "rootDirectory": "apps/zaza-features-page"
+    },
+    {
+      "name": "zaza-founder-page",
+      "rootDirectory": "apps/zaza-founder-page"
+    },
+    {
+      "name": "zaza-homepage-1",
+      "rootDirectory": "apps/zaza-homepage-1"
+    },
+    {
+      "name": "zaza-inbox-landing",
+      "rootDirectory": "apps/zaza-inbox-landing"
+    },
+    {
+      "name": "zaza-mission-page",
+      "rootDirectory": "apps/zaza-mission-page"
+    },
+    {
+      "name": "zaza-pricing",
+      "rootDirectory": "apps/zaza-pricing"
+    },
+    {
+      "name": "zaza-pricing-page",
+      "rootDirectory": "apps/zaza-pricing-page"
+    },
+    {
+      "name": "zaza-products-overview",
+      "rootDirectory": "apps/zaza-products-overview"
+    },
+    {
+      "name": "zaza-promptly-faq",
+      "rootDirectory": "apps/zaza-promptly-faq"
+    },
+    {
+      "name": "zaza-promptly-how-it-works",
+      "rootDirectory": "apps/zaza-promptly-how-it-works"
+    },
+    {
+      "name": "zaza-promptly-support-1",
+      "rootDirectory": "apps/zaza-promptly-support-1"
+    },
+    {
+      "name": "zaza-spark",
+      "rootDirectory": "apps/zaza-spark"
+    },
+    {
+      "name": "zaza-study-landing",
+      "rootDirectory": "apps/zaza-study-landing"
+    },
+    {
+      "name": "zaza-support-page",
+      "rootDirectory": "apps/zaza-support-page"
+    },
+    {
+      "name": "zaza-terms-of-use",
+      "rootDirectory": "apps/zaza-terms-of-use"
+    },
+    {
+      "name": "zaza-visuals-landing-1",
+      "rootDirectory": "apps/zaza-visuals-landing-1"
+    },
+    {
+      "name": "zaza-visuals-marketing",
+      "rootDirectory": "apps/zaza-visuals-marketing"
+    },
+    {
+      "name": "zaza-waitlist-page",
+      "rootDirectory": "apps/zaza-waitlist-page"
+    }
+  ]
+}

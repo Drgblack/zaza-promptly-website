@@ -1,0 +1,242 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground transition-colors duration-200;
+  }
+}
+
+.font-inter {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.shimmer {
+  animation: shimmer 2s infinite;
+}
+
+/* Dark mode specific styles */
+.dark {
+  color-scheme: dark;
+}
+
+.dark body {
+  background: linear-gradient(135deg, #581c87 0%, #be185d 100%);
+  color: #f3f3f3;
+}
+
+/* Solid Pink/Purple Body Background */
+body {
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+}
+
+/* Simple hover effects */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.5), 0 0 40px rgba(219, 39, 119, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(147, 51, 234, 0.7), 0 0 60px rgba(219, 39, 119, 0.5);
+  }
+}
+
+/* Wiggle animation for icons */
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(2deg);
+  }
+  75% {
+    transform: rotate(-2deg);
+  }
+}
+
+.wiggle-animation {
+  animation: wiggle 0.4s ease-in-out;
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.pulse-animation {
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.glow-animation {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* Solid gradient backgrounds */
+.gradient-purple-pink {
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+}
+
+.gradient-pink-purple {
+  background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+}
+
+/* Card hover performance optimizations */
+.card-hover-optimized {
+  backface-visibility: hidden;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* Enhanced hover effects */
+.card-hover-enhanced {
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Prevent layout shifts on hover */
+.no-layout-shift {
+  box-sizing: border-box;
+}
+
+/* GPU acceleration for smooth animations */
+.transform-gpu {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Performance optimizations */
+.transform-optimized {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Smooth hover transitions */
+@media (hover: hover) and (pointer: fine) {
+  .hover-scale:hover {
+    transform: scale(1.02) translateZ(0);
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 30px
+      rgba(147, 51, 234, 0.15);
+  }
+
+  .dark .hover-glow:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1), 0 0 30px
+      rgba(236, 72, 153, 0.2);
+  }
+}
+
+/* Disable hover effects on touch devices */
+@media (hover: none) {
+  .hover-scale:hover {
+    transform: none;
+  }
+
+  .hover-glow:hover {
+    box-shadow: none;
+  }
+}
+
+/* Mobile hover disable */
+@media (hover: none) and (pointer: coarse) {
+  .group:hover .wiggle-animation {
+    animation: none;
+  }
+
+  .group:hover .group-hover\:scale-105 {
+    transform: none;
+  }
+
+  .group:hover .group-hover\:shadow-lg {
+    box-shadow: none;
+  }
+}
