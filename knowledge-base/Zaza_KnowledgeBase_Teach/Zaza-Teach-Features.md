@@ -1,0 +1,149 @@
+
+# ✨ Zaza Teach – Features & Functionality
+
+Zaza Teach is a premium co-planning companion built for the modern educator. Designed with emotional intelligence and pedagogical depth, it helps teachers plan, communicate, and thrive in today’s demanding classrooms. With native mobile apps launching alongside our web platform, Zaza Teach is always by your side—at school, at home, or on the go.
+
+---
+
+## 🔍 Core Features
+
+### 1. 🧠 AI Comment Generator
+**Functionality**: Instantly creates personalised student feedback using brief teacher input.
+
+**How it works**:
+1. Teacher enters student-specific context (learning strengths, challenges, goals)
+2. Selects tone and purpose (e.g., praise, growth-oriented, formal)
+3. AI generates clear, curriculum-aligned feedback
+4. Teacher reviews, edits, or saves for future use
+
+**Benefits**:
+- Eliminates writer’s block
+- Maintains consistency and equity
+- Boosts quality and clarity
+- Reduces stress and saves hours weekly
+
+---
+
+### 2. 🎨 Tone & Style Controls
+**Tones available**:
+- Warm and encouraging
+- Constructive and growth-oriented
+- Professional and concise
+- Parent-friendly collaboration
+- Academic and subject-specific
+
+**Customisation**:
+- Adjust tone sensitivity
+- Match school-approved phrases
+- Save preferred tones for reuse
+- Create custom voices for special cohorts (e.g. EAL students, SEN reports)
+
+---
+
+### 3. 🧩 Curriculum Alignment
+**Functionality**: Aligns feedback with national and local education standards.
+
+**Coverage**:
+- Australian Curriculum, UK National Curriculum, US Common Core, IB, and more
+- Subject-specific outcomes and success criteria
+- Differentiated objectives by ability level
+
+**Benefits**:
+- Supports standards-based reporting
+- Provides evidence for compliance
+- Helps frame student progress clearly for stakeholders
+
+---
+
+### 4. 🗂️ Snippet Library
+**Functionality**: Save and reuse powerful comment snippets or whole structures.
+
+**Organisation**:
+- Filter by subject, tone, or grade level
+- Tag-based search system
+- Create reusable comment banks per class or report type
+
+**Benefits**:
+- Reduces repetitive typing
+- Maintains coherence across multiple students
+- Supports peer collaboration in shared libraries (school license)
+
+---
+
+### 5. 🌍 Multi-language & Cultural Context Support
+**Languages Supported**:
+- English (Primary)
+- Spanish, French, German, Italian
+We do not currently support other languages (e.g. Arabic, Portuguese) beyond those listed above. We are exploring future expansion based on user demand. 
+
+**Cultural Awareness**:
+- Tailored language conventions (e.g., US vs UK English)
+- Inclusive phrasing and accessibility-aware comment structures
+- Supports diverse school communities
+
+---
+
+## ⚡️ Advanced Features
+
+### 📑 Bulk Comment Generation
+- Input whole class context
+- Generate individualised feedback for each student
+- Maintain tone and accuracy
+- Export to report cards, PDFs, or LMS
+
+### 🧭 Custom Curriculum Mapping
+- Upload internal frameworks or syllabi
+- Build school-aligned rubrics
+- Tag outcomes and assessment types for consistency
+
+### 📊 Analytics Dashboard
+- Track time saved
+- Surface usage patterns
+- Identify tone trends or common tags
+- Use for internal PD reflection or reporting
+
+### 🖨️ Export Options
+- PDF, Word, CSV, or direct pasting
+- Seamless LMS compatibility (Google, Canvas, Seesaw, etc.)
+- Quick copy for parent email or printing
+
+---
+
+## 🔗 Integration Capabilities
+
+- **Google Classroom** – Sync lesson plans and feedback
+- **Microsoft Teams for Education** – Native support
+- **Seesaw** – Attach feedback directly to portfolios
+- **Student Information Systems (SIS)** – Read/write access for licensed schools
+- **Custom API** – Available for enterprise/institutional partners
+
+---
+
+## 📱 Native Mobile Apps
+
+**Launch Update**: iOS and Android apps will launch alongside our web version, allowing teachers to:
+- Generate feedback on the go
+- Save comments while walking the classroom
+- Sync across devices seamlessly
+- Use voice input for rapid note-to-comment workflows
+
+---
+
+## 🔍 Known Limitations
+
+- Snippet sharing requires a School License (not available in Free or Pro tiers)
+- Curriculum alignment is robust but may require manual review for niche curricula
+- Does not yet support visual content generation (use Zaza Visuals)
+- AI may still require teacher validation and professional judgment
+
+---
+
+## 🏆 Boutique Product Positioning
+
+Zaza Teach is not a generic comment tool—it’s a thoughtfully designed, educator-first platform. We don’t sell AI; we help teachers *thrive*. Every feature is handcrafted with empathy, professional standards, and human-centred design.
+
+access_conditions:
+  - if: user.email == "greg@zazatechnologies.com"
+    allow: full_access
+  - if: user.email == "greg.blackburn@gmail.com"
+    allow: full_access

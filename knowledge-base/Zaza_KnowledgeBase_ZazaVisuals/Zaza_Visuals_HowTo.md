@@ -1,0 +1,105 @@
+# Zaza Visuals – HowTo Guide
+
+Welcome to the official guide for using **Zaza Visuals**, the AI-powered tool that helps teachers create beautiful, curriculum-aligned classroom visuals in minutes. This guide outlines how to get started, customize your experience, and integrate Zaza Visuals into your teaching workflows effectively.
+
+---
+
+## 🔰 Getting Started
+
+1. **Create an Account**
+   - Visit [zazavisuals.com](https://zazavisuals.com) and sign up using your school or personal email.
+   - Choose your preferred language and grade level during onboarding.
+
+2. **Complete Profile Setup**
+   - Add your subject areas, region-specific curriculum, and tone preferences to personalize the experience.
+
+3. **Initial Walkthrough**
+   - Use the in-app walkthrough to explore the key features and generate your first classroom visual.
+
+---
+
+## 🧩 Core Workflows
+
+### 🎨 Creating a Visual from Scratch
+
+1. **Choose Visual Type**  
+   Select from posters, anchor charts, slides, student handouts, social graphics, or creative prompts.
+
+2. **Input Your Topic or Learning Objective**  
+   Describe the concept you want to visualise (e.g., “The Water Cycle for Year 5”).
+
+3. **Select Design Style and Colour Preferences**  
+   Pick from minimal, playful, bold, or themed templates. Choose colour palettes or allow auto styling.
+
+4. **Add Learning Goals or Notes (Optional)**  
+   These are used to guide the AI’s visual and text generation.
+
+5. **Generate**  
+   Click “Create” and watch Zaza Visuals generate a draft within seconds.
+
+6. **Refine**  
+   Make edits to text, layout, illustrations, or tone. Use the “Simplify”, “Explain Differently”, or “Add Analogy” tools.
+
+7. **Export or Share**  
+   Save as PNG, PDF, or use the “Share to Class” feature for instant distribution.
+
+---
+
+### 🖼️ Remixing an Existing Visual
+
+1. **Choose a Saved or Shared Visual**  
+   Browse your library or community gallery.
+
+2. **Select ‘Remix’**  
+   Edit content, switch styles, or adapt for a different grade level or subject.
+
+3. **Preview and Export**  
+   Review and download or share the updated visual.
+
+---
+
+### 🧠 AI Assistant Use
+
+- Use the integrated AI helper to:
+  - Suggest better visual metaphors.
+  - Translate visuals to different languages.
+  - Suggest scaffolded versions for diverse learners.
+  - Provide curriculum-aligned wording based on your region.
+
+---
+
+## 🧪 Tips for Better Results
+
+- **Be Clear**: Use specific terminology from your curriculum.
+- **Add Examples**: Including analogies or student misunderstandings helps the AI personalise output.
+- **Leverage Templates**: Save time with reusable formats.
+- **Stay Consistent**: Align tone and design choices with your classroom norms.
+
+---
+
+## 🔗 Integrations
+
+Zaza Visuals can optionally integrate with:
+- **Google Drive / Microsoft OneDrive**: Auto-save visuals to your cloud.
+- **Canva & Slides**: Export into editable formats.
+- **Zaza Teach**: Auto-insert visuals into lesson plans.
+
+---
+
+## 🎓 Use Cases
+
+- Visualise abstract topics for younger learners.
+- Provide language scaffolds for ELL students.
+- Create social media-ready school announcements.
+- Generate differentiated visuals for special needs support.
+- Build interactive anchor charts that evolve with student input.
+
+---
+
+For more guidance, visit our [Learning Centre](https://zazavisuals.com/help) or contact support anytime.
+
+access_conditions:
+  - if: user.email == "greg@zazatechnologies.com"
+    allow: full_access
+  - if: user.email == "greg.blackburn@gmail.com"
+    allow: full_access

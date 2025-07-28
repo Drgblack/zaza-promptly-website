@@ -1,0 +1,34 @@
+## Technical Specifications
+
+### Architecture
+- **Frontend**: FlutterFlow Progressive Web App (PWA)
+- **Backend**: Firebase Functions with Node.js runtime
+- **AI Engine**: GPT-4 with custom prompt constraints and safety measures
+- **Database**: Google Firestore for scalability and real-time updates
+- **Hosting**: Google Cloud Platform for reliability and global reach
+
+### Security & Compliance
+- **GDPR Compliance**: Full European data protection compliance
+- **FERPA Compliance**: US educational privacy requirements met
+- **Data Encryption**: End-to-end encryption for all communications
+- **Zero Data Retention**: No student data stored permanently
+- **SOC 2 Type II**: Security controls audited annually
+
+### Performance
+- **Response Time**: Sub-second lesson plan generation
+- **Uptime**: 99.9% availability SLA
+- **Scalability**: Handles concurrent users without degradation
+- **Global CDN**: Fast loading times worldwide
+
+### Version Information
+- **Current Version**: v1.0.2 (July 2025)
+- **Release Cycle**: Monthly updates with new features
+- **Backward Compatibility**: All saved snippets and preferences maintained
+
+---
+
+access_conditions:
+  - if: user.email == "greg@zazatechnologies.com"
+    allow: full_access
+  - if: user.email == "greg.blackburn@gmail.com"
+    allow: full_access

@@ -1,0 +1,102 @@
+# Zaza Visuals – Comprehensive Pricing Guide
+
+Zaza Visuals is built for educators who want to create high-quality, visually engaging classroom materials quickly and easily. Below is a detailed overview of our pricing tiers, what each plan includes, upgrade flexibility, and answers to frequently asked questions.
+
+---
+
+## 🆓 Free Plan – €0/month
+Perfect for teachers who want to explore the tool without commitment.
+
+### Included:
+- ✅ **5 AI-generated visuals per month**
+- ✅ **Basic tone presets** to adjust voice and intent
+- ✅ **Standard curriculum alignment tools**
+- ✅ No payment details required
+- ❌ No access to snippet library
+- ❌ No bulk export or sharing options
+- ❌ No advanced visual themes or layout options
+
+---
+
+## 💼 Pro Plan – €14.99/month
+Designed for active classroom use and unlimited creativity.
+
+### Included:
+- ✅ **Unlimited content generation**
+- ✅ Full access to the **snippet and template library**
+- ✅ **Advanced tone controls** (e.g., fun, formal, engaging)
+- ✅ **Multi-language support**
+- ✅ **One-click PDF export** of visuals
+- ✅ **Priority processing** during high-traffic periods
+- ✅ Save **20% with annual billing**
+- ✅ Cancel anytime, no questions asked
+
+---
+
+## 🔗 Bundle Plan (Zaza Visuals + Zaza Teach) – €24.99/month
+Ideal for teachers who generate both visuals and lesson plans regularly.
+
+### Included:
+- ✅ Full access to **Zaza Visuals and Zaza Teach**
+- ✅ Shared account and user preferences
+- ✅ Synchronized theme settings across apps
+- ✅ Exclusive access to **cross-app features** (e.g., visual-to-lesson plan syncing)
+- ✅ Cancel anytime — switch plans freely
+- ✅ Save **25% compared to subscribing separately**
+
+---
+
+## 🏫 School Licence – Custom Quote
+For schools, departments, or institutions.
+
+### Included:
+- ✅ Multiple teacher seats
+- ✅ **Admin dashboard** with usage analytics
+- ✅ **Curriculum-wide snippet deployment**
+- ✅ API access + team content sharing
+- ✅ Invoice or PO-based billing
+- ✅ Training and onboarding workshops
+- ✅ SSO & integration with institutional tools (optional)
+
+> 📩 Email us at [schools@zazateach.com](mailto:schools@zazateach.com) for custom quotes and bundling multiple Zaza apps.
+
+---
+
+## 💬 Frequently Asked Questions
+
+**Q: What happens if I cancel mid-month?**  
+A: You retain full access until your current billing period ends. You won’t be charged for the next cycle.
+
+**Q: Will I lose my saved visuals or snippets if I cancel?**  
+A: No, your content remains accessible in read-only mode. You won’t be able to generate new visuals or export them.
+
+**Q: Can I upgrade or downgrade plans anytime?**  
+A: Yes. Upgrades are effective immediately, and the difference is prorated. Downgrades apply at the next billing cycle.
+
+**Q: How does the bundle plan work with billing?**  
+A: It merges your subscriptions into one billing cycle with a discounted rate. You can manage your apps under a single account.
+
+**Q: Are future Zaza apps included in the bundle?**  
+A: Not automatically, but we’ll offer tiered bundles as the ecosystem grows. You’ll have the option to expand your bundle or add individual apps.
+
+**Q: Do you offer student or NGO discounts?**  
+A: Yes. Reach out to us to discuss eligibility and verification. We want to support educators and non-profits doing important work.
+
+**Q: Can I pause my subscription?**  
+A: Yes, you can pause for up to 3 months. Your content will remain saved and accessible when you return.
+
+**Q: What payment methods are accepted?**  
+A: We support major credit/debit cards, Google Pay, Apple Pay, and school invoicing for institutional accounts.
+
+**Q: Is there a trial for Pro or Bundle plans?**  
+A: The Free Plan acts as your trial. However, we occasionally run promotional trials for paid plans. Join our mailing list to stay informed.
+
+---
+
+_Last updated: July 12, 2025_
+
+access_conditions:
+  - if: user.email == "greg@zazatechnologies.com"
+    allow: full_access
+  - if: user.email == "greg.blackburn@gmail.com"
+    allow: full_access

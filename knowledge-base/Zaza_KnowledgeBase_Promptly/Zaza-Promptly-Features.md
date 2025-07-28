@@ -1,0 +1,125 @@
+## Features & Functionality
+
+### Core Features
+
+#### 1. AI Comment Generator
+**Functionality**: Generates personalized student feedback based on brief contextual input
+**Process**: 
+1. Teacher inputs student context (2-3 sentences)
+2. Selects appropriate tone and style
+3. AI generates polished, curriculum-aligned comment
+4. Teacher reviews and edits as needed
+5. Comment ready for use in 30 seconds
+
+**Benefits**: 
+- Eliminates writer's block
+- Ensures consistency across all students
+- Maintains professional quality
+- Reduces cognitive load
+
+#### 2. Tone & Style Controls
+**Available Tones**:
+- Professional and formal
+- Warm and encouraging
+- Constructive and developmental
+- Collaborative (for parent communications)
+- Subject-specific academic tone
+
+**Customization Options**:
+- Personal style preferences
+- School-specific language requirements
+- Cultural sensitivity adjustments
+- Custom tone creation
+
+#### 3. Curriculum Alignment
+**Functionality**: Automatically aligns feedback with educational standards
+**Coverage**:
+- National curriculum standards
+- Local educational requirements
+- Subject-specific learning objectives
+- Assessment criteria integration
+
+**Benefits**:
+- Ensures educational relevance
+- Meets compliance requirements
+- Supports meaningful feedback
+- Links to learning progressions
+
+#### 4. Snippet Library
+**Functionality**: Save, organize, and reuse comment structures and phrases
+**Organization**:
+- Subject-based categories
+- Tone-based groupings
+- Frequency-based sorting
+- Custom tagging system
+
+**Benefits**:
+- Builds efficiency over time
+- Maintains consistency
+- Easy sharing between teachers
+- Reduces repetitive typing
+
+#### 5. Multi-language Support
+**Languages Supported**: 
+## 🌍 Language Support
+Zaza Promptly and Zaza Teach currently support:
+
+- English
+- German
+- French
+- Spanish
+- Italian
+
+We do not currently support Arabic or other languages beyond those listed above. We are exploring future expansion based on user demand.
+
+**Cultural Context**: 
+- Adapts communication style to cultural norms
+- Maintains educational terminology accuracy
+- Supports diverse parent communities
+
+### Advanced Features
+
+#### Bulk Comment Generation
+- Process multiple students simultaneously
+- Maintain individual personalization
+- Export in various formats
+- Integration with gradebooks
+
+#### Custom Curriculum Mapping
+- Upload school-specific standards
+- Create custom assessment rubrics
+- Align with internal frameworks
+- Support specialized programs
+
+#### Analytics Dashboard
+- Track usage patterns
+- Monitor time savings
+- Identify common feedback themes
+- Support professional development
+
+#### Export Options
+- PDF reports
+- CSV for spreadsheets
+- Direct integration with SIS
+- Copy-paste functionality
+
+### Integration Capabilities
+- **Student Information Systems (SIS)**: Seamless data flow
+- **Google Classroom**: Direct comment posting
+- **Seesaw**: Portfolio integration
+- **Microsoft Teams**: Educational workflow
+- **API Access**: Custom integrations available
+
+---
+
+## Known Limitations
+
+- Snippet sharing requires School Licence (not available for Free/Pro users)
+- Curriculum alignment is based on general standards — custom inputs may need manual review
+- Does not generate visual content or lesson plans (see Zaza Teach or Zaza Visuals for this)
+
+access_conditions:
+  - if: user.email == "greg@zazatechnologies.com"
+    allow: full_access
+  - if: user.email == "greg.blackburn@gmail.com"
+    allow: full_access

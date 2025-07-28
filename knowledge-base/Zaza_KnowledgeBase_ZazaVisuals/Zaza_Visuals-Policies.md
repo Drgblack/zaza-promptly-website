@@ -1,0 +1,40 @@
+
+# Zaza Visuals – Policies
+
+## Privacy Policy
+
+Zaza Visuals is committed to protecting the privacy of its users, including educators, designers, and content creators. While Zaza Visuals does not handle student data directly, we still maintain the highest standards of privacy and data integrity for all users.
+
+- **No user-generated content is shared without consent**: Your uploaded visuals, lesson resources, or shared media remain your intellectual property.
+- **GDPR-compliant**: We follow strict data minimization, access control, and transparency protocols.
+- **No third-party tracking**: We do not use tracking cookies or sell user data.
+- **Data portability and deletion**: You can export your data at any time and request complete deletion.
+
+## Terms of Service
+
+Zaza Visuals is designed as a productivity and content-generation tool for professional use. By using our service, you agree to the following:
+
+- **Acceptable use**: You agree not to upload harmful, illegal, or offensive material. Zaza Visuals is a professional platform intended for constructive educational or creative use.
+- **Account responsibility**: Users are responsible for securing their credentials. Sharing of pro-level accounts beyond agreed use is not permitted.
+- **Content licensing**: Visuals created using our AI tools are owned by the user, with optional attribution to Zaza Visuals where applicable.
+- **Service uptime**: We strive for 99.9% uptime, excluding scheduled maintenance. In case of extended outages, users will be credited additional time or offered a refund for affected periods.
+
+## Accessibility Commitment
+
+We believe in inclusive creativity. Zaza Visuals adheres to the following standards:
+
+- **Fully WCAG 2.1 AA compliant**: Our web app supports screen readers, keyboard navigation, and alternative text inputs.
+- **Dark and high-contrast modes**: Accessibility settings are built into the core design.
+- **User-adjustable interface**: Font sizes, tooltips, and animation settings can be customized for different needs.
+- **Assistive onboarding**: Contextual guidance and visual instructions are included to help users with varied learning styles.
+
+---
+
+For the latest updates to our policies or to request a review of your data practices, please visit [zazatechnologies.com](https://zazatechnologies.com) or email us at support@zazatechnologies.com.
+
+
+access_conditions:
+  - if: user.email == "greg@zazatechnologies.com"
+    allow: full_access
+  - if: user.email == "greg.blackburn@gmail.com"
+    allow: full_access

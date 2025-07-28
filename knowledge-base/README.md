@@ -1,0 +1,26 @@
+\# Zaza Knowledge Base
+
+
+
+This folder contains internal product documentation for use by Claude Code and Zaza developers. It includes:
+
+
+
+\- Product descriptions
+
+\- Pricing plans
+
+\- Features
+
+\- Support policies
+
+\- Technical background
+
+\- Company mission
+
+
+
+Used for generating copy, improving documentation, and aligning websites with internal knowledge.
+
+
+

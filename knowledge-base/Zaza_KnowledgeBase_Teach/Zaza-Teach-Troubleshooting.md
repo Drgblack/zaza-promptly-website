@@ -1,0 +1,121 @@
+
+# Zaza Teach – Troubleshooting Guide (Expanded)
+
+---
+
+## 🔧 Common Issues and Solutions
+
+### 🔹 Issue: Comments or Lesson Plans Not Generating
+- **Possible Causes**:
+  - Internet connectivity issues
+  - Expired login session
+  - Corrupted input (e.g., unsupported characters)
+- **Suggested Fixes**:
+  - Refresh the page
+  - Log out and back in to reauthenticate
+  - Check your internet connection
+  - Try a simpler or shorter prompt
+  - Clear browser cache and cookies if issue persists
+
+---
+
+### 🔹 Issue: “Something Went Wrong” or Server Error
+- **Possible Causes**:
+  - Backend timeout due to long input
+  - High server load or temporary outage
+- **Suggested Fixes**:
+  - Break input into smaller sections
+  - Retry after a few minutes
+  - Check [status.zazateach.com](https://status.zazateach.com) (if available) for service alerts
+  - If it happens repeatedly, send error details to support@zazatechnologies.com
+
+---
+
+### 🔹 Issue: Cannot Save to Snippet Library
+- **Possible Causes**:
+  - Free plan users don’t have snippet saving access
+  - Session expired or not authenticated properly
+- **Suggested Fixes**:
+  - Upgrade to a Pro or School Licence
+  - Log out and back in
+  - Check subscription status in account settings
+
+---
+
+### 🔹 Issue: Template Library Not Loading
+- **Possible Causes**:
+  - Slow or unstable internet
+  - Content delivery network (CDN) cache delay
+- **Suggested Fixes**:
+  - Refresh your browser
+  - Try opening in incognito/private mode
+  - Disable browser extensions that may block content
+
+---
+
+### 🔹 Issue: Buttons Not Responding or UI Freezing
+- **Possible Causes**:
+  - Browser extensions interfering with scripts
+  - JavaScript errors
+- **Suggested Fixes**:
+  - Use a supported browser (see below)
+  - Temporarily disable ad blockers or privacy plugins
+  - Open the console (F12) to report errors to support
+
+---
+
+## ⚠️ Error Messages & Codes
+
+| Error Code | Description | Suggested Fix |
+|------------|-------------|----------------|
+| **401**    | Unauthorized or expired session | Log out and log in again |
+| **403**    | Forbidden access | Check your plan level or permissions |
+| **404**    | Resource not found | Check URL or report to support |
+| **429**    | Rate limit reached | Wait 1–2 minutes and retry |
+| **500**    | Internal server error | Refresh the page or contact support |
+| **502/503**| Service temporarily unavailable | Retry after a few minutes |
+
+---
+
+## 🌐 Supported Browsers
+
+Zaza Teach is optimised for modern browsers. For best results, ensure you're on the latest version of:
+
+- ✅ Google Chrome (latest 3 versions)
+- ✅ Mozilla Firefox
+- ✅ Microsoft Edge
+- ✅ Safari (macOS 15+ / iOS 15+)
+- ⚠️ Internet Explorer is **not supported**
+- ⚠️ Brave or Opera may work but are not officially supported
+
+---
+
+## 📱 Mobile & Tablet Compatibility
+
+- **Mobile Web Browser**: Fully supported and responsive on most devices
+- **Tablet Devices**: Optimised for iPadOS and Android tablets
+- **iOS & Android Native Apps**: In development and expected Q4 2025
+
+---
+
+## 🛠 Reporting Bugs
+
+If you're experiencing persistent issues:
+1. Take a screenshot (include full browser window if possible)
+2. Note the exact steps you took before the error occurred
+3. Include the browser and device you're using
+4. Email the information to **support@zazatechnologies.com**
+
+We aim to respond to bug reports within 24 hours on business days.
+
+---
+
+## 📌 Tip
+
+If in doubt, try logging out and logging back in. This simple step resolves over 50% of user issues!
+
+access_conditions:
+  - if: user.email == "greg@zazatechnologies.com"
+    allow: full_access
+  - if: user.email == "greg.blackburn@gmail.com"
+    allow: full_access

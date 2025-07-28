@@ -1,0 +1,235 @@
+# 🧠 Zaza KnowledgeBase – Ideal Customer Profiles (ICP)
+
+This document outlines the Ideal Customer Profiles (ICPs) for each product within the Zaza ecosystem. These personas help us align our marketing, support, product development, and automation strategies using Lindy.ai.
+
+---
+
+## 🎯 Zaza Promptly
+
+**Ideal Customer Snapshot:**  
+Burned-out primary/secondary school teachers (K–12) struggling with report writing and parent communication.
+
+- **Demographics:**  
+  Female, 25–55, K–12 teacher, English-speaking, mid-income, urban or regional
+
+- **Psychographics:**  
+  Feels emotionally drained; deeply cares about students; often stays late rewriting comments.
+
+- **Pain Points:**  
+  - Repeating the same feedback
+  - Parent emails piling up
+  - No time for detailed personalised notes
+
+- **Jobs to Be Done (JTBD):**  
+  - "Help me write reports faster"
+  - "Help me reply to parents professionally and quickly"
+
+- **Buying Triggers:**  
+  Report card season, Sunday night planning, overwhelmed workload.
+
+- **Zaza Fit Rationale:**  
+  Promptly saves hours per week, sounds human, and reduces stress.
+
+---
+
+## 📚 Zaza Teach
+
+**Ideal Customer Snapshot:**  
+Experienced or early-career teachers looking to save time planning lessons while staying curriculum-aligned.
+
+- **Demographics:**  
+  Teachers aged 22–55, across subjects and regions; mostly primary and secondary levels
+
+- **Psychographics:**  
+  Values creative freedom but feels bogged down by admin; loves new teaching ideas.
+
+- **Pain Points:**  
+  - Weekly planning fatigue
+  - No time to differentiate lessons
+  - Struggles to align with state/national curriculum
+
+- **Jobs to Be Done (JTBD):**  
+  - "Help me generate differentiated lessons quickly"
+  - "Make planning less stressful"
+
+- **Buying Triggers:**  
+  Beginning of school term, transition to new year group, curriculum overhauls
+
+- **Zaza Fit Rationale:**  
+  Save time, reduce cognitive load, boost classroom creativity.
+
+---
+
+## 🧑‍🏫 Zaza Coach
+
+**Ideal Customer Snapshot:**  
+Instructional coaches, educational leaders, and school mentors tasked with teacher growth and performance support.
+
+- **Demographics:**  
+  District-level coaches, Head Teachers, senior teachers, PD coordinators
+
+- **Psychographics:**  
+  Driven to improve teacher outcomes; often time-poor; needs scalable coaching aids.
+
+- **Pain Points:**  
+  - Difficult to deliver personalised feedback at scale
+  - No time for 1:1 sessions
+  - Coaching seen as “top-down” instead of supportive
+
+- **Jobs to Be Done (JTBD):**  
+  - "Help me give useful feedback to teachers"
+  - "Support self-reflection and growth"
+
+- **Buying Triggers:**  
+  PD cycles, performance reviews, new curriculum rollout
+
+- **Zaza Fit Rationale:**  
+  AI-powered feedback + reflection boosts adoption and perception of coaching.
+
+---
+
+## 👩‍👦 Zaza Kids
+
+**Ideal Customer Snapshot:**  
+Parents of children aged 4–10 seeking playful, meaningful digital experiences rooted in culture and creativity.
+
+- **Demographics:**  
+  Parents 28–45, digitally literate, multicultural/multilingual households
+
+- **Psychographics:**  
+  Wants to reduce screen guilt, foster creativity, and pass on cultural heritage.
+
+- **Pain Points:**  
+  - Too many passive apps
+  - No safe online spaces
+  - Hard to find creative activities that teach values
+
+- **Jobs to Be Done (JTBD):**  
+  - "Let my child create and learn independently"
+  - "Pass on cultural stories in a fun way"
+
+- **Buying Triggers:**  
+  Holidays, birthdays, school breaks, nostalgia for heritage
+
+- **Zaza Fit Rationale:**  
+  Turns kids' drawings into AR stories; teaches through joy and emotional bonding.
+
+---
+
+## 🎓 Zaza Schwoop
+
+**Ideal Customer Snapshot:**  
+High school, college, or university students needing motivation-aligned study tools with gamified features.
+
+- **Demographics:**  
+  Ages 15–24, study across disciplines, mix of ADHD/ND and neurotypical learners
+
+- **Psychographics:**  
+  Highly digital; fluctuating motivation; wants productivity without pressure
+
+- **Pain Points:**  
+  - Study procrastination
+  - Overwhelm and burnout
+  - Dull flashcard apps
+
+- **Jobs to Be Done (JTBD):**  
+  - "Help me stay focused and make studying fun"
+  - "Match how I feel with how I work"
+
+- **Buying Triggers:**  
+  Exams, midterms, ADHD diagnosis, peer recommendations
+
+- **Zaza Fit Rationale:**  
+  Emotion-first UI, mood-adapted study modes, and friendly gamification.
+
+---
+
+## 📥 Zaza Inbox
+
+**Ideal Customer Snapshot:**  
+Teachers, admins, or HR staff drowning in repetitive emails and internal messages.
+
+- **Demographics:**  
+  K–12 school staff, district administrators, office managers
+
+- **Psychographics:**  
+  Overwhelmed by inbox chaos; values automation but fears sounding robotic
+
+- **Pain Points:**  
+  - Same questions asked weekly
+  - Long email chains
+  - No consistent tone or speed
+
+- **Jobs to Be Done (JTBD):**  
+  - "Triage and draft responses automatically"
+  - "Keep inbox clear and tone consistent"
+
+- **Buying Triggers:**  
+  Start of term, admin role changes, communication crises
+
+- **Zaza Fit Rationale:**  
+  Auto-drafts, quick replies, and memory recall save 5+ hrs/week.
+
+---
+
+## 🔗 Zaza StackMate
+
+**Ideal Customer Snapshot:**  
+Freelancers, HR teams, coaches, and ops leads juggling documentation, note-taking, and file chaos.
+
+- **Demographics:**  
+  Knowledge workers 25–55, non-technical, global freelancers or SMB operators
+
+- **Psychographics:**  
+  Feels overwhelmed with scattered notes; wants AI help but not complexity
+
+- **Pain Points:**  
+  - Notes everywhere, context nowhere
+  - Can't find files quickly
+  - No time to organise
+
+- **Jobs to Be Done (JTBD):**  
+  - "Organise and summarise my docs"
+  - "Make AI useful in my daily work"
+
+- **Buying Triggers:**  
+  Starting new clients/projects, switching from Notion/Google Docs, burnout
+
+- **Zaza Fit Rationale:**  
+  AI summaries, recall, tagging, and flexible folder intelligence.
+
+---
+
+## 🤖 Zaza FocusFriend
+
+**Ideal Customer Snapshot:**  
+Students or workers with ADHD/ND traits who want gentle accountability and mood-based nudges.
+
+- **Demographics:**  
+  Ages 14–40, remote learners or remote workers, often self-diagnosed
+
+- **Psychographics:**  
+  Sensitive to pressure; values positive reinforcement and routines
+
+- **Pain Points:**  
+  - Can’t stay on task
+  - Self-shaming with productivity apps
+  - Needs safe, non-judgmental environment
+
+- **Jobs to Be Done (JTBD):**  
+  - "Help me focus without pressure"
+  - "Support me without shame"
+
+- **Buying Triggers:**  
+  Diagnosis, exam prep, trying new productivity app
+
+- **Zaza Fit Rationale:**  
+  Animated focus companion offers joyful nudge-based productivity.
+
+---
+
+access_conditions:
+  - if: user.email == "greg@zazatechnologies.com"
+    allow: full_access
+  - if: user.email == "greg.blackburn@gmail.com"
+    allow: full_access

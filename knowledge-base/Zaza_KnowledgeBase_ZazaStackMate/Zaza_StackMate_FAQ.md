@@ -1,0 +1,167 @@
+# Zaza StackMate – Frequently Asked Questions (Expanded)
+
+Welcome to the comprehensive FAQ for Zaza StackMate. Below you'll find detailed answers to common (and not-so-common) questions about what Zaza StackMate is, how it works, who it's for, and how to get the most out of it.
+
+---
+
+### ❓ What is Zaza StackMate?
+
+Zaza StackMate is your AI-powered co-pilot for choosing the right tech stack, generating a clear development roadmap, and guiding you through every phase of your app-building journey. Whether you're a no-code beginner or a bootcamp graduate, StackMate helps you go from idea to launch with confidence and speed.
+
+---
+
+### 👤 Who is StackMate for?
+
+StackMate is built for:
+
+- **First-time builders** who have an idea but feel overwhelmed by technical decisions.
+- **Indie hackers** looking to speed up their build process with smart guidance.
+- **Creators and solopreneurs** who want to turn an idea into a working product without coding.
+- **Bootcamp graduates** applying their skills to real-world projects.
+- **Intrapreneurs** building tools inside larger organisations.
+
+---
+
+### 🚀 How does Zaza StackMate actually help me?
+
+Zaza StackMate removes complexity by:
+
+1. **Recommending the best tools** for your app idea based on your skill level, budget, and goals.
+2. **Creating a step-by-step build roadmap**, so you know exactly what to do each week.
+3. **Providing an AI mentor mascot** who guides you through obstacles, answers your questions, and keeps you motivated.
+
+---
+
+### 🧠 What kind of AI is used?
+
+Zaza StackMate uses GPT-4 as its AI engine, with custom personality prompts and contextual awareness of your chosen tools, project type, and current phase. Each response is tailored to your project and preferences.
+
+---
+
+### 🐙 What are the mascot personalities?
+
+Each user chooses a mascot mentor:
+
+- **Pixa (Panda)** – Calm, methodical, detail-oriented
+- **Spark (Chick)** – Energetic, motivational, positive
+- **Flick (Fox)** – Direct, humorous, action-focused
+- **Octo (Octopus)** – Highly technical, comprehensive, nerdy
+
+You can customise the name and tone of your mascot (Professional or Casual).
+
+---
+
+### 🛠 What kinds of tools does StackMate recommend?
+
+We recommend tools across:
+
+- Frontend (e.g. FlutterFlow, Bubble)
+- Backend (e.g. Firebase, Supabase)
+- Database (e.g. Firestore, Airtable)
+- AI Integration (if applicable)
+- Authentication, Payments, and Hosting
+
+Each recommendation includes a one-line summary and links to tutorials.
+
+---
+
+### 📋 What does the roadmap look like?
+
+Each roadmap is structured into weekly phases:
+
+1. **Foundation** – Account setup, environment, starter project
+2. **Core Build** – Frontend, backend, database setup
+3. **Integration** – Connect tools, set up auth and payments
+4. **Launch Prep** – Hosting, analytics, soft launch
+
+Tasks include time estimates, tool references, and success criteria. You can track your progress as you go.
+
+---
+
+### 🔐 Do I need an account to use StackMate?
+
+No account is needed to try the wizard and generate your first roadmap. However, to save progress, access your AI mascot, and unlock pro features, you'll need to sign up.
+
+---
+
+### 💸 Is Zaza StackMate free?
+
+Yes, we offer a **free tier** with:
+
+- 1 roadmap save
+- 20 AI messages/day
+- PDF export (with watermark)
+
+The **Pro tier** costs **$19/month** and includes:
+
+- Unlimited saved roadmaps
+- Unlimited AI chats
+- Clean PDF export
+- Progress analytics
+- Priority support
+
+---
+
+### 🧑‍💻 What technologies is StackMate built with?
+
+- **Frontend**: FlutterFlow
+- **Backend**: Firebase Functions
+- **Database**: Firestore
+- **Authentication**: Firebase Auth
+- **AI**: OpenAI GPT-4
+- **Payments**: Stripe
+- **Analytics**: PostHog
+
+---
+
+### 📲 Is there a mobile app?
+
+Not yet, but the web app is fully responsive. A native app is planned in the Post-MVP roadmap.
+
+---
+
+### 🔐 How is my data protected?
+
+We use Firebase for secure authentication and follow best practices for data storage, including encryption and user-specific access control. We comply with GDPR and relevant data protection laws.
+
+---
+
+### 🤝 Can I share my roadmap?
+
+Yes! You can:
+
+- Export as branded PDF
+- Generate a shareable link
+- Post on social media with “Built with Zaza StackMate” badge
+
+---
+
+### 🧪 What’s coming next?
+
+Planned features:
+
+- Team collaboration tools
+- Mobile app version
+- Code generation capabilities
+- Tool integration marketplace
+- Community-driven showcases
+
+---
+
+### 💬 Where can I ask more questions?
+
+You can reach us directly through:
+
+- Our support chat inside the app
+- Email: support@zazatech.com
+- Twitter: [@zazatechhq](https://twitter.com/zazatechhq)
+
+---
+
+Zaza StackMate – Helping first-time builders thrive. 🚀
+
+access_conditions:
+  - if: user.email == "greg@zazatechnologies.com"
+    allow: full_access
+  - if: user.email == "greg.blackburn@gmail.com"
+    allow: full_access

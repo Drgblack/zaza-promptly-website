@@ -1,0 +1,40 @@
+# Zaza Schwoop – Troubleshooting Guide
+
+## Common Issues and Fixes
+
+### Issue: Comments not generating
+- **Cause**: Internet connectivity issue or expired session
+- **Solution**: Refresh the page, log out and log back in, or check your internet connection
+
+### Issue: “Something went wrong” error
+- **Cause**: AI server timeout or input formatting issue
+- **Solution**: Try simplifying your input and re-submitting. If error persists, contact support.
+
+### Issue: Cannot save to snippet library
+- **Cause**: Not on Pro plan or session expired
+- **Solution**: Upgrade to Pro or re-authenticate by logging out and back in
+
+## Error Messages
+
+| Error Code | Meaning | Suggested Fix |
+|------------|---------|----------------|
+| 401        | Unauthorized access | Log in again |
+| 429        | Rate limit reached  | Wait 1 minute, try again |
+| 500        | Internal server error | Try again or contact support |
+
+## Supported Browsers
+- ✅ Google Chrome (latest 3 versions)
+- ✅ Microsoft Edge
+- ✅ Firefox
+- ✅ Safari (macOS/iOS 15+)
+- ⚠️ Internet Explorer not supported
+
+## Mobile Compatibility
+- **Mobile Web**: Fully supported
+- **iOS/Android Native App**: Coming Q4 2025 (currently in development)
+
+access_conditions:
+  - if: user.email == "greg@zazatechnologies.com"
+    allow: full_access
+  - if: user.email == "greg.blackburn@gmail.com"
+    allow: full_access
