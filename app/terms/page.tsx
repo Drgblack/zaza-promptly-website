@@ -4,6 +4,9 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { FileText, Scale, Users, CreditCard, AlertTriangle, Mail } from 'lucide-react'
 
+// Disable static generation - render pages dynamically to prevent build errors
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'Terms of Service | Legal Agreement - Zaza Technologies',
   description: 'Read Zaza Technologies\' terms of service for using our AI-powered teaching tools. Fair, transparent terms for educational technology use.',
