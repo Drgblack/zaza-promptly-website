@@ -98,7 +98,7 @@ export function useConversionTracking() {
     //     event_label: action,
     //     demo_step: step,
     //     completion_rate: completion_rate,
-      })
+    //   })
     }
 
     // Track demo completion milestone
@@ -143,7 +143,7 @@ export function useConversionTracking() {
     //     method: source,
     //     event_category: "conversion",
     //     value: 150,
-      })
+    //   })
     }
 
     if (typeof window !== "undefined" && window.fbq) {
@@ -178,7 +178,7 @@ export function useConversionTracking() {
     //     event_label: feature,
     //     feature_name: feature,
     //     interaction_type: action,
-      })
+    //   })
     }
 
     trackCustomEvent(event)
