@@ -15,37 +15,50 @@ interface TagPageProps {
 }
 
 export async function generateMetadata({ params }: TagPageProps): Promise<Metadata> {
-  const { tag } = await params
-  const tagName = tag.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
-  
-  return {
-    title: `${tagName} Articles | AI Education Blog | Zaza Promptly`,
-    description: `All articles tagged with ${tagName.toLowerCase()}. Expert insights and practical strategies for educators using AI tools.`,
-    keywords: [tagName.toLowerCase(), 'education articles', 'teaching resources', 'AI in education'],
-    openGraph: {
-      title: `${tagName} Articles | Zaza Promptly`,
-      description: `Expert content about ${tagName.toLowerCase()} for educators.`,
-      images: ['/opengraph-image'],
-      type: 'website',
-    },
-    alternates: {
-      canonical: `/blog/tag/${tag}`,
-    },
+  try {
+    const { tag } = await params
+    const tagName = tag.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
+    
+    return {
+      title: `${tagName} Articles | AI Education Blog | Zaza Promptly`,
+      description: `All articles tagged with ${tagName.toLowerCase()}. Expert insights and practical strategies for educators using AI tools.`,
+      keywords: [tagName.toLowerCase(), 'education articles', 'teaching resources', 'AI in education'],
+      openGraph: {
+        title: `${tagName} Articles | Zaza Promptly`,
+        description: `Expert content about ${tagName.toLowerCase()} for educators.`,
+        images: ['/opengraph-image'],
+        type: 'website',
+      },
+      alternates: {
+        canonical: `/blog/tag/${tag}`,
+      },
+    }
+  } catch (error) {
+    console.error('Error generating metadata for tag page:', error)
+    return {
+      title: 'Blog Tag | Zaza Promptly',
+      description: 'Explore educational articles and resources for teachers.',
+    }
   }
 }
 
 export async function generateStaticParams() {
-  const tags = await getAllTags('en')
-  return tags.slice(0, 20).map((tag) => ({ // Limit to top 20 tags
-    tag: tag.toLowerCase().replace(/\s+/g, '-'),
-  }))
+  try {
+    const tags = await getAllTags('en')
+    return tags.slice(0, 20).map((tag) => ({ // Limit to top 20 tags
+      tag: tag.toLowerCase().replace(/\s+/g, '-'),
+    }))
+  } catch (error) {
+    console.error('Error generating static params for tag pages:', error)
+    return [] // Return empty array to prevent build failure
+  }
 }
 
 export default async function TagPage({ params }: TagPageProps) {
-  const { tag } = await params
-  const tagName = tag.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
-  
   try {
+    const { tag } = await params
+    const tagName = tag.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
+    
     const posts = await getBlogPostsByTag(tagName, 'en')
     
     if (posts.length === 0) {

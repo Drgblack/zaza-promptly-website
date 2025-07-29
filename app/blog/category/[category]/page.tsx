@@ -15,37 +15,50 @@ interface CategoryPageProps {
 }
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
-  const { category } = await params
-  const categoryName = category.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
-  
-  return {
-    title: `${categoryName} Articles | AI Education Blog | Zaza Promptly`,
-    description: `Explore all ${categoryName.toLowerCase()} articles on our AI education blog. Expert insights and practical strategies for educators.`,
-    keywords: [categoryName.toLowerCase(), 'education articles', 'teaching resources', 'AI in education'],
-    openGraph: {
-      title: `${categoryName} Articles | Zaza Promptly`,
-      description: `Expert ${categoryName.toLowerCase()} content for educators using AI tools.`,
-      images: ['/opengraph-image'],
-      type: 'website',
-    },
-    alternates: {
-      canonical: `/blog/category/${category}`,
-    },
+  try {
+    const { category } = await params
+    const categoryName = category.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
+    
+    return {
+      title: `${categoryName} Articles | AI Education Blog | Zaza Promptly`,
+      description: `Explore all ${categoryName.toLowerCase()} articles on our AI education blog. Expert insights and practical strategies for educators.`,
+      keywords: [categoryName.toLowerCase(), 'education articles', 'teaching resources', 'AI in education'],
+      openGraph: {
+        title: `${categoryName} Articles | Zaza Promptly`,
+        description: `Expert ${categoryName.toLowerCase()} content for educators using AI tools.`,
+        images: ['/opengraph-image'],
+        type: 'website',
+      },
+      alternates: {
+        canonical: `/blog/category/${category}`,
+      },
+    }
+  } catch (error) {
+    console.error('Error generating metadata for category page:', error)
+    return {
+      title: 'Blog Category | Zaza Promptly',
+      description: 'Explore educational articles and resources for teachers.',
+    }
   }
 }
 
 export async function generateStaticParams() {
-  const categories = await getAllCategories('en')
-  return categories.map((category) => ({
-    category: category.toLowerCase().replace(/\s+/g, '-'),
-  }))
+  try {
+    const categories = await getAllCategories('en')
+    return categories.map((category) => ({
+      category: category.toLowerCase().replace(/\s+/g, '-'),
+    }))
+  } catch (error) {
+    console.error('Error generating static params for category pages:', error)
+    return [] // Return empty array to prevent build failure
+  }
 }
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
-  const { category } = await params
-  const categoryName = category.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
-  
   try {
+    const { category } = await params
+    const categoryName = category.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
+    
     const posts = await getBlogPostsByCategory(categoryName, 'en')
     
     if (posts.length === 0) {
