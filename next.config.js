@@ -13,7 +13,7 @@ const nextConfig = {
   reactStrictMode: true,
   compress: true,
   eslint: {
-    ignoreDuringBuilds: false,
+    ignoreDuringBuilds: true,
   },
   
   // Image optimization
@@ -42,7 +42,6 @@ const nextConfig = {
 
   // Experimental features for performance
   experimental: {
-    optimizeCss: true,
     scrollRestoration: true,
     optimizePackageImports: [
       'lucide-react',

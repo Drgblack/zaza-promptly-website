@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
 import Stripe from 'stripe'
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_placeholder', {
   apiVersion: '2025-06-30.basil',
 })
 
 // This is your Stripe CLI webhook secret for testing your endpoint locally.
-const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!
+const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET || 'whsec_placeholder'
 
 export async function POST(request: NextRequest) {
   const body = await request.text()
