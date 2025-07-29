@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { OptimizedImage } from "@/components/optimized-image"
 
 export default function Hero() {
@@ -11,12 +12,12 @@ export default function Hero() {
           Zaza Promptly helps you generate professional, personal, and curriculum-aligned student comments in seconds.
         </p>
         <div className="flex justify-center gap-4">
-          <a href="/promptly-pricing" className="bg-[#6C63FF] text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-[#574fcf] transition">
+          <Link href="/promptly-pricing/" className="bg-[#6C63FF] text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-[#574fcf] transition">
             Try it Free
-          </a>
-          <a href="/free-resources" className="text-[#6C63FF] underline font-semibold mt-3 sm:mt-0">
+          </Link>
+          <Link href="/free-resources/" className="text-[#6C63FF] underline font-semibold mt-3 sm:mt-0">
             How it works
-          </a>
+          </Link>
         </div>
         <OptimizedImage src="/phone-mockup.png" alt="App preview" className="mx-auto mt-10 w-64 sm:w-80" width={320} height={320} priority={true} />
       </div>

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Link from 'next/link'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Switch } from "@/components/ui/switch"
@@ -271,11 +272,11 @@ export function CookieConsent({
               By continuing to use our site, you consent to our use of cookies.
             </p>
             <div className="flex flex-wrap gap-2 text-xs text-gray-500">
-              <a href="/privacy" className="hover:underline">Privacy Policy</a>
+              <Link href="/privacy/" className="hover:underline">Privacy Policy</Link>
               <span>•</span>
-              <a href="/terms" className="hover:underline">Terms of Service</a>
+              <Link href="/terms/" className="hover:underline">Terms of Service</Link>
               <span>•</span>
-              <a href="/cookies" className="hover:underline">Cookie Policy</a>
+              <Link href="/cookies/" className="hover:underline">Cookie Policy</Link>
             </div>
           </div>
           
