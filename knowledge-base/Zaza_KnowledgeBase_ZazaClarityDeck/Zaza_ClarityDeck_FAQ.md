@@ -9,13 +9,13 @@ Welcome to the expanded FAQ guide for Zaza ClarityDeck. We’ve collected the mo
 A: Zaza ClarityDeck is your personal AI-powered co-pilot for crafting clear, curriculum-aligned formative feedback and parent-friendly summaries. It transforms messy notes or partial rubrics into polished, professional comments tailored to specific learners. Built specifically for time-starved educators, it supports clarity, consistency, and emotional tone-matching across student progress reports and communications.
 
 **Q: Is Zaza ClarityDeck really free?**  
-A: Yes! Every user receives 5 free content generations per month — no credit card required. This freemium tier lets you try ClarityDeck risk-free before deciding if you want to upgrade.
+A: Yes! Every user receives 5 free content generations per month  -  no credit card required. This freemium tier lets you try ClarityDeck risk-free before deciding if you want to upgrade.
 
 **Q: Is Zaza ClarityDeck just a wrapper around ChatGPT?**  
 A: Absolutely not. While it uses GPT-4 under the hood, ClarityDeck is a heavily fine-tuned and hallucination-constrained model purpose-built for K–12 education. It follows strict curriculum-linked logic, language appropriateness filters, and avoids fantasy completions often seen in generic AI models.
 
 **Q: What’s unique about ClarityDeck compared to other AI tools?**  
-A: It’s not just what it says — it’s how and why. ClarityDeck combines emotional tone matching, curriculum linkage, team-based comment sharing, and privacy-safe in-session processing. It was designed by learning scientists and refined through hundreds of hours of interviews with real teachers.
+A: It’s not just what it says  -  it’s how and why. ClarityDeck combines emotional tone matching, curriculum linkage, team-based comment sharing, and privacy-safe in-session processing. It was designed by learning scientists and refined through hundreds of hours of interviews with real teachers.
 
 **Q: What happens when I use up my free generations?**  
 A: You’ll still have full access to your saved snippets, templates, and account settings. You’ll be prompted to upgrade to resume new content generation.
@@ -26,7 +26,7 @@ A: You’ll still have full access to your saved snippets, templates, and accoun
 A: The Pro plan includes unlimited generations, comment tagging, mood filters, template reuse, access to the Curriculum Mapper, and early access to new features.
 
 **Q: Can I pay annually?**  
-A: Yes — and you’ll save 20% by choosing the annual payment option.
+A: Yes  -  and you’ll save 20% by choosing the annual payment option.
 
 **Q: Do you support purchase orders (POs) for schools?**  
 A: Absolutely. Our School Licence accepts payment via bank transfer, invoice, or PO. Email support@zazatechnologies.com to arrange.
@@ -46,7 +46,7 @@ A: Yes. You can upload your own curriculum standards, or select preloaded standa
 A: Yes. You can save personal templates in all plans. Team libraries and shared templates are available in School Licences.
 
 **Q: Does it adapt to different writing tones?**  
-A: Yes. Choose from tone presets like “Warm and Encouraging”, “Professional and Diplomatic”, or “Direct and Clear” — or train it on your preferred phrasing.
+A: Yes. Choose from tone presets like “Warm and Encouraging”, “Professional and Diplomatic”, or “Direct and Clear”  -  or train it on your preferred phrasing.
 
 **Q: Is there a summary mode?**  
 A: Yes. ClarityDeck can generate concise summaries of student performance, ideal for parent messages, report inserts, or meeting notes.
@@ -54,7 +54,7 @@ A: Yes. ClarityDeck can generate concise summaries of student performance, ideal
 ## 🛠️ Technical & Device Support
 
 **Q: What devices does ClarityDeck work on?**  
-A: Any device with a modern browser — including Chromebooks, iPads, Windows laptops, and smartphones.
+A: Any device with a modern browser  -  including Chromebooks, iPads, Windows laptops, and smartphones.
 
 **Q: Is there a mobile app?**  
 A: Native mobile apps (iOS and Android) are launching with the official release. The current web app is fully responsive and mobile-friendly.
@@ -88,7 +88,7 @@ A: Yes! Contact our support team to schedule a live demo and walk-through.
 A: Yes. We offer in-app tooltips, step-by-step walkthroughs, and a searchable knowledge base.
 
 **Q: Do you provide onboarding for new users?**  
-A: Yes — both self-paced onboarding and personalised onboarding sessions are available for teams and schools.
+A: Yes  -  both self-paced onboarding and personalised onboarding sessions are available for teams and schools.
 
 ---
 

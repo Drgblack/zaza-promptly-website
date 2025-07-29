@@ -413,7 +413,7 @@ Best regards,
 
 ## Final Thoughts
 
-Remember: Effective classroom management is not about control—it's about creating an environment where learning can flourish. The goal is to:
+Remember: Effective classroom management is not about control - it's about creating an environment where learning can flourish. The goal is to:
 
 - **Support student learning** and growth
 - **Build positive relationships** with students and families

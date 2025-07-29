@@ -150,7 +150,7 @@ Enables multilingual comment creation for diverse classrooms and global teacher 
 
 ## Summary
 
-Zaza Inbox is not just a feedback tool. It’s a teacher’s virtual assistant—one that understands your tone, aligns with your curriculum, saves your time, and empowers your professional voice.
+Zaza Inbox is not just a feedback tool. It’s a teacher’s virtual assistant - one that understands your tone, aligns with your curriculum, saves your time, and empowers your professional voice.
 
 access_conditions:
   - if: user.email == "greg@zazatechnologies.com"

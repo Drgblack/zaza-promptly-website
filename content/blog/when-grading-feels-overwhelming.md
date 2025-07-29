@@ -21,11 +21,11 @@ If this scene feels familiar, take a deep breath. You're not alone, you're not f
 
 Last week, I came across a teacher's post that stopped me in my tracks: *"I love my students, but I'm drowning in paperwork. I spent my entire weekend grading, and I still have 40 assignments left. When do I get to be a human being?"*
 
-The responses flooded in—hundreds of teachers sharing their own grading horror stories. The 2 AM marathons. The weekends sacrificed. The family dinners interrupted by the mental math of *"If I grade 5 papers every 10 minutes, I can finish by..."*
+The responses flooded in - hundreds of teachers sharing their own grading horror stories. The 2 AM marathons. The weekends sacrificed. The family dinners interrupted by the mental math of *"If I grade 5 papers every 10 minutes, I can finish by..."*
 
 Here's what struck me most: every single teacher felt like they were the only one struggling.
 
-But here's the truth—**the grading mountain isn't your fault.** 
+But here's the truth - **the grading mountain isn't your fault.** 
 
 ## Why Grading Feels Impossible
 
@@ -33,7 +33,7 @@ We're living in an educational paradox. We're told to give meaningful, personali
 
 The math is simple: 150 students × 3 minutes per paper = 7.5 hours of grading. That's before you factor in the mental energy, the decision fatigue, and the emotional labor of crafting feedback that builds up rather than tears down.
 
-**You're not failing the system—the system is failing you.**
+**You're not failing the system - the system is failing you.**
 
 ## The Grading Myths We Need to Bust
 
@@ -48,7 +48,7 @@ Truth: Learning happens in the doing, not in the grading. Some assignments are f
 
 ## Small Changes, Big Relief
 
-Here are strategies that real teachers swear by—not because they're revolutionary, but because they're sustainable:
+Here are strategies that real teachers swear by - not because they're revolutionary, but because they're sustainable:
 
 ### The "Traffic Light" System
 - **Green assignments**: Quick check for completion (2 minutes max)
@@ -76,14 +76,14 @@ Consider this your official permission to:
 - ✅ Grade only what you'll actually use to inform instruction
 - ✅ Give yourself a grading curfew (Yes, 8 PM counts as reasonable)
 - ✅ Use codes, stamps, and shortcuts that still provide value
-- ✅ Ask for help—from colleagues, from students, from anyone willing
+- ✅ Ask for help - from colleagues, from students, from anyone willing
 - ✅ Remember that your mental health matters more than your gradebook
 
 ## A Different Kind of Mountain
 
 Last month, a teacher shared something beautiful: *"I stopped trying to grade everything perfectly and started focusing on grading thoughtfully. My students are learning just as much, but I'm actually sleeping again."*
 
-That's the mountain worth climbing—not the impossible peak of perfection, but the sustainable summit of intentional teaching.
+That's the mountain worth climbing - not the impossible peak of perfection, but the sustainable summit of intentional teaching.
 
 Your worth as an educator isn't measured by how many papers you grade or how late you stay up. It's measured by the lives you touch, the minds you inspire, and the humans you help become.
 
@@ -96,7 +96,7 @@ Tonight, before you open another paper, ask yourself:
 
 If the answer to any of these is no, close the gradebook. Pour yourself some tea. Call a friend. Read a book that has nothing to do with teaching.
 
-The papers will be there tomorrow. But you—rested, recharged, and ready—will be better equipped to serve your students when you've served yourself first.
+The papers will be there tomorrow. But you - rested, recharged, and ready - will be better equipped to serve your students when you've served yourself first.
 
 You're not just a teacher. You're a human being who happens to teach. And human beings need rest, grace, and the occasional Sunday evening without a red pen in sight.
 
@@ -104,8 +104,8 @@ You're not just a teacher. You're a human being who happens to teach. And human 
 
 *Your teaching matters. Your well-being matters more.*
 
-*P.S. - If you're looking for practical ways to streamline your feedback process, tools like voice-to-text apps, feedback banks, or even simple time limits can be game-changers. The goal isn't to grade less thoughtfully—it's to grade more sustainably.*
+*P.S. - If you're looking for practical ways to streamline your feedback process, tools like voice-to-text apps, feedback banks, or even simple time limits can be game-changers. The goal isn't to grade less thoughtfully - it's to grade more sustainably.*
 
 ---
 
-**About the Author:** This post comes from the heart of educators who've been there—staring at stacks, questioning choices, and learning that sustainable teaching is the only kind that lasts.
+**About the Author:** This post comes from the heart of educators who've been there - staring at stacks, questioning choices, and learning that sustainable teaching is the only kind that lasts.

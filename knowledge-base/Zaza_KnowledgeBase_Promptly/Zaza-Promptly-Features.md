@@ -115,7 +115,7 @@ We do not currently support Arabic or other languages beyond those listed above.
 ## Known Limitations
 
 - Snippet sharing requires School Licence (not available for Free/Pro users)
-- Curriculum alignment is based on general standards — custom inputs may need manual review
+- Curriculum alignment is based on general standards  -  custom inputs may need manual review
 - Does not generate visual content or lesson plans (see Zaza Teach or Zaza Visuals for this)
 
 access_conditions:

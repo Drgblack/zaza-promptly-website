@@ -5,7 +5,7 @@
 
 Zaza Schwoop is a next-generation, AI-powered study companion built for Gen Z students navigating a world of academic pressure, digital distractions, and emotional burnout. It transforms chaotic study habits into sustainable routines through adaptive flashcards, mood-aware learning flows, gamification, and community-powered accountability.
 
-Unlike traditional flashcard apps, Schwoop isn't just about memorising content — it's about helping students regain confidence, reduce stress, and build momentum in ways that feel good and actually stick.
+Unlike traditional flashcard apps, Schwoop isn't just about memorising content  -  it's about helping students regain confidence, reduce stress, and build momentum in ways that feel good and actually stick.
 
 ## Who is it for?
 
@@ -20,7 +20,7 @@ Zaza Schwoop is designed for:
 
 ### 🧠 Mood-Based Study Modes
 
-Schwoop detects a user’s current vibe — stressed, tired, focused, lost — and adjusts the learning mode accordingly. Whether it's a five-minute boost or a deep exam prep session, Schwoop tailors the session with appropriate tone, tempo, and content depth.
+Schwoop detects a user’s current vibe  -  stressed, tired, focused, lost  -  and adjusts the learning mode accordingly. Whether it's a five-minute boost or a deep exam prep session, Schwoop tailors the session with appropriate tone, tempo, and content depth.
 
 - **Focus Flow**: Calm, ambient interface for sustained deep work.
 - **Quick Boost**: Energising micro-sessions for fast recall wins.
@@ -29,7 +29,7 @@ Schwoop detects a user’s current vibe — stressed, tired, focused, lost — a
 
 ### 📚 Hallucination-Safe AI Flashcards
 
-All flashcards are generated using source-anchored AI — meaning students can trace each fact back to real notes or documents. No guesswork. No BS.
+All flashcards are generated using source-anchored AI  -  meaning students can trace each fact back to real notes or documents. No guesswork. No BS.
 
 ### 🔥 Social Accountability + Virality Engine
 
@@ -51,7 +51,7 @@ All flashcards are generated using source-anchored AI — meaning students can t
 
 ## What problem does it solve?
 
-> "Studying is broken. It’s boring, isolating, and ineffective — especially for digitally native students drowning in stress."
+> "Studying is broken. It’s boring, isolating, and ineffective  -  especially for digitally native students drowning in stress."
 
 Schwoop is the antidote: a joyful, emotionally attuned study engine.
 
@@ -71,7 +71,7 @@ Schwoop is the antidote: a joyful, emotionally attuned study engine.
 
 ## Final Word
 
-Zaza Schwoop isn’t just a flashcard tool. It’s a study revolution designed to rebuild confidence, reduce cognitive overload, and restore joy to learning — one emotionally intelligent flashcard at a time.
+Zaza Schwoop isn’t just a flashcard tool. It’s a study revolution designed to rebuild confidence, reduce cognitive overload, and restore joy to learning  -  one emotionally intelligent flashcard at a time.
 
 access_conditions:
   - if: user.email == "greg@zazatechnologies.com"

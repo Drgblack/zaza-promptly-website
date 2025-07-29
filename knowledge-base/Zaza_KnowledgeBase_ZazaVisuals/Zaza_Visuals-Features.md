@@ -16,7 +16,7 @@ Zaza Visuals transforms brief teacher notes into fully polished student comments
 - Zaza generates professional-grade output in 30 seconds or less.
 
 **Highlights**:
-- No repetitive typing—reuse and remix smart content.
+- No repetitive typing - reuse and remix smart content.
 - Aligned to curriculum goals and learning objectives.
 - Eliminates writer's block with structured creativity.
 
@@ -123,7 +123,7 @@ Built to serve diverse classrooms and communities.
 - Mobile support is limited to PWA (native apps in development).
 - Custom curriculum mapping requires admin-level access.
 - Snippet sharing is restricted to school/group licences.
-- Currently focused on feedback and visual prompts only—lesson planning tools are part of Zaza Teach.
+- Currently focused on feedback and visual prompts only - lesson planning tools are part of Zaza Teach.
 
 ---
 

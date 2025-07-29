@@ -1,6 +1,6 @@
 # Zaza Promptly – Product Overview
 
-**Zaza Promptly** is more than an AI tool. It's a boutique, teacher-first co-pilot built from deep empathy and grounded research. Designed by an education expert, Zaza Promptly helps teachers reclaim their time, restore joy, and communicate with parents clearly, calmly, and professionally—without the emotional and administrative burnout.
+**Zaza Promptly** is more than an AI tool. It's a boutique, teacher-first co-pilot built from deep empathy and grounded research. Designed by an education expert, Zaza Promptly helps teachers reclaim their time, restore joy, and communicate with parents clearly, calmly, and professionally - without the emotional and administrative burnout.
 
 ---
 
@@ -19,11 +19,11 @@ Zaza Promptly isn’t another generic AI tool. It’s built specifically for tim
 ### Time Consumption & Workload
 - Teachers spend dozens of hours per term writing individualized comments for 25–30+ students.
 - Parent emails and admin messaging stack up daily, often after hours.
-- Teachers report working 60+ hour weeks—with report writing spilling into weekends and holidays.
+- Teachers report working 60+ hour weeks - with report writing spilling into weekends and holidays.
 
 ### Emotional & Mental Load
 - Teachers feel pressure to sound positive even when students are struggling.
-- Parent backlash is a real fear—requiring diplomacy, emotional control, and professionalism.
+- Parent backlash is a real fear - requiring diplomacy, emotional control, and professionalism.
 - The emotional labour of communicating honestly but gently adds to exhaustion.
 
 ### Systemic Challenges
@@ -44,7 +44,7 @@ Zaza Promptly isn’t another generic AI tool. It’s built specifically for tim
   Generate clear, accurate, and professional student comments with a few clicks.
 
 - 🎭 **Tone Matching ("Vibe")**  
-  Select a tone—encouraging, firm, balanced—to suit each student and family.
+  Select a tone - encouraging, firm, balanced - to suit each student and family.
 
 - 🧠 **Snippet Memory**  
   Automatically reuse personalised comments and tag them emotionally.

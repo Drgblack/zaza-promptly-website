@@ -5,9 +5,9 @@
 
 Zaza Coach is your all-in-one, AI-powered business operating system for private tutors, freelance educators, and coaching solopreneurs. It centralises lesson planning, student communication, billing, scheduling, reporting, and branding in a single intuitive platform.
 
-With built-in intelligence and seamless UX, Zaza Coach doesn't just *automate* your admin—it *amplifies* your impact. It serves as a personal teaching assistant, business coach, and productivity accelerator, all in one.
+With built-in intelligence and seamless UX, Zaza Coach doesn't just *automate* your admin - it *amplifies* your impact. It serves as a personal teaching assistant, business coach, and productivity accelerator, all in one.
 
-Zaza Coach is part of the broader Zaza ecosystem—working hand-in-hand with **Zaza Study** (for students) and **Zaza Parent** (for families)—to bring personalised, scalable education to life.
+Zaza Coach is part of the broader Zaza ecosystem - working hand-in-hand with **Zaza Study** (for students) and **Zaza Parent** (for families) - to bring personalised, scalable education to life.
 
 ---
 
@@ -20,7 +20,7 @@ Zaza Coach is designed for:
 - Coaching centres and micro-school operators
 - Homeschool instructors and educational therapists
 
-If you're juggling Google Docs, PayPal, Zoom, Excel, and Calendly—Zaza Coach replaces all of that with a single elegant system.
+If you're juggling Google Docs, PayPal, Zoom, Excel, and Calendly - Zaza Coach replaces all of that with a single elegant system.
 
 ---
 
@@ -36,7 +36,7 @@ Your income-boosting co-pilot. This module gives you smart pricing suggestions, 
 Snap a picture of a student’s work and get instant insights on misconceptions, strengths, and recommended next steps. This turns your camera into a diagnostic tool.
 
 ### 🔹 SmartPrep™
-Scan homework, a textbook, or a syllabus—and SmartPrep will build a ready-to-go, standards-aligned lesson plan with differentiation built in.
+Scan homework, a textbook, or a syllabus - and SmartPrep will build a ready-to-go, standards-aligned lesson plan with differentiation built in.
 
 ### 🔹 Educator CRM
 Manage every student, every goal, and every past interaction with ease. Keep track of lesson history, progress, payments, goals, and more.
@@ -48,7 +48,7 @@ Capture session transcripts automatically. Action points and feedback are extrac
 Know how your students *really* felt during a session. Track tone, attention span, participation, and frustration indicators.
 
 ### 🔹 Parent Summary Generator
-Create clear, friendly updates to send home—automatically. These summaries build trust, increase renewals, and generate referrals.
+Create clear, friendly updates to send home - automatically. These summaries build trust, increase renewals, and generate referrals.
 
 ### 🔹 Document Studio
 Generate branded lesson plans, invoices, and reports in seconds. Choose from preset styles or use your own templates.
@@ -79,10 +79,10 @@ Generate branded lesson plans, invoices, and reports in seconds. Choose from pre
 
 | Differentiator                     | Description                                                                 |
 |------------------------------------|-----------------------------------------------------------------------------|
-| **AI Teaching Partner**            | Not just admin tools—Zaza improves how you teach                           |
+| **AI Teaching Partner**            | Not just admin tools - Zaza improves how you teach                           |
 | **Revenue Engine**                 | Built-in pricing and business optimisation to grow your income             |
 | **Personalised AI Twin**          | Every tutor gets a unique AI assistant trained on their teaching style     |
-| **Parent Relationship Builder**   | Reports and summaries that parents love—and share                          |
+| **Parent Relationship Builder**   | Reports and summaries that parents love - and share                          |
 | **Cross-App Intelligence**        | Works seamlessly with Zaza Study and Zaza Parent                           |
 | **Mobile-First Design**           | Made for freelancers who teach and travel                                  |
 
@@ -100,7 +100,7 @@ Generate branded lesson plans, invoices, and reports in seconds. Choose from pre
 
 ## 🛡️ Built to Scale with You
 
-Zaza Coach isn’t just a tool—it’s a platform.
+Zaza Coach isn’t just a tool - it’s a platform.
 
 - GDPR + FERPA compliance from day one
 - Offline mode with local sync
@@ -120,7 +120,7 @@ Zaza Coach isn’t just a tool—it’s a platform.
 
 ---
 
-Zaza Coach helps you do what you love—*just coach*. We’ll handle the rest.
+Zaza Coach helps you do what you love - *just coach*. We’ll handle the rest.
 
 access_conditions:
   - if: user.email == "greg@zazatechnologies.com"

@@ -8,7 +8,7 @@ import { Badge } from '@/components/ui/badge'
 // Zaza's inspiring teacher quotes
 const TEACHER_JOY_QUOTES = [
   {
-    quote: "Every child you teach is tomorrow's hope. You're not just teaching subjects—you're shaping futures.",
+    quote: "Every child you teach is tomorrow's hope. You're not just teaching subjects - you're shaping futures.",
     author: "Zaza's Heart",
     emoji: "💝"
   },
@@ -23,7 +23,7 @@ const TEACHER_JOY_QUOTES = [
     emoji: "🌱"
   },
   {
-    quote: "Behind every successful student is a teacher who believed in them—especially when they couldn't believe in themselves.",
+    quote: "Behind every successful student is a teacher who believed in them - especially when they couldn't believe in themselves.",
     author: "Belief in Action",
     emoji: "✨"
   },
@@ -48,7 +48,7 @@ const TEACHER_JOY_QUOTES = [
     emoji: "🏛️"
   },
   {
-    quote: "You don't just teach curriculum—you teach children to think, to question, to dream bigger.",
+    quote: "You don't just teach curriculum - you teach children to think, to question, to dream bigger.",
     author: "Beyond Books",
     emoji: "🚀"
   },

@@ -2,9 +2,9 @@
 
 ## 🧠 What Is Zaza Visuals?
 
-Zaza Visuals is an advanced AI-powered feedback and visuals generation platform designed specifically for educators. It helps K–12 teachers create high-quality, professional classroom visuals and parent communications in seconds — without sacrificing clarity, accuracy, or a human touch. With an intuitive interface and built-in pedagogical intelligence, Zaza Visuals saves hours of work each week while enhancing teacher creativity and confidence.
+Zaza Visuals is an advanced AI-powered feedback and visuals generation platform designed specifically for educators. It helps K–12 teachers create high-quality, professional classroom visuals and parent communications in seconds  -  without sacrificing clarity, accuracy, or a human touch. With an intuitive interface and built-in pedagogical intelligence, Zaza Visuals saves hours of work each week while enhancing teacher creativity and confidence.
 
-Whether it’s lesson-aligned posters, report comments, personalised certificates, or visualised behaviour notes — Zaza Visuals makes it easy and fast, even for tech-shy teachers.
+Whether it’s lesson-aligned posters, report comments, personalised certificates, or visualised behaviour notes  -  Zaza Visuals makes it easy and fast, even for tech-shy teachers.
 
 ---
 
@@ -14,7 +14,7 @@ Whether it’s lesson-aligned posters, report comments, personalised certificate
   Instantly create lesson posters, flashcards, feedback visuals, certificates, or behaviour notes using just a short prompt.
 
 - **Tone & Voice Control**  
-  Align output to your teaching style — formal, friendly, encouraging, or humorous. It always sounds like *you*.
+  Align output to your teaching style  -  formal, friendly, encouraging, or humorous. It always sounds like *you*.
 
 - **Zero-Hallucination Engine**  
   Built-in hallucination control limits risk by cross-checking curriculum phrases and tone cues, ensuring accuracy.
@@ -66,7 +66,7 @@ Zaza Visuals eliminates these issues by:
 
 - **Designed for Educators First**: No fluff, just tools built around your real teaching day
 - **Pedagogically Aligned**: Promotes engagement, inclusion, and differentiated learning
-- **Not Just AI—Vibe AI**: Zaza learns your style, supports your wellbeing, and adapts to your daily energy
+- **Not Just AI - Vibe AI**: Zaza learns your style, supports your wellbeing, and adapts to your daily energy
 - **Safe to Use**: GDPR compliant, hallucination-controlled, and age-appropriate content filters
 
 ---
@@ -100,7 +100,7 @@ Together, these tools form a holistic support system for overworked educators.
 
 ---
 
-Zaza Visuals helps teachers *see* the impact of their words. Fast, creative, accurate — and built for the realities of real classrooms.
+Zaza Visuals helps teachers *see* the impact of their words. Fast, creative, accurate  -  and built for the realities of real classrooms.
 
 access_conditions:
   - if: user.email == "greg@zazatechnologies.com"

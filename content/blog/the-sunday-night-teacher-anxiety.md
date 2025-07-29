@@ -11,7 +11,7 @@ featured: false
 
 # The Sunday Night Teacher Anxiety (And Why Monday Doesn't Have to Feel Like a Mountain)
 
-It's 7:30 PM on Sunday. You've had a lovely weekend—slept in, spent time with family, maybe even read a book that had nothing to do with education. But now, as the sun starts to set, that familiar feeling creeps in.
+It's 7:30 PM on Sunday. You've had a lovely weekend - slept in, spent time with family, maybe even read a book that had nothing to do with education. But now, as the sun starts to set, that familiar feeling creeps in.
 
 Your chest tightens. Your mind starts racing through tomorrow's to-do list. Did you make enough copies? Is that parent email still sitting in your draft folder? What about the lesson you meant to revise but never got to?
 
@@ -23,7 +23,7 @@ By 9 PM, you're mentally teaching Monday's classes, crafting responses to imagin
 
 Last week, a teacher posted in a Facebook group: *"Does anyone else get physically nauseous thinking about Monday morning? I love my job, but Sunday nights are torture."*
 
-The responses were overwhelming—hundreds of teachers sharing their own Sunday spiral stories:
+The responses were overwhelming - hundreds of teachers sharing their own Sunday spiral stories:
 
 *"I literally feel sick to my stomach every Sunday at 6 PM."*
 
@@ -61,7 +61,7 @@ Here are some of the lies that Sunday anxiety whispers:
 *Truth*: Social media lies. Most teachers are winging it with varying degrees of success.
 
 **"I should be working right now."**  
-*Truth*: Rest isn't selfish—it's essential for being the teacher your students need.
+*Truth*: Rest isn't selfish - it's essential for being the teacher your students need.
 
 **"If something goes wrong tomorrow, it's my fault."**  
 *Truth*: You can't control everything. Your job is to respond with grace, not prevent every problem.
@@ -151,7 +151,7 @@ What if, instead of dreading Monday, Sunday nights became a time to:
 
 If you're reading this on a Sunday night with that familiar knot in your stomach, try this:
 
-Take three deep breaths. Remind yourself that you've survived every Monday so far. Look at your hands—these are the hands that comfort crying children, celebrate small victories, and create learning environments where magic happens.
+Take three deep breaths. Remind yourself that you've survived every Monday so far. Look at your hands - these are the hands that comfort crying children, celebrate small victories, and create learning environments where magic happens.
 
 Tomorrow will bring challenges, yes. But it will also bring moments of joy, connection, and the satisfaction that comes from doing work that matters.
 
@@ -161,8 +161,8 @@ Tomorrow will bring challenges, yes. But it will also bring moments of joy, conn
 
 ---
 
-**Sunday night anxiety isn't a sign you're failing—it's a sign you care deeply. Let that care fuel you without consuming you.**
+**Sunday night anxiety isn't a sign you're failing - it's a sign you care deeply. Let that care fuel you without consuming you.**
 
 ---
 
-**About the Author:** This reflection comes from educators who've learned that Sunday night anxiety is part of the territory when you love students as much as we do. The goal isn't to eliminate the care—it's to carry it more gently.
+**About the Author:** This reflection comes from educators who've learned that Sunday night anxiety is part of the territory when you love students as much as we do. The goal isn't to eliminate the care - it's to carry it more gently.

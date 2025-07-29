@@ -1,7 +1,7 @@
 
 # Zaza Inbox – Expanded Use Cases
 
-Zaza Inbox isn’t just for replying faster — it’s a transformational tool that upgrades every aspect of school–home communication. Below are expanded use cases that illustrate how teachers, school leaders, and support staff can use Zaza Inbox to save time, reduce anxiety, and strengthen parent relationships.
+Zaza Inbox isn’t just for replying faster  -  it’s a transformational tool that upgrades every aspect of school–home communication. Below are expanded use cases that illustrate how teachers, school leaders, and support staff can use Zaza Inbox to save time, reduce anxiety, and strengthen parent relationships.
 
 ---
 
@@ -106,7 +106,7 @@ A safety issue or emergency arises requiring rapid, clear parent updates.
 
 ## 10. **Ongoing Parent Relationship Building**
 ### Scenario:
-You want to keep communication warm, proactive, and consistent — not just reactive.
+You want to keep communication warm, proactive, and consistent  -  not just reactive.
 ### How Zaza Inbox Helps:
 - Tracks which parents you haven’t contacted recently
 - Suggests light-touch positive updates or student highlights

@@ -80,7 +80,7 @@ Zaza Kids is more than an app – it’s a joyful co-learning ecosystem. We beli
 As the product matures, it will grow to support multilingual play, classroom packs, and safe creative communities for kids globally.
 
 ---
-Zaza helps children—and their families—thrive through creativity, connection, and joy.
+Zaza helps children - and their families - thrive through creativity, connection, and joy.
 
 access_conditions:
   - if: user.email == "greg@zazatechnologies.com"

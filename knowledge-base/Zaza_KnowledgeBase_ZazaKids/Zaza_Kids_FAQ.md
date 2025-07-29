@@ -5,7 +5,7 @@
 Zaza Kids is an AI-powered learning ecosystem designed for families with children aged 2–6 (and expanding up to 16 in future phases). It transforms screen time into co-learning adventures filled with joy, connection, and cultural pride. It is for parents, children, grandparents, and educators who value holistic development, emotional well-being, and family bonding.
 
 ## 2. How does Zaza Kids differ from other educational apps?
-Zaza Kids is not just a learning tool—it’s a family operating system. While many apps focus on isolated skill practice or gamified content, Zaza focuses on co-learning, emotional intelligence, cultural connection, and shared family rituals. It also features predictive learning, adaptive routines, and real-time family wellness insights.
+Zaza Kids is not just a learning tool - it’s a family operating system. While many apps focus on isolated skill practice or gamified content, Zaza focuses on co-learning, emotional intelligence, cultural connection, and shared family rituals. It also features predictive learning, adaptive routines, and real-time family wellness insights.
 
 ## 3. Is Zaza Kids safe for young children to use?
 Absolutely. Zaza Kids is built with child safety and digital well-being at its core. It includes:
@@ -41,7 +41,7 @@ Yes! Zaza supports family plans with multiple child profiles. It intelligently a
 Yes. The platform includes assistive tech support, sensory settings, special needs resource hubs, and personalized adaptation for children with neurodivergent traits or developmental differences.
 
 ## 9. What languages does Zaza Kids support?
-Zaza Kids will launch in English, Spanish, French, German, and Italian—with plans to support multilingual families, indigenous languages, and cultural content libraries in future versions.
+Zaza Kids will launch in English, Spanish, French, German, and Italian - with plans to support multilingual families, indigenous languages, and cultural content libraries in future versions.
 
 ## 10. How do you protect my family’s data?
 - GDPR-compliant architecture

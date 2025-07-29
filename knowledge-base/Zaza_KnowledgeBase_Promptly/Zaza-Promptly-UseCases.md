@@ -1,9 +1,9 @@
 
 # Zaza Promptly Use Cases
 
-Zaza Promptly isn’t just another AI comment generator. It’s your burnout buffer, your emotional co-pilot, and your time-saving sidekick—built by a learning scientist with one mission: to help teachers reclaim their time, voice, and peace of mind.
+Zaza Promptly isn’t just another AI comment generator. It’s your burnout buffer, your emotional co-pilot, and your time-saving sidekick - built by a learning scientist with one mission: to help teachers reclaim their time, voice, and peace of mind.
 
-Whether you’re writing report card comments, drafting a parent message on your phone while waiting in the school parking lot, or piecing together individual learning plans—Zaza Promptly is designed for **real classroom scenarios**, not just idealised workflows.
+Whether you’re writing report card comments, drafting a parent message on your phone while waiting in the school parking lot, or piecing together individual learning plans - Zaza Promptly is designed for **real classroom scenarios**, not just idealised workflows.
 
 ---
 
@@ -15,16 +15,16 @@ Whether you’re writing report card comments, drafting a parent message on your
 - **Real Teacher Quote:** “I cry in my car before school starts. Every day. These reports just don’t end.”
 
 ### 2. **Parent Communication (Positive or Sensitive)**  
-- **Problem:** Teachers often stress over how to phrase messages to parents—balancing honesty, warmth, and professionalism, especially with sensitive topics.
+- **Problem:** Teachers often stress over how to phrase messages to parents - balancing honesty, warmth, and professionalism, especially with sensitive topics.
 - **Zaza Solution:** Write warm, professional messages with customisable tone (e.g. “optimistic,” “concerned,” “neutral”) and receive suggestions for follow-up messages or boundary-setting.
-- **Real Scenario:** Emma receives three emails on a Sunday night—Zaza Promptly helps her respond Monday morning with pre-filled responses that still feel caring.
+- **Real Scenario:** Emma receives three emails on a Sunday night - Zaza Promptly helps her respond Monday morning with pre-filled responses that still feel caring.
 
 ### 3. **Feedback on Assignments**  
 - **Problem:** Writing differentiated, meaningful feedback across 25–30 students is exhausting and repetitive.
 - **Zaza Solution:** Use input snippets or assignment type to generate targeted feedback that doesn’t feel “cut and paste.” Enable voice notes or brief sentence starters as input.
 
 ### 4. **Sunday Planning Survival**  
-- **Problem:** Teachers face the “Sunday Scaries”—prepping for the week while already burned out.
+- **Problem:** Teachers face the “Sunday Scaries” - prepping for the week while already burned out.
 - **Zaza Solution:** Promptly helps create starter messages, parent notes, and even lesson reflections to reduce anxiety and workload in the most emotionally taxing moments.
 
 ---
@@ -41,7 +41,7 @@ Save commonly used feedback and tag it with emotion (e.g. frustration, pride, co
 Enable year-level teams or departments to co-write and share comments. Align tone and language across a school while saving each teacher time.
 
 ### 8. **Comment Pack Marketplace (Coming Soon)**  
-Get curated “packs” of comments—e.g. for SEN learners, positive behaviour, or subject-specific writing—built by real teachers.
+Get curated “packs” of comments - e.g. for SEN learners, positive behaviour, or subject-specific writing - built by real teachers.
 
 ---
 
@@ -61,7 +61,7 @@ Get curated “packs” of comments—e.g. for SEN learners, positive behaviour,
 
 ## 🧩 Bonus Teacher Scenarios
 
-- **First-Year Teacher**: Not sure how to phrase things diplomatically? Promptly gives examples and templates that sound professional—instantly.
+- **First-Year Teacher**: Not sure how to phrase things diplomatically? Promptly gives examples and templates that sound professional - instantly.
 - **Multi-Lingual Families**: Use the translate + simplify mode to make messages more accessible to families with ESL backgrounds.
 - **Team Leader**: Build shared packs and templates for new staff, keeping the tone consistent across the year group.
 
@@ -75,7 +75,7 @@ Zaza Promptly works on web and **launches with native iOS and Android apps**. Wr
 
 ## 🧩 Summary
 
-Zaza Promptly adapts to your reality—not the other way around. It understands the chaos, the care, and the courage it takes to write well under pressure. Whether you teach Year 2 or Grade 10, Zaza Promptly saves your words and your wellbeing.
+Zaza Promptly adapts to your reality - not the other way around. It understands the chaos, the care, and the courage it takes to write well under pressure. Whether you teach Year 2 or Grade 10, Zaza Promptly saves your words and your wellbeing.
 
 
 access_conditions:

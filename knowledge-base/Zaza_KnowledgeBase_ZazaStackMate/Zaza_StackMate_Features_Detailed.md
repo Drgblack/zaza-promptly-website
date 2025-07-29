@@ -103,7 +103,7 @@ Users can define the voice of their work:
 
 ---
 
-Zaza StackMate turns your brain’s best systems into reusable, AI-enhanced workflows. It’s not just an assistant — it’s your second brain for strategic, high-trust, human-first output.
+Zaza StackMate turns your brain’s best systems into reusable, AI-enhanced workflows. It’s not just an assistant  -  it’s your second brain for strategic, high-trust, human-first output.
 
 access_conditions:
   - if: user.email == "greg@zazatechnologies.com"

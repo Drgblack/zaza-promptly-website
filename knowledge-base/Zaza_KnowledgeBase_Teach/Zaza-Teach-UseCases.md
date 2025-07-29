@@ -95,7 +95,7 @@ He inputs lesson topics and toggles multilingual support. Zaza provides side-by-
 
 ---
 
-Zaza Teach helps every kind of teacher — from first-year educators to seasoned department heads — focus less on admin and more on student learning.
+Zaza Teach helps every kind of teacher  -  from first-year educators to seasoned department heads  -  focus less on admin and more on student learning.
 
 access_conditions:
   - if: user.email == "greg@zazatechnologies.com"

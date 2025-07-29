@@ -1,6 +1,6 @@
 ---
 title: "The Loneliness of Lunch Duty (And Why Teacher Friendships Are So Hard to Build)"
-description: "For educators feeling isolated in a building full of people. You're surrounded by colleagues but still feel alone—here's why connection is complicated in teaching."
+description: "For educators feeling isolated in a building full of people. You're surrounded by colleagues but still feel alone - here's why connection is complicated in teaching."
 date: "2025-01-06"
 author: "Zaza Promptly Team"
 category: "Teacher Community"
@@ -21,7 +21,7 @@ You love your students, but sometimes the isolation feels suffocating.
 
 ## The Paradox of Teaching
 
-Teaching is simultaneously the most social and most isolating profession. You're with people all. day. long. But those people are children, parents, and administrators—not peers who understand what you're going through.
+Teaching is simultaneously the most social and most isolating profession. You're with people all. day. long. But those people are children, parents, and administrators - not peers who understand what you're going through.
 
 **Add to that:**
 - Your "free" time is during school hours when everyone else is working
@@ -42,7 +42,7 @@ When do teachers socialize? During the 23-minute lunch period? After staying lat
 You give so much emotional energy to students, parents, and administrators that by the end of the day, you have nothing left for social relationships.
 
 ### The Competition Complex
-Schools can breed subtle competition—whose classroom looks better, whose test scores are higher, who gets recognized at faculty meetings. It's hard to build genuine friendships when you're constantly being compared.
+Schools can breed subtle competition - whose classroom looks better, whose test scores are higher, who gets recognized at faculty meetings. It's hard to build genuine friendships when you're constantly being compared.
 
 ### The Drama Avoidance
 Many teachers avoid getting too close to colleagues because school politics can be toxic. It feels safer to keep relationships surface-level than risk getting pulled into workplace drama.
@@ -61,7 +61,7 @@ Last month, a teacher posted: *"I realized I don't have anyone to call when I ha
 *"I feel guilty complaining to my non-teacher friends because they don't get it."*  
 *"I'm surrounded by kids all day but crave adult conversation."*
 
-Teacher isolation isn't just about loneliness—it affects:
+Teacher isolation isn't just about loneliness - it affects:
 - **Professional growth** (less collaboration and idea-sharing)
 - **Mental health** (increased stress and burnout)
 - **Job satisfaction** (feeling disconnected from the profession)
@@ -84,7 +84,7 @@ Teacher isolation isn't just about loneliness—it affects:
 ## Small Steps Toward Connection
 
 ### The Five-Minute Friday
-Commit to spending five minutes each Friday talking to a colleague about something non-work related. Hobbies, weekend plans, favorite Netflix shows—anything human.
+Commit to spending five minutes each Friday talking to a colleague about something non-work related. Hobbies, weekend plans, favorite Netflix shows - anything human.
 
 ### The Lunch Invitation
 Once a week, ask someone to eat lunch with you. Not to talk about work, just to have adult conversation.
@@ -96,7 +96,7 @@ Those few minutes before and after school in the parking lot? Perfect time for c
 Start a group chat with your team for quick questions, but also for sharing funny student moments or weekend wins.
 
 ### The After-School Coffee
-Suggest meeting a colleague for coffee after school once a month. Make it low-pressure—"Want to decompress over coffee?"
+Suggest meeting a colleague for coffee after school once a month. Make it low-pressure - "Want to decompress over coffee?"
 
 ## Finding Your Teacher Tribe
 
@@ -134,7 +134,7 @@ Don't underestimate the value of friendships outside education. Sometimes you ne
 Instead of "How are you?" try "What's been the highlight of your week?" or "What's been challenging lately?"
 
 ### The Resource Share
-Share something useful—a lesson idea, a funny meme, a helpful article—with no expectation of return.
+Share something useful - a lesson idea, a funny meme, a helpful article - with no expectation of return.
 
 ### The Celebration Text
 When you hear good news about a colleague, send a quick congratulations. Celebrating others builds relationships.
@@ -175,7 +175,7 @@ The next time you're eating lunch alone in your classroom, consider:
 - Is there a teacher who might be feeling as isolated as you are?
 - What small step could you take toward connection?
 
-**Remember**: Building teacher friendships isn't selfish—it's essential. Connected teachers are better teachers, and better teachers serve students more effectively.
+**Remember**: Building teacher friendships isn't selfish - it's essential. Connected teachers are better teachers, and better teachers serve students more effectively.
 
 You deserve adult friendship. You deserve professional community. You deserve to feel less alone in a job that can be incredibly isolating.
 
@@ -187,4 +187,4 @@ You deserve adult friendship. You deserve professional community. You deserve to
 
 ---
 
-**About the Author:** This reflection comes from educators who've learned that building meaningful professional relationships takes intentional effort—but the payoff in support, collaboration, and reduced isolation is immeasurable.
+**About the Author:** This reflection comes from educators who've learned that building meaningful professional relationships takes intentional effort - but the payoff in support, collaboration, and reduced isolation is immeasurable.

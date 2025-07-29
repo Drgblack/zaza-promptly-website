@@ -20,7 +20,7 @@ A fully searchable support portal containing:
 - Onboarding guides
 
 ### 🎥 Video Tutorials
-Prefer visual learning? Our curated library of screen-recorded tutorials walks you through everything—from beginner to expert level.
+Prefer visual learning? Our curated library of screen-recorded tutorials walks you through everything - from beginner to expert level.
 
 ### 🧑‍🏫 Community Forum (Coming Soon)
 Collaborate, share tips, and troubleshoot with other educators and content creators using Zaza Visuals.

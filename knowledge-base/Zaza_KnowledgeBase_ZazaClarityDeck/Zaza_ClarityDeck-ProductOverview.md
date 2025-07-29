@@ -46,12 +46,12 @@ Here is a **Foundation Sprint** analysis for **ClarityDeck**, based on our Produ
 
 ### 🏁 Final Foundation Sprint Score: **4.75 / 5**
 
-ClarityDeck is one of the most robust, clearly thought-out products in the Zaza suite. It passes every Foundation Sprint criterion with flying colours. Distribution is the only domain where initial execution planning could be enhanced—but virality is already baked in via exports, referrals, and TikTok share prompts.
+ClarityDeck is one of the most robust, clearly thought-out products in the Zaza suite. It passes every Foundation Sprint criterion with flying colours. Distribution is the only domain where initial execution planning could be enhanced - but virality is already baked in via exports, referrals, and TikTok share prompts.
 
 <details>
 <summary>🎯 Why This Matters</summary>
 
-This Foundation Sprint shows that ClarityDeck is not just another summarisation or flashcard tool. It's a purpose-built learning companion for stressed, neurodiverse, and multilingual learners—crafted by educators, not just coders.
+This Foundation Sprint shows that ClarityDeck is not just another summarisation or flashcard tool. It's a purpose-built learning companion for stressed, neurodiverse, and multilingual learners - crafted by educators, not just coders.
 
 </details>
 

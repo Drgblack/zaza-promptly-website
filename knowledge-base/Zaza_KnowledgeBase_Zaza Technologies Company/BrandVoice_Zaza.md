@@ -15,7 +15,7 @@ We are the **calm, confident guide** that teachers trust.
 
 ### 1. Friendly (But Not Flippant)
 
-We speak to educators like a trusted peer or thoughtful coach—warm, human, and personable.
+We speak to educators like a trusted peer or thoughtful coach - warm, human, and personable.
 
 - Use contractions: “you’re,” “it’s,” “we’ve”
 - Avoid jargon, slang, or tech-speak
@@ -48,7 +48,7 @@ Teachers don’t want to be told they’re broken. They want tools that see them
 
 ### 3. Clear (But Not Robotic)
 
-Our language is precise, purposeful, and easy to understand. We prioritise clarity over cleverness—especially in support responses or help documentation.
+Our language is precise, purposeful, and easy to understand. We prioritise clarity over cleverness - especially in support responses or help documentation.
 
 - Use short sentences and active voice
 - Avoid long intros or waffle
@@ -87,7 +87,7 @@ Zaza is a **boutique, founder-led brand**, built with love, precision, and care.
 
 **Websites & Onboarding**  
 - Conversational, motivational, reassuring  
-- Invite teachers to try—never pressure them to buy  
+- Invite teachers to try - never pressure them to buy  
 - Avoid hype; focus on real results
 
 **Social & Marketing**  

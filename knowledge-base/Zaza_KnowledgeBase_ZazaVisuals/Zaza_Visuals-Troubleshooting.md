@@ -26,7 +26,7 @@ This guide is designed to help users quickly diagnose and resolve common issues 
   - Overloaded server during peak times
 
 - **Solutions**:
-  - Simplify your prompt—avoid special characters or overly long text.
+  - Simplify your prompt - avoid special characters or overly long text.
   - Refresh the page and try again.
   - If issue persists, check the [Zaza Status Page](https://status.zazateach.com) or contact support.
 

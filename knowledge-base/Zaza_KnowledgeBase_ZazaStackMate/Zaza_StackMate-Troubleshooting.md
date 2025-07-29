@@ -29,7 +29,7 @@ This guide provides solutions to common issues users might encounter while using
 ### Solutions:
 1. Refresh your browser and try again.
 2. Clear your cache or use an incognito window.
-3. Wait a few minutes—there may be a temporary delay on our side.
+3. Wait a few minutes - there may be a temporary delay on our side.
 4. Check if you've exceeded your usage tier limit under **Settings > Account Plan**.
 
 ---
@@ -81,7 +81,7 @@ This guide provides solutions to common issues users might encounter while using
 ### Solutions:
 - Make sure you are logged into the correct email account.
 - Check the “Archived” section under **Workflows**.
-- Contact support if deletion was accidental—we may be able to restore your data.
+- Contact support if deletion was accidental - we may be able to restore your data.
 
 ---
 
@@ -90,7 +90,7 @@ This guide provides solutions to common issues users might encounter while using
 ### Solutions:
 - Some features may be in staged rollout. If your account doesn’t have access yet, contact support to request early access.
 - Use the search bar at the top right to find tools, commands, and saved snippets.
-- Double-check which workspace or view you’re currently in—features may be workspace-specific.
+- Double-check which workspace or view you’re currently in - features may be workspace-specific.
 
 ---
 

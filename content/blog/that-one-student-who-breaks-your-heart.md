@@ -1,6 +1,6 @@
 ---
 title: "That One Student Who Breaks Your Heart (And What It Teaches You About Teaching)"
-description: "For every teacher who loses sleep over the student who seems unreachable. Sometimes the hardest lessons aren't in our curriculum—they're in our hallways."
+description: "For every teacher who loses sleep over the student who seems unreachable. Sometimes the hardest lessons aren't in our curriculum - they're in our hallways."
 date: "2024-12-30"
 author: "Zaza Promptly Team"
 category: "Student Relationships"
@@ -15,7 +15,7 @@ featured: true
 
 They slouch in the back corner, hood up, arms crossed. They haven't turned in a single assignment in three weeks. When you call on them, they shrug. When you try to connect, they look away. Every smile you offer bounces off like light hitting a closed window.
 
-And somehow, this one student—out of the 150 you teach—takes up more mental space than all the others combined.
+And somehow, this one student - out of the 150 you teach - takes up more mental space than all the others combined.
 
 You lie awake wondering what you're missing. You replay conversations, searching for the moment you could have done better. You create elaborate plans to "reach" them, only to watch those plans crumble against their indifference.
 
@@ -27,13 +27,13 @@ Last week, a middle school teacher wrote: *"I have 31 kids in my class, and 30 o
 
 Sound familiar? 
 
-Here's the beautiful, heartbreaking truth about teaching: the students who challenge us most are often the ones who need us most. And the fact that you're losing sleep over that kid? It doesn't make you weak—it makes you exactly the kind of teacher they need, even if they can't show it yet.
+Here's the beautiful, heartbreaking truth about teaching: the students who challenge us most are often the ones who need us most. And the fact that you're losing sleep over that kid? It doesn't make you weak - it makes you exactly the kind of teacher they need, even if they can't show it yet.
 
 ## The Stories Behind the Walls
 
 That student with the attitude problem? Maybe they're hungry. Maybe they're moving again next month. Maybe they're protecting a younger sibling from something you can't imagine. Maybe they've learned that caring too much always leads to disappointment.
 
-**Maya**, a high school senior, seemed to hate my English class. She'd sit with earbuds in, head down, radiating hostility. For months, I tried everything—conference requests (ignored), phone calls home (disconnected number), special projects (left blank).
+**Maya**, a high school senior, seemed to hate my English class. She'd sit with earbuds in, head down, radiating hostility. For months, I tried everything - conference requests (ignored), phone calls home (disconnected number), special projects (left blank).
 
 Then one day, she stayed after class. Not to talk about Shakespeare, but to ask if I knew anything about college applications. Turns out, she'd been working two jobs to help her mom pay rent. She was exhausted, not hostile. Overwhelmed, not indifferent.
 
@@ -77,7 +77,7 @@ While you're waiting for breakthrough moments, remember that tiny acts of recogn
 
 ## Permission to Plant Seeds
 
-Sometimes our job isn't to harvest the fruit—it's to plant the seeds.
+Sometimes our job isn't to harvest the fruit - it's to plant the seeds.
 
 You might be the teacher who:
 - Shows them that school can be a safe place
@@ -91,7 +91,7 @@ That student who seems unreachable? They're watching. They're learning that you 
 
 If you're lying awake thinking about that one student, here's what I want you to know:
 
-**Your caring is not a weakness—it's your superpower.**
+**Your caring is not a weakness - it's your superpower.**
 
 Yes, it's exhausting. Yes, it hurts sometimes. But that capacity to love students who don't always love you back? That's what makes you irreplaceable.
 
@@ -120,7 +120,7 @@ Tomorrow, when that student walks into your classroom with their walls up and th
 - You're exactly where you're supposed to be
 - That student is lucky to have someone who cares enough to lose sleep over them
 
-The student who breaks your heart is also the one who will teach you the most about the true power of teaching—not just minds, but souls.
+The student who breaks your heart is also the one who will teach you the most about the true power of teaching - not just minds, but souls.
 
 Keep planting seeds. Keep showing up. Keep believing in the students who can't believe in themselves yet.
 
@@ -132,4 +132,4 @@ Keep planting seeds. Keep showing up. Keep believing in the students who can't b
 
 ---
 
-**About the Author:** This reflection comes from educators who've been there—in the trenches with difficult students, learning that love sometimes looks like professional persistence and hope sometimes sounds like "see you tomorrow."
+**About the Author:** This reflection comes from educators who've been there - in the trenches with difficult students, learning that love sometimes looks like professional persistence and hope sometimes sounds like "see you tomorrow."

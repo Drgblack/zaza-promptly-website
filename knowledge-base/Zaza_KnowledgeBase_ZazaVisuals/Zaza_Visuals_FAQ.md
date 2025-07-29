@@ -1,6 +1,6 @@
 # Zaza Visuals – Frequently Asked Questions (Expanded & Enhanced)
 
-Welcome to the Zaza Visuals FAQ. Below you'll find in-depth answers to the most common — and uncommon — questions educators have about using Zaza Visuals. Whether you're just starting or looking to scale its use across your school, this guide is for you.
+Welcome to the Zaza Visuals FAQ. Below you'll find in-depth answers to the most common  -  and uncommon  -  questions educators have about using Zaza Visuals. Whether you're just starting or looking to scale its use across your school, this guide is for you.
 
 ---
 
@@ -42,7 +42,7 @@ A: Absolutely. The School and District plans support invoicing, bulk licensing, 
 ## 🎨 Features & Functionality
 
 **Q: What types of visuals can I generate?**  
-A: Diagrams, infographics, illustrations, flashcards, video explainers, animated whiteboards, posters, classroom displays, and more — all optimised for pedagogy.
+A: Diagrams, infographics, illustrations, flashcards, video explainers, animated whiteboards, posters, classroom displays, and more  -  all optimised for pedagogy.
 
 **Q: Can I customise the style of the visuals?**  
 A: Yes. Choose from one-tap style presets (e.g. Realistic, Cartoon, Infographic) or describe the desired tone.
@@ -112,9 +112,9 @@ A: Yes. Professional development workshops, onboarding sessions, and in-app tuto
 A: Try refreshing the browser or clearing your cache. If issues persist, email support with the prompt used and device type.
 
 **Q: My visuals don’t look age-appropriate. Can I fix this?**  
-A: Adjust the prompt to clarify the grade level. For persistent issues, contact support — we’re constantly improving our age filters.
+A: Adjust the prompt to clarify the grade level. For persistent issues, contact support  -  we’re constantly improving our age filters.
 
-**Q: The app is running slowly — help?**  
+**Q: The app is running slowly  -  help?**  
 A: Ensure you're on a fast internet connection and a supported browser. Try disabling browser extensions if performance lags.
 
 ---
@@ -126,7 +126,7 @@ Email: support@zazatechnologies.com
 
 ---
 
-Zaza Visuals is built for educators, by educators. If we missed something, tell us — your feedback shapes the future of teaching with AI.
+Zaza Visuals is built for educators, by educators. If we missed something, tell us  -  your feedback shapes the future of teaching with AI.
 
 
 access_conditions:

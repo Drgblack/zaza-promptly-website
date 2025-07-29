@@ -1,6 +1,6 @@
 ---
 title: "When Technology Feels Like the Enemy (And How to Make Peace With Digital Teaching)"
-description: "For teachers feeling overwhelmed by constant tech changes and digital demands. You're not behind—you're learning at your own pace in an impossible-to-keep-up-with world."
+description: "For teachers feeling overwhelmed by constant tech changes and digital demands. You're not behind - you're learning at your own pace in an impossible-to-keep-up-with world."
 date: "2025-01-03"
 author: "Zaza Promptly Team"
 category: "Technology & Teaching"
@@ -82,13 +82,13 @@ If the answer is no, you have permission to pass.
 
 Instead of trying to master everything at once, pick one new tool per quarter. Learn it well. Make it work for you. Then, if you want, add another.
 
-**Quality over quantity** always wins in teaching—including technology.
+**Quality over quantity** always wins in teaching - including technology.
 
 ### Build Your Tech Support Network
 
 - **Find your school's tech-savvy teacher** (there's always one) and buy them coffee in exchange for help
 - **Partner with a colleague** to learn new tools together
-- **Ask students for help** sometimes—they love being the teacher
+- **Ask students for help** sometimes - they love being the teacher
 - **Join teacher Facebook groups** where people share real, practical tech tips
 
 ### Create Tech Boundaries
@@ -131,7 +131,7 @@ Your Google Slides don't need animation. Your digital bulletin board doesn't nee
 
 Here's what I've learned after watching hundreds of teachers stress about technology: 
 
-**Students need teachers who are confident, present, and passionate about learning—not teachers who are stressed about which app to use.**
+**Students need teachers who are confident, present, and passionate about learning - not teachers who are stressed about which app to use.**
 
 Your student will remember:
 - How you made them feel when they were struggling
@@ -162,12 +162,12 @@ The next time someone introduces a "must-have" new educational technology, take 
 
 Your worth as an educator isn't measured by how quickly you adopt new technology. It's measured by how effectively you help students learn and grow.
 
-*Some of the best teachers I know still use overhead projectors, clipboards, and handwritten feedback. They're not behind the times—they're focused on what matters most.*
+*Some of the best teachers I know still use overhead projectors, clipboards, and handwritten feedback. They're not behind the times - they're focused on what matters most.*
 
 ---
 
-**Technology should amplify good teaching, not complicate it. The goal isn't to be cutting-edge—it's to be effective.**
+**Technology should amplify good teaching, not complicate it. The goal isn't to be cutting-edge - it's to be effective.**
 
 ---
 
-**About the Author:** This reflection comes from educators who've learned that being selective about technology isn't being resistant to change—it's being intentional about what serves learning best.
+**About the Author:** This reflection comes from educators who've learned that being selective about technology isn't being resistant to change - it's being intentional about what serves learning best.

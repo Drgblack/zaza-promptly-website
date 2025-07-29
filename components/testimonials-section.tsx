@@ -12,7 +12,7 @@ const testimonials = [
     role: "3rd Grade Teacher",
     location: "Texas",
     quote:
-      "I used to dread report card season. Now I finish comments in one afternoon and spend the weekend with my kids. My principal asked what changed—I told her about Zaza Promptly.",
+      "I used to dread report card season. Now I finish comments in one afternoon and spend the weekend with my kids. My principal asked what changed - I told her about Zaza Promptly.",
     avatar:
       "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
     rating: 5,

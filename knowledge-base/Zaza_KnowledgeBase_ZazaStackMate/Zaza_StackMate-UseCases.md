@@ -94,7 +94,7 @@ Zaza StackMate is an AI-powered workspace builder designed to help non-technical
 
 ---
 
-Zaza StackMate empowers non-technical professionals to act as their own AI engineers—saving time, boosting creativity, and building systems that work the way they do.
+Zaza StackMate empowers non-technical professionals to act as their own AI engineers - saving time, boosting creativity, and building systems that work the way they do.
 
 access_conditions:
   - if: user.email == "greg@zazatechnologies.com"

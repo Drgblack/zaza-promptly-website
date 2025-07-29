@@ -7,7 +7,7 @@ Zaza Technologies UG (haftungsbeschränkt) is an AI-first educational software c
 
 ## Mission
 
-Empower educators through intelligent tools that support feedback, planning, creativity, communication, and wellbeing — without compromising teacher autonomy or values.
+Empower educators through intelligent tools that support feedback, planning, creativity, communication, and wellbeing  -  without compromising teacher autonomy or values.
 
 ## Vision
 
@@ -82,7 +82,7 @@ Zaza serves educators worldwide, with a growing focus on English-speaking, Europ
 
 ---
 
-Zaza Technologies is here to help teachers thrive — and we’re just getting started.
+Zaza Technologies is here to help teachers thrive  -  and we’re just getting started.
 
 access_conditions:
   - if: user.email == "greg@zazatechnologies.com"

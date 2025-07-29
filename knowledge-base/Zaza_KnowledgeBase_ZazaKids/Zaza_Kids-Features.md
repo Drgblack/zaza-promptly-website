@@ -177,7 +177,7 @@ Syncs with global and regional holidays, family rituals, and custom dates. Remin
 
 ---
 
-Zaza Kids isn’t just a tool—it’s a new way to learn, feel, connect, and celebrate family.
+Zaza Kids isn’t just a tool - it’s a new way to learn, feel, connect, and celebrate family.
 
 access_conditions:
   - if: user.email == "greg@zazatechnologies.com"

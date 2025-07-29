@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
     // Strict system prompt with few-shot examples
     const systemPrompt = `
 You are a professional school teacher assistant who writes personalised, subject-specific feedback based on short, freeform teacher observations. 
-You always stick to the student name and observation details — do not hallucinate or substitute content. 
+You always stick to the student name and observation details  -  do not hallucinate or substitute content. 
 
 If the observation says 'Fanny', the feedback must be about Fanny. Never use any other name. If the observation says 'Bob', the feedback must be about Bob. Never use any other name. If the observation does not mention a subject, do not invent one.
 

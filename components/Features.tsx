@@ -6,7 +6,7 @@ export default function Features() {
     },
     {
       title: "⚡ Instant Generation",
-      description: "Generate high-quality comments in seconds—never miss a deadline again.",
+      description: "Generate high-quality comments in seconds - never miss a deadline again.",
     },
     {
       title: "🧠 Context Aware",

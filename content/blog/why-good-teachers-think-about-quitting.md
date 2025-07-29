@@ -1,6 +1,6 @@
 ---
 title: "Why Good Teachers Think About Quitting (And Why Staying Might Be Your Superpower)"
-description: "For educators wondering if they're cut out for this profession. The best teachers question their calling—here's why that doubt might actually be your strength."
+description: "For educators wondering if they're cut out for this profession. The best teachers question their calling - here's why that doubt might actually be your strength."
 date: "2025-01-02"
 author: "Zaza Promptly Team"
 category: "Professional Reflection"
@@ -15,7 +15,7 @@ featured: true
 
 Sound familiar?
 
-If you're a teacher who's ever fantasized about walking away from education—whether it's during a particularly challenging day, a brutal week, or those dark moments at 2 AM when you're questioning every career choice you've ever made—I need you to know something important:
+If you're a teacher who's ever fantasized about walking away from education - whether it's during a particularly challenging day, a brutal week, or those dark moments at 2 AM when you're questioning every career choice you've ever made - I need you to know something important:
 
 **The fact that you're thinking about quitting doesn't make you weak. It makes you human. And paradoxically, it might be exactly what makes you a great teacher.**
 
@@ -23,7 +23,7 @@ If you're a teacher who's ever fantasized about walking away from education—wh
 
 Here's what they don't tell you in teacher prep programs: **Every good teacher thinks about quitting. Regularly.**
 
-Not because they don't care—but because they care so much that the weight of it sometimes feels unbearable.
+Not because they don't care - but because they care so much that the weight of it sometimes feels unbearable.
 
 Last month, I came across a thread where teachers shared their "almost quit" moments:
 
@@ -56,16 +56,16 @@ But good teachers? We're different. We:
 When you deeply invest in 150+ individual human beings, their struggles become your struggles. Their pain becomes your pain. Their failures feel like your failures.
 
 ### 2. **The Impossible Standards**
-Society expects teachers to be therapists, social workers, parents, entertainers, assessors, disciplinarians, and miracle workers—all while being underpaid and under-resourced.
+Society expects teachers to be therapists, social workers, parents, entertainers, assessors, disciplinarians, and miracle workers - all while being underpaid and under-resourced.
 
 ### 3. **The Lack of Control**
-Good teachers want to help every child succeed, but so many factors affecting student achievement are completely outside our influence—poverty, trauma, family instability, learning differences, system failures.
+Good teachers want to help every child succeed, but so many factors affecting student achievement are completely outside our influence - poverty, trauma, family instability, learning differences, system failures.
 
 ### 4. **The Emotional Labor Tax**
 We spend our days managing not just our own emotions, but the emotions of dozens of developing humans. By evening, we're emotionally depleted with nothing left for ourselves or our families.
 
 ### 5. **The Invisible Work**
-The lesson planning, the parent emails, the professional development, the documentation, the worry, the problem-solving that happens at 11 PM—none of it shows up in our job description, but all of it is essential.
+The lesson planning, the parent emails, the professional development, the documentation, the worry, the problem-solving that happens at 11 PM - none of it shows up in our job description, but all of it is essential.
 
 ## The Thoughts That Keep Good Teachers Up at Night
 
@@ -103,7 +103,7 @@ Instead of seeing your struggles as signs you should leave, what if they're sign
 
 **Frustrated by lack of resources?** Maybe you're being called to advocate more strongly or get creative with solutions.
 
-**Your dissatisfaction might not be telling you to quit—it might be telling you to level up.**
+**Your dissatisfaction might not be telling you to quit - it might be telling you to level up.**
 
 ## The Ripple Effect of Staying
 
@@ -123,12 +123,12 @@ Here's what happens when good teachers stay, despite the doubt:
 - **Find your teacher tribe**: Connect with educators who get it
 - **Celebrate micro-victories**: That one student who finally understood fractions counts
 - **Set boundaries**: You can't pour from an empty cup
-- **Seek support**: Therapy isn't weakness—it's maintenance
+- **Seek support**: Therapy isn't weakness - it's maintenance
 - **Remember your why**: What drew you to teaching in the first place?
 
 ### When you question your impact:
 - **Keep a victory journal**: Write down one good thing that happened each day
-- **Ask former students**: Reach out—their responses will surprise you
+- **Ask former students**: Reach out - their responses will surprise you
 - **Focus on process**: You can't control outcomes, but you can control effort
 - **Trust the long game**: Seeds you plant may not bloom for years
 
@@ -144,11 +144,11 @@ Here's what happens when good teachers stay, despite the doubt:
 
 *Dear Teacher Who Thinks About Quitting,*
 
-*Your doubt doesn't disqualify you—it qualifies you. It means you care enough to question, grow enough to struggle, and love enough to hurt when things don't go perfectly.*
+*Your doubt doesn't disqualify you - it qualifies you. It means you care enough to question, grow enough to struggle, and love enough to hurt when things don't go perfectly.*
 
 *The education world needs teachers who think deeply about their practice, who lie awake worrying about their students, who constantly wonder if they could be doing better.*
 
-*Your imposter syndrome isn't evidence that you don't belong—it's evidence that you're exactly where you're needed most.*
+*Your imposter syndrome isn't evidence that you don't belong - it's evidence that you're exactly where you're needed most.*
 
 *Stay a little longer. Not because it will get easier (it probably won't), but because you'll get stronger. And because somewhere in your classroom is a student who needs exactly what you have to offer.*
 
@@ -172,8 +172,8 @@ The next time you catch yourself googling "jobs for former teachers," pause and 
 
 ---
 
-**Doubt is not the opposite of calling—it's often the evidence of it. The teachers who care enough to question are usually the ones we can't afford to lose.**
+**Doubt is not the opposite of calling - it's often the evidence of it. The teachers who care enough to question are usually the ones we can't afford to lose.**
 
 ---
 
-**About the Author:** This reflection comes from educators who've stood at the crossroads of doubt and commitment, learning that questioning your calling doesn't disqualify you—it refines you.
+**About the Author:** This reflection comes from educators who've stood at the crossroads of doubt and commitment, learning that questioning your calling doesn't disqualify you - it refines you.

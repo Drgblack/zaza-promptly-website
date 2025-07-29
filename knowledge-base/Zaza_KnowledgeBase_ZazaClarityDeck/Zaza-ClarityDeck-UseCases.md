@@ -1,7 +1,7 @@
 
 # Zaza ClarityDeck – Comprehensive Use Cases
 
-Zaza ClarityDeck is your intelligent assistant for writing personalised student reports, crafting parent communication, and documenting classroom progress across year levels and educational contexts. It is built specifically for time-strapped educators who need precision, emotional nuance, and efficiency—without sacrificing quality or student individuality.
+Zaza ClarityDeck is your intelligent assistant for writing personalised student reports, crafting parent communication, and documenting classroom progress across year levels and educational contexts. It is built specifically for time-strapped educators who need precision, emotional nuance, and efficiency - without sacrificing quality or student individuality.
 
 ---
 
@@ -132,7 +132,7 @@ ClarityDeck was born out of hundreds of hours of Reddit scraping, educator inter
 > “It takes me 3 weekends just to get through all the comments.”  
 > “Why does every tool make me click more just to say less?”
 
-We heard you. ClarityDeck exists to *give teachers their time and sanity back*, without sacrificing personalisation, tone, or professional standards. It's not just a writing tool. It's your co-pilot in crafting clear, compassionate communication—at scale.
+We heard you. ClarityDeck exists to *give teachers their time and sanity back*, without sacrificing personalisation, tone, or professional standards. It's not just a writing tool. It's your co-pilot in crafting clear, compassionate communication - at scale.
 
 ---
 
@@ -150,7 +150,7 @@ Time-saving is now in your pocket.
 
 ## 🚀 Start Using ClarityDeck Today
 
-If you're a teacher, middle leader, or support staff overwhelmed by writing, communication, and tracking student progress—ClarityDeck was made for you.
+If you're a teacher, middle leader, or support staff overwhelmed by writing, communication, and tracking student progress - ClarityDeck was made for you.
 
 🟢 Join our beta  
 🟢 Use with your school’s existing data tools  

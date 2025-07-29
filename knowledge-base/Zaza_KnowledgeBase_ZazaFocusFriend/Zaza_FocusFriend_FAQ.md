@@ -92,7 +92,7 @@ A: Absolutely! You can submit feedback through the app’s “Suggest a Feature�
 
 ---
 
-Zaza FocusFriend isn’t just about productivity — it’s about restoring joy, calm, and control to educators and students navigating a chaotic world. Let’s help you reclaim your focus, together.
+Zaza FocusFriend isn’t just about productivity  -  it’s about restoring joy, calm, and control to educators and students navigating a chaotic world. Let’s help you reclaim your focus, together.
 
 access_conditions:
   - if: user.email == "greg@zazatechnologies.com"

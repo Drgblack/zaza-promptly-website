@@ -48,7 +48,7 @@ const ERROR_MESSAGES = [
 
 const EMPTY_STATE_MESSAGES = [
   {
-    text: "No comments yet — but your ideas are just moments away ✨",
+    text: "No comments yet  -  but your ideas are just moments away ✨",
     subtext: "Every great conversation starts with a single word",
     cta: "Ready to begin your first comment?"
   },

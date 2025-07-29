@@ -1,7 +1,7 @@
 # Zaza Coach – Frequently Asked Questions
 
 ## What is Zaza Coach?
-Zaza Coach is your AI-powered co-pilot for feedback, coaching, and onboarding. It helps managers and HR professionals deliver timely, personalised support at scale—without burning out.
+Zaza Coach is your AI-powered co-pilot for feedback, coaching, and onboarding. It helps managers and HR professionals deliver timely, personalised support at scale - without burning out.
 
 ## Who is it for?
 - Managers who lead people but aren't trained in coaching.

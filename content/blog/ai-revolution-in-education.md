@@ -14,7 +14,7 @@ relatedPosts: ["ai-vs-traditional-teaching", "getting-started-with-ai"]
 
 # The AI Revolution in Education: How Teachers Are Embracing Artificial Intelligence
 
-The landscape of education is undergoing a seismic shift. **Artificial Intelligence (AI)** is no longer a futuristic concept—it's here, it's now, and it's transforming how teachers teach and students learn.
+The landscape of education is undergoing a seismic shift. **Artificial Intelligence (AI)** is no longer a futuristic concept - it's here, it's now, and it's transforming how teachers teach and students learn.
 
 ## The Current State of AI in Education
 
@@ -127,7 +127,7 @@ AI processes vast amounts of educational data to:
 
 ## Conclusion: Embracing the AI-Powered Future
 
-The AI revolution in education isn't coming—it's here. Teachers who embrace these tools now are already seeing dramatic improvements in:
+The AI revolution in education isn't coming - it's here. Teachers who embrace these tools now are already seeing dramatic improvements in:
 - **Teaching effectiveness**
 - **Work-life balance**
 - **Student outcomes**

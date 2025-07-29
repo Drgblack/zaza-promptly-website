@@ -251,7 +251,7 @@ ${userName}`
           error={hasError ? 'Oops! AI can be quirky sometimes. Let\'s try again?' : undefined}
           isEmpty={isEmpty}
           emptyStateProps={{
-            title: 'No comments yet — but your ideas are just moments away ✨',
+            title: 'No comments yet  -  but your ideas are just moments away ✨',
             actionText: 'Ready to Create Something Beautiful',
             onAction: () => document.querySelector('textarea')?.focus(),
             type: 'comments'
@@ -339,7 +339,7 @@ ${userName}`
                 <strong>Error:</strong> "Oops! AI can be quirky. Try again or adjust your prompt."
               </div>
               <div>
-                <strong>Empty:</strong> "No comments yet — but your ideas are just moments away."
+                <strong>Empty:</strong> "No comments yet  -  but your ideas are just moments away."
               </div>
             </CardContent>
           </Card>

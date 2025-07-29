@@ -24,7 +24,7 @@ Feeling overwhelmed by all the talk about **artificial intelligence in education
 - **Student engagement increase**: 45% in AI-integrated classrooms
 - **Teacher satisfaction improvement**: 67% report reduced stress
 
-If you're still on the fence, you're falling behind—but it's not too late to catch up.
+If you're still on the fence, you're falling behind - but it's not too late to catch up.
 
 ## Phase 1: Assessment and Preparation (Week 1)
 
@@ -89,7 +89,7 @@ Common teacher challenges AI can address:
    - Time investment: 4 hours to learn
    - Impact: High (save 4-6 hours weekly)
 
-**My Recommendation**: Start with comment generation—it's the easiest win.
+**My Recommendation**: Start with comment generation - it's the easiest win.
 
 ### Implementation Timeline
 

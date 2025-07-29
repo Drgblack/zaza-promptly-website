@@ -1,6 +1,6 @@
 # Zaza FocusFriend – Features & Functionality (Expanded Edition)
 
-Zaza FocusFriend is designed as a stress-relieving writing companion for teachers. Its mission is to streamline the emotionally and cognitively draining process of generating professional, effective, and parent-sensitive feedback — so teachers can focus on what they do best: teaching.
+Zaza FocusFriend is designed as a stress-relieving writing companion for teachers. Its mission is to streamline the emotionally and cognitively draining process of generating professional, effective, and parent-sensitive feedback  -  so teachers can focus on what they do best: teaching.
 
 ## ✨ Core Features
 
@@ -84,7 +84,7 @@ Lets teachers save, organise, and reuse powerful comment snippets or frameworks.
 ### 5. Multilingual & Culturally Responsive Feedback
 
 **Languages Supported:**  
-- English (UK/US), Spanish, French, German, Italian — more on request.
+- English (UK/US), Spanish, French, German, Italian  -  more on request.
 
 **Features:**  
 - Translate comments for multilingual families.

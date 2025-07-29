@@ -75,7 +75,7 @@ To keep our scope focused and effective, we do not offer:
 
 ## 🧡 Our Promise
 
-StackMate is built for real people—not developers—with real problems to solve. If you hit a wall, need inspiration, or want to co-create something big, we’re just a click away.
+StackMate is built for real people - not developers - with real problems to solve. If you hit a wall, need inspiration, or want to co-create something big, we’re just a click away.
 
 Zaza StackMate is your AI wingmate. And we’ve got your back.
 

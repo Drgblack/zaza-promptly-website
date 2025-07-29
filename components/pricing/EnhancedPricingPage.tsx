@@ -310,7 +310,7 @@ export function EnhancedPricingPage({
                       <td className="px-6 py-4 text-sm font-medium text-gray-900">{feature.feature}</td>
                       <td className="px-6 py-4 text-center text-sm">
                         {feature.limit === 'none' ? (
-                          <span className="text-gray-400">—</span>
+                          <span className="text-gray-400"> - </span>
                         ) : typeof feature.limit === 'number' ? (
                           <span className="text-gray-600">{feature.limit}</span>
                         ) : (

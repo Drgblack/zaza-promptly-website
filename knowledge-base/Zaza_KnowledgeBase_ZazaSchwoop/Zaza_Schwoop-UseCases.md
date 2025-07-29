@@ -40,7 +40,7 @@ Reduces emotional load for teachers during tough conversations. Encourages proac
 ## 📘 Use Case 3: SEN Support Staff – Daily Logging for Differentiated Support
 
 ### 🎯 Problem:
-Support staff must document daily feedback for multiple students receiving differentiated support—without burning out or repeating content.
+Support staff must document daily feedback for multiple students receiving differentiated support - without burning out or repeating content.
 
 ### 💡 Zaza Schwoop Solution:
 - Builds a personalised **Snippet Library** for recurring notes (e.g., “on-task behaviour”, “sensory breaks used”).
@@ -72,7 +72,7 @@ Needs to compile fortnightly summaries for students flagged under the wellbeing 
 ## 📘 Use Case 5: Vice Principal – Quality Review of Teacher Comments
 
 ### 🎯 Problem:
-During internal audits, teaching staff comments vary wildly in tone, detail, and clarity—undermining report quality.
+During internal audits, teaching staff comments vary wildly in tone, detail, and clarity - undermining report quality.
 
 ### 💡 Zaza Schwoop Solution:
 - Runs **Tone Analysis** across batches of teacher-written comments.

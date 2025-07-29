@@ -3,13 +3,13 @@
 
 ## 🌟 What is Zaza FocusFriend?
 
-Zaza FocusFriend is your AI-powered assistant for crafting high-quality student feedback, parent messages, and academic reports—faster, smarter, and stress-free. Designed specifically for teachers, FocusFriend slashes writing time from 10 minutes to 30 seconds while preserving your authentic voice and alignment with curriculum standards.
+Zaza FocusFriend is your AI-powered assistant for crafting high-quality student feedback, parent messages, and academic reports - faster, smarter, and stress-free. Designed specifically for teachers, FocusFriend slashes writing time from 10 minutes to 30 seconds while preserving your authentic voice and alignment with curriculum standards.
 
-It’s more than a writing tool—it’s a burnout-busting, feedback-enhancing, energy-reviving partner that helps educators reconnect with the *why* of teaching.
+It’s more than a writing tool - it’s a burnout-busting, feedback-enhancing, energy-reviving partner that helps educators reconnect with the *why* of teaching.
 
 ## 🧠 Why We Built It
 
-Teachers today face an overwhelming load of administrative tasks—especially feedback writing. Through extensive research, Reddit scraping, and hundreds of teacher interviews, we identified key issues:
+Teachers today face an overwhelming load of administrative tasks - especially feedback writing. Through extensive research, Reddit scraping, and hundreds of teacher interviews, we identified key issues:
 
 - **Time Pressure:** Teachers spend 5–10 hours per week writing repetitive, time-consuming feedback.
 - **Mental Load:** Constant demand for high-quality, individualised comments creates fatigue and anxiety.
@@ -24,9 +24,9 @@ FocusFriend was built to *solve these real problems* using human-centred AI.
 |----------------------------|-------------|
 | **⏱️ Saves Time**         | Write full parent messages or feedback in seconds, not hours. |
 | **🎯 Curriculum-Aligned** | Outputs are mapped to learning objectives and assessment standards. |
-| **🗣️ Your Tone, Your Voice** | Adjust tone to match how *you* talk—empathetic, formal, playful, etc. |
+| **🗣️ Your Tone, Your Voice** | Adjust tone to match how *you* talk - empathetic, formal, playful, etc. |
 | **🚫 Zero Hallucinations**| Designed with GPT safeguards to prevent factual errors or bias. |
-| **💡 Brain Burnout Buster**| Say goodbye to writer’s block—just describe the issue and let FocusFriend help. |
+| **💡 Brain Burnout Buster**| Say goodbye to writer’s block - just describe the issue and let FocusFriend help. |
 | **🧱 Modular Input Options** | Works from bullet notes, achievement levels, or even transcripts. |
 | **📚 Context Retention** | Remembers your prior snippets, class dynamics, and subject preferences. |
 | **🌍 Inclusive & Multilingual** | Generate parent-friendly output in multiple languages with cultural sensitivity. |
@@ -50,7 +50,7 @@ FocusFriend serves educators across multiple roles:
 
 ## 🎓 Educational Philosophy
 
-Zaza FocusFriend is powered by pedagogical principles—not just prompts. It draws on:
+Zaza FocusFriend is powered by pedagogical principles - not just prompts. It draws on:
 
 - Evidence-based writing scaffolds
 - Growth mindset feedback frameworks
@@ -97,7 +97,7 @@ FocusFriend is currently in MVP phase with the following roadmap:
 
 ## 🧭 Summary
 
-Zaza FocusFriend is more than a time-saver—it’s a teacher’s co-pilot for high-integrity communication. Rooted in empathy, precision, and usability, it helps educators stay human in the age of AI.
+Zaza FocusFriend is more than a time-saver - it’s a teacher’s co-pilot for high-integrity communication. Rooted in empathy, precision, and usability, it helps educators stay human in the age of AI.
 
 **Because teachers deserve tools that work as hard as they do.**
 

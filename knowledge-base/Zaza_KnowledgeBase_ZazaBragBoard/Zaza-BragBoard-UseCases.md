@@ -1,6 +1,6 @@
 # Zaza BragBoard – Expanded Use Case Scenarios
 
-Zaza BragBoard is more than a comment tool — it’s a wellbeing-boosting system designed to help teachers **recognise, document, and share student progress effortlessly**, while maintaining emotional tone, professional quality, and consistency. Below are detailed examples of how different educators benefit from BragBoard in real-world scenarios.
+Zaza BragBoard is more than a comment tool  -  it’s a wellbeing-boosting system designed to help teachers **recognise, document, and share student progress effortlessly**, while maintaining emotional tone, professional quality, and consistency. Below are detailed examples of how different educators benefit from BragBoard in real-world scenarios.
 
 ---
 
@@ -32,7 +32,7 @@ Jessica has 28 students and must write end-of-term comments that reflect each ch
 **👨‍🏫 Role**: English Teacher (Emma Torres persona)
 
 **Pain Point**:  
-Emma teaches 120+ students across multiple year groups and struggles to stay on top of parent updates — especially about behaviour, motivation, and effort. Emotional fatigue sets in when she’s expected to phrase everything delicately and positively.
+Emma teaches 120+ students across multiple year groups and struggles to stay on top of parent updates  -  especially about behaviour, motivation, and effort. Emotional fatigue sets in when she’s expected to phrase everything delicately and positively.
 
 **How BragBoard Helps**:
 - Select the *“Parent Communication”* preset
@@ -54,7 +54,7 @@ Emma teaches 120+ students across multiple year groups and struggles to stay on 
 **👩‍⚕️ Role**: Special Education Needs (SEN) Staff
 
 **Pain Point**:  
-Staff working with neurodiverse or learning-challenged students must record daily feedback logs — often under time pressure and with a need for precision. Writing unique feedback daily becomes mentally draining and time-consuming.
+Staff working with neurodiverse or learning-challenged students must record daily feedback logs  -  often under time pressure and with a need for precision. Writing unique feedback daily becomes mentally draining and time-consuming.
 
 **How BragBoard Helps**:
 - Create a personalised *Snippet Library* of feedback tags like:
@@ -97,7 +97,7 @@ New teachers often struggle to find the “right language” for lesson reflecti
 **Role**: Deputy Head / Instructional Coach
 
 **Pain Point**:  
-Leaders often need to showcase positive student learning stories, classroom highlights, and teaching impact — for newsletters, parent engagement, or staff morale. But sourcing quotes and writing summaries takes time.
+Leaders often need to showcase positive student learning stories, classroom highlights, and teaching impact  -  for newsletters, parent engagement, or staff morale. But sourcing quotes and writing summaries takes time.
 
 **How BragBoard Helps**:
 - Ask staff to tag noteworthy student moments during the week
@@ -117,7 +117,7 @@ Leaders often need to showcase positive student learning stories, classroom high
 **Role**: Any teacher in survival mode
 
 **Pain Point**:  
-They know what to say but can’t summon the words. Sunday dread. Admin fatigue. A crushing to-do list. BragBoard isn’t just about writing — it’s about lifting the mental weight.
+They know what to say but can’t summon the words. Sunday dread. Admin fatigue. A crushing to-do list. BragBoard isn’t just about writing  -  it’s about lifting the mental weight.
 
 **How BragBoard Helps**:
 - Offers emotionally intelligent, vibe-matched comment phrasing

@@ -45,7 +45,7 @@ FocusFriend is more than just a productivity timer. It is a mood-aware, AI-power
 **How FocusFriend Helps:**
 - **Customisable Rooms:** Visual simplicity, consistent tones, and low-sensory ambient environments reduce overwhelm.
 - **Vibe History Tracking:** Allows users to reflect on which moods and environments produced the best results.
-- **Gentle Guidance:** AI encouragement is non-punitive, affirming, and reflective—never critical.
+- **Gentle Guidance:** AI encouragement is non-punitive, affirming, and reflective - never critical.
 
 ---
 
@@ -55,7 +55,7 @@ FocusFriend is more than just a productivity timer. It is a mood-aware, AI-power
 
 **How FocusFriend Helps:**
 - **Time-Constrained Sessions:** Short, high-efficiency timers (e.g. 20-minute focus bursts) with wrap-up reflections.
-- **Encouragement Library:** AI pulls motivation from user’s life context (e.g. “You’ve already studied 12 hours this week—keep going!”).
+- **Encouragement Library:** AI pulls motivation from user’s life context (e.g. “You’ve already studied 12 hours this week - keep going!”).
 - **Mobile-First UI:** Allows access during lunch breaks, on commutes, or in between life demands.
 
 ---
@@ -82,7 +82,7 @@ FocusFriend is more than just a productivity timer. It is a mood-aware, AI-power
 
 ---
 
-FocusFriend is not just about focus—it’s about connection, confidence, and long-term momentum.
+FocusFriend is not just about focus - it’s about connection, confidence, and long-term momentum.
 
 access_conditions:
   - if: user.email == "greg@zazatechnologies.com"

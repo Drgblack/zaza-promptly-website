@@ -183,7 +183,7 @@ export function BlockQuote({
         <footer className="text-sm text-gray-600">
           {author && <span className="font-semibold">{author}</span>}
           {role && <span className="ml-2 text-gray-500">{role}</span>}
-          {source && <span className="ml-2">— {source}</span>}
+          {source && <span className="ml-2"> -  {source}</span>}
         </footer>
       )}
     </div>

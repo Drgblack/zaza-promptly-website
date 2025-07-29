@@ -9,7 +9,7 @@ A: Yes. Zaza Inbox offers a genuinely free plan that includes 5 high-quality mes
 A: No. While Zaza Inbox uses OpenAI’s GPT-4 under the hood, it is not a generic chatbot. We've implemented structured scaffolding, educational filters, curriculum-linked logic, and tone matching to ensure relevance, safety, and hallucination prevention. It’s purpose-built for school communication.
 
 **Q: Who is Zaza Inbox for?**  
-A: Zaza Inbox is for K–12 teachers, special educators, tutors, learning support staff, and school administrators who communicate regularly with parents. If you spend hours writing messages home — this tool is for you.
+A: Zaza Inbox is for K–12 teachers, special educators, tutors, learning support staff, and school administrators who communicate regularly with parents. If you spend hours writing messages home  -  this tool is for you.
 
 **Q: What happens when my trial or free plan ends?**  
 A: You’ll still have access to your saved messages and settings. However, you won’t be able to generate new content until you upgrade to Pro or wait for your next month’s 5 free messages to refresh.
@@ -25,7 +25,7 @@ A: Zaza Inbox is built to reduce stress, not add to it. Most teachers report a 6
 ## 💳 Billing & Licensing
 
 **Q: Is there an annual payment option?**  
-A: Yes. Annual plans come with a 20% discount — perfect for teachers looking for value and simplicity.
+A: Yes. Annual plans come with a 20% discount  -  perfect for teachers looking for value and simplicity.
 
 **Q: Can my school or department pay by invoice?**  
 A: Absolutely. School Licence plans support invoicing, bank transfers, and purchase orders. We'll also generate tax-compliant receipts for procurement needs.
@@ -50,7 +50,7 @@ A: Yes. With the Pro or School plan, you’ll have access to your personal Snipp
 A: Yes. Pro and School users can use the Curriculum Mapping feature to upload syllabus details. This enables more accurate, tailored messages about what students are learning.
 
 **Q: Does Zaza Inbox work for multilingual families?**  
-A: Yes. The system can generate translated messages in over 20 languages, including Spanish, French, German, Mandarin, and Arabic — while preserving tone and educational terminology.
+A: Yes. The system can generate translated messages in over 20 languages, including Spanish, French, German, Mandarin, and Arabic  -  while preserving tone and educational terminology.
 
 **Q: Can I share templates with my team?**  
 A: Yes. School Licence users can create team-wide libraries, share snippets, and define school-approved templates for consistency and support.

@@ -439,7 +439,7 @@ End of Day Reflection:
 
 ## Final Thoughts
 
-Remember: Time management is not about doing more—it's about doing what matters most effectively. The goal is to create space for:
+Remember: Time management is not about doing more - it's about doing what matters most effectively. The goal is to create space for:
 - **Better teaching**
 - **Meaningful relationships**
 - **Professional growth**

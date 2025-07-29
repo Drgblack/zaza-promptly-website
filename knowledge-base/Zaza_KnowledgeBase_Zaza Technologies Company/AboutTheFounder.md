@@ -5,7 +5,7 @@
 
 Dr. Greg Blackburn is the founder of **Zaza Technologies**, an independent edtech studio creating AI-powered tools that help teachers thrive. He is a former Head of Learning & Development with over 20 years of experience in education, corporate training, and digital transformation.
 
-Greg holds a **PhD in Professional Education** from *City, University of London*, where his research focused on critical thinking and problem-solving in student-centred eLearning. His academic journey began in Tasmania, Australia—after starting as a painter and decorator, he rebuilt his life through education, earning:
+Greg holds a **PhD in Professional Education** from *City, University of London*, where his research focused on critical thinking and problem-solving in student-centred eLearning. His academic journey began in Tasmania, Australia - after starting as a painter and decorator, he rebuilt his life through education, earning:
 
 - 🎓 A Diploma of German (Germany)  
 - 🎓 First-Class Honours in Information Systems (University of Tasmania)  
@@ -14,9 +14,9 @@ Greg holds a **PhD in Professional Education** from *City, University of London*
 
 ## ✈️ From Paint Brushes to Pedagogy-First AI
 
-Greg’s story is one of reinvention. He taught himself how to code, build startups, design viral products, and use AI ethically in education—all outside work hours. Zaza is built in the early mornings, late nights, and between meetings. It's not a side project—it’s a mission.
+Greg’s story is one of reinvention. He taught himself how to code, build startups, design viral products, and use AI ethically in education - all outside work hours. Zaza is built in the early mornings, late nights, and between meetings. It's not a side project - it’s a mission.
 
-His family is full of teachers: his sister, cousins, aunty, and uncle have all worked in classrooms. He’s seen firsthand the burnout, emotional toll, and time starvation they face. Zaza is his way of helping them—and millions like them.
+His family is full of teachers: his sister, cousins, aunty, and uncle have all worked in classrooms. He’s seen firsthand the burnout, emotional toll, and time starvation they face. Zaza is his way of helping them - and millions like them.
 
 ## 💡 Why Zaza?
 
@@ -31,7 +31,7 @@ Greg is building Zaza:
 
 ## 🔥 In His Words
 
-> “I created Zaza because I’ve lived the pain of low expectations, battled imposter syndrome, and learned how to learn—deeply.  
+> “I created Zaza because I’ve lived the pain of low expectations, battled imposter syndrome, and learned how to learn - deeply.  
 > I believe AI offers a once-in-a-generation opportunity to support teachers in ways that truly matter.  
 > Zaza helps teachers thrive. And I’m not done yet.”
 

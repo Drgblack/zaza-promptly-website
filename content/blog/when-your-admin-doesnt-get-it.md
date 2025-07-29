@@ -1,6 +1,6 @@
 ---
 title: "When Your Admin Doesn't Get It (And How to Survive in a System That Feels Broken)"
-description: "For teachers feeling unsupported, unheard, and frustrated with leadership decisions. You're not powerless—here's how to find your agency in difficult circumstances."
+description: "For teachers feeling unsupported, unheard, and frustrated with leadership decisions. You're not powerless - here's how to find your agency in difficult circumstances."
 date: "2025-01-04"
 author: "Zaza Promptly Team"
 category: "Professional Navigation"
@@ -19,7 +19,7 @@ You stare at your screen, wondering if your principal has ever actually taught a
 
 **Sound familiar?**
 
-If you've ever felt like your administration is making decisions in a parallel universe where teachers have unlimited time, students have no individual needs, and teaching is just about checking boxes—you're not alone.
+If you've ever felt like your administration is making decisions in a parallel universe where teachers have unlimited time, students have no individual needs, and teaching is just about checking boxes - you're not alone.
 
 ## The Disconnect Dilemma
 
@@ -51,7 +51,7 @@ Before we dive into survival strategies, it helps to understand what might be dr
 Your principal is often getting pressure from district administrators, who are getting pressure from the state, who are responding to federal mandates. It's a cascade of anxiety that rolls downhill.
 
 ### The Data Obsession
-Administrators live in a world where everything must be measurable, trackable, and defensible. They're not necessarily trying to make your life harder—they're trying to survive their own accountability pressures.
+Administrators live in a world where everything must be measurable, trackable, and defensible. They're not necessarily trying to make your life harder - they're trying to survive their own accountability pressures.
 
 ### The Time Warp Effect
 The longer someone has been out of the classroom, the rosier their memories become. They forget about the interruptions, the unexpected needs, the human complexity of teaching.
@@ -68,7 +68,7 @@ Many administrators are trained to think of schools like businesses, with effici
 - Resource requests that were denied
 - Student needs that can't be met due to policies
 
-This isn't about building a case against your admin—it's about protecting yourself and having concrete examples when you need to advocate for change.
+This isn't about building a case against your admin - it's about protecting yourself and having concrete examples when you need to advocate for change.
 
 ### 2. The Strategic Compliance Approach
 **Pick your battles wisely:**
@@ -199,9 +199,9 @@ The next time you receive an email that makes you want to scream, pause and ask:
 
 *Don't let administrative dysfunction steal your joy in teaching or your belief in what's possible for your students.*
 
-*You're not just surviving a difficult system—you're protecting students from its worst effects while working to make it better.*
+*You're not just surviving a difficult system - you're protecting students from its worst effects while working to make it better.*
 
-*That's not just professional—it's heroic.*
+*That's not just professional - it's heroic.*
 
 ---
 

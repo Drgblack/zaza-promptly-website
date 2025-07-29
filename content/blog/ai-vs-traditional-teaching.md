@@ -223,7 +223,7 @@ Modern AI integration introduces:
 
 ## Conclusion: The Balanced Future
 
-The future of education isn't AI **versus** traditional teaching—it's AI **with** traditional teaching. The most effective educational environments will combine:
+The future of education isn't AI **versus** traditional teaching - it's AI **with** traditional teaching. The most effective educational environments will combine:
 
 - **AI's analytical power** with **human wisdom**
 - **Technological efficiency** with **emotional intelligence**

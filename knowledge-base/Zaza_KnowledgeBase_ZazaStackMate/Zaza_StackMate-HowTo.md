@@ -1,7 +1,7 @@
 
 # Zaza StackMate – How-To Guide
 
-Welcome to **Zaza StackMate**, your intelligent sidekick for building AI workflows, creating content, and organizing your tech stack—even if you're not a coder. This guide walks you through how to use Zaza StackMate effectively from setup to advanced usage.
+Welcome to **Zaza StackMate**, your intelligent sidekick for building AI workflows, creating content, and organizing your tech stack - even if you're not a coder. This guide walks you through how to use Zaza StackMate effectively from setup to advanced usage.
 
 ---
 

@@ -7,13 +7,13 @@ Zaza StackMate is your personal product-building mentor with AI-enhanced guidanc
 ## 🧰 Key Features
 
 ### 1. 🧠 Stack-Aware AI Guidance
-Responds with detailed, tool-specific advice based on your selected stack (e.g., FlutterFlow + Firebase + Stripe). No generic advice—StackMate understands your context.
+Responds with detailed, tool-specific advice based on your selected stack (e.g., FlutterFlow + Firebase + Stripe). No generic advice - StackMate understands your context.
 
 ### 2. 🎭 Mascot-Based Vibe Coaching
 Choose from engaging mascots like Pixa (wise), Spark (encouraging), Flick (direct), and Octo (technical). Each has its own tone and coaching style that makes the build journey feel less robotic and more human.
 
 ### 3. 🧩 Task-Centric Prompt Engine
-No need to guess how to phrase a request. StackMate’s prompt engine helps you convert vague intentions into detailed instructions the AI can execute or explain—tailored to your toolset and current phase.
+No need to guess how to phrase a request. StackMate’s prompt engine helps you convert vague intentions into detailed instructions the AI can execute or explain - tailored to your toolset and current phase.
 
 ### 4. 🗂️ Phase Navigation System
 Projects are structured into logical phases: Ideation, Foundation Setup, Core Build, Polish, Launch. StackMate guides you through each phase and adjusts its suggestions and tone accordingly.
@@ -22,7 +22,7 @@ Projects are structured into logical phases: Ideation, Foundation Setup, Core Bu
 Motivational dashboards help you see where you are in your build. StackMate checks in on your vibe and progress, suggesting focus areas or celebrating milestones with mascot feedback.
 
 ### 6. 📚 Learning Nudges
-Beneath every technical suggestion is an opportunity to learn. StackMate includes explanations, code examples, video links, or definitions—so you’re not just building, you’re learning.
+Beneath every technical suggestion is an opportunity to learn. StackMate includes explanations, code examples, video links, or definitions - so you’re not just building, you’re learning.
 
 ### 7. 📦 Modular Prompt Templates
 Built-in templates for common tasks like “set up auth,” “fix login issue,” “add Stripe payments,” “link Firestore,” and “prepare launch checklist.” All can be personalised by phase, tone, and stack.
@@ -41,7 +41,7 @@ Initial support for English, with roadmap expansion into German, Spanish, and Fr
 
 ---
 
-Zaza StackMate is here to turn your messy startup dreams into launchable software—without the burnout.
+Zaza StackMate is here to turn your messy startup dreams into launchable software - without the burnout.
 
 access_conditions:
   - if: user.email == "greg@zazatechnologies.com"

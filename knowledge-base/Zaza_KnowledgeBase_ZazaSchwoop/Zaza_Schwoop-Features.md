@@ -50,7 +50,7 @@ Zaza Schwoop is a dynamic, emotionally adaptive tool that helps teachers write s
 - Map feedback directly to rubrics
 - Suggest next steps or goals for progression
 
-**Impact:** Feedback is not just fast—it’s meaningful, traceable, and evidence-based.
+**Impact:** Feedback is not just fast - it’s meaningful, traceable, and evidence-based.
 
 ---
 
@@ -123,7 +123,7 @@ Zaza Schwoop is a dynamic, emotionally adaptive tool that helps teachers write s
 
 ---
 
-Zaza Schwoop transforms how teachers give feedback—making it faster, smarter, and more emotionally attuned.
+Zaza Schwoop transforms how teachers give feedback - making it faster, smarter, and more emotionally attuned.
 
 access_conditions:
   - if: user.email == "greg@zazatechnologies.com"

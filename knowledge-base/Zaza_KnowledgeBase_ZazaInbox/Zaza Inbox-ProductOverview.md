@@ -9,13 +9,13 @@
 
 Zaza Inbox is a personal AI-powered communication companion designed specifically for teachers. It transforms the emotionally taxing, time-consuming process of parent communication into a streamlined, confidence-boosting experience.
 
-More than just a reply generator, Zaza Inbox remembers each parent, learns each teacher’s voice, and evolves into a trusted, emotionally intelligent sidekick. It brings memory, nuance, and efficiency to every email—so educators can focus on teaching, not typing.
+More than just a reply generator, Zaza Inbox remembers each parent, learns each teacher’s voice, and evolves into a trusted, emotionally intelligent sidekick. It brings memory, nuance, and efficiency to every email - so educators can focus on teaching, not typing.
 
 ---
 
 ## 🚨 The Problem We're Solving
 
-Teachers report spending **5–10 hours per week** on parent emails—often at night or on weekends. These messages can be emotional, high-stakes, and time-pressured. Many teachers fear saying the wrong thing or being misunderstood, especially when dealing with sensitive student issues.
+Teachers report spending **5–10 hours per week** on parent emails - often at night or on weekends. These messages can be emotional, high-stakes, and time-pressured. Many teachers fear saying the wrong thing or being misunderstood, especially when dealing with sensitive student issues.
 
 **Pain Points Zaza Inbox addresses:**
 - Emotional regulation when replying to difficult emails

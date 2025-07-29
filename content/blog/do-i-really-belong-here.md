@@ -80,7 +80,7 @@ Here's what that amazingly organized teacher down the hall doesn't post on socia
 **Reality:** Everyone struggles. Some are just better at hiding it or have different strengths.
 
 ### "I'm just winging it."
-**Reality:** Adapting in the moment isn't winging it—it's professional expertise.
+**Reality:** Adapting in the moment isn't winging it - it's professional expertise.
 
 ### "I don't deserve this job."
 **Reality:** You were hired because someone saw your potential. Trust their judgment.
@@ -135,7 +135,7 @@ When imposter syndrome puts you on trial, present this evidence in your defense:
 ## Building Your Teacher Identity
 
 ### Keep a Victory Journal
-Write down one thing that went well each day. Not perfect—just well. A student breakthrough, a lesson that worked, a parent thank-you, a moment of connection.
+Write down one thing that went well each day. Not perfect - just well. A student breakthrough, a lesson that worked, a parent thank-you, a moment of connection.
 
 ### Collect Evidence
 - Save student thank-you notes
@@ -145,7 +145,7 @@ Write down one thing that went well each day. Not perfect—just well. A student
 - Remember compliments from colleagues
 
 ### Find Your Teaching Voice
-Stop trying to be the teacher you think you should be and start being the teacher you are. Your personality, your strengths, your style—these aren't bugs to fix, they're features to develop.
+Stop trying to be the teacher you think you should be and start being the teacher you are. Your personality, your strengths, your style - these aren't bugs to fix, they're features to develop.
 
 ### Celebrate Small Wins
 - The difficult student who smiled today
@@ -158,7 +158,7 @@ Stop trying to be the teacher you think you should be and start being the teache
 
 Here's a secret about teaching: **You don't arrive as a perfect educator. You become one, slowly, over years of practice, reflection, and growth.**
 
-Every master teacher was once where you are now—uncertain, learning, making mistakes, and wondering if they belonged.
+Every master teacher was once where you are now - uncertain, learning, making mistakes, and wondering if they belonged.
 
 **The difference isn't that they stopped feeling uncertain. The difference is they kept teaching anyway.**
 
@@ -170,11 +170,11 @@ Every master teacher was once where you are now—uncertain, learning, making mi
 
 *You are a human being doing one of the hardest jobs in the world, and you're doing it because you believe children deserve to learn and grow.*
 
-*Your doubt doesn't disqualify you—it drives you to be better.*  
-*Your uncertainty doesn't make you weak—it makes you coachable.*  
-*Your questions don't prove you're unfit—they prove you're thinking.*
+*Your doubt doesn't disqualify you - it drives you to be better.*  
+*Your uncertainty doesn't make you weak - it makes you coachable.*  
+*Your questions don't prove you're unfit - they prove you're thinking.*
 
-*You belong in that classroom. Your students need exactly what you have to offer—not perfection, but authenticity, effort, and care.*
+*You belong in that classroom. Your students need exactly what you have to offer - not perfection, but authenticity, effort, and care.*
 
 *Stop waiting to feel ready. Stop waiting to feel confident. Stop waiting to feel like a "real" teacher.*
 
@@ -184,18 +184,18 @@ Every master teacher was once where you are now—uncertain, learning, making mi
 
 The next time that voice whispers, "You don't belong here," remember:
 
-- Belonging isn't about perfection—it's about purpose
+- Belonging isn't about perfection - it's about purpose
 - Competence is built through practice, not born through talent  
 - Every expert was once a beginner
 - Your students need you, not a perfect version of you
-- Doubt is not evidence of inability—it's evidence of caring
+- Doubt is not evidence of inability - it's evidence of caring
 
 **You are not an imposter. You are a teacher in progress. And that's exactly what you're supposed to be.**
 
 ---
 
-**The teachers who question themselves the most are often the ones who belong the most. Your doubt is not disqualification—it's dedication.**
+**The teachers who question themselves the most are often the ones who belong the most. Your doubt is not disqualification - it's dedication.**
 
 ---
 
-**About the Author:** This reflection comes from educators who've learned that imposter syndrome isn't evidence of inadequacy—it's evidence of high standards and deep caring about the craft of teaching.
+**About the Author:** This reflection comes from educators who've learned that imposter syndrome isn't evidence of inadequacy - it's evidence of high standards and deep caring about the craft of teaching.

@@ -9,7 +9,7 @@
 A: Yes. All users receive 5 free lesson plan generations per month with no credit card required. This allows educators to explore the platform and experience its value before deciding to upgrade. There are no hidden fees, and your free account includes access to basic templates, editing tools, and lesson saving functionality.
 
 **Q: Is this just ChatGPT in disguise?**  
-A: Not at all. While Zaza Teach leverages GPT-4, it is heavily constrained, fine-tuned, and curriculum-aligned. We’ve developed unique guardrails and pedagogical prompts that ensure lesson outputs are accurate, aligned with real classroom needs, and low in hallucination risk. This isn’t ChatGPT — it’s a purpose-built educator tool.
+A: Not at all. While Zaza Teach leverages GPT-4, it is heavily constrained, fine-tuned, and curriculum-aligned. We’ve developed unique guardrails and pedagogical prompts that ensure lesson outputs are accurate, aligned with real classroom needs, and low in hallucination risk. This isn’t ChatGPT  -  it’s a purpose-built educator tool.
 
 **Q: What happens when my trial or free plan limits are reached?**  
 A: When your 5 monthly free generations are used, you'll receive a gentle prompt to upgrade to a paid plan. You won’t lose access to your saved lessons or preferences, but you won’t be able to generate new content until the next month or an upgrade.
@@ -47,7 +47,7 @@ A: Yes, with a Pro or School Licence. Our Curriculum Mapping tool allows you to 
 A: Yes. On the School Licence plan, users can share templates within their team and access a shared library of pre-vetted materials.
 
 **Q: Can I reuse previous lessons or make small edits?**  
-A: Yes. All lessons are saved to your personal library. You can duplicate, update, or remix them as needed — perfect for year-over-year use.
+A: Yes. All lessons are saved to your personal library. You can duplicate, update, or remix them as needed  -  perfect for year-over-year use.
 
 **Q: Does Zaza Teach support collaborative lesson planning?**  
 A: Team features are included in the School Licence. Multiple teachers can co-create, comment, and version lesson plans within a shared workspace.

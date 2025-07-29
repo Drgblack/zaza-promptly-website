@@ -58,7 +58,7 @@ This guide helps educators get started with Zaza Teach and optimise their workfl
 ## 💡 Expert Tips for Educators
 
 - **🎯 Be Specific**: The more context you give (standards, student needs, goals), the better the output.
-- **🧠 Use AI Like a Co-Teacher**: Think of Zaza as a draft partner — you remain the expert.
+- **🧠 Use AI Like a Co-Teacher**: Think of Zaza as a draft partner  -  you remain the expert.
 - **📁 Build a Reusable Library**: Save high-quality plans and comments for future reuse.
 - **🗣 Maintain Consistent Tone**: Use the same voice across reports, feedback, and lessons.
 - **💬 Use Snippets to Save Time**: Quickly insert recurring feedback, praise, or next steps.

@@ -1,7 +1,7 @@
 
 # Zaza StackMate – Pricing
 
-Zaza StackMate offers powerful AI automation tools for non-technical professionals, freelancers, educators, and solopreneurs. Simple, transparent pricing—no surprises, no upsells.
+Zaza StackMate offers powerful AI automation tools for non-technical professionals, freelancers, educators, and solopreneurs. Simple, transparent pricing - no surprises, no upsells.
 
 ---
 
@@ -51,7 +51,7 @@ Yes! You can try the full Pro Plan free for 7 days. No credit card required.
 
 ---
 
-Zaza StackMate is built to help *you* thrive—whether you're streamlining your solo business, automating HR tasks, or running client deliverables with AI precision.
+Zaza StackMate is built to help *you* thrive - whether you're streamlining your solo business, automating HR tasks, or running client deliverables with AI precision.
 
 access_conditions:
   - if: user.email == "greg@zazatechnologies.com"

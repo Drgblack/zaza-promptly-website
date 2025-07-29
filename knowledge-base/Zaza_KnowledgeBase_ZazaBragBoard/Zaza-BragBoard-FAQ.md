@@ -1,13 +1,13 @@
 # Zaza BragBoard – Frequently Asked Questions (Expanded Edition)
 
-Zaza BragBoard is your AI-powered classroom celebration assistant — designed to help overworked educators generate heartfelt, student-friendly praise in seconds, while supporting wellbeing, connection, and engagement. Below you'll find answers to the most common questions from teachers, schools, and parents.
+Zaza BragBoard is your AI-powered classroom celebration assistant  -  designed to help overworked educators generate heartfelt, student-friendly praise in seconds, while supporting wellbeing, connection, and engagement. Below you'll find answers to the most common questions from teachers, schools, and parents.
 
 ---
 
 ## 💡 General
 
 **Q: What is Zaza BragBoard, really?**  
-A: BragBoard is a boutique AI tool that helps teachers quickly write personalised praise, shoutouts, and student affirmations. It’s not a chatbot — it’s a co-writer fine-tuned to reflect your tone, values, and context. Teachers use it for weekly celebration slips, digital stickers, certificates, newsletter blurbs, and more.
+A: BragBoard is a boutique AI tool that helps teachers quickly write personalised praise, shoutouts, and student affirmations. It’s not a chatbot  -  it’s a co-writer fine-tuned to reflect your tone, values, and context. Teachers use it for weekly celebration slips, digital stickers, certificates, newsletter blurbs, and more.
 
 **Q: Is Zaza BragBoard free to use?**  
 A: Yes! All users get **5 free celebrations per month**, with no credit card required. This includes saving and exporting your praise messages. You can upgrade at any time for unlimited access.
@@ -27,13 +27,13 @@ A: Yes. Many parents, tutors, after-school program leaders, and homeschoolers us
 ## 💰 Billing & Plans
 
 **Q: What happens when my free plan runs out?**  
-A: You’ll be invited to upgrade to Pro. Your saved praise messages and favourites remain accessible — but you won’t be able to generate new ones until you upgrade or wait for the next month’s quota reset.
+A: You’ll be invited to upgrade to Pro. Your saved praise messages and favourites remain accessible  -  but you won’t be able to generate new ones until you upgrade or wait for the next month’s quota reset.
 
 **Q: What’s included in the Pro plan?**  
 A: Unlimited praise generation, advanced tone tuning, class group tagging, and printable designs. You'll also unlock access to teacher-created templates and weekly celebration prompts.
 
 **Q: Can I pay yearly and save?**  
-A: Yes — our **annual Pro plan** gives you a 20% discount.
+A: Yes  -  our **annual Pro plan** gives you a 20% discount.
 
 **Q: Do you offer school or district licences?**  
 A: Yes. The **Zaza BragBoard School Licence** includes:
@@ -67,10 +67,10 @@ A: Of course. All messages are editable. You’re in full control. Think of Brag
 A: Yes. Every message you generate can be saved, tagged, exported as text or PDF, and reused in the future.
 
 **Q: Can I share templates with colleagues?**  
-A: Yes — this is built into the School Licence. Staff can share praise libraries and prewritten frameworks across departments or campuses.
+A: Yes  -  this is built into the School Licence. Staff can share praise libraries and prewritten frameworks across departments or campuses.
 
 **Q: Can I upload student rosters or class data?**  
-A: Not yet — but this is on our roadmap. For now, you can tag messages with custom labels (e.g. “5A – Writing Stars”) to group student recognitions.
+A: Not yet  -  but this is on our roadmap. For now, you can tag messages with custom labels (e.g. “5A – Writing Stars”) to group student recognitions.
 
 **Q: Does BragBoard personalise praise based on mood or learning strengths?**  
 A: Yes. You can guide the tone (e.g. “gentle encouragement” or “confident cheer”) and input traits like creativity, perseverance, teamwork, etc. The system adapts to celebrate the *real* child.
@@ -80,7 +80,7 @@ A: Yes. You can guide the tone (e.g. “gentle encouragement” or “confident 
 ## 🖥️ Devices, Platforms & Compatibility
 
 **Q: Will Zaza BragBoard work on my school laptop or Chromebook?**  
-A: Yes. BragBoard is a fully responsive web app and works perfectly on all modern browsers (Chrome, Edge, Safari, Firefox) — including Chromebooks, iPads, tablets, and mobile phones.
+A: Yes. BragBoard is a fully responsive web app and works perfectly on all modern browsers (Chrome, Edge, Safari, Firefox)  -  including Chromebooks, iPads, tablets, and mobile phones.
 
 **Q: Do you have a mobile app?**  
 A: Yes! **Native iOS and Android apps will launch alongside the web version**, so you can write praise notes on-the-go, during lunch, or from the staffroom couch.
@@ -90,7 +90,7 @@ A: Yes! **Native iOS and Android apps will launch alongside the web version**, s
 ## 🔐 Privacy & Data
 
 **Q: Do you store student data?**  
-A: No. All student inputs are ephemeral — we never store names, grades, or identifying data. You control all inputs and outputs.
+A: No. All student inputs are ephemeral  -  we never store names, grades, or identifying data. You control all inputs and outputs.
 
 **Q: Are you GDPR and FERPA compliant?**  
 A: Yes. Zaza Technologies meets global standards for education data privacy. For schools, we offer custom **Data Processing Agreements (DPAs)**.
@@ -134,13 +134,13 @@ A: Please do! Zaza BragBoard is teacher-built and teacher-powered. Use the built
 ## 💬 What Teachers Are Saying
 
 > “I used to dread writing end-of-week shoutouts. Now it’s my favourite 10 minutes on a Friday.”  
-> — Rachel M., Secondary Teacher, UK
+>  -  Rachel M., Secondary Teacher, UK
 
 > “Zaza BragBoard actually feels like it *gets* my class. The tone is just right.”  
-> — Jessica R., Burnt-Out Middle School Educator, US
+>  -  Jessica R., Burnt-Out Middle School Educator, US
 
 > “It takes 60 seconds to generate a celebration. My students light up when I read them out loud.”  
-> — Emma T., Year 5 Teacher, UK
+>  -  Emma T., Year 5 Teacher, UK
 
 ---
 

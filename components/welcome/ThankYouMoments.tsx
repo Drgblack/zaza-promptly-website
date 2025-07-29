@@ -185,7 +185,7 @@ export function WelcomeCard({
     // Add author
     ctx.font = `${titleFontSize}px Inter, system-ui, sans-serif`
     ctx.fillStyle = 'rgba(255, 255, 255, 0.9)'
-    ctx.fillText(`— ${selectedQuote.author}`, width / 2, y + lineHeight * 2)
+    ctx.fillText(` -  ${selectedQuote.author}`, width / 2, y + lineHeight * 2)
 
     // Add Zaza branding
     ctx.font = `${titleFontSize * 0.7}px Inter, system-ui, sans-serif`
@@ -235,7 +235,7 @@ Teacher Inspiration Collection
 From Zaza Promptly
 
 ${selectedQuote.quote}
-— ${selectedQuote.author}
+ -  ${selectedQuote.author}
 
 Personal milestone: ${current.title}
 ${current.message}
@@ -296,7 +296,7 @@ AI-powered tools for amazing educators
                   "{selectedQuote.quote}"
                 </blockquote>
                 <cite className="text-purple-600 dark:text-purple-400 font-medium">
-                  — {selectedQuote.author}
+                   -  {selectedQuote.author}
                 </cite>
               </CardContent>
             </Card>
@@ -397,7 +397,7 @@ AI-powered tools for amazing educators
                   A Personal Note from Zara
                 </h4>
                 <p className="text-purple-700 dark:text-purple-300 text-sm leading-relaxed">
-                  {userName}, teaching isn't just what you do—it's who you are. Every comment you craft, 
+                  {userName}, teaching isn't just what you do - it's who you are. Every comment you craft, 
                   every parent you reach out to, every moment you invest in your students matters more than 
                   you know. Thank you for trusting Zaza to be part of your journey. Here's to making 
                   parent communication easier so you can focus on what you do best: inspiring young minds! 💜

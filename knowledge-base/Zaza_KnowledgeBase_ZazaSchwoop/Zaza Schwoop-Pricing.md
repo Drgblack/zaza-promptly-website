@@ -19,7 +19,7 @@
 ✅ Discounted bundle price (save 25%)  
 ✅ Shared dashboard and preferences across apps  
 ✅ Ideal for active teachers who plan and report weekly  
-✅ Cancel anytime — switch between plans freely
+✅ Cancel anytime  -  switch between plans freely
 
 ## School Licence – Custom Quote
 ✅ Multiple teacher accounts  
@@ -43,7 +43,7 @@ A: No, they remain available for download. You won’t be able to generate new c
 A: Yes. Downgrades happen on the next cycle. Upgrades take effect immediately.
 
 **Q: Can I upgrade to a bundle after starting with Pro?**  
-A: Yes — just visit your billing settings and choose “Switch to Bundle Plan.” Your next bill will be adjusted automatically.
+A: Yes  -  just visit your billing settings and choose “Switch to Bundle Plan.” Your next bill will be adjusted automatically.
 
 **Q: Will the bundle include future Zaza apps?**  
 A: We plan to offer additional bundles and upgrade paths for new apps like Zaza Visuals, Zaza Coach, and more.

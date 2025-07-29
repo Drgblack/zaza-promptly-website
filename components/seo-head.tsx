@@ -29,7 +29,7 @@ const seoContent = {
   features: {
     title: "AI Teacher Tools & Features | Zaza Promptly - Boost Your Teaching Efficiency",
     description:
-      "Discover how Zaza Promptly helps teachers generate report comments, translate messages, and personalize tone — all in seconds. Boost your teaching efficiency with AI-powered tools.",
+      "Discover how Zaza Promptly helps teachers generate report comments, translate messages, and personalize tone  -  all in seconds. Boost your teaching efficiency with AI-powered tools.",
     url: "https://zazapromptly.com/features",
     keywords: "teacher features, AI comment generation, report writing tools, teacher productivity, educational AI, student feedback tools, teacher software, artificial intelligence features, machine learning tools, AI-powered feedback, natural language processing, automated report writing, AI teaching tools, educational technology features, AI assessment tools, intelligent feedback system, AI grading assistance, teacher automation features, AI communication tools, educational AI features",
   },
@@ -43,7 +43,7 @@ const seoContent = {
   about: {
     title: "About Zaza Promptly | AI Tools Built by Teachers, for Teachers",
     description:
-      "Zaza Promptly was created by Dr. Greg Blackburn to help teachers thrive — not burn out. Discover the mission behind our AI-powered teaching tools and our commitment to education.",
+      "Zaza Promptly was created by Dr. Greg Blackburn to help teachers thrive  -  not burn out. Discover the mission behind our AI-powered teaching tools and our commitment to education.",
     url: "https://zazapromptly.com/about",
     keywords: "about Zaza, teacher-founded, Dr. Greg Blackburn, education mission, teacher tools history, AI education company, artificial intelligence company, machine learning education, AI startup, educational technology company, teacher entrepreneur, AI education founder, artificial intelligence mission, machine learning for education, AI teaching company, educational AI startup, teacher technology company, AI education innovation, artificial intelligence education, machine learning teaching tools",
   },
@@ -57,7 +57,7 @@ const seoContent = {
   waitlist: {
     title: "Join the Zaza Promptly Waitlist Today - Early Access for Teachers",
     description:
-      "Get early access to Zaza Promptly — the AI comment generator for teachers. Join thousands of educators already on the list and be first to try new features.",
+      "Get early access to Zaza Promptly  -  the AI comment generator for teachers. Join thousands of educators already on the list and be first to try new features.",
     url: "https://zazapromptly.com/waitlist",
     keywords: "teacher waitlist, early access, AI education tools, teacher signup, beta access, teacher software preview, artificial intelligence waitlist, machine learning early access, AI tool beta, artificial intelligence preview, machine learning waitlist, AI education beta, artificial intelligence education access, machine learning tool preview, AI teaching waitlist, educational AI beta, artificial intelligence teaching access, machine learning education preview, AI tool early access, artificial intelligence beta testing",
   },

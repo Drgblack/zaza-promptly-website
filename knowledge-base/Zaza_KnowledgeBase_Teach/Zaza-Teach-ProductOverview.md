@@ -1,7 +1,7 @@
 
 # Zaza Teach – Product Overview
 
-**Zaza Teach** is an AI-powered lesson planning assistant built specifically for overworked primary and secondary teachers. Designed by educators, for educators, it helps you generate curriculum-aligned, fully differentiated lesson plans in under 10 minutes — without sacrificing professional control or student impact.
+**Zaza Teach** is an AI-powered lesson planning assistant built specifically for overworked primary and secondary teachers. Designed by educators, for educators, it helps you generate curriculum-aligned, fully differentiated lesson plans in under 10 minutes  -  without sacrificing professional control or student impact.
 
 Whether you're teaching Year 6 maths or Year 9 English, Zaza Teach adapts to your subject, learning objectives, and student needs, allowing you to reclaim your evenings and weekends without compromising quality.
 
@@ -54,7 +54,7 @@ No steep learning curves. No student data required. Just smarter, faster plannin
 
 ## 🧠 Why Zaza Teach Exists
 
-We didn’t build Zaza Teach as just another edtech product. We built it as a lifeline — because teachers around the world are saying things like:
+We didn’t build Zaza Teach as just another edtech product. We built it as a lifeline  -  because teachers around the world are saying things like:
 
 💬 *“I love my students, but I’m drowning. I work 60+ hours a week and still feel like I’m failing them.”*
 
@@ -68,7 +68,7 @@ We didn’t build Zaza Teach as just another edtech product. We built it as a li
 
 💬 *“I’m expected to be a miracle worker between 3:30 and 4:00.”*
 
-💬 *“I feel guilty all the time—like I’m not doing enough, even when I’m doing everything.”*
+💬 *“I feel guilty all the time - like I’m not doing enough, even when I’m doing everything.”*
 
 💬 *“We’re constantly made to feel like we’re the problem. Like we’re lazy or not ‘tech-savvy’ enough.”*
 
@@ -78,12 +78,12 @@ We didn’t build Zaza Teach as just another edtech product. We built it as a li
 
 💬 *“If I could just get back an hour a day, I might start enjoying this job again.”*
 
-Zaza Teach was created with these realities in mind — to restore time, joy, and energy to educators who deserve better.
+Zaza Teach was created with these realities in mind  -  to restore time, joy, and energy to educators who deserve better.
 
 
 ## 🔐 Privacy & Trust
 
-Zaza Teach is fully GDPR and FERPA compliant. No student data is collected, stored, or processed. You maintain complete control over all content generated — editable, shareable, and yours to keep.
+Zaza Teach is fully GDPR and FERPA compliant. No student data is collected, stored, or processed. You maintain complete control over all content generated  -  editable, shareable, and yours to keep.
 
 ---
 
@@ -123,10 +123,10 @@ Each lesson is generated with:
 ## 💬 What Teachers Say
 
 > “Zaza Teach saved me 2 hours every week. My observation feedback even mentioned the differentiated planning.”  
-> — **Sarah H., KS4 English Teacher, UK**
+>  -  **Sarah H., KS4 English Teacher, UK**
 
 > “I use it every Sunday now. It generates 3 versions of my reading activities and even adds success criteria!”  
-> — **Amanda T., Grade 5 ELA Teacher, US**
+>  -  **Amanda T., Grade 5 ELA Teacher, US**
 
 ---
 
@@ -136,7 +136,7 @@ Each lesson is generated with:
 - **Pro Plan**: €14.99/month or €149/year  
   🔓 Unlimited use, save + share templates, future collaboration features included.
 
-Special pricing available for schools and districts — [contact us](mailto:support@zazateach.com).
+Special pricing available for schools and districts  -  [contact us](mailto:support@zazateach.com).
 
 ---
 
@@ -152,10 +152,10 @@ Web: [zazateach.com](https://www.zazateach.com)
 
 ## 🚀 Summary
 
-Zaza Teach is your AI-powered co-planner — always ready, never overwhelmed.  
+Zaza Teach is your AI-powered co-planner  -  always ready, never overwhelmed.  
 It's time to stop dreading Sundays. It's time to teach like yourself again.
 
-👉 **Try Zaza Teach free today** — and feel the difference by Monday morning.
+👉 **Try Zaza Teach free today**  -  and feel the difference by Monday morning.
 
 access_conditions:
   - if: user.email == "greg@zazatechnologies.com"

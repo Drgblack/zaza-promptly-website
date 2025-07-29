@@ -41,7 +41,7 @@ Ideal for teachers who generate both visuals and lesson plans regularly.
 - ✅ Shared account and user preferences
 - ✅ Synchronized theme settings across apps
 - ✅ Exclusive access to **cross-app features** (e.g., visual-to-lesson plan syncing)
-- ✅ Cancel anytime — switch plans freely
+- ✅ Cancel anytime  -  switch plans freely
 - ✅ Save **25% compared to subscribing separately**
 
 ---

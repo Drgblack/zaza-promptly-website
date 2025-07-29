@@ -7,8 +7,8 @@ A collection of warm, supportive, and professional closing lines designed for us
 
 - Let me know if there's anything else I can do for you.
 - I'm here to help whenever you're ready.
-- Thanks again for reaching out—talk soon!
-- You're doing great work—I'm glad we could connect.
+- Thanks again for reaching out - talk soon!
+- You're doing great work - I'm glad we could connect.
 - If you ever need more help, just reply anytime.
 
 ---
@@ -26,27 +26,27 @@ A collection of warm, supportive, and professional closing lines designed for us
 ## 🚀 Confident – Action-Oriented
 
 - That should give you a clear path forward.
-- You’re all set—just let me know how it goes.
+- You’re all set - just let me know how it goes.
 - This should make your next step much easier.
-- Let’s take it from here—excited to see what you create!
+- Let’s take it from here - excited to see what you create!
 
 ---
 
 ## 🤝 Friendly – Boutique Relationship Tone
 
 - Always glad to support a fellow educator.
-- Thanks again—it’s a pleasure supporting your journey.
-- Really appreciate you reaching out—stay awesome!
+- Thanks again - it’s a pleasure supporting your journey.
+- Really appreciate you reaching out - stay awesome!
 - Wishing you all the best from the Zaza team.
 
 ---
 
 ## 🌱 Teacher Empathy – Specific for Zaza Users
 
-- I know your time is precious—hope this made things easier.
+- I know your time is precious - hope this made things easier.
 - Keep doing what you do best: teach. We're here to handle the rest.
 - You've got this. And we've got your back.
-- Teaching is hard enough—Zaza’s here to lighten the load.
+- Teaching is hard enough - Zaza’s here to lighten the load.
 - You deserve tools that help you thrive. We're building them for you.
 
 ---

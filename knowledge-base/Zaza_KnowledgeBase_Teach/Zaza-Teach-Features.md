@@ -1,7 +1,7 @@
 
 # ✨ Zaza Teach – Features & Functionality
 
-Zaza Teach is a premium co-planning companion built for the modern educator. Designed with emotional intelligence and pedagogical depth, it helps teachers plan, communicate, and thrive in today’s demanding classrooms. With native mobile apps launching alongside our web platform, Zaza Teach is always by your side—at school, at home, or on the go.
+Zaza Teach is a premium co-planning companion built for the modern educator. Designed with emotional intelligence and pedagogical depth, it helps teachers plan, communicate, and thrive in today’s demanding classrooms. With native mobile apps launching alongside our web platform, Zaza Teach is always by your side - at school, at home, or on the go.
 
 ---
 
@@ -140,7 +140,7 @@ We do not currently support other languages (e.g. Arabic, Portuguese) beyond tho
 
 ## 🏆 Boutique Product Positioning
 
-Zaza Teach is not a generic comment tool—it’s a thoughtfully designed, educator-first platform. We don’t sell AI; we help teachers *thrive*. Every feature is handcrafted with empathy, professional standards, and human-centred design.
+Zaza Teach is not a generic comment tool - it’s a thoughtfully designed, educator-first platform. We don’t sell AI; we help teachers *thrive*. Every feature is handcrafted with empathy, professional standards, and human-centred design.
 
 access_conditions:
   - if: user.email == "greg@zazatechnologies.com"

@@ -27,7 +27,7 @@ When parents challenge our decisions, our natural response is to defend. After a
 
 But here's what I've learned after hundreds of these conversations: **defense mode kills partnership before it can begin.**
 
-When we respond from a place of feeling attacked, we create an adversarial dynamic that serves no one—not us, not the parents, and certainly not the child caught in the middle.
+When we respond from a place of feeling attacked, we create an adversarial dynamic that serves no one - not us, not the parents, and certainly not the child caught in the middle.
 
 ## What's Really Happening Behind the Critique
 
@@ -35,7 +35,7 @@ Last month, I watched a veteran teacher completely transform a hostile parent me
 
 *"It sounds like you're really concerned about Emma's stress levels at home. Can you tell me what you're seeing?"*
 
-The parent's entire demeanor changed. The real issue wasn't the homework—it was that Emma was staying up until midnight, crying over math problems, while mom felt helpless to support her.
+The parent's entire demeanor changed. The real issue wasn't the homework - it was that Emma was staying up until midnight, crying over math problems, while mom felt helpless to support her.
 
 **The complaint was the symptom. The fear was the disease.**
 
@@ -45,7 +45,7 @@ The parent's entire demeanor changed. The real issue wasn't the homework—it wa
 
 **The one who challenges your classroom management?** Perhaps they're seeing behavior at home that worries them, and they're hoping you have answers they don't.
 
-**The parent who seems to undermine every decision?** They might be fighting battles you can't see—learning differences, family stress, or their own feelings of inadequacy as a parent.
+**The parent who seems to undermine every decision?** They might be fighting battles you can't see - learning differences, family stress, or their own feelings of inadequacy as a parent.
 
 When we shift from defending our position to understanding their perspective, magic happens.
 
@@ -148,7 +148,7 @@ Remember: **You don't have to defend good teaching. You just have to explain it 
 
 Every challenging parent conversation is an opportunity to model the collaboration and problem-solving we want our students to learn.
 
-*When we turn defense into partnership, everyone wins—especially the child at the center of it all.*
+*When we turn defense into partnership, everyone wins - especially the child at the center of it all.*
 
 ---
 
@@ -156,4 +156,4 @@ Every challenging parent conversation is an opportunity to model the collaborati
 
 ---
 
-**About the Author:** These insights come from educators who've learned that the most challenging parent conversations often lead to the strongest partnerships—when we choose connection over defensiveness.
+**About the Author:** These insights come from educators who've learned that the most challenging parent conversations often lead to the strongest partnerships - when we choose connection over defensiveness.

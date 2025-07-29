@@ -7,7 +7,7 @@ Zaza Visuals is a dynamic AI-powered tool built to serve the diverse needs of te
 ## 🎯 Use Case 1: Year 4 Maths Teacher – Personalised Report Writing at Scale
 
 ### Problem
-End-of-term reports require writing 28 individualised student reflections. Balancing accuracy, personalisation, and tone consistency is a major time sink—often requiring 10+ hours across a weekend.
+End-of-term reports require writing 28 individualised student reflections. Balancing accuracy, personalisation, and tone consistency is a major time sink - often requiring 10+ hours across a weekend.
 
 ### Zaza Visuals Solution
 - Upload or link a spreadsheet with student performance data (e.g. test scores, teacher notes).
@@ -103,7 +103,7 @@ New teachers struggle with articulating weekly classroom reflections or mentor u
 
 ---
 
-Each of these use cases demonstrates how Zaza Visuals meets real needs in real classrooms—with empathy, intelligence, and efficiency.
+Each of these use cases demonstrates how Zaza Visuals meets real needs in real classrooms - with empathy, intelligence, and efficiency.
 
 access_conditions:
   - if: user.email == "greg@zazatechnologies.com"

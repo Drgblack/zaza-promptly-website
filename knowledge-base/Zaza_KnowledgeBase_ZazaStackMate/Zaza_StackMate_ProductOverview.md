@@ -1,8 +1,8 @@
 # Zaza StackMate – Product Overview
 
-Zaza StackMate is your personalised AI engineering co-pilot—purpose-built for non-technical professionals, creators, and founders who want to build apps, automate workflows, or launch tech-enabled ventures without needing to write code. Whether you're an educator building an edtech tool, a coach launching a SaaS, or a freelancer automating client onboarding, StackMate translates your ideas into working software using the most popular no-code/low-code stacks.
+Zaza StackMate is your personalised AI engineering co-pilot - purpose-built for non-technical professionals, creators, and founders who want to build apps, automate workflows, or launch tech-enabled ventures without needing to write code. Whether you're an educator building an edtech tool, a coach launching a SaaS, or a freelancer automating client onboarding, StackMate translates your ideas into working software using the most popular no-code/low-code stacks.
 
-Unlike code-centric AI tools that expect technical fluency, StackMate combines context-aware guidance, emotional support, and hands-on help to walk you through every step of building your app. It’s like having a full-stack engineer, product coach, and UX mentor—all rolled into one emotionally intelligent mascot interface.
+Unlike code-centric AI tools that expect technical fluency, StackMate combines context-aware guidance, emotional support, and hands-on help to walk you through every step of building your app. It’s like having a full-stack engineer, product coach, and UX mentor - all rolled into one emotionally intelligent mascot interface.
 
 ## 🎯 Mission
 
@@ -10,9 +10,9 @@ To democratise digital creation by making the power of app development, automati
 
 ## 🧠 Key Differentiators
 
-- **Stack-Aware Guidance**: Tailored support for your selected stack—FlutterFlow, Supabase, Firebase, Stripe, Webflow, Notion, Airtable, Make, Zapier, and more.
-- **Emotionally Adaptive Mascots**: Choose a tone and personality that matches your working style—calm owl, cheeky raccoon, straight-talking robot.
-- **Phase-Based Product Coaching**: StackMate adapts to your build stage—Ideation, Setup, Build, Polish, or Launch—and gives relevant support.
+- **Stack-Aware Guidance**: Tailored support for your selected stack - FlutterFlow, Supabase, Firebase, Stripe, Webflow, Notion, Airtable, Make, Zapier, and more.
+- **Emotionally Adaptive Mascots**: Choose a tone and personality that matches your working style - calm owl, cheeky raccoon, straight-talking robot.
+- **Phase-Based Product Coaching**: StackMate adapts to your build stage - Ideation, Setup, Build, Polish, or Launch - and gives relevant support.
 - **Prompt-to-Task Engine**: Turn vague goals into actionable instructions or scripts. StackMate auto-generates GPT prompts, setup guides, and integration code.
 - **Structured Learning Layer**: Every interaction includes teaching moments that explain what you're doing, why it matters, and how to improve.
 - **Real-Time Execution Partner**: From API troubleshooting to design reviews, StackMate is there when you get stuck, with AI-powered debugging and best-practice recommendations.
@@ -40,7 +40,7 @@ To democratise digital creation by making the power of app development, automati
 2. **Stack Setup**: Select tools for frontend, backend, AI, payments, and data.
 3. **Mascot Matching**: Pick your co-pilot persona for tone and workflow style.
 4. **Progress Mapping**: StackMate tracks your build phase and project scope.
-5. **Guided Execution**: Get help writing prompts, setting up integrations, debugging, or shipping your app—context-aware and vibe-friendly.
+5. **Guided Execution**: Get help writing prompts, setting up integrations, debugging, or shipping your app - context-aware and vibe-friendly.
 6. **Knowledge Lock-In**: Every session becomes part of your personal playbook with exportable notes, tutorials, and recap summaries.
 
 ## 🔒 Privacy & Safety
@@ -49,7 +49,7 @@ StackMate never stores sensitive user or business data without permission. All A
 
 ## 🌱 Product Philosophy
 
-Zaza StackMate believes in *empowered learning through doing*. It doesn't try to replace your brain—it enhances it. Our goal is to build your confidence, expand your capabilities, and reduce friction between creative vision and technical execution.
+Zaza StackMate believes in *empowered learning through doing*. It doesn't try to replace your brain - it enhances it. Our goal is to build your confidence, expand your capabilities, and reduce friction between creative vision and technical execution.
 
 ## 🏁 Outcomes We Enable
 

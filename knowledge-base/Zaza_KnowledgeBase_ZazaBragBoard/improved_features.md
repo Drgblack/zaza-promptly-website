@@ -73,7 +73,7 @@ BragBoard combines intelligent AI with deep educational expertise to create the 
 - Motivates continued effort
 - Builds pride and confidence
 
-*Example output: "What an incredible month of growth for Alex! His dedication to improving his writing has paid off tremendously—his latest story about space exploration shows creativity, improved sentence structure, and such vivid imagination..."*
+*Example output: "What an incredible month of growth for Alex! His dedication to improving his writing has paid off tremendously - his latest story about space exploration shows creativity, improved sentence structure, and such vivid imagination..."*
 
 ### Custom Tone Creation
 - **Personal Style Matching**: Adapts to your unique teaching voice
