@@ -42,17 +42,8 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   }
 }
 
-export async function generateStaticParams() {
-  try {
-    const categories = await getAllCategories('en')
-    return categories.map((category) => ({
-      category: category.toLowerCase().replace(/\s+/g, '-'),
-    }))
-  } catch (error) {
-    console.error('Error generating static params for category pages:', error)
-    return [] // Return empty array to prevent build failure
-  }
-}
+// Disable static generation - render pages dynamically to prevent build errors
+export const dynamic = 'force-dynamic'
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
   try {

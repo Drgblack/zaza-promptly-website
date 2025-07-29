@@ -5,6 +5,9 @@ import Footer from '@/components/Footer'
 import { BlogIndexClient } from '@/components/blog/blog-index-client'
 import { BlogHeroClient } from '@/components/blog/blog-hero-client'
 
+// Disable static generation - render pages dynamically to prevent build errors
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'AI Education Blog - Teaching Tips & Strategies | Zaza Promptly',
   description: 'Discover the latest insights, tips, and strategies for using AI in education. Written by teachers, for teachers. Expert advice on AI-powered teaching tools.',

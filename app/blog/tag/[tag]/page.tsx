@@ -42,17 +42,8 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
   }
 }
 
-export async function generateStaticParams() {
-  try {
-    const tags = await getAllTags('en')
-    return tags.slice(0, 20).map((tag) => ({ // Limit to top 20 tags
-      tag: tag.toLowerCase().replace(/\s+/g, '-'),
-    }))
-  } catch (error) {
-    console.error('Error generating static params for tag pages:', error)
-    return [] // Return empty array to prevent build failure
-  }
-}
+// Disable static generation - render pages dynamically to prevent build errors
+export const dynamic = 'force-dynamic'
 
 export default async function TagPage({ params }: TagPageProps) {
   try {

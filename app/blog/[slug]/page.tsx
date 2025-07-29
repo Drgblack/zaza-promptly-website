@@ -51,12 +51,8 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   }
 }
 
-export async function generateStaticParams() {
-  const slugs = await getBlogPostSlugs()
-  return slugs.map((slug) => ({
-    slug,
-  }))
-}
+// Disable static generation - render pages dynamically to prevent build errors
+export const dynamic = 'force-dynamic'
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params
