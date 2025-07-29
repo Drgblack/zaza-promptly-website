@@ -7,7 +7,6 @@ import { EnhancedConversionTracking } from '@/components/analytics/enhanced-conv
 import { PerformanceEnhancements, ServiceWorkerRegistration, PerformanceErrorBoundary } from '@/components/performance-enhancements'
 import './globals.css'
 import { UserFeedback } from '@/components/user-feedback'
-import { VercelAnalytics } from '@/components/analytics/vercel-analytics'
 
 export const metadata: Metadata = {
   title: {
@@ -136,7 +135,6 @@ export default function RootLayout({
         <PerformanceEnhancements />
         <ServiceWorkerRegistration />
         <UserFeedback />
-        <VercelAnalytics />
         <script
           dangerouslySetInnerHTML={{
             __html: `
