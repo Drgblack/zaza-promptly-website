@@ -1,24 +1,13 @@
 'use client'
 
-// TEMPORARY FIX: Vercel deployment stuck on old commit 14c5b57
-// This file was deleted but Vercel won't sync to latest commit
-// Creating minimal stub to satisfy imports until deployment sync resolves
-
-import { Analytics } from '@vercel/analytics/react'
-import { SpeedInsights } from '@vercel/speed-insights/next'
+// CRITICAL FIX: Vercel deployment stuck on old commit 14c5b57
+// That commit expects this file but doesn't have @vercel packages in package.json
+// Creating no-op stub to satisfy import without external dependencies
 
 export function VercelAnalytics() {
-  // Only render in production and if enabled
-  if (process.env.NODE_ENV !== 'production') {
-    return null
-  }
-
-  return (
-    <>
-      <Analytics />
-      <SpeedInsights />
-    </>
-  )
+  // Disabled due to deployment sync issues
+  // Will re-enable once Vercel syncs to latest commit with proper dependencies
+  return null
 }
 
 export default VercelAnalytics
