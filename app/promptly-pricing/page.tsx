@@ -6,6 +6,9 @@ import Footer from "@/components/Footer";
 import { SEOHead } from "../../components/seo-head";
 import { Zap, CheckCircle, Users, Shield } from "lucide-react";
 
+// Disable static generation - render pages dynamically to prevent build errors
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'Zaza Promptly Pricing - AI Teacher Tools Plans & Pricing',
   description: 'Choose the perfect AI-powered teaching plan for your needs. Start with our free tier or upgrade to Pro for unlimited feedback generation and advanced features.',
