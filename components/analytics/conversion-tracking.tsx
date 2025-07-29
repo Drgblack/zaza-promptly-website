@@ -26,16 +26,16 @@ export function useConversionTracking() {
       },
     }
 
-    // Google Analytics 4 - Temporarily commented out
-    // if (typeof window !== "undefined" && (window as any).gtag) {
-    //   (window as any).gtag("event", "primary_cta_click", {
-    //     event_category: "conversion",
-    //     event_label: ctaText,
-    //     value: 100,
-    //     cta_location: location,
-    //     cta_text: ctaText,
-    //   })
-    // }
+    // Google Analytics 4
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", "primary_cta_click", {
+        event_category: "conversion",
+        event_label: ctaText,
+        value: 100,
+        cta_location: location,
+        cta_text: ctaText,
+      })
+    }
 
     // Facebook Pixel
     if (typeof window !== "undefined" && window.fbq) {
@@ -65,15 +65,15 @@ export function useConversionTracking() {
       },
     }
 
-    // Temporarily commented out
-    // if (typeof window !== "undefined" && (window as any).gtag) {
-    //   (window as any).gtag("event", "secondary_cta_click", {
-    //     event_category: "engagement",
-    //     event_label: ctaText,
-    //     value: 50,
-    //     cta_location: location,
-    //   })
-    // }
+    // Google Analytics 4
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", "secondary_cta_click", {
+        event_category: "engagement",
+        event_label: ctaText,
+        value: 50,
+        cta_location: location,
+      })
+    }
 
     trackCustomEvent(event)
   }, [])
@@ -91,25 +91,25 @@ export function useConversionTracking() {
       },
     }
 
-    // Temporarily commented out
-    // if (typeof window !== "undefined" && (window as any).gtag) {
+    // Google Analytics 4
+    if (typeof window !== "undefined" && (window as any).gtag) {
     //   (window as any).gtag("event", "demo_interaction", {
     //     event_category: "demo",
     //     event_label: action,
     //     demo_step: step,
     //     completion_rate: completion_rate,
-    //   })
-    // }
+      })
+    }
 
     // Track demo completion milestone
     if (completion_rate && completion_rate >= 100) {
-          // Temporarily commented out
-          // if ((window as any).gtag) {
-          //   (window as any).gtag("event", "demo_completed", {
-          //     event_category: "conversion",
-          //     value: 75,
-          //   })
-          // }
+          // Google Analytics 4
+          if ((window as any).gtag) {
+            (window as any).gtag("event", "demo_completed", {
+              event_category: "conversion",
+              value: 75,
+            })
+          }
 
       if (window.fbq) {
         window.fbq("track", "CompleteRegistration", {
@@ -137,14 +137,14 @@ export function useConversionTracking() {
       },
     }
 
-    // Temporarily commented out
-    // if (typeof window !== "undefined" && (window as any).gtag) {
+    // Google Analytics 4
+    if (typeof window !== "undefined" && (window as any).gtag) {
     //   (window as any).gtag("event", "sign_up", {
     //     method: source,
     //     event_category: "conversion",
     //     value: 150,
-    //   })
-    // }
+      })
+    }
 
     if (typeof window !== "undefined" && window.fbq) {
       window.fbq("track", "Lead", {
@@ -171,15 +171,15 @@ export function useConversionTracking() {
       },
     }
 
-    // Temporarily commented out
-    // if (typeof window !== "undefined" && (window as any).gtag) {
+    // Google Analytics 4
+    if (typeof window !== "undefined" && (window as any).gtag) {
     //   (window as any).gtag("event", "feature_interaction", {
     //     event_category: "engagement",
     //     event_label: feature,
     //     feature_name: feature,
     //     interaction_type: action,
-    //   })
-    // }
+      })
+    }
 
     trackCustomEvent(event)
   }, [])

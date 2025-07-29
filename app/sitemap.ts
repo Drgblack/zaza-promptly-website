@@ -1,17 +1,44 @@
 import { MetadataRoute } from 'next'
+import { getAllBlogPosts, getAllCategories, getAllTags } from '@/lib/blog'
+import { locales } from '@/i18n'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://zazapromptly.com'
   const currentDate = new Date()
   
+  // Define multilingual pages that should be included
+  const multilingualPages = [
+    '',
+    '/about',
+    '/why-zaza-promptly',
+    '/blog',
+    '/free-resources'
+  ]
+  
+  // Generate multilingual static pages
+  const multilingualStaticPages = multilingualPages.flatMap(page => 
+    locales.map(locale => ({
+      url: locale === 'en' 
+        ? `${baseUrl}${page}` 
+        : `${baseUrl}/${locale}${page}`,
+      lastModified: currentDate,
+      changeFrequency: page === '' ? 'daily' as const : 'weekly' as const,
+      priority: page === '' ? 1.0 : 0.8,
+      alternates: {
+        languages: Object.fromEntries(
+          locales.map(loc => [
+            loc,
+            loc === 'en' 
+              ? `${baseUrl}${page}` 
+              : `${baseUrl}/${loc}${page}`
+          ])
+        )
+      }
+    }))
+  )
+  
   // Static pages with enhanced priorities and change frequencies
   const staticPages = [
-    {
-      url: baseUrl,
-      lastModified: currentDate,
-      changeFrequency: 'daily' as const,
-      priority: 1.0,
-    },
     {
       url: `${baseUrl}/features`,
       lastModified: currentDate,
@@ -68,43 +95,46 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  // Blog posts with realistic dates and enhanced content
-  const blogPosts = [
+  // Get dynamic blog posts
+  const blogPosts = await getAllBlogPosts()
+  const blogPostPages = blogPosts.map(post => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: post.publishedAt,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }))
+
+  // Get blog categories and create category pages
+  const categories = await getAllCategories()
+  const categoryPages = categories.map(category => ({
+    url: `${baseUrl}/blog/category/${category.toLowerCase().replace(/\s+/g, '-')}`,
+    lastModified: currentDate,
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }))
+
+  // Get blog tags and create tag pages
+  const tags = await getAllTags()
+  const tagPages = tags.slice(0, 20).map(tag => ({ // Limit to top 20 tags
+    url: `${baseUrl}/blog/tag/${tag.toLowerCase().replace(/\s+/g, '-')}`,
+    lastModified: currentDate, 
+    changeFrequency: 'weekly' as const,
+    priority: 0.6,
+  }))
+
+  // Blog-specific pages
+  const blogSpecificPages = [
     {
-      url: `${baseUrl}/blog/ai-teaching-tools-2024`,
-      lastModified: new Date('2024-01-15'),
+      url: `${baseUrl}/generate-blog`,
+      lastModified: currentDate,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/blog/teacher-productivity-tips`,
-      lastModified: new Date('2024-01-10'),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/student-feedback-best-practices`,
-      lastModified: new Date('2024-01-05'),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/how-ai-is-transforming-education`,
-      lastModified: new Date('2024-01-20'),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/time-saving-tools-for-teachers`,
-      lastModified: new Date('2024-01-25'),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/effective-parent-communication`,
-      lastModified: new Date('2024-02-01'),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
+      url: `${baseUrl}/blog/rss.xml`,
+      lastModified: currentDate,
+      changeFrequency: 'daily' as const,
+      priority: 0.5,
     },
   ]
 
@@ -297,8 +327,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   return [
+    ...multilingualStaticPages,
     ...staticPages,
-    ...blogPosts,
+    ...blogPostPages,
+    ...categoryPages,
+    ...tagPages,
+    ...blogSpecificPages,
     ...faqPages,
     ...supportPages,
     ...resourcePages,

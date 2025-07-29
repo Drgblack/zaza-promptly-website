@@ -3,15 +3,13 @@ import { v4 as uuidv4 } from 'uuid';
 import fs from 'fs';
 import path from 'path';
 
-// Helper: Write log entry to file and console
+// Helper: Write log entry to file only
 function logGPTEvent(event: Record<string, any>) {
   const logDir = path.resolve(process.cwd(), 'logs');
   if (!fs.existsSync(logDir)) fs.mkdirSync(logDir);
   const logPath = path.join(logDir, 'gpt-helper.log');
   const entry = JSON.stringify(event) + '\n';
   fs.appendFileSync(logPath, entry);
-  // Also log to console for dev
-  console.log('[GPT-HELPER-LOG]', event);
 }
 
 export async function POST(request: NextRequest) {

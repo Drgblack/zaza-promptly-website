@@ -1,5 +1,6 @@
 # Classroom Management Guide for Teachers
-## Proven Strategies for Creating a Positive, Productive Learning Environment
+## Build a Calm, Focused Classroom in 30 Days or Less
+### Practical Scripts, Templates & Emergency Strategies That Actually Work
 
 ### Table of Contents
 1. [Building a Positive Classroom Culture](#building-a-positive-classroom-culture)

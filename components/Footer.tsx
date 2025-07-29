@@ -1,8 +1,58 @@
 'use client';
 
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Footer() {
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [message, setMessage] = useState('');
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setIsSubmitting(true);
+    setMessage('');
+
+    try {
+      const response = await fetch('/api/brevo-subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          source: 'footer',
+          tags: ['newsletter_signup', 'footer_subscription'],
+          listId: 1
+        }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setMessage('Successfully subscribed! Check your email.');
+        setEmail('');
+        
+        // Track successful subscription
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+          (window as any).gtag('event', 'newsletter_subscribe', {
+            event_category: 'engagement',
+            event_label: 'footer',
+            value: 1
+          });
+        }
+      } else {
+        setMessage(result.error || 'Subscription failed. Please try again.');
+      }
+    } catch (error) {
+      setMessage('Network error. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <footer className="bg-gray-900 text-white py-16 px-6">
       <div className="max-w-7xl mx-auto">
@@ -79,16 +129,31 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4 text-white">Newsletter</h3>
             <p className="text-gray-400 mb-4">Get AI teaching tips and updates delivered to your inbox.</p>
-            <div className="flex">
-              <input 
-                type="email" 
-                placeholder="Enter your email" 
-                className="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded-l-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500"
-              />
-              <button className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-r-lg transition-colors duration-200">
-                Subscribe
-              </button>
-            </div>
+            <form onSubmit={handleNewsletterSubmit} className="space-y-3">
+              <div className="flex">
+                <input 
+                  type="email" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email" 
+                  required
+                  disabled={isSubmitting}
+                  className="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded-l-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 disabled:opacity-50"
+                />
+                <button 
+                  type="submit"
+                  disabled={isSubmitting || !email}
+                  className="px-4 py-2 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white rounded-r-lg transition-colors duration-200"
+                >
+                  {isSubmitting ? 'Subscribing...' : 'Subscribe'}
+                </button>
+              </div>
+              {message && (
+                <p className={`text-sm ${message.includes('Successfully') ? 'text-green-400' : 'text-red-400'}`}>
+                  {message}
+                </p>
+              )}
+            </form>
           </div>
         </div>
         

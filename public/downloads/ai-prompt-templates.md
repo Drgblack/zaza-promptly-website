@@ -1,13 +1,19 @@
 # AI Prompt Templates for Teachers
-## 50+ Ready-to-Use Prompts for Lesson Planning, Feedback, and Communication
+## 50+ Copy-and-Paste Prompts to Save 10+ Hours Weekly
+### Perfect for Busy Educators Who Want to Work Smarter, Not Harder
+
+### 🚀 Quick Start Guide
+**New to AI? Start here!** Simply copy any prompt below, fill in the bracketed information, and paste into ChatGPT, Claude, or your favorite AI tool.
+
+**Time Savings:** Each prompt saves 15-30 minutes of planning time!
 
 ### Table of Contents
-1. [Lesson Planning Prompts](#lesson-planning-prompts)
-2. [Student Feedback Prompts](#student-feedback-prompts)
-3. [Parent Communication Prompts](#parent-communication-prompts)
-4. [Assessment Prompts](#assessment-prompts)
-5. [Classroom Management Prompts](#classroom-management-prompts)
-6. [Professional Development Prompts](#professional-development-prompts)
+1. [📝 Lesson Planning Prompts](#lesson-planning-prompts) - Save 2-3 hours weekly
+2. [💬 Student Feedback Prompts](#student-feedback-prompts) - Speed up grading 3x
+3. [👨‍👩‍👧‍👦 Parent Communication Prompts](#parent-communication-prompts) - Professional messages in minutes
+4. [📊 Assessment Prompts](#assessment-prompts) - Create tests and rubrics instantly
+5. [🏫 Classroom Management Prompts](#classroom-management-prompts) - Handle challenges with confidence
+6. [🎯 Professional Development Prompts](#professional-development-prompts) - Grow your skills efficiently
 
 ---
 

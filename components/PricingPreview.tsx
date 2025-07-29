@@ -9,7 +9,7 @@ export default function PricingPreview() {
         <p className="text-3xl font-bold text-indigo-600 mb-2">€14.99 / month</p>
         <p className="text-gray-600 mb-4">Unlimited comment generation</p>
         <a
-          href="#"
+          href="/promptly-pricing"
           className="bg-indigo-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-indigo-700 transition"
         >
           Start Free Trial

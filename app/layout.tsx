@@ -2,8 +2,12 @@ import type { Metadata } from 'next'
 import { ThemeProvider } from 'next-themes'
 import { ErrorBoundary } from '@/components/error-boundary'
 import { SecurityHeaders } from '@/components/security-headers'
+import { GoogleAnalytics } from '@/components/google-analytics'
+import { EnhancedConversionTracking } from '@/components/analytics/enhanced-conversion-tracking'
+import { PerformanceEnhancements, ServiceWorkerRegistration, PerformanceErrorBoundary } from '@/components/performance-enhancements'
 import './globals.css'
 import { UserFeedback } from '@/components/user-feedback'
+import { VercelAnalytics } from '@/components/analytics/vercel-analytics'
 
 export const metadata: Metadata = {
   title: {
@@ -64,6 +68,19 @@ export const metadata: Metadata = {
     yandex: 'your-yandex-verification-code',
     yahoo: 'your-yahoo-verification-code',
   },
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      { rel: 'icon', url: '/favicon-192x192.png', sizes: '192x192', type: 'image/png' },
+    ],
+  },
 }
 
 export default function RootLayout({
@@ -103,15 +120,23 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
       </head>
       <body>
-        <ErrorBoundary>
-          <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
-            {children}
-          </ThemeProvider>
-        </ErrorBoundary>
+        <PerformanceErrorBoundary>
+          <ErrorBoundary>
+            <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
+              {children}
+            </ThemeProvider>
+          </ErrorBoundary>
+        </PerformanceErrorBoundary>
         <SecurityHeaders />
+        <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+        <EnhancedConversionTracking />
+        <PerformanceEnhancements />
+        <ServiceWorkerRegistration />
         <UserFeedback />
+        <VercelAnalytics />
         <script
           dangerouslySetInnerHTML={{
             __html: `

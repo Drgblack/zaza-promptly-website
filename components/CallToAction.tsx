@@ -6,7 +6,7 @@ export default function CallToAction() {
         Save hours of work. Impress your school. Reduce burnout. Try Zaza Promptly—no credit card required.
       </p>
       <a
-        href="#"
+        href="/promptly-pricing"
         className="inline-block bg-white text-indigo-600 font-semibold px-8 py-3 rounded-full shadow-md hover:bg-gray-100 transition"
       >
         Try Zaza Promptly Free

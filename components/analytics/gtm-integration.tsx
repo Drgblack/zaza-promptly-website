@@ -14,11 +14,12 @@ export function GoogleTagManager({ gtmId, dataLayerName = "dataLayer", auth, pre
   useEffect(() => {
     // Initialize dataLayer
     if (typeof window !== "undefined") {
-      window[dataLayerName as any] = window[dataLayerName as any] || []
-      window[dataLayerName as any].push({
+      const w = window as any;
+      w[dataLayerName] = w[dataLayerName] || [];
+      w[dataLayerName].push({
         "gtm.start": new Date().getTime(),
         event: "gtm.js",
-      })
+      });
     }
   }, [dataLayerName])
 
@@ -58,8 +59,8 @@ export function GoogleTagManager({ gtmId, dataLayerName = "dataLayer", auth, pre
 
 export function useGTMTracking() {
   const pushToDataLayer = (data: Record<string, any>) => {
-    if (typeof window !== "undefined" && window.dataLayer) {
-      window.dataLayer.push(data)
+    if (typeof window !== "undefined" && (window as any).dataLayer) {
+      (window as any).dataLayer.push(data)
     }
   }
 

@@ -1,0 +1,265 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "about": "Chi siamo",
+    "features": "Funzionalità",
+    "blog": "Blog",
+    "pricing": "Prezzi",
+    "freeResources": "Risorse gratuite",
+    "whyZaza": "Perché Zaza Promptly?",
+    "getStarted": "Inizia",
+    "signIn": "Accedi",
+    "menu": "Menu",
+    "close": "Chiudi"
+  },
+  "Hero": {
+    "headline": "Trasforma il tuo insegnamento con la comunicazione genitore-insegnante potenziata dall'IA",
+    "subheadline": "Genera comunicazioni genitoriali professionali e personalizzate in pochi secondi. Risparmia ore ogni settimana mentre rafforzi le relazioni familiari.",
+    "primaryCta": "Inizia la prova gratuita",
+    "secondaryCta": "Guarda la demo",
+    "trustText": "Affidato da oltre 2.400 insegnanti in tutto il mondo"
+  },
+  "Features": {
+    "title": "Tutto quello che ti serve per la comunicazione genitoriale professionale",
+    "subtitle": "Risparmia tempo, riduci lo stress e costruisci relazioni più forti con le famiglie usando strumenti potenziati dall'IA progettati specificamente per gli educatori.",
+    "aiComments": {
+      "title": "Generazione di commenti potenziata dall'IA",
+      "description": "Genera commenti personalizzati e professionali per pagelle, rapporti di progresso e comunicazione quotidiana in pochi secondi."
+    },
+    "multiLanguage": {
+      "title": "Supporto multilingue",
+      "description": "Comunica con le famiglie nella loro lingua preferita con traduzione automatica per spagnolo, francese, tedesco e altro ancora."
+    },
+    "toneCustomization": {
+      "title": "Personalizzazione del tono",
+      "description": "Scegli tra toni professionali, amichevoli, di supporto o diretti per adattarti al tuo stile di comunicazione e alla situazione."
+    },
+    "quickActions": {
+      "title": "Template di azioni rapide",
+      "description": "Template pre-costruiti per scenari comuni come preoccupazioni comportamentali, successi accademici e richieste di conferenze genitoriali."
+    },
+    "timeTracking": {
+      "title": "Tracciamento del tempo e analisi",
+      "description": "Vedi quanto tempo stai risparmiando e traccia i tuoi modelli di comunicazione per migliorare continuamente l'efficienza."
+    },
+    "privacy": {
+      "title": "Conforme a FERPA e privacy",
+      "description": "I tuoi dati e le informazioni degli studenti sono protetti con sicurezza di livello aziendale e piena conformità FERPA."
+    }
+  },
+  "Testimonials": {
+    "title": "Cosa dicono gli insegnanti",
+    "subtitle": "Unisciti a migliaia di educatori che stanno risparmiando tempo e migliorando la comunicazione familiare con Zaza Promptly.",
+    "testimonial1": {
+      "quote": "Zaza Promptly ha completamente trasformato il modo in cui comunico con i genitori. Quello che prima mi richiedeva 3 ore ora richiede 30 minuti, e la qualità è persino migliore!",
+      "author": "Sarah M.",
+      "role": "Insegnante di 3ª elementare"
+    },
+    "testimonial2": {
+      "quote": "Il supporto multilingue è rivoluzionario. Finalmente posso comunicare efficacemente con tutte le mie famiglie, indipendentemente dalle loro preferenze linguistiche.",
+      "author": "Maria L.",
+      "role": "Coordinatrice ESL"
+    },
+    "testimonial3": {
+      "quote": "Come nuovo insegnante, questo strumento mi ha dato fiducia nella mia comunicazione genitoriale. I suggerimenti di tono mi aiutano a trovare il giusto equilibrio ogni volta.",
+      "author": "James K.",
+      "role": "Insegnante di scuola superiore"
+    }
+  },
+  "CallToAction": {
+    "title": "Pronto a trasformare la tua comunicazione genitoriale?",
+    "subtitle": "Unisciti a migliaia di insegnanti che stanno risparmiando ore ogni settimana mentre costruiscono relazioni familiari più forti.",
+    "primaryButton": "Inizia la tua prova gratuita",
+    "secondaryButton": "Programma una demo",
+    "noCredit": "Nessuna carta di credito richiesta",
+    "freeForever": "Piano gratuito disponibile per sempre"
+  },
+  "Footer": {
+    "tagline": "Potenziare gli educatori con strumenti di comunicazione alimentati dall'IA",
+    "product": {
+      "title": "Prodotto",
+      "features": "Funzionalità",
+      "pricing": "Prezzi",
+      "demo": "Demo",
+      "blog": "Blog"
+    },
+    "resources": {
+      "title": "Risorse",
+      "freeTemplates": "Template gratuiti",
+      "helpCenter": "Centro assistenza",
+      "tutorials": "Tutorial",
+      "community": "Comunità"
+    },
+    "company": {
+      "title": "Azienda",
+      "about": "Chi siamo",
+      "careers": "Carriere",
+      "contact": "Contatto",
+      "privacy": "Privacy Policy",
+      "terms": "Termini di servizio"
+    },
+    "support": {
+      "title": "Supporto",
+      "helpDesk": "Help Desk",
+      "documentation": "Documentazione",
+      "status": "Stato del sistema",
+      "feedback": "Feedback"
+    },
+    "copyright": "© 2024 Zaza Technologies. Tutti i diritti riservati.",
+    "madeWith": "Fatto con ❤️ per insegnanti in tutto il mondo"
+  },
+  "About": {
+    "title": "Chi è Zaza Promptly",
+    "subtitle": "Potenziare gli educatori con strumenti alimentati dall'IA per una migliore comunicazione genitoriale",
+    "mission": {
+      "title": "La nostra missione",
+      "description": "Crediamo che ogni insegnante meriti più tempo per concentrarsi su ciò che conta di più: insegnare e connettersi con gli studenti. I nostri strumenti alimentati dall'IA eliminano i compiti che richiedono tempo e che allontanano gli educatori dalla loro vera vocazione."
+    },
+    "story": {
+      "title": "La nostra storia",
+      "description": "Fondata da educatori che comprendono le sfide quotidiane dell'insegnamento, Zaza Promptly è nata dalla frustrazione di passare innumerevoli ore su compiti amministrativi invece che sull'insegnamento vero e proprio."
+    },
+    "values": {
+      "title": "I nostri valori",
+      "education": "Educazione prima di tutto",
+      "privacy": "Privacy protetta",
+      "innovation": "Innovazione continua",
+      "community": "Comunità di insegnanti"
+    }
+  },
+  "WhyZaza": {
+    "title": "Perché scegliere Zaza Promptly?",
+    "subtitle": "Confronta le risorse gratuite con la nostra piattaforma completa di comunicazione genitoriale",
+    "freeResources": {
+      "title": "Risorse gratuite",
+      "description": "Ottimo per iniziare",
+      "features": [
+        "Prompt IA di base",
+        "Template email",
+        "Download PDF",
+        "Accesso comunità"
+      ]
+    },
+    "zazaPromptly": {
+      "title": "Piattaforma Zaza Promptly",
+      "description": "Soluzione completa per insegnanti impegnati",
+      "features": [
+        "Generazione commenti alimentata dall'IA",
+        "Traduzione multilingue",
+        "Personalizzazione del tono",
+        "Template azioni rapide",
+        "Tracciamento tempo e analisi",
+        "Conformità FERPA",
+        "Supporto prioritario",
+        "Integrazioni avanzate"
+      ]
+    },
+    "comparison": {
+      "timeToSetup": "Tempo di configurazione",
+      "customization": "Opzioni di personalizzazione",
+      "support": "Livello di supporto",
+      "dataPrivacy": "Privacy dei dati",
+      "scalability": "Scalabilità"
+    }
+  },
+  "FreeResources": {
+    "title": "Risorse didattiche gratuite",
+    "subtitle": "Scarica template, guide e prompt IA per migliorare il tuo toolkit didattico",
+    "categories": {
+      "aiPrompts": "Prompt IA",
+      "templates": "Template",
+      "guides": "Guide",
+      "worksheets": "Fogli di lavoro"
+    },
+    "downloadButton": "Scarica gratis",
+    "viewAll": "Visualizza tutte le risorse"
+  },
+  "Blog": {
+    "title": "Blog educazione IA",
+    "subtitle": "Scopri le ultime intuizioni, consigli e strategie per usare l'IA nell'educazione. Scritto da insegnanti, per insegnanti.",
+    "readMore": "Leggi di più",
+    "readingTime": "min di lettura",
+    "categories": "Categorie",
+    "tags": "Tag",
+    "allArticles": "Tutti gli articoli",
+    "popularPosts": "Post popolari",
+    "relatedArticles": "Articoli correlati",
+    "shareArticle": "Condividi questo articolo",
+    "backToBlog": "Torna al blog",
+    "filterBy": "Filtra per",
+    "searchPlaceholder": "Cerca articoli...",
+    "noResults": "Nessun articolo trovato che corrisponda ai tuoi criteri",
+    "clearFilters": "Cancella filtri"
+  },
+  "Forms": {
+    "email": "Indirizzo email",
+    "name": "Nome completo",
+    "company": "Scuola/Distretto",
+    "message": "Messaggio",
+    "submit": "Invia",
+    "sending": "Invio in corso...",
+    "sent": "Inviato!",
+    "error": "Qualcosa è andato storto. Riprova.",
+    "required": "Questo campo è obbligatorio",
+    "invalidEmail": "Inserisci un indirizzo email valido"
+  },
+  "Common": {
+    "loading": "Caricamento...",
+    "error": "Errore",
+    "success": "Successo",
+    "cancel": "Annulla",
+    "save": "Salva",
+    "edit": "Modifica",
+    "delete": "Elimina",
+    "confirm": "Conferma",
+    "close": "Chiudi",
+    "next": "Avanti",
+    "previous": "Precedente",
+    "learnMore": "Scopri di più",
+    "getStarted": "Inizia",
+    "comingSoon": "Prossimamente",
+    "newFeature": "Nuovo",
+    "popular": "Popolare",
+    "recommended": "Raccomandato"
+  },
+  "Pricing": {
+    "title": "Prezzi semplici e trasparenti",
+    "subtitle": "Scegli il piano che funziona meglio per te e le tue esigenze didattiche",
+    "monthly": "Mensile",
+    "yearly": "Annuale",
+    "savePercent": "Risparmia {percent}%",
+    "free": {
+      "title": "Gratuito",
+      "price": "0",
+      "description": "Perfetto per iniziare",
+      "features": [
+        "5 commenti IA al mese",
+        "Template di base",
+        "Accesso comunità"
+      ]
+    },
+    "teacher": {
+      "title": "Insegnante",
+      "price": "9",
+      "description": "Per singoli educatori",
+      "features": [
+        "Commenti IA illimitati",
+        "Tutti i template",
+        "Supporto multilingue",
+        "Supporto email prioritario"
+      ]
+    },
+    "school": {
+      "title": "Scuola",
+      "price": "29",
+      "description": "Per scuole e team",
+      "features": [
+        "Tutto in Insegnante",
+        "Collaborazione team",
+        "Dashboard admin",
+        "Branding personalizzato",
+        "Supporto telefonico"
+      ]
+    }
+  }
+}

@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Disclosure } from '@headlessui/react'
-import { ChevronUpIcon } from '@heroicons/react/20/solid'
+import { ChevronUp } from 'lucide-react'
 
 const faqs = [
   {
@@ -48,7 +48,7 @@ export default function FAQ() {
               <>
                 <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-3 text-left text-base font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
                   <span>{faq.question}</span>
-                  <ChevronUpIcon
+                  <ChevronUp
                     className={`${
                       open ? 'rotate-180 transform' : ''
                     } h-5 w-5 text-purple-500`}

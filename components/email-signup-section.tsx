@@ -1,113 +1,7 @@
 "use client"
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Mail, Sparkles, Zap } from "lucide-react"
-
-interface EmailSignupFormProps {
-  source?: string
-}
-
-function EmailSignupForm({ source = "hero-section" }: EmailSignupFormProps) {
-  const [email, setEmail] = useState("")
-  const [firstName, setFirstName] = useState("")
-  const [surname, setSurname] = useState("")
-  const [loading, setLoading] = useState(false)
-  const [success, setSuccess] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setLoading(true)
-    setError(null)
-    setSuccess(false)
-    try {
-      const res = await fetch("/api/email-signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, firstName, surname, source }),
-      })
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}))
-        throw new Error(data.error || "Subscription failed. Please try again.")
-      }
-      setSuccess(true)
-      setEmail("")
-      setFirstName("")
-      setSurname("")
-    } catch (err: any) {
-      setError(err.message || "Subscription failed. Please try again.")
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  return (
-    <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto" aria-label="Email signup form">
-      <input type="hidden" name="source" value={source} />
-      <div className="flex flex-col sm:flex-row gap-3 mb-4">
-        <input
-          id="firstName"
-          type="text"
-          required
-          placeholder="First name"
-          className="flex-1 px-4 py-3 border-2 border-white/30 rounded-xl focus:border-white focus:outline-none text-base text-white placeholder-white/70 bg-white/10 backdrop-blur-sm"
-          value={firstName}
-          onChange={e => setFirstName(e.target.value)}
-          disabled={loading}
-          autoComplete="given-name"
-          aria-label="First name"
-        />
-        <input
-          id="surname"
-          type="text"
-          required
-          placeholder="Surname"
-          className="flex-1 px-4 py-3 border-2 border-white/30 rounded-xl focus:border-white focus:outline-none text-base text-white placeholder-white/70 bg-white/10 backdrop-blur-sm"
-          value={surname}
-          onChange={e => setSurname(e.target.value)}
-          disabled={loading}
-          autoComplete="family-name"
-          aria-label="Surname"
-        />
-      </div>
-      <input
-        id="email"
-        type="email"
-        required
-        placeholder="Enter your email"
-        className="w-full px-4 py-3 border-2 border-white/30 rounded-xl focus:border-white focus:outline-none text-base text-white placeholder-white/70 bg-white/10 backdrop-blur-sm mb-4"
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-        disabled={loading}
-        autoComplete="email"
-        aria-label="Email address"
-      />
-      <Button 
-        type="submit" 
-        disabled={loading || !email.trim() || !firstName.trim() || !surname.trim()} 
-        className="w-full min-h-[48px] bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-semibold rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none" 
-        aria-label="Get AI-powered teaching tips"
-      >
-        {loading ? (
-          <div className="flex items-center justify-center space-x-2">
-            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-            <span>Signing up...</span>
-          </div>
-        ) : (
-          <div className="flex items-center justify-center space-x-2">
-            <Zap className="w-5 h-5" />
-            <span>Get AI Teaching Tips</span>
-          </div>
-        )}
-      </Button>
-      <div aria-live="polite" className="min-h-[24px] mt-3">
-        {success && <div className="text-amber-200 font-medium text-center">🎉 Welcome to the AI teaching revolution!</div>}
-        {error && <div className="text-red-300 font-medium text-center">{error}</div>}
-      </div>
-    </form>
-  )
-}
+import { BrevoForm } from "@/components/brevo-form"
+import { Mail, Sparkles } from "lucide-react"
 
 export function EmailSignupSection() {
   return (
@@ -138,8 +32,16 @@ export function EmailSignupSection() {
             Join thousands of teachers getting weekly AI-powered insights, teaching strategies, and exclusive access to new features.
           </p>
 
-          {/* Email Signup Form */}
-          <EmailSignupForm source="hero-section" />
+          {/* Brevo Email Signup Form */}
+          <div className="max-w-md mx-auto">
+            <BrevoForm
+              title="Join 5,000+ Teachers"
+              description="Get weekly AI tools and time-saving strategies"
+              buttonText="Get Free AI Tips"
+              placeholder="Your email address"
+              className="bg-white/10 backdrop-blur-sm border-white/20"
+            />
+          </div>
 
           {/* Trust Indicators */}
           <div className="mt-12 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 text-blue-100 text-sm">
@@ -165,4 +67,4 @@ export function EmailSignupSection() {
       <div className="absolute bottom-1/4 left-1/4 w-20 h-20 bg-purple-400/10 rounded-full animate-float-fast" />
     </section>
   )
-} 
+}

@@ -1,5 +1,6 @@
 # Assessment Templates for Teachers
-## Standards-Aligned Rubrics, Checklists, and Evaluation Forms for All Subjects and Grade Levels
+## 18 Copy-and-Paste Rubrics & Checklists That Save 2+ Hours Per Week
+### No More Starting from Scratch - Just Fill in Your Content!
 
 ### Table of Contents
 1. [General Assessment Templates](#general-assessment-templates)

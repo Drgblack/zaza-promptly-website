@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { externalLinks } from '../../utils/linkMap';
+import { linkMap, getLink, externalLinks } from '../../lib/linkMap';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -19,9 +19,23 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'AI Teaching Tools - Zaza Technologies',
+  title: 'AI Teaching Tools | Complete Suite for Educators - Zaza Technologies',
   description: 'Discover our complete suite of AI-powered teaching tools designed to transform education and save teachers time.',
-  keywords: 'AI teaching tools, educational technology, teacher productivity, AI feedback, lesson planning',
+  keywords: 'AI teaching tools, educational technology, teacher productivity, AI feedback, lesson planning, classroom automation',
+  openGraph: {
+    title: 'AI Teaching Tools Suite - Zaza Technologies',
+    description: 'Transform your teaching with our complete collection of AI-powered educational tools and resources.',
+    type: 'website',
+    url: 'https://zazapromptly.com/products',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AI Teaching Tools Suite - Zaza Technologies',
+    description: 'Transform your teaching with our complete collection of AI-powered educational tools and resources.',
+  },
+  alternates: {
+    canonical: 'https://zazapromptly.com/products',
+  },
 };
 
 const products = [

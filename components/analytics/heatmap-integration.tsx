@@ -23,36 +23,22 @@ export function HeatmapIntegration({
   useEffect(() => {
     // Initialize Hotjar
     if (hotjarId && typeof window !== "undefined") {
-      ;((h: any, o: any, t: any, j: any, a?: any, r?: any) => {
-        h.hj =
-          h.hj ||
-          (() => {
-            ;(h.hj.q = h.hj.q || []).push(arguments)
-          })
-        h._hjSettings = { hjid: hotjarId, hjsv: 6 }
-        a = o.getElementsByTagName("head")[0]
-        r = o.createElement("script")
-        r.async = 1
-        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv
-        a.appendChild(r)
-      })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=")
-
-      // Configure Hotjar settings
-      window.hj =
-        window.hj ||
-        (() => {
-          ;(window.hj.q = window.hj.q || []).push(arguments)
-        })
-
-      // Set user attributes for better segmentation
-      window.hj("identify", "USER_ID", {
-        user_type: "teacher",
-        signup_date: new Date().toISOString(),
-      })
+      // Hotjar initialization
+      const w = window as any;
+      w.hj = w.hj || function(...args: any[]) {
+        (w.hj.q = w.hj.q || []).push(args);
+      };
+      w._hjSettings = { hjid: hotjarId, hjsv: 6 };
+      
+      const head = document.getElementsByTagName("head")[0];
+      const script = document.createElement("script");
+      script.async = true;
+      script.src = `https://static.hotjar.com/c/hotjar-${hotjarId}.js?sv=6`;
+      head.appendChild(script);
 
       // Configure what to track
       if (!enableRecordings) {
-        window.hj("do_not_track")
+        w.hj("do_not_track");
       }
     }
   }, [hotjarId, enableRecordings])
@@ -86,8 +72,8 @@ export function HeatmapIntegration({
 export function useHeatmapTracking() {
   const trackHeatmapEvent = useCallback((eventName: string, properties?: Record<string, any>) => {
     // Hotjar event tracking
-    if (typeof window !== "undefined" && window.hj) {
-      window.hj("event", eventName)
+    if (typeof window !== "undefined" && (window as any).hj) {
+      (window as any).hj("event", eventName)
     }
 
     // Custom heatmap event tracking
@@ -106,8 +92,8 @@ export function useHeatmapTracking() {
   }, [])
 
   const identifyUser = useCallback((userId: string, attributes?: Record<string, any>) => {
-    if (typeof window !== "undefined" && window.hj) {
-      window.hj("identify", userId, attributes)
+    if (typeof window !== "undefined" && (window as any).hj) {
+      (window as any).hj("identify", userId, attributes)
     }
   }, [])
 

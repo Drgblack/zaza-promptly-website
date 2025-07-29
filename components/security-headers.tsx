@@ -196,11 +196,11 @@ export function useSecurityMonitoring() {
     const monitorNetworkRequests = () => {
       const originalFetch = window.fetch
       window.fetch = function(...args) {
-        const url = typeof args[0] === 'string' ? args[0] : args[0].url
+        const url = typeof args[0] === 'string' ? args[0] : (args[0] as Request).url
         
         // Check for suspicious patterns
         if (url.includes('javascript:') || url.includes('data:text/html')) {
-          console.warn('Potential security issue: Suspicious fetch request detected')
+          // Block suspicious requests
           reportSecurityEvent('suspicious_fetch', {
             url,
             location: window.location.href,

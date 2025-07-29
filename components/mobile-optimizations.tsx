@@ -35,26 +35,28 @@ export function MobileOptimizations() {
       // Ensure minimum touch target size for all interactive elements
       const interactiveElements = document.querySelectorAll('button, a, input, select, textarea, [role="button"]')
       interactiveElements.forEach((element) => {
-        const computedStyle = window.getComputedStyle(element)
+        const htmlElement = element as HTMLElement;
+        const computedStyle = window.getComputedStyle(htmlElement)
         const minHeight = parseInt(computedStyle.minHeight) || 0
         const minWidth = parseInt(computedStyle.minWidth) || 0
         
         if (minHeight < 44) {
-          element.style.minHeight = '44px'
+          htmlElement.style.minHeight = '44px'
         }
         if (minWidth < 44) {
-          element.style.minWidth = '44px'
+          htmlElement.style.minWidth = '44px'
         }
       })
 
       // Add touch feedback for buttons
       const buttons = document.querySelectorAll('button, [role="button"]')
       buttons.forEach((button) => {
-        button.addEventListener('touchstart', () => {
-          button.style.transform = 'scale(0.98)'
+        const btnElement = button as HTMLElement;
+        btnElement.addEventListener('touchstart', () => {
+          btnElement.style.transform = 'scale(0.98)'
         })
-        button.addEventListener('touchend', () => {
-          button.style.transform = ''
+        btnElement.addEventListener('touchend', () => {
+          btnElement.style.transform = ''
         })
       })
     }

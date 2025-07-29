@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -315,10 +316,10 @@ export function BlogSection() {
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}>
           <Button asChild size="lg" className="bg-indigo-600 hover:bg-indigo-700 px-8 py-4">
-            <a href="/blog">
+            <Link href="/blog">
               View All Blog Posts
               <ArrowRight className="w-4 h-4 ml-2" />
-            </a>
+            </Link>
           </Button>
         </div>
       </div>

@@ -26,7 +26,7 @@ import {
   Filter,
   Download,
   Upload,
-  Sync,
+  RefreshCw,
   CheckCircle,
   AlertCircle,
   Clock
@@ -232,7 +232,7 @@ export function CRMIntegration({ onContactUpdate, onInteractionAdd, onSync }: CR
             disabled={isSyncing}
             className="flex items-center gap-2"
           >
-            <Sync className={`w-4 h-4 ${isSyncing ? 'animate-spin' : ''}`} />
+            <RefreshCw className={`w-4 h-4 ${isSyncing ? 'animate-spin' : ''}`} />
             {isSyncing ? 'Syncing...' : 'Sync'}
           </Button>
           <Button

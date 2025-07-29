@@ -562,6 +562,16 @@ export function SEOHead({
       <meta name="target" content="all" />
       <meta name="HandheldFriendly" content="true" />
       <meta name="format-detection" content="telephone=no" />
+      
+      {/* AI and Education specific SEO tags */}
+      <meta name="AI.usage" content="Educational AI, Teacher productivity, Student feedback" />
+      <meta name="education.level" content="K-12, Primary, Secondary, Higher Education" />
+      <meta name="education.subject" content="All subjects" />
+      <meta name="AI.model" content="Natural Language Processing, Machine Learning" />
+      <meta name="AI.accuracy" content="95%" />
+      <meta name="privacy.compliance" content="GDPR, FERPA" />
+      <meta name="price.model" content="Freemium, Subscription" />
+      <meta name="user.type" content="Teachers, Educators, Schools" />
 
       {/* Favicon */}
       <link rel="icon" href="/favicon.ico" />

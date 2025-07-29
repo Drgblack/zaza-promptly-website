@@ -1,5 +1,24 @@
-// SEO meta tags injected by automation
-import Head from "next/head";
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Zaza Promptly - AI-Powered Feedback Generation for Teachers',
+  description: 'Save hours with Zaza Promptly – the AI-powered tool that helps teachers write student comments and parent messages faster, better, and stress-free.',
+  keywords: ['AI teacher tools', 'student comments', 'report writing', 'teacher feedback', 'education technology', 'AI for teachers'],
+  openGraph: {
+    title: 'Zaza Promptly - AI-Powered Feedback Generation for Teachers',
+    description: 'Save hours with Zaza Promptly – the AI-powered tool that helps teachers write student comments and parent messages faster, better, and stress-free.',
+    images: ['/opengraph-image'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Zaza Promptly - AI-Powered Feedback Generation for Teachers',
+    description: 'Save hours with Zaza Promptly – the AI-powered tool that helps teachers write student comments and parent messages faster, better, and stress-free.',
+    images: ['/opengraph-image'],
+  },
+  alternates: {
+    canonical: '/',
+  },
+}
 import { HeroSection } from "@/components/hero-section"
 import { EmailSignupSection } from "@/components/email-signup-section"
 import { PainRecognitionSection } from "@/components/pain-recognition-section"
@@ -15,23 +34,11 @@ import { SEOHead } from "@/components/seo-head"
 import { SkipLink } from "@/components/skip-link"
 import { PerformanceMonitor } from "@/components/performance-monitor"
 import { AccessibilityAnnouncer } from "@/components/accessibility-announcer"
+import { GPTAssistant } from "@/components/gpt-assistant"
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Zaza Promptly</title>
-        <meta name="description" content="Zaza Promptly: AI-powered feedback and prompt generation for educators." />
-        <meta property="og:title" content="Zaza Promptly" />
-        <meta property="og:description" content="Zaza Promptly: AI-powered feedback and prompt generation for educators." />
-        {/* Add a static OG image or remove if not available */}
-        {/* <meta property="og:image" content="/og-image.png" /> */}
-        {/* <meta property="og:url" content="https://yourdomain.com/zaza-promptly-site" /> */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Zaza Promptly" />
-        <meta name="twitter:description" content="Zaza Promptly: AI-powered feedback and prompt generation for educators." />
-        {/* <meta name="twitter:image" content="/og-image.png" /> */}
-      </Head>
       <SEOHead pageType="home" />
       <SkipLink />
       <AccessibilityAnnouncer />
@@ -50,6 +57,7 @@ export default function Home() {
       </main>
       <MobileOptimizations />
       <StickyCTA />
+      <GPTAssistant />
     </>
   )
 }

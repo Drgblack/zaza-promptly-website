@@ -1,15 +1,21 @@
 # Lesson Planning Templates for Teachers
-## Comprehensive Templates for Effective Lesson Design and Delivery
+## 8 Fill-in-the-Blank Templates to Cut Planning Time in Half
+### From 5-Minute Emergency Plans to Full Unit Design
+
+### 🏃‍♀️ Quick Start Guide
+**Need a lesson plan in 5 minutes?** Use Template #7 (Emergency Sub Plan)  
+**Planning for tomorrow?** Use Template #1 (Basic Lesson Plan)  
+**Working ahead?** Use Template #8 (Unit Planning)
 
 ### Table of Contents
-1. [Basic Lesson Plan Template](#basic-lesson-plan-template)
-2. [Standards-Based Lesson Plan](#standards-based-lesson-plan)
-3. [Differentiated Lesson Plan](#differentiated-lesson-plan)
-4. [Project-Based Learning Template](#project-based-learning-template)
-5. [Technology-Enhanced Lesson Plan](#technology-enhanced-lesson-plan)
-6. [Assessment-Integrated Lesson Plan](#assessment-integrated-lesson-plan)
-7. [Emergency Substitute Lesson Plan](#emergency-substitute-lesson-plan)
-8. [Unit Planning Template](#unit-planning-template)
+1. [📝 Basic Lesson Plan](#basic-lesson-plan-template) - *5 min setup* - Your daily go-to
+2. [🎯 Standards-Based Plan](#standards-based-lesson-plan) - *10 min setup* - Admin-approved format
+3. [👥 Differentiated Plan](#differentiated-lesson-plan) - *15 min setup* - For mixed-ability classes
+4. [🏗️ Project-Based Learning](#project-based-learning-template) - *20 min setup* - Multi-day projects
+5. [💻 Technology-Enhanced Plan](#technology-enhanced-lesson-plan) - *12 min setup* - Digital learning
+6. [📊 Assessment-Integrated Plan](#assessment-integrated-lesson-plan) - *15 min setup* - Built-in assessment
+7. [🚨 Emergency Sub Plan](#emergency-substitute-lesson-plan) - *5 min setup* - Lifesaver template
+8. [📚 Unit Planning](#unit-planning-template) - *30 min setup* - Big picture planning
 
 ---
 

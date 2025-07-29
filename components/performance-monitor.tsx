@@ -44,25 +44,21 @@ export function PerformanceMonitor() {
       list.getEntries().forEach((entry) => {
         if (entry.entryType === "largest-contentful-paint") {
           metrics.lcp = entry.startTime
-          console.log("LCP:", entry.startTime)
           sendMetric("LCP", entry.startTime)
         }
         if (entry.entryType === "first-input") {
-          metrics.fid = entry.processingStart - entry.startTime
-          console.log("FID:", metrics.fid)
+          metrics.fid = (entry as any).processingStart - entry.startTime
           sendMetric("FID", metrics.fid)
         }
         if (entry.entryType === "layout-shift") {
-          if (!entry.hadRecentInput) {
-            metrics.cls += entry.value
-            console.log("CLS:", entry.value, "Total:", metrics.cls)
-            sendMetric("CLS", entry.value)
+          if (!(entry as any).hadRecentInput) {
+            metrics.cls += (entry as any).value
+            sendMetric("CLS", (entry as any).value)
           }
         }
         if (entry.entryType === "paint") {
           if (entry.name === "first-contentful-paint") {
             metrics.fcp = entry.startTime
-            console.log("FCP:", entry.startTime)
             sendMetric("FCP", entry.startTime)
           }
         }
@@ -101,12 +97,6 @@ export function PerformanceMonitor() {
       metrics.loadComplete = navigation.loadEventEnd - navigation.fetchStart
       metrics.ttfb = navigation.responseStart - navigation.requestStart
 
-      console.log("Page Load Time:", metrics.pageLoadTime)
-      console.log("DOM Content Loaded:", metrics.domContentLoaded)
-      console.log("First Byte:", metrics.firstByte)
-      console.log("DOM Interactive:", metrics.domInteractive)
-      console.log("Load Complete:", metrics.loadComplete)
-      console.log("Time to First Byte:", metrics.ttfb)
 
       // Send comprehensive metrics
       sendPerformanceData(metrics, resourceMetrics)
@@ -114,19 +104,15 @@ export function PerformanceMonitor() {
 
     // Monitor memory usage (if available)
     if ('memory' in performance) {
-      const memory = (performance as any).memory
-      console.log("Memory Usage:", {
-        used: memory.usedJSHeapSize,
-        total: memory.totalJSHeapSize,
-        limit: memory.jsHeapSizeLimit,
-      })
+      const memory = (performance as any).memory;
+      sendMetric("MemoryUsed", memory.usedJSHeapSize);
+      sendMetric("MemoryTotal", memory.totalJSHeapSize);
     }
 
     // Monitor long tasks
     const longTaskObserver = new PerformanceObserver((list) => {
       list.getEntries().forEach((entry) => {
         if (entry.duration > 50) {
-          console.warn("Long task detected:", entry.duration, "ms")
           sendMetric("LongTask", entry.duration)
         }
       })
@@ -155,7 +141,7 @@ export function PerformanceMonitor() {
         }),
       })
     } catch (error) {
-      console.error("Failed to send performance metric:", error)
+      // Silently fail
     }
   }
 
@@ -176,7 +162,7 @@ export function PerformanceMonitor() {
         }),
       })
     } catch (error) {
-      console.error("Failed to send performance data:", error)
+      // Silently fail
     }
   }
 

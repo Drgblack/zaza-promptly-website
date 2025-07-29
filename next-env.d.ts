@@ -3,9 +3,3 @@
 
 // NOTE: This file should not be edited
 // see https://nextjs.org/docs/app/api-reference/config/typescript for more information.
-
-// Global type declarations
-interface Window {
-  gtag?: (...args: any[]) => void;
-  fbq?: (...args: any[]) => void;
-}

@@ -4,7 +4,6 @@ import { AnthropicStream } from './AnthropicStream';
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    console.log(`[${new Date().toISOString()}] ✅ Incoming request to /api/generate`, body);
 
     // Input validation and sanitization
     const { context, tone } = body;
@@ -45,15 +44,12 @@ export async function POST(req: Request) {
 
     // Rate limiting check (basic implementation)
     const clientIP = req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || 'unknown';
-    console.log(`Request from IP: ${clientIP}`);
 
     // Check if any AI API key is configured
     const hasOpenAI = process.env.OPENAI_API_KEY;
     const hasAnthropic = process.env.ANTHROPIC_API_KEY;
     
     if (!hasOpenAI && !hasAnthropic) {
-      console.log('No AI API keys configured, using fallback response');
-      
       // Generate a fallback response based on the context and tone
       const fallbackResponse = generateFallbackResponse(sanitizedContext, sanitizedTone);
       
@@ -81,19 +77,15 @@ export async function POST(req: Request) {
     let result;
     if (hasAnthropic) {
       try {
-        console.log('Using Anthropic Claude API');
         result = await AnthropicStream(messages);
       } catch (error) {
-        console.error('Anthropic API failed, falling back to OpenAI:', error);
         if (hasOpenAI) {
-          console.log('Using OpenAI API as fallback');
           result = await OpenAIStream(messages);
         } else {
           throw error;
         }
       }
     } else if (hasOpenAI) {
-      console.log('Using OpenAI API');
       result = await OpenAIStream(messages);
     }
     
@@ -102,8 +94,6 @@ export async function POST(req: Request) {
       headers: { 'Content-Type': 'application/json' },
     });
   } catch (err: any) {
-    // Log technical details to the server console only
-    console.error('API Error:', err);
     // Always return a friendly error message to the user
     return new Response(JSON.stringify({ 
       error: 'Sorry, we are experiencing technical difficulties. Please try again later.'

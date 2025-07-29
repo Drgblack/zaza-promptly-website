@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useEffect, useRef, useState } from "react"
 import { ChevronLeft, ChevronRight, Quote, Star, Clock, Heart, MessageCircle, Users } from "lucide-react"
-import { formatNumber } from "../utils/format";
+import { formatNumber } from "../lib/format";
 
 const testimonials = [
   {
