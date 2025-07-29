@@ -3,6 +3,9 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { Shield, Lock, Eye, Server, Mail, Users } from 'lucide-react'
 
+// Disable static generation - render pages dynamically to prevent build errors
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'Privacy Policy | Data Protection & Security - Zaza Technologies',
   description: 'Learn how Zaza Technologies protects your privacy and student data. GDPR & FERPA compliant AI teaching tools with secure data handling.',

@@ -1,6 +1,7 @@
 "use client"
 
-// Disable static generation - render pages dynamically to prevent build errors
+// Force edge runtime to prevent prerendering completely
+export const runtime = 'edge'
 export const dynamic = 'force-dynamic'
 
 import { useState } from 'react'
