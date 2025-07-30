@@ -8,30 +8,28 @@ import { formatNumber } from "../lib/format";
 
 const testimonials = [
   {
-    name: "Sarah M.",
+    name: "Sarah Chen",
     role: "4th Grade Teacher",
-    location: "Texas",
-    quote:
-      "I was dreading another parent email at 9 PM, feeling like I'd say the wrong thing. With Zaza, I actually felt capable again—like I had the words to help this struggling student.",
+    location: "California",
+    quote: "I was drowning in lesson plans at 11 PM again. Zaza helped me find my teaching rhythm back—now I actually feel like the teacher I used to be.",
     avatar:
       "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
     rating: 5,
   },
   {
-    name: "Marcus T.",
-    role: "Middle School Math",
-    location: "California",
-    quote:
-      "It's like having that wise teacher friend who always knows what to say. Not judgy, just helpful. Finally, I don't feel so alone in figuring out how to communicate with families.",
+    name: "Marcus Williams",
+    role: "7th Grade Science",
+    location: "Texas",
+    quote: "It's like having that mentor teacher who just gets it. Zaza doesn't judge my messy ideas—it helps me turn them into something I'm proud of.",
     avatar:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
     rating: 5,
   },
   {
-    name: "Elena R.",
-    role: "2nd Grade Teacher",
+    name: "Jessica Rodriguez",
+    role: "High School English",
     location: "New York",
-    quote: "I used to spend Sunday nights writing report comments until midnight. Now I'm reading bedtime stories to my daughter instead. That's what matters—being present for the kids who need me.",
+    quote: "Saturday mornings used to be for grading. Now my kids have their mom back, and my students get better lessons because I'm not exhausted.",
     avatar:
       "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
     rating: 5,
