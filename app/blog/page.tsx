@@ -11,18 +11,18 @@ import { Badge } from '@/components/ui/badge'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'AI Education Blog - Teaching Tips & Strategies | Zaza Promptly',
+  title: 'AI Education Blog - Teaching Tips & Strategies | Zaza Technologies',
   description: 'Discover the latest insights, tips, and strategies for using AI in education. Written by teachers, for teachers. Expert advice on AI-powered teaching tools.',
   keywords: ['AI in education', 'teaching with AI', 'AI teaching tools', 'educational technology', 'teacher blog', 'AI lesson planning', 'teaching strategies'],
   openGraph: {
-    title: 'AI Education Blog - Teaching Tips & Strategies | Zaza Promptly',
+    title: 'AI Education Blog - Teaching Tips & Strategies | Zaza Technologies',
     description: 'Discover the latest insights, tips, and strategies for using AI in education. Written by teachers, for teachers.',
     images: ['/opengraph-image'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI Education Blog - Teaching Tips & Strategies | Zaza Promptly',
+    title: 'AI Education Blog - Teaching Tips & Strategies | Zaza Technologies',
     description: 'Discover the latest insights, tips, and strategies for using AI in education. Written by teachers, for teachers.',
     images: ['/opengraph-image'],
   },
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 }
 
 export default async function BlogPage() {
-  const siteUrl = 'https://zazapromptly.com'
+  const siteUrl = 'https://zazatechnologies.com'
   
   let allPosts: any[] = [];
   let popularPosts: any[] = [];
@@ -53,7 +53,7 @@ export default async function BlogPage() {
 
   // Generate structured data for blog section
   const blogSchema = generateWebsiteSchema({
-    name: 'Zaza Promptly Blog - AI Education Tips & Strategies',
+    name: 'Zaza Technologies Blog - AI Education Tips & Strategies',
     url: `${siteUrl}/blog`,
     description: 'Discover the latest insights, tips, and strategies for using AI in education. Written by teachers, for teachers.'
   })

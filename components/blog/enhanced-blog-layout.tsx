@@ -328,10 +328,10 @@ export function EnhancedBlogLayout({
             },
             "publisher": {
               "@type": "Organization",
-              "name": "Zaza Promptly",
+              "name": "Zaza Technologies",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://zazapromptly.com/icon"
+                "url": "https://zazatechnologies.com/icon"
               }
             },
             "mainEntityOfPage": {

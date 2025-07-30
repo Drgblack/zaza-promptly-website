@@ -64,7 +64,7 @@ export const dynamic = 'force-dynamic'
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params
-  const siteUrl = 'https://zazapromptly.com'
+  const siteUrl = 'https://zazatechnologies.com'
   
   try {
     const [post, relatedPosts, popularPosts, allPosts, categories, tags] = await Promise.all([

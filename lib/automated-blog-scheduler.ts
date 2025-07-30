@@ -124,7 +124,7 @@ export class AutomatedBlogScheduler {
             topics: AutomatedBlogGeneration['TOPIC_POOL'],
             categories: ['Lesson Planning', 'Parent Communication', 'AI Tools', 'Classroom Management', 'Teacher Wellness'],
             tone: 'helpful',
-            authorName: 'Zaza Promptly Team',
+            authorName: 'Zaza Technologies Team',
             authorBio: 'Supporting teachers with practical AI-powered solutions and empathetic guidance.',
             enabled: true
           })
@@ -221,7 +221,7 @@ FORMAT: Return as complete MDX with proper frontmatter.`
         excerpt: metadata.excerpt || metadata.description,
         date: new Date().toISOString().split('T')[0],
         author: {
-          name: 'Zaza Promptly Team',
+          name: 'Zaza Technologies Team',
           bio: 'Celebrating and supporting teachers in their incredible work every day.'
         },
         tags: metadata.tags || ['Teacher Inspiration', 'Teacher Support', 'Teaching Joy', 'Education Community'],
@@ -412,7 +412,7 @@ FORMAT: Return as complete MDX with proper frontmatter.`
           topics: AutomatedBlogGeneration['TOPIC_POOL'],
           categories: ['Lesson Planning', 'Parent Communication', 'AI Tools', 'Classroom Management', 'Teacher Wellness'],
           tone: 'helpful',
-          authorName: 'Zaza Promptly Team',
+          authorName: 'Zaza Technologies Team',
           authorBio: 'Supporting teachers with practical AI-powered solutions.',
           enabled: true
         })

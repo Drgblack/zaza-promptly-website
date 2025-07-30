@@ -510,7 +510,7 @@ Make this feel like it was written by someone who truly understands what teacher
         excerpt: metadata.excerpt || metadata.description,
         date: new Date().toISOString().split('T')[0],
         author: {
-          name: 'Zaza Promptly Team',
+          name: 'Zaza Technologies Team',
           bio: 'Supporting teachers with AI-powered tools and empathetic guidance based on real community insights.'
         },
         tags: metadata.tags || this.generateCommunityTags(idea, painPoint),

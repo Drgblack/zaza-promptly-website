@@ -170,7 +170,7 @@ export async function getBlogPost(slug: string, locale?: string): Promise<BlogPo
       title: metadata.seo?.title || title,
       description: metadata.seo?.description || description,
       keywords: metadata.seo?.keywords || metadata.tags || [],
-      canonicalUrl: `https://zazapromptly.com${locale && locale !== 'en' ? `/${locale}` : ''}/blog/${slug}`
+      canonicalUrl: `https://zazatechnologies.com${locale && locale !== 'en' ? `/${locale}` : ''}/blog/${slug}`
     },
     content: translatedContent,
     isPublished: metadata.isPublished !== false,
