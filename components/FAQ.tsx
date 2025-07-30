@@ -7,11 +7,11 @@ import { ChevronUp } from 'lucide-react'
 const faqs = [
   {
     question: 'Will this actually save me time or just create more work?',
-    answer: 'Zaza Promptly is designed to reduce mental load, not increase it. You don't need perfect prompts - just pick a student and get tailored, editable comments in seconds. Most teachers save 2-3 hours per week on report writing alone.',
+    answer: 'Zaza Promptly is designed to reduce mental load, not increase it. You don\'t need perfect prompts - just pick a student and get tailored, editable comments in seconds. Most teachers save 2-3 hours per week on report writing alone.',
   },
   {
     question: 'Is it safe to use AI for student reports?',
-    answer: 'Yes. Promptly avoids plagiarism, doesn't reuse data, and is built with privacy in mind. It's safer than copying past reports or Googling ideas, and we never store or share student information.',
+    answer: 'Yes. Promptly avoids plagiarism, doesn\'t reuse data, and is built with privacy in mind. It\'s safer than copying past reports or Googling ideas, and we never store or share student information.',
   },
   {
     question: 'Why not just use ChatGPT?',
@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     question: 'Will the comments sound like me?',
-    answer: 'Yes. Promptly can match your tone, whether you're empathetic, direct, or positive-but-honest. You can tweak responses with one tap or write your own templates that the AI learns from.',
+    answer: 'Yes. Promptly can match your tone, whether you\'re empathetic, direct, or positive-but-honest. You can tweak responses with one tap or write your own templates that the AI learns from.',
   },
   {
     question: 'Does it work for all subjects and ages?',
@@ -46,7 +46,7 @@ const faqs = [
     answer: 'You can be up and running in under 5 minutes. Simply sign up, add your first class, and start generating comments. No complex setup or training required.',
   },
   {
-    question: 'What if I don't like the generated content?',
+    question: 'What if I don\'t like the generated content?',
     answer: 'Every suggestion is fully editable, and you can regenerate alternatives with different tones or focuses. Over time, the AI learns your preferences and becomes more accurate to your style.',
   },
   {

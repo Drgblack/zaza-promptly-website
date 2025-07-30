@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { StripePricing } from "@/components/stripe-pricing";
+import { ImprovedPricing } from "@/components/improved-pricing";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SEOHead } from "../../components/seo-head";
@@ -94,7 +94,7 @@ export default function PromptlyPricing() {
               </p>
             </div>
 
-            <StripePricing />
+            <ImprovedPricing />
           </div>
         </section>
 
