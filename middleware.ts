@@ -11,11 +11,7 @@ export default createMiddleware({
 
 export const config = {
   matcher: [
-    // Explicitly match locale paths
-    '/(en|de|fr|es|it)/:path*',
-    // Match root for locale redirect
-    '/',
-    // Match any other path that should be internationalized (excluding specific routes)
-    '/((?!api|_next|_vercel|.*\\..*|blog|robots|sitemap|manifest|favicon|about-founder|vision-mission|why-zaza-teach|zaza-ecosystem|generate-blog|privacy|terms|checkout|contact|faqs|products|promptly-faq|promptly-pricing|support|cookies|signup|free-resources).+)'
+    // Match all paths except excluded ones
+    '/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|blog).*)'
   ]
 };
