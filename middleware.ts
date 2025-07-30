@@ -11,7 +11,9 @@ export default createMiddleware({
 
 export const config = {
   matcher: [
-    // Match all paths that should be internationalized, excluding blog and other specific routes
-    '/((?!api|_next|_vercel|blog|.*\\..*|robots|sitemap|manifest|favicon).*)'
+    // Include all paths EXCEPT the excluded ones
+    '/((?!api|_next|_vercel|blog|.*\\..*|robots|sitemap|manifest|favicon|about-founder|vision-mission|why-zaza-teach|zaza-ecosystem|generate-blog|privacy|terms|checkout|contact|faqs|products|promptly-faq|promptly-pricing|support|cookies|signup|free-resources).*)',
+    // Explicitly include root for locale redirect
+    '/'
   ]
 };
