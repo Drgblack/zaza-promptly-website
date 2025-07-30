@@ -90,7 +90,7 @@ export default function Header() {
               rel="noopener noreferrer" 
               className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
             >
-              About
+              About the Founder
             </a>
             
             {/* Language Switcher */}
@@ -163,7 +163,7 @@ export default function Header() {
                 className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
-                About
+                About the Founder
               </a>
               <a 
                 href={externalLinks.privacy} 
