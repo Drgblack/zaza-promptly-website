@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getBlogPost, getBlogPostSlugs, getRelatedPosts } from '@/lib/blog'
-import { BlogPostLayout } from '@/components/blog/blog-post-layout'
+import { getBlogPost, getBlogPostSlugs, getRelatedPosts, getPopularPosts, getAllCategories, getAllTags, getPublishedBlogPosts } from '@/lib/blog'
+import { EnhancedBlogLayout } from '@/components/blog/enhanced-blog-layout'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { mdxComponents } from '@/components/blog/mdx-components'
 import { StructuredData } from '@/components/structured-data'
@@ -67,14 +67,24 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const siteUrl = 'https://zazapromptly.com'
   
   try {
-    const [post, relatedPosts] = await Promise.all([
+    const [post, relatedPosts, popularPosts, allPosts, categories, tags] = await Promise.all([
       getBlogPost(slug, 'en'),
-      getRelatedPosts(slug, 3, 'en')
+      getRelatedPosts(slug, 6, 'en'),
+      getPopularPosts(8, 'en'),
+      getPublishedBlogPosts('en'),
+      getAllCategories('en'),
+      getAllTags('en')
     ])
     
     if (!post.isPublished) {
       notFound()
     }
+
+    // Get recent posts (excluding current post)
+    const recentPosts = allPosts
+      .filter(p => p.slug !== slug)
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      .slice(0, 8)
 
     // Generate structured data schemas
     const articleSchema = generateArticleSchema({
@@ -95,15 +105,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     return (
       <div className="pt-16 lg:pt-20">
         <StructuredData data={[articleSchema, authorSchema]} />
-        <BlogPostLayout
+        <EnhancedBlogLayout
           post={post}
           relatedPosts={relatedPosts}
+          popularPosts={popularPosts}
+          recentPosts={recentPosts}
+          categories={categories}
+          tags={tags}
         >
           <MDXRemote 
             source={post.content} 
             components={mdxComponents}
           />
-        </BlogPostLayout>
+        </EnhancedBlogLayout>
       </div>
     )
   } catch (error) {

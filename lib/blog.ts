@@ -83,11 +83,11 @@ export async function getAllBlogPosts(locale?: string): Promise<BlogPost[]> {
   ensureBlogDirectory();
   
   const files = fs.readdirSync(BLOG_DIR);
-  const mdxFiles = files.filter(file => file.endsWith('.mdx'));
+  const mdFiles = files.filter(file => file.endsWith('.mdx') || file.endsWith('.md'));
   
   const posts = await Promise.all(
-    mdxFiles.map(async (file) => {
-      const slug = file.replace('.mdx', '');
+    mdFiles.map(async (file) => {
+      const slug = file.replace(/\.(mdx|md)$/, '');
       return await getBlogPost(slug, locale);
     })
   );
@@ -108,7 +108,11 @@ export async function getPublishedBlogPosts(locale?: string): Promise<BlogPost[]
 export async function getBlogPost(slug: string, locale?: string): Promise<BlogPost> {
   ensureBlogDirectory();
   
-  const filePath = path.join(BLOG_DIR, `${slug}.mdx`);
+  // Try .mdx first, then .md
+  let filePath = path.join(BLOG_DIR, `${slug}.mdx`);
+  if (!fs.existsSync(filePath)) {
+    filePath = path.join(BLOG_DIR, `${slug}.md`);
+  }
   
   if (!fs.existsSync(filePath)) {
     throw new Error(`Blog post not found: ${slug}`);
@@ -140,6 +144,16 @@ export async function getBlogPost(slug: string, locale?: string): Promise<BlogPo
   // Generate excerpt if not provided
   excerpt = excerpt || translatedContent.split('\n\n')[0].substring(0, 160) + '...';
   
+  // Handle author field - can be string or object
+  let authorObj;
+  if (typeof metadata.author === 'string') {
+    authorObj = { name: metadata.author };
+  } else if (metadata.author && typeof metadata.author === 'object') {
+    authorObj = metadata.author;
+  } else {
+    authorObj = { name: 'Zaza Promptly Team' };
+  }
+  
   return {
     slug,
     title,
@@ -147,9 +161,9 @@ export async function getBlogPost(slug: string, locale?: string): Promise<BlogPo
     excerpt,
     date: metadata.date,
     publishedAt: new Date(metadata.date),
-    author: metadata.author,
+    author: authorObj,
     tags: metadata.tags || [],
-    category: metadata.category,
+    category: metadata.category || 'Education',
     featuredImage: metadata.featuredImage,
     readingTime,
     seo: {
@@ -269,8 +283,8 @@ export async function getBlogPostSlugs(): Promise<string[]> {
   
   const files = fs.readdirSync(BLOG_DIR);
   return files
-    .filter(file => file.endsWith('.mdx'))
-    .map(file => file.replace('.mdx', ''));
+    .filter(file => file.endsWith('.mdx') || file.endsWith('.md'))
+    .map(file => file.replace(/\.(mdx|md)$/, ''));
 }
 
 // Get popular posts (based on a simple metric like recent + high tag count)
