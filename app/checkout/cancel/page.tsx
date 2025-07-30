@@ -100,7 +100,7 @@ export default function CheckoutCancel() {
           </Button>
           
           <Button asChild variant="outline" size="lg">
-            <Link href="/free-resources">
+            <Link href="/en/free-resources">
               <Zap className="w-5 h-5 mr-2" />
               Free Resources
             </Link>

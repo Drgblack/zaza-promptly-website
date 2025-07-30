@@ -72,7 +72,7 @@ export default function Header() {
               </svg>
             </a>
             <Link 
-              href="/free-resources" 
+              href="/en/free-resources" 
               className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
             >
               Free Resources
@@ -144,7 +144,7 @@ export default function Header() {
                 Blog
               </a>
               <Link 
-                href="/free-resources" 
+                href="/en/free-resources" 
                 className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >

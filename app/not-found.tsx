@@ -53,7 +53,7 @@ export default function NotFound() {
         <div className="mt-12 text-sm text-gray-500">
           <p className="mb-4">Looking for something specific?</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/free-resources" className="hover:text-purple-600 transition-colors">
+            <Link href="/en/free-resources" className="hover:text-purple-600 transition-colors">
               Free Resources
             </Link>
             <Link href="/promptly-pricing" className="hover:text-purple-600 transition-colors">

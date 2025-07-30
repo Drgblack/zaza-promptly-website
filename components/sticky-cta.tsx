@@ -47,7 +47,7 @@ export function StickyCTA() {
               asChild
               className="bg-white hover:bg-gray-100 text-orange-600 font-semibold px-4 py-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 touch-manipulation min-h-[44px]"
             >
-              <Link href="/signup/" className="flex items-center space-x-2">
+              <Link href="/signup" className="flex items-center space-x-2">
                 <Zap className="w-4 h-4" />
                 <span className="text-sm">Try Free</span>
               </Link>
