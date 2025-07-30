@@ -52,6 +52,11 @@ interface AutomationReport {
   timestamp: Date
   success: boolean
   postsGenerated: number
+  publishedPosts?: {
+    title: string
+    url: string
+    slug: string
+  }[]
   qualityMetrics: QualityMetrics
   plagiarismCheck: PlagiarismCheck
   performance: PerformanceMonitoring
@@ -169,6 +174,11 @@ export class BlogAutomationOrchestrator {
         timestamp: new Date(),
         success: true,
         postsGenerated: approvedPosts.length,
+        publishedPosts: approvedPosts.map(post => ({
+          title: post.title,
+          url: `/blog/${post.slug || 'post'}`,
+          slug: post.slug || 'post'
+        })),
         qualityMetrics,
         plagiarismCheck,
         performance,
