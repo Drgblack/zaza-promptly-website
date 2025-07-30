@@ -26,7 +26,8 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     domains: [
       'localhost',
-      'zazapromptly.com',
+      'zazatechnologies.com',
+      'www.zazatechnologies.com',
       'images.unsplash.com',
       'via.placeholder.com',
       'picsum.photos'
