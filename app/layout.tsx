@@ -129,9 +129,24 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html>
-      <body>
-        {children}
+    <html lang="en">
+      <body className="antialiased">
+        <ErrorBoundary>
+          <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+            <SecurityHeaders />
+            <CriticalCSS />
+            <Header />
+            <main id="main-content" className="min-h-screen">
+              {children}
+            </main>
+            <Footer />
+            <DeferredAnalytics />
+            <PerformanceEnhancements />
+            <ServiceWorkerRegistration />
+            <Analytics />
+            <SpeedInsights />
+          </ThemeProvider>
+        </ErrorBoundary>
       </body>
     </html>
   )

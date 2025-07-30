@@ -1,6 +1,5 @@
 const path = require('path');
 const { withSentryConfig } = require('@sentry/nextjs');
-const createNextIntlPlugin = require('next-intl/plugin');
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
   options: {
@@ -8,8 +7,6 @@ const withMDX = require('@next/mdx')({
     rehypePlugins: [],
   },
 })
-
-const withNextIntl = createNextIntlPlugin('./i18n.ts');
 
 const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
@@ -136,6 +133,6 @@ const sentryWebpackPluginOptions = {
 };
 
 module.exports = withSentryConfig(
-  withNextIntl(withMDX(nextConfig)),
+  withMDX(nextConfig),
   sentryWebpackPluginOptions
 );

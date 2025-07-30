@@ -5,8 +5,7 @@ import { StructuredData } from '@/components/structured-data'
 import { generateWebsiteSchema } from '@/lib/structured-data'
 import { Calendar, Clock, ArrowRight, Search, TrendingUp } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+// Header and Footer are now rendered globally via layout
 
 // Disable static generation - render pages dynamically to prevent build errors
 export const dynamic = 'force-dynamic'
@@ -52,11 +51,10 @@ export default async function BlogPage() {
   const publishedPosts = allPosts.filter(post => post.isPublished && !post.isDraft)
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Header />
+    <div className="bg-gray-50">
       <StructuredData data={blogSchema} />
       
-      <main className="pt-16 lg:pt-20">
+      <main className="pt-8">
         {/* Hero Section */}
         <section className="py-16 bg-gradient-to-br from-purple-50 to-pink-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -157,8 +155,6 @@ export default async function BlogPage() {
           </div>
         </section>
       </main>
-      
-      <Footer />
     </div>
   )
 }
