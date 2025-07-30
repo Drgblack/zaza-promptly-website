@@ -51,6 +51,9 @@ interface EventProperties {
   feature_name?: string;
   plan_type?: string;
   resource_type?: string;
+  
+  // Allow additional properties
+  [key: string]: string | number | boolean | undefined;
 }
 
 class Analytics {
