@@ -33,12 +33,23 @@ export const metadata: Metadata = {
 
 export default async function BlogPage() {
   const siteUrl = 'https://zazapromptly.com'
-  const [allPosts, popularPosts, categories, tags] = await Promise.all([
-    getAllBlogPosts('en'),
-    getPopularPosts(6, 'en'),
-    getAllCategories('en'),
-    getAllTags('en')
-  ])
+  
+  let allPosts: any[] = [];
+  let popularPosts: any[] = [];
+  let categories: string[] = [];
+  let tags: string[] = [];
+  
+  try {
+    [allPosts, popularPosts, categories, tags] = await Promise.all([
+      getAllBlogPosts(),
+      getPopularPosts(6),
+      getAllCategories(),
+      getAllTags()
+    ]);
+  } catch (error) {
+    console.error('Error loading blog data:', error);
+    // Continue with empty arrays for graceful degradation
+  }
 
   // Generate structured data for blog section
   const blogSchema = generateWebsiteSchema({
