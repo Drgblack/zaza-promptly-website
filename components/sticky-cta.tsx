@@ -49,7 +49,7 @@ export function StickyCTA() {
             >
               <Link href="/signup" className="flex items-center space-x-2">
                 <Zap className="w-4 h-4" />
-                <span className="text-sm">Try Free</span>
+                <span className="text-sm">Get Evenings Back</span>
               </Link>
             </Button>
 

@@ -53,7 +53,7 @@ const APP_CONFIG = {
       'Track student progress',
       'Collaborate with team'
     ],
-    cta: 'Try Free for 7 Days',
+    cta: 'Get Evenings Back',
     trial: true
   },
   visuals: {

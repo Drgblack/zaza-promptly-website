@@ -366,7 +366,7 @@ export function TestimonialsSection() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white font-semibold px-8 py-4 rounded-full shadow-lg transform hover:scale-105 transition-all duration-200">
-                  Start Free Trial
+                  Stop Email Stress
                 </button>
                 <button className="border-2 border-indigo-500 text-indigo-600 hover:bg-indigo-50 font-semibold px-8 py-4 rounded-full transition-all duration-200 bg-transparent">
                   Read More Stories

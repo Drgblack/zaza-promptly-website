@@ -217,7 +217,7 @@ export function FeaturesSection() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold px-10 py-5 rounded-full shadow-lg transform hover:scale-105 transition-all duration-200 text-lg">
-                  Start Your Free Trial
+                  Feel Confident Again
                 </button>
                 <button className="border-2 border-purple-500 text-purple-600 hover:bg-purple-50 font-semibold px-10 py-5 rounded-full transition-all duration-200 text-lg bg-transparent">
                   See All Features

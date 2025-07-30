@@ -100,7 +100,7 @@ export function ZazaTeachCTA({
                     className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3"
                   >
                     <GraduationCap className="w-5 h-5 mr-2" />
-                    Try Zaza Teach Free
+                    End Sunday Anxiety
                     <ExternalLink className="w-4 h-4 ml-2" />
                   </Button>
                   
@@ -172,7 +172,7 @@ export function ZazaTeachCTA({
               }}
               className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm"
             >
-              Try Free for 7 Days
+              Get Evenings Back
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </div>
@@ -257,7 +257,7 @@ export function ZazaTeachCTA({
                 }}
                 className="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-xs"
               >
-                Try Free
+                Stop Email Stress
                 <ExternalLink className="w-3 h-3 ml-1" />
               </Button>
               <Button
@@ -350,7 +350,7 @@ export function ZazaTeachCTA({
                 className="flex-1 bg-blue-600 hover:bg-blue-700 text-white"
               >
                 <GraduationCap className="w-5 h-5 mr-2" />
-                Start Free Trial
+                Reclaim Your Evenings
                 <ExternalLink className="w-4 h-4 ml-2" />
               </Button>
               
@@ -493,7 +493,7 @@ export function PromptlyVsTeachComparison({ className = '' }: { className?: stri
               }}
               className="w-full bg-blue-600 hover:bg-blue-700 text-white"
             >
-              Try Free for 7 Days
+              Get Evenings Back
               <ExternalLink className="w-4 h-4 ml-2" />
             </Button>
           </div>
