@@ -121,7 +121,7 @@ export default function Footer() {
             <h3 className="text-lg font-bold mb-4 text-white">Learning Centre</h3>
             <ul className="space-y-3">
               <li><Link href="/blog" className="hover:text-purple-400 transition-colors duration-200">Blog</Link></li>
-              <li><Link href="/free-resources" className="hover:text-purple-400 transition-colors duration-200">Free Resources</Link></li>
+              <li><Link href="/en/free-resources" className="hover:text-purple-400 transition-colors duration-200">Free Resources</Link></li>
               <li><Link href="/faqs" className="hover:text-purple-400 transition-colors duration-200">FAQs</Link></li>
               <li><Link href="/about-founder" className="hover:text-purple-400 transition-colors duration-200">About the Founder</Link></li>
             </ul>
