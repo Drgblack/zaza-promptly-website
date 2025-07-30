@@ -93,7 +93,7 @@ export class AutomatedBlogScheduler {
     const config = this.DEFAULT_CONFIG
 
     // Check if it's a scheduled publishing day
-    const dayName = now.toLocaleDateString('en-US', { weekday: 'lowercase' }) as any
+    const dayName = now.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase() as 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday'
     if (!config.targetDays.includes(dayName)) {
       console.log(`⏳ Not a scheduled publishing day (${dayName})`)
       return
