@@ -1,0 +1,189 @@
+'use client';
+
+import { useState, useEffect, useRef } from 'react';
+import { Globe, ChevronDown, Check } from 'lucide-react';
+
+export interface Language {
+  code: string;
+  name: string;
+  flag: string;
+}
+
+export const languages: Language[] = [
+  { code: 'en', name: 'English', flag: '🇺🇸' },
+  { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+  { code: 'fr', name: 'Français', flag: '🇫🇷' },
+  { code: 'es', name: 'Español', flag: '🇪🇸' },
+  { code: 'it', name: 'Italiano', flag: '🇮🇹' },
+];
+
+interface LanguageSelectorProps {
+  className?: string;
+  compact?: boolean;
+}
+
+export default function LanguageSelector({ className = '', compact = false }: LanguageSelectorProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState<Language>(languages[0]); // Default to English
+  const [mounted, setMounted] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Ensure component is mounted before rendering to avoid hydration issues
+  useEffect(() => {
+    setMounted(true);
+    
+    // Load saved language from localStorage or default to English
+    if (typeof window !== 'undefined') {
+      const savedLanguageCode = localStorage.getItem('preferred-language') || 'en';
+      const savedLanguage = languages.find(lang => lang.code === savedLanguageCode) || languages[0];
+      setCurrentLanguage(savedLanguage);
+    }
+  }, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    }
+    
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
+
+  // Close dropdown on escape key
+  useEffect(() => {
+    function handleEscapeKey(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+      }
+    }
+    
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscapeKey);
+    }
+    
+    return () => {
+      document.removeEventListener('keydown', handleEscapeKey);
+    };
+  }, [isOpen]);
+
+  const handleLanguageChange = (language: Language) => {
+    if (language.code === currentLanguage.code) {
+      setIsOpen(false);
+      return;
+    }
+
+    setCurrentLanguage(language);
+    
+    // Save to localStorage
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('preferred-language', language.code);
+    }
+    
+    // For now, just log to console as requested
+    // In the future, this will integrate with i18n routing
+    console.log(`Language changed to: ${language.name} (${language.code})`);
+    
+    // Placeholder routing logic - can be extended later
+    if (language.code !== 'en') {
+      console.log(`Future route: /${language.code}`);
+    } else {
+      console.log('Future route: /');
+    }
+    
+    setIsOpen(false);
+  };
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  // Don't render until component is mounted to avoid hydration mismatch
+  if (!mounted) {
+    return (
+      <div className={`animate-pulse bg-gray-100 dark:bg-gray-800 rounded-lg ${
+        compact ? 'w-10 h-10' : 'w-[120px] h-[40px]'
+      }`}></div>
+    );
+  }
+
+  return (
+    <div className={`relative ${className}`} ref={dropdownRef}>
+      <button
+        onClick={toggleDropdown}
+        onMouseEnter={() => setIsOpen(true)}
+        className={`flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition-all duration-200 ${
+          compact ? 'p-2' : ''
+        }`}
+        aria-expanded={isOpen}
+        aria-haspopup="true"
+        aria-label="Select language"
+      >
+        <Globe className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+        {!compact && (
+          <>
+            <span className="flex items-center space-x-1">
+              <span>{currentLanguage.flag}</span>
+              <span className="hidden sm:inline">{currentLanguage.name}</span>
+              <span className="sm:hidden">{currentLanguage.code.toUpperCase()}</span>
+            </span>
+            <ChevronDown 
+              className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${
+                isOpen ? 'rotate-180' : ''
+              }`} 
+            />
+          </>
+        )}
+        {compact && (
+          <span className="text-xs font-bold">{currentLanguage.code.toUpperCase()}</span>
+        )}
+      </button>
+
+      {isOpen && (
+        <div 
+          className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-50 py-1"
+          onMouseLeave={() => setIsOpen(false)}
+        >
+          <div className="px-3 py-2 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide border-b border-gray-100 dark:border-gray-700">
+            Select Language
+          </div>
+          
+          {languages.map((language) => (
+            <button
+              key={language.code}
+              onClick={() => handleLanguageChange(language)}
+              className={`w-full flex items-center justify-between px-3 py-2 text-sm hover:bg-purple-50 dark:hover:bg-purple-900/20 hover:text-purple-700 dark:hover:text-purple-300 transition-colors duration-150 ${
+                language.code === currentLanguage.code 
+                  ? 'bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 font-medium' 
+                  : 'text-gray-700 dark:text-gray-200'
+              }`}
+              role="menuitem"
+            >
+              <div className="flex items-center space-x-3">
+                <span className="text-lg">{language.flag}</span>
+                <span>{language.name}</span>
+              </div>
+              
+              {language.code === currentLanguage.code && (
+                <Check className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+              )}
+            </button>
+          ))}
+          
+          <div className="border-t border-gray-100 dark:border-gray-700 mt-1 pt-1">
+            <div className="px-3 py-2 text-xs text-gray-500 dark:text-gray-400">
+              Language preference is saved
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
