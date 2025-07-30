@@ -5,50 +5,50 @@ import { Target, MessageCircle, Save, Shield, Zap, Palette } from "lucide-react"
 
 const features = [
   {
-    emoji: "🎯",
+    emoji: "💪",
     icon: Target,
-    title: "AI That Understands Teaching",
-    description: "Advanced machine learning trained on educational content and teacher feedback patterns",
+    title: "Strengthens Your Message",
+    description: "Suggests ways to strengthen your message while keeping it authentically you",
     size: "large",
     delay: 0,
   },
   {
     emoji: "🗣️",
     icon: MessageCircle,
-    title: "Natural Language AI",
-    description: "AI-powered tone customization: encouraging, constructive, formal, warm - all in your voice",
+    title: "Learns Your Voice",
+    description: "Learns and remembers your unique teaching voice, getting better with every interaction",
     size: "medium",
     delay: 200,
   },
   {
-    emoji: "💾",
+    emoji: "🤝",
     icon: Save,
-    title: "AI Learning Library",
-    description: "Machine learning remembers your style and builds a personalized comment library",
+    title: "Gentle Guidance",
+    description: "Provides gentle guidance and options, never overriding your expertise",
     size: "medium",
     delay: 400,
   },
   {
-    emoji: "🔒",
+    emoji: "🏫",
     icon: Shield,
-    title: "AI-Powered Security",
-    description: "FERPA-compliant AI with no hallucinations, no data concerns, just reliable results",
+    title: "Built by Teachers",
+    description: "Built by teachers who understand your world—no corporate jargon, just real classroom wisdom",
     size: "large",
     delay: 600,
   },
   {
-    emoji: "⚡",
+    emoji: "📈",
     icon: Zap,
-    title: "Instant AI Adaptation",
-    description: "Artificial intelligence that adapts to any student, any subject, any situation instantly",
+    title: "Tracks Your Growth",
+    description: "Tracks your writing confidence and celebrates your growth over time",
     size: "medium",
     delay: 800,
   },
   {
-    emoji: "🎨",
+    emoji: "🎯",
     icon: Palette,
-    title: "AI Personalization",
-    description: "Machine learning ensures every AI-generated comment feels handwritten and personal",
+    title: "Your Communication Coach",
+    description: "Feels like having a trusted communication coach who's always in your corner",
     size: "large",
     delay: 1000,
   },
@@ -117,15 +117,15 @@ export function FeaturesSection() {
           }`}
         >
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-800 mb-6 leading-tight">
-            AI Features That Feel Like{" "}
+            Writing Support That Feels Like{" "}
             <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-rose-500 bg-clip-text text-transparent">
-              Teaching Superpowers
+              Your Best Teaching Friend
             </span>
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-purple-400 via-pink-400 to-rose-400 mx-auto rounded-full" />
           <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
-            Advanced artificial intelligence and machine learning designed specifically for educators. 
-            Every AI feature built to make your teaching life easier, more joyful, and more impactful.
+            Thoughtful guidance designed by teachers who understand your world. 
+            Every feature built to support your confidence, preserve your voice, and celebrate your growth.
           </p>
         </div>
 
