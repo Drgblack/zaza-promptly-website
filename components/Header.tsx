@@ -76,14 +76,12 @@ export default function Header() {
             >
               Free Resources
             </Link>
-            <a 
-              href={externalLinks.faqs} 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <Link 
+              href="/faqs" 
               className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
             >
               FAQs
-            </a>
+            </Link>
             <a 
               href={externalLinks.aboutFounder} 
               target="_blank" 
@@ -145,15 +143,13 @@ export default function Header() {
               >
                 Free Resources
               </Link>
-              <a 
-                href={externalLinks.faqs} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <Link 
+                href="/faqs" 
                 className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 FAQs
-              </a>
+              </Link>
               <a 
                 href={externalLinks.aboutFounder} 
                 target="_blank" 
