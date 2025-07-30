@@ -48,9 +48,11 @@ export default function FreeResourcesPage() {
       description: 'Ready-to-use AI prompts for lesson planning, parent communication, and classroom management',
       color: 'from-purple-500 to-pink-500',
       bgColor: 'from-purple-50 to-pink-50',
+      downloadUrl: '/downloads/AI_Prompt_Templates_for_Teachers.docx',
+      fileName: 'AI_Prompt_Templates_for_Teachers.docx',
       resources: [
         'Parent Communication Prompts',
-        'Lesson Plan Generation Templates',
+        'Lesson Plan Generation Templates', 
         'Assessment Creation Prompts',
         'Behavior Management Scripts'
       ]
@@ -61,8 +63,10 @@ export default function FreeResourcesPage() {
       description: 'Professional templates for reports, emails, newsletters, and classroom documents',
       color: 'from-blue-500 to-cyan-500',
       bgColor: 'from-blue-50 to-cyan-50',
+      downloadUrl: '/downloads/Assessment_Rubrics_and_Templates.docx',
+      fileName: 'Assessment_Rubrics_and_Templates.docx',
       resources: [
-        'Email Templates Collection',
+        'Assessment Rubrics & Templates',
         'Report Card Comments',
         'Newsletter Templates',
         'Meeting Request Forms'
@@ -74,12 +78,38 @@ export default function FreeResourcesPage() {
       description: 'Step-by-step guides for integrating AI tools into your teaching workflow',
       color: 'from-green-500 to-emerald-500',
       bgColor: 'from-green-50 to-emerald-50',
+      downloadUrl: '/downloads/Teacher_Time_Management_Guide.docx',
+      fileName: 'Teacher_Time_Management_Guide.docx',
       resources: [
-        'AI Integration Guide',
         'Time Management Strategies',
         'Digital Classroom Setup',
-        'Assessment Best Practices'
+        'Assessment Best Practices',
+        'AI Integration Guide'
       ]
+    }
+  ];
+
+  const individualResources = [
+    {
+      name: 'Classroom Management Guide',
+      description: 'Comprehensive strategies for effective classroom management',
+      downloadUrl: '/downloads/Classroom_Management_Guide.docx',
+      fileName: 'Classroom_Management_Guide.docx',
+      icon: <PenTool className="w-5 h-5" />
+    },
+    {
+      name: 'Lesson Planning Templates',
+      description: 'Professional lesson plan templates to streamline your planning',
+      downloadUrl: '/downloads/Lesson_Planning_Templates.docx',
+      fileName: 'Lesson_Planning_Templates.docx',
+      icon: <BookOpen className="w-5 h-5" />
+    },
+    {
+      name: 'Weekly Newsletter Info',
+      description: 'Templates and tips for engaging parent newsletters',
+      downloadUrl: '/downloads/Weekly_Teacher_Newsletter_Info.docx',
+      fileName: 'Weekly_Teacher_Newsletter_Info.docx',
+      icon: <FileText className="w-5 h-5" />
     }
   ];
 
@@ -111,7 +141,30 @@ export default function FreeResourcesPage() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700">
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
+                onClick={() => {
+                  // Download all individual files
+                  const allResources = [
+                    '/downloads/AI_Prompt_Templates_for_Teachers.docx',
+                    '/downloads/Assessment_Rubrics_and_Templates.docx',
+                    '/downloads/Teacher_Time_Management_Guide.docx',
+                    '/downloads/Classroom_Management_Guide.docx',
+                    '/downloads/Lesson_Planning_Templates.docx',
+                    '/downloads/Weekly_Teacher_Newsletter_Info.docx'
+                  ];
+                  
+                  allResources.forEach((url, index) => {
+                    setTimeout(() => {
+                      const link = document.createElement('a');
+                      link.href = url;
+                      link.download = url.split('/').pop() || '';
+                      link.click();
+                    }, index * 500); // Stagger downloads by 500ms
+                  });
+                }}
+              >
                 <Download className="w-5 h-5 mr-2" />
                 Download All Resources
               </Button>
@@ -161,9 +214,63 @@ export default function FreeResourcesPage() {
                       ))}
                     </div>
                     
-                    <Button className="w-full mt-6" variant="outline">
+                    <Button 
+                      className="w-full mt-6" 
+                      variant="outline"
+                      onClick={() => {
+                        const link = document.createElement('a');
+                        link.href = category.downloadUrl;
+                        link.download = category.fileName;
+                        link.click();
+                      }}
+                    >
                       <Download className="w-4 h-4 mr-2" />
-                      Download Category
+                      Download {category.title}
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Individual Resources Section */}
+        <section className="py-16 lg:py-24 bg-gray-50">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+                Additional Resources
+              </h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                More specialized tools and templates for your teaching toolkit
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {individualResources.map((resource, index) => (
+                <Card key={index} className="group hover:shadow-lg transition-all duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex items-center mb-4">
+                      <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center text-white mr-3">
+                        {resource.icon}
+                      </div>
+                      <h3 className="text-lg font-semibold text-gray-800">{resource.name}</h3>
+                    </div>
+                    
+                    <p className="text-gray-600 mb-4">{resource.description}</p>
+                    
+                    <Button 
+                      className="w-full" 
+                      variant="outline"
+                      onClick={() => {
+                        const link = document.createElement('a');
+                        link.href = resource.downloadUrl;
+                        link.download = resource.fileName;
+                        link.click();
+                      }}
+                    >
+                      <Download className="w-4 h-4 mr-2" />
+                      Download Now
                     </Button>
                   </CardContent>
                 </Card>
@@ -183,11 +290,47 @@ export default function FreeResourcesPage() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100">
+              <Button 
+                size="lg" 
+                className="bg-white text-purple-600 hover:bg-gray-100"
+                onClick={() => {
+                  // Download all individual files
+                  const allResources = [
+                    '/downloads/AI_Prompt_Templates_for_Teachers.docx',
+                    '/downloads/Assessment_Rubrics_and_Templates.docx', 
+                    '/downloads/Teacher_Time_Management_Guide.docx',
+                    '/downloads/Classroom_Management_Guide.docx',
+                    '/downloads/Lesson_Planning_Templates.docx',
+                    '/downloads/Weekly_Teacher_Newsletter_Info.docx'
+                  ];
+                  
+                  allResources.forEach((url, index) => {
+                    setTimeout(() => {
+                      const link = document.createElement('a');
+                      link.href = url;
+                      link.download = url.split('/').pop() || '';
+                      link.click();
+                    }, index * 500); // Stagger downloads by 500ms
+                  });
+                }}
+              >
                 <Download className="w-5 h-5 mr-2" />
                 Get All Resources Free
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-600">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-white text-white hover:bg-white hover:text-purple-600"
+                onClick={() => {
+                  const demoSection = document.getElementById('demo-section');
+                  if (demoSection) {
+                    demoSection.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    // Redirect to homepage with demo section
+                    window.location.href = '/#demo-section';
+                  }
+                }}
+              >
                 <Zap className="w-5 h-5 mr-2" />
                 Try AI Demo
               </Button>
