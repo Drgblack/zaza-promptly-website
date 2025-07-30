@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from 'next/link'
 import { Button } from "@/components/ui/button"
+import { EmailCaptureForm } from "@/components/EmailCaptureForm"
 import { Star, Zap, Target } from "lucide-react"
 
 const rotatingTexts = [
@@ -90,6 +91,26 @@ export function HeroSection() {
                 See AI in Action
               </Button>
             </Link>
+          </div>
+
+          {/* Quick Email Signup */}
+          <div className="max-w-lg mx-auto mb-16">
+            <div className="text-center mb-4">
+              <p className="text-blue-100 text-sm">
+                Or get instant access to free AI teaching resources:
+              </p>
+            </div>
+            <EmailCaptureForm
+              title=""
+              subtitle=""
+              placeholder="Enter your email for instant access"
+              buttonText="Get Free Access"
+              source="hero_section"
+              tags={['hero_signup', 'instant_access', 'lead_magnet']}
+              className="bg-white/10 backdrop-blur-sm border-white/20"
+              size="md"
+              variant="hero"
+            />
           </div>
 
           {/* Trust Badges */}

@@ -9,23 +9,23 @@ import { CheckCircle, AlertCircle, Mail, Loader2 } from "lucide-react";
 import { EmailSubscriptionFeedback, useFormFeedback } from "@/components/form-feedback";
 
 interface BrevoFormProps {
-  listId?: string;
-  apiKey?: string;
   title?: string;
   description?: string;
   buttonText?: string;
   className?: string;
   placeholder?: string;
+  source?: string;
+  tags?: string[];
 }
 
 export function BrevoForm({
-  listId = "BREVO_LIST_ID_HERE", // Replace with actual Brevo list ID
-  apiKey = "BREVO_API_KEY_HERE", // Replace with actual Brevo API key
   title = "Stay Updated with AI Teaching Tips",
   description = "Get weekly AI tools and time-saving strategies for teachers",
   buttonText = "Subscribe Free",
   className = "",
-  placeholder = "Enter your email address"
+  placeholder = "Enter your email address",
+  source = "brevo_form",
+  tags = ['newsletter_signup']
 }: BrevoFormProps) {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -33,7 +33,7 @@ export function BrevoForm({
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
 
-  const isTestMode = apiKey === "BREVO_API_KEY_HERE" || listId === "BREVO_LIST_ID_HERE";
+  const isTestMode = false; // API route handles the Brevo integration
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -62,7 +62,7 @@ export function BrevoForm({
     }
 
     try {
-      // Real Brevo API integration
+      // Updated to use the proper Brevo API route
       const response = await fetch("/api/brevo-subscribe", {
         method: "POST",
         headers: {
@@ -71,18 +71,27 @@ export function BrevoForm({
         body: JSON.stringify({
           email,
           name,
-          listId,
-          apiKey,
+          source,
+          tags,
         }),
       });
 
       const data = await response.json();
 
-      if (response.ok) {
+      if (response.ok && data.success) {
         setStatus("success");
-        setMessage("Successfully subscribed! Check your email to confirm.");
+        setMessage("🎉 Successfully subscribed! Check your email for your welcome gift.");
         setEmail("");
         setName("");
+        
+        // Track successful subscription
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+          (window as any).gtag('event', 'newsletter_subscribe', {
+            event_category: 'engagement',
+            event_label: 'email_signup_section',
+            value: 1
+          });
+        }
       } else {
         setStatus("error");
         setMessage(data.error || "Something went wrong. Please try again.");

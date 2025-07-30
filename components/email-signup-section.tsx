@@ -40,6 +40,8 @@ export function EmailSignupSection() {
               buttonText="Get Free AI Tips"
               placeholder="Your email address"
               className="bg-white/10 backdrop-blur-sm border-white/20"
+              source="email_signup_section"
+              tags={['newsletter_signup', 'homepage', 'lead_magnet']}
             />
           </div>
 
