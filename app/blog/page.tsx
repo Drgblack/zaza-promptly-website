@@ -6,6 +6,7 @@ import { generateWebsiteSchema } from '@/lib/structured-data'
 import { Calendar, Clock, ArrowRight, Search, TrendingUp } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 // Header and Footer are now rendered globally via layout
+// Cache-busting comment - Updated for zazatechnologies.com domain fix
 
 // Disable static generation - render pages dynamically to prevent build errors
 export const dynamic = 'force-dynamic'
