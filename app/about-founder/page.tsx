@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -18,29 +20,40 @@ import Link from 'next/link';
 import { StructuredData } from '@/components/structured-data';
 import { generateAuthorSchema } from '@/lib/structured-data';
 
-export const metadata: Metadata = {
-  title: 'About the Founder | Dr. Greg Blackburn - Zaza Technologies',
-  description: 'Meet Dr. Greg Blackburn, PhD-qualified educator and founder of Zaza Technologies. Over 20 years of EdTech experience building AI tools for teachers worldwide.',
-  keywords: 'Dr Greg Blackburn, Zaza Technologies founder, EdTech expert, AI education pioneer, PhD educator, digital learning',
-  openGraph: {
-    title: 'About the Founder - Dr. Greg Blackburn | Zaza Technologies',
-    description: 'Meet Dr. Greg Blackburn, the visionary founder behind Zaza Technologies\' revolutionary AI teaching tools.',
-    type: 'website',
-    url: 'https://zazapromptly.com/about-founder',
-    images: ['/images/greg-founder-photo.png'],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'About the Founder - Dr. Greg Blackburn | Zaza Technologies',
-    description: 'Meet Dr. Greg Blackburn, the visionary founder behind Zaza Technologies\' revolutionary AI teaching tools.',
-    images: ['/images/greg-founder-photo.png'],
-  },
-  alternates: {
-    canonical: 'https://zazapromptly.com/about-founder',
-  },
+type Props = {
+  params: Promise<{ locale: string }>;
 };
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'AboutFounder' });
+  
+  return {
+    title: t('title') + ' | Dr. Greg Blackburn - Zaza Technologies',
+    description: t('bio'),
+    keywords: 'Dr Greg Blackburn, Zaza Technologies founder, EdTech expert, AI education pioneer, PhD educator, digital learning',
+    openGraph: {
+      title: t('title') + ' - Dr. Greg Blackburn | Zaza Technologies',
+      description: t('description'),
+      type: 'website',
+      url: 'https://zazapromptly.com/about-founder',
+      images: ['/images/greg-founder-photo.png'],
+      locale: locale,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('title') + ' - Dr. Greg Blackburn | Zaza Technologies',
+      description: t('description'),
+      images: ['/images/greg-founder-photo.png'],
+    },
+    alternates: {
+      canonical: 'https://zazapromptly.com/about-founder',
+    },
+  };
+}
+
 export default function AboutFounderPage() {
+  const t = useTranslations('AboutFounder');
   const siteUrl = 'https://zazapromptly.com'
   
   // Generate structured data for the founder
@@ -57,14 +70,11 @@ export default function AboutFounderPage() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <Badge variant="secondary" className="text-indigo-700 bg-indigo-100 px-4 py-2 mb-6">
-                Meet the Founder
+                {t('title')}
               </Badge>
               
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-800 mb-6">
-                About the{" "}
-                <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                  Founder
-                </span>
+                {t('title')}
               </h1>
             </div>
 

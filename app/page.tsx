@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import { HeroSection } from "@/components/hero-section"
 import { EmailSignupSection } from "@/components/email-signup-section"
 import { PainRecognitionSection } from "@/components/pain-recognition-section"
@@ -18,20 +20,30 @@ import { LazyGPTAssistant } from "@/components/lazy-gpt-assistant"
 import { StructuredData } from "@/components/structured-data"
 import { generateWebsiteSchema, generateOrganizationSchema, generateSoftwareSchema } from "@/lib/structured-data"
 
-export const metadata: Metadata = {
-  title: 'Zaza Promptly - AI Teaching Assistant That Saves Teachers 5+ Hours/Week',
-  description: 'Join 12,000+ teachers using AI to write better student feedback faster. Generate personalized comments, parent messages, and assessments in seconds with Zaza Promptly.',
-  openGraph: {
-    title: 'Zaza Promptly - AI Teaching Assistant That Saves Teachers 5+ Hours/Week',
-    description: 'Join 12,000+ teachers using AI to write better student feedback faster. Try free today!',
-    images: ['/og-image.png'],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Zaza Promptly - AI Teaching Assistant That Saves Teachers 5+ Hours/Week',
-    description: 'Join 12,000+ teachers using AI to write better student feedback faster. Try free today!',
-    images: ['/og-image.png'],
-  },
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Hero' });
+  
+  return {
+    title: t('headline'),
+    description: t('subheadline'),
+    openGraph: {
+      title: t('headline'),
+      description: t('subheadline'),
+      images: ['/og-image.png'],
+      locale: locale,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('headline'),
+      description: t('subheadline'),
+      images: ['/og-image.png'],
+    },
+  };
 }
 
 export default function Home() {
