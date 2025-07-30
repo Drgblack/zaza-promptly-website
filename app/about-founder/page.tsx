@@ -1,6 +1,4 @@
 import type { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
-import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -20,40 +18,29 @@ import Link from 'next/link';
 import { StructuredData } from '@/components/structured-data';
 import { generateAuthorSchema } from '@/lib/structured-data';
 
-type Props = {
-  params: Promise<{ locale: string }>;
+export const metadata: Metadata = {
+  title: 'About the Founder | Dr. Greg Blackburn - Zaza Technologies',
+  description: 'Meet Dr. Greg Blackburn, PhD-qualified educator and founder of Zaza Technologies. Over 20 years of EdTech experience building AI tools for teachers worldwide.',
+  keywords: 'Dr Greg Blackburn, Zaza Technologies founder, EdTech expert, AI education pioneer, PhD educator, digital learning',
+  openGraph: {
+    title: 'About the Founder - Dr. Greg Blackburn | Zaza Technologies',
+    description: 'Meet Dr. Greg Blackburn, the visionary founder behind Zaza Technologies\' revolutionary AI teaching tools.',
+    type: 'website',
+    url: 'https://zazapromptly.com/about-founder',
+    images: ['/images/greg-founder-photo.png'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About the Founder - Dr. Greg Blackburn | Zaza Technologies',
+    description: 'Meet Dr. Greg Blackburn, the visionary founder behind Zaza Technologies\' revolutionary AI teaching tools.',
+    images: ['/images/greg-founder-photo.png'],
+  },
+  alternates: {
+    canonical: 'https://zazapromptly.com/about-founder',
+  },
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'AboutFounder' });
-  
-  return {
-    title: t('title') + ' | Dr. Greg Blackburn - Zaza Technologies',
-    description: t('bio'),
-    keywords: 'Dr Greg Blackburn, Zaza Technologies founder, EdTech expert, AI education pioneer, PhD educator, digital learning',
-    openGraph: {
-      title: t('title') + ' - Dr. Greg Blackburn | Zaza Technologies',
-      description: t('description'),
-      type: 'website',
-      url: 'https://zazapromptly.com/about-founder',
-      images: ['/images/greg-founder-photo.png'],
-      locale: locale,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: t('title') + ' - Dr. Greg Blackburn | Zaza Technologies',
-      description: t('description'),
-      images: ['/images/greg-founder-photo.png'],
-    },
-    alternates: {
-      canonical: 'https://zazapromptly.com/about-founder',
-    },
-  };
-}
-
 export default function AboutFounderPage() {
-  const t = useTranslations('AboutFounder');
   const siteUrl = 'https://zazapromptly.com'
   
   // Generate structured data for the founder
@@ -70,11 +57,14 @@ export default function AboutFounderPage() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <Badge variant="secondary" className="text-indigo-700 bg-indigo-100 px-4 py-2 mb-6">
-                {t('title')}
+                Meet the Founder
               </Badge>
               
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-800 mb-6">
-                {t('title')}
+                About the{" "}
+                <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                  Founder
+                </span>
               </h1>
             </div>
 
@@ -111,11 +101,11 @@ export default function AboutFounderPage() {
                     </p>
                     
                     <p>
-                      His career began far from the classroom – in a paint factory in Hobart, Tasmania – but after studying in Germany and Australia, Greg went on to lead global learning and development at major organisations, publish widely in educational technology, and earn a PhD focused on critical thinking in eLearning.
+                      His mission is simple: to give teachers back their time so they can focus on what they do best - inspiring and educating the next generation.
                     </p>
                     
                     <p>
-                      Zaza was born out of a frustration with clunky, time-wasting EdTech and a desire to help teachers thrive again. Greg's unique blend of practical teaching empathy and deep technical expertise powers every Zaza product. He's on a mission to build a teacher-first AI ecosystem that genuinely makes a difference.
+                      Before founding Zaza Technologies, Greg spent years in classrooms, educational leadership roles, and EdTech companies, gaining deep insights into the challenges teachers face daily. This experience drives his commitment to creating AI-powered solutions that actually work for educators.
                     </p>
                   </div>
                 </div>
@@ -124,114 +114,72 @@ export default function AboutFounderPage() {
           </div>
         </section>
 
-        {/* Credentials & Experience Section */}
-        <section className="py-16 lg:py-24">
+        {/* Experience Section */}
+        <section className="py-16 bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
-                Experience & Credentials
-              </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Two decades of expertise in education, technology, and leadership
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <Card className="group hover:shadow-lg transition-all duration-300">
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
-                    <GraduationCap className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">PhD Educator</h3>
-                  <p className="text-gray-600">PhD focused on critical thinking in eLearning, with extensive academic research and publications</p>
-                </CardContent>
-              </Card>
-
-              <Card className="group hover:shadow-lg transition-all duration-300">
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
-                    <Globe className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">Global Experience</h3>
-                  <p className="text-gray-600">Led global learning and development at major organisations across multiple continents</p>
-                </CardContent>
-              </Card>
-
-              <Card className="group hover:shadow-lg transition-all duration-300">
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-white mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
-                    <Users className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">20+ Years EdTech</h3>
-                  <p className="text-gray-600">Over two decades of experience in digital learning and instructional design</p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Mission & Vision Section */}
-        <section className="py-16 lg:py-24 bg-gray-50">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
-                The Mission Behind Zaza
-              </h2>
-              <p className="text-xl text-gray-600">
-                Building a teacher-first AI ecosystem that genuinely makes a difference
-              </p>
-            </div>
-
-            <Card className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
-              <CardContent className="p-8 lg:p-12">
-                <div className="text-center">
-                  <Lightbulb className="w-16 h-16 mx-auto mb-6 opacity-90" />
-                  <blockquote className="text-xl lg:text-2xl font-medium mb-6 italic">
-                    "Zaza was born out of a frustration with clunky, time-wasting EdTech and a desire to help teachers thrive again."
-                  </blockquote>
-                  <p className="text-lg opacity-90">
-                    Greg's unique blend of practical teaching empathy and deep technical expertise powers every Zaza product, creating tools that teachers actually want to use.
-                  </p>
+            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Experience & Expertise</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <GraduationCap className="w-8 h-8 text-white" />
                 </div>
-              </CardContent>
-            </Card>
-          </div>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Education</h3>
+                <p className="text-gray-600">PhD in Educational Technology</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Award className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Experience</h3>
+                <p className="text-gray-600">20+ years in EdTech</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Impact</h3>
+                <p className="text-gray-600">Supporting 12,000+ teachers globally</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Lightbulb className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Innovation</h3>
+                <p className="text-gray-600">Pioneer in AI-powered education tools</p>
+              </div>
+            </div>
+          </div>  
         </section>
 
-        {/* CTA Section */}
-        <section className="py-16 lg:py-24">
+        {/* Contact Section */}
+        <section className="py-16 bg-gradient-to-br from-gray-50 to-indigo-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">
-              Ready to Experience the Difference?
-            </h2>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Discover the AI tools built by educators, for educators. Join thousands of teachers already saving time with Zaza.
+            <h2 className="text-3xl font-bold text-gray-800 mb-8">Get in Touch</h2>
+            <p className="text-xl text-gray-600 mb-8">
+              Interested in learning more about Zaza Technologies or discussing educational innovation?
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700"
-                asChild
-              >
-                <Link href="/">
-                  <ArrowRight className="w-5 h-5 mr-2" />
-                  Try Zaza Promptly
+              <Button asChild size="lg" className="bg-indigo-600 hover:bg-indigo-700">
+                <Link href="mailto:greg@zazatechnologies.com">
+                  <Mail className="w-5 h-5 mr-2" />
+                  Connect via Email
                 </Link>
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline"
-                asChild
-              >
-                <Link href="/free-resources">
-                  <BookOpen className="w-5 h-5 mr-2" />
-                  Free Resources
+              
+              <Button asChild variant="outline" size="lg" className="border-indigo-600 text-indigo-600 hover:bg-indigo-50">
+                <Link href="https://linkedin.com/in/gregblackburn" target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="w-5 h-5 mr-2" />
+                  View LinkedIn Profile
                 </Link>
               </Button>
             </div>
           </div>
         </section>
     </div>
-  );
-} 
+  )
+}

@@ -1,6 +1,4 @@
 import type { Metadata } from 'next'
-import { NextIntlClientProvider } from 'next-intl'
-import { getMessages } from 'next-intl/server'
 import { ThemeProvider } from 'next-themes'
 import { ErrorBoundary } from '@/components/error-boundary'
 import { SecurityHeaders } from '@/components/security-headers'
@@ -125,39 +123,29 @@ export const metadata: Metadata = {
   },
 }
 
-interface RootLayoutProps {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-}
-
-export default async function RootLayout({
+export default function RootLayout({
   children,
-  params
-}: RootLayoutProps) {
-  const { locale } = await params;
-  // Providing all messages to the client side is the easiest way to get started
-  const messages = await getMessages();
-
+}: Readonly<{
+  children: React.ReactNode
+}>) {
   return (
-    <html lang={locale}>
+    <html lang="en">
       <body className="antialiased">
         <ErrorBoundary>
-          <NextIntlClientProvider messages={messages}>
-            <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-              <SecurityHeaders />
-              <CriticalCSS />
-              <Header />
-              <main id="main-content" className="min-h-screen">
-                {children}
-              </main>
-              <Footer />
-              <DeferredAnalytics />
-              <PerformanceEnhancements />
-              <ServiceWorkerRegistration />
-              <Analytics />
-              <SpeedInsights />
-            </ThemeProvider>
-          </NextIntlClientProvider>
+          <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+            <SecurityHeaders />
+            <CriticalCSS />
+            <Header />
+            <main id="main-content" className="min-h-screen">
+              {children}
+            </main>
+            <Footer />
+            <DeferredAnalytics />
+            <PerformanceEnhancements />
+            <ServiceWorkerRegistration />
+            <Analytics />
+            <SpeedInsights />
+          </ThemeProvider>
         </ErrorBoundary>
       </body>
     </html>

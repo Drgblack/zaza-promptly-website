@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { linkMap, getLink, externalLinks } from '../lib/linkMap';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import LanguageToggle from './LanguageToggle';
+// import LanguageToggle from './LanguageToggle';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -93,7 +93,7 @@ export default function Header() {
             </a>
             
             {/* Language Switcher */}
-            <LanguageToggle />
+            {/* Temporarily disabled */}
             
             {/* CTA Button */}
             <Link 
@@ -106,7 +106,7 @@ export default function Header() {
 
           {/* Mobile Controls */}
           <div className="lg:hidden flex items-center space-x-2">
-            <LanguageToggle />
+            {/* LanguageToggle temporarily disabled */}
             <button
               onClick={toggleMenu}
               className="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
