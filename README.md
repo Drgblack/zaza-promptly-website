@@ -1,4 +1,5 @@
 # Zaza Promptly – AI-Powered Student Comments for Teachers
+<!-- Force deployment sync -->
 
 Zaza Promptly is an AI-powered tool that helps teachers write clear, kind, and professional messages to parents  -  in seconds. Built using Next.js and OpenAI GPT-4.
 
