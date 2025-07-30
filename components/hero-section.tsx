@@ -7,12 +7,12 @@ import { EmailCaptureForm } from "@/components/EmailCaptureForm"
 import { Star, Zap, Target } from "lucide-react"
 
 const rotatingTexts = [
-  "No more Sunday night report card panic...",
-  "No more staring at blank comment boxes...",
-  "No more choosing between quality and time...",
-  "AI-powered feedback that sounds like you...",
-  "Machine learning that understands teaching...",
-  "Artificial intelligence built for educators...",
+  "Your teaching wisdom deserves the right words...",
+  "Write with confidence, every single time...",
+  "From your heart to perfect comments...",
+  "The more we work together, the better it gets...",
+  "You bring the expertise, we bring the words...",
+  "Never lose your voice in the writing...",
 ]
 
 export function HeroSection() {
@@ -38,20 +38,24 @@ export function HeroSection() {
           {/* Main Headline */}
           <header className="text-center">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-              The{" "}
+              You know your{" "}
               <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent">
-                AI Teaching Assistant
+                students better
               </span>
               <br />
-              That Actually Gets You
+              than anyone.
+              <br />
+              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+                Let's put that into words.
+              </span>
             </h1>
 
             <p
               className="text-lg sm:text-xl md:text-2xl text-blue-100 mb-8 max-w-4xl mx-auto leading-relaxed px-4"
               role="doc-subtitle"
             >
-              Advanced artificial intelligence that writes meaningful student feedback in minutes, not hours. 
-              Built by teachers, for teachers - with machine learning that understands your classroom.
+              Zaza Promptly learns your voice, remembers your style, and helps you write with the confidence you already have. 
+              Because your insights matter—they just need the right words.
             </p>
           </header>
 
