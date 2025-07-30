@@ -3,7 +3,22 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Zaza Promptly - AI-Powered Feedback Generation for Teachers',
   description: 'Save hours with Zaza Promptly – the AI-powered tool that helps teachers write student comments and parent messages faster, better, and stress-free.',
-  keywords: ['AI teacher tools', 'student comments', 'report writing', 'teacher feedback', 'education technology', 'AI for teachers'],
+  keywords: [
+    'AI teacher assistant', 
+    'comment generator', 
+    'Zaza Promptly', 
+    'rewrite parent messages',
+    'AI teacher tools', 
+    'student comments', 
+    'report writing', 
+    'teacher feedback', 
+    'education technology', 
+    'AI for teachers',
+    'parent communication AI',
+    'teaching productivity tools',
+    'automated feedback generation',
+    'teacher time-saving apps'
+  ],
   openGraph: {
     title: 'Zaza Promptly - AI-Powered Feedback Generation for Teachers',
     description: 'Save hours with Zaza Promptly – the AI-powered tool that helps teachers write student comments and parent messages faster, better, and stress-free.',
@@ -35,11 +50,30 @@ import { SkipLink } from "@/components/skip-link"
 import { PerformanceMonitor } from "@/components/performance-monitor"
 import { AccessibilityAnnouncer } from "@/components/accessibility-announcer"
 import { LazyGPTAssistant } from "@/components/lazy-gpt-assistant"
+import { StructuredData } from "@/components/structured-data"
+import { generateWebsiteSchema, generateOrganizationSchema, generateSoftwareSchema } from "@/lib/structured-data"
 
 export default function Home() {
+  const siteUrl = 'https://zazapromptly.com'
+  
+  // Generate structured data schemas for homepage
+  const websiteSchema = generateWebsiteSchema({
+    name: 'Zaza Promptly',
+    url: siteUrl,
+    description: 'AI-powered teaching assistant that helps teachers write student comments and parent messages 10x faster',
+    sameAs: [
+      'https://linkedin.com/company/zaza-technologies',
+      'https://twitter.com/zazateachapp'
+    ]
+  })
+  
+  const organizationSchema = generateOrganizationSchema(siteUrl)
+  const softwareSchema = generateSoftwareSchema(siteUrl)
+  
   return (
     <>
       <SEOHead pageType="home" />
+      <StructuredData data={[websiteSchema, organizationSchema, softwareSchema]} />
       <SkipLink />
       <AccessibilityAnnouncer />
       <PerformanceMonitor />

@@ -4,6 +4,8 @@ import { getBlogPost, getBlogPostSlugs, getRelatedPosts } from '@/lib/blog'
 import { BlogPostLayout } from '@/components/blog/blog-post-layout'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { mdxComponents } from '@/components/blog/mdx-components'
+import { StructuredData } from '@/components/structured-data'
+import { generateArticleSchema, generateAuthorSchema, generateKeywordsFromContent } from '@/lib/structured-data'
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -17,10 +19,18 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   try {
     const post = await getBlogPost(slug, 'en')
     
+    // Generate enhanced keywords if not provided
+    const enhancedKeywords = post.seo.keywords || generateKeywordsFromContent(
+      post.title,
+      post.description,
+      slug,
+      post.tags
+    )
+    
     return {
       title: post.seo.title,
       description: post.seo.description,
-      keywords: post.seo.keywords,
+      keywords: Array.isArray(enhancedKeywords) ? enhancedKeywords : enhancedKeywords.split(', '),
       authors: [{ name: post.author.name }],
       openGraph: {
         title: post.title,
@@ -54,6 +64,7 @@ export const dynamic = 'force-dynamic'
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params
+  const siteUrl = 'https://zazapromptly.com'
   
   try {
     const [post, relatedPosts] = await Promise.all([
@@ -65,8 +76,25 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       notFound()
     }
 
+    // Generate structured data schemas
+    const articleSchema = generateArticleSchema({
+      title: post.title,
+      description: post.description,
+      slug: slug,
+      author: post.author,
+      datePublished: post.date,
+      dateModified: post.updatedAt || post.date,
+      featuredImage: post.featuredImage,
+      tags: post.tags,
+      category: post.category,
+      readingTime: post.readingTime
+    }, siteUrl)
+
+    const authorSchema = generateAuthorSchema(post.author, siteUrl)
+
     return (
       <div className="pt-16 lg:pt-20">
+        <StructuredData data={[articleSchema, authorSchema]} />
         <BlogPostLayout
           post={post}
           relatedPosts={relatedPosts}

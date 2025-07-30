@@ -14,6 +14,8 @@ import {
   Linkedin
 } from 'lucide-react';
 import Link from 'next/link';
+import { StructuredData } from '@/components/structured-data';
+import { generateAuthorSchema } from '@/lib/structured-data';
 
 export const metadata: Metadata = {
   title: 'About the Founder | Dr. Greg Blackburn - Zaza Technologies',
@@ -38,8 +40,17 @@ export const metadata: Metadata = {
 };
 
 export default function AboutFounderPage() {
+  const siteUrl = 'https://zazapromptly.com'
+  
+  // Generate structured data for the founder
+  const authorSchema = generateAuthorSchema({
+    name: 'Dr. Greg Blackburn',
+    url: `${siteUrl}/about-founder`
+  }, siteUrl)
+
   return (
     <div className="pt-16 lg:pt-20">
+      <StructuredData data={authorSchema} />
         {/* Hero Section */}
         <section className="py-16 lg:py-24 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

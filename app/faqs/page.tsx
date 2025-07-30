@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { HelpCircle, MessageCircle, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { StructuredData } from '@/components/structured-data';
+import { generateFAQSchema } from '@/lib/structured-data';
 
 export const metadata: Metadata = {
   title: 'FAQs | Frequently Asked Questions - Zaza Promptly',
@@ -28,8 +30,39 @@ export const metadata: Metadata = {
 };
 
 export default function FAQsPage() {
+  // FAQ data for structured data generation
+  const faqData = [
+    {
+      question: 'Will this actually save me time or just create more work?',
+      answer: 'Zaza Promptly is designed to reduce mental load, not increase it. You don\'t need perfect prompts - just pick a student and get tailored, editable comments in seconds. Most teachers save 2-3 hours per week on report writing alone.',
+    },
+    {
+      question: 'Is it safe to use AI for student reports?', 
+      answer: 'Yes. Promptly avoids plagiarism, doesn\'t reuse data, and is built with privacy in mind. It\'s safer than copying past reports or Googling ideas, and we never store or share student information.',
+    },
+    {
+      question: 'Why not just use ChatGPT?',
+      answer: 'ChatGPT is a general tool that requires complex prompting and often produces generic responses. Zaza Promptly is specifically designed for teachers - it understands educational contexts, maintains your teaching voice, and provides curriculum-aligned suggestions without the trial-and-error of generic AI tools.',
+    },
+    {
+      question: 'Will the comments sound like me?',
+      answer: 'Yes. Promptly can match your tone, whether you\'re empathetic, direct, or positive-but-honest. You can tweak responses with one tap or write your own templates that the AI learns from.',
+    },
+    {
+      question: 'How much does it cost?',
+      answer: 'We offer a free tier to get started, with premium plans starting from affordable monthly rates. School licenses and bulk pricing are available for educational institutions.',
+    },
+    {
+      question: 'Can my school pay for this?',
+      answer: 'Absolutely. We offer school licenses and can provide custom pricing or quotes if your leadership team needs them. Many schools appreciate the time savings and consistency benefits for their staff.',
+    }
+  ]
+
+  const faqSchema = generateFAQSchema(faqData)
+
   return (
     <div className="pt-16 lg:pt-20">
+      <StructuredData data={faqSchema} />
       {/* Hero Section */}
       <section className="py-16 lg:py-24 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
