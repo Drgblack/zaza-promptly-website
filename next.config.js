@@ -1,7 +1,6 @@
 const path = require('path');
 const { withSentryConfig } = require('@sentry/nextjs');
-// Temporarily disable next-intl to fix routing issues
-// const createNextIntlPlugin = require('next-intl/plugin');
+const createNextIntlPlugin = require('next-intl/plugin');
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
   options: {
@@ -10,7 +9,7 @@ const withMDX = require('@next/mdx')({
   },
 })
 
-// const withNextIntl = createNextIntlPlugin('./i18n.ts');
+const withNextIntl = createNextIntlPlugin('./i18n.ts');
 
 const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
@@ -127,6 +126,6 @@ const sentryWebpackPluginOptions = {
 };
 
 module.exports = withSentryConfig(
-  withMDX(nextConfig),
+  withNextIntl(withMDX(nextConfig)),
   sentryWebpackPluginOptions
 );
