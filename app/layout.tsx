@@ -180,7 +180,6 @@ export default function RootLayout({
           defer 
           data-domain="zazapromptly.com" 
           src="https://plausible.io/js/script.js"
-          onLoad="console.log('Plausible analytics loaded')"
         />
       </head>
       <body>
