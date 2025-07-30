@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { FounderImage } from '@/components/FounderImage';
 import { 
   GraduationCap,
   Award,
@@ -71,13 +71,10 @@ export default function AboutFounderPage() {
             {/* Founder Image */}
             <div className="flex justify-center mb-8">
               <div className="relative">
-                <Image
+                <FounderImage
                   src="/images/greg-founder-photo.png"
-                  alt="Dr. Greg Blackburn – Founder of Zaza Technologies"
-                  width={200}
-                  height={200}
-                  className="w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 rounded-full object-cover shadow-xl border-4 border-white ring-4 ring-indigo-100"
-                  priority
+                  alt="Dr. Greg Blackburn, Founder of Zaza Technologies"
+                  className="rounded-full object-cover shadow-xl border-4 border-white ring-4 ring-indigo-100"
                 />
                 <div className="absolute -bottom-3 -right-3 w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
                   <GraduationCap className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
