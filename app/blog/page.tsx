@@ -10,6 +10,7 @@ import { Badge } from '@/components/ui/badge'
 
 // Disable static generation - render pages dynamically to prevent build errors
 export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 export const metadata: Metadata = {
   title: 'AI Education Blog - Teaching Tips & Strategies | Zaza Technologies',

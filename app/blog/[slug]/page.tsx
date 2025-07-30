@@ -61,6 +61,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
 // Disable static generation - render pages dynamically to prevent build errors
 export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params
