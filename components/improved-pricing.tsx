@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useAnalytics } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -15,10 +16,15 @@ export function ImprovedPricing({ className = "" }: ImprovedPricingProps) {
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly');
+  const { trackUpgradeClick, trackTrialStart, trackButtonClick } = useAnalytics();
 
   const handleCheckout = async (planType: 'pro-monthly' | 'pro-yearly') => {
     setLoadingPlan(planType);
     setError(null);
+
+    // Track upgrade attempt
+    trackUpgradeClick(planType, 'pricing_page');
+    trackTrialStart(planType, 'pricing_page');
 
     const result = await createCheckoutSession(planType);
     
@@ -82,7 +88,10 @@ export function ImprovedPricing({ className = "" }: ImprovedPricingProps) {
       <div className="flex justify-center mb-8">
         <div className="bg-gray-100 rounded-lg p-1 flex">
           <button
-            onClick={() => setBillingCycle('monthly')}
+            onClick={() => {
+              setBillingCycle('monthly');
+              trackButtonClick('Monthly Billing', 'pricing_toggle');
+            }}
             className={`px-6 py-2 rounded-md text-sm font-medium transition-all ${
               billingCycle === 'monthly'
                 ? 'bg-white text-gray-900 shadow-sm'
@@ -92,7 +101,10 @@ export function ImprovedPricing({ className = "" }: ImprovedPricingProps) {
             Monthly
           </button>
           <button
-            onClick={() => setBillingCycle('yearly')}
+            onClick={() => {
+              setBillingCycle('yearly');
+              trackButtonClick('Yearly Billing', 'pricing_toggle');
+            }}
             className={`px-6 py-2 rounded-md text-sm font-medium transition-all relative ${
               billingCycle === 'yearly'
                 ? 'bg-white text-gray-900 shadow-sm'

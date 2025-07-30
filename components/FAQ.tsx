@@ -3,6 +3,7 @@
 import React from 'react'
 import { Disclosure } from '@headlessui/react'
 import { ChevronUp } from 'lucide-react'
+import { useAnalytics } from '@/lib/analytics'
 
 const faqs = [
   {
@@ -68,6 +69,8 @@ const faqs = [
 ]
 
 export default function FAQ() {
+  const { trackFAQExpanded } = useAnalytics();
+
   return (
     <div className="w-full px-4 pt-16 pb-20 mx-auto max-w-3xl" id="faq">
       <h2 className="text-center text-3xl font-bold text-gray-800 mb-10">
@@ -78,7 +81,14 @@ export default function FAQ() {
           <Disclosure key={idx}>
             {({ open }) => (
               <>
-                <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-3 text-left text-base font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                <Disclosure.Button 
+                  className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-3 text-left text-base font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
+                  onClick={() => {
+                    if (!open) { // Only track when opening, not closing
+                      trackFAQExpanded(faq.question);
+                    }
+                  }}
+                >
                   <span>{faq.question}</span>
                   <ChevronUp
                     className={`${

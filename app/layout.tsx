@@ -5,6 +5,8 @@ import { SecurityHeaders } from '@/components/security-headers'
 import { GoogleAnalytics } from '@/components/google-analytics'
 import { EnhancedConversionTracking } from '@/components/analytics/enhanced-conversion-tracking'
 import { PerformanceEnhancements, ServiceWorkerRegistration, PerformanceErrorBoundary } from '@/components/performance-enhancements'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 import { UserFeedback } from '@/components/user-feedback'
 
@@ -135,6 +137,8 @@ export default function RootLayout({
         <PerformanceEnhancements />
         <ServiceWorkerRegistration />
         <UserFeedback />
+        <Analytics />
+        <SpeedInsights />
         <script
           dangerouslySetInnerHTML={{
             __html: `

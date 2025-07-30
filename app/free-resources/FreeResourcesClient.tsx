@@ -1,6 +1,7 @@
 'use client'
 
 import { Button } from '@/components/ui/button';
+import { useAnalytics } from '@/lib/analytics';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { 
@@ -15,6 +16,7 @@ import {
 } from 'lucide-react';
 
 export function FreeResourcesClient() {
+  const { trackResourceDownload, trackButtonClick } = useAnalytics();
   const resourceCategories = [
     {
       icon: <Zap className="w-8 h-8" />,
@@ -97,6 +99,10 @@ export function FreeResourcesClient() {
       '/downloads/Weekly_Teacher_Newsletter_Info.docx'
     ];
     
+    // Track bulk download event
+    trackResourceDownload('bulk_download', 'all_resources');
+    trackButtonClick('Download All Resources', 'free_resources_page');
+    
     allResources.forEach((url, index) => {
       setTimeout(() => {
         const link = document.createElement('a');
@@ -108,6 +114,9 @@ export function FreeResourcesClient() {
   };
 
   const handleDownload = (url: string, fileName: string) => {
+    // Track individual download
+    trackResourceDownload('individual_download', fileName.replace('.docx', ''));
+    
     const link = document.createElement('a');
     link.href = url;
     link.download = fileName;

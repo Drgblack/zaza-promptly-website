@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useAnalytics } from '@/lib/analytics';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -34,6 +35,7 @@ export function EmailCaptureForm({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [message, setMessage] = useState('');
+  const { trackEmailSubmitted, trackFormSubmit } = useAnalytics();
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -81,7 +83,11 @@ export function EmailCaptureForm({
         setEmail('');
         setName('');
         
-        // Track successful subscription
+        // Track successful subscription with both analytics systems
+        trackEmailSubmitted(source, 'lead_magnet');
+        trackFormSubmit('email_capture', source, true);
+        
+        // Legacy Google Analytics tracking
         if (typeof window !== 'undefined' && (window as any).gtag) {
           (window as any).gtag('event', 'email_capture', {
             event_category: 'engagement',
@@ -92,6 +98,7 @@ export function EmailCaptureForm({
       } else {
         setStatus('error');
         setMessage(data.error || 'Something went wrong. Please try again.');
+        trackFormSubmit('email_capture', source, false);
       }
     } catch (error) {
       setStatus('error');
