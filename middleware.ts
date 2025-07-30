@@ -21,10 +21,10 @@ export default createMiddleware({
 export const config = {
   // Only match paths that should be localized, exclude all others
   matcher: [
-    // Include all localized routes
-    '/(en|de|fr|es|it)/:path*',
+    // Match all paths except excluded ones
+    '/((?!api|_next|_vercel|promptly-pricing|signup|contact|faqs|products|promptly-faq|support|cookies|about-founder|vision-mission|why-zaza-teach|zaza-ecosystem|generate-blog|privacy|terms|blog|robots|sitemap|checkout|manifest|favicon|sw|.*\\.).*)',
     
-    // Include root paths that should be redirected to localized versions
-    '/((?!api|_next|_vercel|promptly-pricing|signup|contact|faqs|products|promptly-faq|support|cookies|about-founder|vision-mission|why-zaza-teach|zaza-ecosystem|generate-blog|privacy|terms|blog|robots|sitemap|checkout|.*\\.)(?:free-resources|about|why-zaza-promptly)?)$'
+    // Explicitly include localized routes
+    '/(en|de|fr|es|it)/:path*'
   ]
 };
