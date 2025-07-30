@@ -6,16 +6,20 @@ import { Badge } from '@/components/ui/badge';
 import { 
   Sparkles, 
   MessageSquare, 
-  Image, 
-  Users, 
-  Presentation, 
   Brain, 
-  Zap, 
+  Calendar,
+  Mail,
+  Heart,
+  FileText,
+  Smile,
+  GraduationCap,
+  ClipboardList,
+  Shield,
   Star,
   ArrowRight,
   CheckCircle,
   Clock,
-  Target
+  Zap
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -26,7 +30,7 @@ export const metadata: Metadata = {
     title: 'AI Teaching Tools Suite - Zaza Technologies',
     description: 'Transform your teaching with our complete collection of AI-powered educational tools and resources.',
     type: 'website',
-    url: 'https://zazapromptly.com/products',
+    url: 'https://zazatechnologies.com/products',
   },
   twitter: {
     card: 'summary_large_image',
@@ -34,100 +38,163 @@ export const metadata: Metadata = {
     description: 'Transform your teaching with our complete collection of AI-powered educational tools and resources.',
   },
   alternates: {
-    canonical: 'https://zazapromptly.com/products',
+    canonical: 'https://zazatechnologies.com/products',
   },
 };
 
-const products = [
+const coreTools = [
+  {
+    id: 'teach',
+    name: 'Zaza Teach',
+    tagline: 'Your intelligent lesson planning workspace',
+    description: 'Plan lessons in seconds, not hours. Zaza Teach uses curriculum-aware AI to generate, adapt, and save lesson plans based on your teaching style and student needs. Built with emotional and creative confidence in mind.',
+    icon: Brain,
+    color: 'from-blue-500 to-cyan-500',
+    bgColor: 'bg-gradient-to-br from-blue-50 to-cyan-50',
+    features: [
+      'Curriculum-aware AI lesson generation',
+      'Adapts to your teaching style and student needs',
+      'Built-in emotional and creative confidence support',
+      'Save and organize lesson plans effortlessly'
+    ],
+    status: 'Live',
+    statusColor: 'bg-green-500',
+    link: externalLinks.teach,
+    popular: true
+  },
   {
     id: 'promptly',
     name: 'Zaza Promptly',
-    tagline: 'AI-Powered Student Feedback',
-    description: 'Transform student observations into meaningful, personalized feedback in seconds. Save hours every week with intelligent feedback generation.',
+    tagline: 'Your AI-powered parent communication coach',
+    description: 'Say goodbye to message stress. Promptly helps you write clear, professional parent updates—instantly. Includes tone checking, translations, rewrites, and memory so you never repeat yourself.',
     icon: MessageSquare,
     color: 'from-purple-500 to-pink-500',
     bgColor: 'bg-gradient-to-br from-purple-50 to-pink-50',
     features: [
-      'Multiple feedback tones (encouraging, constructive, formal, warm)',
-      'Context-aware feedback generation',
-      'Time-saving automation',
-      'Professional language optimization'
+      'Clear, professional parent communication',
+      'Tone checking and optimization',
+      'Multi-language translation support',
+      'Memory system to avoid repetition'
     ],
     status: 'Live',
     statusColor: 'bg-green-500',
     link: externalLinks.promptly,
     popular: true
-  },
+  }
+];
+
+const zazaAgents = [
   {
-    id: 'teach',
-    name: 'Zaza Teach',
-    tagline: 'AI Lesson Planning Assistant',
-    description: 'Create engaging, standards-aligned lesson plans in minutes. Our AI understands curriculum requirements and student needs.',
-    icon: Brain,
-    color: 'from-blue-500 to-cyan-500',
-    bgColor: 'bg-gradient-to-br from-blue-50 to-cyan-50',
-    features: [
-      'Standards-aligned lesson planning',
-      'Differentiation strategies',
-      'Assessment integration',
-      'Resource recommendations'
-    ],
-    status: 'Live',
-    statusColor: 'bg-green-500',
-    link: externalLinks.teach,
-    popular: false
-  },
-  {
-    id: 'visuals',
-    name: 'Zaza Visuals',
-    tagline: 'AI-Generated Educational Graphics',
-    description: 'Create stunning visual aids, diagrams, and educational graphics instantly. Perfect for presentations and student materials.',
-    icon: Image,
+    id: 'autoplanner',
+    name: 'AutoPlanner',
+    tagline: 'Plans the week before you\'ve had your first coffee',
+    description: 'Auto-generates full weekly lesson plans based on your context. Adjusts to your teaching style, grade level, and upcoming topics. Fully integrated into Zaza Teach.',
+    icon: Calendar,
     color: 'from-emerald-500 to-teal-500',
     bgColor: 'bg-gradient-to-br from-emerald-50 to-teal-50',
     features: [
-      'Custom educational graphics',
-      'Multiple visual styles',
-      'Subject-specific templates',
-      'High-resolution exports'
+      'Auto-generates complete weekly lesson plans',
+      'Context-aware planning based on your needs',
+      'Grade level and subject customization',
+      'Seamless Zaza Teach integration'
     ],
-    status: 'Coming Soon',
-    statusColor: 'bg-orange-500',
+    status: 'Live',
+    statusColor: 'bg-green-500',
     link: '#',
     popular: false
   },
   {
-    id: 'coach',
-    name: 'Zaza Coach',
-    tagline: 'AI Teaching Mentor',
-    description: 'Get personalized coaching and professional development guidance. Improve your teaching practice with AI-powered insights.',
-    icon: Users,
+    id: 'zazaconnect',
+    name: 'ZazaConnect',
+    tagline: 'Email support with memory, tone, and teacher empathy',
+    description: 'Handles school inbox chaos. Summarises, drafts replies, remembers prior conversations, and even suggests when to pause or forward.',
+    icon: Mail,
     color: 'from-indigo-500 to-purple-500',
     bgColor: 'bg-gradient-to-br from-indigo-50 to-purple-50',
     features: [
-      'Personalized coaching sessions',
-      'Teaching strategy recommendations',
-      'Professional development tracking',
-      'Peer collaboration tools'
+      'Intelligent email summarization',
+      'Context-aware reply drafting',
+      'Conversation memory and tracking',
+      'Smart escalation suggestions'
     ],
-    status: 'Coming Soon',
-    statusColor: 'bg-orange-500',
+    status: 'Live',
+    statusColor: 'bg-green-500',
     link: '#',
     popular: false
   },
   {
-    id: 'schwoop',
-    name: 'Zaza Schwoop',
-    tagline: 'AI Student Engagement Platform',
-    description: 'Boost student engagement with interactive AI-powered activities and assessments that adapt to individual learning styles.',
-    icon: Target,
+    id: 'reflex',
+    name: 'Zaza Reflex',
+    tagline: 'Your end-of-day wellbeing companion',
+    description: 'Summarises your teaching day, tracks emotional tone, and helps you reflect gently. A micro-coach in your pocket for those long weeks.',
+    icon: Heart,
     color: 'from-rose-500 to-pink-500',
     bgColor: 'bg-gradient-to-br from-rose-50 to-pink-50',
     features: [
-      'Adaptive learning activities',
-      'Real-time engagement tracking',
-      'Gamified assessments',
-      'Student progress analytics'
+      'Daily teaching summary and reflection',
+      'Emotional tone tracking and insights',
+      'Gentle micro-coaching support',
+      'Wellbeing trend analysis'
+    ],
+    status: 'Live',
+    statusColor: 'bg-green-500',
+    link: '#',
+    popular: false
+  },
+  {
+    id: 'subplan',
+    name: 'Zaza SubPlan',
+    tagline: 'Instant sub plans, even mid-commute',
+    description: 'Create ready-to-use emergency lesson plans in seconds when you\'re off sick. Context-aware, standards-aligned, and editable.',
+    icon: FileText,
+    color: 'from-amber-500 to-orange-500',
+    bgColor: 'bg-gradient-to-br from-amber-50 to-orange-50',
+    features: [
+      'Emergency lesson plans in seconds',
+      'Context-aware and standards-aligned',
+      'Fully editable and customizable',
+      'Ready-to-use substitute materials'
+    ],
+    status: 'Live',
+    statusColor: 'bg-green-500',
+    link: '#',
+    popular: false
+  },
+  {
+    id: 'zen',
+    name: 'Zaza Zen',
+    tagline: 'Micro-coaching for stressed teachers',
+    description: 'Feeling burnt out? Zen offers calming scripts, boundary language, and quick mindset resets. Think: AI-powered care for teachers, by teachers.',
+    icon: Smile,
+    color: 'from-violet-500 to-purple-500',
+    bgColor: 'bg-gradient-to-br from-violet-50 to-purple-50',
+    features: [
+      'Calming scripts and mindfulness exercises',
+      'Professional boundary language suggestions',
+      'Quick mindset reset techniques',
+      'AI-powered teacher care and support'
+    ],
+    status: 'Live',
+    statusColor: 'bg-green-500',
+    link: '#',
+    popular: false
+  }
+];
+
+const comingSoon = [
+  {
+    id: 'gradeflow',
+    name: 'Zaza GradeFlow',
+    tagline: 'Your grading sidekick, tone-aware and standards-smart',
+    description: 'Turn rubrics into comment-ready feedback. GradeFlow helps you be fair, fast, and human.',
+    icon: GraduationCap,
+    color: 'from-cyan-500 to-blue-500',
+    bgColor: 'bg-gradient-to-br from-cyan-50 to-blue-50',
+    features: [
+      'Rubric-to-comment conversion',
+      'Tone-aware feedback generation',
+      'Standards-aligned assessment support',
+      'Fair and consistent grading assistance'
     ],
     status: 'Coming Soon',
     statusColor: 'bg-orange-500',
@@ -135,18 +202,37 @@ const products = [
     popular: false
   },
   {
-    id: 'clarity-deck',
-    name: 'Zaza Clarity Deck',
-    tagline: 'AI Presentation Builder',
-    description: 'Create compelling educational presentations with AI assistance. Professional slides that engage and inform your audience.',
-    icon: Presentation,
-    color: 'from-amber-500 to-orange-500',
-    bgColor: 'bg-gradient-to-br from-amber-50 to-orange-50',
+    id: 'reportmate',
+    name: 'Zaza ReportMate',
+    tagline: 'Report comment generation, reimagined',
+    description: 'AI-generated report card comments based on strengths, areas for growth, and curriculum language. Parent-ready in minutes.',
+    icon: ClipboardList,
+    color: 'from-teal-500 to-emerald-500',
+    bgColor: 'bg-gradient-to-br from-teal-50 to-emerald-50',
     features: [
-      'AI-powered slide generation',
-      'Educational templates',
-      'Content optimization',
-      'Presentation analytics'
+      'Strengths-based report card comments',
+      'Curriculum-aligned language',
+      'Growth-focused feedback',
+      'Parent-friendly communication'
+    ],
+    status: 'Coming Soon',
+    statusColor: 'bg-orange-500',
+    link: '#',
+    popular: false
+  },
+  {
+    id: 'integrityguard',
+    name: 'Zaza IntegrityGuard',
+    tagline: 'Teach with AI and keep it honest',
+    description: 'Helps students use AI responsibly while spotting misuse and coaching better digital integrity.',
+    icon: Shield,
+    color: 'from-red-500 to-rose-500',
+    bgColor: 'bg-gradient-to-br from-red-50 to-rose-50',
+    features: [
+      'AI misuse detection and prevention',
+      'Student digital integrity coaching',
+      'Responsible AI usage guidance',
+      'Academic honesty support tools'
     ],
     status: 'Coming Soon',
     statusColor: 'bg-orange-500',
@@ -154,6 +240,85 @@ const products = [
     popular: false
   }
 ];
+
+function ProductCard({ product, isPopular = false }: { product: any, isPopular?: boolean }) {
+  const IconComponent = product.icon;
+  
+  return (
+    <Card 
+      className={`relative overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 ${
+        isPopular ? 'ring-2 ring-purple-500' : ''
+      }`}
+    >
+      {isPopular && (
+        <div className="absolute top-4 right-4 z-10">
+          <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white border-0">
+            <Star className="w-3 h-3 mr-1" />
+            Most Popular
+          </Badge>
+        </div>
+      )}
+      
+      <div className={`${product.bgColor} p-6`}>
+        <div className="flex items-center justify-between mb-4">
+          <div className={`w-12 h-12 bg-gradient-to-r ${product.color} rounded-xl shadow-lg flex items-center justify-center`}>
+            <IconComponent className="w-6 h-6 text-white" />
+          </div>
+          <Badge className={`${product.statusColor} text-white border-0`}>
+            {product.status}
+          </Badge>
+        </div>
+        
+        <CardHeader className="p-0">
+          <CardTitle className="text-2xl font-bold text-gray-800 mb-2">
+            {product.name}
+          </CardTitle>
+          <CardDescription className="text-lg font-semibold text-gray-600 mb-3">
+            {product.tagline}
+          </CardDescription>
+        </CardHeader>
+        
+        <CardContent className="p-0">
+          <p className="text-gray-600 mb-6 leading-relaxed">
+            {product.description}
+          </p>
+          
+          <div className="space-y-3 mb-6">
+            {product.features.map((feature, index) => (
+              <div key={index} className="flex items-start space-x-3">
+                <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                <span className="text-sm text-gray-700">{feature}</span>
+              </div>
+            ))}
+          </div>
+          
+          <Button 
+            className={`w-full bg-gradient-to-r ${product.color} hover:opacity-90 text-white font-semibold py-3 rounded-xl shadow-lg transition-all duration-200`}
+            disabled={product.status === 'Coming Soon'}
+            asChild={product.status !== 'Coming Soon' && product.link !== '#'}
+          >
+            {product.status === 'Coming Soon' ? (
+              <span className="flex items-center justify-center">
+                <Clock className="w-4 h-4 mr-2" />
+                Coming Soon
+              </span>
+            ) : product.link === '#' ? (
+              <span className="flex items-center justify-center">
+                <Sparkles className="w-4 h-4 mr-2" />
+                Available in Zaza Suite
+              </span>
+            ) : (
+              <a href={product.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+                Try {product.name}
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </a>
+            )}
+          </Button>
+        </CardContent>
+      </div>
+    </Card>
+  );
+}
 
 export default function ProductsPage() {
   return (
@@ -190,83 +355,71 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* Products Grid */}
+      {/* Core Tools Section */}
       <section className="relative py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              🧰 Core Tools
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+              Essential AI Tools for Every Teacher
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Your intelligent teaching companions that handle the heavy lifting, so you can focus on what matters most—your students.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {coreTools.map((product) => (
+              <ProductCard key={product.id} product={product} isPopular={product.popular} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Zaza Agents Section */}
+      <section className="relative py-16 lg:py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center bg-gradient-to-r from-purple-500 to-pink-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              🤖 Zaza Agents
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+              Your AI Teaching Assistants
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Specialized AI agents that work behind the scenes to automate your daily teaching tasks and support your wellbeing.
+            </p>
+          </div>
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.map((product) => {
-              const IconComponent = product.icon;
-              return (
-                <Card 
-                  key={product.id} 
-                  className={`relative overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 ${
-                    product.popular ? 'ring-2 ring-purple-500' : ''
-                  }`}
-                >
-                  {product.popular && (
-                    <div className="absolute top-4 right-4 z-10">
-                      <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white border-0">
-                        <Star className="w-3 h-3 mr-1" />
-                        Most Popular
-                      </Badge>
-                    </div>
-                  )}
-                  
-                  <div className={`${product.bgColor} p-6`}>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className={`w-12 h-12 bg-gradient-to-r ${product.color} rounded-xl shadow-lg flex items-center justify-center`}>
-                        <IconComponent className="w-6 h-6 text-white" />
-                      </div>
-                      <Badge className={`${product.statusColor} text-white border-0`}>
-                        {product.status}
-                      </Badge>
-                    </div>
-                    
-                    <CardHeader className="p-0">
-                      <CardTitle className="text-2xl font-bold text-gray-800 mb-2">
-                        {product.name}
-                      </CardTitle>
-                      <CardDescription className="text-lg font-semibold text-gray-600 mb-3">
-                        {product.tagline}
-                      </CardDescription>
-                    </CardHeader>
-                    
-                    <CardContent className="p-0">
-                      <p className="text-gray-600 mb-6 leading-relaxed">
-                        {product.description}
-                      </p>
-                      
-                      <div className="space-y-3 mb-6">
-                        {product.features.map((feature, index) => (
-                          <div key={index} className="flex items-start space-x-3">
-                            <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-gray-700">{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-                      
-                      <Button 
-                        className={`w-full bg-gradient-to-r ${product.color} hover:opacity-90 text-white font-semibold py-3 rounded-xl shadow-lg transition-all duration-200`}
-                        disabled={product.status === 'Coming Soon'}
-                        asChild={product.status !== 'Coming Soon'}
-                      >
-                        {product.status === 'Coming Soon' ? (
-                          <span className="flex items-center justify-center">
-                            <Clock className="w-4 h-4 mr-2" />
-                            Coming Soon
-                          </span>
-                        ) : (
-                          <a href={product.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
-                            Try {product.name}
-                            <ArrowRight className="w-4 h-4 ml-2" />
-                          </a>
-                        )}
-                      </Button>
-                    </CardContent>
-                  </div>
-                </Card>
-              );
-            })}
+            {zazaAgents.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Coming Soon Section */}
+      <section className="relative py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center bg-gradient-to-r from-orange-500 to-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              🧪 Coming Soon
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+              Next-Generation Teaching Tools
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Innovative solutions currently in development to further revolutionize your teaching experience.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {comingSoon.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
           </div>
         </div>
       </section>
@@ -295,4 +448,4 @@ export default function ProductsPage() {
       </section>
     </div>
   );
-} 
+}
