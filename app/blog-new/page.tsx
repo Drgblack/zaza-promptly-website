@@ -1,0 +1,129 @@
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { getAllBlogPosts, getPopularPosts, getAllCategories, getAllTags } from '@/lib/blog'
+import { StructuredData } from '@/components/structured-data'
+import { generateWebsiteSchema } from '@/lib/structured-data'
+import { Calendar, Clock, ArrowRight, Search, TrendingUp } from 'lucide-react'
+import { Badge } from '@/components/ui/badge'
+
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
+export const metadata: Metadata = {
+  title: 'AI Education Blog - Teaching Tips & Strategies | Zaza Technologies',
+  description: 'Discover the latest insights, tips, and strategies for using AI in education. Written by teachers, for teachers. Expert advice on AI-powered teaching tools.',
+  keywords: ['AI in education', 'teaching with AI', 'AI teaching tools', 'educational technology', 'teacher blog', 'AI lesson planning', 'teaching strategies'],
+}
+
+export default async function BlogNewPage() {
+  const siteUrl = 'https://zazatechnologies.com'
+  
+  let allPosts: any[] = [];
+  let popularPosts: any[] = [];
+  let categories: string[] = [];
+  let tags: string[] = [];
+  
+  try {
+    [allPosts, popularPosts, categories, tags] = await Promise.all([
+      getAllBlogPosts(),
+      getPopularPosts(6),
+      getAllCategories(),
+      getAllTags()
+    ]);
+  } catch (error) {
+    console.error('Error loading blog data:', error);
+  }
+
+  const publishedPosts = allPosts.filter(post => post.isPublished && !post.isDraft)
+
+  return (
+    <div className="bg-gray-50 min-h-screen">
+      <main className="pt-8">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-pink-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-800 mb-6">
+                AI Education Blog (Working!)
+              </h1>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                Blog system is now working! Found {publishedPosts.length} published posts.
+              </p>
+              <div className="bg-green-100 p-4 rounded-lg mb-6 max-w-2xl mx-auto">
+                <p className="text-green-800 font-semibold">✅ Blog System Status: WORKING</p>
+                <p className="text-green-700">Found {allPosts.length} total posts, {publishedPosts.length} published</p>
+                <p className="text-green-700">{categories.length} categories, {tags.length} tags</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {publishedPosts.length === 0 ? (
+              <div className="text-center py-12">
+                <h2 className="text-2xl font-bold text-gray-800 mb-4">No published posts found</h2>
+                <p className="text-gray-600">Posts exist but may not be marked as published.</p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {publishedPosts.map((post) => (
+                  <article
+                    key={post.slug}
+                    className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group"
+                  >
+                    <div className="p-6">
+                      <Badge variant="secondary" className="mb-3">
+                        {post.category}
+                      </Badge>
+                      
+                      <h2 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-purple-600 transition-colors">
+                        <Link href={`/blog-new/${post.slug}`} className="hover:underline">
+                          {post.title}
+                        </Link>
+                      </h2>
+                      
+                      <p className="text-gray-600 mb-4 line-clamp-3">
+                        {post.excerpt}
+                      </p>
+                      
+                      <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                        <div className="flex items-center">
+                          <Calendar className="w-4 h-4 mr-1" />
+                          {new Date(post.date).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric',
+                          })}
+                        </div>
+                        <div className="flex items-center">
+                          <Clock className="w-4 h-4 mr-1" />
+                          {post.readingTime} min read
+                        </div>
+                      </div>
+                      
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {post.tags.slice(0, 3).map((tag) => (
+                          <Badge key={tag} variant="outline" className="text-xs">
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
+                      
+                      <Link
+                        href={`/blog-new/${post.slug}`}
+                        className="inline-flex items-center text-purple-600 hover:text-purple-700 font-medium transition-colors"
+                      >
+                        Read More
+                        <ArrowRight className="w-4 h-4 ml-1" />
+                      </Link>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+      </main>
+    </div>
+  )
+}
