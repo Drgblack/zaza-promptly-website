@@ -187,15 +187,20 @@
     pointer-events: auto !important;
   }
   
-  /* Disable any animations that might interfere with text selection */
-  * {
-    animation: none !important;
-    transition: none !important;
+  /* Only disable animations that interfere with text selection */
+  .select-none {
+    animation: none;
+    transition: none;
   }
   
-  /* But allow specific animations we want to keep */
-  .animate-fade-in, .animate-fade-in-out {
-    animation: fade-in 0.5s ease-out !important;
+  /* Allow animations for visual elements */
+  .animate-fade-in, .animate-fade-in-out, [class*="animate-"] {
+    animation: revert !important;
+  }
+  
+  /* Allow transitions for interactive elements */
+  button, a, .hover\:scale-105, [class*="hover:"], [class*="transition"] {
+    transition: revert !important;
   }
   
   /* Prevent selection only on specific interactive elements where needed */
@@ -490,11 +495,14 @@
   }
 }
 
-/* Mobile-specific animations */
+/* Mobile-specific animations - only for users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  * {
+  .animate-fade-in, .animate-fade-in-out, [class*="animate-"] {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+  
+  button, a, [class*="hover:"], [class*="transition"] {
     transition-duration: 0.01ms !important;
   }
 }
@@ -586,14 +594,20 @@
   }
 }
 
-/* Reduced motion support */
+/* Reduced motion support - targeted approach */
 @media (prefers-reduced-motion: reduce) {
-  *,
+  [class*="animate-"],
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+  
+  [class*="transition"], [class*="hover:"] {
     transition-duration: 0.01ms !important;
+  }
+  
+  html {
     scroll-behavior: auto !important;
   }
 }
