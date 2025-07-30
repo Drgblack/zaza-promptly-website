@@ -137,7 +137,7 @@ export function EmailCaptureForm({
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Button 
-            size={size}
+            size={size === 'md' ? 'default' : size}
             className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
             onClick={() => window.open('/free-resources', '_blank')}
           >
@@ -146,7 +146,7 @@ export function EmailCaptureForm({
           </Button>
           <Button 
             variant="outline" 
-            size={size}
+            size={size === 'md' ? 'default' : size}
             onClick={() => {
               setStatus('idle');
               setMessage('');
@@ -209,7 +209,7 @@ export function EmailCaptureForm({
           <Button
             type="submit"
             disabled={isSubmitting || !email}
-            size={size}
+            size={size === 'md' ? 'default' : size}
             className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
           >
             {isSubmitting ? (
