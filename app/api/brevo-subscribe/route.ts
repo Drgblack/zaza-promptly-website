@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { BrevoDirectAPI } from '@/lib/brevo-direct';
 import { UnifiedBrevoCapture, getUTMData, getCurrentAppSource } from '@/lib/unified-brevo-capture';
 
 export async function POST(request: NextRequest) {
@@ -30,11 +31,46 @@ export async function POST(request: NextRequest) {
     
     // Determine lead source from the request context
     const leadSource = source || determineLeadSource(referer, tags);
-    
-    // Determine app source
+
+    // Try the simple direct Brevo API first
+    try {
+      const result = await BrevoDirectAPI.addContact({
+        email,
+        firstName,
+        lastName,
+        attributes: {
+          SOURCE: source || 'website',
+          LEAD_SOURCE: leadSource,
+          TAGS: tags.join(','),
+          UTM_SOURCE: utmData.source || '',
+          UTM_MEDIUM: utmData.medium || '',
+          UTM_CAMPAIGN: utmData.campaign || '',
+          SIGNUP_URL: referer || ''
+        }
+      });
+
+      if (result.success) {
+        return NextResponse.json({ 
+          success: true, 
+          message: result.message,
+          trackingData: {
+            event: 'brevo_subscribe',
+            source: source || 'website',
+            leadSource,
+            tags
+          }
+        });
+      } else {
+        console.error('Direct Brevo API failed:', result.message);
+        // Fall back to unified system
+      }
+    } catch (directError) {
+      console.error('Direct Brevo API error:', directError);
+      // Fall back to unified system
+    }
+
+    // Fallback to unified Brevo capture system
     const appSource = getCurrentAppFromReferer(referer);
-    
-    // Use unified Brevo capture system
     let success = false;
     
     // Construct full name from firstName and lastName, fallback to legacy name field
@@ -94,7 +130,7 @@ export async function POST(request: NextRequest) {
       });
     } else {
       return NextResponse.json({ 
-        error: 'Failed to subscribe to newsletter' 
+        error: 'Failed to subscribe to newsletter. Please try again or contact support.' 
       }, { status: 500 });
     }
 

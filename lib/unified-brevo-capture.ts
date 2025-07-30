@@ -85,7 +85,14 @@ export class UnifiedBrevoCapture {
         return true
       } else {
         const errorText = await response.text()
-        console.error(`Failed to create contact:`, errorText)
+        console.error(`Failed to create contact (${response.status}):`, {
+          status: response.status,
+          statusText: response.statusText,
+          error: errorText,
+          email: enrichedContact.email,
+          listIds: payload.listIds,
+          apiKeyPresent: !!apiKey
+        })
         return false
       }
     } catch (error) {
@@ -255,28 +262,28 @@ export class UnifiedBrevoCapture {
   private static getListIds(contactData: UnifiedBrevoContact): number[] {
     const listIds: number[] = []
     
-    // Main app lists (replace with actual Brevo list IDs)
-    const appLists = {
-      promptly: 1,
-      teach: 2,
-      visuals: 3,
-      ecosystem: 4
+    // Get the main list ID from environment variables
+    const brevoListId = process.env.BREVO_LIST_ID
+    if (brevoListId) {
+      const listId = parseInt(brevoListId, 10)
+      if (!isNaN(listId)) {
+        listIds.push(listId)
+      }
     }
     
-    // Add to main app list
-    const appListId = appLists[contactData.source as keyof typeof appLists]
-    if (appListId) {
-      listIds.push(appListId)
-    }
-    
-    // Add to cross-app list if applicable
-    if (contactData.crossAppData?.linkedApps?.length > 0) {
-      listIds.push(5) // Cross-app users list
-    }
-    
-    // Add to high-intent list if applicable
-    if (['pricing_page', 'comparison_page', 'exit_intent'].includes(contactData.leadSource)) {
-      listIds.push(6) // High-intent leads list
+    // If no environment list ID is set, use app-specific fallback IDs
+    if (listIds.length === 0) {
+      const appLists = {
+        promptly: 1,
+        teach: 2,
+        visuals: 3,
+        ecosystem: 4
+      }
+      
+      const appListId = appLists[contactData.source as keyof typeof appLists]
+      if (appListId) {
+        listIds.push(appListId)
+      }
     }
     
     return listIds
