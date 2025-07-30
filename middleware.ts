@@ -8,11 +8,11 @@ export default createMiddleware({
   // Used when no locale matches
   defaultLocale,
 
-  // The locale prefix strategy
-  localePrefix: 'as-needed',
+  // The locale prefix strategy - never prefix default locale
+  localePrefix: 'never',
 
   // Enable automatic locale detection from Accept-Language header
-  localeDetection: true,
+  localeDetection: false,
 
   // Custom path matcher - exclude API routes, static files, etc.
   pathnames: {
