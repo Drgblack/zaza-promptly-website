@@ -103,6 +103,21 @@ const nextConfig = {
         destination: '/promptly-pricing',
         permanent: true,
       },
+      {
+        source: '/free-resources',
+        destination: '/en/free-resources',
+        permanent: true,
+      },
+      {
+        source: '/about',
+        destination: '/en/about',
+        permanent: true,
+      },
+      {
+        source: '/why-zaza-promptly',
+        destination: '/en/why-zaza-promptly',
+        permanent: true,
+      },
     ]
   },
 };
