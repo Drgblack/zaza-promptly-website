@@ -2,15 +2,14 @@ import type { Metadata } from 'next'
 import { ThemeProvider } from 'next-themes'
 import { ErrorBoundary } from '@/components/error-boundary'
 import { SecurityHeaders } from '@/components/security-headers'
-import { GoogleAnalytics } from '@/components/google-analytics'
-import { EnhancedConversionTracking } from '@/components/analytics/enhanced-conversion-tracking'
+import { DeferredAnalytics } from '@/components/deferred-analytics'
 import { PerformanceEnhancements, ServiceWorkerRegistration, PerformanceErrorBoundary } from '@/components/performance-enhancements'
+import { PerformanceOptimizations, CriticalCSS } from '@/components/performance-optimizations'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import './globals.css'
-import { UserFeedback } from '@/components/user-feedback'
 
 export const metadata: Metadata = {
   title: {
@@ -147,8 +146,16 @@ export default function RootLayout({
         <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
         <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
         
+        {/* Critical resource preloading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+        
+        {/* Preload critical images */}
+        <link rel="preload" href="/og-image.jpg" as="image" type="image/jpeg" />
+        <link rel="preload" href="/favicon-32x32.png" as="image" type="image/png" />
+        
+        {/* Analytics preconnects - defer these for better FCP */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
         <link rel="preconnect" href="https://plausible.io" />
@@ -165,11 +172,15 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         
-        {/* Plausible Analytics - Privacy-friendly, GDPR compliant */}
+        {/* Critical CSS for preventing CLS */}
+        <CriticalCSS />
+        
+        {/* Defer Plausible Analytics for better FCP */}
         <script 
           defer 
           data-domain="zazapromptly.com" 
           src="https://plausible.io/js/script.js"
+          onLoad="console.log('Plausible analytics loaded')"
         />
       </head>
       <body>
@@ -185,46 +196,52 @@ export default function RootLayout({
           </ErrorBoundary>
         </PerformanceErrorBoundary>
         <SecurityHeaders />
-        <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
-        <EnhancedConversionTracking />
+        <DeferredAnalytics />
         <PerformanceEnhancements />
+        <PerformanceOptimizations />
         <ServiceWorkerRegistration />
-        <UserFeedback />
         <Analytics />
         <SpeedInsights />
         <script
+          defer
           dangerouslySetInnerHTML={{
             __html: `
-              // Force enable text selection
-              document.addEventListener('DOMContentLoaded', function() {
-                // Remove any event listeners that might prevent selection
-                document.addEventListener('mousedown', function(e) {
-                  e.stopPropagation();
-                }, true);
-                
-                document.addEventListener('selectstart', function(e) {
-                  e.stopPropagation();
-                }, true);
-                
-                // Force enable selection on all elements
+              // Optimized text selection enabler - deferred for better FCP
+              (function() {
                 const enableSelection = () => {
-                  const allElements = document.querySelectorAll('*');
-                  allElements.forEach(el => {
-                    if (el.style) {
-                      el.style.setProperty('-webkit-user-select', 'text', 'important');
-                      el.style.setProperty('-moz-user-select', 'text', 'important');
-                      el.style.setProperty('-ms-user-select', 'text', 'important');
-                      el.style.setProperty('user-select', 'text', 'important');
-                      el.style.setProperty('pointer-events', 'auto', 'important');
-                    }
-                  });
+                  // Use more efficient CSS injection instead of per-element styling
+                  if (!document.getElementById('text-selection-enabler')) {
+                    const style = document.createElement('style');
+                    style.id = 'text-selection-enabler';
+                    style.textContent = \`
+                      * { 
+                        -webkit-user-select: text !important; 
+                        -moz-user-select: text !important; 
+                        -ms-user-select: text !important; 
+                        user-select: text !important; 
+                        pointer-events: auto !important; 
+                      }
+                    \`;
+                    document.head.appendChild(style);
+                  }
                 };
                 
+                // Enable immediately for fast loading
                 enableSelection();
                 
-                // Run periodically to catch dynamic content
-                setInterval(enableSelection, 1000);
-              });
+                // Re-enable after DOM changes (less frequent)
+                const observer = new MutationObserver(() => {
+                  enableSelection();
+                });
+                
+                if (document.readyState === 'loading') {
+                  document.addEventListener('DOMContentLoaded', () => {
+                    observer.observe(document.body, { childList: true, subtree: true });
+                  });
+                } else {
+                  observer.observe(document.body, { childList: true, subtree: true });
+                }
+              })();
             `
           }}
         />

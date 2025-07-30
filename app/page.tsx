@@ -34,7 +34,7 @@ import { SEOHead } from "@/components/seo-head"
 import { SkipLink } from "@/components/skip-link"
 import { PerformanceMonitor } from "@/components/performance-monitor"
 import { AccessibilityAnnouncer } from "@/components/accessibility-announcer"
-import { GPTAssistant } from "@/components/gpt-assistant"
+import { LazyGPTAssistant } from "@/components/lazy-gpt-assistant"
 
 export default function Home() {
   return (
@@ -55,7 +55,7 @@ export default function Home() {
       <FinalCTASection />
       <MobileOptimizations />
       <StickyCTA />
-      <GPTAssistant />
+      <LazyGPTAssistant />
     </>
   )
 }
