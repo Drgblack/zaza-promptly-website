@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     const post = await getBlogPost(slug, 'en')
     
     // Generate enhanced keywords if not provided
-    const enhancedKeywords = post.seo.keywords || generateKeywordsFromContent(
+    const enhancedKeywords: string[] = post.seo.keywords || generateKeywordsFromContent(
       post.title,
       post.description,
       slug,
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     return {
       title: post.seo.title,
       description: post.seo.description,
-      keywords: Array.isArray(enhancedKeywords) ? enhancedKeywords : enhancedKeywords.split(', '),
+      keywords: enhancedKeywords,
       authors: [{ name: post.author.name }],
       openGraph: {
         title: post.title,
@@ -83,11 +83,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       slug: slug,
       author: post.author,
       datePublished: post.date,
-      dateModified: post.updatedAt || post.date,
+      dateModified: post.date,
       featuredImage: post.featuredImage,
       tags: post.tags,
       category: post.category,
-      readingTime: post.readingTime
+      readingTime: post.readingTime.toString()
     }, siteUrl)
 
     const authorSchema = generateAuthorSchema(post.author, siteUrl)
