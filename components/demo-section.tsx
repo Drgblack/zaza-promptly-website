@@ -134,7 +134,7 @@ export function DemoSection() {
   }
 
   return (
-    <section ref={sectionRef} className="relative py-20 lg:py-32 overflow-hidden">
+    <section id="demo-section" ref={sectionRef} className="relative py-20 lg:py-32 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.1),transparent_50%)]" />
