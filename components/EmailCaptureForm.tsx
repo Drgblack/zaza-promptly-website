@@ -31,7 +31,8 @@ export function EmailCaptureForm({
   variant = 'default'
 }: EmailCaptureFormProps) {
   const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [message, setMessage] = useState('');
@@ -69,7 +70,9 @@ export function EmailCaptureForm({
         },
         body: JSON.stringify({
           email,
-          name: name || undefined,
+          firstName,
+          lastName,
+          name: firstName + (lastName ? ` ${lastName}` : '') || undefined, // Legacy compatibility
           source,
           tags: [...tags, 'email_capture_form'],
         }),
@@ -81,18 +84,24 @@ export function EmailCaptureForm({
         setStatus('success');
         setMessage('🎉 Success! Check your email for your free resources.');
         setEmail('');
-        setName('');
+        setFirstName('');
+        setLastName('');
         
         // Track successful subscription with both analytics systems
         trackEmailSubmitted(source, 'lead_magnet');
         trackFormSubmit('email_capture', source, true);
         
-        // Legacy Google Analytics tracking
+        // Legacy Google Analytics tracking with name data
         if (typeof window !== 'undefined' && (window as any).gtag) {
           (window as any).gtag('event', 'email_capture', {
             event_category: 'engagement',
             event_label: source,
-            value: 1
+            value: 1,
+            custom_parameters: {
+              has_first_name: !!firstName,
+              has_last_name: !!lastName,
+              has_full_name: !!(firstName && lastName)
+            }
           });
         }
       } else {
@@ -186,14 +195,24 @@ export function EmailCaptureForm({
       {/* Form */}
       <form onSubmit={handleSubmit} className="space-y-4">
         {variant === 'hero' && (
-          <Input
-            type="text"
-            placeholder="First name (optional)"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-            disabled={isSubmitting}
-          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <Input
+              type="text"
+              placeholder="First name (optional)"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              disabled={isSubmitting}
+            />
+            <Input
+              type="text"
+              placeholder="Last name (optional)"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              disabled={isSubmitting}
+            />
+          </div>
         )}
         
         <div className="flex flex-col sm:flex-row gap-3">

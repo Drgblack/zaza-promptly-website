@@ -28,7 +28,8 @@ export function BrevoForm({
   tags = ['newsletter_signup']
 }: BrevoFormProps) {
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
@@ -56,7 +57,8 @@ export function BrevoForm({
         setStatus("success");
         setMessage("Successfully subscribed! (Test Mode - No actual email sent)");
         setEmail("");
-        setName("");
+        setFirstName("");
+        setLastName("");
       }, 1500);
       return;
     }
@@ -70,7 +72,9 @@ export function BrevoForm({
         },
         body: JSON.stringify({
           email,
-          name,
+          firstName,
+          lastName,
+          name: firstName + (lastName ? ` ${lastName}` : ''), // Legacy compatibility
           source,
           tags,
         }),
@@ -82,14 +86,20 @@ export function BrevoForm({
         setStatus("success");
         setMessage("🎉 Successfully subscribed! Check your email for your welcome gift.");
         setEmail("");
-        setName("");
+        setFirstName("");
+        setLastName("");
         
-        // Track successful subscription
+        // Track successful subscription with name data
         if (typeof window !== 'undefined' && (window as any).gtag) {
           (window as any).gtag('event', 'newsletter_subscribe', {
             event_category: 'engagement',
             event_label: 'email_signup_section',
-            value: 1
+            value: 1,
+            custom_parameters: {
+              has_first_name: !!firstName,
+              has_last_name: !!lastName,
+              has_full_name: !!(firstName && lastName)
+            }
           });
         }
       } else {
@@ -123,18 +133,33 @@ export function BrevoForm({
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <Label htmlFor="name" className="text-sm font-medium">
-              First Name (Optional)
-            </Label>
-            <Input
-              id="name"
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Your first name"
-              className="mt-1"
-            />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <Label htmlFor="firstName" className="text-sm font-medium">
+                First Name (Optional)
+              </Label>
+              <Input
+                id="firstName"
+                type="text"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                placeholder="First name (optional)"
+                className="mt-1"
+              />
+            </div>
+            <div>
+              <Label htmlFor="lastName" className="text-sm font-medium">
+                Last Name (Optional)
+              </Label>
+              <Input
+                id="lastName"
+                type="text"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                placeholder="Last name (optional)"
+                className="mt-1"
+              />
+            </div>
           </div>
           
           <div>

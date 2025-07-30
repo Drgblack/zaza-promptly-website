@@ -5,7 +5,9 @@ export async function POST(request: NextRequest) {
   try {
     const { 
       email, 
-      name, 
+      firstName,
+      lastName,
+      name, // Legacy compatibility
       source, 
       tags = [],
       listId,
@@ -35,11 +37,17 @@ export async function POST(request: NextRequest) {
     // Use unified Brevo capture system
     let success = false;
     
+    // Construct full name from firstName and lastName, fallback to legacy name field
+    const fullName = firstName && lastName ? `${firstName} ${lastName}` : 
+                     firstName ? firstName : 
+                     lastName ? lastName : 
+                     name || '';
+
     switch (appSource) {
       case 'teach':
         success = await UnifiedBrevoCapture.captureTeachLead(
           email, 
-          name, 
+          fullName, 
           leadSource, 
           utmData, 
           tags
@@ -48,7 +56,7 @@ export async function POST(request: NextRequest) {
       case 'visuals':
         success = await UnifiedBrevoCapture.captureVisualsLead(
           email, 
-          name, 
+          fullName, 
           leadSource, 
           utmData, 
           tags
@@ -57,7 +65,7 @@ export async function POST(request: NextRequest) {
       case 'ecosystem':
         success = await UnifiedBrevoCapture.captureEcosystemLead(
           email, 
-          name, 
+          fullName, 
           leadSource, 
           utmData, 
           tags
@@ -66,7 +74,7 @@ export async function POST(request: NextRequest) {
       default:
         success = await UnifiedBrevoCapture.capturePromptlyLead(
           email, 
-          name, 
+          fullName, 
           leadSource, 
           utmData, 
           tags
