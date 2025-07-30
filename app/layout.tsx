@@ -151,10 +151,12 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://plausible.io" />
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
         <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        <link rel="dns-prefetch" href="//plausible.io" />
         
         {/* PWA Icons */}
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -162,6 +164,13 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+        
+        {/* Plausible Analytics - Privacy-friendly, GDPR compliant */}
+        <script 
+          defer 
+          data-domain="zazapromptly.com" 
+          src="https://plausible.io/js/script.js"
+        />
       </head>
       <body>
         <PerformanceErrorBoundary>
