@@ -8,42 +8,32 @@ import { formatNumber } from "../lib/format";
 
 const testimonials = [
   {
-    name: "Sam M.",
-    role: "3rd Grade Teacher",
+    name: "Sarah M.",
+    role: "4th Grade Teacher",
     location: "Texas",
     quote:
-      "I used to dread report card season. Now I finish comments in one afternoon and spend the weekend with my kids. My principal asked what changed - I told her about Zaza Promptly.",
-    avatar:
-      "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    rating: 5,
-  },
-  {
-    name: "Marcus J.",
-    role: "High School Science",
-    location: "California",
-    quote:
-      "Parents are commenting on how thoughtful and personal my feedback has become. Little do they know, I'm spending half the time I used to!",
-    avatar:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    rating: 5,
-  },
-  {
-    name: "Lisa R.",
-    role: "Special Education",
-    location: "Florida",
-    quote: "Finally, feedback that honors my students' unique journeys. The IEP-aware suggestions are game-changing.",
+      "I was dreading another parent email at 9 PM, feeling like I'd say the wrong thing. With Zaza, I actually felt capable again—like I had the words to help this struggling student.",
     avatar:
       "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
     rating: 5,
   },
   {
-    name: "David K.",
+    name: "Marcus T.",
     role: "Middle School Math",
-    location: "New York",
+    location: "California",
     quote:
-      "My comments used to be generic. Now they're so specific that parents think I have a PhD in child psychology. It's still my voice, just... better.",
+      "It's like having that wise teacher friend who always knows what to say. Not judgy, just helpful. Finally, I don't feel so alone in figuring out how to communicate with families.",
     avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    rating: 5,
+  },
+  {
+    name: "Elena R.",
+    role: "2nd Grade Teacher",
+    location: "New York",
+    quote: "I used to spend Sunday nights writing report comments until midnight. Now I'm reading bedtime stories to my daughter instead. That's what matters—being present for the kids who need me.",
+    avatar:
+      "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
     rating: 5,
   },
 ]
