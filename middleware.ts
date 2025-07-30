@@ -11,7 +11,7 @@ export default createMiddleware({
 
 export const config = {
   matcher: [
-    // Match all paths that should be internationalized
-    '/((?!api|_next|_vercel|.*\\..*|robots|sitemap|manifest|favicon).*)'
+    // Match all paths that should be internationalized, excluding blog and other specific routes
+    '/((?!api|_next|_vercel|blog|.*\\..*|robots|sitemap|manifest|favicon).*)'
   ]
 };
