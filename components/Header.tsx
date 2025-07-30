@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { linkMap, getLink, externalLinks } from '../lib/linkMap';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { DesktopLanguageSwitcher, MobileLanguageSwitcher } from './LanguageSwitcher';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -72,7 +71,7 @@ export default function Header() {
               </svg>
             </a>
             <Link 
-              href="/en/free-resources" 
+              href="/free-resources" 
               className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
             >
               Free Resources
@@ -94,9 +93,6 @@ export default function Header() {
               About
             </a>
             
-            {/* Language Switcher */}
-            <DesktopLanguageSwitcher className="ml-4" />
-            
             {/* CTA Button */}
             <Link 
               href={externalLinks.tryPromptly}
@@ -108,7 +104,6 @@ export default function Header() {
 
           {/* Mobile Controls */}
           <div className="lg:hidden flex items-center space-x-2">
-            <MobileLanguageSwitcher />
             <button
               onClick={toggleMenu}
               className="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
@@ -144,7 +139,7 @@ export default function Header() {
                 Blog
               </a>
               <Link 
-                href="/en/free-resources" 
+                href="/free-resources" 
                 className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >

@@ -1,41 +1,9 @@
 import { MetadataRoute } from 'next'
 import { getAllBlogPosts, getAllCategories, getAllTags } from '@/lib/blog'
-import { locales } from '@/i18n'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://zazapromptly.com'
   const currentDate = new Date()
-  
-  // Define multilingual pages that should be included
-  const multilingualPages = [
-    '',
-    '/about',
-    '/why-zaza-promptly',
-    '/blog',
-    '/free-resources'
-  ]
-  
-  // Generate multilingual static pages
-  const multilingualStaticPages = multilingualPages.flatMap(page => 
-    locales.map(locale => ({
-      url: locale === 'en' 
-        ? `${baseUrl}${page}` 
-        : `${baseUrl}/${locale}${page}`,
-      lastModified: currentDate,
-      changeFrequency: page === '' ? 'daily' as const : 'weekly' as const,
-      priority: page === '' ? 1.0 : 0.8,
-      alternates: {
-        languages: Object.fromEntries(
-          locales.map(loc => [
-            loc,
-            loc === 'en' 
-              ? `${baseUrl}${page}` 
-              : `${baseUrl}/${loc}${page}`
-          ])
-        )
-      }
-    }))
-  )
   
   // Static pages with enhanced priorities and change frequencies
   const staticPages = [
@@ -327,7 +295,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ]
 
   return [
-    ...multilingualStaticPages,
     ...staticPages,
     ...blogPostPages,
     ...categoryPages,

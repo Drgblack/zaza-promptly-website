@@ -80,7 +80,7 @@ export function HeroSection() {
             >
               Try AI-Powered Comments Free
             </Button>
-            <Link href="/en/free-resources">
+            <Link href="/free-resources">
               <Button
                 size="lg"
                 variant="outline"

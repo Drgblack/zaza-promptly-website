@@ -1,17 +1,13 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { locales } from '@/i18n';
 
 interface HrefLangTagsProps {
-  locale: string;
+  locale?: string;
 }
 
-export function HrefLangTags({ locale }: HrefLangTagsProps) {
+export function HrefLangTags({ locale = 'en' }: HrefLangTagsProps) {
   const pathname = usePathname();
-  
-  // Remove the locale prefix from pathname to get the base path
-  const basePath = pathname.replace(`/${locale}`, '') || '';
   
   return (
     <>
@@ -19,18 +15,15 @@ export function HrefLangTags({ locale }: HrefLangTagsProps) {
       <link
         rel="alternate"
         hrefLang="x-default"
-        href={`https://zazapromptly.com${basePath}`}
+        href={`https://zazapromptly.com${pathname}`}
       />
       
-      {/* Generate hreflang for each supported locale */}
-      {locales.map((loc) => (
-        <link
-          key={loc}
-          rel="alternate"
-          hrefLang={loc}
-          href={`https://zazapromptly.com${loc === 'en' ? '' : `/${loc}`}${basePath}`}
-        />
-      ))}
+      {/* English version (single language) */}
+      <link
+        rel="alternate"
+        hrefLang="en"
+        href={`https://zazapromptly.com${pathname}`}
+      />
     </>
   );
 }
