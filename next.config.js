@@ -105,18 +105,13 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: '/free-resources',
-        destination: '/en/free-resources',
-        permanent: true,
-      },
-      {
         source: '/about',
-        destination: '/en/about',
+        destination: '/about-founder',
         permanent: true,
       },
       {
         source: '/why-zaza-promptly',
-        destination: '/en/why-zaza-promptly',
+        destination: '/why-zaza-teach',
         permanent: true,
       },
     ]
