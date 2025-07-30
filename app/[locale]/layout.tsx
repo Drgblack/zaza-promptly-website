@@ -178,7 +178,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
         
         {/* Preload critical images */}
         <link rel="preload" href="/og-image.jpg" as="image" type="image/jpeg" />
-        <link rel="preload" href="/favicon-32x32.png" as="image" type="image/png" />
+        <link rel="preload" href="/favicon.png" as="image" type="image/png" />
         
         {/* Analytics preconnects - defer these for better FCP */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
@@ -190,10 +190,28 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
         <link rel="dns-prefetch" href="//www.google-analytics.com" />
         <link rel="dns-prefetch" href="//plausible.io" />
         
-        {/* PWA Icons */}
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        {/* Favicon - Primary */}
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        
+        {/* Favicon - Multiple Sizes */}
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+        
+        {/* Apple Touch Icons */}
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/favicon-192x192.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/favicon-192x192.png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="/favicon-192x192.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/favicon-192x192.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="/favicon-96x96.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/favicon-96x96.png" />
+        <link rel="apple-touch-icon" sizes="60x60" href="/favicon-96x96.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/favicon-96x96.png" />
+        
+        {/* PWA and Manifest */}
         <link rel="manifest" href="/manifest.json" />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         
