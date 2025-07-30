@@ -1,6 +1,7 @@
 /**
  * Weekly Blog Generation Cron Job API
  * Triggered 3x per week (Mon/Wed/Fri) to generate and publish blog posts
+ * Updated with TypeScript fixes for AutomationReport interface
  */
 
 import { NextRequest, NextResponse } from 'next/server'
