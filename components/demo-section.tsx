@@ -364,7 +364,7 @@ export function DemoSection() {
                     Start Free Trial
                   </Button>
                 </Link>
-                <Link href="/en/free-resources">
+                <Link href="/free-resources">
                   <Button
                     variant="outline"
                     className="w-full sm:w-auto border-2 border-indigo-500 text-indigo-600 hover:bg-indigo-50 font-semibold px-8 py-4 rounded-full bg-transparent"

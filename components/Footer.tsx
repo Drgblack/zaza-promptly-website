@@ -121,7 +121,7 @@ export default function Footer() {
             <h3 className="text-lg font-bold mb-4 text-white">Learning Centre</h3>
             <ul className="space-y-3">
               <li><Link href="/blog" className="hover:text-purple-400 transition-colors duration-200">Blog</Link></li>
-              <li><Link href="/en/free-resources" className="hover:text-purple-400 transition-colors duration-200">Free Resources</Link></li>
+              <li><Link href="/free-resources" className="hover:text-purple-400 transition-colors duration-200">Free Resources</Link></li>
               <li><Link href="/faqs" className="hover:text-purple-400 transition-colors duration-200">FAQs</Link></li>
               <li><Link href="/about-founder" className="hover:text-purple-400 transition-colors duration-200">About the Founder</Link></li>
             </ul>
@@ -158,10 +158,13 @@ export default function Footer() {
         </div>
         
         {/* Bottom Section */}
-        <div className="mt-12 pt-8 border-t border-gray-800 text-center">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <div className="mt-12 pt-8 border-t border-gray-800">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
             <div className="text-xs text-gray-400">
-              © {new Date().getFullYear()} Zaza Technologies UG. All rights reserved.
+              <div className="mb-2">© 2025 Zaza Technologies. All rights reserved.</div>
+              <div className="text-xs text-gray-500">
+                Gumbertstraße 150, 40229 Düsseldorf, Germany
+              </div>
             </div>
             <div className="flex space-x-6 text-xs text-gray-400">
               <Link href="/privacy" className="hover:text-purple-400 transition-colors duration-200">Privacy</Link>

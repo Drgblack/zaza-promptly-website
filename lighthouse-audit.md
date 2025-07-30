@@ -44,7 +44,7 @@
 ## Manual Testing Recommended
 1. Run Lighthouse on homepage: `/`
 2. Run Lighthouse on pricing: `/promptly-pricing`
-3. Run Lighthouse on blog: `/en/blog`
+3. Run Lighthouse on blog: `/blog`
 4. Test mobile and desktop versions
 5. Check Network and Performance tabs for any issues
 
