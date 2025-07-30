@@ -1,0 +1,9 @@
+PLACEHOLDER FILE CREATED:
+
+File: parent-communication-templates.docx
+Status: Temporary placeholder (copy of AI_Prompt_Templates_for_Teachers.docx)
+Reason: Referenced in blog post but original file was missing
+Action needed: Replace with actual parent communication templates content
+
+Created: 2025-07-30
+Location: /public/downloads/parent-communication-templates.docx
