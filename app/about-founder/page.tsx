@@ -1,6 +1,4 @@
 import type { Metadata } from 'next';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -41,10 +39,7 @@ export const metadata: Metadata = {
 
 export default function AboutFounderPage() {
   return (
-    <>
-      <Header />
-      
-      <main className="min-h-screen pt-16 lg:pt-20">
+    <div className="pt-16 lg:pt-20">
         {/* Hero Section */}
         <section className="py-16 lg:py-24 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -213,9 +208,6 @@ export default function AboutFounderPage() {
             </div>
           </div>
         </section>
-      </main>
-      
-      <Footer />
-    </>
+    </div>
   );
 } 

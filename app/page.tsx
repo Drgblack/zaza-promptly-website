@@ -44,17 +44,15 @@ export default function Home() {
       <AccessibilityAnnouncer />
       <PerformanceMonitor />
       {/* Main Content */}
-      <main className="min-h-screen">
-        <HeroSection />
-        <EmailSignupSection />
-        <PainRecognitionSection />
-        <TransformationSection />
-        <FeaturesSection />
-        <ComparisonSection />
-        <TestimonialsSection />
-        <DemoSection />
-        <FinalCTASection />
-      </main>
+      <HeroSection />
+      <EmailSignupSection />
+      <PainRecognitionSection />
+      <TransformationSection />
+      <FeaturesSection />
+      <ComparisonSection />
+      <TestimonialsSection />
+      <DemoSection />
+      <FinalCTASection />
       <MobileOptimizations />
       <StickyCTA />
       <GPTAssistant />

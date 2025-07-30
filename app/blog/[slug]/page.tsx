@@ -4,8 +4,6 @@ import { getBlogPost, getBlogPostSlugs, getRelatedPosts } from '@/lib/blog'
 import { BlogPostLayout } from '@/components/blog/blog-post-layout'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { mdxComponents } from '@/components/blog/mdx-components'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -68,23 +66,17 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     }
 
     return (
-      <>
-        <Header />
-        
-        <main className="min-h-screen pt-16 lg:pt-20">
-          <BlogPostLayout
-            post={post}
-            relatedPosts={relatedPosts}
-          >
-            <MDXRemote 
-              source={post.content} 
-              components={mdxComponents}
-            />
-          </BlogPostLayout>
-        </main>
-
-        <Footer />
-      </>
+      <div className="pt-16 lg:pt-20">
+        <BlogPostLayout
+          post={post}
+          relatedPosts={relatedPosts}
+        >
+          <MDXRemote 
+            source={post.content} 
+            components={mdxComponents}
+          />
+        </BlogPostLayout>
+      </div>
     )
   } catch (error) {
     notFound()

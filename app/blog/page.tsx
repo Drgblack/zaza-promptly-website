@@ -1,7 +1,5 @@
 import type { Metadata } from 'next'
 import { getAllBlogPosts, getPopularPosts, getAllCategories, getAllTags } from '@/lib/blog'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 import { BlogIndexClient } from '@/components/blog/blog-index-client'
 import { BlogHeroClient } from '@/components/blog/blog-hero-client'
 
@@ -38,10 +36,8 @@ export default async function BlogPage() {
   ])
 
   return (
-    <>
-      <Header />
-      
-      <main className="min-h-screen pt-16 lg:pt-20 bg-gray-50">
+    <div className="pt-16 lg:pt-20">
+      <main className="min-h-screen bg-gray-50">
         {/* Hero Section */}
         <BlogHeroClient 
           allPostsCount={allPosts.length}
@@ -57,8 +53,6 @@ export default async function BlogPage() {
           locale="en"
         />
       </main>
-
-      <Footer />
-    </>
+    </div>
   )
 }

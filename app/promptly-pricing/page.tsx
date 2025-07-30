@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ImprovedPricing } from "@/components/improved-pricing";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { SEOHead } from "../../components/seo-head";
 import { Zap, CheckCircle, Users, Shield } from "lucide-react";
 
@@ -31,11 +29,8 @@ export const metadata: Metadata = {
 
 export default function PromptlyPricing() {
   return (
-    <>
+    <div className="pt-16 lg:pt-20">
       <SEOHead pageType="promptly-pricing" />
-      <Header />
-      
-      <main className="min-h-screen pt-16 lg:pt-20">
         {/* Hero Section */}
         <section className="py-16 lg:py-24 bg-gradient-to-br from-purple-50 to-pink-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -162,9 +157,6 @@ export default function PromptlyPricing() {
             </div>
           </div>
         </section>
-      </main>
-
-      <Footer />
-    </>
+    </div>
   );
 }
