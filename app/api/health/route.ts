@@ -1,4 +1,5 @@
-import { NextResponse } from 'next/server'
+import { NextResponse, NextRequest } from 'next/server'
+import { revalidatePath } from 'next/cache'
 
 export async function GET() {
   try {
@@ -54,6 +55,41 @@ export async function GET() {
         api: 'error',
         system: 'error'
       }
+    }, { status: 500 })
+  }
+}
+
+// Force revalidate blog routes when called with revalidate parameter
+export async function POST(request: NextRequest) {
+  try {
+    const searchParams = request.nextUrl.searchParams
+    const action = searchParams.get('action')
+    
+    if (action === 'revalidate-blog') {
+      // Force revalidate all blog routes
+      revalidatePath('/blog')
+      revalidatePath('/blog/[slug]', 'page')
+      revalidatePath('/')
+      
+      return NextResponse.json({
+        status: 'revalidated',
+        timestamp: new Date().toISOString(),
+        revalidatedPaths: ['/blog', '/blog/[slug]', '/'],
+        message: 'Blog routes have been revalidated'
+      })
+    }
+    
+    return NextResponse.json({
+      status: 'invalid_action',
+      timestamp: new Date().toISOString(),
+      message: 'Use ?action=revalidate-blog to revalidate blog routes'
+    }, { status: 400 })
+    
+  } catch (error: any) {
+    return NextResponse.json({
+      status: 'error',
+      timestamp: new Date().toISOString(),
+      error: error.message
     }, { status: 500 })
   }
 }
