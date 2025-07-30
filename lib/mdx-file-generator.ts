@@ -322,9 +322,9 @@ export class MDXFileGenerator {
     }
 
     // Check for proper header hierarchy
-    const headers = content.match(/^#{1,6}\s+.+$/gm) || []
+    const headers: string[] = content.match(/^#{1,6}\s+.+$/gm) || []
     let previousLevel = 0
-    headers.forEach((header, index) => {
+    headers.forEach((header: string, index: number) => {
       const level = header.match(/^#+/)?.[0].length || 0
       if (level > previousLevel + 1 && previousLevel > 0) {
         errors.push(`Header level jumps from H${previousLevel} to H${level} at line with "${header}"`)
