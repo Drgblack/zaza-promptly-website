@@ -1,63 +1,63 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Check, X, Shield, Heart, BookOpen, Users } from "lucide-react"
+import { Check, X, Shield, Heart, BookOpen, Users, MessageSquare, TrendingUp } from "lucide-react"
 
 const comparisonFeatures = [
   {
-    feature: "AI Built for Teachers",
-    zaza: "Machine learning trained on education",
-    chatgpt: "Generic AI for everyone",
-    icon: Users,
+    feature: "Emotional Support & Confidence Coaching",
+    zaza: "Built-in encouragement and teacher empowerment",
+    chatgpt: "No emotional awareness or teaching support",
+    icon: Heart,
     delay: 0,
   },
   {
-    feature: "Educational AI Language",
-    zaza: "Curriculum-aware vocabulary",
-    chatgpt: "Corporate AI speak",
-    icon: BookOpen,
+    feature: "Message Tone Safety Filters",
+    zaza: "Smart filters prevent inappropriate language",
+    chatgpt: "No tone protection or safety nets",
+    icon: Shield,
     delay: 100,
   },
   {
-    feature: "AI Student Privacy",
-    zaza: "FERPA-compliant AI processing",
-    chatgpt: "Public AI training data",
-    icon: Shield,
+    feature: "Learns Your Teaching Style Over Time",
+    zaza: "Remembers your voice and gets better daily",
+    chatgpt: "Forgets everything after each conversation",
+    icon: TrendingUp,
     delay: 200,
   },
   {
-    feature: "AI Tone Consistency",
-    zaza: "Machine learning preserves your voice",
-    chatgpt: "Robotic AI responses",
-    icon: Heart,
+    feature: "Templates That Improve Over Time",
+    zaza: "AI learns from your feedback to get smarter",
+    chatgpt: "Same generic responses every time",
+    icon: MessageSquare,
     delay: 300,
   },
   {
-    feature: "AI-Powered Comments",
-    zaza: "One-click AI templates",
-    chatgpt: "Start from scratch with AI",
-    icon: BookOpen,
+    feature: "AI Built for Teachers",
+    zaza: "Training focused on classroom needs",
+    chatgpt: "Generic AI for everyone",
+    icon: Users,
     delay: 400,
   },
   {
-    feature: "No AI Hallucinations",
-    zaza: "Education-trained AI model",
-    chatgpt: "AI makes up facts",
-    icon: Shield,
+    feature: "Educational Language",
+    zaza: "Understands curriculum and pedagogy",
+    chatgpt: "Corporate speak with education jargon",
+    icon: BookOpen,
     delay: 500,
   },
   {
-    feature: "AI Learning Memory",
-    zaza: "Machine learning library",
-    chatgpt: "Lose everything",
-    icon: Heart,
+    feature: "Student Privacy Protection",
+    zaza: "FERPA-compliant processing",
+    chatgpt: "Uses your data for training",
+    icon: Shield,
     delay: 600,
   },
   {
-    feature: "AI Teaching Intelligence",
-    zaza: "Pedagogy-aware AI",
-    chatgpt: "Generic AI feedback",
-    icon: Users,
+    feature: "Quick AI Templates",
+    zaza: "One-click comment generation",
+    chatgpt: "Start from scratch every time",
+    icon: BookOpen,
     delay: 700,
   },
 ]
@@ -290,7 +290,7 @@ export function ComparisonSection() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-semibold px-10 py-5 rounded-full shadow-lg transform hover:scale-105 transition-all duration-200 text-lg">
-                  Choose Your Teaching Partner
+                  Reclaim Your Evenings
                 </button>
                 <button className="border-2 border-indigo-500 text-indigo-600 hover:bg-indigo-50 font-semibold px-10 py-5 rounded-full transition-all duration-200 text-lg bg-transparent">
                   See the Difference
