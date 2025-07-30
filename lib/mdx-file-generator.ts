@@ -210,19 +210,19 @@ export class MDXFileGenerator {
   private static addMDXComponents(content: string): string {
     // Add callout components for important sections
     content = content.replace(
-      /\*\*Important:\*\*\s*(.*?)(?=\n\n|\n$)/gs,
+      /\*\*Important:\*\*\s*(.*?)(?=\n\n|\n$)/g,
       '<Callout type="warning">\n**Important:** $1\n</Callout>'
     )
 
     // Add tip components for helpful advice
     content = content.replace(
-      /\*\*Tip:\*\*\s*(.*?)(?=\n\n|\n$)/gs,
+      /\*\*Tip:\*\*\s*(.*?)(?=\n\n|\n$)/g,
       '<Callout type="tip">\n**Tip:** $1\n</Callout>'
     )
 
     // Add success components for positive reinforcement
     content = content.replace(
-      /\*\*Success:\*\*\s*(.*?)(?=\n\n|\n$)/gs,
+      /\*\*Success:\*\*\s*(.*?)(?=\n\n|\n$)/g,
       '<Callout type="success">\n**Success:** $1\n</Callout>'
     )
 

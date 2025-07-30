@@ -119,7 +119,7 @@ export class CommunityScrapers {
         url: 'https://reddit.com/r/Teachers/mock4',
         tags: ['anxiety', 'mental-health', 'weekend-stress'],
         painPoint: 'Anticipatory anxiety about the upcoming school week',
-        emotionalTone: 'anxious',
+        emotionalTone: 'overwhelmed',
         category: 'work-life-balance'
       }
     ]
