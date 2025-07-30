@@ -72,15 +72,6 @@
       ]
     },
     {
-      "source": "/blog/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600, s-maxage=3600"
-        }
-      ]
-    },
-    {
       "source": "/downloads/(.*)",
       "headers": [
         {
@@ -132,12 +123,6 @@
       "source": "/resources",
       "destination": "/en/free-resources",
       "permanent": true
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/blog/:path*",
-      "destination": "/blog/:path*"
     }
   ],
   "env": {
