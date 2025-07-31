@@ -1,7 +1,9 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 import { Globe, ChevronDown, Check } from 'lucide-react';
+import { locales, localeNames, localeFlags } from '@/i18n';
 
 export interface Language {
   code: string;
@@ -9,13 +11,12 @@ export interface Language {
   flag: string;
 }
 
-export const languages: Language[] = [
-  { code: 'en', name: 'English', flag: '🇺🇸' },
-  { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
-  { code: 'fr', name: 'Français', flag: '🇫🇷' },
-  { code: 'es', name: 'Español', flag: '🇪🇸' },
-  { code: 'it', name: 'Italiano', flag: '🇮🇹' },
-];
+// Use the locales from i18n configuration
+export const languages: Language[] = locales.map(code => ({
+  code,
+  name: localeNames[code],
+  flag: localeFlags[code]
+}));
 
 interface LanguageSelectorProps {
   className?: string;
@@ -27,18 +28,31 @@ export default function LanguageSelector({ className = '', compact = false }: La
   const [currentLanguage, setCurrentLanguage] = useState<Language>(languages[0]); // Default to English
   const [mounted, setMounted] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  
+  const router = useRouter();
+  const pathname = usePathname();
 
   // Ensure component is mounted before rendering to avoid hydration issues
   useEffect(() => {
     setMounted(true);
     
-    // Load saved language from localStorage or default to English
-    if (typeof window !== 'undefined') {
-      const savedLanguageCode = localStorage.getItem('preferred-language') || 'en';
-      const savedLanguage = languages.find(lang => lang.code === savedLanguageCode) || languages[0];
-      setCurrentLanguage(savedLanguage);
-    }
-  }, []);
+    // Detect current language from URL or use saved preference
+    const detectCurrentLanguage = () => {
+      // Check if URL has locale prefix
+      const urlLocale = pathname.match(/^\/([a-z]{2})\//)?.[1] || 
+                       (pathname === '/de' ? 'de' : 'en');
+      
+      const currentLang = languages.find(lang => lang.code === urlLocale) || languages[0];
+      setCurrentLanguage(currentLang);
+      
+      // Save to localStorage
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('preferred-language', currentLang.code);
+      }
+    };
+    
+    detectCurrentLanguage();
+  }, [pathname]);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -87,17 +101,15 @@ export default function LanguageSelector({ className = '', compact = false }: La
       localStorage.setItem('preferred-language', language.code);
     }
     
-    // For now, just log to console as requested
-    // In the future, this will integrate with i18n routing
-    console.log(`Language changed to: ${language.name} (${language.code})`);
+    // Get the current path without locale prefix
+    const pathWithoutLocale = pathname.replace(/^\/[a-z]{2}/, '') || '/';
     
-    // Placeholder routing logic - can be extended later
-    if (language.code !== 'en') {
-      console.log(`Future route: /${language.code}`);
-    } else {
-      console.log('Future route: /');
-    }
+    // Navigate to the new locale
+    const newPath = language.code === 'en' 
+      ? pathWithoutLocale 
+      : `/${language.code}${pathWithoutLocale}`;
     
+    router.push(newPath);
     setIsOpen(false);
   };
 

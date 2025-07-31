@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
@@ -9,7 +11,7 @@ export default function BlogTestPage() {
       <p>Generated at: {new Date().toISOString()}</p>
       <p>If you can see this page, the deployment system is working.</p>
       <p>Now testing blog system...</p>
-      <a href="/blog" className="text-blue-600 hover:underline">→ Go to Blog</a>
+      <Link href="/blog" className="text-blue-600 hover:underline">→ Go to Blog</Link>
     </div>
   )
 }
