@@ -342,9 +342,9 @@ export class MDXFileGenerator {
     const warnings: string[] = []
     
     // Find all markdown links
-    const links = content.match(/\[([^\]]+)\]\(([^)]+)\)/g) || []
+    const links: string[] = content.match(/\[([^\]]+)\]\(([^)]+)\)/g) || []
     
-    links.forEach(link => {
+    links.forEach((link: string) => {
       const urlMatch = link.match(/\[([^\]]+)\]\(([^)]+)\)/)
       if (urlMatch) {
         const url = urlMatch[2]
