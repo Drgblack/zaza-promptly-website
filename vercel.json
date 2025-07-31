@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "rm -rf .next && npm run build",
   "installCommand": "npm install --include=optional",
   "framework": "nextjs",
   "regions": ["iad1", "cle1", "pdx1"],
@@ -131,7 +131,9 @@
   ],
   "env": {
     "NODE_ENV": "production",
-    "FORCE_REBUILD": "2025-07-30"
+    "FORCE_REBUILD": "2025-07-31-01:00",
+    "BUILD_TIMESTAMP": "2025-07-31T01:00:00Z",
+    "VERCEL_FORCE_NO_BUILD_CACHE": "1"
   },
   "cleanUrls": true,
   "trailingSlash": false
