@@ -14,3 +14,6 @@ This file was created to help invalidate CDN cache for the founder image fix.
 
 ## Expected Result:
 Founder photo should display correctly at https://zazapromptly.com/about-founder
+
+## Deployment Sync Issue:
+Force deployment timestamp: 2025-07-30T23:58:30Z
