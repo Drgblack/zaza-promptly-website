@@ -59,7 +59,7 @@ export function PerformanceOptimizations() {
           }
           
           /* Optimize animations for performance */
-          * {
+          .animated-element, [class*="scale-"], [class*="rotate-"], [class*="translate-"] {
             backface-visibility: hidden;
             perspective: 1000px;
           }
