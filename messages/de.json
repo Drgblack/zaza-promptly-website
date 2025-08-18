@@ -12,8 +12,8 @@
     "signIn": "Anmelden"
   },
   "Hero": {
-    "headline": "KI-Lehrbegleiter, der Lehrern 5+ Stunden/Woche spart",
-    "subheadline": "Schließen Sie sich 12.000+ Lehrern an, die KI nutzen, um besseres Schülerfeedback schneller zu schreiben. Erstellen Sie personalisierte Kommentare, Elternmitteilungen und Bewertungen in Sekunden.",
+    "headline": "Nehmen Sie sich die Last ab — schreiben Sie einfühlsame, professionelle Elternnachrichten in Minuten, nicht Stunden.",
+    "subheadline": "Promptly ist Ihr unterstützender Partner, wenn Sie zu müde sind, die richtigen Worte zu finden.",
     "primaryCta": "Kostenlose Testversion",
     "secondaryCta": "Demo ansehen",
     "trustText": "Vertraut von 12.000+ Lehrern weltweit",
@@ -26,10 +26,10 @@
   },
   "Features": {
     "title": "Alles was Sie für effektives Unterrichten brauchen",
-    "subtitle": "Sparen Sie Zeit, reduzieren Sie Stress und verbessern Sie die Lernergebnisse mit KI-gestützten Tools, die speziell für Pädagogen entwickelt wurden.",
+    "subtitle": "Weniger Stress, mehr Energie für das, was zählt: Ihre Schüler. Mit einfühlsamen Tools, die speziell für Pädagogen entwickelt wurden.",
     "aiComments": {
-      "title": "KI-Kommentar-Generierung",
-      "description": "Erstellen Sie personalisierte, professionelle Kommentare für Zeugnisse und Bewertungen in Sekunden, nicht Stunden."
+      "title": "Schreiben Sie mit Wärme und Selbstvertrauen",
+      "description": "Promptly schlägt einfühlsame Formulierungen, Schlusszeilen und Tonanpassungen vor. Für Lehrer entwickelt, mit vertrauenswürdigen Leitplanken — sicher, professionell und klassenzimmerbereit."
     },
     "parentCommunication": {
       "title": "Elternkommunikation", 
@@ -40,8 +40,8 @@
       "description": "Kommunizieren Sie mit vielfältigen Familien in ihrer bevorzugten Sprache mit automatischen Übersetzungsfunktionen."
     },
     "timeSaving": {
-      "title": "Zeitsparende Automatisierung",
-      "description": "Automatisieren Sie wiederkehrende Aufgaben, damit Sie sich auf das Wichtigste konzentrieren können - das Unterrichten und Unterstützen Ihrer Schüler."
+      "title": "Weniger Stress, mehr Energie für das, was zählt",
+      "description": "Lehrer sind bereits überlastet. Promptly hilft dabei, die Belastung zu mindern, damit Sie sich auf das Unterrichten konzentrieren können."
     },
     "dataPrivacy": {
       "title": "Schülerdaten-Datenschutz",
@@ -57,7 +57,7 @@
     "subtitle": "Lernen Sie Dr. Greg Blackburn kennen",
     "description": "Promovierter Pädagoge, EdTech-Experte und Gründer von Zaza Technologies",
     "bio": "Dr. Greg Blackburn ist ein weltweit anerkannter EdTech-Experte, promovierter Pädagoge und Gründer von Zaza Technologies. Mit über 20 Jahren Erfahrung im digitalen Lernen und Instructional Design hat Greg Tools entwickelt, die von tausenden von Lehrern weltweit genutzt werden.",
-    "mission": "Meine Mission ist einfach: Lehrern ihre Zeit zurückzugeben, damit sie sich auf das konzentrieren können, was sie am besten können - die nächste Generation zu inspirieren und zu bilden.",
+    "mission": "Meine Mission ist einfach: Lehrern zu helfen, die Überlastung zu bewältigen, damit sie sich auf das konzentrieren können, was sie am besten können - die nächste Generation zu inspirieren und zu bilden.",
     "experience": {
       "title": "Erfahrung & Expertise",
       "education": "PhD in Bildungstechnologie",
@@ -138,7 +138,7 @@
   },
   "Footer": {
     "tagline": "KI für Pädagogen",
-    "description": "Wir stärken Lehrer weltweit mit KI-gestützten Tools, die Zeit sparen und die Lernergebnisse verbessern.",
+    "description": "Wir unterstützen Lehrer weltweit mit einfühlsamen Tools, die die Belastung reduzieren und mehr Raum für das schaffen, was wirklich zählt.",
     "quickLinks": {
       "title": "Schnellzugriff",
       "home": "Startseite",
