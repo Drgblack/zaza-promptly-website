@@ -34,10 +34,11 @@ export const metadata: Metadata = {
 }
 
 export default async function BlogPage({
-  params: { locale }
+  params
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params
   const siteUrl = 'https://zazatechnologies.com'
   
   let allPosts: any[] = [];
