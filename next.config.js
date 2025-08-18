@@ -114,6 +114,16 @@ const nextConfig = {
         destination: '/why-zaza-teach',
         permanent: true,
       },
+      {
+        source: '/blog',
+        destination: '/en/blog',
+        permanent: false,
+      },
+      {
+        source: '/blog/:slug*',
+        destination: '/en/blog/:slug*',
+        permanent: false,
+      },
     ]
   },
 };
