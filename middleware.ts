@@ -20,8 +20,10 @@ export default function middleware(request: NextRequest) {
   // Apply internationalization to:
   // 1. zazatechnologies.com domain (for blog)  
   // 2. Blog routes on any domain
-  // 3. Locale routes (/en, /de, etc.) on any domain
+  // 3. All routes for zazapromptly.com (main site with i18n)
+  // 4. Locale routes (/en, /de, etc.) on any domain
   if (hostname.includes('zazatechnologies.com') || 
+      hostname.includes('zazapromptly.com') ||
       pathname.startsWith('/blog') || 
       pathname.startsWith('/en') || 
       pathname.startsWith('/de')) {
