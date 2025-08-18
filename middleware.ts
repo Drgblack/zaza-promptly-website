@@ -1,7 +1,8 @@
 import createMiddleware from 'next-intl/middleware';
 import { locales, defaultLocale } from './i18n';
+import { NextRequest } from 'next/server';
 
-export default createMiddleware({
+const intlMiddleware = createMiddleware({
   // A list of all locales that are supported
   locales,
   
@@ -11,6 +12,19 @@ export default createMiddleware({
   // Only use the locale prefix when it's not the default locale
   localePrefix: 'as-needed'
 });
+
+export default function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+  const hostname = request.headers.get('host') || '';
+  
+  // Only apply internationalization to blog routes and zazatechnologies.com domain
+  if (hostname.includes('zazatechnologies.com') || pathname.startsWith('/blog') || pathname.startsWith('/en/blog') || pathname.startsWith('/de/blog')) {
+    return intlMiddleware(request);
+  }
+  
+  // For other domains/routes, let Next.js handle normally
+  return;
+}
 
 export const config = {
   // Match only internationalized pathnames
