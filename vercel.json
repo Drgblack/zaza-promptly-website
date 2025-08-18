@@ -127,6 +127,16 @@
       "source": "/resources",
       "destination": "/en/free-resources",
       "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/en/blog",
+      "permanent": false
+    },
+    {
+      "source": "/blog/(.*)",
+      "destination": "/en/blog/$1",
+      "permanent": false
     }
   ],
   "env": {
