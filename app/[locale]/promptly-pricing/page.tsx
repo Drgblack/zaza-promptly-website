@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ImprovedPricing } from "@/components/improved-pricing";
-import { SEOHead } from "../../components/seo-head";
+import { SEOHead } from "@/components/seo-head";
 import { Zap, CheckCircle, Users, Shield } from "lucide-react";
 
 // Disable static generation - render pages dynamically to prevent build errors

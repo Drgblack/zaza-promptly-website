@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { linkMap, getLink, externalLinks } from '../../lib/linkMap';
+import { linkMap, getLink, externalLinks } from '@/lib/linkMap';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
