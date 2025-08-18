@@ -17,12 +17,18 @@ export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const hostname = request.headers.get('host') || '';
   
-  // Only apply internationalization to blog routes and zazatechnologies.com domain
-  if (hostname.includes('zazatechnologies.com') || pathname.startsWith('/blog') || pathname.startsWith('/en/blog') || pathname.startsWith('/de/blog')) {
+  // Apply internationalization to:
+  // 1. zazatechnologies.com domain (for blog)  
+  // 2. Blog routes on any domain
+  // 3. Locale routes (/en, /de, etc.) on any domain
+  if (hostname.includes('zazatechnologies.com') || 
+      pathname.startsWith('/blog') || 
+      pathname.startsWith('/en') || 
+      pathname.startsWith('/de')) {
     return intlMiddleware(request);
   }
   
-  // For other domains/routes, let Next.js handle normally
+  // For other routes, let Next.js handle normally
   return;
 }
 
