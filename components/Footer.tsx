@@ -98,18 +98,19 @@ export default function Footer() {
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 text-sm">
           <div>
-            <h3 className="text-lg font-bold mb-4 text-white">Products</h3>
+            <h3 className="text-lg font-bold mb-4 text-white">Core EdTech Products</h3>
             <ul className="space-y-3">
-              <li><Link href="https://zazateach.com" className="hover:text-purple-400 transition-colors duration-200">Zaza Teach</Link></li>
-              <li><Link href="https://zazapromptly.com" className="hover:text-purple-400 transition-colors duration-200">Zaza Promptly</Link></li>
-              <li><Link href="/products#autoplanner" className="hover:text-purple-400 transition-colors duration-200">AutoPlanner</Link></li>
-              <li><Link href="/products#zazaconnect" className="hover:text-purple-400 transition-colors duration-200">ZazaConnect</Link></li>
-              <li><Link href="/products#reflex" className="hover:text-purple-400 transition-colors duration-200">Zaza Reflex</Link></li>
-              <li><Link href="/products#subplan" className="hover:text-purple-400 transition-colors duration-200">Zaza SubPlan</Link></li>
-              <li><Link href="/products#zen" className="hover:text-purple-400 transition-colors duration-200">Zaza Zen</Link></li>
-              <li><span className="text-gray-500">Zaza GradeFlow <em>(Coming Soon)</em></span></li>
-              <li><span className="text-gray-500">Zaza ReportMate <em>(Coming Soon)</em></span></li>
-              <li><span className="text-gray-500">Zaza IntegrityGuard <em>(Coming Soon)</em></span></li>
+              <li><Link href="/promptly" className="hover:text-purple-400 transition-all duration-300 hover:translate-x-1">Zaza Promptly</Link></li>
+              <li><Link href="/teach" className="hover:text-purple-400 transition-all duration-300 hover:translate-x-1">Zaza Teach</Link></li>
+              <li><Link href="/autoplanner" className="hover:text-purple-400 transition-all duration-300 hover:translate-x-1">Zaza AutoPlanner</Link></li>
+            </ul>
+            
+            <h3 className="text-lg font-bold mb-4 mt-8 text-white">Adjacent Opportunities</h3>
+            <ul className="space-y-3">
+              <li><Link href="/notably" className="hover:text-purple-400 transition-all duration-300 hover:translate-x-1">Zaza Notably Suite</Link></li>
+              <li><Link href="/spark" className="hover:text-purple-400 transition-all duration-300 hover:translate-x-1">Zaza Spark (HR)</Link></li>
+              <li><Link href="/looop" className="hover:text-purple-400 transition-all duration-300 hover:translate-x-1">Zaza Looop</Link></li>
+              <li><Link href="/knowledgecore" className="hover:text-purple-400 transition-all duration-300 hover:translate-x-1">Zaza KnowledgeCore</Link></li>
             </ul>
           </div>
           <div>
