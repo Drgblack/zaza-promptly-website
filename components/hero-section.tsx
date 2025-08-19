@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from 'next/link'
+import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { EmailCaptureForm } from "@/components/EmailCaptureForm"
 import { Star, Zap, Target } from "lucide-react"
@@ -37,18 +38,80 @@ export function HeroSection() {
         <div className="text-center">
           {/* Main Headline */}
           <header className="text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-              You know your{" "}
-              <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent">
-                students better
-              </span>
-              <br />
-              than anyone.
-              <br />
-              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-                Let's put that into words.
-              </span>
-            </h1>
+            <motion.h1
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                visible: {
+                  transition: { staggerChildren: 0.15 }
+                }
+              }}
+            >
+              {/* First line: "You know your students better" */}
+              <div className="mb-2">
+                {["You", "know", "your"].map((word, i) => (
+                  <motion.span
+                    key={`line1-${i}`}
+                    className="inline-block mr-3"
+                    variants={{
+                      hidden: { opacity: 0, y: 20 },
+                      visible: { opacity: 1, y: 0 }
+                    }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+                {["students", "better"].map((word, i) => (
+                  <motion.span
+                    key={`line1-highlighted-${i}`}
+                    className="inline-block mr-3 bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent"
+                    variants={{
+                      hidden: { opacity: 0, y: 20 },
+                      visible: { opacity: 1, y: 0 }
+                    }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </div>
+              
+              {/* Second line: "than anyone." */}
+              <div className="mb-6">
+                {["than", "anyone."].map((word, i) => (
+                  <motion.span
+                    key={`line2-${i}`}
+                    className="inline-block mr-3"
+                    variants={{
+                      hidden: { opacity: 0, y: 20 },
+                      visible: { opacity: 1, y: 0 }
+                    }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </div>
+              
+              {/* Third line: "Let's put that into words." */}
+              <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+                {["Let's", "put", "that", "into", "words."].map((word, i) => (
+                  <motion.span
+                    key={`line3-${i}`}
+                    className="inline-block mr-2"
+                    variants={{
+                      hidden: { opacity: 0, y: 20 },
+                      visible: { opacity: 1, y: 0 }
+                    }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.h1>
 
             <p
               className="text-lg sm:text-xl md:text-2xl text-blue-100 mb-8 max-w-4xl mx-auto leading-relaxed px-4"
