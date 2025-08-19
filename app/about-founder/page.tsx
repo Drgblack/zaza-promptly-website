@@ -59,7 +59,7 @@ export default function AboutFounderPage() {
                   alt="Dr Greg Blackburn - Founder of Zaza Technologies" 
                   width={180} 
                   height={180} 
-                  className="rounded-full shadow-2xl border-4 border-white/20 ring-4 ring-white/10 object-cover" 
+                  className="mx-auto rounded-full shadow-xl ring-8 ring-[#6C63FF]/60 object-cover" 
                   priority
                 />
               </div>
