@@ -16,8 +16,8 @@ const promptlyBenefits = [
 
 export function TeacherDifferentiatorSection() {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="py-20 md:py-28">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Generic AI vs AI built for teachers
@@ -87,6 +87,6 @@ export function TeacherDifferentiatorSection() {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   )
 }

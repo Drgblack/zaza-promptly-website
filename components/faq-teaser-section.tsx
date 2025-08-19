@@ -9,19 +9,39 @@ import { useAnalytics } from '@/hooks/useAnalytics'
 
 const faqs = [
   {
-    id: 'safety',
-    question: 'Is this safe for my school?',
-    answer: 'Yes. We avoid student PII in prompts and encourage school-aligned tone.'
+    id: 'different-from-chatgpt',
+    question: 'How is Zaza Promptly different from ChatGPT?',
+    answer: 'Zaza Promptly is built for teachers, not generic users. It understands classroom language, keeps your tone kind and professional, and saves you from endless re-prompting.'
   },
   {
-    id: 'voice',
-    question: 'Will it sound like me?',
-    answer: 'Yes. You can set a voice guide and reuse templates.'
+    id: 'data-privacy',
+    question: 'Is my data private?',
+    answer: 'Yes. We never train on your school\'s data. Everything you write stays secure and private.'
   },
   {
-    id: 'time-saving',
-    question: 'How much time can it save?',
-    answer: 'Most teachers report saving 1-2 hours per heavy writing week.'
+    id: 'use-at-school',
+    question: 'Can I use this at my school?',
+    answer: 'Absolutely. Teachers already use Zaza Promptly worldwide. It works with any curriculum, grade level, or subject.'
+  },
+  {
+    id: 'is-cheating',
+    question: 'Is this cheating?',
+    answer: 'No. Zaza Promptly doesn\'t replace your judgment as a teacher — it helps you put into words what you already know about your students. Think of it like a trusted teaching assistant for admin tasks.'
+  },
+  {
+    id: 'cost',
+    question: 'How much does it cost?',
+    answer: 'You can try Promptly free. After that, we offer affordable monthly plans so teachers and schools can save time every week.'
+  },
+  {
+    id: 'different-countries',
+    question: 'Does it work in different countries?',
+    answer: 'Yes. Promptly is already in use across the UK, US, Europe, and beyond. We\'re also adding more language support soon.'
+  },
+  {
+    id: 'free-trial',
+    question: 'Can I try it for free?',
+    answer: 'Yes. Sign up today and you\'ll get 5 free snippets every month to test it out.'
   }
 ]
 

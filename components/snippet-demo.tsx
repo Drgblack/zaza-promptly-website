@@ -67,7 +67,10 @@ export function SnippetDemo({ className = "" }: SnippetDemoProps) {
 
   const handleTabChange = (tabId: TabType) => {
     setActiveTab(tabId)
-    setContext(EXAMPLES[tabId].input)
+    // Only update context if it's empty to preserve user input
+    if (!context.trim()) {
+      setContext(EXAMPLES[tabId].input)
+    }
     setOutput('')
     setCopySuccess(false)
     trackEvent('button_click', { button_text: `snippet_tab_${tabId}`, section: 'snippet_demo' })
@@ -85,11 +88,11 @@ export function SnippetDemo({ className = "" }: SnippetDemoProps) {
   }
 
   return (
-    <section className={`py-16 md:py-20 ${className}`.trim()} id="demo-section">
+    <div className={`py-20 md:py-28 ${className}`.trim()} id="demo-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-            Try a quick snippet
+            See it in action
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Pick a template, add your notes, and see how Promptly writes it.
@@ -202,6 +205,6 @@ export function SnippetDemo({ className = "" }: SnippetDemoProps) {
           </CardContent>
         </Card>
       </div>
-    </section>
+    </div>
   )
 }

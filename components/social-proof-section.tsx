@@ -30,6 +30,16 @@ const testimonials = [
     id: 5,
     quote: "No more staring at blank comment boxes.",
     author: "Year 9 coordinator"
+  },
+  {
+    id: 6,
+    quote: "Perfect for differentiated feedback without the extra workload.",
+    author: "SEN coordinator"
+  },
+  {
+    id: 7,
+    quote: "My students' parents love the detailed, caring comments.",
+    author: "Reception teacher"
   }
 ]
 

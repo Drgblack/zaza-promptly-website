@@ -3,7 +3,6 @@ import { HeroSection } from "@/components/hero-section"
 import { SocialProofSection } from "@/components/social-proof-section"
 import { CorePromisesSection } from "@/components/core-promises-section"
 import { TeacherDifferentiatorSection } from "@/components/teacher-differentiator-section"
-import { LiveDemoSection } from "@/components/live-demo-section"
 import { SnippetDemo } from "@/components/snippet-demo"
 import { MainEmailCaptureSection } from "@/components/main-email-capture-section"
 import { FAQTeaserSection } from "@/components/faq-teaser-section"
@@ -83,22 +82,28 @@ export default function Home() {
           </div>
         </section>
         
-        {/* 4. Teacher Differentiator */}
-        <section className="py-16 md:py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <TeacherDifferentiatorSection />
+        {/* 4. Teacher Differentiator - Full Bleed */}
+        <section className="relative w-full overflow-hidden">
+          <div className="absolute inset-0 -z-10 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+            {/* Premium accent elements */}
+            <div className="absolute top-1/4 left-16 w-24 h-24 bg-blue-400/10 rounded-full blur-xl" />
+            <div className="absolute bottom-1/3 right-20 w-32 h-32 bg-indigo-400/10 rounded-full blur-2xl" />
+            <div className="absolute top-1/2 left-1/3 w-16 h-16 bg-purple-400/15 rounded-full" />
           </div>
+          <TeacherDifferentiatorSection />
         </section>
         
-        {/* 5. Live Demo */}
-        <section className="py-16 md:py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <LiveDemoSection />
+        {/* 5. See it in action - Full Bleed */}
+        <section className="relative w-full overflow-hidden">
+          <div className="absolute inset-0 -z-10 bg-gradient-to-br from-emerald-50 via-blue-50 to-indigo-100">
+            <div className="absolute inset-0 bg-gradient-to-t from-white/50 to-transparent" />
+            {/* Subtle accent elements */}
+            <div className="absolute top-1/4 right-16 w-20 h-20 bg-blue-200/20 rounded-full" />
+            <div className="absolute bottom-1/4 left-20 w-28 h-28 bg-emerald-200/15 rounded-full blur-xl" />
           </div>
+          <SnippetDemo />
         </section>
-        
-        {/* 6. Snippet Demo */}
-        <SnippetDemo />
         
         {/* 7. Email Capture */}
         <section className="py-16 md:py-20">
