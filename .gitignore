@@ -68,4 +68,12 @@ Thumbs.db
 
 # Temporary folders
 tmp/
-temp/
+temp/# --- Untracked bundles (hide from git status) ---
+apps-disabled/
+clean-promptly/
+newsletter-signup/
+privacy-policy-page/
+schwoop-challenge/
+schwoop-homepage/
+terms-of-service-page/
+zaza-promptly-website/
