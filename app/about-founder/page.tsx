@@ -147,7 +147,7 @@ export default function AboutFounderPage() {
           
           <Card className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-white/10">
             <CardContent className="p-8 text-center">
-              <p className="text-xl text-white font-semibold">
+              <p className="text-xl text-gray-100 font-semibold">
                 AI was never meant to replace teachers. It was meant to free them.
               </p>
             </CardContent>
@@ -224,7 +224,7 @@ export default function AboutFounderPage() {
             </p>
             
             <Card className="bg-gradient-to-r from-indigo-500/20 to-purple-500/20 border border-white/10 p-8 my-12">
-              <blockquote className="text-xl md:text-2xl text-white font-semibold text-center">
+              <blockquote className="text-xl md:text-2xl text-gray-100 font-semibold text-center">
                 "I am not building Zaza to automate teachers out of the picture. I am building it to finally give them a fair one."
               </blockquote>
             </Card>
@@ -363,7 +363,7 @@ export default function AboutFounderPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Card className="bg-gradient-to-r from-indigo-500/20 to-purple-500/20 border border-white/10">
             <CardContent className="p-12 text-center">
-              <blockquote className="text-2xl md:text-3xl lg:text-4xl text-white font-bold">
+              <blockquote className="text-2xl md:text-3xl lg:text-4xl text-gray-100 font-bold">
                 "Zaza helps teachers thrive. And I am not done yet."
               </blockquote>
             </CardContent>
