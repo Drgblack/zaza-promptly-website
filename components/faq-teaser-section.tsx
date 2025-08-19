@@ -42,6 +42,11 @@ const faqs = [
     id: 'cost',
     question: 'How much does Promptly cost?',
     answer: 'Promptly is priced to be affordable for teachers, with both free and premium plans available. See our pricing page for details.'
+  },
+  {
+    id: 'trust-suggestions',
+    question: 'Can I trust Promptly\'s suggestions?',
+    answer: 'Absolutely. Promptly gives you helpful starting points, but you\'re always the one in charge. Every suggestion can be edited, tweaked, or ignored — nothing is locked in. Think of it as a colleague who throws out ideas, but you decide what actually goes home to parents or into your reports.'
   }
 ]
 
