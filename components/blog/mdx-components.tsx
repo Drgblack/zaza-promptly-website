@@ -15,15 +15,6 @@ import {
   BookOpen
 } from 'lucide-react'
 import Link from 'next/link'
-import dynamic from 'next/dynamic'
-
-// Create client-only versions of components that use state
-const ClientPromptBox = dynamic(() => import('./client-prompt-box'), { 
-  ssr: false 
-})
-const ClientVideoEmbed = dynamic(() => import('./client-video-embed'), { 
-  ssr: false 
-})
 
 // Callout component for important information
 export function Callout({ 
@@ -89,14 +80,60 @@ export function Callout({
   )
 }
 
-// Prompt box for displaying AI prompts (client-only wrapper)
-export function PromptBox(props: { 
+// Prompt box for displaying AI prompts (server-safe version)
+export function PromptBox({ 
+  title, 
+  prompt, 
+  variables,
+  category = 'General' 
+}: { 
   title: string
   prompt: string
   variables?: string[]
   category?: string
 }) {
-  return <ClientPromptBox {...props} />
+  return (
+    <Card className="my-6 border-purple-200 bg-gradient-to-br from-purple-50 to-pink-50">
+      <CardContent className="p-6">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center space-x-3">
+            <div className="p-2 bg-purple-100 rounded-lg">
+              <Sparkles className="w-5 h-5 text-purple-600" />
+            </div>
+            <div>
+              <h3 className="font-bold text-gray-900">{title}</h3>
+              <Badge variant="secondary" className="bg-purple-100 text-purple-800 text-xs">
+                {category}
+              </Badge>
+            </div>
+          </div>
+          {/* Removed copy functionality for SSR compatibility */}
+          <div className="px-4 py-2 border border-purple-200 text-purple-600 text-sm font-medium rounded-md">
+            Prompt
+          </div>
+        </div>
+
+        <div className="bg-white p-4 rounded-lg border border-purple-200 mb-4">
+          <pre className="whitespace-pre-wrap text-sm text-gray-800 font-mono">
+            {prompt}
+          </pre>
+        </div>
+
+        {variables && variables.length > 0 && (
+          <div>
+            <h4 className="font-semibold text-gray-900 mb-2 text-sm">Variables to customize:</h4>
+            <div className="flex flex-wrap gap-2">
+              {variables.map((variable, index) => (
+                <Badge key={index} variant="outline" className="text-xs">
+                  {variable}
+                </Badge>
+              ))}
+            </div>
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  )
 }
 
 // Quote component for testimonials or important quotes
@@ -290,14 +327,63 @@ export function ResourceDownload({
   )
 }
 
-// Video embed component (client-only wrapper)
-export function VideoEmbed(props: {
+// Video embed component (server-safe version)
+export function VideoEmbed({ 
+  title, 
+  videoId, 
+  platform = 'youtube',
+  description 
+}: {
   title: string
   videoId: string
   platform?: 'youtube' | 'vimeo'
   description?: string
 }) {
-  return <ClientVideoEmbed {...props} />
+  const embedUrls = {
+    youtube: `https://www.youtube.com/embed/${videoId}`,
+    vimeo: `https://player.vimeo.com/video/${videoId}`
+  }
+
+  const thumbnailUrls = {
+    youtube: `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`,
+    vimeo: '' // Vimeo thumbnails require API call
+  }
+
+  return (
+    <Card className="my-8">
+      <CardContent className="p-0">
+        <div className="relative aspect-video bg-gray-100 rounded-lg overflow-hidden">
+          {/* Static thumbnail with link to video */}
+          <Link 
+            href={embedUrls[platform]} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="relative w-full h-full block group"
+          >
+            {platform === 'youtube' && (
+              <img 
+                src={thumbnailUrls[platform]} 
+                alt={title}
+                className="w-full h-full object-cover"
+              />
+            )}
+            <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center group-hover:bg-opacity-40 transition-colors">
+              <div className="w-20 h-20 bg-white bg-opacity-90 rounded-full flex items-center justify-center group-hover:bg-opacity-100 transition-colors">
+                <Play className="w-8 h-8 text-gray-800 ml-1" />
+              </div>
+            </div>
+          </Link>
+        </div>
+        
+        {(title || description) && (
+          <div className="p-6">
+            {title && <h3 className="font-semibold text-gray-900 mb-2">{title}</h3>}
+            {description && <p className="text-gray-600 text-sm">{description}</p>}
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  )
 }
 
 // Table of contents component
