@@ -110,33 +110,23 @@
   "redirects": [
     {
       "source": "/home",
-      "destination": "/en",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/pricing",
-      "destination": "/en/promptly-pricing",
+      "destination": "/promptly-pricing",
       "permanent": true
     },
     {
       "source": "/faq",
-      "destination": "/en/faqs",
+      "destination": "/faqs",
       "permanent": true
     },
     {
       "source": "/resources",
-      "destination": "/en/free-resources",
+      "destination": "/free-resources",
       "permanent": true
-    },
-    {
-      "source": "/blog",
-      "destination": "/en/blog",
-      "permanent": false
-    },
-    {
-      "source": "/blog/(.*)",
-      "destination": "/en/blog/$1",
-      "permanent": false
     }
   ],
   "env": {
