@@ -56,7 +56,7 @@ export default function AboutFounderPage() {
               <div className="relative">
                 <Image 
                   src="/images/founder.png" 
-                  alt="Dr Greg Blackburn — Founder of Zaza Technologies" 
+                  alt="Dr Greg Blackburn - Founder of Zaza Technologies" 
                   width={180} 
                   height={180} 
                   className="rounded-full shadow-2xl border-4 border-white/20 ring-4 ring-white/10 object-cover" 
@@ -66,7 +66,7 @@ export default function AboutFounderPage() {
             </div>
             
             <p className="text-lg text-gray-400">
-              Dr Greg Blackburn — Founder of Zaza Technologies
+              Dr Greg Blackburn - Founder of Zaza Technologies
             </p>
           </div>
         </div>
@@ -75,9 +75,9 @@ export default function AboutFounderPage() {
       {/* Why I'm Telling This Story */}
       <section className="py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="bg-white/5 border border-white/10 shadow-2xl backdrop-blur-sm">
+          <Card className="rounded-2xl bg-white/85 dark:bg-slate-100/85 border border-black/5 dark:border-white/10 shadow-2xl backdrop-blur-sm">
             <CardContent className="p-8 md:p-12 text-center">
-              <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+              <p className="text-base md:text-lg leading-relaxed text-slate-900 dark:text-slate-900">
                 Teaching today is harder than ever. Most EdTech tools do not actually help - they frustrate.<br/><br/>
                 I built Zaza because I have seen what teachers are going through, and I knew I could do something about it.<br/><br/>
                 This is my story. And it is why I believe Zaza can change yours.
@@ -97,30 +97,24 @@ export default function AboutFounderPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
               <p>
-                I grew up in Tasmania with no clear direction. My father owned a paint factory and got me into a painter's apprenticeship at Cascade Brewery. I hated every day of it. But my father said, "Get your papers and see it through." So I did.
+                I grew up in Tasmania with no clear direction. My father owned a paint factory, Tas Paints, and through his connections I started a painter's apprenticeship at the Cascade Brewery. I hated it. Dad told me to see it through - "get your papers." I did. It taught me perseverance and what I did not want to do with my life.
               </p>
               <p>
-                The moment I finished, I bought a backpack and went into the world to discover something more. I travelled, experienced new cultures, met people, and had both great and difficult experiences. Over time, I realized that education was the only thing that would open doors and carry me forward.
+                So I bought a backpack and went into the world to discover… something. New cultures, new people, some great and not-so-great experiences. Over time I realised education was the only thing that would open doors and carry me forward.
               </p>
               <p>
-                <em>Sometimes the hardest paths teach us the most important lessons.</em>
-              </p>
-              <p>
-                I did a German language course in Frankfurt, earned a Diploma in German, and used it to get into the University of Tasmania. There I studied Information Systems to Honours level, followed by an MBA, and later earned a PhD in Professional Education. Twenty years of teaching, researching, and building tools for educators followed.
-              </p>
-              <p>
-                This journey connects me to every teacher who helps students find their direction when they feel lost. Education transforms lives - and that's why I built Zaza to help teachers thrive.
+                I completed a German language course in Frankfurt and earned a Diploma in German that helped me enter the University of Tasmania, where I studied Information Systems to Honours level. I later completed an MBA at The University of Queensland, and eventually a PhD in Professional Education at City, University of London. Since then I have spent two decades focused on learning, research, and building tools for educators.
               </p>
             </div>
             
             <div className="flex justify-center">
-              <Card className="bg-gradient-to-br from-blue-600/40 to-purple-600/40 border border-white/20 p-8">
+              <Card className="rounded-2xl bg-white/85 dark:bg-slate-100/85 border border-black/5 dark:border-white/10 p-8">
                 <div className="flex items-center justify-center space-x-8">
-                  <Paintbrush className="w-16 h-16 text-blue-400" />
-                  <ArrowRight className="w-8 h-8 text-gray-400" />
-                  <GraduationCap className="w-16 h-16 text-purple-400" />
+                  <Paintbrush className="w-16 h-16 text-blue-600" />
+                  <ArrowRight className="w-8 h-8 text-slate-600" />
+                  <GraduationCap className="w-16 h-16 text-purple-600" />
                 </div>
-                <p className="text-center text-gray-300 mt-4 text-sm">
+                <p className="text-center text-slate-900 dark:text-slate-900 mt-4 text-base font-semibold">
                   Tasmania Apprentice → PhD Researcher
                 </p>
               </Card>
@@ -151,9 +145,9 @@ export default function AboutFounderPage() {
             </blockquote>
           </div>
           
-          <Card className="bg-gradient-to-r from-purple-600/50 to-pink-600/50 border border-white/20">
+          <Card className="rounded-2xl bg-white/85 dark:bg-slate-100/85 border border-black/5 dark:border-white/10">
             <CardContent className="p-8 text-center">
-              <p className="text-xl text-white font-semibold">
+              <p className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-slate-900">
                 AI was never meant to replace teachers. It was meant to free them.
               </p>
             </CardContent>
@@ -169,37 +163,37 @@ export default function AboutFounderPage() {
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 rounded-2xl">
+            <Card className="rounded-2xl bg-white/85 dark:bg-slate-100/85 border border-black/5 dark:border-white/10 hover:bg-white/90 hover:dark:bg-slate-100/90 transition-all duration-300 hover:-translate-y-1">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <GraduationCap className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4">Pedagogy-First Design</h3>
-                <p className="text-gray-300">
+                <h3 className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-slate-900 mb-4">Pedagogy-First Design</h3>
+                <p className="text-base md:text-lg leading-relaxed text-slate-900 dark:text-slate-900">
                   Built by an educator who understands classroom realities, not Silicon Valley assumptions about teaching.
                 </p>
               </CardContent>
             </Card>
             
-            <Card className="bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 rounded-2xl">
+            <Card className="rounded-2xl bg-white/85 dark:bg-slate-100/85 border border-black/5 dark:border-white/10 hover:bg-white/90 hover:dark:bg-slate-100/90 transition-all duration-300 hover:-translate-y-1">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <Shield className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4">AI That Respects Teachers</h3>
-                <p className="text-gray-300">
+                <h3 className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-slate-900 mb-4">AI That Respects Teachers</h3>
+                <p className="text-base md:text-lg leading-relaxed text-slate-900 dark:text-slate-900">
                   Technology that amplifies your expertise instead of questioning your professional judgment.
                 </p>
               </CardContent>
             </Card>
             
-            <Card className="bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 rounded-2xl">
+            <Card className="rounded-2xl bg-white/85 dark:bg-slate-100/85 border border-black/5 dark:border-white/10 hover:bg-white/90 hover:dark:bg-slate-100/90 transition-all duration-300 hover:-translate-y-1">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <Heart className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4">Built for Real Classrooms</h3>
-                <p className="text-gray-300">
+                <h3 className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-slate-900 mb-4">Built for Real Classrooms</h3>
+                <p className="text-base md:text-lg leading-relaxed text-slate-900 dark:text-slate-900">
                   Tested with real teachers facing real challenges, not idealized demo environments.
                 </p>
               </CardContent>
@@ -226,11 +220,11 @@ export default function AboutFounderPage() {
               Yes, I've had moments of doubt. Broken deployments at 5 a.m. Features that didn't work as planned. Times when I wondered if I was crazy to think one person could build something that matters.
             </p>
             <p>
-              But then I remember my family of teachers. My wife, my sister, my friends who chose this profession because they wanted to make a difference. They remind me why this work matters.
+              But then I remember my family of teachers. My sister, my aunty, my uncle, my cousins, and many of my friends - all teachers who chose this profession because they wanted to make a difference. They remind me why this work matters.
             </p>
             
-            <Card className="bg-gradient-to-r from-indigo-600/50 to-purple-600/50 border border-white/20 p-8 my-12">
-              <blockquote className="text-xl md:text-2xl text-white font-semibold text-center">
+            <Card className="rounded-2xl bg-white/85 dark:bg-slate-100/85 border border-black/5 dark:border-white/10 p-8 my-12">
+              <blockquote className="text-xl md:text-2xl text-slate-900 dark:text-slate-900 font-semibold text-center">
                 "I am not building Zaza to automate teachers out of the picture. I am building it to finally give them a fair one."
               </blockquote>
             </Card>
@@ -262,19 +256,19 @@ export default function AboutFounderPage() {
               </p>
             </div>
             
-            <Card className="bg-white/5 border border-white/10">
+            <Card className="rounded-2xl bg-white/85 dark:bg-slate-100/85 border border-black/5 dark:border-white/10">
               <CardContent className="p-8">
                 <div className="space-y-8">
                   <div>
-                    <h4 className="text-lg font-semibold text-green-400 mb-3">Live Now</h4>
+                    <h4 className="text-lg font-semibold text-green-600 mb-3">Live Now</h4>
                     <ul className="space-y-2">
                       <li>
-                        <Link href="/promptly" className="text-gray-300 hover:text-white transition-colors flex items-center">
+                        <Link href="/promptly" className="text-slate-700 hover:text-slate-900 transition-colors flex items-center">
                           Zaza Promptly <ExternalLink className="w-4 h-4 ml-2" />
                         </Link>
                       </li>
                       <li>
-                        <Link href="/teach" className="text-gray-300 hover:text-white transition-colors flex items-center">
+                        <Link href="/teach" className="text-slate-700 hover:text-slate-900 transition-colors flex items-center">
                           Zaza Teach <ExternalLink className="w-4 h-4 ml-2" />
                         </Link>
                       </li>
@@ -282,10 +276,10 @@ export default function AboutFounderPage() {
                   </div>
                   
                   <div>
-                    <h4 className="text-lg font-semibold text-yellow-400 mb-3">In Development</h4>
+                    <h4 className="text-lg font-semibold text-yellow-600 mb-3">In Development</h4>
                     <ul className="space-y-2">
                       <li>
-                        <Link href="/autoplanner" className="text-gray-300 hover:text-white transition-colors flex items-center">
+                        <Link href="/autoplanner" className="text-slate-700 hover:text-slate-900 transition-colors flex items-center">
                           Zaza AutoPlanner <ExternalLink className="w-4 h-4 ml-2" />
                         </Link>
                       </li>
@@ -293,25 +287,25 @@ export default function AboutFounderPage() {
                   </div>
                   
                   <div>
-                    <h4 className="text-lg font-semibold text-blue-400 mb-3">Adjacent Apps</h4>
+                    <h4 className="text-lg font-semibold text-blue-600 mb-3">Adjacent Apps</h4>
                     <ul className="space-y-2">
                       <li>
-                        <Link href="/notably" className="text-gray-300 hover:text-white transition-colors flex items-center">
+                        <Link href="/notably" className="text-slate-700 hover:text-slate-900 transition-colors flex items-center">
                           Zaza Notably Suite <ExternalLink className="w-4 h-4 ml-2" />
                         </Link>
                       </li>
                       <li>
-                        <Link href="/spark" className="text-gray-300 hover:text-white transition-colors flex items-center">
+                        <Link href="/spark" className="text-slate-700 hover:text-slate-900 transition-colors flex items-center">
                           Zaza Spark (HR) <ExternalLink className="w-4 h-4 ml-2" />
                         </Link>
                       </li>
                       <li>
-                        <Link href="/looop" className="text-gray-300 hover:text-white transition-colors flex items-center">
+                        <Link href="/looop" className="text-slate-700 hover:text-slate-900 transition-colors flex items-center">
                           Zaza Looop <ExternalLink className="w-4 h-4 ml-2" />
                         </Link>
                       </li>
                       <li>
-                        <Link href="/knowledgecore" className="text-gray-300 hover:text-white transition-colors flex items-center">
+                        <Link href="/knowledgecore" className="text-slate-700 hover:text-slate-900 transition-colors flex items-center">
                           Zaza KnowledgeCore <ExternalLink className="w-4 h-4 ml-2" />
                         </Link>
                       </li>
@@ -367,9 +361,9 @@ export default function AboutFounderPage() {
       {/* Closing Quote */}
       <section className="py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="bg-gradient-to-r from-indigo-600/50 to-purple-600/50 border border-white/20">
+          <Card className="rounded-2xl bg-white/85 dark:bg-slate-100/85 border border-black/5 dark:border-white/10">
             <CardContent className="p-12 text-center">
-              <blockquote className="text-2xl md:text-3xl lg:text-4xl text-white font-bold">
+              <blockquote className="text-2xl md:text-3xl lg:text-4xl text-slate-900 dark:text-slate-900 font-bold">
                 "Zaza helps teachers thrive. And I am not done yet."
               </blockquote>
             </CardContent>

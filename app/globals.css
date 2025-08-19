@@ -77,6 +77,12 @@
   }
 }
 
+/* Ensure content text is always selectable */
+:where(p, h1, h2, h3, h4, h5, h6, li, blockquote, figcaption) {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+}
+
 /* Tighter prose typography for blog articles */
 .prose-tight :where(h1,h2,h3,h4){margin-top:1.1em;margin-bottom:.6em}
 .prose-tight > :first-child{margin-top:0 !important}
