@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getBlogPost } from '@/lib/blog'
-import { MDXRemote } from 'next-mdx-remote/rsc'
-import { mdxComponents } from '@/components/blog/mdx-components'
+import { MDXRenderer } from '@/components/blog/mdx-renderer'
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -67,12 +66,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </div>
             </header>
             
-            <div className="prose prose-lg max-w-none">
-              <MDXRemote 
-                source={post.content} 
-                components={mdxComponents}
-              />
-            </div>
+            <MDXRenderer content={post.content} />
           </article>
         </main>
       </div>

@@ -2,8 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getBlogPost, getBlogPostSlugs, getRelatedPosts, getPopularPosts, getAllCategories, getAllTags, getPublishedBlogPosts } from '@/lib/blog'
 import { EnhancedBlogLayout } from '@/components/blog/enhanced-blog-layout'
-import { MDXRemote } from 'next-mdx-remote/rsc'
-import { mdxComponents } from '@/components/blog/mdx-components'
+import { MDXRenderer } from '@/components/blog/mdx-renderer'
 import { StructuredData } from '@/components/structured-data'
 import { generateArticleSchema, generateAuthorSchema, generateKeywordsFromContent } from '@/lib/structured-data'
 
@@ -115,10 +114,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           categories={categories}
           tags={tags}
         >
-          <MDXRemote 
-            source={post.content} 
-            components={mdxComponents}
-          />
+          <MDXRenderer content={post.content} />
         </EnhancedBlogLayout>
       </div>
     )
