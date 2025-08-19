@@ -1,5 +1,3 @@
-"use client"
-
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -16,8 +14,16 @@ import {
   Play,
   BookOpen
 } from 'lucide-react'
-import { useState } from 'react'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
+
+// Create client-only versions of components that use state
+const ClientPromptBox = dynamic(() => import('./client-prompt-box'), { 
+  ssr: false 
+})
+const ClientVideoEmbed = dynamic(() => import('./client-video-embed'), { 
+  ssr: false 
+})
 
 // Callout component for important information
 export function Callout({ 
@@ -83,82 +89,14 @@ export function Callout({
   )
 }
 
-// Prompt box for displaying AI prompts
-export function PromptBox({ 
-  title, 
-  prompt, 
-  variables,
-  category = 'General' 
-}: { 
+// Prompt box for displaying AI prompts (client-only wrapper)
+export function PromptBox(props: { 
   title: string
   prompt: string
   variables?: string[]
   category?: string
 }) {
-  const [isCopied, setIsCopied] = useState(false)
-
-  const handleCopy = async () => {
-    await navigator.clipboard.writeText(prompt)
-    setIsCopied(true)
-    setTimeout(() => setIsCopied(false), 2000)
-  }
-
-  return (
-    <Card className="my-6 border-purple-200 bg-gradient-to-br from-purple-50 to-pink-50">
-      <CardContent className="p-6">
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center space-x-3">
-            <div className="p-2 bg-purple-100 rounded-lg">
-              <Sparkles className="w-5 h-5 text-purple-600" />
-            </div>
-            <div>
-              <h3 className="font-bold text-gray-900">{title}</h3>
-              <Badge variant="secondary" className="bg-purple-100 text-purple-800 text-xs">
-                {category}
-              </Badge>
-            </div>
-          </div>
-          <Button
-            onClick={handleCopy}
-            variant="outline"
-            size="sm"
-            className="border-purple-200 text-purple-600 hover:bg-purple-50"
-          >
-            {isCopied ? (
-              <>
-                <CheckCircle2 className="w-4 h-4 mr-2" />
-                Copied!
-              </>
-            ) : (
-              <>
-                <Copy className="w-4 h-4 mr-2" />
-                Copy
-              </>
-            )}
-          </Button>
-        </div>
-
-        <div className="bg-white p-4 rounded-lg border border-purple-200 mb-4">
-          <pre className="whitespace-pre-wrap text-sm text-gray-800 font-mono">
-            {prompt}
-          </pre>
-        </div>
-
-        {variables && variables.length > 0 && (
-          <div>
-            <h4 className="font-semibold text-gray-900 mb-2 text-sm">Variables to customize:</h4>
-            <div className="flex flex-wrap gap-2">
-              {variables.map((variable, index) => (
-                <Badge key={index} variant="outline" className="text-xs">
-                  {variable}
-                </Badge>
-              ))}
-            </div>
-          </div>
-        )}
-      </CardContent>
-    </Card>
-  )
+  return <ClientPromptBox {...props} />
 }
 
 // Quote component for testimonials or important quotes
@@ -250,21 +188,14 @@ export function ZazaCTA({
             <p className="text-sm text-gray-600 mb-2">{cta.description}</p>
             <Button
               size="sm"
-              onClick={() => {
-                if ((window as any).zazeAnalytics) {
-                  (window as any).zazeAnalytics.trackCrossAppCTA(type, 'blog_mdx_cta', 'clicked')
-                }
-                if (cta.url.startsWith('http')) {
-                  window.open(cta.url, '_blank')
-                } else {
-                  window.location.href = cta.url
-                }
-              }}
+              asChild
               className={`${colorClasses[cta.color as keyof typeof colorClasses].split(' ').slice(-2).join(' ')} text-white`}
             >
-              {cta.icon}
-              <span className="ml-2">{cta.buttonText}</span>
-              {cta.url.startsWith('http') && <ExternalLink className="w-4 h-4 ml-2" />}
+              <Link href={cta.url} target={cta.url.startsWith('http') ? '_blank' : '_self'}>
+                {cta.icon}
+                <span className="ml-2">{cta.buttonText}</span>
+                {cta.url.startsWith('http') && <ExternalLink className="w-4 h-4 ml-2" />}
+              </Link>
             </Button>
           </div>
         </div>
@@ -292,21 +223,14 @@ export function ZazaCTA({
           
           <Button
             size="lg"
-            onClick={() => {
-              if ((window as any).zazeAnalytics) {
-                (window as any).zazeAnalytics.trackCrossAppCTA(type, 'blog_mdx_cta', 'clicked')
-              }
-              if (cta.url.startsWith('http')) {
-                window.open(cta.url, '_blank')
-              } else {
-                window.location.href = cta.url
-              }
-            }}
+            asChild
             className={`${colorClasses[cta.color as keyof typeof colorClasses].split(' ').slice(-2).join(' ')} text-white px-8 py-3`}
           >
-            {cta.icon}
-            <span className="ml-2">{cta.buttonText}</span>
-            {cta.url.startsWith('http') && <ExternalLink className="w-4 h-4 ml-2" />}
+            <Link href={cta.url} target={cta.url.startsWith('http') ? '_blank' : '_self'}>
+              {cta.icon}
+              <span className="ml-2">{cta.buttonText}</span>
+              {cta.url.startsWith('http') && <ExternalLink className="w-4 h-4 ml-2" />}
+            </Link>
           </Button>
         </div>
       </CardContent>
@@ -330,12 +254,7 @@ export function ResourceDownload({
   fileType?: string
   fileSize?: string
 }) {
-  const handleDownload = () => {
-    if ((window as any).zazeAnalytics) {
-      (window as any).zazeAnalytics.trackResourceDownload(filename, 'blog_post');
-    }
-    window.open(downloadUrl, '_blank');
-  }
+  // Remove client-side analytics for SSR compatibility
 
   return (
     <Card className="my-6 border-green-200 bg-gradient-to-br from-green-50 to-emerald-50">
@@ -355,11 +274,13 @@ export function ResourceDownload({
               </div>
               
               <Button
-                onClick={handleDownload}
+                asChild
                 className="bg-green-600 hover:bg-green-700 text-white"
               >
-                <Download className="w-4 h-4 mr-2" />
-                Download {fileType}
+                <Link href={downloadUrl} target="_blank">
+                  <Download className="w-4 h-4 mr-2" />
+                  Download {fileType}
+                </Link>
               </Button>
             </div>
           </div>
@@ -369,72 +290,14 @@ export function ResourceDownload({
   )
 }
 
-// Video embed component
-export function VideoEmbed({ 
-  title, 
-  videoId, 
-  platform = 'youtube',
-  description 
-}: {
+// Video embed component (client-only wrapper)
+export function VideoEmbed(props: {
   title: string
   videoId: string
   platform?: 'youtube' | 'vimeo'
   description?: string
 }) {
-  const [isPlaying, setIsPlaying] = useState(false)
-
-  const embedUrls = {
-    youtube: `https://www.youtube.com/embed/${videoId}`,
-    vimeo: `https://player.vimeo.com/video/${videoId}`
-  }
-
-  const thumbnailUrls = {
-    youtube: `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`,
-    vimeo: '' // Vimeo thumbnails require API call
-  }
-
-  return (
-    <Card className="my-8">
-      <CardContent className="p-0">
-        <div className="relative aspect-video bg-gray-100 rounded-lg overflow-hidden">
-          {!isPlaying ? (
-            <div 
-              className="relative w-full h-full cursor-pointer group"
-              onClick={() => setIsPlaying(true)}
-            >
-              {platform === 'youtube' && (
-                <img 
-                  src={thumbnailUrls[platform]} 
-                  alt={title}
-                  className="w-full h-full object-cover"
-                />
-              )}
-              <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center group-hover:bg-opacity-40 transition-colors">
-                <div className="w-20 h-20 bg-white bg-opacity-90 rounded-full flex items-center justify-center group-hover:bg-opacity-100 transition-colors">
-                  <Play className="w-8 h-8 text-gray-800 ml-1" />
-                </div>
-              </div>
-            </div>
-          ) : (
-            <iframe
-              src={embedUrls[platform]}
-              title={title}
-              className="w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          )}
-        </div>
-        
-        {(title || description) && (
-          <div className="p-6">
-            {title && <h3 className="font-semibold text-gray-900 mb-2">{title}</h3>}
-            {description && <p className="text-gray-600 text-sm">{description}</p>}
-          </div>
-        )}
-      </CardContent>
-    </Card>
-  )
+  return <ClientVideoEmbed {...props} />
 }
 
 // Table of contents component
