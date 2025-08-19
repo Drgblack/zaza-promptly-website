@@ -69,7 +69,7 @@ export function HeroSection() {
               className="w-full sm:w-auto min-h-[44px] border-2 border-white text-white hover:bg-white hover:text-blue-900 font-semibold px-8 py-4 text-base sm:text-lg rounded-full bg-transparent touch-manipulation focus:outline-none focus:ring-4 focus:ring-white/50"
               aria-label="See examples of AI-generated teacher comments"
             >
-              See Examples
+              See Resources
             </Button>
           </Link>
         </motion.div>
