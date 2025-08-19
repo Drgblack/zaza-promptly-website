@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
   const body = await request.text()
   const sig = request.headers.get('stripe-signature') as string
 
-  let event: Stripe.Event
+  let event: any // Will be typed as Stripe.Event after dynamic import
 
   try {
     event = stripe.webhooks.constructEvent(body, sig, endpointSecret)
@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
   try {
     switch (event.type) {
       case 'checkout.session.completed': {
-        const session = event.data.object as Stripe.Checkout.Session
+        const session = event.data.object
         
         console.log('Payment successful:', {
           sessionId: session.id,
@@ -64,7 +64,7 @@ export async function POST(request: NextRequest) {
       }
 
       case 'checkout.session.expired': {
-        const session = event.data.object as Stripe.Checkout.Session
+        const session = event.data.object
         
         console.log('Checkout session expired:', {
           sessionId: session.id,
@@ -76,7 +76,7 @@ export async function POST(request: NextRequest) {
       }
 
       case 'payment_intent.succeeded': {
-        const paymentIntent = event.data.object as Stripe.PaymentIntent
+        const paymentIntent = event.data.object
         
         console.log('Payment Intent succeeded:', {
           paymentIntentId: paymentIntent.id,
@@ -90,7 +90,7 @@ export async function POST(request: NextRequest) {
       }
 
       case 'payment_intent.payment_failed': {
-        const paymentIntent = event.data.object as Stripe.PaymentIntent
+        const paymentIntent = event.data.object
         
         console.error('Payment Intent failed:', {
           paymentIntentId: paymentIntent.id,
@@ -104,7 +104,7 @@ export async function POST(request: NextRequest) {
       }
 
       case 'customer.subscription.created': {
-        const subscription = event.data.object as Stripe.Subscription
+        const subscription = event.data.object
         
         console.log('Subscription created:', {
           subscriptionId: subscription.id,
@@ -119,7 +119,7 @@ export async function POST(request: NextRequest) {
       }
 
       case 'customer.subscription.updated': {
-        const subscription = event.data.object as Stripe.Subscription
+        const subscription = event.data.object
         
         console.log('Subscription updated:', {
           subscriptionId: subscription.id,
@@ -132,7 +132,7 @@ export async function POST(request: NextRequest) {
       }
 
       case 'customer.subscription.deleted': {
-        const subscription = event.data.object as Stripe.Subscription
+        const subscription = event.data.object
         
         console.log('Subscription canceled:', {
           subscriptionId: subscription.id,
@@ -145,7 +145,7 @@ export async function POST(request: NextRequest) {
       }
 
       case 'invoice.payment_succeeded': {
-        const invoice = event.data.object as Stripe.Invoice
+        const invoice = event.data.object
         
         console.log('Invoice payment succeeded:', {
           invoiceId: invoice.id,
@@ -160,7 +160,7 @@ export async function POST(request: NextRequest) {
       }
 
       case 'invoice.payment_failed': {
-        const invoice = event.data.object as Stripe.Invoice
+        const invoice = event.data.object
         
         console.error('Invoice payment failed:', {
           invoiceId: invoice.id,
