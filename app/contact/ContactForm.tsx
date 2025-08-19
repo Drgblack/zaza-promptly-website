@@ -165,14 +165,12 @@ export default function ContactForm() {
 
         {/* Alternative Contact */}
         <div className="text-center mt-12">
-          <p className="text-gray-600 mb-4">Or use the main Zaza Technologies contact page:</p>
+          <p className="text-gray-600 mb-4">Need additional support? Contact us directly:</p>
           <a 
-            href="https://zazatechnologies.com/contact" 
-            target="_blank" 
-            rel="noopener noreferrer"
+            href="mailto:support@zazapromptly.com" 
             className="inline-flex items-center space-x-2 text-indigo-600 hover:text-indigo-700 font-medium transition-colors duration-200"
           >
-            <span>Visit Main Contact Page</span>
+            <span>Email Support</span>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>

@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: 'AI Teaching Tools Suite - Zaza Technologies',
     description: 'Transform your teaching with our complete collection of AI-powered educational tools and resources.',
     type: 'website',
-    url: 'https://zazatechnologies.com/products',
+    url: 'https://www.zazapromptly.com/products',
   },
   twitter: {
     card: 'summary_large_image',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     description: 'Transform your teaching with our complete collection of AI-powered educational tools and resources.',
   },
   alternates: {
-    canonical: 'https://zazatechnologies.com/products',
+    canonical: 'https://www.zazapromptly.com/products',
   },
 };
 

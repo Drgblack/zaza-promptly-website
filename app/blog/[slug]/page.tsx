@@ -65,7 +65,7 @@ export const revalidate = 0
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params
-  const siteUrl = 'https://zazatechnologies.com'
+  const siteUrl = 'https://www.zazapromptly.com'
   
   try {
     const [post, relatedPosts, popularPosts, allPosts, categories, tags] = await Promise.all([

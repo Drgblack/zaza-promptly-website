@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 }
 
 export default async function BlogPage() {
-  const siteUrl = 'https://zazatechnologies.com'
+  const siteUrl = 'https://www.zazapromptly.com'
   
   let allPosts: any[] = [];
   let popularPosts: any[] = [];

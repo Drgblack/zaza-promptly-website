@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     'automated feedback generation', 'teacher time-saving apps', 'educational AI assistant',
     'smart teaching tools', 'AI-powered education', 'teacher workflow automation'
   ],
-  authors: [{ name: 'Zaza Technologies', url: 'https://zazatechnologies.com' }],
+  authors: [{ name: 'Zaza Technologies', url: 'https://www.zazapromptly.com' }],
   creator: 'Zaza Technologies',
   publisher: 'Zaza Technologies',
   category: 'Education Technology',
