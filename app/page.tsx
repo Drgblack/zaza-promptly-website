@@ -4,6 +4,7 @@ import { SocialProofSection } from "@/components/social-proof-section"
 import { CorePromisesSection } from "@/components/core-promises-section"
 import { TeacherDifferentiatorSection } from "@/components/teacher-differentiator-section"
 import { LiveDemoSection } from "@/components/live-demo-section"
+import { SnippetDemo } from "@/components/snippet-demo"
 import { MainEmailCaptureSection } from "@/components/main-email-capture-section"
 import { FAQTeaserSection } from "@/components/faq-teaser-section"
 import { SEOHead } from "@/components/seo-head"
@@ -70,6 +71,9 @@ export default function Home() {
         
         {/* 5. Live Demo Snapshot - one focused card/screenshot */}
         <LiveDemoSection />
+        
+        {/* 5.5. Interactive Snippet Tool Demo */}
+        <SnippetDemo />
         
         {/* 6. Email Capture - the only form on page */}
         <MainEmailCaptureSection />
