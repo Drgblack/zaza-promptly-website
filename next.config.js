@@ -116,6 +116,11 @@ const nextConfig = {
         destination: '/why-zaza-teach',
         permanent: true,
       },
+      {
+        source: '/blog/zaza-promptly-official-launch',
+        destination: '/blog/parent-email-deescalation-templates',
+        permanent: true,
+      },
       
       // Reverse redirects - redirect /en/* back to root paths since we disabled i18n
       {

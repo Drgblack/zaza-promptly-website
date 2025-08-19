@@ -118,7 +118,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     const authorSchema = generateAuthorSchema(post.author, siteUrl)
 
     return (
-      <div className="pt-16 lg:pt-20">
+      <div className="pt-4 lg:pt-6">
         <StructuredData data={[articleSchema, authorSchema]} />
         <EnhancedBlogLayout
           post={post}

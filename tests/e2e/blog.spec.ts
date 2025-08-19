@@ -1,14 +1,14 @@
 import { test, expect } from '@playwright/test';
 
 const requiredPosts = [
-  'zaza-promptly-official-launch',
+  'parent-email-deescalation-templates',
   'ai-lesson-planning-2025', 
   'teacher-burnout-prevention-strategies',
   'when-parents-question-everything-you-do'
 ];
 
 const expectedTitles = [
-  'Zaza Promptly Official Launch',
+  'Parent Email De-escalation Templates',
   'AI Lesson Planning Revolution',
   'Teacher Burnout in 2025',
   'When Parents Question Everything'
@@ -118,5 +118,82 @@ test.describe('Blog functionality', () => {
         await expect(categoryElements.first()).toBeVisible();
       }
     }
+  });
+
+  test('blog post spacing is properly optimized', async ({ page }) => {
+    // Test a few key posts for proper spacing
+    const testPosts = [
+      'ai-lesson-planning-2025',
+      'teacher-burnout-prevention-strategies', 
+      'parent-email-deescalation-templates'
+    ];
+
+    for (const slug of testPosts) {
+      await page.goto(`/blog/${slug}`);
+      
+      // Check that page loads successfully
+      await expect(page).toHaveTitle(/.+/);
+      
+      // Find the article container and first h1
+      const articleContainer = page.locator('article').first();
+      const h1Element = page.locator('h1').first();
+      
+      await expect(articleContainer).toBeVisible();
+      await expect(h1Element).toBeVisible();
+      
+      // Get bounding rectangles
+      const containerBox = await articleContainer.boundingBox();
+      const h1Box = await h1Element.boundingBox();
+      
+      if (containerBox && h1Box) {
+        // Calculate vertical gap between container top and h1
+        const verticalGap = h1Box.y - containerBox.y;
+        
+        // Verify gap is less than 64px as specified
+        expect(verticalGap).toBeLessThan(64);
+        
+        console.log(`${slug}: Container to H1 gap: ${verticalGap}px`);
+      }
+    }
+  });
+
+  test('no hero wrapper rendered when coverImage is empty', async ({ page }) => {
+    // Test the new post which has empty coverImage
+    await page.goto('/blog/parent-email-deescalation-templates');
+    
+    // Check for absence of hero/featured image containers
+    const heroSelectors = [
+      'figure img[alt*="Parent Email"]',
+      '.h-64.sm\\:h-80.lg\\:h-96', 
+      '[class*="aspect-\\[16\\/9\\]"]'
+    ];
+    
+    for (const selector of heroSelectors) {
+      const heroElement = page.locator(selector);
+      await expect(heroElement).toHaveCount(0);
+    }
+    
+    // Verify content starts immediately with category badge
+    const categoryBadge = page.locator('[class*="bg-purple-100"]').first();
+    await expect(categoryBadge).toBeVisible();
+    
+    const badgeBox = await categoryBadge.boundingBox();
+    if (badgeBox) {
+      // Category badge should appear near top of container (within first 100px)
+      expect(badgeBox.y).toBeLessThan(150);
+    }
+  });
+
+  test('old launch post redirects to new article', async ({ page }) => {
+    const response = await page.goto('/blog/zaza-promptly-official-launch');
+    
+    // Check that we got redirected (301/308 status) 
+    expect([301, 302, 307, 308]).toContain(response?.status());
+    
+    // Verify we ended up on the new article page
+    await expect(page).toHaveURL(/.*parent-email-deescalation-templates/);
+    
+    // Verify new article loads properly
+    await expect(page.locator('h1')).toContainText('Parent Email De-escalation Templates');
   });
 });

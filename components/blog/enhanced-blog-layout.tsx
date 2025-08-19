@@ -46,9 +46,9 @@ export function EnhancedBlogLayout({
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
         {/* Back to Blog */}
-        <div className="mb-8">
+        <div className="mb-2">
           <Link 
             href="/blog" 
             className="inline-flex items-center text-purple-600 hover:text-purple-700 transition-colors"
@@ -62,22 +62,25 @@ export function EnhancedBlogLayout({
           {/* Main Content */}
           <div className="lg:col-span-2">
             <article className="bg-white rounded-2xl shadow-lg overflow-hidden">
-              {/* Featured Image */}
-              {post.featuredImage && (
-                <div className="w-full h-64 sm:h-80 lg:h-96 overflow-hidden">
+              {/* Featured Image - only render if image exists and loads */}
+              {post.featuredImage && post.featuredImage.trim() !== '' && (
+                <figure className="relative overflow-hidden">
                   <img
                     src={post.featuredImage}
                     alt={post.title}
-                    className="w-full h-full object-cover"
+                    className="object-cover w-full h-auto aspect-[16/9]"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).style.display = 'none';
+                    }}
                   />
-                </div>
+                </figure>
               )}
 
-              <div className="p-8 lg:p-12">
+              <div className="p-6 lg:p-8">
                 {/* Article Header */}
-                <header className="mb-8">
+                <header className="mb-2">
                   {/* Category Badge */}
-                  <div className="mb-4">
+                  <div className="mb-2">
                     <Link href={`/blog/category/${post.category.toLowerCase().replace(/\s+/g, '-')}`}>
                       <Badge className="bg-purple-100 text-purple-800 hover:bg-purple-200">
                         {post.category}
@@ -86,17 +89,17 @@ export function EnhancedBlogLayout({
                   </div>
 
                   {/* Title */}
-                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 leading-tight">
                     {post.title}
                   </h1>
 
                   {/* Description */}
-                  <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                  <p className="text-xl text-gray-600 mb-4 leading-relaxed">
                     {post.description}
                   </p>
 
                   {/* Article Meta */}
-                  <div className="flex flex-wrap items-center gap-6 text-sm text-gray-500 mb-6 pb-6 border-b border-gray-200">
+                  <div className="flex flex-wrap items-center gap-6 text-sm text-gray-500 mb-4 pb-4 border-b border-gray-200">
                     {/* Author */}
                     <div className="flex items-center gap-3">
                       {post.author.avatar && (
@@ -141,7 +144,7 @@ export function EnhancedBlogLayout({
                   </div>
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-8">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {post.tags.map((tag) => (
                       <Link key={tag} href={`/blog/tag/${tag.toLowerCase().replace(/\s+/g, '-')}`}>
                         <Badge variant="outline" className="text-xs hover:bg-gray-100 cursor-pointer">
@@ -154,7 +157,7 @@ export function EnhancedBlogLayout({
                 </header>
 
                 {/* Social Share Buttons - Sticky */}
-                <div className="flex items-center justify-center gap-3 mb-8 p-4 bg-gray-50 rounded-lg">
+                <div className="flex items-center justify-center gap-3 mb-6 p-4 bg-gray-50 rounded-lg">
                   <span className="text-sm font-medium text-gray-700">Share this article:</span>
                   <div className="flex gap-2">
                     <Button
@@ -193,7 +196,7 @@ export function EnhancedBlogLayout({
                 </div>
 
                 {/* Article Content */}
-                <div className="prose prose-lg prose-gray max-w-none mb-12">
+                <div className="prose prose-tight lg:prose-lg max-w-none mb-8">
                   {children}
                 </div>
 
