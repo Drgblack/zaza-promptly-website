@@ -122,12 +122,29 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Get dynamic blog posts
   const blogPosts = await getAllBlogPosts()
-  const blogPostPages = blogPosts.map(post => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: post.publishedAt,
-    changeFrequency: 'monthly' as const,
-    priority: 0.8,
-  }))
+  const blogPostPages = blogPosts.map(post => {
+    // Ensure valid date
+    let postDate = currentDate
+    try {
+      postDate = post.publishedAt instanceof Date && !isNaN(post.publishedAt.getTime()) 
+        ? post.publishedAt 
+        : new Date(post.publishedAt)
+      
+      // If still invalid, use current date
+      if (isNaN(postDate.getTime())) {
+        postDate = currentDate
+      }
+    } catch (error) {
+      postDate = currentDate
+    }
+
+    return {
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: postDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    }
+  })
 
   // Get blog categories and create category pages
   const categories = await getAllCategories()
