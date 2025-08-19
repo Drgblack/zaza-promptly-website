@@ -78,8 +78,8 @@ export default function AboutFounderPage() {
             <CardContent className="p-8 md:p-12 text-center">
               <p className="text-base md:text-lg leading-relaxed text-slate-900 dark:text-slate-900">
                 Teaching today is harder than ever. Most EdTech tools do not actually help - they frustrate.<br/><br/>
-                I built Zaza because I have seen what teachers are going through, and I knew I could do something about it.<br/><br/>
-                This is my story. And it is why I believe Zaza can change yours.
+                I built Zaza Promptly on sound educational principles, informed by my PhD in Professional Education and two decades working with teachers. This isn't just another AI tool - it's purpose-built to respect pedagogical integrity.<br/><br/>
+                Promptly gives suggestions, but teachers always remain in control. This is my story, and it's why I believe Zaza can change yours.
               </p>
             </CardContent>
           </Card>

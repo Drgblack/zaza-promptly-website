@@ -9,39 +9,39 @@ import { useAnalytics } from '@/hooks/useAnalytics'
 
 const faqs = [
   {
+    id: 'is-cheating',
+    question: 'Is using Promptly cheating?',
+    answer: 'No. Promptly is like a teaching assistant who helps draft ideas — but you remain the decision-maker. Every output can be reviewed, adapted, and personalised by you. It\'s still your professional judgement that matters.'
+  },
+  {
+    id: 'replace-teachers',
+    question: 'Will AI replace teachers?',
+    answer: 'Never. Promptly is designed to support teachers, not replace them. We handle the repetitive admin so you can focus on inspiring, connecting, and teaching.'
+  },
+  {
     id: 'different-from-chatgpt',
-    question: 'How is Zaza Promptly different from ChatGPT?',
-    answer: 'Zaza Promptly is built for teachers, not generic users. It understands classroom language, keeps your tone kind and professional, and saves you from endless re-prompting.'
+    question: 'How is Promptly different from ChatGPT?',
+    answer: 'ChatGPT is a general-purpose AI. Promptly is built specifically for teachers, with guardrails, classroom-tested prompts, and a focus on pedagogy and trust.'
+  },
+  {
+    id: 'reduce-workload',
+    question: 'How does Promptly reduce teacher workload?',
+    answer: 'By generating drafts for comments, parent messages, and reports in seconds, Promptly can save teachers several hours per week — freeing time for lesson prep, rest, and creativity.'
   },
   {
     id: 'data-privacy',
-    question: 'Is my data private?',
-    answer: 'Yes. We never train on your school\'s data. Everything you write stays secure and private.'
+    question: 'Is my data private and secure?',
+    answer: 'Yes. Promptly does not share your inputs with third parties. All data is handled securely, with strict privacy protections in place.'
   },
   {
-    id: 'use-at-school',
-    question: 'Can I use this at my school?',
-    answer: 'Absolutely. Teachers already use Zaza Promptly worldwide. It works with any curriculum, grade level, or subject.'
-  },
-  {
-    id: 'is-cheating',
-    question: 'Is this cheating?',
-    answer: 'No. Zaza Promptly doesn\'t replace your judgment as a teacher — it helps you put into words what you already know about your students. Think of it like a trusted teaching assistant for admin tasks.'
+    id: 'different-languages',
+    question: 'Does Promptly work in different languages?',
+    answer: 'Yes. Promptly supports multiple languages, making it useful for international schools, language teachers, and diverse classrooms.'
   },
   {
     id: 'cost',
-    question: 'How much does it cost?',
-    answer: 'You can try Promptly free. After that, we offer affordable monthly plans so teachers and schools can save time every week.'
-  },
-  {
-    id: 'different-countries',
-    question: 'Does it work in different countries?',
-    answer: 'Yes. Promptly is already in use across the UK, US, Europe, and beyond. We\'re also adding more language support soon.'
-  },
-  {
-    id: 'free-trial',
-    question: 'Can I try it for free?',
-    answer: 'Yes. Sign up today and you\'ll get 5 free snippets every month to test it out.'
+    question: 'How much does Promptly cost?',
+    answer: 'Promptly is priced to be affordable for teachers, with both free and premium plans available. See our pricing page for details.'
   }
 ]
 

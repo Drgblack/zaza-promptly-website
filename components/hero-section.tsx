@@ -34,7 +34,7 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.2, ease: "easeOut" }}
           >
-            Let's put that into words - faster, kinder, and consistent.
+            Promptly gives teachers back hours every week by reducing admin stress, so you can focus on what really matters: teaching.
           </motion.p>
         </header>
 

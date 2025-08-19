@@ -84,8 +84,8 @@ export default function Home() {
         
         {/* 4. Teacher Differentiator - Full Bleed */}
         <section className="relative w-full overflow-hidden">
-          <div className="absolute inset-0 -z-10 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-950">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
             {/* Premium accent elements */}
             <div className="absolute top-1/4 left-16 w-24 h-24 bg-blue-400/10 rounded-full blur-xl" />
             <div className="absolute bottom-1/3 right-20 w-32 h-32 bg-indigo-400/10 rounded-full blur-2xl" />
@@ -96,7 +96,7 @@ export default function Home() {
         
         {/* 5. See it in action - Full Bleed */}
         <section className="relative w-full overflow-hidden">
-          <div className="absolute inset-0 -z-10 bg-gradient-to-br from-emerald-50 via-blue-50 to-indigo-100">
+          <div className="absolute inset-0 -z-10 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
             <div className="absolute inset-0 bg-gradient-to-t from-white/50 to-transparent" />
             {/* Subtle accent elements */}
             <div className="absolute top-1/4 right-16 w-20 h-20 bg-blue-200/20 rounded-full" />
