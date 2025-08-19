@@ -56,57 +56,63 @@ export default function Home() {
       <PerformanceMonitor />
       
       <main>
-        {/* 1. Hero */}
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="py-16 md:py-20">
-            <HeroSection />
+        {/* 1. Full-bleed Hero */}
+        <section className="relative w-full overflow-hidden">
+          {/* Background gradient spans full width */}
+          <div className="absolute inset-0 -z-10 bg-gradient-to-br from-blue-900 via-blue-800 to-amber-500">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+            {/* Static accent elements */}
+            <div className="absolute top-1/4 left-10 w-20 h-20 bg-white/5 rounded-full" />
+            <div className="absolute top-1/3 right-20 w-16 h-16 bg-amber-400/10 rounded-full" />
+            <div className="absolute bottom-1/4 left-1/4 w-12 h-12 bg-purple-400/10 rounded-full" />
           </div>
-        </div>
+          <HeroSection />
+        </section>
         
-        {/* 2. TestimonialCarousel (Social Proof) */}
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="py-16 md:py-20">
+        {/* 2. Social Proof */}
+        <section className="py-16 md:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <SocialProofSection />
           </div>
-        </div>
+        </section>
         
-        {/* 3. ValueCards (Core Promises) */}
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="py-16 md:py-20">
+        {/* 3. Core Promises */}
+        <section className="py-16 md:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <CorePromisesSection />
           </div>
-        </div>
+        </section>
         
-        {/* 4. ComparisonBlock (Teacher Differentiator) */}
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="py-16 md:py-20">
+        {/* 4. Teacher Differentiator */}
+        <section className="py-16 md:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <TeacherDifferentiatorSection />
           </div>
-        </div>
+        </section>
         
-        {/* 5. ActionMiniDemo (Live Demo) */}
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="py-16 md:py-20">
+        {/* 5. Live Demo */}
+        <section className="py-16 md:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <LiveDemoSection />
           </div>
-        </div>
+        </section>
         
-        {/* 6. SnippetDemo */}
+        {/* 6. Snippet Demo */}
         <SnippetDemo />
         
-        {/* 7. EmailCapture */}
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="py-16 md:py-20">
+        {/* 7. Email Capture */}
+        <section className="py-16 md:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <MainEmailCaptureSection />
           </div>
-        </div>
+        </section>
         
         {/* 8. FAQ */}
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="py-16 md:py-20">
+        <section className="py-16 md:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <FAQTeaserSection />
           </div>
-        </div>
+        </section>
         
         {/* 9. Footer - handled by root layout */}
       </main>
