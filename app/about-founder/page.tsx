@@ -55,8 +55,8 @@ export default function AboutFounderPage() {
             <div className="flex justify-center mb-8">
               <div className="relative">
                 <Image 
-                  src="/images/founder.png" 
-                  alt="Dr Greg Blackburn - Founder of Zaza Technologies" 
+                  src="/images/greg-founder-photo.png" 
+                  alt="Dr Greg Blackburn — Founder of Zaza Technologies" 
                   width={180} 
                   height={180} 
                   className="rounded-full shadow-2xl border-4 border-white/20 ring-4 ring-white/10 object-cover" 
