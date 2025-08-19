@@ -97,18 +97,24 @@ export default function AboutFounderPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
               <p>
-                I started life in Tasmania, Australia, with paint brushes in my hands and dreams of being an artist. After school, I took a painter's apprenticeship - four years learning the trade, working with my hands, solving problems one wall at a time.
+                I grew up in Tasmania with no clear direction. My father owned a paint factory and got me into a painter's apprenticeship at Cascade Brewery. I hated every day of it. But my father said, "Get your papers and see it through." So I did.
               </p>
               <p>
-                But curiosity called. I traveled, picked up languages, and discovered I had a gift for helping others learn. A Diploma of German led to Honours, then an MBA, and finally a PhD in Professional Education. Twenty years of teaching, researching, and building tools for educators followed.
+                The moment I finished, I bought a backpack and went into the world to discover something more. I travelled, experienced new cultures, met people, and had both great and difficult experiences. Over time, I realized that education was the only thing that would open doors and carry me forward.
               </p>
               <p>
-                From Tasmania apprentice to PhD researcher - the journey taught me that learning never stops, problems have solutions, and sometimes the best way to help is to build something yourself.
+                <em>Sometimes the hardest paths teach us the most important lessons.</em>
+              </p>
+              <p>
+                I did a German language course in Frankfurt, earned a Diploma in German, and used it to get into the University of Tasmania. There I studied Information Systems to Honours level, followed by an MBA, and later earned a PhD in Professional Education. Twenty years of teaching, researching, and building tools for educators followed.
+              </p>
+              <p>
+                This journey connects me to every teacher who helps students find their direction when they feel lost. Education transforms lives - and that's why I built Zaza to help teachers thrive.
               </p>
             </div>
             
             <div className="flex justify-center">
-              <Card className="bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/10 p-8">
+              <Card className="bg-gradient-to-br from-blue-600/40 to-purple-600/40 border border-white/20 p-8">
                 <div className="flex items-center justify-center space-x-8">
                   <Paintbrush className="w-16 h-16 text-blue-400" />
                   <ArrowRight className="w-8 h-8 text-gray-400" />
@@ -145,9 +151,9 @@ export default function AboutFounderPage() {
             </blockquote>
           </div>
           
-          <Card className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-white/10">
+          <Card className="bg-gradient-to-r from-purple-600/50 to-pink-600/50 border border-white/20">
             <CardContent className="p-8 text-center">
-              <p className="text-xl text-gray-100 font-semibold">
+              <p className="text-xl text-white font-semibold">
                 AI was never meant to replace teachers. It was meant to free them.
               </p>
             </CardContent>
@@ -223,8 +229,8 @@ export default function AboutFounderPage() {
               But then I remember my family of teachers. My wife, my sister, my friends who chose this profession because they wanted to make a difference. They remind me why this work matters.
             </p>
             
-            <Card className="bg-gradient-to-r from-indigo-500/20 to-purple-500/20 border border-white/10 p-8 my-12">
-              <blockquote className="text-xl md:text-2xl text-gray-100 font-semibold text-center">
+            <Card className="bg-gradient-to-r from-indigo-600/50 to-purple-600/50 border border-white/20 p-8 my-12">
+              <blockquote className="text-xl md:text-2xl text-white font-semibold text-center">
                 "I am not building Zaza to automate teachers out of the picture. I am building it to finally give them a fair one."
               </blockquote>
             </Card>
@@ -361,9 +367,9 @@ export default function AboutFounderPage() {
       {/* Closing Quote */}
       <section className="py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="bg-gradient-to-r from-indigo-500/20 to-purple-500/20 border border-white/10">
+          <Card className="bg-gradient-to-r from-indigo-600/50 to-purple-600/50 border border-white/20">
             <CardContent className="p-12 text-center">
-              <blockquote className="text-2xl md:text-3xl lg:text-4xl text-gray-100 font-bold">
+              <blockquote className="text-2xl md:text-3xl lg:text-4xl text-white font-bold">
                 "Zaza helps teachers thrive. And I am not done yet."
               </blockquote>
             </CardContent>
