@@ -7,85 +7,88 @@ import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Copy, Sparkles } from 'lucide-react'
 import { useAnalytics } from '@/hooks/useAnalytics'
-
-type TabType = 'report' | 'parent' | 'iep' | 'praise'
+import { useLocalStorage } from '@/hooks/useLocalStorage'
+import { generateFromNotes, type TemplateType } from '@/lib/snippetRules'
 
 interface SnippetDemoProps {
   className?: string
 }
 
-// Example inputs for each tab
+// Example inputs for each tab - only used when clicking "Fill example"
 const EXAMPLES = {
-  report: {
-    input: "Liam, Year 4, improved focus during math lessons, still working on showing his work step-by-step",
-    output: "Liam has demonstrated notable improvement in mathematical focus and engagement this term. His participation during whole-class instruction has strengthened considerably, and he approaches problem-solving tasks with increased confidence. Moving forward, we'll continue developing his ability to document his mathematical thinking clearly through step-by-step work recording. This will support his learning consolidation and help him communicate his problem-solving strategies more effectively."
-  },
-  parent: {
-    input: "Emma, excellent creative writing this term, loves storytelling, sometimes rushes through editing",
-    output: "I wanted to share some wonderful news about Emma's progress in creative writing! Her storytelling abilities have really flourished this term - she has such a vivid imagination and her stories are genuinely engaging to read. Emma's enthusiasm for writing is evident in every piece she creates. To help her work reach its full potential, we're focusing on developing her editing skills, encouraging her to slow down during the revision process to polish her excellent ideas. Her creative talent combined with stronger editing habits will make her writing truly shine."
-  },
-  iep: {
-    input: "Alex, working on reading comprehension goals, improved phonics skills, needs support with inference questions",
-    output: "Alex has made measurable progress toward his reading comprehension goals this quarter. His phonics foundations have strengthened significantly, which is supporting his fluency development. Current focus area: developing inference skills when reading both fiction and non-fiction texts. Recommended strategies include guided questioning techniques and graphic organizers to support thinking about text clues. Next goal milestone: independently answering 3/4 inference questions correctly during supported reading sessions."
-  },
-  praise: {
-    input: "Maya helped a struggling classmate with math, showed excellent leadership during group work",
-    output: "Maya, I was so impressed watching you help your classmate understand those fractions today. You explained the concept patiently and celebrated their success when they got it right - that's exactly what good leaders do! Your positive energy during group work makes everyone around you feel supported and confident. Thank you for making our classroom such a welcoming place for everyone to learn and grow. Keep being the encouraging teammate you are!"
-  }
-}
+  report: "Liam, Year 4, improved focus during math lessons, still working on showing his work step-by-step",
+  parent: "Emma, excellent creative writing this term, loves storytelling, sometimes rushes through editing",
+  iep: "Alex, working on reading comprehension goals, improved phonics skills, needs support with inference questions",
+  praise: "Maya helped a struggling classmate with math, showed excellent leadership during group work"
+} as const
 
 const TABS = [
-  { id: 'report', label: 'Report Comment', description: 'End-of-term student progress reports' },
-  { id: 'parent', label: 'Parent Message', description: 'Updates and communications to families' },
-  { id: 'iep', label: 'IEP/Goal', description: 'Learning goals and progress tracking' },
-  { id: 'praise', label: 'Positive Note', description: 'Encouragement and recognition' }
+  { id: 'report' as const, label: 'Report Comment', description: 'End-of-term student progress reports' },
+  { id: 'parent' as const, label: 'Parent Message', description: 'Updates and communications to families' },
+  { id: 'iep' as const, label: 'IEP/Goal', description: 'Learning goals and progress tracking' },
+  { id: 'praise' as const, label: 'Positive Note', description: 'Encouragement and recognition' }
 ] as const
 
 export function SnippetDemo({ className = "" }: SnippetDemoProps) {
-  const [activeTab, setActiveTab] = useState<TabType>('report')
-  const [context, setContext] = useState(EXAMPLES.report.input)
-  const [output, setOutput] = useState('')
+  const [activeTab, setActiveTab] = useState<TemplateType>('report')
+  // Use localStorage to persist user notes across sessions
+  const [userNotes, setUserNotes] = useLocalStorage<string>('snippet-demo-notes', '')
+  // Store generated output per tab so users can compare
+  const [generatedOutputs, setGeneratedOutputs] = useState<Record<TemplateType, string>>({
+    report: '',
+    parent: '',
+    iep: '',
+    praise: ''
+  })
   const [copySuccess, setCopySuccess] = useState(false)
   const { trackEvent } = useAnalytics()
 
   const generateSnippet = () => {
     trackEvent('button_click', { button_text: 'snippet_demo_generate', section: 'snippet_demo', tab: activeTab })
     
-    if (!context.trim()) {
-      setOutput("Please add a brief note about the student to generate a response.")
-      return
-    }
+    // Generate using rule-based system
+    const output = generateFromNotes(userNotes, activeTab)
     
-    // Use the deterministic example output for the active tab
-    setOutput(EXAMPLES[activeTab].output)
+    // Store the output for this tab
+    setGeneratedOutputs(prev => ({
+      ...prev,
+      [activeTab]: output
+    }))
   }
 
   const fillExample = () => {
-    setContext(EXAMPLES[activeTab].input)
-    setOutput('')
+    // Only place where we overwrite user input - when explicitly requested
+    setUserNotes(EXAMPLES[activeTab])
+    // Clear output when filling example
+    setGeneratedOutputs(prev => ({
+      ...prev,
+      [activeTab]: ''
+    }))
+    trackEvent('button_click', { button_text: 'snippet_demo_fill_example', section: 'snippet_demo', tab: activeTab })
   }
 
-  const handleTabChange = (tabId: TabType) => {
+  const handleTabChange = (tabId: TemplateType) => {
     setActiveTab(tabId)
-    // Only update context if it's empty to preserve user input
-    if (!context.trim()) {
-      setContext(EXAMPLES[tabId].input)
-    }
-    setOutput('')
     setCopySuccess(false)
+    // NEVER overwrite userNotes on tab change - this preserves user input
     trackEvent('button_click', { button_text: `snippet_tab_${tabId}`, section: 'snippet_demo' })
   }
 
   const copyToClipboard = async () => {
+    const currentOutput = generatedOutputs[activeTab]
+    if (!currentOutput) return
+    
     try {
-      await navigator.clipboard.writeText(output)
-      trackEvent('button_click', { button_text: 'snippet_demo_copy', section: 'snippet_demo' })
+      await navigator.clipboard.writeText(currentOutput)
+      trackEvent('button_click', { button_text: 'snippet_demo_copy', section: 'snippet_demo', tab: activeTab })
       setCopySuccess(true)
       setTimeout(() => setCopySuccess(false), 2000)
     } catch (err) {
       console.error('Failed to copy:', err)
     }
   }
+
+  const currentOutput = generatedOutputs[activeTab]
 
   return (
     <div className={`py-20 md:py-28 ${className}`.trim()} id="demo-section">
@@ -135,8 +138,8 @@ export function SnippetDemo({ className = "" }: SnippetDemoProps) {
                   </Label>
                   <Textarea
                     id="student-context"
-                    value={context}
-                    onChange={(e) => setContext(e.target.value)}
+                    value={userNotes}
+                    onChange={(e) => setUserNotes(e.target.value)}
                     placeholder="Add a brief note about the student..."
                     className="min-h-[140px] resize-none rounded-lg border-slate-300 focus:border-blue-500 dark:border-slate-600 dark:bg-slate-800/50"
                     maxLength={200}
@@ -167,9 +170,9 @@ export function SnippetDemo({ className = "" }: SnippetDemoProps) {
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <Label className="text-sm font-medium text-slate-700 dark:text-slate-300">
-                    Generated text (example)
+                    Generated text
                   </Label>
-                  {output && (
+                  {currentOutput && (
                     <Button
                       onClick={copyToClipboard}
                       variant="outline"
@@ -188,10 +191,10 @@ export function SnippetDemo({ className = "" }: SnippetDemoProps) {
                   aria-live="polite"
                   aria-label="Generated text output"
                 >
-                  {output ? (
+                  {currentOutput ? (
                     <div className="w-full">
                       <p className="text-slate-800 dark:text-slate-200 leading-relaxed select-text">
-                        {output}
+                        {currentOutput}
                       </p>
                     </div>
                   ) : (
