@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'AI Lesson Planning Assistant - Best AI Tools for Teachers',
     description: 'Save 3-5 hours per week with AI lesson planning. Generate curriculum-aligned lessons with activities and assessments. Trusted by educators.',
-    type: 'product',
+    type: 'website',
     images: ['/og-image-teach.png'],
     siteName: 'Zaza Technologies'
   },

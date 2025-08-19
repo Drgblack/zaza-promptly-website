@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'AI for Teacher Reports & Parent Communication - Safe AI Tool',
     description: 'Hallucination-safe AI tool trusted by 12,000+ teachers. Generate professional parent communications and report comments 10x faster.',
-    type: 'product',
+    type: 'website',
     images: ['/og-image-promptly.png'],
     siteName: 'Zaza Promptly'
   },
