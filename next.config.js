@@ -9,7 +9,8 @@ const withMDX = require('@next/mdx')({
   },
 })
 
-const withNextIntl = createNextIntlPlugin('./i18n.ts');
+// Temporarily disabled
+// const withNextIntl = createNextIntlPlugin('./i18n.ts');
 
 const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
@@ -234,6 +235,6 @@ const sentryWebpackPluginOptions = {
 };
 
 module.exports = withSentryConfig(
-  withNextIntl(withMDX(nextConfig)),
+  withMDX(nextConfig), // Temporarily removed withNextIntl
   sentryWebpackPluginOptions
 );

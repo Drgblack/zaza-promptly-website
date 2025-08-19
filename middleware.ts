@@ -1,7 +1,9 @@
-import createMiddleware from 'next-intl/middleware';
-import { locales, defaultLocale } from './i18n';
+// Temporarily disabled internationalization middleware
+// import createMiddleware from 'next-intl/middleware';
+// import { locales, defaultLocale } from './i18n';
 import { NextRequest } from 'next/server';
 
+/*
 const intlMiddleware = createMiddleware({
   // A list of all locales that are supported
   locales,
@@ -12,8 +14,13 @@ const intlMiddleware = createMiddleware({
   // Only use the locale prefix when it's not the default locale
   localePrefix: 'as-needed'
 });
+*/
 
 export default function middleware(request: NextRequest) {
+  // Temporarily disable all middleware functionality
+  return;
+  
+  /*
   const { pathname } = request.nextUrl;
   const hostname = request.headers.get('host') || '';
   
@@ -32,9 +39,13 @@ export default function middleware(request: NextRequest) {
   
   // For other routes, let Next.js handle normally
   return;
+  */
 }
 
 export const config = {
+  // Temporarily disable matcher
+  matcher: []
+  /*
   // Match only internationalized pathnames
   matcher: [
     // Match all pathnames except for:
@@ -45,4 +56,5 @@ export const config = {
     // - Files with extensions (e.g. favicon.ico)
     '/((?!api|_next|_vercel|static|favicon.ico|robots.txt|sitemap.xml|og-image.png|.*\\..*).*)'
   ]
+  */
 };
