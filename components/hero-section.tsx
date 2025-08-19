@@ -1,30 +1,26 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import Link from 'next/link'
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { EmailCaptureForm } from "@/components/EmailCaptureForm"
-import { Star, Zap, Target } from "lucide-react"
-
-const rotatingTexts = [
-  "Your teaching wisdom deserves the right words...",
-  "Write with confidence, every single time...",
-  "From your heart to perfect comments...",
-  "The more we work together, the better it gets...",
-  "You bring the expertise, we bring the words...",
-  "Never lose your voice in the writing...",
-]
+import { useAnalytics } from "@/hooks/useAnalytics"
 
 export function HeroSection() {
-  const [currentTextIndex, setCurrentTextIndex] = useState(0)
+  const { trackEvent } = useAnalytics()
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTextIndex((prev) => (prev + 1) % rotatingTexts.length)
-    }, 3000)
-    return () => clearInterval(interval)
+    // Check for prefers-reduced-motion
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    if (prefersReducedMotion) {
+      // Disable animations by setting duration to 0
+      document.documentElement.style.setProperty('--animation-duration', '0s')
+    }
   }, [])
+
+  const handleCTAClick = (label: string) => {
+    trackEvent('button_click', { button_text: label, section: 'hero' })
+  }
 
   return (
     <div className="relative min-h-screen overflow-hidden">
@@ -36,7 +32,7 @@ export function HeroSection() {
       {/* Hero Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-32">
         <div className="text-center">
-          {/* Main Headline */}
+          {/* Main Headline with Animation */}
           <header className="text-center">
             <motion.h1
               className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight"
@@ -48,59 +44,12 @@ export function HeroSection() {
                 }
               }}
             >
-              {/* First line: "You know your students better" */}
+              {/* Animated headline: "You know your students better than anyone." */}
               <div className="mb-2">
-                {["You", "know", "your"].map((word, i) => (
+                {["You", "know", "your", "students", "better", "than", "anyone."].map((word, i) => (
                   <motion.span
-                    key={`line1-${i}`}
-                    className="inline-block mr-3"
-                    variants={{
-                      hidden: { opacity: 0, y: 20 },
-                      visible: { opacity: 1, y: 0 }
-                    }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
-                  >
-                    {word}
-                  </motion.span>
-                ))}
-                {["students", "better"].map((word, i) => (
-                  <motion.span
-                    key={`line1-highlighted-${i}`}
-                    className="inline-block mr-3 bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent"
-                    variants={{
-                      hidden: { opacity: 0, y: 20 },
-                      visible: { opacity: 1, y: 0 }
-                    }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
-                  >
-                    {word}
-                  </motion.span>
-                ))}
-              </div>
-              
-              {/* Second line: "than anyone." */}
-              <div className="mb-6">
-                {["than", "anyone."].map((word, i) => (
-                  <motion.span
-                    key={`line2-${i}`}
-                    className="inline-block mr-3"
-                    variants={{
-                      hidden: { opacity: 0, y: 20 },
-                      visible: { opacity: 1, y: 0 }
-                    }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
-                  >
-                    {word}
-                  </motion.span>
-                ))}
-              </div>
-              
-              {/* Third line: "Let's put that into words." */}
-              <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-                {["Let's", "put", "that", "into", "words."].map((word, i) => (
-                  <motion.span
-                    key={`line3-${i}`}
-                    className="inline-block mr-2"
+                    key={`word-${i}`}
+                    className={`inline-block mr-3 ${["students", "better"].includes(word) ? "bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent" : ""}`}
                     variants={{
                       hidden: { opacity: 0, y: 20 },
                       visible: { opacity: 1, y: 0 }
@@ -113,102 +62,66 @@ export function HeroSection() {
               </div>
             </motion.h1>
 
-            <p
-              className="text-lg sm:text-xl md:text-2xl text-blue-100 mb-8 max-w-4xl mx-auto leading-relaxed px-4"
+            {/* Subheading with staggered animation */}
+            <motion.p
+              className="text-lg sm:text-xl md:text-2xl text-blue-100 mb-12 max-w-4xl mx-auto leading-relaxed px-4"
               role="doc-subtitle"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                visible: {
+                  transition: { staggerChildren: 0.1, delayChildren: 1 }
+                }
+              }}
             >
-              Zaza Promptly learns your voice, remembers your style, and helps you write with the confidence you already have. 
-              Because your insights matter—they just need the right words.
-            </p>
+              {["Let's", "put", "that", "into", "words", "-", "faster,", "kinder,", "and", "consistent."].map((word, i) => (
+                <motion.span
+                  key={`sub-${i}`}
+                  className="inline-block mr-2"
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    visible: { opacity: 1, y: 0 }
+                  }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </motion.p>
           </header>
-
-          {/* Rotating Text */}
-          <div className="h-16 flex items-center justify-center mb-12">
-            <p className="text-lg sm:text-xl text-amber-200 italic animate-fade-in-out">
-              {rotatingTexts[currentTextIndex]}
-            </p>
-          </div>
 
           {/* CTA Buttons */}
           <div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             role="group"
             aria-label="Call to action buttons"
           >
             <Button
               size="lg"
               onClick={() => {
-                const demoSection = document.getElementById('demo-section');
+                handleCTAClick('hero_try')
+                const demoSection = document.getElementById('demo-section')
                 if (demoSection) {
-                  demoSection.scrollIntoView({ behavior: 'smooth' });
+                  demoSection.scrollIntoView({ behavior: 'smooth' })
                 }
               }}
               className="w-full sm:w-auto min-h-[44px] bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-semibold px-8 py-4 text-base sm:text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-200 touch-manipulation focus:outline-none focus:ring-4 focus:ring-amber-500/50"
-              aria-label="Scroll to demo section to try AI-powered comments"
+              aria-label="Try Promptly free demo"
             >
-              Reclaim Your Evenings
+              Try Promptly Free
             </Button>
-            <Link href="/free-resources">
+            <Link href="/examples">
               <Button
                 size="lg"
                 variant="outline"
+                onClick={() => handleCTAClick('hero_examples')}
                 className="w-full sm:w-auto min-h-[44px] border-2 border-white text-white hover:bg-white hover:text-blue-900 font-semibold px-8 py-4 text-base sm:text-lg rounded-full bg-transparent touch-manipulation focus:outline-none focus:ring-4 focus:ring-white/50"
-                aria-label="Watch demonstration video"
+                aria-label="See examples of AI-generated teacher comments"
               >
-                See AI in Action
+                See Examples
               </Button>
             </Link>
           </div>
-
-          {/* Quick Email Signup */}
-          <div className="max-w-lg mx-auto mb-16">
-            <div className="text-center mb-4">
-              <p className="text-blue-100 text-sm">
-                Or get instant access to free AI teaching resources:
-              </p>
-            </div>
-            <EmailCaptureForm
-              title=""
-              subtitle=""
-              placeholder="Enter your email for instant access"
-              buttonText="Feel Confident Again"
-              source="hero_section"
-              tags={['hero_signup', 'instant_access', 'lead_magnet']}
-              className="bg-white/10 backdrop-blur-sm border-white/20"
-              size="md"
-              variant="hero"
-            />
-          </div>
-
-          {/* Trust Badges */}
-          <section
-            className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto px-4"
-            aria-label="Trust indicators"
-          >
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-1 min-h-[80px] flex flex-col justify-center">
-              <div className="flex items-center justify-center space-x-2 mb-2">
-                <Star className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 fill-current" aria-hidden="true" />
-                <span className="text-white font-bold text-base sm:text-lg">4.9/5</span>
-              </div>
-              <p className="text-blue-100 text-sm text-center">by 50K+ Teachers</p>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-1 min-h-[80px] flex flex-col justify-center">
-              <div className="flex items-center justify-center space-x-2 mb-2">
-                <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
-                <span className="text-white font-bold text-base sm:text-lg">3 Hours</span>
-              </div>
-              <p className="text-blue-100 text-sm text-center">Saved Per Week</p>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-1 min-h-[80px] flex flex-col justify-center">
-              <div className="flex items-center justify-center space-x-2 mb-2">
-                <Target className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
-                <span className="text-white font-bold text-base sm:text-lg">95%</span>
-              </div>
-              <p className="text-blue-100 text-sm text-center">AI Accuracy</p>
-            </div>
-          </section>
         </div>
       </div>
 

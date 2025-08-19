@@ -1,20 +1,15 @@
 import type { Metadata } from 'next'
 import { HeroSection } from "@/components/hero-section"
-import { EmailSignupSection } from "@/components/email-signup-section"
-import { PainRecognitionSection } from "@/components/pain-recognition-section"
-import { TransformationSection } from "@/components/transformation-section"
-import { FeaturesSection } from "@/components/features-section"
-import { ComparisonSection } from "@/components/comparison-section"
-import { TestimonialsSection } from "@/components/testimonials-section"
-import { DemoSection } from "@/components/demo-section"
-import { FinalCTASection } from "@/components/final-cta-section"
-import { StickyCTA } from "@/components/sticky-cta"
-import { MobileOptimizations } from "@/components/mobile-optimizations"
+import { SocialProofSection } from "@/components/social-proof-section"
+import { CorePromisesSection } from "@/components/core-promises-section"
+import { TeacherDifferentiatorSection } from "@/components/teacher-differentiator-section"
+import { LiveDemoSection } from "@/components/live-demo-section"
+import { MainEmailCaptureSection } from "@/components/main-email-capture-section"
+import { FAQTeaserSection } from "@/components/faq-teaser-section"
 import { SEOHead } from "@/components/seo-head"
 import { SkipLink } from "@/components/skip-link"
 import { PerformanceMonitor } from "@/components/performance-monitor"
 import { AccessibilityAnnouncer } from "@/components/accessibility-announcer"
-import { LazyGPTAssistant } from "@/components/lazy-gpt-assistant"
 import { StructuredData } from "@/components/structured-data"
 import { generateWebsiteSchema, generateOrganizationSchema, generateSoftwareSchema } from "@/lib/structured-data"
 
@@ -58,19 +53,32 @@ export default function Home() {
       <SkipLink />
       <AccessibilityAnnouncer />
       <PerformanceMonitor />
-      {/* Main Content */}
-      <HeroSection />
-      <EmailSignupSection />
-      <PainRecognitionSection />
-      <TransformationSection />
-      <FeaturesSection />
-      <ComparisonSection />
-      <TestimonialsSection />
-      <DemoSection />
-      <FinalCTASection />
-      <MobileOptimizations />
-      <StickyCTA />
-      <LazyGPTAssistant />
+      
+      {/* Refactored Homepage - New Information Architecture */}
+      <main>
+        {/* 1. Hero - concise + single CTA row */}
+        <HeroSection />
+        
+        {/* 2. Social Proof - compact carousel/quotes */}
+        <SocialProofSection />
+        
+        {/* 3. Three Core Promises - replace many feature tiles */}
+        <CorePromisesSection />
+        
+        {/* 4. Teacher-Friendly Differentiator - Generic AI vs Teacher AI */}
+        <TeacherDifferentiatorSection />
+        
+        {/* 5. Live Demo Snapshot - one focused card/screenshot */}
+        <LiveDemoSection />
+        
+        {/* 6. Email Capture - the only form on page */}
+        <MainEmailCaptureSection />
+        
+        {/* 7. FAQ teaser + secondary CTA */}
+        <FAQTeaserSection />
+        
+        {/* 8. Footer - unchanged structure (handled by root layout) */}
+      </main>
     </>
   )
 }
