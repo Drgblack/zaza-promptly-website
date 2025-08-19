@@ -5,7 +5,7 @@ import { CorePromisesSection } from "@/components/core-promises-section"
 import { TeacherDifferentiatorSection } from "@/components/teacher-differentiator-section"
 import { SnippetDemo } from "@/components/snippet-demo"
 import { MainEmailCaptureSection } from "@/components/main-email-capture-section"
-import { FAQTeaserSection } from "@/components/faq-teaser-section"
+import { TrustBlock } from "@/components/trust-block"
 import { SEOHead } from "@/components/seo-head"
 import { SkipLink } from "@/components/skip-link"
 import { PerformanceMonitor } from "@/components/performance-monitor"
@@ -112,12 +112,8 @@ export default function Home() {
           </div>
         </section>
         
-        {/* 8. FAQ */}
-        <section className="py-16 md:py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <FAQTeaserSection />
-          </div>
-        </section>
+        {/* 8. Trust Block - FAQ, Testimonials, Badges */}
+        <TrustBlock />
         
         {/* 9. Footer - handled by root layout */}
       </main>

@@ -11,42 +11,27 @@ const faqs = [
   {
     id: 'is-cheating',
     question: 'Is using Promptly cheating?',
-    answer: 'No. Promptly is like a teaching assistant who helps draft ideas — but you remain the decision-maker. Every output can be reviewed, adapted, and personalised by you. It\'s still your professional judgement that matters.'
+    answer: 'Not at all. Promptly is like having a teaching assistant who helps you draft ideas — but you\'re always the decision-maker. Every suggestion can be reviewed, adapted, and personalised by you. It\'s your professional judgement and classroom knowledge that matters.'
   },
   {
     id: 'replace-teachers',
     question: 'Will AI replace teachers?',
-    answer: 'Never. Promptly is designed to support teachers, not replace them. We handle the repetitive admin so you can focus on inspiring, connecting, and teaching.'
-  },
-  {
-    id: 'different-from-chatgpt',
-    question: 'How is Promptly different from ChatGPT?',
-    answer: 'ChatGPT is a general-purpose AI. Promptly is built specifically for teachers, with guardrails, classroom-tested prompts, and a focus on pedagogy and trust.'
-  },
-  {
-    id: 'reduce-workload',
-    question: 'How does Promptly reduce teacher workload?',
-    answer: 'By generating drafts for comments, parent messages, and reports in seconds, Promptly can save teachers several hours per week — freeing time for lesson prep, rest, and creativity.'
+    answer: 'Never. Promptly handles the repetitive admin work so you can focus on what only humans can do — inspiring students, building relationships, and making those crucial teaching decisions that shape young minds.'
   },
   {
     id: 'data-privacy',
-    question: 'Is my data private and secure?',
-    answer: 'Yes. Promptly does not share your inputs with third parties. All data is handled securely, with strict privacy protections in place.'
-  },
-  {
-    id: 'different-languages',
-    question: 'Does Promptly work in different languages?',
-    answer: 'Yes. Promptly supports multiple languages, making it useful for international schools, language teachers, and diverse classrooms.'
-  },
-  {
-    id: 'cost',
-    question: 'How much does Promptly cost?',
-    answer: 'Promptly is priced to be affordable for teachers, with both free and premium plans available. See our pricing page for details.'
+    question: 'How does Promptly keep my data safe?',
+    answer: 'Your privacy is our priority. We use bank-level encryption, never share your data with third parties, and you can delete your information anytime. Built by teachers, for teachers — we understand how sensitive classroom information is.'
   },
   {
     id: 'trust-suggestions',
     question: 'Can I trust Promptly\'s suggestions?',
-    answer: 'Absolutely. Promptly gives you helpful starting points, but you\'re always the one in charge. Every suggestion can be edited, tweaked, or ignored — nothing is locked in. Think of it as a colleague who throws out ideas, but you decide what actually goes home to parents or into your reports.'
+    answer: 'Absolutely. Think of Promptly as a colleague who offers starting points — you decide what works for your students. Every suggestion can be edited or ignored. You stay in complete control of what goes to parents and in reports.'
+  },
+  {
+    id: 'different-from-chatgpt',
+    question: 'How is Promptly different from ChatGPT?',
+    answer: 'ChatGPT is a general tool. Promptly is built specifically for teachers, with classroom-tested prompts, educational guardrails, and deep understanding of school communication needs. It speaks your language from day one.'
   }
 ]
 
