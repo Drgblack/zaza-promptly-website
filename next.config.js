@@ -117,99 +117,95 @@ const nextConfig = {
         permanent: true,
       },
       
-      // Blog redirects
+      // Reverse redirects - redirect /en/* back to root paths since we disabled i18n
       {
-        source: '/blog',
-        destination: '/en/blog',
+        source: '/en/blog',
+        destination: '/blog',
         permanent: false,
       },
       {
-        source: '/blog/:slug*',
-        destination: '/en/blog/:slug*',
-        permanent: false,
-      },
-      
-      // Main page redirects to localized versions
-      {
-        source: '/about-founder',
-        destination: '/en/about-founder',
+        source: '/en/blog/:slug*',
+        destination: '/blog/:slug*',
         permanent: false,
       },
       {
-        source: '/support',
-        destination: '/en/support',
+        source: '/en/about-founder',
+        destination: '/about-founder',
         permanent: false,
       },
       {
-        source: '/promptly-pricing',
-        destination: '/en/promptly-pricing',
+        source: '/en/support',
+        destination: '/support',
         permanent: false,
       },
       {
-        source: '/faqs',
-        destination: '/en/faqs',
+        source: '/en/promptly-pricing',
+        destination: '/promptly-pricing',
         permanent: false,
       },
       {
-        source: '/free-resources',
-        destination: '/en/free-resources',
+        source: '/en/faqs',
+        destination: '/faqs',
         permanent: false,
       },
       {
-        source: '/contact',
-        destination: '/en/contact',
+        source: '/en/free-resources',
+        destination: '/free-resources',
         permanent: false,
       },
       {
-        source: '/privacy',
-        destination: '/en/privacy',
+        source: '/en/contact',
+        destination: '/contact',
         permanent: false,
       },
       {
-        source: '/terms',
-        destination: '/en/terms',
+        source: '/en/privacy',
+        destination: '/privacy',
         permanent: false,
       },
       {
-        source: '/products',
-        destination: '/en/products',
-        permanent: false,
-      },
-      
-      // Product page redirects
-      {
-        source: '/promptly',
-        destination: '/en/promptly',
+        source: '/en/terms',
+        destination: '/terms',
         permanent: false,
       },
       {
-        source: '/teach',
-        destination: '/en/teach',
+        source: '/en/products',
+        destination: '/products',
         permanent: false,
       },
       {
-        source: '/autoplanner',
-        destination: '/en/autoplanner',
+        source: '/en/promptly',
+        destination: '/promptly',
         permanent: false,
       },
       {
-        source: '/notably',
-        destination: '/en/notably',
+        source: '/en/teach',
+        destination: '/teach',
         permanent: false,
       },
       {
-        source: '/spark',
-        destination: '/en/spark',
+        source: '/en/autoplanner',
+        destination: '/autoplanner',
         permanent: false,
       },
       {
-        source: '/looop',
-        destination: '/en/looop',
+        source: '/en/notably',
+        destination: '/notably',
         permanent: false,
       },
       {
-        source: '/knowledgecore',
-        destination: '/en/knowledgecore',
+        source: '/en/spark',
+        destination: '/spark',
+        permanent: false,
+      },
+      {
+        source: '/en/looop',
+        destination: '/looop',
+        permanent: false,
+      },
+      {
+        source: '/en/knowledgecore',
+        destination: '/knowledgecore',
         permanent: false,
       },
     ]
