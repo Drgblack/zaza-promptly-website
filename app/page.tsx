@@ -55,33 +55,60 @@ export default function Home() {
       <AccessibilityAnnouncer />
       <PerformanceMonitor />
       
-      {/* Refactored Homepage - New Information Architecture */}
       <main>
-        {/* 1. Hero - concise + single CTA row */}
-        <HeroSection />
+        {/* 1. Hero */}
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="py-16 md:py-20">
+            <HeroSection />
+          </div>
+        </div>
         
-        {/* 2. Social Proof - compact carousel/quotes */}
-        <SocialProofSection />
+        {/* 2. TestimonialCarousel (Social Proof) */}
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="py-16 md:py-20">
+            <SocialProofSection />
+          </div>
+        </div>
         
-        {/* 3. Three Core Promises - replace many feature tiles */}
-        <CorePromisesSection />
+        {/* 3. ValueCards (Core Promises) */}
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="py-16 md:py-20">
+            <CorePromisesSection />
+          </div>
+        </div>
         
-        {/* 4. Teacher-Friendly Differentiator - Generic AI vs Teacher AI */}
-        <TeacherDifferentiatorSection />
+        {/* 4. ComparisonBlock (Teacher Differentiator) */}
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="py-16 md:py-20">
+            <TeacherDifferentiatorSection />
+          </div>
+        </div>
         
-        {/* 5. Live Demo Snapshot - one focused card/screenshot */}
-        <LiveDemoSection />
+        {/* 5. ActionMiniDemo (Live Demo) */}
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="py-16 md:py-20">
+            <LiveDemoSection />
+          </div>
+        </div>
         
-        {/* 5.5. Interactive Snippet Tool Demo */}
+        {/* 6. SnippetDemo */}
         <SnippetDemo />
         
-        {/* 6. Email Capture - the only form on page */}
-        <MainEmailCaptureSection />
+        {/* 7. EmailCapture */}
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="py-16 md:py-20">
+            <MainEmailCaptureSection />
+          </div>
+        </div>
         
-        {/* 7. FAQ teaser + secondary CTA */}
-        <FAQTeaserSection />
+        {/* 8. FAQ */}
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="py-16 md:py-20">
+            <FAQTeaserSection />
+          </div>
+        </div>
         
-        {/* 8. Footer - unchanged structure (handled by root layout) */}
+        {/* 9. Footer - handled by root layout */}
       </main>
     </>
   )
