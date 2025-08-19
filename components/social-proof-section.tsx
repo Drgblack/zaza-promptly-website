@@ -40,6 +40,21 @@ const testimonials = [
     id: 7,
     quote: "My students' parents love the detailed, caring comments.",
     author: "Reception teacher"
+  },
+  {
+    id: 8,
+    quote: "Before Promptly, I would spend hours after school re-writing parent messages to get the tone right. Now it takes me two minutes, and I feel more confident hitting send.",
+    author: "Sarah L., Primary Teacher, UK"
+  },
+  {
+    id: 9,
+    quote: "Report writing week used to be the worst. Promptly helped me get through it without staying up past midnight. My comments were thoughtful and consistent, and I finally had my weekend back.",
+    author: "James R., High School English Teacher, US"
+  },
+  {
+    id: 10,
+    quote: "What I love most is that it doesn't feel generic. Promptly 'gets' how teachers actually speak and lets me focus on the student, not the admin.",
+    author: "Anita K., Year 6 Teacher, Australia"
   }
 ]
 
