@@ -61,7 +61,7 @@ export function HeroSection() {
           >
             Try Promptly Free
           </Button>
-          <Link href="/examples">
+          <Link href="/free-resources">
             <Button
               size="lg"
               variant="outline"

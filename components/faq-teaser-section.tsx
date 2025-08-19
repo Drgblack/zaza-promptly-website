@@ -121,14 +121,14 @@ export function FAQTeaserSection() {
 
         {/* CTA buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Link href="/examples">
+          <Link href="/free-resources">
             <Button
               size="lg"
               variant="outline"
               onClick={() => handleCTAClick('faq_examples')}
               className="w-full sm:w-auto border-2 border-slate-300 text-slate-700 hover:bg-slate-50 font-semibold px-8 py-4 text-lg rounded-full transition-all duration-200"
             >
-              See Examples
+              See Resources
             </Button>
           </Link>
           

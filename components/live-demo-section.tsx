@@ -108,14 +108,14 @@ export function LiveDemoSection() {
               Try Promptly Free
             </Button>
             
-            <Link href="/examples">
+            <Link href="/free-resources">
               <Button
                 size="lg"
                 variant="outline"
                 onClick={() => handleCTAClick('demo_examples')}
                 className="w-full sm:w-auto border-2 border-slate-300 text-slate-700 hover:bg-slate-50 font-semibold px-8 py-4 text-lg rounded-full transition-all duration-200"
               >
-                See Examples
+                See Resources
               </Button>
             </Link>
           </div>
