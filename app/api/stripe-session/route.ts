@@ -1,9 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_REPLACE_WITH_YOUR_STRIPE_SECRET_KEY', {
-  apiVersion: '2025-06-30.basil',
-});
+export const dynamic = "force-dynamic"; // ensure server-only runtime
 
 export async function GET(request: NextRequest) {
   try {
@@ -15,16 +12,23 @@ export async function GET(request: NextRequest) {
     }
 
     // Check if Stripe is properly configured
-    if (!process.env.STRIPE_SECRET_KEY || process.env.STRIPE_SECRET_KEY === 'sk_test_REPLACE_WITH_YOUR_STRIPE_SECRET_KEY') {
+    const key = process.env.STRIPE_SECRET_KEY;
+    if (!key || key === 'sk_test_REPLACE_WITH_YOUR_STRIPE_SECRET_KEY') {
       return NextResponse.json({ 
-        error: 'Stripe not configured',
+        error: 'Stripe secret key not configured',
         testMode: true,
         sessionId,
         planType: 'Pro Plan',
         amount: '$14.99',
         email: 'test@example.com'
-      });
+      }, { status: 500 });
     }
+
+    // Dynamically import and initialize Stripe
+    const { default: Stripe } = await import('stripe');
+    const stripe = new Stripe(key, {
+      apiVersion: '2025-06-30.basil',
+    });
 
     // Retrieve the checkout session from Stripe
     const session = await stripe.checkout.sessions.retrieve(sessionId, {

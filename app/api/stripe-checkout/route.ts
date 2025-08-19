@@ -1,10 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import Stripe from 'stripe';
 
-// Initialize Stripe with test key or real key
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_REPLACE_WITH_YOUR_STRIPE_SECRET_KEY', {
-  apiVersion: '2025-06-30.basil',
-});
+export const dynamic = "force-dynamic"; // ensure server-only runtime
 
 export async function GET(request: NextRequest) {
   try {
@@ -92,17 +88,24 @@ async function createCheckoutSession({
 }) {
   try {
     // Validate input
-  if (!priceId && !plan) {
-    return NextResponse.json({ error: 'Price ID or plan is required' }, { status: 400 });
-  }
+    if (!priceId && !plan) {
+      return NextResponse.json({ error: 'Price ID or plan is required' }, { status: 400 });
+    }
 
-  // Check if Stripe is properly configured
-  if (!process.env.STRIPE_SECRET_KEY || process.env.STRIPE_SECRET_KEY === 'sk_test_REPLACE_WITH_YOUR_STRIPE_SECRET_KEY') {
-    return NextResponse.json({ 
-      error: 'Stripe not configured. Please add STRIPE_SECRET_KEY to environment variables.',
-      testMode: true 
-    }, { status: 500 });
-  }
+    // Check if Stripe is properly configured
+    const key = process.env.STRIPE_SECRET_KEY;
+    if (!key || key === 'sk_test_REPLACE_WITH_YOUR_STRIPE_SECRET_KEY') {
+      return NextResponse.json({ 
+        error: 'Stripe secret key not configured',
+        testMode: true 
+      }, { status: 500 });
+    }
+
+    // Dynamically import and initialize Stripe
+    const { default: Stripe } = await import('stripe');
+    const stripe = new Stripe(key, {
+      apiVersion: '2025-06-30.basil',
+    });
 
   // Enhanced product configurations with new pricing structure
   const products = {
