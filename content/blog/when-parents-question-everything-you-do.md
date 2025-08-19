@@ -2,11 +2,18 @@
 title: "When Parents Question Everything You Do (And How to Turn Defense Into Partnership)"
 description: "For teachers facing challenging parent conversations and feeling like every decision is under scrutiny. Here's how to transform conflict into collaboration."
 date: "2024-12-29"
-author: "Zaza Promptly Team"
-category: "Parent Relations"
+author:
+  name: "Zaza Promptly Team"
+category: "Parent Communication"
 tags: ["parent communication", "difficult conversations", "teacher confidence", "parent partnerships", "classroom management"]
-readingTime: "8 min read"
-featured: false
+featuredImage: "/images/blog/parent-communication.jpg"
+isPublished: true
+isDraft: false
+locale: "en"
+seo:
+  title: "When Parents Question Everything: Turn Defense Into Partnership"
+  description: "Transform challenging parent conversations into collaboration. Strategies for teachers dealing with questioning parents."
+  keywords: ["parent communication", "difficult conversations", "teacher confidence", "parent partnerships", "classroom management"]
 ---
 
 # When Parents Question Everything You Do (And How to Turn Defense Into Partnership)

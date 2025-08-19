@@ -59,27 +59,42 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   }
 }
 
-// Disable static generation - render pages dynamically to prevent build errors
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
+// Enable static generation with ISR
+export const dynamic = 'force-static'
+export const revalidate = 3600 // 1 hour
+
+// Generate static params for all blog posts
+export async function generateStaticParams() {
+  try {
+    const slugs = await getBlogPostSlugs()
+    return slugs.map((slug) => ({
+      slug: slug,
+    }))
+  } catch (error) {
+    console.error('Error generating static params:', error)
+    return []
+  }
+}
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params
   const siteUrl = 'https://www.zazapromptly.com'
   
   try {
-    const [post, relatedPosts, popularPosts, allPosts, categories, tags] = await Promise.all([
-      getBlogPost(slug, 'en'),
+    const post = await getBlogPost(slug, 'en')
+    
+    // Check if post exists and is published
+    if (!post.isPublished || post.isDraft) {
+      notFound()
+    }
+    
+    const [relatedPosts, popularPosts, allPosts, categories, tags] = await Promise.all([
       getRelatedPosts(slug, 6, 'en'),
       getPopularPosts(8, 'en'),
       getPublishedBlogPosts('en'),
       getAllCategories('en'),
       getAllTags('en')
     ])
-    
-    if (!post.isPublished) {
-      notFound()
-    }
 
     // Get recent posts (excluding current post)
     const recentPosts = allPosts
@@ -122,6 +137,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       </div>
     )
   } catch (error) {
-    notFound()
+    console.error(`Error loading blog post ${slug}:`, error)
+    // Only call notFound for missing posts, let other errors surface
+    if (error instanceof Error && error.message.includes('not found')) {
+      notFound()
+    }
+    throw error
   }
 }

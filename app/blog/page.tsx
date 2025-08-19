@@ -8,9 +8,9 @@ import { Badge } from '@/components/ui/badge'
 // Header and Footer are now rendered globally via layout
 // Cache-busting comment - Force rebuild 2025-07-30-22:54 UTC - Blog system is working
 
-// Disable static generation - render pages dynamically to prevent build errors
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
+// Enable static generation with ISR
+export const dynamic = 'force-static'
+export const revalidate = 3600 // 1 hour
 
 export const metadata: Metadata = {
   title: 'AI Education Blog - Teaching Tips & Strategies | Zaza Technologies',

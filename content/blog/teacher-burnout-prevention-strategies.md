@@ -2,11 +2,18 @@
 title: "Teacher Burnout in 2025: 15 Evidence-Based Prevention Strategies That Actually Work"
 description: "Discover proven strategies to prevent teacher burnout and maintain your passion for education. Learn practical techniques used by thriving educators to manage stress and avoid career fatigue."
 date: "2025-01-08"
-author: "Zaza Promptly Team"
+author:
+  name: "Zaza Promptly Team"
 category: "Teacher Wellness"
 tags: ["teacher burnout", "educator wellness", "stress management", "work-life balance", "teacher mental health", "education career"]
-readingTime: "14 min read"
-featured: true
+featuredImage: "/images/blog/teacher-burnout-prevention.jpg"
+isPublished: true
+isDraft: false
+locale: "en"
+seo:
+  title: "Teacher Burnout Prevention 2025: 15 Evidence-Based Strategies That Work"
+  description: "Discover proven strategies to prevent teacher burnout and maintain your passion for education. Practical techniques from thriving educators."
+  keywords: ["teacher burnout prevention", "educator wellness", "stress management", "work-life balance", "teacher mental health"]
 ---
 
 # Teacher Burnout in 2025: 15 Evidence-Based Prevention Strategies That Actually Work

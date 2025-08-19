@@ -25,10 +25,9 @@ export default function NotFound() {
 
         {/* Action Buttons */}
         <div className="space-y-4">
-          <Button asChild className="w-full bg-purple-600 hover:bg-purple-700">
-            <Link href="/">
-              <Home className="w-4 h-4 mr-2" />
-              Back to Home
+          <Button asChild className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold">
+            <Link href="/promptly">
+              Try Promptly
             </Link>
           </Button>
           
@@ -41,9 +40,9 @@ export default function NotFound() {
             </Button>
             
             <Button asChild variant="outline" className="flex-1">
-              <Link href="/contact">
-                <MessageCircle className="w-4 h-4 mr-2" />
-                Contact
+              <Link href="/">
+                <Home className="w-4 h-4 mr-2" />
+                Home
               </Link>
             </Button>
           </div>
