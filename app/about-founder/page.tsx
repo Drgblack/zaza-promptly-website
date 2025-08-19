@@ -54,13 +54,12 @@ export default function AboutFounderPage() {
             {/* Founder Portrait */}
             <div className="flex justify-center mb-8">
               <div className="relative">
-                <Image 
-                  src="/images/founder.png" 
-                  alt="Dr Greg Blackburn - Founder of Zaza Technologies" 
-                  width={180} 
-                  height={180} 
-                  className="mx-auto rounded-full shadow-xl ring-8 ring-[#6C63FF]/60 object-cover" 
-                  priority
+                <Image
+                  src="/images/founder-gb-v1.jpg"
+                  alt="Dr Greg Blackburn"
+                  width={200}
+                  height={200}
+                  className="rounded-full shadow-lg"
                 />
               </div>
             </div>
