@@ -70,7 +70,7 @@ export function SnippetDemo({ className = "" }: SnippetDemoProps) {
     setContext(EXAMPLES[tabId].input)
     setOutput('')
     setCopySuccess(false)
-    trackEvent('tab_change', { section: 'snippet_demo', tab: tabId })
+    trackEvent('button_click', { button_text: `snippet_tab_${tabId}`, section: 'snippet_demo' })
   }
 
   const copyToClipboard = async () => {
