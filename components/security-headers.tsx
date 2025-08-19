@@ -14,14 +14,14 @@ export function SecurityHeaders() {
       e.preventDefault()
     }
 
-    // Disable text selection on non-input elements (optional)
-    const handleSelectStart = (e: Event) => {
-      const target = e.target as HTMLElement
-      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.tagName === 'SELECT') {
-        return
-      }
-      e.preventDefault()
-    }
+    // Allow text selection on all elements (removed blocking for better UX)
+    // const handleSelectStart = (e: Event) => {
+    //   const target = e.target as HTMLElement
+    //   if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.tagName === 'SELECT') {
+    //     return
+    //   }
+    //   e.preventDefault()
+    // }
 
     // Prevent drag and drop of images (optional)
     const handleDragStart = (e: DragEvent) => {
@@ -30,7 +30,7 @@ export function SecurityHeaders() {
 
     // Add security event listeners
     document.addEventListener('contextmenu', handleContextMenu)
-    document.addEventListener('selectstart', handleSelectStart)
+    // document.addEventListener('selectstart', handleSelectStart) // Removed to enable text selection
     document.addEventListener('dragstart', handleDragStart)
 
     // Disable developer tools (basic attempt - can be bypassed)
@@ -51,7 +51,7 @@ export function SecurityHeaders() {
     // Cleanup function
     return () => {
       document.removeEventListener('contextmenu', handleContextMenu)
-      document.removeEventListener('selectstart', handleSelectStart)
+      // document.removeEventListener('selectstart', handleSelectStart) // Removed
       document.removeEventListener('dragstart', handleDragStart)
       document.removeEventListener('keydown', handleKeyDown)
     }

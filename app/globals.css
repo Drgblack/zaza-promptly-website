@@ -77,10 +77,26 @@
   }
 }
 
-/* Ensure content text is always selectable */
-:where(p, h1, h2, h3, h4, h5, h6, li, blockquote, figcaption) {
+/* Global text selection enhancement */
+/* Enable text selection by default on all text content */
+:where(p, h1, h2, h3, h4, h5, h6, li, blockquote, figcaption, span, div:not([class*="button"]):not([class*="btn"]):not([role="button"]):not([class*="slider"]):not([class*="carousel"])) {
   user-select: text !important;
   -webkit-user-select: text !important;
+  -webkit-touch-callout: default !important;
+}
+
+/* Explicitly disable selection only on interactive controls */
+:where(button, input[type="button"], input[type="submit"], input[type="reset"], [role="button"], [role="tab"], [role="slider"], [class*="slider"], [class*="carousel"], [class*="button"], [class*="btn"]) {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -webkit-touch-callout: none !important;
+}
+
+/* Allow selection on form inputs */
+:where(input[type="text"], input[type="email"], input[type="password"], input[type="search"], input[type="url"], input[type="tel"], textarea, select) {
+  user-select: auto !important;
+  -webkit-user-select: auto !important;
+  -webkit-touch-callout: default !important;
 }
 
 /* Tighter prose typography for blog articles */

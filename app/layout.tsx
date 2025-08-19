@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { ThemeProvider } from 'next-themes'
 import { ErrorBoundary } from '@/components/error-boundary'
 import { SecurityHeaders } from '@/components/security-headers'
+import { SelectionFix } from '@/components/selection-fix'
 import { DeferredAnalytics } from '@/components/deferred-analytics'
 import { PerformanceEnhancements, ServiceWorkerRegistration, PerformanceErrorBoundary } from '@/components/performance-enhancements'
 import { PerformanceOptimizations, CriticalCSS } from '@/components/performance-optimizations'
@@ -142,6 +143,7 @@ export default function RootLayout({
         <ErrorBoundary>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
             <SecurityHeaders />
+            <SelectionFix />
             <CriticalCSS />
             <Header />
             <main id="main-content" className="min-h-screen">
