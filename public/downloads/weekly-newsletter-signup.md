@@ -1,42 +1,5 @@
 # Weekly Teacher Newsletter
 ## Save 3+ Hours Every Week with Practical AI Tips
-### Join 5,000+ Teachers Getting Time-Saving Strategies Every Tuesday
-
-### 📧 What Lands in Your Inbox:
-- **⭐ Weekly AI Tool Review** - One tested tool that actually saves time
-- **⚡ 5-Minute Time Hack** - Quick strategy you can use today  
-- **🎁 Free Resource** - Template, checklist, or printable
-- **👩‍🏫 Teacher Spotlight** - Real success story from the classroom
-- **📅 Upcoming Events** - Workshops and professional development
-
-### 🎯 Why Teachers Love It:
-- **Under 3 minutes to read** - Perfect for your coffee break
-- **Mobile-friendly** - Read anywhere, anytime
-- **No fluff** - Only practical, classroom-tested advice
-- **Free resources every week** - Exclusive downloads
-- **Easy unsubscribe** - No hassle, no questions asked
-
-### 🚀 Ready to Join?
-**Visit ZazaPromptly.com** and enter your email to get your first time-saving tip within 24 hours.
-
-### 🔒 Our Promise:
-✅ Never sell or share your email  
-✅ Unsubscribe with one click  
-✅ No spam - quality over quantity  
-✅ 100% teacher-focused content  
-
----
-
-### 💬 What Teachers Are Saying:
-
-*"This newsletter literally gave me my evenings back! The AI grading tips alone save me 2 hours a week."* - Sarah M., 4th Grade
-
-*"Finally, AI advice that's actually practical for real classrooms. Love the weekly tool reviews!"* - Marcus T., High School English
-
-*"The emergency sub plan template was a lifesaver last week. Worth subscribing just for that!"* - Jennifer L., Middle School Math
-
----
-
-**⏰ Don't Let Another Week Pass Feeling Overwhelmed**
-
-Join thousands of teachers who've already discovered how to work smarter, not harder. Your first time-saving tip is waiting! 
+### Join 5,000+ Teachers Getting Time-Saving Strategies Every Tuesday ### 📧 What Lands in Your Inbox: - **⭐ Weekly AI Tool Review** - One tested tool that actually saves time - **⚡ 5-Minute Time Hack** - Quick strategy you can use today - **🎁 Free Resource** - Template, checklist, or printable - **👩‍🏫 Teacher Spotlight** - Real success story from the classroom - **📅 Upcoming Events** - Workshops and professional development ### 🎯 Why Teachers Love It: - **Under 3 minutes to read** - Perfect for your coffee break - **Mobile-friendly** - Read anywhere, anytime - **No fluff** - Only practical, classroom-tested advice - **Free resources every week** - Exclusive downloads - **Easy unsubscribe** - No hassle, no questions asked ### 🚀 Ready to Join?
+**Visit ZazaPromptly.com** and enter your email to get your first time-saving tip within 24 hours. ### 🔒 Our Promise:
+✅ Never sell or share your email ✅ Unsubscribe with one click ✅ No spam - quality over quantity ✅ 100% teacher-focused content --- ### 💬 What Teachers Are Saying: *"This newsletter literally gave me my evenings back! The AI grading tips alone save me 2 hours a week."* - Sarah M., 4th Grade *"Finally, AI advice that's actually practical for real classrooms. Love the weekly tool reviews!"* - Marcus T., High School English *"The emergency sub plan template was a lifesaver last week. Worth subscribing just for that!"* - Jennifer L., Middle School Math --- **⏰ Don't Let Another Week Pass Feeling Overwhelmed** Join thousands of teachers who've already discovered how to work smarter, not harder. Your first time-saving tip is waiting! 

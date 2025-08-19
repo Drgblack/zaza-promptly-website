@@ -1,13 +1,7 @@
 # Lesson Planning Templates for Teachers
 ## 8 Fill-in-the-Blank Templates to Cut Planning Time in Half
-### From 5-Minute Emergency Plans to Full Unit Design
-
-### 🏃‍♀️ Quick Start Guide
-**Need a lesson plan in 5 minutes?** Use Template #7 (Emergency Sub Plan)  
-**Planning for tomorrow?** Use Template #1 (Basic Lesson Plan)  
-**Working ahead?** Use Template #8 (Unit Planning)
-
-### Table of Contents
+### From 5-Minute Emergency Plans to Full Unit Design ### 🏃‍♀️ Quick Start Guide
+**Need a lesson plan in 5 minutes?** Use Template #7 (Emergency Sub Plan) **Planning for tomorrow?** Use Template #1 (Basic Lesson Plan) **Working ahead?** Use Template #8 (Unit Planning) ### Table of Contents
 1. [📝 Basic Lesson Plan](#basic-lesson-plan-template) - *5 min setup* - Your daily go-to
 2. [🎯 Standards-Based Plan](#standards-based-lesson-plan) - *10 min setup* - Admin-approved format
 3. [👥 Differentiated Plan](#differentiated-lesson-plan) - *15 min setup* - For mixed-ability classes
@@ -15,651 +9,328 @@
 5. [💻 Technology-Enhanced Plan](#technology-enhanced-lesson-plan) - *12 min setup* - Digital learning
 6. [📊 Assessment-Integrated Plan](#assessment-integrated-lesson-plan) - *15 min setup* - Built-in assessment
 7. [🚨 Emergency Sub Plan](#emergency-substitute-lesson-plan) - *5 min setup* - Lifesaver template
-8. [📚 Unit Planning](#unit-planning-template) - *30 min setup* - Big picture planning
-
----
-
-## Basic Lesson Plan Template
-
-```
-BASIC LESSON PLAN TEMPLATE
-
-LESSON INFORMATION:
+8. [📚 Unit Planning](#unit-planning-template) - *30 min setup* - Big picture planning --- ## Basic Lesson Plan Template ```
+BASIC LESSON PLAN TEMPLATE LESSON INFORMATION:
 Subject: ________________ Grade Level: ________________ Date: ________________
-Lesson Title: ________________ Duration: ________________
-
-LEARNING OBJECTIVES:
+Lesson Title: ________________ Duration: ________________ LEARNING OBJECTIVES:
 Students will be able to:
 1. ________________________________________________________________________________
 2. ________________________________________________________________________________
-3. ________________________________________________________________________________
-
-STANDARDS ADDRESSED:
+3. ________________________________________________________________________________ STANDARDS ADDRESSED:
 □ [ ] Standard 1: ________________________________________________________________
 □ [ ] Standard 2: ________________________________________________________________
-□ [ ] Standard 3: ________________________________________________________________
-
-MATERIALS NEEDED:
+□ [ ] Standard 3: ________________________________________________________________ MATERIALS NEEDED:
 □ [ ] ____________________________________________________________________________
 □ [ ] ____________________________________________________________________________
 □ [ ] ____________________________________________________________________________
-□ [ ] ____________________________________________________________________________
-
-PROCEDURE:
-
-Opening/Hook (5-10 minutes):
+□ [ ] ____________________________________________________________________________ PROCEDURE: Opening/Hook (5-10 minutes):
+________________________________________________________________________________
+________________________________________________________________________________
+________________________________________________________________________________ Direct Instruction (15-20 minutes):
 ________________________________________________________________________________
 ________________________________________________________________________________
 ________________________________________________________________________________
-
-Direct Instruction (15-20 minutes):
+________________________________________________________________________________ Guided Practice (10-15 minutes):
 ________________________________________________________________________________
 ________________________________________________________________________________
+________________________________________________________________________________ Independent Practice (10-15 minutes):
 ________________________________________________________________________________
 ________________________________________________________________________________
-
-Guided Practice (10-15 minutes):
+________________________________________________________________________________ Closure (5 minutes):
 ________________________________________________________________________________
-________________________________________________________________________________
-________________________________________________________________________________
-
-Independent Practice (10-15 minutes):
-________________________________________________________________________________
-________________________________________________________________________________
-________________________________________________________________________________
-
-Closure (5 minutes):
-________________________________________________________________________________
-________________________________________________________________________________
-
-ASSESSMENT:
+________________________________________________________________________________ ASSESSMENT:
 □ [ ] Formative: ________________________________________________________________
 □ [ ] Summative: ________________________________________________________________
-□ [ ] Self-Assessment: __________________________________________________________
-
-DIFFERENTIATION:
+□ [ ] Self-Assessment: __________________________________________________________ DIFFERENTIATION:
 □ [ ] For struggling learners: ___________________________________________________
 □ [ ] For advanced learners: ___________________________________________________
-□ [ ] For English learners: ____________________________________________________
-
-REFLECTION:
+□ [ ] For English learners: ____________________________________________________ REFLECTION:
 What worked well? ________________________________________________________________
 What needs improvement? _________________________________________________________
 Next steps: ____________________________________________________________________
-```
-
----
-
-## Standards-Based Lesson Plan
-
-```
-STANDARDS-BASED LESSON PLAN
-
-LESSON INFORMATION:
+``` --- ## Standards-Based Lesson Plan ```
+STANDARDS-BASED LESSON PLAN LESSON INFORMATION:
 Subject: ________________ Grade Level: ________________ Date: ________________
-Lesson Title: ________________ Duration: ________________
-
-STANDARDS:
+Lesson Title: ________________ Duration: ________________ STANDARDS:
 Primary Standard: ________________________________________________________________
-Supporting Standards: ____________________________________________________________
-
-LEARNING TARGETS:
+Supporting Standards: ____________________________________________________________ LEARNING TARGETS:
 □ [ ] Target 1: ________________________________________________________________
 □ [ ] Target 2: ________________________________________________________________
-□ [ ] Target 3: ________________________________________________________________
-
-SUCCESS CRITERIA:
+□ [ ] Target 3: ________________________________________________________________ SUCCESS CRITERIA:
 Students will demonstrate mastery when they can:
 □ [ ] __________________________________________________________________________
 □ [ ] __________________________________________________________________________
-□ [ ] __________________________________________________________________________
-
-ASSESSMENT EVIDENCE:
+□ [ ] __________________________________________________________________________ ASSESSMENT EVIDENCE:
 □ [ ] Performance Task: _________________________________________________________
 □ [ ] Observation: ______________________________________________________________
-□ [ ] Student Work: _____________________________________________________________
-
-LEARNING ACTIVITIES:
-
-Engage (5 minutes):
+□ [ ] Student Work: _____________________________________________________________ LEARNING ACTIVITIES: Engage (5 minutes):
+________________________________________________________________________________
+________________________________________________________________________________ Explore (15 minutes):
 ________________________________________________________________________________
 ________________________________________________________________________________
-
-Explore (15 minutes):
+________________________________________________________________________________ Explain (10 minutes):
+________________________________________________________________________________
+________________________________________________________________________________ Elaborate (15 minutes):
 ________________________________________________________________________________
 ________________________________________________________________________________
+________________________________________________________________________________ Evaluate (5 minutes):
 ________________________________________________________________________________
-
-Explain (10 minutes):
-________________________________________________________________________________
-________________________________________________________________________________
-
-Elaborate (15 minutes):
-________________________________________________________________________________
-________________________________________________________________________________
-________________________________________________________________________________
-
-Evaluate (5 minutes):
-________________________________________________________________________________
-________________________________________________________________________________
-
-ACCOMMODATIONS & MODIFICATIONS:
+________________________________________________________________________________ ACCOMMODATIONS & MODIFICATIONS:
 □ [ ] Extended time: ___________________________________________________________
 □ [ ] Reduced complexity: _______________________________________________________
 □ [ ] Visual supports: __________________________________________________________
 □ [ ] Peer support: ____________________________________________________________
-□ [ ] Other: ___________________________________________________________________
-
-RESOURCES & MATERIALS:
+□ [ ] Other: ___________________________________________________________________ RESOURCES & MATERIALS:
 □ [ ] __________________________________________________________________________
 □ [ ] __________________________________________________________________________
 □ [ ] __________________________________________________________________________
-□ [ ] __________________________________________________________________________
-
-REFLECTION & NEXT STEPS:
+□ [ ] __________________________________________________________________________ REFLECTION & NEXT STEPS:
 ________________________________________________________________________________
 ________________________________________________________________________________
-```
-
----
-
-## Differentiated Lesson Plan
-
-```
-DIFFERENTIATED LESSON PLAN
-
-LESSON INFORMATION:
+``` --- ## Differentiated Lesson Plan ```
+DIFFERENTIATED LESSON PLAN LESSON INFORMATION:
 Subject: ________________ Grade Level: ________________ Date: ________________
-Lesson Title: ________________ Duration: ________________
-
-LEARNING OBJECTIVE:
-All students will: ________________________________________________________________
-
-DIFFERENTIATED OBJECTIVES:
+Lesson Title: ________________ Duration: ________________ LEARNING OBJECTIVE:
+All students will: ________________________________________________________________ DIFFERENTIATED OBJECTIVES:
 □ [ ] Group A (Struggling): _____________________________________________________
 □ [ ] Group B (On-Level): _______________________________________________________
-□ [ ] Group C (Advanced): _______________________________________________________
-
-PRE-ASSESSMENT:
+□ [ ] Group C (Advanced): _______________________________________________________ PRE-ASSESSMENT:
 □ [ ] Quick check: ______________________________________________________________
 □ [ ] Prior knowledge survey: ___________________________________________________
-□ [ ] Skills assessment: ________________________________________________________
-
-LEARNING ACTIVITIES BY GROUP:
-
-GROUP A (Struggling Learners):
+□ [ ] Skills assessment: ________________________________________________________ LEARNING ACTIVITIES BY GROUP: GROUP A (Struggling Learners):
 □ [ ] Activity 1: _______________________________________________________________
 □ [ ] Activity 2: _______________________________________________________________
 □ [ ] Activity 3: _______________________________________________________________
-□ [ ] Support: _________________________________________________________________
-
-GROUP B (On-Level Learners):
+□ [ ] Support: _________________________________________________________________ GROUP B (On-Level Learners):
 □ [ ] Activity 1: _______________________________________________________________
 □ [ ] Activity 2: _______________________________________________________________
 □ [ ] Activity 3: _______________________________________________________________
-□ [ ] Support: _________________________________________________________________
-
-GROUP C (Advanced Learners):
+□ [ ] Support: _________________________________________________________________ GROUP C (Advanced Learners):
 □ [ ] Activity 1: _______________________________________________________________
 □ [ ] Activity 2: _______________________________________________________________
 □ [ ] Activity 3: _______________________________________________________________
-□ [ ] Extension: _______________________________________________________________
-
-WHOLE GROUP ACTIVITIES:
+□ [ ] Extension: _______________________________________________________________ WHOLE GROUP ACTIVITIES:
 □ [ ] Opening: _________________________________________________________________
-□ [ ] Closing: _________________________________________________________________
-
-ASSESSMENT STRATEGIES:
+□ [ ] Closing: _________________________________________________________________ ASSESSMENT STRATEGIES:
 □ [ ] Group A: _________________________________________________________________
 □ [ ] Group B: _________________________________________________________________
-□ [ ] Group C: _________________________________________________________________
-
-MATERIALS NEEDED:
+□ [ ] Group C: _________________________________________________________________ MATERIALS NEEDED:
 □ [ ] Group A: _________________________________________________________________
 □ [ ] Group B: _________________________________________________________________
-□ [ ] Group C: _________________________________________________________________
-
-REFLECTION:
+□ [ ] Group C: _________________________________________________________________ REFLECTION:
 How did differentiation support learning? __________________________________________
 What adjustments are needed? ____________________________________________________
-```
-
----
-
-## Project-Based Learning Template
-
-```
-PROJECT-BASED LEARNING TEMPLATE
-
-PROJECT INFORMATION:
+``` --- ## Project-Based Learning Template ```
+PROJECT-BASED LEARNING TEMPLATE PROJECT INFORMATION:
 Subject: ________________ Grade Level: ________________ Duration: ________________
-Project Title: ________________ Driving Question: ________________________________
-
-PROJECT OVERVIEW:
+Project Title: ________________ Driving Question: ________________________________ PROJECT OVERVIEW:
 ________________________________________________________________________________
 ________________________________________________________________________________
-________________________________________________________________________________
-
-LEARNING OBJECTIVES:
+________________________________________________________________________________ LEARNING OBJECTIVES:
 □ [ ] Content Objective 1: _______________________________________________________
 □ [ ] Content Objective 2: _______________________________________________________
 □ [ ] Skill Objective 1: _________________________________________________________
-□ [ ] Skill Objective 2: _________________________________________________________
-
-STANDARDS ADDRESSED:
+□ [ ] Skill Objective 2: _________________________________________________________ STANDARDS ADDRESSED:
 □ [ ] __________________________________________________________________________
 □ [ ] __________________________________________________________________________
-□ [ ] __________________________________________________________________________
-
-PROJECT PHASES:
-
-PHASE 1: LAUNCH (Days 1-2)
+□ [ ] __________________________________________________________________________ PROJECT PHASES: PHASE 1: LAUNCH (Days 1-2)
 □ [ ] Introduce driving question
 □ [ ] Build background knowledge
 □ [ ] Generate student questions
 □ [ ] Create project teams
-□ [ ] Establish project timeline
-
-PHASE 2: BUILD KNOWLEDGE (Days 3-7)
+□ [ ] Establish project timeline PHASE 2: BUILD KNOWLEDGE (Days 3-7)
 □ [ ] Research and investigation
 □ [ ] Expert consultation
 □ [ ] Skill development
-□ [ ] Mid-project check-in
-
-PHASE 3: DEVELOP & REVISE (Days 8-12)
+□ [ ] Mid-project check-in PHASE 3: DEVELOP & REVISE (Days 8-12)
 □ [ ] Create project products
 □ [ ] Peer feedback
 □ [ ] Revision and refinement
-□ [ ] Practice presentations
-
-PHASE 4: PRESENT & REFLECT (Days 13-14)
+□ [ ] Practice presentations PHASE 4: PRESENT & REFLECT (Days 13-14)
 □ [ ] Final presentations
 □ [ ] Audience feedback
 □ [ ] Self-reflection
-□ [ ] Project celebration
-
-ASSESSMENT PLAN:
+□ [ ] Project celebration ASSESSMENT PLAN:
 □ [ ] Formative assessments: ____________________________________________________
 □ [ ] Summative assessments: ____________________________________________________
 □ [ ] Self-assessments: _________________________________________________________
-□ [ ] Peer assessments: _________________________________________________________
-
-RESOURCES NEEDED:
+□ [ ] Peer assessments: _________________________________________________________ RESOURCES NEEDED:
 □ [ ] Materials: ________________________________________________________________
 □ [ ] Technology: ______________________________________________________________
 □ [ ] Community partners: _______________________________________________________
-□ [ ] Field trips: ______________________________________________________________
-
-DIFFERENTIATION STRATEGIES:
+□ [ ] Field trips: ______________________________________________________________ DIFFERENTIATION STRATEGIES:
 □ [ ] __________________________________________________________________________
 □ [ ] __________________________________________________________________________
-□ [ ] __________________________________________________________________________
-
-REFLECTION QUESTIONS:
+□ [ ] __________________________________________________________________________ REFLECTION QUESTIONS:
 □ [ ] What did students learn? __________________________________________________
 □ [ ] How did the project engage students? _______________________________________
 □ [ ] What challenges arose and how were they addressed? _________________________
 □ [ ] How can this project be improved for next time? ____________________________
-```
-
----
-
-## Technology-Enhanced Lesson Plan
-
-```
-TECHNOLOGY-ENHANCED LESSON PLAN
-
-LESSON INFORMATION:
+``` --- ## Technology-Enhanced Lesson Plan ```
+TECHNOLOGY-ENHANCED LESSON PLAN LESSON INFORMATION:
 Subject: ________________ Grade Level: ________________ Date: ________________
-Lesson Title: ________________ Duration: ________________
-
-LEARNING OBJECTIVES:
+Lesson Title: ________________ Duration: ________________ LEARNING OBJECTIVES:
 □ [ ] Content Objective: ________________________________________________________
 □ [ ] Technology Objective: _____________________________________________________
-□ [ ] Skill Objective: __________________________________________________________
-
-TECHNOLOGY INTEGRATION:
+□ [ ] Skill Objective: __________________________________________________________ TECHNOLOGY INTEGRATION:
 □ [ ] Device Type: Laptops / Tablets / Smartphones / Other: _______________________
 □ [ ] Software/Apps: ___________________________________________________________
 □ [ ] Online Resources: _________________________________________________________
-□ [ ] Digital Tools: ____________________________________________________________
-
-LESSON PROCEDURE:
-
-PRE-TECHNOLOGY ACTIVITY (10 minutes):
+□ [ ] Digital Tools: ____________________________________________________________ LESSON PROCEDURE: PRE-TECHNOLOGY ACTIVITY (10 minutes):
 ________________________________________________________________________________
-________________________________________________________________________________
-
-TECHNOLOGY INTEGRATION (20 minutes):
+________________________________________________________________________________ TECHNOLOGY INTEGRATION (20 minutes):
 □ [ ] Individual work: __________________________________________________________
 □ [ ] Partner work: ____________________________________________________________
 □ [ ] Group work: ______________________________________________________________
-□ [ ] Whole class: _____________________________________________________________
-
-POST-TECHNOLOGY ACTIVITY (10 minutes):
+□ [ ] Whole class: _____________________________________________________________ POST-TECHNOLOGY ACTIVITY (10 minutes):
 ________________________________________________________________________________
-________________________________________________________________________________
-
-ASSESSMENT:
+________________________________________________________________________________ ASSESSMENT:
 □ [ ] Digital product: __________________________________________________________
 □ [ ] Online quiz: _____________________________________________________________
 □ [ ] Digital portfolio: ________________________________________________________
-□ [ ] Traditional assessment: ___________________________________________________
-
-TECHNOLOGY TROUBLESHOOTING:
+□ [ ] Traditional assessment: ___________________________________________________ TECHNOLOGY TROUBLESHOOTING:
 □ [ ] Backup plan: ____________________________________________________________
 □ [ ] Technical support: ________________________________________________________
-□ [ ] Alternative activities: ____________________________________________________
-
-DIGITAL CITIZENSHIP FOCUS:
+□ [ ] Alternative activities: ____________________________________________________ DIGITAL CITIZENSHIP FOCUS:
 □ [ ] Digital safety: ___________________________________________________________
 □ [ ] Online etiquette: _________________________________________________________
 □ [ ] Information literacy: _____________________________________________________
-□ [ ] Copyright awareness: _____________________________________________________
-
-REFLECTION:
+□ [ ] Copyright awareness: _____________________________________________________ REFLECTION:
 How did technology enhance learning? ____________________________________________
 What technical challenges occurred? ______________________________________________
 How can technology use be improved? ____________________________________________
-```
-
----
-
-## Assessment-Integrated Lesson Plan
-
-```
-ASSESSMENT-INTEGRATED LESSON PLAN
-
-LESSON INFORMATION:
+``` --- ## Assessment-Integrated Lesson Plan ```
+ASSESSMENT-INTEGRATED LESSON PLAN LESSON INFORMATION:
 Subject: ________________ Grade Level: ________________ Date: ________________
-Lesson Title: ________________ Duration: ________________
-
-LEARNING OBJECTIVES:
+Lesson Title: ________________ Duration: ________________ LEARNING OBJECTIVES:
 □ [ ] Objective 1: _____________________________________________________________
 □ [ ] Objective 2: _____________________________________________________________
-□ [ ] Objective 3: _____________________________________________________________
-
-ASSESSMENT TIMELINE:
-
-PRE-ASSESSMENT (5 minutes):
+□ [ ] Objective 3: _____________________________________________________________ ASSESSMENT TIMELINE: PRE-ASSESSMENT (5 minutes):
 □ [ ] Quick write: ____________________________________________________________
 □ [ ] Concept map: ____________________________________________________________
 □ [ ] Prior knowledge check: ___________________________________________________
-□ [ ] Learning style inventory: ________________________________________________
-
-FORMATIVE ASSESSMENTS (Throughout lesson):
+□ [ ] Learning style inventory: ________________________________________________ FORMATIVE ASSESSMENTS (Throughout lesson):
 □ [ ] Exit ticket: _____________________________________________________________
 □ [ ] Thumbs up/down: ________________________________________________________
 □ [ ] Think-pair-share: ________________________________________________________
 □ [ ] Observation checklist: ___________________________________________________
-□ [ ] Student self-assessment: _________________________________________________
-
-SUMMATIVE ASSESSMENT (End of lesson):
+□ [ ] Student self-assessment: _________________________________________________ SUMMATIVE ASSESSMENT (End of lesson):
 □ [ ] Performance task: ________________________________________________________
 □ [ ] Written assessment: _______________________________________________________
 □ [ ] Oral presentation: ________________________________________________________
-□ [ ] Project: _________________________________________________________________
-
-LESSON PROCEDURE:
-
-Opening (5 minutes):
+□ [ ] Project: _________________________________________________________________ LESSON PROCEDURE: Opening (5 minutes):
 □ [ ] Review learning objectives
 □ [ ] Activate prior knowledge
-□ [ ] Pre-assessment
-
-Instruction (20 minutes):
+□ [ ] Pre-assessment Instruction (20 minutes):
 □ [ ] Direct instruction
 □ [ ] Guided practice
-□ [ ] Formative checks
-
-Practice (15 minutes):
+□ [ ] Formative checks Practice (15 minutes):
 □ [ ] Independent practice
 □ [ ] Collaborative work
-□ [ ] Ongoing assessment
-
-Closure (5 minutes):
+□ [ ] Ongoing assessment Closure (5 minutes):
 □ [ ] Review key concepts
 □ [ ] Summative assessment
-□ [ ] Preview next lesson
-
-ASSESSMENT RUBRIC:
+□ [ ] Preview next lesson ASSESSMENT RUBRIC:
 □ [ ] Criteria 1: ______________________________________________________________
 □ [ ] Criteria 2: ______________________________________________________________
 □ [ ] Criteria 3: ______________________________________________________________
-□ [ ] Criteria 4: ______________________________________________________________
-
-FEEDBACK STRATEGIES:
+□ [ ] Criteria 4: ______________________________________________________________ FEEDBACK STRATEGIES:
 □ [ ] Immediate feedback: _______________________________________________________
 □ [ ] Peer feedback: ___________________________________________________________
 □ [ ] Self-assessment: _________________________________________________________
-□ [ ] Teacher feedback: ________________________________________________________
-
-REFLECTION:
+□ [ ] Teacher feedback: ________________________________________________________ REFLECTION:
 How did assessments inform instruction? __________________________________________
 What adjustments were made based on assessment data? ____________________________
 How can assessments be improved for next time? __________________________________
-```
-
----
-
-## Emergency Substitute Lesson Plan
-
-```
-EMERGENCY SUBSTITUTE LESSON PLAN
-
-TEACHER INFORMATION:
+``` --- ## Emergency Substitute Lesson Plan ```
+EMERGENCY SUBSTITUTE LESSON PLAN TEACHER INFORMATION:
 Name: ________________ Subject: ________________ Grade Level: ________________
-Date: ________________ Emergency Contact: _______________________________________
-
-CLASS INFORMATION:
+Date: ________________ Emergency Contact: _______________________________________ CLASS INFORMATION:
 □ [ ] Class Period: ________________ Number of Students: ________________
 □ [ ] Special Needs: ___________________________________________________________
 □ [ ] Behavior Concerns: _______________________________________________________
-□ [ ] Classroom Rules: _________________________________________________________
-
-LESSON OBJECTIVE:
-Students will: ________________________________________________________________
-
-MATERIALS NEEDED:
+□ [ ] Classroom Rules: _________________________________________________________ LESSON OBJECTIVE:
+Students will: ________________________________________________________________ MATERIALS NEEDED:
 □ [ ] __________________________________________________________________________
 □ [ ] __________________________________________________________________________
 □ [ ] __________________________________________________________________________
-□ [ ] __________________________________________________________________________
-
-LESSON PROCEDURE:
-
-Opening (5 minutes):
+□ [ ] __________________________________________________________________________ LESSON PROCEDURE: Opening (5 minutes):
 □ [ ] Take attendance
 □ [ ] Review classroom rules
-□ [ ] Explain today's objective
-
-Main Activity (35 minutes):
+□ [ ] Explain today's objective Main Activity (35 minutes):
 □ [ ] Activity 1: _______________________________________________________________
 □ [ ] Activity 2: _______________________________________________________________
-□ [ ] Activity 3: _______________________________________________________________
-
-Closing (5 minutes):
+□ [ ] Activity 3: _______________________________________________________________ Closing (5 minutes):
 □ [ ] Review what was learned
 □ [ ] Collect student work
-□ [ ] Clean up classroom
-
-EMERGENCY PROCEDURES:
+□ [ ] Clean up classroom EMERGENCY PROCEDURES:
 □ [ ] Fire drill: _______________________________________________________________
 □ [ ] Lockdown: _______________________________________________________________
 □ [ ] Medical emergency: _______________________________________________________
-□ [ ] Student behavior issues: __________________________________________________
-
-CLASSROOM MANAGEMENT:
+□ [ ] Student behavior issues: __________________________________________________ CLASSROOM MANAGEMENT:
 □ [ ] Seating chart location: ___________________________________________________
 □ [ ] Bathroom passes: _________________________________________________________
 □ [ ] Hall passes: _____________________________________________________________
-□ [ ] Dismissal procedures: ____________________________________________________
-
-IMPORTANT NOTES:
+□ [ ] Dismissal procedures: ____________________________________________________ IMPORTANT NOTES:
 □ [ ] __________________________________________________________________________
 □ [ ] __________________________________________________________________________
-□ [ ] __________________________________________________________________________
-
-CONTACT INFORMATION:
+□ [ ] __________________________________________________________________________ CONTACT INFORMATION:
 □ [ ] Principal: _______________________________________________________________
 □ [ ] Department Head: _________________________________________________________
 □ [ ] Neighboring Teacher: ______________________________________________________
-□ [ ] Office: __________________________________________________________________
-
-SUBSTITUTE FEEDBACK:
+□ [ ] Office: __________________________________________________________________ SUBSTITUTE FEEDBACK:
 □ [ ] How did the lesson go? ___________________________________________________
 □ [ ] Any issues or concerns? ___________________________________________________
 □ [ ] Student behavior: ________________________________________________________
 □ [ ] Additional notes: ________________________________________________________
-```
-
----
-
-## Unit Planning Template
-
-```
-UNIT PLANNING TEMPLATE
-
-UNIT INFORMATION:
+``` --- ## Unit Planning Template ```
+UNIT PLANNING TEMPLATE UNIT INFORMATION:
 Subject: ________________ Grade Level: ________________ Duration: ________________
-Unit Title: ________________ Essential Question: ________________________________
-
-UNIT OVERVIEW:
+Unit Title: ________________ Essential Question: ________________________________ UNIT OVERVIEW:
 ________________________________________________________________________________
 ________________________________________________________________________________
-________________________________________________________________________________
-
-STANDARDS ADDRESSED:
+________________________________________________________________________________ STANDARDS ADDRESSED:
 □ [ ] Standard 1: ______________________________________________________________
 □ [ ] Standard 2: ______________________________________________________________
 □ [ ] Standard 3: ______________________________________________________________
-□ [ ] Standard 4: ______________________________________________________________
-
-UNIT OBJECTIVES:
+□ [ ] Standard 4: ______________________________________________________________ UNIT OBJECTIVES:
 □ [ ] Objective 1: _____________________________________________________________
 □ [ ] Objective 2: _____________________________________________________________
 □ [ ] Objective 3: _____________________________________________________________
-□ [ ] Objective 4: _____________________________________________________________
-
-ASSESSMENT PLAN:
+□ [ ] Objective 4: _____________________________________________________________ ASSESSMENT PLAN:
 □ [ ] Pre-assessment: __________________________________________________________
 □ [ ] Formative assessments: ____________________________________________________
 □ [ ] Summative assessment: ____________________________________________________
-□ [ ] Performance task: ________________________________________________________
-
-LESSON SEQUENCE:
-
-LESSON 1: ________________ (Day 1-2)
+□ [ ] Performance task: ________________________________________________________ LESSON SEQUENCE: LESSON 1: ________________ (Day 1-2)
 □ [ ] Objective: _______________________________________________________________
 □ [ ] Activities: ______________________________________________________________
-□ [ ] Assessment: _____________________________________________________________
-
-LESSON 2: ________________ (Day 3-4)
+□ [ ] Assessment: _____________________________________________________________ LESSON 2: ________________ (Day 3-4)
 □ [ ] Objective: _______________________________________________________________
 □ [ ] Activities: ______________________________________________________________
-□ [ ] Assessment: _____________________________________________________________
-
-LESSON 3: ________________ (Day 5-6)
+□ [ ] Assessment: _____________________________________________________________ LESSON 3: ________________ (Day 5-6)
 □ [ ] Objective: _______________________________________________________________
 □ [ ] Activities: ______________________________________________________________
-□ [ ] Assessment: _____________________________________________________________
-
-LESSON 4: ________________ (Day 7-8)
+□ [ ] Assessment: _____________________________________________________________ LESSON 4: ________________ (Day 7-8)
 □ [ ] Objective: _______________________________________________________________
 □ [ ] Activities: ______________________________________________________________
-□ [ ] Assessment: _____________________________________________________________
-
-LESSON 5: ________________ (Day 9-10)
+□ [ ] Assessment: _____________________________________________________________ LESSON 5: ________________ (Day 9-10)
 □ [ ] Objective: _______________________________________________________________
 □ [ ] Activities: ______________________________________________________________
-□ [ ] Assessment: _____________________________________________________________
-
-RESOURCES NEEDED:
+□ [ ] Assessment: _____________________________________________________________ RESOURCES NEEDED:
 □ [ ] Materials: ________________________________________________________________
 □ [ ] Technology: ______________________________________________________________
 □ [ ] Guest speakers: ___________________________________________________________
-□ [ ] Field trips: ______________________________________________________________
-
-DIFFERENTIATION STRATEGIES:
+□ [ ] Field trips: ______________________________________________________________ DIFFERENTIATION STRATEGIES:
 □ [ ] For struggling learners: ___________________________________________________
 □ [ ] For advanced learners: ___________________________________________________
-□ [ ] For English learners: ____________________________________________________
-
-CROSS-CURRICULAR CONNECTIONS:
+□ [ ] For English learners: ____________________________________________________ CROSS-CURRICULAR CONNECTIONS:
 □ [ ] Math: ___________________________________________________________________
 □ [ ] Science: _________________________________________________________________
 □ [ ] Social Studies: ___________________________________________________________
-□ [ ] Language Arts: ___________________________________________________________
-
-REFLECTION & REVISION:
+□ [ ] Language Arts: ___________________________________________________________ REFLECTION & REVISION:
 □ [ ] What worked well? ________________________________________________________
 □ [ ] What needs improvement? __________________________________________________
 □ [ ] How can this unit be enhanced? ____________________________________________
 □ [ ] Student feedback: ________________________________________________________
-```
-
----
-
-## Implementation Guide
-
-### How to Use These Templates
-
-#### 1. Customization
-- Replace bracketed text with specific content
-- Adjust time allocations based on your schedule
-- Modify activities for your grade level
-- Add or remove sections as needed
-
-#### 2. Best Practices
-- Plan with the end in mind (backward design)
-- Include multiple assessment types
-- Consider student engagement and motivation
-- Plan for differentiation from the start
-- Leave room for flexibility and spontaneity
-
-#### 3. Digital Integration
-- Convert templates to digital formats
-- Use planning apps and software
-- Share templates with colleagues
-- Store plans in cloud-based systems
-- Use templates for remote learning
-
-#### 4. Continuous Improvement
-- Reflect on lesson effectiveness
-- Gather student feedback
-- Revise templates based on experience
-- Share successful lessons with colleagues
-- Stay updated on best practices
-
----
-
-## Additional Resources
-
-### Planning Tools and Apps
-- **Planbook** - Digital lesson planning
-- **Common Curriculum** - Standards-aligned planning
-- **Google Docs** - Collaborative planning
-- **Microsoft OneNote** - Digital notebook
-- **Evernote** - Note-taking and organization
-- **Trello** - Project management
-- **Asana** - Task and project planning
-
-### Professional Development
-- Lesson planning workshops
-- Standards-based instruction training
-- Differentiation strategies
-- Technology integration
-- Assessment design
-
-### Books and Articles
-- "Understanding by Design" by Grant Wiggins and Jay McTighe
-- "The Art and Science of Teaching" by Robert Marzano
-- "Teach Like a Champion" by Doug Lemov
-- "Visible Learning" by John Hattie
-
----
-
-*These templates are designed to help teachers create effective, engaging, and standards-aligned lessons that support student learning and growth.*
-
-**Last Updated:** December 2024
+``` --- ## Implementation Guide ### How to Use These Templates #### 1. Customization - Replace bracketed text with specific content - Adjust time allocations based on your schedule - Modify activities for your grade level - Add or remove sections as needed #### 2. Best Practices - Plan with the end in mind (backward design) - Include multiple assessment types - Consider student engagement and motivation - Plan for differentiation from the start - Leave room for flexibility and spontaneity #### 3. Digital Integration - Convert templates to digital formats - Use planning apps and software - Share templates with colleagues - Store plans in cloud-based systems - Use templates for remote learning #### 4. Continuous Improvement - Reflect on lesson effectiveness - Gather student feedback - Revise templates based on experience - Share successful lessons with colleagues - Stay updated on best practices --- ## Additional Resources ### Planning Tools and Apps - **Planbook** - Digital lesson planning - **Common Curriculum** - Standards-aligned planning - **Google Docs** - Collaborative planning - **Microsoft OneNote** - Digital notebook - **Evernote** - Note-taking and organization - **Trello** - Project management - **Asana** - Task and project planning ### Professional Development - Lesson planning workshops - Standards-based instruction training - Differentiation strategies - Technology integration - Assessment design ### Books and Articles - "Understanding by Design" by Grant Wiggins and Jay McTighe - "The Art and Science of Teaching" by Robert Marzano - "Teach Like a Champion" by Doug Lemov - "Visible Learning" by John Hattie --- *These templates are designed to help teachers create effective, engaging, and standards-aligned lessons that support student learning and growth.* **Last Updated:** December 2024
 **Version:** 1.0 

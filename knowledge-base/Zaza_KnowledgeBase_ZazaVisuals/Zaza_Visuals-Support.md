@@ -1,108 +1,18 @@
-# Zaza Visuals – Support & Resource Guide
-
-Welcome to the Zaza Visuals support centre. This guide provides comprehensive information for getting help, troubleshooting, staying updated, and mastering the platform. Whether you're a first-time user or a power creator, our support systems are here to ensure your journey is seamless and inspiring.
-
----
-
-## 🎧 Getting Help
-
-### 💬 In-App Support
-Get assistance in real time without leaving your creative workspace. Tap the help icon in the corner of your screen for contextual walkthroughs, feature guides, and direct links to popular tutorials.
-
-### 📧 Email Support
-Reach out any time via **support@zazatechnologies.com**. We aim to respond within 24 hours, Monday to Friday. Include screenshots and a description of your issue for faster resolution.
-
-### 📚 Knowledge Base
-A fully searchable support portal containing:
-- Feature walkthroughs
-- How-to articles
-- Troubleshooting tips
-- Onboarding guides
-
-### 🎥 Video Tutorials
-Prefer visual learning? Our curated library of screen-recorded tutorials walks you through everything - from beginner to expert level.
-
-### 🧑‍🏫 Community Forum (Coming Soon)
-Collaborate, share tips, and troubleshoot with other educators and content creators using Zaza Visuals.
-
----
-
-## 📈 Training & Professional Development
-
-### 🆕 Free Onboarding Sessions
-Live onboarding for new users ensures you start strong and make the most of Zaza Visuals from day one.
-
-### 📅 Monthly Webinar Series
-Join our expert-led webinars covering:
-- Latest feature drops
-- AI-powered design tips
-- Use case showcases
-- Creative challenges
-
-### 🧩 Customised Training for Teams
-We offer custom sessions for teams and schools using Zaza Visuals at scale. Learn how to collaborate, brand consistently, and train your staff.
-
-### 🥇 Zaza Certification (Planned)
-A micro-credential program for advanced users looking to gain formal recognition for their skills with Zaza Visuals.
-
----
-
-## 🔁 Product Updates & Roadmap
-
-### 🚀 Monthly Product Updates
-Every month we release new features, performance enhancements, and bug fixes. Highlights include:
-- New visual styles and template packs
-- Enhanced export formats
-- Advanced tone and brand consistency controls
-
-### 💬 Feedback & Feature Requests
-We rely on you to guide the future of Zaza Visuals. Share your suggestions via the feedback form inside the app.
-
-### 🧪 Beta Access
-Sign up for early access to unreleased features and help shape the platform’s future.
-
-### 🧾 Release Notes Archive
-Track changes, improvements, and bug fixes in our version history.
-
----
-
-## 🔎 Additional Resources
-
-### 📰 Blog
-Stay inspired with articles on educational storytelling, design psychology, teacher success stories, and creativity in the classroom.
-
-### 📖 Research & Pedagogy
-Our work is backed by current educational research. We regularly publish studies and whitepapers on AI in education and instructional design.
-
-### 📦 Downloadable Templates
-Grab ready-made lesson starters, visual content packs, and classroom display ideas directly from our template vault.
-
-### 🧠 Best Practice Guides
-Short reads on using AI responsibly in the classroom, designing for neurodiversity, and sparking student engagement.
-
----
-
-## 🕒 Version History
-
-### v1.0.2 – July 2025
-- Added support for PDF and JPG exports
-- Launched multi-language generation capabilities
-- Improved UI for curriculum tagging and organisation
-- Enhanced colour accessibility options
-
-### v1.0.1 – June 2025
-- Introduced visual snippet library with editable presets
-- Added CSV export for batch visuals
-- Integrated advanced tone mapping for consistent messaging
-
-### v1.0.0 – May 2025
-- Initial MVP release
-- AI-powered visual content generation
-- Educator-focused design presets and curriculum tagging
-- Light/dark theme toggle and basic export functionality
-
-access_conditions:
-  - if: user.email == "greg@zazatechnologies.com"
-    allow: full_access
-  - if: user.email == "greg.blackburn@gmail.com"
-    allow: full_access
+# Zaza Visuals - Support & Resource Guide Welcome to the Zaza Visuals support centre. This guide provides comprehensive information for getting help, troubleshooting, staying updated, and mastering the platform. Whether you're a first-time user or a power creator, our support systems are here to ensure your journey is seamless and inspiring. --- ## 🎧 Getting Help ### 💬 In-App Support
+Get assistance in real time without leaving your creative workspace. Tap the help icon in the corner of your screen for contextual walkthroughs, feature guides, and direct links to popular tutorials. ### 📧 Email Support
+Reach out any time via **support@zazatechnologies.com**. We aim to respond within 24 hours, Monday to Friday. Include screenshots and a description of your issue for faster resolution. ### 📚 Knowledge Base
+A fully searchable support portal containing: - Feature walkthroughs - How-to articles - Troubleshooting tips - Onboarding guides ### 🎥 Video Tutorials
+Prefer visual learning? Our curated library of screen-recorded tutorials walks you through everything - from beginner to expert level. ### 🧑‍🏫 Community Forum (Coming Soon)
+Collaborate, share tips, and troubleshoot with other educators and content creators using Zaza Visuals. --- ## 📈 Training & Professional Development ### 🆕 Free Onboarding Sessions
+Live onboarding for new users ensures you start strong and make the most of Zaza Visuals from day one. ### 📅 Monthly Webinar Series
+Join our expert-led webinars covering: - Latest feature drops - AI-powered design tips - Use case showcases - Creative challenges ### 🧩 Customised Training for Teams
+We offer custom sessions for teams and schools using Zaza Visuals at scale. Learn how to collaborate, brand consistently, and train your staff. ### 🥇 Zaza Certification (Planned)
+A micro-credential program for advanced users looking to gain formal recognition for their skills with Zaza Visuals. --- ## 🔁 Product Updates & Roadmap ### 🚀 Monthly Product Updates
+Every month we release new features, performance enhancements, and bug fixes. Highlights include: - New visual styles and template packs - Enhanced export formats - Advanced tone and brand consistency controls ### 💬 Feedback & Feature Requests
+We rely on you to guide the future of Zaza Visuals. Share your suggestions via the feedback form inside the app. ### 🧪 Beta Access
+Sign up for early access to unreleased features and help shape the platform’s future. ### 🧾 Release Notes Archive
+Track changes, improvements, and bug fixes in our version history. --- ## 🔎 Additional Resources ### 📰 Blog
+Stay inspired with articles on educational storytelling, design psychology, teacher success stories, and creativity in the classroom. ### 📖 Research & Pedagogy
+Our work is backed by current educational research. We regularly publish studies and whitepapers on AI in education and instructional design. ### 📦 Downloadable Templates
+Grab ready-made lesson starters, visual content packs, and classroom display ideas directly from our template vault. ### 🧠 Best Practice Guides
+Short reads on using AI responsibly in the classroom, designing for neurodiversity, and sparking student engagement. --- ## 🕒 Version History ### v1.0.2 - July 2025 - Added support for PDF and JPG exports - Launched multi-language generation capabilities - Improved UI for curriculum tagging and organisation - Enhanced colour accessibility options ### v1.0.1 - June 2025 - Introduced visual snippet library with editable presets - Added CSV export for batch visuals - Integrated advanced tone mapping for consistent messaging ### v1.0.0 - May 2025 - Initial MVP release - AI-powered visual content generation - Educator-focused design presets and curriculum tagging - Light/dark theme toggle and basic export functionality access_conditions: - if: user.email == "greg@zazatechnologies.com" allow: full_access - if: user.email == "greg.blackburn@gmail.com" allow: full_access

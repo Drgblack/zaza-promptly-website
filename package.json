@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "dashes:fix": "node scripts/normalize-dashes.js",
+    "lint:style:dashes": "node scripts/check-dashes.js"
   },
   "dependencies": {
     "@headlessui/react": "^2.0.0",

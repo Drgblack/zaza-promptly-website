@@ -1,6 +1,7 @@
 const path = require('path');
 const { withSentryConfig } = require('@sentry/nextjs');
 const createNextIntlPlugin = require('next-intl/plugin');
+
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
   options: {
@@ -19,7 +20,7 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  
+
   // Image optimization
   images: {
     formats: ['image/avif', 'image/webp'],
@@ -94,10 +95,12 @@ const nextConfig = {
       }
     ]
   },
+
   webpack: (config) => {
     config.resolve.alias['@'] = path.resolve(__dirname);
     return config;
   },
+
   async redirects() {
     return [
       // Original redirects
@@ -121,7 +124,7 @@ const nextConfig = {
         destination: '/blog/teach-thinking-student-centred-problem-solving',
         permanent: true,
       },
-      
+
       // Reverse redirects - redirect /en/* back to root paths since we disabled i18n
       {
         source: '/en/blog',
@@ -226,11 +229,11 @@ const sentryWebpackPluginOptions = {
   silent: true,
   org: process.env.SENTRY_ORG,
   project: process.env.SENTRY_PROJECT,
-  
+
   // Only upload source maps in production
   include: process.env.NODE_ENV === 'production' ? '.next' : undefined,
   ignore: ['node_modules', 'webpack.config.js'],
-  
+
   // Disable source map uploading in development
   dryRun: process.env.NODE_ENV !== 'production',
 };

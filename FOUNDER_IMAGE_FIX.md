@@ -1,19 +1,4 @@
-# Founder Image Fix - Cache Invalidation
-
-This file was created to help invalidate CDN cache for the founder image fix.
-
-## Changes Made:
-- ✅ Copied founder image to `/public/images/founder.png`
-- ✅ Updated About the Founder page to use direct Image component
-- ✅ Set exact dimensions (180x180) as requested
-- ✅ Applied requested styling: rounded-full shadow-xl
-- ✅ Updated OpenGraph images to use new path
-
-## Deployment Date:
-2025-07-30
-
-## Expected Result:
-Founder photo should display correctly at https://zazapromptly.com/about-founder
-
-## Deployment Sync Issue:
+# Founder Image Fix - Cache Invalidation This file was created to help invalidate CDN cache for the founder image fix. ## Changes Made: - ✅ Copied founder image to `/public/images/founder.png` - ✅ Updated About the Founder page to use direct Image component - ✅ Set exact dimensions (180x180) as requested - ✅ Applied requested styling: rounded-full shadow-xl - ✅ Updated OpenGraph images to use new path ## Deployment Date:
+2025-07-30 ## Expected Result:
+Founder photo should display correctly at https://zazapromptly.com/about-founder ## Deployment Sync Issue:
 Force deployment timestamp: 2025-07-30T23:58:30Z

@@ -1,389 +1,57 @@
-# Zaza ClarityDeck - Complete Documentation Suite
-
-## Product Overview
-
-Zaza ClarityDeck is an AI-powered feedback generator that transforms how teachers create student reports and parent communications. Built specifically for time-strapped educators, it reduces report writing time from 10 minutes to 30 seconds while maintaining quality and personal touch.
-
-### Key Benefits
-- **80% Time Reduction**: Cut report writing from hours to minutes
-- **Curriculum Alignment**: Automatically aligns feedback with educational standards
-- **Authentic Voice**: Maintains your teaching style through customizable tone controls
-- **Zero Hallucinations**: Built with constraints to ensure factual accuracy
-- **Cognitive Load Relief**: Eliminates writer's block and mental fatigue
-
-### Target Users
-- **Primary**: K-12 teachers, teaching assistants, special education teachers
-- **Secondary**: School administrators, department heads, curriculum coordinators
-
----
-
-## Features & Capabilities
-
-### Core Features
-
-#### 1. AI-Powered Comment Generator
-Transform brief notes into polished, professional feedback. Simply provide 2-3 sentences about student progress, and receive curriculum-aligned comments tailored to your selected tone.
-
-#### 2. Smart Tone Controls
-Choose from multiple communication styles:
-- **Warm & Encouraging**: For building confidence
-- **Professional & Academic**: For formal reports
-- **Constructive & Developmental**: For improvement-focused feedback
-- **Collaborative**: For parent communications
-- **Custom Tones**: Based on school policies or cultural preferences
-
-#### 3. Curriculum Integration
-- Automatically aligns with national standards (Common Core, UK Key Stages, Australian ACARA)
-- Supports custom curriculum uploads
-- Highlights learning goals achievement
-- Evidence-based assessment language
-
-#### 4. Personal Snippet Library
-- Save and reuse favorite phrases
-- Tag by subject, tone, or frequency
-- Auto-suggest during writing
-- Export and share with team members (Pro+ plans)
-
-#### 5. Multi-Language Support
-Generate feedback in English, Spanish, French, German, Italian, and other languages with culturally appropriate tone adjustments.
-
-### Advanced Features
-
-#### Bulk Processing
-- Generate reports for entire classes in one session
-- Individual personalization maintained
-- Batch tone and style configuration
-- Multiple export formats
-
-#### Analytics Dashboard
-- Track usage and efficiency gains
-- Monitor comment trends
-- Support professional development
-- Quality assurance insights
-
-#### Integration Capabilities
-- **Google Classroom**: Direct assignment feedback
-- **Microsoft Teams**: Portfolio integration
-- **Seesaw**: Learning journey documentation
-- **Canvas & Schoology**: LMS integration
-- **Open API**: Custom integrations for schools
-
----
-
-## Getting Started
-
-### Quick Start Guide
-
-1. **Sign Up**
-   - Visit zazapromptly.com
-   - Create account with school email
-   - Verify email and complete profile
-
-2. **First Comment**
-   - Use guided tutorial
-   - Input 2-3 sentences about student performance
-   - Select appropriate tone
-   - Generate and review content
-
-3. **Customization**
-   - Set personal tone preferences
-   - Build snippet library
-   - Connect with existing tools
-
-### Optimal Workflows
-
-#### Standard Comment Creation
+# Zaza ClarityDeck - Complete Documentation Suite ## Product Overview Zaza ClarityDeck is an AI-powered feedback generator that transforms how teachers create student reports and parent communications. Built specifically for time-strapped educators, it reduces report writing time from 10 minutes to 30 seconds while maintaining quality and personal touch. ### Key Benefits - **80% Time Reduction**: Cut report writing from hours to minutes - **Curriculum Alignment**: Automatically aligns feedback with educational standards - **Authentic Voice**: Maintains your teaching style through customizable tone controls - **Zero Hallucinations**: Built with constraints to ensure factual accuracy - **Cognitive Load Relief**: Eliminates writer's block and mental fatigue ### Target Users - **Primary**: K-12 teachers, teaching assistants, special education teachers - **Secondary**: School administrators, department heads, curriculum coordinators --- ## Features & Capabilities ### Core Features #### 1. AI-Powered Comment Generator
+Transform brief notes into polished, professional feedback. Simply provide 2-3 sentences about student progress, and receive curriculum-aligned comments tailored to your selected tone. #### 2. Smart Tone Controls
+Choose from multiple communication styles: - **Warm & Encouraging**: For building confidence - **Professional & Academic**: For formal reports - **Constructive & Developmental**: For improvement-focused feedback - **Collaborative**: For parent communications - **Custom Tones**: Based on school policies or cultural preferences #### 3. Curriculum Integration - Automatically aligns with national standards (Common Core, UK Key Stages, Australian ACARA) - Supports custom curriculum uploads - Highlights learning goals achievement - Evidence-based assessment language #### 4. Personal Snippet Library - Save and reuse favorite phrases - Tag by subject, tone, or frequency - Auto-suggest during writing - Export and share with team members (Pro+ plans) #### 5. Multi-Language Support
+Generate feedback in English, Spanish, French, German, Italian, and other languages with culturally appropriate tone adjustments. ### Advanced Features #### Bulk Processing - Generate reports for entire classes in one session - Individual personalization maintained - Batch tone and style configuration - Multiple export formats #### Analytics Dashboard - Track usage and efficiency gains - Monitor comment trends - Support professional development - Quality assurance insights #### Integration Capabilities - **Google Classroom**: Direct assignment feedback - **Microsoft Teams**: Portfolio integration - **Seesaw**: Learning journey documentation - **Canvas & Schoology**: LMS integration - **Open API**: Custom integrations for schools --- ## Getting Started ### Quick Start Guide 1. **Sign Up** - Visit zazapromptly.com - Create account with school email - Verify email and complete profile 2. **First Comment** - Use guided tutorial - Input 2-3 sentences about student performance - Select appropriate tone - Generate and review content 3. **Customization** - Set personal tone preferences - Build snippet library - Connect with existing tools ### Optimal Workflows #### Standard Comment Creation
 1. **Context Input**: Provide specific observations
 2. **Tone Selection**: Choose communication style
 3. **Generate**: Process with AI
 4. **Review**: Check accuracy and tone
 5. **Edit**: Make necessary adjustments
-6. **Save**: Copy or save to library
-
-#### Bulk Processing
+6. **Save**: Copy or save to library #### Bulk Processing
 1. **Prepare Data**: Organize in spreadsheet
 2. **Upload**: Import through bulk interface
 3. **Configure**: Set batch preferences
 4. **Generate**: Process multiple students
 5. **Review**: Check each individually
-6. **Export**: Download in preferred format
-
-#### Parent Communication
+6. **Export**: Download in preferred format #### Parent Communication
 1. **Template Selection**: Choose collaborative preset
 2. **Context Addition**: Include specific examples
 3. **Cultural Sensitivity**: Ensure appropriate language
 4. **Preview**: Check tone and clarity
-5. **Follow-up**: Use library for consistency
-
-### Best Practices
-- **Be Specific**: Provide concrete examples
-- **Use Keywords**: Include subject terminology
-- **Review Always**: AI drafts, teacher finalizes
-- **Build Library**: Save effective phrases
-- **Stay Consistent**: Maintain tone across communications
-
----
-
-## Pricing & Plans
-
-### Free Plan - €0/month
-- ✅ 5 comments per month
-- ✅ Basic tone & curriculum presets
-- ✅ No payment required
-- ❌ Limited features
-
-### Pro Plan - €14.99/month
-- ✅ Unlimited comment generation
-- ✅ Full snippet library access
-- ✅ Multi-language support
-- ✅ PDF export capabilities
-- ✅ Advanced tone controls
-- ✅ Cancel anytime
-- ✅ 20% savings with annual billing
-
-### Bundle Plan - €24.99/month
-- ✅ Full ClarityDeck + Zaza Teach access
-- ✅ Unified account management
-- ✅ 25% savings over individual plans
-- ✅ Shared dashboard and preferences
-- ✅ Ideal for active teachers
-- ✅ Flexible plan switching
-
-### School License - Custom Quote
-- ✅ Multiple teacher accounts
-- ✅ Admin dashboard and analytics
-- ✅ Custom curriculum integration
-- ✅ Invoice/PO billing options
-- ✅ Training and onboarding
-- ✅ API access and team sharing
-- ✅ Priority support
-
-### Frequently Asked Questions
-
-**Q: What happens if I cancel mid-month?**
-A: Subscription remains active until end of billing period.
-
-**Q: Will I lose snippets if I cancel?**
-A: No, they remain available for download.
-
-**Q: Can I change plans anytime?**
-A: Yes. Upgrades are immediate, downgrades take effect next cycle.
-
-**Q: Are there school discounts?**
-A: Yes, custom pricing available for institutional licenses.
-
----
-
-## Technical Specifications
-
-### Architecture
-- **Frontend**: FlutterFlow Progressive Web App
-- **Backend**: Firebase Functions with Node.js
-- **AI Engine**: GPT-4 with custom constraints
-- **Database**: Google Firestore
-- **Hosting**: Google Cloud Platform
-
-### Security & Compliance
-- **GDPR Compliant**: Full European data protection
-- **FERPA Compliant**: US educational privacy standards
-- **SOC 2 Type II**: Annual security audits
-- **End-to-End Encryption**: All communications secured
-- **Zero Data Retention**: No permanent student data storage
-
-### Performance
-- **Response Time**: Sub-second generation
-- **Uptime**: 99.9% availability SLA
-- **Scalability**: Handles concurrent users
-- **Global CDN**: Fast worldwide loading
-
-### Browser Support
-- ✅ Chrome (latest 3 versions)
-- ✅ Microsoft Edge
-- ✅ Firefox
-- ✅ Safari (macOS/iOS 15+)
-- ⚠️ Internet Explorer not supported
-
-### Mobile Compatibility
-- **Current**: Fully responsive web app
-- **Coming Q4 2025**: Native iOS/Android apps
-
----
-
-## Integration Setup
-
-### Google Classroom
+5. **Follow-up**: Use library for consistency ### Best Practices - **Be Specific**: Provide concrete examples - **Use Keywords**: Include subject terminology - **Review Always**: AI drafts, teacher finalizes - **Build Library**: Save effective phrases - **Stay Consistent**: Maintain tone across communications --- ## Pricing & Plans ### Free Plan - €0/month - ✅ 5 comments per month - ✅ Basic tone & curriculum presets - ✅ No payment required - ❌ Limited features ### Pro Plan - €14.99/month - ✅ Unlimited comment generation - ✅ Full snippet library access - ✅ Multi-language support - ✅ PDF export capabilities - ✅ Advanced tone controls - ✅ Cancel anytime - ✅ 20% savings with annual billing ### Bundle Plan - €24.99/month - ✅ Full ClarityDeck + Zaza Teach access - ✅ Unified account management - ✅ 25% savings over individual plans - ✅ Shared dashboard and preferences - ✅ Ideal for active teachers - ✅ Flexible plan switching ### School License - Custom Quote - ✅ Multiple teacher accounts - ✅ Admin dashboard and analytics - ✅ Custom curriculum integration - ✅ Invoice/PO billing options - ✅ Training and onboarding - ✅ API access and team sharing - ✅ Priority support ### Frequently Asked Questions **Q: What happens if I cancel mid-month?**
+A: Subscription remains active until end of billing period. **Q: Will I lose snippets if I cancel?**
+A: No, they remain available for download. **Q: Can I change plans anytime?**
+A: Yes. Upgrades are immediate, downgrades take effect next cycle. **Q: Are there school discounts?**
+A: Yes, custom pricing available for institutional licenses. --- ## Technical Specifications ### Architecture - **Frontend**: FlutterFlow Progressive Web App - **Backend**: Firebase Functions with Node.js - **AI Engine**: GPT-4 with custom constraints - **Database**: Google Firestore - **Hosting**: Google Cloud Platform ### Security & Compliance - **GDPR Compliant**: Full European data protection - **FERPA Compliant**: US educational privacy standards - **SOC 2 Type II**: Annual security audits - **End-to-End Encryption**: All communications secured - **Zero Data Retention**: No permanent student data storage ### Performance - **Response Time**: Sub-second generation - **Uptime**: 99.9% availability SLA - **Scalability**: Handles concurrent users - **Global CDN**: Fast worldwide loading ### Browser Support - ✅ Chrome (latest 3 versions) - ✅ Microsoft Edge - ✅ Firefox - ✅ Safari (macOS/iOS 15+) - ⚠️ Internet Explorer not supported ### Mobile Compatibility - **Current**: Fully responsive web app - **Coming Q4 2025**: Native iOS/Android apps --- ## Integration Setup ### Google Classroom
 1. Navigate to "Integrations" in account settings
 2. Click "Connect Google Classroom"
 3. Authorize with Google credentials
 4. Grant content sync permissions
-5. Generated feedback auto-attaches to assignments
-
-### Microsoft Teams for Education
+5. Generated feedback auto-attaches to assignments ### Microsoft Teams for Education
 1. Select Teams from integrations menu
 2. Authorize with school email
-3. Generated feedback appears in class communications
-
-### Seesaw
+3. Generated feedback appears in class communications ### Seesaw
 1. Choose Seesaw integration
 2. Enter API key
 3. Select class or student group
-4. Export directly to learning portfolios
-
-### Custom API Access
-- Available for enterprise accounts
-- Contact support@zazatechnologies.com for documentation
-- RESTful API with webhooks support
-- Comprehensive developer SDK
-
----
-
-## Support & Training
-
-### Getting Help
-- **In-App Support**: Direct platform access
-- **Email**: support@zazatechnologies.com (24-hour response)
-- **Knowledge Base**: Comprehensive guides and tutorials
-- **Video Tutorials**: Step-by-step visual guides
-- **Community Forum**: Connect with other educators
-
-### Training Options
-- **Onboarding**: Free sessions for new users
-- **Webinars**: Monthly updates and best practices
-- **Custom Training**: Available for school licenses
-- **Certification**: Power user program
-
-### Resources
-- **Blog**: Educational articles and case studies
-- **Research**: Academic papers on AI in education
-- **Templates**: Ready-to-use structures
-- **Best Practices**: Effective writing guides
-
----
-
-## Troubleshooting
-
-### Common Issues
-
-#### Comments Not Generating
-- **Causes**: Connectivity issues, expired session
-- **Solutions**: Refresh page, re-login, check internet connection
-
-#### "Something Went Wrong" Error
-- **Causes**: Server timeout, input formatting
-- **Solutions**: Simplify input, retry, contact support if persistent
-
-#### Cannot Save to Library
-- **Causes**: Not on Pro plan, expired session
-- **Solutions**: Upgrade plan or re-authenticate
-
-### Error Codes
+4. Export directly to learning portfolios ### Custom API Access - Available for enterprise accounts - Contact support@zazatechnologies.com for documentation - RESTful API with webhooks support - Comprehensive developer SDK --- ## Support & Training ### Getting Help - **In-App Support**: Direct platform access - **Email**: support@zazatechnologies.com (24-hour response) - **Knowledge Base**: Comprehensive guides and tutorials - **Video Tutorials**: Step-by-step visual guides - **Community Forum**: Connect with other educators ### Training Options - **Onboarding**: Free sessions for new users - **Webinars**: Monthly updates and best practices - **Custom Training**: Available for school licenses - **Certification**: Power user program ### Resources - **Blog**: Educational articles and case studies - **Research**: Academic papers on AI in education - **Templates**: Ready-to-use structures - **Best Practices**: Effective writing guides --- ## Troubleshooting ### Common Issues #### Comments Not Generating - **Causes**: Connectivity issues, expired session - **Solutions**: Refresh page, re-login, check internet connection #### "Something Went Wrong" Error - **Causes**: Server timeout, input formatting - **Solutions**: Simplify input, retry, contact support if persistent #### Cannot Save to Library - **Causes**: Not on Pro plan, expired session - **Solutions**: Upgrade plan or re-authenticate ### Error Codes
 | Code | Meaning | Solution |
 |------|---------|----------|
 | 401 | Unauthorized | Log in again |
 | 429 | Rate limit reached | Wait 1 minute |
-| 500 | Server error | Retry or contact support |
-
----
-
-## Real-World Use Cases
-
-### Elementary Math Teacher - Ms. Patterson
+| 500 | Server error | Retry or contact support | --- ## Real-World Use Cases ### Elementary Math Teacher - Ms. Patterson
 **Challenge**: Writing unique reports for 28 students takes 15+ hours per cycle
 **Solution**: Bulk processing with personalized context tags
-**Result**: 4.5 hours saved per cycle with improved quality
-
-### Secondary English Teacher - Mr. Jensen
+**Result**: 4.5 hours saved per cycle with improved quality ### Secondary English Teacher - Mr. Jensen
 **Challenge**: Weekly parent updates requiring emotional nuance
 **Solution**: Parent communication presets with collaborative tone
-**Result**: 3+ hours saved weekly, improved parent engagement
-
-### SEN Support Assistant - Ms. Tran
+**Result**: 3+ hours saved weekly, improved parent engagement ### SEN Support Assistant - Ms. Tran
 **Challenge**: Daily support logs for neurodiverse learners
 **Solution**: Snippet library with IEP-specific phrases
-**Result**: Reduced log time from 8 minutes to 2 minutes
-
-### Head of Science - Dr. Aslam
+**Result**: Reduced log time from 8 minutes to 2 minutes ### Head of Science - Dr. Aslam
 **Challenge**: Reviewing dozens of reports across Years 10-12
 **Solution**: Collaborative workspace with department standards
-**Result**: 10+ hours saved per term, improved consistency
-
-### New Teacher - Ms. Roy
+**Result**: 10+ hours saved per term, improved consistency ### New Teacher - Ms. Roy
 **Challenge**: Finding appropriate language for feedback
 **Solution**: Training mode with mentoring explanations
-**Result**: Accelerated confidence and reduced peer dependency
-
----
-
-## Version History
-
-### v1.0.2 - July 2025
-- PDF export functionality
-- Multi-language content generation
-- Improved curriculum mapping UI
-- Performance enhancements
-
-### v1.0.1 - June 2025
-- Snippet library release
-- Bulk content generator
-- CSV export integration
-- Expanded tone presets
-
-### v1.0.0 - May 2025
-- Initial release
-- Core comment generation
-- Basic tone controls
-- Curriculum alignment
-
----
-
-## Privacy & Data Protection
-
-### Data Handling
-- **No Student Data Storage**: All processing is session-based
-- **GDPR Compliance**: Full European data protection standards
-- **FERPA Compliance**: US educational privacy requirements
-- **Transparent Usage**: Clear data handling policies
-- **User Control**: Full control over personal information
-
-### Security Measures
-- End-to-end encryption for all communications
-- Regular security audits and penetration testing
-- Secure cloud infrastructure with redundancy
-- Access controls and authentication protocols
-
-### Compliance Documentation
-- Data Processing Agreements available for schools
-- Privacy impact assessments provided
-- Regular compliance reviews and updates
-- Dedicated privacy officer for institutional clients
-
----
-
-## Contact & Support
-
-### General Inquiries
-- **Website**: zazapromptly.com
-- **Email**: support@zazatechnologies.com
-- **Response Time**: 24 hours for Pro users, priority for schools
-
-### Sales & Licensing
-- **School Demos**: Schedule live demonstrations
-- **Custom Quotes**: Tailored pricing for institutions
-- **Purchase Orders**: PO processing available
-- **Training**: Onboarding and professional development
-
-### Technical Support
-- **API Documentation**: docs.zazatechnologies.com
-- **Developer Support**: Available for enterprise clients
-- **Integration Assistance**: Custom implementation support
-- **Status Page**: Real-time system status updates
-
----
-
-*This documentation represents the current state of Zaza ClarityDeck. For the most up-to-date information, please visit our website or contact our support team.*
-
-access_conditions:
-  - if: user.email == "greg@zazatechnologies.com"
-    allow: full_access
-  - if: user.email == "greg.blackburn@gmail.com"
-    allow: full_access
+**Result**: Accelerated confidence and reduced peer dependency --- ## Version History ### v1.0.2 - July 2025 - PDF export functionality - Multi-language content generation - Improved curriculum mapping UI - Performance enhancements ### v1.0.1 - June 2025 - Snippet library release - Bulk content generator - CSV export integration - Expanded tone presets ### v1.0.0 - May 2025 - Initial release - Core comment generation - Basic tone controls - Curriculum alignment --- ## Privacy & Data Protection ### Data Handling - **No Student Data Storage**: All processing is session-based - **GDPR Compliance**: Full European data protection standards - **FERPA Compliance**: US educational privacy requirements - **Transparent Usage**: Clear data handling policies - **User Control**: Full control over personal information ### Security Measures - End-to-end encryption for all communications - Regular security audits and penetration testing - Secure cloud infrastructure with redundancy - Access controls and authentication protocols ### Compliance Documentation - Data Processing Agreements available for schools - Privacy impact assessments provided - Regular compliance reviews and updates - Dedicated privacy officer for institutional clients --- ## Contact & Support ### General Inquiries - **Website**: zazapromptly.com - **Email**: support@zazatechnologies.com - **Response Time**: 24 hours for Pro users, priority for schools ### Sales & Licensing - **School Demos**: Schedule live demonstrations - **Custom Quotes**: Tailored pricing for institutions - **Purchase Orders**: PO processing available - **Training**: Onboarding and professional development ### Technical Support - **API Documentation**: docs.zazatechnologies.com - **Developer Support**: Available for enterprise clients - **Integration Assistance**: Custom implementation support - **Status Page**: Real-time system status updates --- *This documentation represents the current state of Zaza ClarityDeck. For the most up-to-date information, please visit our website or contact our support team.* access_conditions: - if: user.email == "greg@zazatechnologies.com" allow: full_access - if: user.email == "greg.blackburn@gmail.com" allow: full_access
