@@ -11,40 +11,40 @@ interface TrustBadge {
 
 const trustBadges: TrustBadge[] = [
   {
-    id: 'encryption',
-    icon: Lock,
-    title: 'Bank-Level Encryption',
-    description: 'Your data is as secure as your online banking'
-  },
-  {
-    id: 'gdpr',
+    id: 'hallucination-safe',
     icon: Shield,
-    title: 'GDPR Compliant',
-    description: 'European privacy standards met'
+    title: 'Hallucination-Safe AI',
+    description: 'Never invents false information about students'
   },
   {
-    id: 'school-safe',
+    id: 'phd-designed',
     icon: GraduationCap,
-    title: 'School-Safe Design',
-    description: 'Built for educational environments'
+    title: 'PhD-Designed Pedagogy',
+    description: 'Created by Dr. Greg Blackburn, 20+ years teaching'
   },
   {
-    id: 'teacher-built',
+    id: 'gdpr-compliant',
+    icon: Lock,
+    title: 'GDPR Compliant',
+    description: 'EU privacy standards for school data protection'
+  },
+  {
+    id: 'teacher-trusted',
     icon: Users,
-    title: 'Teacher Built',
-    description: 'Created by educators, for educators'
+    title: '12,000+ Teachers Trust Us',
+    description: 'Educators worldwide choose safe AI for teachers'
   },
   {
-    id: 'classroom-tested',
+    id: 'no-training',
     icon: CheckCircle,
-    title: 'Classroom Tested',
-    description: 'Tried and proven in real schools'
+    title: 'Never Trains on Your Data',
+    description: 'Your student information stays completely private'
   },
   {
-    id: 'worldwide',
+    id: 'education-specific',
     icon: Globe,
-    title: '12,000+ Teachers',
-    description: 'Trusted worldwide'
+    title: 'Education-Specific AI',
+    description: 'Built for teachers, not generic chatbots'
   }
 ]
 

@@ -4,23 +4,41 @@ import React from 'react'
 import { Disclosure } from '@headlessui/react'
 import { ChevronUp } from 'lucide-react'
 import { useAnalytics } from '@/lib/analytics'
+import { FAQSchema } from './faq-schema'
 
-// Organize FAQs by category for better user experience
+// Organize FAQs by category for better user experience and SEO targeting
 const faqCategories = [
   {
-    title: 'Getting Started',
+    title: 'AI Safety & Trust for Teachers',
     faqs: [
       {
-        question: 'Will this actually save me time?',
-        answer: 'Yes — teachers report saving 3-5 hours per week on report writing and parent communication. What used to take 15-20 minutes per comment now takes 2-3 minutes, giving you time back for lesson planning, marking, or simply going home earlier.'
+        question: 'Is using AI for teaching cheating or unprofessional?',
+        answer: 'No. Using AI for teacher reports and parent communication is a productivity tool, like spell-check or a calculator. Zaza Promptly is hallucination-safe AI designed specifically for educational contexts, ensuring accurate and appropriate content. You maintain full control and professional judgment over all communications.'
       },
       {
-        question: 'How quickly can I get started?',
-        answer: 'You can generate your first parent message in under 2 minutes. Sign up, add a few notes about a student, pick your template, and Promptly handles the rest. No training courses or complex setup required.'
+        question: 'How is Zaza Promptly different from ChatGPT for teachers?',
+        answer: 'Unlike ChatGPT, Zaza Promptly is hallucination-safe AI built specifically for teachers. It understands educational contexts, uses appropriate terminology, maintains GDPR compliance, and never invents fake information about students. It\'s designed by educators for educators, not a general-purpose chatbot.'
       },
       {
-        question: 'Does it work for all ages and subjects?',
-        answer: 'Absolutely. From Reception to Year 13, maths to music, Promptly adapts to your teaching context. Primary teachers love the parent communication features, while secondary teachers find the report writing tools especially helpful during assessment periods.'
+        question: 'Will my school data be safe with AI?',
+        answer: 'Yes. Zaza Promptly is GDPR compliant with bank-level encryption. Your student data never trains other models, stays within EU servers, and can be deleted anytime. We understand teachers handle sensitive information and have built enterprise-grade security from day one.'
+      }
+    ]
+  },
+  {
+    title: 'Reducing Teacher Workload',
+    faqs: [
+      {
+        question: 'Does Zaza Promptly actually reduce teacher workload?',
+        answer: 'Yes — teachers report saving 3-5 hours per week on report writing and parent communication. What used to take 15-20 minutes per comment now takes 2-3 minutes, giving you time back for lesson planning, marking, or simply going home earlier. This AI tool for teachers specifically targets the most time-consuming administrative tasks.'
+      },
+      {
+        question: 'How quickly can I get started with AI for teacher reports?',
+        answer: 'You can generate your first parent message or report comment in under 2 minutes. Sign up, add a few notes about a student, pick your template, and our safe AI for teachers handles the rest. No training courses or complex setup required.'
+      },
+      {
+        question: 'Does this AI tool work for all ages and subjects?',
+        answer: 'Absolutely. From Reception to Year 13, maths to music, this teacher productivity app adapts to your teaching context. Primary teachers love the parent communication AI features, while secondary teachers find the report writing AI tools especially helpful during assessment periods.'
       }
     ]
   },
@@ -99,50 +117,66 @@ export default function FAQ() {
   const { trackFAQExpanded } = useAnalytics();
 
   return (
-    <div className="w-full px-4 pt-16 pb-20 mx-auto max-w-3xl" id="faq">
-      <h2 className="text-center text-3xl font-bold text-gray-800 mb-2">
-        Complete Support Hub
-      </h2>
-      <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-        Everything you need to know about using Promptly effectively in your classroom.
-      </p>
+    <div className="w-full px-4 pt-16 pb-20 mx-auto max-w-3xl" id="faq" role="main">
+      <FAQSchema faqs={faqs} />
+      <header>
+        <h1 className="text-center text-3xl font-bold text-gray-800 mb-2">
+          AI for Teachers FAQ - Safe AI Tool Questions Answered
+        </h1>
+        <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+          Everything you need to know about using hallucination-safe AI for teacher reports, parent communication, and reducing workload. Get answers about GDPR compliance, AI vs ChatGPT, and more.
+        </p>
+      </header>
       
-      {/* Organized by categories */}
-      <div className="space-y-8">
+      {/* Organized by categories with semantic markup for AI SEO */}
+      <div className="space-y-8" itemScope itemType="https://schema.org/FAQPage">
         {faqCategories.map((category, categoryIdx) => (
-          <div key={categoryIdx}>
-            <h3 className="text-xl font-semibold text-gray-800 mb-4 border-b-2 border-purple-100 pb-2">
+          <section key={categoryIdx} role="region" aria-labelledby={`category-${categoryIdx}`}>
+            <h2 id={`category-${categoryIdx}`} className="text-xl font-semibold text-gray-800 mb-4 border-b-2 border-purple-100 pb-2">
               {category.title}
-            </h3>
-            <div className="space-y-3">
+            </h2>
+            <dl className="space-y-3">
               {category.faqs.map((faq, faqIdx) => (
-                <Disclosure key={`${categoryIdx}-${faqIdx}`}>
-                  {({ open }) => (
-                    <>
-                      <Disclosure.Button 
-                        className="flex w-full justify-between rounded-lg bg-purple-50 px-4 py-3 text-left text-base font-medium text-purple-900 hover:bg-purple-100 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75 transition-colors"
-                        onClick={() => {
-                          if (!open) { // Only track when opening, not closing
-                            trackFAQExpanded(faq.question);
-                          }
-                        }}
-                      >
-                        <span className="pr-4">{faq.question}</span>
-                        <ChevronUp
-                          className={`${
-                            open ? 'rotate-180 transform' : ''
-                          } h-5 w-5 text-purple-500 flex-shrink-0`}
-                        />
-                      </Disclosure.Button>
-                      <Disclosure.Panel className="px-4 pt-3 pb-4 text-gray-700 leading-relaxed">
-                        {faq.answer}
-                      </Disclosure.Panel>
-                    </>
-                  )}
-                </Disclosure>
+                <div key={`${categoryIdx}-${faqIdx}`} itemScope itemType="https://schema.org/Question">
+                  <Disclosure>
+                    {({ open }) => (
+                      <>
+                        <dt>
+                          <Disclosure.Button 
+                            className="flex w-full justify-between rounded-lg bg-purple-50 px-4 py-3 text-left text-base font-medium text-purple-900 hover:bg-purple-100 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75 transition-colors"
+                            onClick={() => {
+                              if (!open) { // Only track when opening, not closing
+                                trackFAQExpanded(faq.question);
+                              }
+                            }}
+                            itemProp="name"
+                          >
+                            <span className="pr-4">{faq.question}</span>
+                            <ChevronUp
+                              className={`${
+                                open ? 'rotate-180 transform' : ''
+                              } h-5 w-5 text-purple-500 flex-shrink-0`}
+                              aria-hidden="true"
+                            />
+                          </Disclosure.Button>
+                        </dt>
+                        <dd>
+                          <Disclosure.Panel 
+                            className="px-4 pt-3 pb-4 text-gray-700 leading-relaxed"
+                            itemScope 
+                            itemType="https://schema.org/Answer"
+                            itemProp="acceptedAnswer"
+                          >
+                            <div itemProp="text">{faq.answer}</div>
+                          </Disclosure.Panel>
+                        </dd>
+                      </>
+                    )}
+                  </Disclosure>
+                </div>
               ))}
-            </div>
-          </div>
+            </dl>
+          </section>
         ))}
       </div>
     </div>

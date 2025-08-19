@@ -5,61 +5,118 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://zazapromptly.com'
   const currentDate = new Date()
   
-  // Static pages with enhanced priorities and change frequencies
+  // Static pages with enhanced priorities and change frequencies for SEO
   const staticPages = [
+    // Homepage - highest priority
     {
-      url: `${baseUrl}/features`,
+      url: baseUrl,
+      lastModified: currentDate,
+      changeFrequency: 'daily' as const,
+      priority: 1.0,
+    },
+    // Main product pages - target keywords
+    {
+      url: `${baseUrl}/promptly`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly' as const,
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/teach`,
       lastModified: currentDate,
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
+    // FAQ pages - high SEO value
     {
-      url: `${baseUrl}/pricing`,
+      url: `${baseUrl}/faqs`,
       lastModified: currentDate,
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
+    // Blog for content marketing
     {
-      url: `${baseUrl}/about`,
+      url: `${baseUrl}/blog`,
+      lastModified: currentDate,
+      changeFrequency: 'daily' as const,
+      priority: 0.85,
+    },
+    // Products ecosystem
+    {
+      url: `${baseUrl}/products`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    },
+    // Secondary product pages
+    {
+      url: `${baseUrl}/autoplanner`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/notably`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/spark`,
       lastModified: currentDate,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/contact`,
+      url: `${baseUrl}/looop`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/knowledgecore`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    // Authority content
+    {
+      url: `${baseUrl}/about-founder`,
       lastModified: currentDate,
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     },
+    // Support and conversion
     {
-      url: `${baseUrl}/help`,
+      url: `${baseUrl}/support`,
       lastModified: currentDate,
       changeFrequency: 'weekly' as const,
-      priority: 0.8,
+      priority: 0.6,
     },
     {
-      url: `${baseUrl}/blog`,
+      url: `${baseUrl}/contact`,
       lastModified: currentDate,
-      changeFrequency: 'daily' as const,
-      priority: 0.8,
+      changeFrequency: 'monthly' as const,
+      priority: 0.5,
     },
+    {
+      url: `${baseUrl}/free-resources`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    },
+    // Legal (required but low priority)
     {
       url: `${baseUrl}/privacy`,
       lastModified: currentDate,
       changeFrequency: 'yearly' as const,
-      priority: 0.3,
+      priority: 0.2,
     },
     {
       url: `${baseUrl}/terms`,
       lastModified: currentDate,
       changeFrequency: 'yearly' as const,
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/zaza-promptly`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
+      priority: 0.2,
     },
   ]
 

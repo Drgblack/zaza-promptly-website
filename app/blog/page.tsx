@@ -13,20 +13,27 @@ export const dynamic = 'force-static'
 export const revalidate = 3600 // 1 hour
 
 export const metadata: Metadata = {
-  title: 'AI Education Blog - Teaching Tips & Strategies | Zaza Technologies',
-  description: 'Discover the latest insights, tips, and strategies for using AI in education. Written by teachers, for teachers. Expert advice on AI-powered teaching tools.',
-  keywords: ['AI in education', 'teaching with AI', 'AI teaching tools', 'educational technology', 'teacher blog', 'AI lesson planning', 'teaching strategies'],
+  title: 'Best AI Tools for Teachers 2025 - Safe AI for Education Blog | Zaza Technologies',
+  description: 'Discover the best AI tools for teachers 2025, reduce teacher workload with AI, and learn about hallucination-safe AI for education. Written by PhD educator for teachers worldwide.',
+  keywords: [
+    'best AI tools for teachers 2025', 'AI tool for teachers', 'reduce teacher workload with AI',
+    'safe AI for teachers', 'teacher productivity apps', 'hallucination-safe AI',
+    'AI for teacher reports', 'AI lesson planning assistant', 'teacher burnout solutions',
+    'AI vs ChatGPT for teachers', 'GDPR compliant AI for teachers'
+  ],
   openGraph: {
-    title: 'AI Education Blog - Teaching Tips & Strategies | Zaza Technologies',
-    description: 'Discover the latest insights, tips, and strategies for using AI in education. Written by teachers, for teachers.',
+    title: 'Best AI Tools for Teachers 2025 - Safe AI Education Blog',
+    description: 'Discover safe AI tools reducing teacher workload. Expert insights on AI for teacher reports, lesson planning, and parent communication by PhD educator.',
     images: ['/opengraph-image'],
     type: 'website',
+    siteName: 'Zaza Technologies'
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI Education Blog - Teaching Tips & Strategies | Zaza Technologies',
-    description: 'Discover the latest insights, tips, and strategies for using AI in education. Written by teachers, for teachers.',
+    title: 'Best AI Tools for Teachers 2025 - Safe AI Blog',
+    description: 'Expert insights on safe AI tools for teachers. Reduce workload, improve teaching with hallucination-safe AI.',
     images: ['/opengraph-image'],
+    creator: '@zazateachapp'
   },
   alternates: {
     canonical: '/blog',

@@ -14,19 +14,33 @@ import { StructuredData } from "@/components/structured-data"
 import { generateWebsiteSchema, generateOrganizationSchema, generateSoftwareSchema } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
-  title: 'Zaza Promptly - AI Teaching Assistant That Saves Teachers 5+ Hours/Week',
-  description: 'Join 12,000+ teachers using AI to write better student feedback faster. Generate personalized comments, parent messages, and assessments in seconds with Zaza Promptly.',
+  title: 'AI for Teacher Reports & Parent Communication | Zaza Promptly - Safe AI Tool for Teachers',
+  description: 'Hallucination-safe AI tool for teachers writing parent communications, reports & professional messages. Join 12,000+ teachers reducing workload with GDPR-compliant AI. Free trial available.',
+  keywords: [
+    'AI for teacher reports', 'AI for parent communication', 'safe AI for teachers', 
+    'AI tool for teachers', 'teacher productivity apps', 'report writing for teachers AI',
+    'parent email generator for teachers', 'hallucination-safe AI', 'GDPR compliant AI for teachers',
+    'reduce teacher workload with AI', 'teacher comment bank AI', 'AI vs ChatGPT for teachers'
+  ],
   openGraph: {
-    title: 'Zaza Promptly - AI Teaching Assistant That Saves Teachers 5+ Hours/Week',
-    description: 'Join 12,000+ teachers using AI to write better student feedback faster. Try free today!',
+    title: 'AI for Teacher Reports & Parent Communication | Safe AI Tool for Teachers',
+    description: 'Hallucination-safe AI tool trusted by 12,000+ teachers. Write better parent communications and reports 10x faster. GDPR compliant, designed by educators.',
     images: ['/og-image.png'],
+    type: 'website',
+    locale: 'en_US',
+    siteName: 'Zaza Promptly'
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Zaza Promptly - AI Teaching Assistant That Saves Teachers 5+ Hours/Week',
-    description: 'Join 12,000+ teachers using AI to write better student feedback faster. Try free today!',
+    title: 'Safe AI Tool for Teachers - Reports & Parent Communication',
+    description: 'Join 12,000+ teachers using hallucination-safe AI for reports and parent communications. GDPR compliant, designed by PhD educator.',
     images: ['/og-image.png'],
+    creator: '@zazateachapp',
+    site: '@zazateachapp'
   },
+  alternates: {
+    canonical: 'https://zazapromptly.com'
+  }
 }
 
 export default function Home() {
