@@ -99,6 +99,7 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Original redirects
       {
         source: '/pricing',
         destination: '/promptly-pricing',
@@ -114,6 +115,8 @@ const nextConfig = {
         destination: '/why-zaza-teach',
         permanent: true,
       },
+      
+      // Blog redirects
       {
         source: '/blog',
         destination: '/en/blog',
@@ -122,6 +125,90 @@ const nextConfig = {
       {
         source: '/blog/:slug*',
         destination: '/en/blog/:slug*',
+        permanent: false,
+      },
+      
+      // Main page redirects to localized versions
+      {
+        source: '/about-founder',
+        destination: '/en/about-founder',
+        permanent: false,
+      },
+      {
+        source: '/support',
+        destination: '/en/support',
+        permanent: false,
+      },
+      {
+        source: '/promptly-pricing',
+        destination: '/en/promptly-pricing',
+        permanent: false,
+      },
+      {
+        source: '/faqs',
+        destination: '/en/faqs',
+        permanent: false,
+      },
+      {
+        source: '/free-resources',
+        destination: '/en/free-resources',
+        permanent: false,
+      },
+      {
+        source: '/contact',
+        destination: '/en/contact',
+        permanent: false,
+      },
+      {
+        source: '/privacy',
+        destination: '/en/privacy',
+        permanent: false,
+      },
+      {
+        source: '/terms',
+        destination: '/en/terms',
+        permanent: false,
+      },
+      {
+        source: '/products',
+        destination: '/en/products',
+        permanent: false,
+      },
+      
+      // Product page redirects
+      {
+        source: '/promptly',
+        destination: '/en/promptly',
+        permanent: false,
+      },
+      {
+        source: '/teach',
+        destination: '/en/teach',
+        permanent: false,
+      },
+      {
+        source: '/autoplanner',
+        destination: '/en/autoplanner',
+        permanent: false,
+      },
+      {
+        source: '/notably',
+        destination: '/en/notably',
+        permanent: false,
+      },
+      {
+        source: '/spark',
+        destination: '/en/spark',
+        permanent: false,
+      },
+      {
+        source: '/looop',
+        destination: '/en/looop',
+        permanent: false,
+      },
+      {
+        source: '/knowledgecore',
+        destination: '/en/knowledgecore',
         permanent: false,
       },
     ]
