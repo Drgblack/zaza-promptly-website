@@ -1,25 +1,14 @@
 import type { Metadata } from 'next';
-import ProductPage from '@/components/ProductPage';
+import { LooopProductPage } from '@/components/product-pages/looop-product-page';
 
 export const metadata: Metadata = {
-  title: 'Zaza Looop - AI-Powered Language Learning App',
-  description: 'A culturally immersive, AI-powered language learning app that makes learning sticky, fun, and globally connected.',
+  title: 'Zaza Looop - Language Learning That Brings Cultures to Life',
+  description: 'Language learning that brings cultures to life. A culturally immersive AI-powered language learning app for bilingual classrooms and teachers building language skills.',
   alternates: {
     canonical: '/looop',
   },
 };
 
-export default async function LooopPage({
-  params
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-
-  const title = 'Zaza Looop';
-  const description = locale === 'de' 
-    ? 'Eine kulturell immersive, KI-gestützte Sprachlern-App, die Lernen spannend, unterhaltsam und global vernetzt macht.'
-    : 'A culturally immersive, AI-powered language learning app that makes learning sticky, fun, and globally connected.';
-
-  return <ProductPage title={title} description={description} locale={locale} />;
+export default function LooopPage() {
+  return <LooopProductPage />;
 }

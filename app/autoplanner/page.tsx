@@ -1,25 +1,14 @@
 import type { Metadata } from 'next';
-import ProductPage from '@/components/ProductPage';
+import { AutoPlannerProductPage } from '@/components/product-pages/autoplanner-product-page';
 
 export const metadata: Metadata = {
-  title: 'Zaza AutoPlanner - Intelligent Agent for Future Teaching',
-  description: 'The flagship Zaza intelligent agent. Multimodal, adaptive, and classroom-aware lesson planning for the future of teaching.',
+  title: 'Zaza AutoPlanner - The Future of Teaching: AI That Adapts',
+  description: 'Our flagship multimodal AI agent for the future of teaching. Adaptive, classroom-aware, and built to align lessons with curriculum standards in real time.',
   alternates: {
     canonical: '/autoplanner',
   },
 };
 
-export default async function AutoPlannerPage({
-  params
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-
-  const title = 'Zaza AutoPlanner';
-  const description = locale === 'de' 
-    ? 'Das Flaggschiff der Zaza-Intelligenz. Multimodale, adaptive und klassenraumgerechte Unterrichtsplanung für die Zukunft des Lehrens.'
-    : 'The flagship Zaza intelligent agent. Multimodal, adaptive, and classroom-aware lesson planning for the future of teaching.';
-
-  return <ProductPage title={title} description={description} locale={locale} />;
+export default function AutoPlannerPage() {
+  return <AutoPlannerProductPage />;
 }

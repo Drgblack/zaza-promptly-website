@@ -1,25 +1,14 @@
 import type { Metadata } from 'next';
-import ProductPage from '@/components/ProductPage';
+import { TeachProductPage } from '@/components/product-pages/teach-product-page';
 
 export const metadata: Metadata = {
   title: 'Zaza Teach - AI-Powered Lesson Planning Assistant',
-  description: 'Your AI-powered lesson planning assistant. Build engaging, curriculum-aligned lessons faster.',
+  description: 'AI-powered lesson planning that gets your Sunday nights back. Save 3-5 hours per week on planning with curriculum-aligned lessons in minutes, not hours.',
   alternates: {
     canonical: '/teach',
   },
 };
 
-export default async function TeachPage({
-  params
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-
-  const title = 'Zaza Teach';
-  const description = locale === 'de' 
-    ? 'Ihr KI-gestützter Unterrichtsplanungs-Assistent. Erstellen Sie ansprechende, lehrplankonforme Stunden schneller.'
-    : 'Your AI-powered lesson planning assistant. Build engaging, curriculum-aligned lessons faster.';
-
-  return <ProductPage title={title} description={description} locale={locale} />;
+export default function TeachPage() {
+  return <TeachProductPage />;
 }

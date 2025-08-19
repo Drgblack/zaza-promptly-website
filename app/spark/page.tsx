@@ -1,25 +1,14 @@
 import type { Metadata } from 'next';
-import ProductPage from '@/components/ProductPage';
+import { SparkProductPage } from '@/components/product-pages/spark-product-page';
 
 export const metadata: Metadata = {
-  title: 'Zaza Spark (HR) - AI Productivity Suite for HR',
-  description: 'AI productivity suite for HR. Streamline onboarding, training, and employee communication.',
+  title: 'Zaza Spark (HR) - HR Workflows That Actually Work for Schools',
+  description: 'HR workflows that actually work for schools. Streamline teacher onboarding, training schedules, and communication with tools designed for educational environments.',
   alternates: {
     canonical: '/spark',
   },
 };
 
-export default async function SparkPage({
-  params
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-
-  const title = 'Zaza Spark (HR)';
-  const description = locale === 'de' 
-    ? 'KI-Produktivitätssuite für HR. Optimieren Sie Onboarding, Schulungen und Mitarbeiterkommunikation.'
-    : 'AI productivity suite for HR. Streamline onboarding, training, and employee communication.';
-
-  return <ProductPage title={title} description={description} locale={locale} />;
+export default function SparkPage() {
+  return <SparkProductPage />;
 }
