@@ -1,14 +1,14 @@
 import { test, expect } from '@playwright/test';
 
 const requiredPosts = [
-  'parent-email-deescalation-templates',
+  'teach-thinking-student-centred-problem-solving',
   'ai-lesson-planning-2025', 
   'teacher-burnout-prevention-strategies',
   'when-parents-question-everything-you-do'
 ];
 
 const expectedTitles = [
-  'Parent Email De-escalation Templates',
+  'Teach Thinking, Not Just Tasks',
   'AI Lesson Planning Revolution',
   'Teacher Burnout in 2025',
   'When Parents Question Everything'
@@ -125,7 +125,7 @@ test.describe('Blog functionality', () => {
     const testPosts = [
       'ai-lesson-planning-2025',
       'teacher-burnout-prevention-strategies', 
-      'parent-email-deescalation-templates'
+      'teach-thinking-student-centred-problem-solving'
     ];
 
     for (const slug of testPosts) {
@@ -159,11 +159,11 @@ test.describe('Blog functionality', () => {
 
   test('no hero wrapper rendered when coverImage is empty', async ({ page }) => {
     // Test the new post which has empty coverImage
-    await page.goto('/blog/parent-email-deescalation-templates');
+    await page.goto('/blog/teach-thinking-student-centred-problem-solving');
     
     // Check for absence of hero/featured image containers
     const heroSelectors = [
-      'figure img[alt*="Parent Email"]',
+      'figure img[alt*="Teach Thinking"]',
       '.h-64.sm\\:h-80.lg\\:h-96', 
       '[class*="aspect-\\[16\\/9\\]"]'
     ];
@@ -191,9 +191,9 @@ test.describe('Blog functionality', () => {
     expect([301, 302, 307, 308]).toContain(response?.status());
     
     // Verify we ended up on the new article page
-    await expect(page).toHaveURL(/.*parent-email-deescalation-templates/);
+    await expect(page).toHaveURL(/.*teach-thinking-student-centred-problem-solving/);
     
     // Verify new article loads properly
-    await expect(page.locator('h1')).toContainText('Parent Email De-escalation Templates');
+    await expect(page.locator('h1')).toContainText('Teach Thinking, Not Just Tasks');
   });
 });

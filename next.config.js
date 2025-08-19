@@ -118,7 +118,7 @@ const nextConfig = {
       },
       {
         source: '/blog/zaza-promptly-official-launch',
-        destination: '/blog/parent-email-deescalation-templates',
+        destination: '/blog/teach-thinking-student-centred-problem-solving',
         permanent: true,
       },
       
