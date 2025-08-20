@@ -2,18 +2,15 @@ import type { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { FounderImage } from '@/components/FounderImage';
 import Image from 'next/image';
 import { 
   GraduationCap,
   Award,
-  Globe,
-  BookOpen,
   Users,
   Lightbulb,
   ArrowRight,
   Mail,
-  Linkedin
+  ExternalLink
 } from 'lucide-react';
 import Link from 'next/link';
 import { StructuredData } from '@/components/structured-data';
@@ -156,6 +153,204 @@ export default function AboutFounderPage() {
           </div>  
         </section>
 
+        {/* Journey Timeline Section */}
+        <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">The Journey</h2>
+            
+            <div className="space-y-8">
+              {/* Timeline Item */}
+              <div className="flex flex-col md:flex-row gap-6 relative">
+                <div className="md:w-1/3">
+                  <div className="sticky top-8">
+                    <h3 className="text-xl font-bold text-gray-800 mb-1">Painter's Apprenticeship</h3>
+                    <div className="text-indigo-600 font-semibold">1980s</div>
+                  </div>
+                </div>
+                <div className="md:w-2/3 relative">
+                  <div className="hidden md:block absolute -left-8 top-2 w-4 h-4 bg-indigo-600 rounded-full"></div>
+                  <div className="hidden md:block absolute -left-6 top-6 w-px h-full bg-indigo-200"></div>
+                  <Card className="bg-white shadow-md">
+                    <CardContent className="p-6">
+                      <p className="text-gray-700">Started at Cascade Brewery via father's connection at Tas Paints. Learned perseverance by finishing the trade.</p>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+
+              {/* Timeline Item */}
+              <div className="flex flex-col md:flex-row gap-6 relative">
+                <div className="md:w-1/3">
+                  <div className="sticky top-8">
+                    <h3 className="text-xl font-bold text-gray-800 mb-1">World Travel</h3>
+                    <div className="text-indigo-600 font-semibold">Early 1990s</div>
+                  </div>
+                </div>
+                <div className="md:w-2/3 relative">
+                  <div className="hidden md:block absolute -left-8 top-2 w-4 h-4 bg-indigo-600 rounded-full"></div>
+                  <div className="hidden md:block absolute -left-6 top-6 w-px h-full bg-indigo-200"></div>
+                  <Card className="bg-white shadow-md">
+                    <CardContent className="p-6">
+                      <p className="text-gray-700">Backpacked globally, immersed in new cultures, and realised the power of education.</p>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+
+              {/* Timeline Item */}
+              <div className="flex flex-col md:flex-row gap-6 relative">
+                <div className="md:w-1/3">
+                  <div className="sticky top-8">
+                    <h3 className="text-xl font-bold text-gray-800 mb-1">German Language Course</h3>
+                    <div className="text-indigo-600 font-semibold">1994–1995</div>
+                  </div>
+                </div>
+                <div className="md:w-2/3 relative">
+                  <div className="hidden md:block absolute -left-8 top-2 w-4 h-4 bg-indigo-600 rounded-full"></div>
+                  <div className="hidden md:block absolute -left-6 top-6 w-px h-full bg-indigo-200"></div>
+                  <Card className="bg-white shadow-md">
+                    <CardContent className="p-6">
+                      <p className="text-gray-700">Completed a Diploma in German in Frankfurt, which opened doors to university.</p>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+
+              {/* Timeline Item */}
+              <div className="flex flex-col md:flex-row gap-6 relative">
+                <div className="md:w-1/3">
+                  <div className="sticky top-8">
+                    <h3 className="text-xl font-bold text-gray-800 mb-1">UTAS — Information Systems (Honours)</h3>
+                    <div className="text-indigo-600 font-semibold">1995–1999</div>
+                  </div>
+                </div>
+                <div className="md:w-2/3 relative">
+                  <div className="hidden md:block absolute -left-8 top-2 w-4 h-4 bg-indigo-600 rounded-full"></div>
+                  <div className="hidden md:block absolute -left-6 top-6 w-px h-full bg-indigo-200"></div>
+                  <Card className="bg-white shadow-md">
+                    <CardContent className="p-6">
+                      <p className="text-gray-700">University of Tasmania: Information Systems through to Honours.</p>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+
+              {/* Timeline Item */}
+              <div className="flex flex-col md:flex-row gap-6 relative">
+                <div className="md:w-1/3">
+                  <div className="sticky top-8">
+                    <h3 className="text-xl font-bold text-gray-800 mb-1">MBA — The University of Queensland</h3>
+                    <div className="text-indigo-600 font-semibold">2000–2004</div>
+                  </div>
+                </div>
+                <div className="md:w-2/3 relative">
+                  <div className="hidden md:block absolute -left-8 top-2 w-4 h-4 bg-indigo-600 rounded-full"></div>
+                  <div className="hidden md:block absolute -left-6 top-6 w-px h-full bg-indigo-200"></div>
+                  <Card className="bg-white shadow-md">
+                    <CardContent className="p-6">
+                      <p className="text-gray-700">Master of Business Administration.</p>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+
+              {/* Timeline Item */}
+              <div className="flex flex-col md:flex-row gap-6 relative">
+                <div className="md:w-1/3">
+                  <div className="sticky top-8">
+                    <h3 className="text-xl font-bold text-gray-800 mb-1">PhD — Professional Education</h3>
+                    <div className="text-indigo-600 font-semibold">2016–2019</div>
+                  </div>
+                </div>
+                <div className="md:w-2/3 relative">
+                  <div className="hidden md:block absolute -left-8 top-2 w-4 h-4 bg-indigo-600 rounded-full"></div>
+                  <div className="hidden md:block absolute -left-6 top-6 w-px h-full bg-indigo-200"></div>
+                  <Card className="bg-white shadow-md">
+                    <CardContent className="p-6">
+                      <p className="text-gray-700">City, University of London: research in educational technology and professional development.</p>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+
+              {/* Timeline Item */}
+              <div className="flex flex-col md:flex-row gap-6 relative">
+                <div className="md:w-1/3">
+                  <div className="sticky top-8">
+                    <h3 className="text-xl font-bold text-gray-800 mb-1">Zaza Technologies</h3>
+                    <div className="text-indigo-600 font-semibold">2025</div>
+                  </div>
+                </div>
+                <div className="md:w-2/3 relative">
+                  <div className="hidden md:block absolute -left-8 top-2 w-4 h-4 bg-indigo-600 rounded-full"></div>
+                  <Card className="bg-white shadow-md">
+                    <CardContent className="p-6">
+                      <p className="text-gray-700">Founded to build teacher-first AI tools, informed by decades of work across education and professional learning.</p>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Leadership in Learning & Development Section */}
+        <section className="py-16 bg-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Leadership in Learning & Development</h2>
+            
+            <div className="text-center mb-8">
+              <p className="text-xl text-gray-600">
+                Work focused on helping educators and teams learn faster, adopt better practices, and turn ideas into classroom impact.
+              </p>
+            </div>
+
+            <Card className="bg-gradient-to-br from-indigo-50 to-purple-50 border-indigo-100">
+              <CardContent className="p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-indigo-600 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-gray-700">Designs professional learning experiences grounded in evidence and practical tools.</p>
+                    </div>
+                    
+                    <div className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-indigo-600 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-gray-700">Builds scalable resources that reduce workload and improve feedback quality.</p>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-indigo-600 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-gray-700">Leads cross-functional edtech projects from research to shipped teacher workflows.</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-indigo-600 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-gray-700">Partners with educators to co-design safe, school-ready AI practices.</p>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-indigo-600 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-gray-700">Speaks and writes on teacher workload, AI safety, and professional learning.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-8 text-center">
+                  <Button asChild variant="outline" className="border-indigo-600 text-indigo-600 hover:bg-indigo-50">
+                    <Link href="/promptly">
+                      <ArrowRight className="w-4 h-4 mr-2" />
+                      Explore how Promptly helps teachers
+                    </Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
         {/* Contact Section */}
         <section className="py-16 bg-gradient-to-br from-gray-50 to-indigo-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -173,8 +368,8 @@ export default function AboutFounderPage() {
               </Button>
               
               <Button asChild variant="outline" size="lg" className="border-indigo-600 text-indigo-600 hover:bg-indigo-50">
-                <Link href="https://linkedin.com/in/gregblackburn" target="_blank" rel="noopener noreferrer">
-                  <Linkedin className="w-5 h-5 mr-2" />
+                <Link href="https://www.linkedin.com/in/drgregblackburn/" target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="w-5 h-5 mr-2" />
                   View LinkedIn Profile
                 </Link>
               </Button>
