@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getStripeOrError } from '@/lib/stripe';
+import { getStripe } from '@/lib/stripe';
 
 export const dynamic = "force-dynamic"; // ensure server-only runtime
 
@@ -12,20 +12,18 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Session ID is required' }, { status: 400 });
     }
 
-    // Get Stripe client with graceful error handling
-    const stripeResult = getStripeOrError();
-    if ('error' in stripeResult) {
+    // Get Stripe client
+    const stripe = getStripe();
+    if (!stripe) {
       return NextResponse.json({ 
-        error: stripeResult.error,
+        error: 'Payment processing is temporarily unavailable',
         testMode: true,
         sessionId,
         planType: 'Pro Plan',
         amount: '$14.99',
         email: 'test@example.com'
-      }, { status: stripeResult.status });
+      }, { status: 503 });
     }
-    
-    const stripe = stripeResult.stripe;
 
     // Retrieve the checkout session from Stripe
     const session = await stripe.checkout.sessions.retrieve(sessionId, {

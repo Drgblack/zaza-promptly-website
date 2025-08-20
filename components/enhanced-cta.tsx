@@ -171,8 +171,8 @@ export function HeroCTASection() {
       <EnhancedCTA
         variant="secondary"
         size="lg"
-        action="try-promptly"
-        text="Save Hours This Week"
+        action="start-free"
+        text="Start Free Trial"
         trackingLabel="hero_primary"
         className="w-full sm:w-auto"
       />
@@ -180,7 +180,7 @@ export function HeroCTASection() {
         variant="outline"
         size="lg"
         action="see-demo"
-        text="See It In Action"
+        text="Learn More"
         trackingLabel="hero_demo"
         className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-blue-900"
       />

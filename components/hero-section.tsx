@@ -21,9 +21,9 @@ export function HeroSection() {
         <header>
           <h1>
             <AnimatedWords 
-              text="You know your students better than anyone."
+              text="AI Comments. Done in Seconds."
               className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight"
-              highlightWords={["students", "better"]}
+              highlightWords={["AI Comments", "Seconds"]}
             />
           </h1>
 
@@ -35,7 +35,7 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.2, ease: "easeOut" }}
           >
-            Join 12,000+ teachers who've reclaimed their evenings with hallucination-safe AI designed by a PhD educator. Get professional parent communication and report comments in minutes, not hours.
+            Zaza Promptly helps teachers write parent messages without stress, saving hours every week.
           </motion.p>
         </header>
 

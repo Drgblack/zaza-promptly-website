@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getStripeOrError } from '@/lib/stripe';
+import { getStripe } from '@/lib/stripe';
 
 export const dynamic = "force-dynamic"; // ensure server-only runtime
 
@@ -93,16 +93,14 @@ async function createCheckoutSession({
       return NextResponse.json({ error: 'Price ID or plan is required' }, { status: 400 });
     }
 
-    // Get Stripe client with environment-aware configuration
-    const stripeResult = getStripeOrError();
-    if ('error' in stripeResult) {
+    // Get Stripe client
+    const stripe = getStripe();
+    if (!stripe) {
       return NextResponse.json({ 
-        error: stripeResult.error,
+        error: 'Payment processing is temporarily unavailable',
         testMode: true 
-      }, { status: stripeResult.status });
+      }, { status: 503 });
     }
-    
-    const { stripe, config } = stripeResult;
 
   // Enhanced product configurations with new pricing structure
   const products = {
@@ -238,8 +236,8 @@ async function createCheckoutSession({
   return NextResponse.json({ 
     url: checkoutSession.url,
     sessionId: checkoutSession.id,
-    testMode: !config.isLive,
-    environment: config.environment,
+    testMode: !process.env.STRIPE_SECRET_KEY?.startsWith('sk_live_'),
+    environment: process.env.NODE_ENV || 'development',
     plan: plan || 'custom',
     amount: selectedProduct ? `$${(selectedProduct.price / 100).toFixed(2)}` : null
   });
