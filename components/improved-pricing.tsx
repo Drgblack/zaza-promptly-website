@@ -41,7 +41,7 @@ export function ImprovedPricing({ className = "" }: ImprovedPricingProps) {
         id: 'pro-monthly',
         name: 'Zaza Promptly Pro',
         price: '$14.99',
-        originalPrice: null,
+        originalPrice: null, // Cache refresh: 2025-08-20-v2
         description: 'Perfect for individual teachers',
         popular: true,
         savings: null,
