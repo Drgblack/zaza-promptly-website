@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from 'react'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ArrowRight, Star } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useAnalytics } from '@/hooks/useAnalytics'
 
@@ -92,6 +92,10 @@ export function SocialProofSection() {
     const newIndex = (currentIndex + 1) % testimonials.length
     setCurrentIndex(newIndex)
     trackEvent('button_click', { button_text: 'carousel_next', section: 'social_proof', value: newIndex })
+  }
+
+  const handleCTAClick = (action: string) => {
+    trackEvent('button_click', { button_text: action, section: 'social_proof' })
   }
 
   return (
@@ -188,6 +192,46 @@ export function SocialProofSection() {
             aria-atomic="true"
           >
             {`Testimonial ${currentIndex + 1} of ${testimonials.length}: ${testimonials[currentIndex].quote} by ${testimonials[currentIndex].author}`}
+          </div>
+        </div>
+
+        {/* Strong CTA Section */}
+        <div className="mt-16 text-center bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-200">
+          <div className="flex justify-center mb-4">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <Star key={star} className="w-6 h-6 text-yellow-500 fill-current" />
+            ))}
+          </div>
+          <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+            Join 12,000+ teachers saving hours weekly
+          </h3>
+          <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
+            Safe, GDPR-compliant AI built by Dr. Greg Blackburn (PhD in Professional Education) specifically for classroom professionals.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button
+              size="lg"
+              onClick={() => {
+                handleCTAClick('save_time_lesson_plans')
+                // Scroll to demo or signup section
+                const demoSection = document.getElementById('demo-section')
+                if (demoSection) {
+                  demoSection.scrollIntoView({ behavior: 'smooth' })
+                }
+              }}
+              className="w-full sm:w-auto bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+            >
+              Save time on your next lesson plan
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={() => handleCTAClick('view_more_testimonials')}
+              className="w-full sm:w-auto border-2 border-green-300 text-green-700 hover:bg-green-50 font-semibold px-8 py-4 text-lg rounded-full transition-all duration-200"
+            >
+              See more teacher stories
+            </Button>
           </div>
         </div>
       </div>

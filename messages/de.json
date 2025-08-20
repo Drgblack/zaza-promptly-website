@@ -1,2 +1,282 @@
-{ "Navigation": { "home": "Startseite", "about": "Über uns", "features": "Funktionen", "pricing": "Preise", "blog": "Blog", "resources": "Kostenlose Ressourcen", "support": "Support", "getStarted": "Loslegen", "tryFree": "Kostenlos testen", "signIn": "Anmelden" }, "Hero": { "headline": "Nehmen Sie sich die Last ab - schreiben Sie einfühlsame, professionelle Elternnachrichten in Minuten, nicht Stunden.", "subheadline": "Promptly ist Ihr unterstützender Partner, wenn Sie zu müde sind, die richtigen Worte zu finden.", "primaryCta": "Kostenlose Testversion", "secondaryCta": "Demo ansehen", "trustText": "Vertraut von 12.000+ Lehrern weltweit", "features": { "aiComments": "KI-gestützte Kommentare", "parentMessages": "Elternkommunikation", "timeSaving": "5+ Stunden wöchentlich gespart", "multilingual": "Mehrsprachiger Support" } }, "Features": { "title": "Alles was Sie für effektives Unterrichten brauchen", "subtitle": "Weniger Stress, mehr Energie für das, was zählt: Ihre Schüler. Mit einfühlsamen Tools, die speziell für Pädagogen entwickelt wurden.", "aiComments": { "title": "Schreiben Sie mit Wärme und Selbstvertrauen", "description": "Promptly schlägt einfühlsame Formulierungen, Schlusszeilen und Tonanpassungen vor. Für Lehrer entwickelt, mit vertrauenswürdigen Leitplanken - sicher, professionell und klassenzimmerbereit." }, "parentCommunication": { "title": "Elternkommunikation", "description": "Erstellen Sie klare, einfühlsame Nachrichten an Eltern, die Vertrauen aufbauen und die Beziehung zwischen Schule und Zuhause stärken." }, "multiLanguage": { "title": "Mehrsprachiger Support", "description": "Kommunizieren Sie mit vielfältigen Familien in ihrer bevorzugten Sprache mit automatischen Übersetzungsfunktionen." }, "timeSaving": { "title": "Weniger Stress, mehr Energie für das, was zählt", "description": "Lehrer sind bereits überlastet. Promptly hilft dabei, die Belastung zu mindern, damit Sie sich auf das Unterrichten konzentrieren können." }, "dataPrivacy": { "title": "Schülerdaten-Datenschutz", "description": "Sicherheit auf Unternehmensniveau stellt sicher, dass alle Schülerinformationen privat und geschützt bleiben." }, "easyIntegration": { "title": "Einfache Integration", "description": "Funktioniert nahtlos mit Ihren bestehenden Tools und Arbeitsabläufen. Keine komplexe Einrichtung erforderlich." } }, "AboutFounder": { "title": "Über den Gründer", "subtitle": "Lernen Sie Dr. Greg Blackburn kennen", "description": "Promovierter Pädagoge, EdTech-Experte und Gründer von Zaza Technologies", "bio": "Dr. Greg Blackburn ist ein weltweit anerkannter EdTech-Experte, promovierter Pädagoge und Gründer von Zaza Technologies. Mit über 20 Jahren Erfahrung im digitalen Lernen und Instructional Design hat Greg Tools entwickelt, die von tausenden von Lehrern weltweit genutzt werden.", "mission": "Meine Mission ist einfach: Lehrern zu helfen, die Überlastung zu bewältigen, damit sie sich auf das konzentrieren können, was sie am besten können - die nächste Generation zu inspirieren und zu bilden.", "experience": { "title": "Erfahrung & Expertise", "education": "PhD in Bildungstechnologie", "years": "20+ Jahre in EdTech", "teachers": "Unterstützung von 12.000+ Lehrern weltweit", "innovation": "Pionier in KI-gestützten Bildungstools" }, "contact": { "title": "Kontakt aufnehmen", "email": "Per E-Mail verbinden", "linkedin": "LinkedIn-Profil ansehen" } }, "Pricing": { "title": "Wählen Sie Ihren Tarif", "subtitle": "Starten Sie kostenlos, upgraden Sie wenn Sie bereit sind. Alle Tarife beinhalten Schülerdaten-Datenschutz.", "free": { "title": "Kostenlos", "price": "0€", "period": "für immer", "description": "Perfekt zum Ausprobieren von Zaza Promptly", "features": [ "5 KI-Kommentare pro Monat", "Basis-Elternmitteilungsvorlagen", "Schülerdaten-Datenschutz", "Community-Support" ], "cta": "Kostenlos starten" }, "pro": { "title": "Pro", "price": "12€", "period": "pro Monat", "description": "Für einzelne Lehrer, die unbegrenzten Zugang wollen", "features": [ "Unbegrenzte KI-Kommentare", "Erweiterte Elternkommunikations-Tools", "Mehrsprachiger Support", "Priority E-Mail Support", "Individuelle Kommentarstile", "Klassenstufenspezifische Vorlagen" ], "cta": "7-Tage kostenlose Testversion", "popular": "Am beliebtesten" }, "school": { "title": "Schule", "price": "8€", "period": "pro Lehrer/Monat", "description": "Für Schulen und Bezirke (mindestens 5 Lehrer)", "features": [ "Alles aus Pro", "Admin-Dashboard", "Nutzungsanalysen", "Bulk-Benutzerverwaltung", "Individuelle Integrationen", "Persönlicher Account-Manager" ], "cta": "Vertrieb kontaktieren" }, "moneyBack": "30 Tage Geld-zurück-Garantie", "noSetup": "Keine Einrichtungsgebühren", "cancelAnytime": "Jederzeit kündbar" }, "Common": { "loading": "Wird geladen...", "error": "Etwas ist schief gelaufen", "tryAgain": "Erneut versuchen", "save": "Speichern", "cancel": "Abbrechen", "continue": "Weiter", "back": "Zurück", "next": "Weiter", "previous": "Vorherige", "close": "Schließen", "readMore": "Mehr lesen", "learnMore": "Mehr erfahren" }, "Footer": { "tagline": "KI für Pädagogen", "description": "Wir unterstützen Lehrer weltweit mit einfühlsamen Tools, die die Belastung reduzieren und mehr Raum für das schaffen, was wirklich zählt.", "quickLinks": { "title": "Schnellzugriff", "home": "Startseite", "features": "Funktionen", "pricing": "Preise", "about": "Über uns", "blog": "Blog", "support": "Support" }, "resources": { "title": "Ressourcen", "freeResources": "Kostenlose Ressourcen", "help": "Hilfe-Center", "tutorials": "Tutorials", "community": "Community", "api": "API-Docs" }, "legal": { "title": "Rechtliches", "privacy": "Datenschutzrichtlinie", "terms": "Nutzungsbedingungen", "cookies": "Cookie-Richtlinie", "gdpr": "DSGVO-Konformität" }, "newsletter": { "title": "Bleiben Sie auf dem Laufenden", "description": "Erhalten Sie die neuesten Tipps, Updates und Ressourcen direkt in Ihr Postfach.", "placeholder": "E-Mail-Adresse eingeben", "subscribe": "Abonnieren", "success": "Danke für das Abonnement!", "error": "Bitte geben Sie eine gültige E-Mail-Adresse ein" }, "social": { "title": "Folgen Sie uns", "twitter": "Folgen Sie uns auf Twitter", "linkedin": "Auf LinkedIn vernetzen", "tiktok": "Auf TikTok anschauen" }, "copyright": "© 2025 Zaza Technologies. Alle Rechte vorbehalten." }
+{ 
+  "Navigation": { 
+    "home": "Startseite", 
+    "about": "Über uns", 
+    "features": "Funktionen", 
+    "pricing": "Preise", 
+    "blog": "Blog", 
+    "resources": "Kostenlose Ressourcen", 
+    "support": "Support", 
+    "getStarted": "Loslegen", 
+    "tryFree": "Kostenlos testen", 
+    "signIn": "Anmelden" 
+  }, 
+  "Hero": { 
+    "headline": "Nehmen Sie sich die Last ab - schreiben Sie einfühlsame, professionelle Elternnachrichten in Minuten, nicht Stunden.", 
+    "subheadline": "Promptly ist Ihr unterstützender Partner, wenn Sie zu müde sind, die richtigen Worte zu finden.", 
+    "primaryCta": "Kostenlose Testversion", 
+    "secondaryCta": "Demo ansehen", 
+    "trustText": "Vertraut von 12.000+ Lehrern weltweit", 
+    "features": { 
+      "aiComments": "KI-gestützte Kommentare", 
+      "parentMessages": "Elternkommunikation", 
+      "timeSaving": "5+ Stunden wöchentlich gespart", 
+      "multilingual": "Mehrsprachiger Support" 
+    } 
+  }, 
+  "Features": { 
+    "title": "Alles was Sie für effektives Unterrichten brauchen", 
+    "subtitle": "Weniger Stress, mehr Energie für das, was zählt: Ihre Schüler. Mit einfühlsamen Tools, die speziell für Pädagogen entwickelt wurden.", 
+    "aiComments": { 
+      "title": "Schreiben Sie mit Wärme und Selbstvertrauen", 
+      "description": "Promptly schlägt einfühlsame Formulierungen, Schlusszeilen und Tonanpassungen vor. Für Lehrer entwickelt, mit vertrauenswürdigen Leitplanken - sicher, professionell und klassenzimmerbereit." 
+    }, 
+    "parentCommunication": { 
+      "title": "Elternkommunikation", 
+      "description": "Erstellen Sie klare, einfühlsame Nachrichten an Eltern, die Vertrauen aufbauen und die Beziehung zwischen Schule und Zuhause stärken." 
+    }, 
+    "multiLanguage": { 
+      "title": "Mehrsprachiger Support", 
+      "description": "Kommunizieren Sie mit vielfältigen Familien in ihrer bevorzugten Sprache mit automatischen Übersetzungsfunktionen." 
+    }, 
+    "timeSaving": { 
+      "title": "Weniger Stress, mehr Energie für das, was zählt", 
+      "description": "Lehrer sind bereits überlastet. Promptly hilft dabei, die Belastung zu mindern, damit Sie sich auf das Unterrichten konzentrieren können." 
+    }, 
+    "dataPrivacy": { 
+      "title": "Schülerdaten-Datenschutz", 
+      "description": "Sicherheit auf Unternehmensniveau stellt sicher, dass alle Schülerinformationen privat und geschützt bleiben." 
+    }, 
+    "easyIntegration": { 
+      "title": "Einfache Integration", 
+      "description": "Funktioniert nahtlos mit Ihren bestehenden Tools und Arbeitsabläufen. Keine komplexe Einrichtung erforderlich." 
+    } 
+  }, 
+  "AboutFounder": { 
+    "title": "Über den Gründer", 
+    "subtitle": "Lernen Sie Dr. Greg Blackburn kennen", 
+    "description": "Promovierter Pädagoge, EdTech-Experte und Gründer von Zaza Technologies", 
+    "bio": "Dr. Greg Blackburn ist ein weltweit anerkannter EdTech-Experte, promovierter Pädagoge und Gründer von Zaza Technologies. Mit über 20 Jahren Erfahrung im digitalen Lernen und Instructional Design hat Greg Tools entwickelt, die von tausenden von Lehrern weltweit genutzt werden.", 
+    "mission": "Meine Mission ist einfach: Lehrern zu helfen, die Überlastung zu bewältigen, damit sie sich auf das konzentrieren können, was sie am besten können - die nächste Generation zu inspirieren und zu bilden.", 
+    "experience": { 
+      "title": "Erfahrung & Expertise", 
+      "education": "PhD in Bildungstechnologie", 
+      "years": "20+ Jahre in EdTech", 
+      "teachers": "Unterstützung von 12.000+ Lehrern weltweit", 
+      "innovation": "Pionier in KI-gestützten Bildungstools" 
+    }, 
+    "contact": { 
+      "title": "Kontakt aufnehmen", 
+      "email": "Per E-Mail verbinden", 
+      "linkedin": "LinkedIn-Profil ansehen" 
+    } 
+  },
+  "TrustBadges": {
+    "phdEducatorBuilt": {
+      "title": "Von PhD-Pädagoge entwickelt",
+      "description": "Dr. Greg Blackburn: PhD in Berufspädagogik, 20+ Jahre Unterrichtserfahrung"
+    },
+    "hallucinationSafe": {
+      "title": "Halluzinations-sichere KI",
+      "description": "Erfindet niemals falsche Informationen über Schüler - garantierte Genauigkeit"
+    },
+    "teacherTrusted": {
+      "title": "12.000+ Lehrer weltweit",
+      "description": "Pädagogen in Deutschland, UK, USA, Australien vertrauen unserer sicheren KI"
+    },
+    "gdprCompliant": {
+      "title": "DSGVO-konform & schulsicher",
+      "description": "EU-Datenschutzstandards, trainiert niemals mit Ihren Daten, schulzugelassen"
+    },
+    "professionalEducation": {
+      "title": "Professioneller Bildungsfokus", 
+      "description": "Versteht Lehrplan, Pädagogik und professionelle Kommunikationsstandards"
+    },
+    "backedByEducators": {
+      "title": "Von Pädagogen unterstützt",
+      "description": "Entwickelt mit Input von Lehrern, Schulleitern und Bildungsexperten"
+    },
+    "educationResearchBased": {
+      "title": "Bildungsforschungs-basiert",
+      "description": "Basiert auf bewährten pädagogischen Prinzipien und evidenzbasierten Lehrmethoden"
+    },
+    "safeForTeachers": {
+      "title": "Sicher für Lehrer",
+      "description": "Speziell für Pädagogen entwickelt mit integrierten Klassenzimmer-Sicherheitsfeatures"
+    },
+    "pedagogicallySound": {
+      "title": "Pädagogisch fundiert",
+      "description": "Jede Funktion entspricht Best Practices in Berufspädagogik und Schülerentwicklung"
+    },
+    "teacherTimeSaver": {
+      "title": "Bewährter Zeitsparer",
+      "description": "12.000+ Lehrer sparen 5+ Stunden wöchentlich mit unseren lehrerorientierten KI-Tools"
+    }
+  },
+  "Testimonials": {
+    "sarahManchester": {
+      "quote": "Ich habe meine Sonntagabende zurückbekommen! Was früher drei Stunden Berichtschreiben waren, sind jetzt 45 Minuten. Die Kommentare sind durchdachter als das, was ich vorher geschrieben habe — Eltern haben mir tatsächlich für die Klarheit gedankt.",
+      "author": "Sarah Thompson",
+      "location": "Manchester, UK",
+      "role": "6. Klasse Lehrerin, 8 Jahre Erfahrung"
+    },
+    "jakeTexas": {
+      "quote": "Entwickelt von Dr. Greg Blackburn, einem promovierten Pädagogen, versteht Promptly die Nuancen der Schulkommunikation besser als jedes generische KI-Tool. Es ist wie einen Kollegen zu haben, der auch ein Schreibexperte ist.",
+      "author": "Jake Morrison",
+      "location": "Dallas, TX",
+      "role": "Geschichtslehrer Gymnasium"
+    },
+    "emmaSydney": {
+      "quote": "Als neue Lehrerin hatte ich Schwierigkeiten mit dem professionellen Ton in Eltern-E-Mails. Promptly's Vorschläge halfen mir, Selbstvertrauen aufzubauen und mit der Autorität zu kommunizieren, die Eltern vom Lehrer ihres Kindes erwarten.",
+      "author": "Emma Clarke",
+      "location": "Sydney, Australien",
+      "role": "Grundschullehrerin, 2. Jahr"
+    },
+    "priyaOxford": {
+      "quote": "Die DSGVO-Konformität und Datenschutzfunktionen geben mir vollständiges Vertrauen. Ich kann Promptly nutzen und weiß, dass die Privatsphäre der Schüler niemals kompromittiert wird - unverzichtbar in der heutigen Bildungslandschaft.",
+      "author": "Dr. Priya Patel",
+      "location": "Oxford, UK",
+      "role": "Stellvertretende Direktorin & Kinderschutzbeauftragte"
+    },
+    "thomasMunich": {
+      "quote": "Promptly funktioniert nahtlos in mehreren Sprachen. Bei der Kommunikation mit unserer vielfältigen Elterngemeinschaft hilft es mir, Professionalität zu wahren und gleichzeitig kulturell sensibel zu sein.",
+      "author": "Thomas Mueller",
+      "location": "München, Deutschland",
+      "role": "Internationale Schule Koordinator"
+    }
+  },
+  "CTAs": {
+    "trySnippetNow": "Jetzt einen Textbaustein ausprobieren",
+    "joinWaitlist": "Auf die Warteliste",
+    "saveTimeNextLessonPlan": "Zeit bei Ihrem nächsten Stundenplan sparen", 
+    "seeMoreTeacherStories": "Mehr Lehrergeschichten sehen",
+    "readyToSaveHours": "Bereit, diese Woche Stunden zu sparen?",
+    "join12000Teachers": "Schließen Sie sich 12.000+ Lehrern an, die wöchentlich Stunden sparen",
+    "safeGDPRCompliant": "Sichere, DSGVO-konforme KI von Dr. Greg Blackburn (PhD in Berufspädagogik) speziell für Klassenzimmer-Profis entwickelt.",
+    "joinTeachersUsing": "Schließen Sie sich 12.000+ Lehrern an, die von Pädagogen entwickelte KI nutzen. Probieren Sie Ihren ersten Textbaustein jetzt aus."
+  },
+  "CorePromises": {
+    "title": "Was Promptly für Sie tut",
+    "subtitle": "Entwickelt von Dr. Greg Blackburn (PhD in Berufspädagogik), um die größten Kommunikationsprobleme von Lehrern zu lösen",
+    "saveHours": {
+      "title": "Stunden sparen",
+      "description": "Erstellen Sie fürsorgliche, professionelle Kommentare in Minuten - nicht am Sonntagabend."
+    },
+    "personalProfessional": {
+      "title": "Persönlich + professionell",
+      "description": "Klingt wie Sie. Behält Schulton und -erwartungen bei."
+    },
+    "builtForClassrooms": {
+      "title": "Für echte Klassenzimmer gemacht",
+      "description": "Vorlagen für Elternnachrichten, Berichte, Feedback - abgestimmt und praktisch."
+    }
+  },
+  "Pricing": { 
+    "title": "Wählen Sie Ihren Tarif", 
+    "subtitle": "Starten Sie kostenlos, upgraden Sie wenn Sie bereit sind. Alle Tarife beinhalten Schülerdaten-Datenschutz.", 
+    "free": { 
+      "title": "Kostenlos", 
+      "price": "0€", 
+      "period": "für immer", 
+      "description": "Perfekt zum Ausprobieren von Zaza Promptly", 
+      "features": [ 
+        "5 KI-Kommentare pro Monat", 
+        "Basis-Elternmitteilungsvorlagen", 
+        "Schülerdaten-Datenschutz", 
+        "Community-Support" 
+      ], 
+      "cta": "Kostenlos starten" 
+    }, 
+    "pro": { 
+      "title": "Pro", 
+      "price": "12€", 
+      "period": "pro Monat", 
+      "description": "Für einzelne Lehrer, die unbegrenzten Zugang wollen", 
+      "features": [ 
+        "Unbegrenzte KI-Kommentare", 
+        "Erweiterte Elternkommunikations-Tools", 
+        "Mehrsprachiger Support", 
+        "Priority E-Mail Support", 
+        "Individuelle Kommentarstile", 
+        "Klassenstufenspezifische Vorlagen" 
+      ], 
+      "cta": "7-Tage kostenlose Testversion", 
+      "popular": "Am beliebtesten" 
+    }, 
+    "school": { 
+      "title": "Schule", 
+      "price": "8€", 
+      "period": "pro Lehrer/Monat", 
+      "description": "Für Schulen und Bezirke (mindestens 5 Lehrer)", 
+      "features": [ 
+        "Alles aus Pro", 
+        "Admin-Dashboard", 
+        "Nutzungsanalysen", 
+        "Bulk-Benutzerverwaltung", 
+        "Individuelle Integrationen", 
+        "Persönlicher Account-Manager" 
+      ], 
+      "cta": "Vertrieb kontaktieren" 
+    }, 
+    "moneyBack": "30 Tage Geld-zurück-Garantie", 
+    "noSetup": "Keine Einrichtungsgebühren", 
+    "cancelAnytime": "Jederzeit kündbar" 
+  }, 
+  "Common": { 
+    "loading": "Wird geladen...", 
+    "error": "Etwas ist schief gelaufen", 
+    "tryAgain": "Erneut versuchen", 
+    "save": "Speichern", 
+    "cancel": "Abbrechen", 
+    "continue": "Weiter", 
+    "back": "Zurück", 
+    "next": "Weiter", 
+    "previous": "Vorherige", 
+    "close": "Schließen", 
+    "readMore": "Mehr lesen", 
+    "learnMore": "Mehr erfahren" 
+  }, 
+  "Footer": { 
+    "tagline": "KI für Pädagogen", 
+    "description": "Wir unterstützen Lehrer weltweit mit einfühlsamen Tools, die die Belastung reduzieren und mehr Raum für das schaffen, was wirklich zählt.", 
+    "quickLinks": { 
+      "title": "Schnellzugriff", 
+      "home": "Startseite", 
+      "features": "Funktionen", 
+      "pricing": "Preise", 
+      "about": "Über uns", 
+      "blog": "Blog", 
+      "support": "Support" 
+    }, 
+    "resources": { 
+      "title": "Ressourcen", 
+      "freeResources": "Kostenlose Ressourcen", 
+      "help": "Hilfe-Center", 
+      "tutorials": "Tutorials", 
+      "community": "Community", 
+      "api": "API-Docs" 
+    }, 
+    "legal": { 
+      "title": "Rechtliches", 
+      "privacy": "Datenschutzrichtlinie", 
+      "terms": "Nutzungsbedingungen", 
+      "cookies": "Cookie-Richtlinie", 
+      "gdpr": "DSGVO-Konformität" 
+    }, 
+    "newsletter": { 
+      "title": "Bleiben Sie auf dem Laufenden", 
+      "description": "Erhalten Sie die neuesten Tipps, Updates und Ressourcen direkt in Ihr Postfach.", 
+      "placeholder": "E-Mail-Adresse eingeben", 
+      "subscribe": "Abonnieren", 
+      "success": "Danke für das Abonnement!", 
+      "error": "Bitte geben Sie eine gültige E-Mail-Adresse ein" 
+    }, 
+    "social": { 
+      "title": "Folgen Sie uns", 
+      "twitter": "Folgen Sie uns auf Twitter", 
+      "linkedin": "Auf LinkedIn vernetzen", 
+      "tiktok": "Auf TikTok anschauen" 
+    }, 
+    "copyright": "© 2025 Zaza Technologies. Alle Rechte vorbehalten." 
+  }
 }

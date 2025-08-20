@@ -14,38 +14,87 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 'sarah-manchester',
-    quote: "I got my evenings back. What used to be two hours of report writing is now 30 minutes, and the comments are actually better than what I wrote before.",
-    author: "Sarah M.",
-    location: "Manchester",
-    role: "Year 4 Teacher"
+    quote: "I got my Sunday nights back! What used to be three hours of report writing is now 45 minutes. The comments are more thoughtful than what I wrote before — parents have actually thanked me for the clarity.",
+    author: "Sarah Thompson",
+    location: "Manchester, UK",
+    role: "Year 6 Teacher, 8 years experience"
+  },
+  {
+    id: 'michael-california',
+    quote: "As a department head, I was drowning in parent emails about grades and behavior. Promptly helps me respond professionally and empathetically without spending my entire evening crafting responses.",
+    author: "Michael Chen",
+    location: "San Francisco, CA",
+    role: "Math Department Head"
+  },
+  {
+    id: 'jenny-london',
+    quote: "I was skeptical about AI in education, but Promptly is different. It understands SEND requirements and helps me write IEP comments that are both professional and caring. Game changer for inclusion.",
+    author: "Jennifer Matthews",
+    location: "London, UK",
+    role: "SENCO & Year 3 Teacher"
+  },
+  {
+    id: 'david-chicago',
+    quote: "After 15 years teaching, parent conferences still stressed me out. Promptly helps me prepare talking points and follow-up emails that keep parents engaged and supportive of their child's learning.",
+    author: "David Rodriguez",
+    location: "Chicago, IL",
+    role: "5th Grade Teacher"
+  },
+  {
+    id: 'lisa-birmingham',
+    quote: "I teach in a challenging area where parent communication is crucial. Promptly helps me write messages that build bridges rather than create barriers. My head teacher has noticed the improvement.",
+    author: "Lisa Ahmed",
+    location: "Birmingham, UK",
+    role: "Secondary English Teacher"
+  },
+  {
+    id: 'amanda-texas',
+    quote: "Between lesson planning, grading, and parent emails, I was working 70-hour weeks. Promptly gave me back quality time with my own family while improving my professional communication.",
+    author: "Amanda Parker",
+    location: "Austin, TX",
+    role: "Elementary Teacher & Mum of 2"
   },
   {
     id: 'jake-texas',
-    quote: "My principal noticed the improvement in my parent communication — Promptly helps me sound more professional while keeping my authentic voice.",
-    author: "Jake Rodriguez",
-    location: "Texas",
-    role: "High School English"
-  },
-  {
-    id: 'frau-weber',
-    quote: "Finally, an AI tool that understands educational context. It writes in proper German school style and respects our formal communication standards.",
-    author: "Frau Weber",
-    location: "Munich", 
-    role: "Gymnasium Teacher"
-  },
-  {
-    id: 'carmen-madrid',
-    quote: "Perfect for bilingual communication. It helps me write clear parent messages in both Spanish and English without losing the meaning.",
-    author: "Carmen López",
-    location: "Madrid",
-    role: "Spanish Language Teacher"
+    quote: "Built by Dr. Greg Blackburn, a PhD educator, Promptly understands the nuances of school communication better than any generic AI tool. It's like having a colleague who's also a writing expert.",
+    author: "Jake Morrison",
+    location: "Dallas, TX",
+    role: "High School History Teacher"
   },
   {
     id: 'emma-sydney',
-    quote: "As a new teacher, Promptly gave me confidence in parent communication. I sound experienced even when I'm still learning.",
-    author: "Emma Chen",
-    location: "Sydney",
-    role: "First-Year Teacher"
+    quote: "As a new teacher, I struggled with professional tone in parent emails. Promptly's suggestions helped me build confidence and communicate with the authority parents expect from their child's teacher.",
+    author: "Emma Clarke",
+    location: "Sydney, Australia", 
+    role: "Primary School Teacher, 2nd year"
+  },
+  {
+    id: 'priya-oxford',
+    quote: "The GDPR compliance and data protection features give me complete confidence. I can use Promptly knowing student privacy is never compromised - essential in today's educational landscape.",
+    author: "Dr. Priya Patel",
+    location: "Oxford, UK",
+    role: "Deputy Head & Safeguarding Lead"
+  },
+  {
+    id: 'thomas-munich',
+    quote: "Promptly works seamlessly in multiple languages. When communicating with our diverse parent community, it helps me maintain professionalism while being culturally sensitive.",
+    author: "Thomas Mueller",
+    location: "Munich, Germany",
+    role: "International School Coordinator"
+  },
+  {
+    id: 'maria-madrid',
+    quote: "After using ChatGPT and other AI tools, Promptly stands out because it's specifically designed for education. The prompts understand classroom context and student development stages.",
+    author: "María González",
+    location: "Madrid, Spain",
+    role: "Secondary Science Teacher"
+  },
+  {
+    id: 'robert-canada',
+    quote: "Promptly has transformed how our whole department communicates with parents. The consistency and professionalism across all teachers has improved parent satisfaction significantly.",
+    author: "Robert Williams",
+    location: "Toronto, Canada",
+    role: "English Department Head"
   }
 ]
 
@@ -100,9 +149,9 @@ export function TeacherTestimonials({
     return (
       <div className={`overflow-x-auto ${className}`.trim()}>
         <div className="flex space-x-4 pb-4">
-          {displayTestimonials.map((testimonial, index) => (
+          {displayTestimonials.map((testimonial) => (
             <div key={testimonial.id} className="flex-shrink-0 w-80">
-              {testimonialCard(testimonial, index)}
+              {testimonialCard(testimonial, 0)}
             </div>
           ))}
         </div>

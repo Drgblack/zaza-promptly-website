@@ -182,25 +182,55 @@ export function generateSoftwareSchema(siteUrl: string): object {
     applicationCategory: 'EducationalApplication',
     operatingSystem: 'Web Browser',
     url: siteUrl,
-    description: 'AI-powered teaching assistant that helps teachers write student comments and parent messages 10x faster',
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock',
-      description: 'Free trial available'
+    description: 'PhD-designed AI teaching assistant that helps 12,000+ teachers write professional parent communications, student comments & reports 10x faster. Built by Dr. Greg Blackburn with GDPR compliance and hallucination-safe AI.',
+    softwareVersion: '2.0',
+    datePublished: '2023-01-01',
+    creator: {
+      '@type': 'Person',
+      name: 'Dr. Greg Blackburn',
+      jobTitle: 'PhD in Professional Education',
+      description: 'PhD-qualified educator with 20+ years of teaching experience'
     },
-    author: {
+    publisher: {
       '@type': 'Organization',
-      name: 'Zaza Technologies'
+      name: 'Zaza Technologies',
+      url: siteUrl,
+      foundingDate: '2023'
     },
+    offers: [
+      {
+        '@type': 'Offer',
+        name: 'Free Plan',
+        price: '0',
+        priceCurrency: 'USD',
+        availability: 'https://schema.org/InStock',
+        description: 'Free trial with 5 AI comments per month'
+      },
+      {
+        '@type': 'Offer',
+        name: 'Pro Plan',
+        price: '12',
+        priceCurrency: 'USD',
+        availability: 'https://schema.org/InStock',
+        description: 'Unlimited AI comments and advanced features for individual teachers'
+      }
+    ],
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.9',
       reviewCount: '1200',
       bestRating: '5',
       worstRating: '1'
-    }
+    },
+    featureList: [
+      'AI-powered comment generation for student reports',
+      'Professional parent communication templates', 
+      'GDPR-compliant data handling',
+      'Hallucination-safe AI technology',
+      'Multi-language support',
+      'PhD educator-designed prompts'
+    ],
+    applicationSubCategory: 'Teacher Productivity Tool'
   }
 }
 

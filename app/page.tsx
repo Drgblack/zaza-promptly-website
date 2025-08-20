@@ -14,17 +14,19 @@ import { StructuredData } from "@/components/structured-data"
 import { generateWebsiteSchema, generateOrganizationSchema, generateSoftwareSchema } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
-  title: 'AI for Teacher Reports & Parent Communication | Zaza Promptly - Safe AI Tool for Teachers',
-  description: 'Hallucination-safe AI tool for teachers writing parent communications, reports & professional messages. Join 12,000+ teachers reducing workload with GDPR-compliant AI. Free trial available.',
+  title: 'AI for Teachers - Parent Communications & Student Reports | Zaza Promptly',
+  description: 'PhD-designed AI tool for teachers. Write professional parent emails, student comments & reports 10x faster. Join 12,000+ educators using GDPR-compliant, hallucination-safe AI. Built by Dr. Greg Blackburn.',
   keywords: [
-    'AI for teacher reports', 'AI for parent communication', 'safe AI for teachers', 
-    'AI tool for teachers', 'teacher productivity apps', 'report writing for teachers AI',
-    'parent email generator for teachers', 'hallucination-safe AI', 'GDPR compliant AI for teachers',
-    'reduce teacher workload with AI', 'teacher comment bank AI', 'AI vs ChatGPT for teachers'
+    'AI for teachers', 'AI teacher assistant', 'parent communication AI', 'student report AI',
+    'teacher productivity tools', 'AI comment generator teachers', 'professional education AI',
+    'PhD designed AI teachers', 'Dr Greg Blackburn AI', 'GDPR compliant teacher AI',
+    'hallucination-safe AI education', 'teacher workload reduction', 'AI vs ChatGPT teachers',
+    'safe AI classroom tools', 'AI for parent emails', 'teacher communication assistant',
+    'education technology AI', 'pedagogically sound AI', 'AI built by educators'
   ],
   openGraph: {
-    title: 'AI for Teacher Reports & Parent Communication | Safe AI Tool for Teachers',
-    description: 'Hallucination-safe AI tool trusted by 12,000+ teachers. Write better parent communications and reports 10x faster. GDPR compliant, designed by educators.',
+    title: 'AI Teaching Assistant Built by PhD Educator | 12,000+ Teachers Trust Zaza Promptly',
+    description: 'Professional AI for teachers designed by Dr. Greg Blackburn (PhD in Professional Education). Write better parent communications & student reports 10x faster. GDPR compliant & hallucination-safe.',
     images: ['/og-image.png'],
     type: 'website',
     locale: 'en_US',
@@ -32,8 +34,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Safe AI Tool for Teachers - Reports & Parent Communication',
-    description: 'Join 12,000+ teachers using hallucination-safe AI for reports and parent communications. GDPR compliant, designed by PhD educator.',
+    title: 'AI Teaching Assistant - Built by PhD Educator for 12,000+ Teachers',
+    description: 'Professional AI tool for teachers designed by Dr. Greg Blackburn. GDPR-compliant, hallucination-safe AI for parent communications & student reports.',
     images: ['/og-image.png'],
     creator: '@zazateachapp',
     site: '@zazateachapp'

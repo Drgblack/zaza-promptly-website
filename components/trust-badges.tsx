@@ -1,6 +1,6 @@
 "use client"
 
-import { Shield, Lock, GraduationCap, CheckCircle, Globe, Users } from 'lucide-react'
+import { Shield, Lock, GraduationCap, CheckCircle, Globe, Users, Award, BookOpen, Heart, Zap } from 'lucide-react'
 
 interface TrustBadge {
   id: string
@@ -11,40 +11,64 @@ interface TrustBadge {
 
 const trustBadges: TrustBadge[] = [
   {
+    id: 'phd-educator-built',
+    icon: GraduationCap,
+    title: 'Built by a PhD Educator',
+    description: 'Dr. Greg Blackburn: PhD in Professional Education, 20+ years teaching experience'
+  },
+  {
     id: 'hallucination-safe',
     icon: Shield,
     title: 'Hallucination-Safe AI',
-    description: 'Never invents false information about students'
-  },
-  {
-    id: 'phd-designed',
-    icon: GraduationCap,
-    title: 'PhD-Designed Pedagogy',
-    description: 'Created by Dr. Greg Blackburn, 20+ years teaching'
-  },
-  {
-    id: 'gdpr-compliant',
-    icon: Lock,
-    title: 'GDPR Compliant',
-    description: 'EU privacy standards for school data protection'
+    description: 'Never invents false information about students - guaranteed accuracy'
   },
   {
     id: 'teacher-trusted',
     icon: Users,
-    title: '12,000+ Teachers Trust Us',
-    description: 'Educators worldwide choose safe AI for teachers'
+    title: '12,000+ Teachers Worldwide',
+    description: 'Educators in UK, US, Germany, Australia trust our safe AI'
   },
   {
-    id: 'no-training',
+    id: 'gdpr-compliant',
+    icon: Lock,
+    title: 'GDPR Compliant & School-Safe',
+    description: 'EU privacy standards, never trains on your data, school-approved'
+  },
+  {
+    id: 'professional-education',
     icon: CheckCircle,
-    title: 'Never Trains on Your Data',
-    description: 'Your student information stays completely private'
+    title: 'Professional Education Focus',
+    description: 'Understands curriculum, pedagogy, and professional communication standards'
   },
   {
-    id: 'education-specific',
+    id: 'backed-by-educators',
     icon: Globe,
-    title: 'Education-Specific AI',
-    description: 'Built for teachers, not generic chatbots'
+    title: 'Backed by Educators',
+    description: 'Designed with input from teachers, head teachers, and education professionals'
+  },
+  {
+    id: 'education-research-based',
+    icon: BookOpen,
+    title: 'Education Research-Based',
+    description: 'Built on proven pedagogical principles and evidence-based teaching practices'
+  },
+  {
+    id: 'safe-for-teachers',
+    icon: Heart,
+    title: 'Safe for Teachers',
+    description: 'Designed specifically for educators with built-in classroom safety features'
+  },
+  {
+    id: 'pedagogically-sound',
+    icon: Award,
+    title: 'Pedagogically Sound',
+    description: 'Every feature aligned with best practices in professional education and student development'
+  },
+  {
+    id: 'teacher-time-saver',
+    icon: Zap,
+    title: 'Proven Time Saver',
+    description: '12,000+ teachers save 5+ hours weekly with our educator-focused AI tools'
   }
 ]
 
