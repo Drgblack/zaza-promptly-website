@@ -30,6 +30,10 @@ const faqCategories = [
       {
         question: 'What prevents AI from creating inappropriate content about students?',
         answer: 'Zaza Promptly includes multiple safety layers: content filtering prevents inappropriate language, context awareness ensures age-appropriate communication, tone validation maintains professional standards, and hallucination prevention guarantees factual accuracy. Every output is checked against educational communication standards before delivery.'
+      },
+      {
+        question: 'Can I trust Promptly\'s suggestions?',
+        answer: 'Absolutely. Promptly gives you helpful starting points, but you\'re always the one in charge. Every suggestion can be edited, tweaked, or ignored — nothing is locked in. Think of it as a colleague who throws out ideas, but you decide what actually goes home to parents or into your reports.'
       }
     ]
   },

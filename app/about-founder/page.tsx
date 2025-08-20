@@ -1,385 +1,325 @@
-import type { Metadata } from 'next';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import Image from 'next/image';
-import { 
-  Paintbrush,
-  GraduationCap,
-  Heart,
-  Shield,
-  ArrowRight,
-  ExternalLink
-} from 'lucide-react';
-import Link from 'next/link';
+import type { Metadata } from 'next'
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { Users, Shield, BookOpen, Star, ArrowRight, Zap } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import { FounderPortrait } from '@/components/founder/FounderPortrait'
+import { StoryBlock } from '@/components/founder/StoryBlock'
+import { Timeline } from '@/components/founder/Timeline'
+import { EmailCaptureForm } from '@/components/EmailCaptureForm'
 
 export const metadata: Metadata = {
-  title: 'About the Founder - Dr Greg Blackburn | Zaza',
-  description: 'Why Zaza exists - Dr Greg Blackburn\'s story, mission, and teacher-first vision for AI that lightens the load in real classrooms.',
-  keywords: ['AI tools for teachers', 'Dr Greg Blackburn', 'teacher-first AI', 'education technology', '20 years education experience'],
+  title: 'About the Founder - Dr Greg Blackburn | Teacher-First AI',
+  description: 'Meet Dr Greg Blackburn, PhD in Professional Education, who built Zaza after 20+ years helping educators. From Tasmania apprentice to AI founder - the authentic story behind teacher-first technology.',
+  keywords: [
+    'Dr Greg Blackburn',
+    'PhD Professional Education', 
+    'teacher-first AI',
+    'education technology founder',
+    'AI for teachers',
+    'Zaza Technologies founder',
+    '20 years education experience'
+  ],
   openGraph: {
-    title: 'About the Founder - Dr Greg Blackburn | Zaza',
-    description: 'Why Zaza exists - Dr Greg Blackburn\'s story, mission, and teacher-first vision for AI that lightens the load in real classrooms.',
-    type: 'website',
-    url: 'https://www.zazapromptly.com/about-founder',
-    images: ['/images/founder.png'],
+    title: 'About Dr Greg Blackburn - Teacher-First AI Founder',
+    description: 'The authentic story of how a Tasmania apprentice became a PhD educator building AI tools that respect teachers and save time.',
+    type: 'profile',
+    url: 'https://zazapromptly.com/about-founder',
+    images: [{
+      url: 'https://zazapromptly.com/images/founder-gb-v1.jpg',
+      width: 400,
+      height: 400,
+      alt: 'Dr Greg Blackburn — Founder of Zaza Technologies'
+    }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About the Founder - Dr Greg Blackburn | Zaza',
-    description: 'Why Zaza exists - Dr Greg Blackburn\'s story, mission, and teacher-first vision for AI that lightens the load in real classrooms.',
-    images: ['/images/founder.png'],
+    title: 'About Dr Greg Blackburn - Teacher-First AI Founder',
+    description: 'From Tasmania apprentice to PhD educator building AI that respects teachers.',
+    images: ['https://zazapromptly.com/images/founder-gb-v1.jpg'],
   },
   alternates: {
-    canonical: 'https://www.zazapromptly.com/about-founder',
+    canonical: 'https://zazapromptly.com/about-founder',
   },
-};
+}
 
 export default function AboutFounderPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 dark:from-slate-900 dark:via-blue-900 dark:to-indigo-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.15),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.15),transparent_50%)]" />
-        
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Why I'm Building Zaza
-            </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
-              I created Zaza to help teachers reclaim their time, energy, and joy. Because I know what it is like to feel overwhelmed.
+      <section className="py-20 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Portrait */}
+            <motion.div 
+              className="flex justify-center lg:justify-end group"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <FounderPortrait />
+            </motion.div>
+            
+            {/* Right: Intro */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <Badge className="bg-purple-100 text-purple-800 border-purple-200 mb-6">
+                <Users className="w-4 h-4 mr-2" />
+                20+ years building for learners & educators
+              </Badge>
+              
+              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                About the{' '}
+                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                  Founder
+                </span>
+              </h1>
+              
+              <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed max-w-2xl">
+                Teacher-first technology built with empathy, reducing workload through AI that respects educators.
+              </p>
+              
+              <div className="flex items-center space-x-6 text-sm text-gray-500">
+                <div className="flex items-center">
+                  <Shield className="w-4 h-4 mr-2 text-green-600" />
+                  <span>PhD Professional Education</span>
+                </div>
+                <div className="flex items-center">
+                  <BookOpen className="w-4 h-4 mr-2 text-blue-600" />
+                  <span>City, University of London</span>
+                </div>
+                <div className="flex items-center">
+                  <Star className="w-4 h-4 mr-2 text-purple-600" />
+                  <span>Self-Funded</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Story Blocks */}
+      <StoryBlock title="No Straight Line" className="bg-white/60">
+        <p className="text-xl leading-relaxed mb-6">
+          I grew up in Tasmania with no clear direction. No childhood dreams of becoming an artist or entrepreneur.
+        </p>
+        <p className="text-lg leading-relaxed mb-6">
+          My father owned Tas Paints, and through his connections I started a painter's apprenticeship at the Cascade Brewery. I hated it.
+        </p>
+        <p className="text-lg leading-relaxed mb-6">
+          Dad told me to see it through - "get your papers." I did. It taught me perseverance and clarity about what I didn't want to do with my life.
+        </p>
+        <p className="text-lg leading-relaxed text-gray-600 italic">
+          Sometimes the path forward only becomes clear when you know what you're walking away from.
+        </p>
+      </StoryBlock>
+
+      <StoryBlock title="Discovering Education" delay={0.1}>
+        <p className="text-xl leading-relaxed mb-6">
+          So I bought a backpack and went into the world to discover... something.
+        </p>
+        <p className="text-lg leading-relaxed mb-6">
+          New cultures, new people, great and not-so-great experiences. Over time I realized education was the only thing that would open doors and carry me forward.
+        </p>
+        <p className="text-lg leading-relaxed mb-6">
+          I completed a German language course in Frankfurt and earned a Diploma in German that helped me enter the University of Tasmania, where I studied Information Systems to Honours level.
+        </p>
+        <p className="text-lg leading-relaxed text-gray-600 italic">
+          Travel taught me that learning is the universal language that opens every door.
+        </p>
+      </StoryBlock>
+
+      <StoryBlock title="Putting it to Work" className="bg-white/60" delay={0.2}>
+        <p className="text-xl leading-relaxed mb-6">
+          After UTAS, I completed an MBA at The University of Queensland, then eventually a PhD in Professional Education at City, University of London.
+        </p>
+        <p className="text-lg leading-relaxed mb-6">
+          Since then I have spent twenty years building, researching, and shipping tools that help educators. Not teaching formally, but understanding how technology can serve those who do.
+        </p>
+        <p className="text-lg leading-relaxed mb-6">
+          I learned from a family of teachers - my sister, aunty, uncle, cousins, and many friends who chose this profession because they wanted to make a difference.
+        </p>
+        <p className="text-lg leading-relaxed text-gray-600 italic">
+          The best technology disappears into the background, amplifying what humans do best.
+        </p>
+      </StoryBlock>
+
+      <StoryBlock title="Why Zaza Promptly" delay={0.3}>
+        <p className="text-xl leading-relaxed mb-6">
+          After decades of seeing EdTech tools that frustrate more than they help, I built Zaza Promptly on sound educational principles.
+        </p>
+        <p className="text-lg leading-relaxed mb-6">
+          This isn't just another AI tool - it's purpose-built to respect pedagogical integrity while solving the real pain points that keep teachers working late into the night.
+        </p>
+        <p className="text-lg leading-relaxed mb-6">
+          Promptly gives suggestions, but teachers always remain in control. Every feature is designed to save time, not create more work.
+        </p>
+        <p className="text-lg leading-relaxed text-gray-600 italic">
+          AI was never meant to replace teachers. It was meant to free them to do what only humans can do.
+        </p>
+      </StoryBlock>
+
+      {/* Timeline Section */}
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              The Journey
+            </h2>
+            <p className="text-xl text-purple-200 max-w-3xl mx-auto">
+              From Tasmania apprentice to PhD educator building AI that respects teachers
+            </p>
+          </motion.div>
+          
+          <Timeline />
+        </div>
+      </section>
+
+      {/* Trust & Connection Band */}
+      <section className="py-16 bg-white/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            {/* Teacher Testimonial */}
+            <div className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl p-8 mb-12 border border-purple-100">
+              <blockquote className="text-2xl text-gray-800 italic text-center mb-6">
+                "Finally, someone who understands what we actually need. Greg's tools feel like they were built by someone who's been in our shoes."
+              </blockquote>
+              <cite className="text-center block text-gray-600">
+                — Sarah M., Primary School Teacher
+              </cite>
+            </div>
+            
+            {/* Trust Badges */}
+            <div className="flex flex-wrap justify-center gap-6">
+              <Badge className="bg-green-100 text-green-800 border-green-200 px-6 py-3 text-base">
+                <Shield className="w-5 h-5 mr-2" />
+                School-safe
+              </Badge>
+              <Badge className="bg-blue-100 text-blue-800 border-blue-200 px-6 py-3 text-base">
+                <Users className="w-5 h-5 mr-2" />
+                Built by educators
+              </Badge>
+              <Badge className="bg-purple-100 text-purple-800 border-purple-200 px-6 py-3 text-base">
+                <Shield className="w-5 h-5 mr-2" />
+                Privacy-first
+              </Badge>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Soft CTA Footer */}
+      <section className="py-20 bg-gradient-to-br from-purple-600 via-indigo-700 to-blue-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Join Greg on the journey
+            </h2>
+            <p className="text-xl text-purple-100 mb-12 max-w-3xl mx-auto">
+              Experience AI that actually understands teaching, built with 20+ years of educational insight.
             </p>
             
-            {/* Founder Portrait */}
-            <div className="flex justify-center mb-8">
-              <div className="relative">
-                <Image
-                  src="/images/founder-gb-v1.jpg"
-                  alt="Dr Greg Blackburn — Founder of Zaza Technologies"
-                  width={200}
-                  height={200}
-                  className="rounded-full shadow-lg"
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-8">
+              {/* Primary CTA */}
+              <div className="text-center">
+                <Button 
+                  size="lg"
+                  className="bg-white text-indigo-700 hover:bg-gray-100 font-bold px-8 py-4 text-lg shadow-2xl mb-4"
+                  asChild
+                >
+                  <Link href="/promptly">
+                    Try Promptly
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Link>
+                </Button>
+                <p className="text-purple-200 text-sm">Start with report writing & parent communication</p>
+              </div>
+              
+              {/* Email Capture */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 max-w-md">
+                <div className="flex items-center justify-center mb-4">
+                  <Zap className="w-6 h-6 text-yellow-300 mr-2" />
+                  <h3 className="text-lg font-semibold text-white">Get teacher tips</h3>
+                </div>
+                <EmailCaptureForm
+                  title=""
+                  subtitle=""
+                  placeholder="Your email address"
+                  buttonText="Get Free Tips"
+                  source="about_founder"
+                  variant="hero"
                 />
               </div>
             </div>
-            
-            <p className="text-lg text-gray-400">
-              Dr Greg Blackburn - Founder of Zaza Technologies
-            </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Why I'm Telling This Story */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="rounded-2xl bg-white/85 dark:bg-slate-100/85 border border-black/5 dark:border-white/10 shadow-2xl backdrop-blur-sm">
-            <CardContent className="p-8 md:p-12 text-center">
-              <p className="text-base md:text-lg leading-relaxed text-slate-900 dark:text-slate-900">
-                Teaching today is harder than ever. Most EdTech tools do not actually help - they frustrate.<br/><br/>
-                I built Zaza Promptly on sound educational principles, informed by my PhD in Professional Education and two decades working with teachers. This isn't just another AI tool - it's purpose-built to respect pedagogical integrity.<br/><br/>
-                Promptly gives suggestions, but teachers always remain in control. This is my story, and it's why I believe Zaza can change yours.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      {/* From Paint Brushes to PhD */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-16">
-            From Paint Brushes to PhD
-          </h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
-              <p>
-                I grew up in Tasmania with no clear direction. My father owned a paint factory, Tas Paints, and through his connections I started a painter's apprenticeship at the Cascade Brewery. I hated it. Dad told me to see it through - "get your papers." I did. It taught me perseverance and what I did not want to do with my life.
-              </p>
-              <p>
-                So I bought a backpack and went into the world to discover… something. New cultures, new people, some great and not-so-great experiences. Over time I realised education was the only thing that would open doors and carry me forward.
-              </p>
-              <p>
-                I completed a German language course in Frankfurt and earned a Diploma in German that helped me enter the University of Tasmania, where I studied Information Systems to Honours level. I later completed an MBA at The University of Queensland, and eventually a PhD in Professional Education at City, University of London. Since then I have spent two decades focused on learning, research, and building tools for educators.
-              </p>
-            </div>
-            
-            <div className="flex justify-center">
-              <Card className="rounded-2xl bg-white/85 dark:bg-slate-100/85 border border-black/5 dark:border-white/10 p-8">
-                <div className="flex items-center justify-center space-x-8">
-                  <Paintbrush className="w-16 h-16 text-blue-600" />
-                  <ArrowRight className="w-8 h-8 text-slate-600" />
-                  <GraduationCap className="w-16 h-16 text-purple-600" />
-                </div>
-                <p className="text-center text-slate-900 dark:text-slate-900 mt-4 text-base font-semibold">
-                  Tasmania Apprentice → PhD Researcher
-                </p>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* The Problem I Couldn't Ignore */}
-      <section className="py-16 md:py-24 bg-white/5">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-16">
-            The Problem I Couldn't Ignore
-          </h2>
-          
-          <div className="space-y-8 mb-12">
-            <blockquote className="text-xl md:text-2xl text-gray-300 text-center italic font-light">
-              "I love my students, but I'm drowning."
-            </blockquote>
-            <blockquote className="text-xl md:text-2xl text-gray-300 text-center italic font-light">
-              "I spend more time on admin than teaching."
-            </blockquote>
-            <blockquote className="text-xl md:text-2xl text-gray-300 text-center italic font-light">
-              "The tools we have just create more work."
-            </blockquote>
-            <blockquote className="text-xl md:text-2xl text-gray-300 text-center italic font-light">
-              "I became a teacher to inspire kids, not to fight software."
-            </blockquote>
-          </div>
-          
-          <Card className="rounded-2xl bg-white/85 dark:bg-slate-100/85 border border-black/5 dark:border-white/10">
-            <CardContent className="p-8 text-center">
-              <p className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-slate-900">
-                AI was never meant to replace teachers. It was meant to free them.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      {/* What Makes Zaza Different */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-16">
-            What Makes Zaza Different
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="rounded-2xl bg-white/85 dark:bg-slate-100/85 border border-black/5 dark:border-white/10 hover:bg-white/90 hover:dark:bg-slate-100/90 transition-all duration-300 hover:-translate-y-1">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <GraduationCap className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-slate-900 mb-4">Pedagogy-First Design</h3>
-                <p className="text-base md:text-lg leading-relaxed text-slate-900 dark:text-slate-900">
-                  Built by an educator who understands classroom realities, not Silicon Valley assumptions about teaching.
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card className="rounded-2xl bg-white/85 dark:bg-slate-100/85 border border-black/5 dark:border-white/10 hover:bg-white/90 hover:dark:bg-slate-100/90 transition-all duration-300 hover:-translate-y-1">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <Shield className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-slate-900 mb-4">AI That Respects Teachers</h3>
-                <p className="text-base md:text-lg leading-relaxed text-slate-900 dark:text-slate-900">
-                  Technology that amplifies your expertise instead of questioning your professional judgment.
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card className="rounded-2xl bg-white/85 dark:bg-slate-100/85 border border-black/5 dark:border-white/10 hover:bg-white/90 hover:dark:bg-slate-100/90 transition-all duration-300 hover:-translate-y-1">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <Heart className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-slate-900 mb-4">Built for Real Classrooms</h3>
-                <p className="text-base md:text-lg leading-relaxed text-slate-900 dark:text-slate-900">
-                  Tested with real teachers facing real challenges, not idealized demo environments.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Why I'm Doing This Alone */}
-      <section className="py-16 md:py-24 bg-white/5">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-16">
-            Why I'm Doing This Alone
-          </h2>
-          
-          <div className="space-y-8 text-lg text-gray-300 leading-relaxed max-w-4xl mx-auto">
-            <p>
-              No VC funding. No team of developers. Just me, a laptop, and an unshakeable belief that teachers deserve better tools.
-            </p>
-            <p>
-              I code at 5 a.m. before the family wakes up. I design on weekends. I debug in hotel rooms while traveling for conferences. Every line of code, every pixel of design, every user experience decision comes from someone who has stood in front of a classroom.
-            </p>
-            <p>
-              Yes, I've had moments of doubt. Broken deployments at 5 a.m. Features that didn't work as planned. Times when I wondered if I was crazy to think one person could build something that matters.
-            </p>
-            <p>
-              But then I remember my family of teachers. My sister, my aunty, my uncle, my cousins, and many of my friends - all teachers who chose this profession because they wanted to make a difference. They remind me why this work matters.
-            </p>
-            
-            <Card className="rounded-2xl bg-white/85 dark:bg-slate-100/85 border border-black/5 dark:border-white/10 p-8 my-12">
-              <blockquote className="text-xl md:text-2xl text-slate-900 dark:text-slate-900 font-semibold text-center">
-                "I am not building Zaza to automate teachers out of the picture. I am building it to finally give them a fair one."
-              </blockquote>
-            </Card>
-            
-            <p>
-              Self-funded means self-determined. No pressure to pivot toward buzzwords or chase markets that don't serve teachers. Just a commitment to solving real problems for real educators.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Where Zaza Is Going */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-16">
-            Where Zaza Is Going
-          </h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div className="space-y-6 text-lg text-gray-300 leading-relaxed">
-              <p>
-                Zaza is not just one tool - it's a growing ecosystem of teacher-first AI that works the way you think, not the way Silicon Valley thinks you should think.
-              </p>
-              <p>
-                Each tool solves a specific pain point that keeps teachers working late into the night. Each one is built with the same philosophy: respect your expertise, save your time, help you focus on what only humans can do.
-              </p>
-              <p>
-                This is just the beginning. Every conversation with a teacher, every piece of feedback, every "what if we could..." moment shapes what comes next.
-              </p>
-            </div>
-            
-            <Card className="rounded-2xl bg-white/85 dark:bg-slate-100/85 border border-black/5 dark:border-white/10">
-              <CardContent className="p-8">
-                <div className="space-y-8">
-                  <div>
-                    <h4 className="text-lg font-semibold text-green-600 mb-3">Live Now</h4>
-                    <ul className="space-y-2">
-                      <li>
-                        <Link href="/promptly" className="text-slate-700 hover:text-slate-900 transition-colors flex items-center">
-                          Zaza Promptly <ExternalLink className="w-4 h-4 ml-2" />
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/teach" className="text-slate-700 hover:text-slate-900 transition-colors flex items-center">
-                          Zaza Teach <ExternalLink className="w-4 h-4 ml-2" />
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-lg font-semibold text-yellow-600 mb-3">In Development</h4>
-                    <ul className="space-y-2">
-                      <li>
-                        <Link href="/autoplanner" className="text-slate-700 hover:text-slate-900 transition-colors flex items-center">
-                          Zaza AutoPlanner <ExternalLink className="w-4 h-4 ml-2" />
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-lg font-semibold text-blue-600 mb-3">Adjacent Apps</h4>
-                    <ul className="space-y-2">
-                      <li>
-                        <Link href="/notably" className="text-slate-700 hover:text-slate-900 transition-colors flex items-center">
-                          Zaza Notably Suite <ExternalLink className="w-4 h-4 ml-2" />
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/spark" className="text-slate-700 hover:text-slate-900 transition-colors flex items-center">
-                          Zaza Spark (HR) <ExternalLink className="w-4 h-4 ml-2" />
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/looop" className="text-slate-700 hover:text-slate-900 transition-colors flex items-center">
-                          Zaza Looop <ExternalLink className="w-4 h-4 ml-2" />
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/knowledgecore" className="text-slate-700 hover:text-slate-900 transition-colors flex items-center">
-                          Zaza KnowledgeCore <ExternalLink className="w-4 h-4 ml-2" />
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Banner */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-purple-600/20 via-blue-600/20 to-indigo-600/20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-8">
-              Want to Join the Journey?
-            </h2>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white">
-                <Link href="/promptly" aria-label="Try Zaza Promptly - AI-powered teacher communication tool">
-                  Try Zaza Promptly
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
-              
-              <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white">
-                <Link href="/teach" aria-label="Try Zaza Teach - AI lesson planning assistant">
-                  Try Zaza Teach
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
-              
-              <Button asChild variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
-                <Link href="/contact" aria-label="Partner with Zaza Technologies">
-                  Partner With Us
-                </Link>
-              </Button>
-              
-              <Button asChild variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
-                <Link href="/blog" aria-label="Follow our story on the Zaza blog">
-                  Follow Our Story
-                  <ExternalLink className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Closing Quote */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="rounded-2xl bg-white/85 dark:bg-slate-100/85 border border-black/5 dark:border-white/10">
-            <CardContent className="p-12 text-center">
-              <blockquote className="text-2xl md:text-3xl lg:text-4xl text-slate-900 dark:text-slate-900 font-bold">
-                "Zaza helps teachers thrive. And I am not done yet."
-              </blockquote>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-      
-      {/* TODO: Add German version at /de/about-founder */}
-      {/* 
-        German translations for headings:
-        - Why I'm Building Zaza → „Warum ich Zaza aufbaue"
-        - From Paint Brushes to PhD → „Vom Malerpinsel zum Doktortitel"
-        - The Problem I Couldn't Ignore → „Das Problem, das ich nicht ignorieren konnte"
-        - What Makes Zaza Different → „Was Zaza besonders macht"
-        - Where Zaza Is Going → „Wohin Zaza geht"
-        - Want to Join the Journey? → „Möchten Sie Teil der Reise sein?"
-      */}
+      {/* Person Schema JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Dr Greg Blackburn",
+            "jobTitle": "Founder & CEO",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Zaza Technologies",
+              "url": "https://zazapromptly.com"
+            },
+            "alumniOf": [
+              {
+                "@type": "EducationalOrganization",
+                "name": "City, University of London",
+                "description": "PhD in Professional Education"
+              },
+              {
+                "@type": "EducationalOrganization", 
+                "name": "The University of Queensland",
+                "description": "Master of Business Administration"
+              },
+              {
+                "@type": "EducationalOrganization",
+                "name": "University of Tasmania", 
+                "description": "Information Systems Honours"
+              }
+            ],
+            "knowsAbout": [
+              "Educational Technology",
+              "AI for Teachers", 
+              "Professional Education",
+              "Teacher Training",
+              "Educational AI Ethics"
+            ],
+            "description": "PhD educator and founder building teacher-first AI tools. 20+ years experience in educational technology, focusing on reducing teacher workload through ethical AI design.",
+            "url": "https://zazapromptly.com/about-founder",
+            "image": "https://zazapromptly.com/images/founder-gb-v1.jpg"
+          })
+        }}
+      />
     </div>
   )
 }
