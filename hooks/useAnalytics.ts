@@ -59,7 +59,7 @@ export interface EventProperties {
   feature_name?: string;
   plan_type?: string;
   resource_type?: string;
-  [key: string]: string | number | undefined;
+  [key: string]: string | number | boolean | undefined;
 }
 
 declare global {
@@ -80,10 +80,22 @@ export function useAnalytics() {
       return;
     }
 
+    // Convert boolean values to strings for Plausible compatibility
+    const convertedProps: Record<string, string | number> = {};
+    if (properties) {
+      Object.entries(properties).forEach(([key, value]) => {
+        if (typeof value === 'boolean') {
+          convertedProps[key] = value ? 'true' : 'false';
+        } else if (value !== undefined && value !== null) {
+          convertedProps[key] = value as string | number;
+        }
+      });
+    }
+
     try {
       if (typeof window !== 'undefined' && window.plausible) {
         window.plausible(eventName, {
-          props: properties
+          props: convertedProps
         });
       }
     } catch (error) {
