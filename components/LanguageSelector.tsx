@@ -94,14 +94,22 @@ export default function LanguageSelector({ className = '', compact = false }: La
       return;
     }
 
-    // Temporarily disable language switching while internationalization is disabled
-    if (language.code !== 'en') {
-      alert('Multiple languages are temporarily unavailable while we optimize the site. Coming soon!');
-      setIsOpen(false);
-      return;
-    }
-
     setCurrentLanguage(language);
+    
+    // Save to localStorage
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('preferred-language', language.code);
+    }
+    
+    // Get the current path without locale prefix
+    const pathWithoutLocale = pathname.replace(/^\/[a-z]{2}/, '') || '/';
+    
+    // Navigate to the new locale
+    const newPath = language.code === 'en' 
+      ? pathWithoutLocale 
+      : `/${language.code}${pathWithoutLocale}`;
+    
+    router.push(newPath);
     setIsOpen(false);
   };
 
@@ -163,22 +171,16 @@ export default function LanguageSelector({ className = '', compact = false }: La
             <button
               key={language.code}
               onClick={() => handleLanguageChange(language)}
-              disabled={language.code !== 'en'}
-              className={`w-full flex items-center justify-between px-3 py-2 text-sm transition-colors duration-150 ${
+              className={`w-full flex items-center justify-between px-3 py-2 text-sm hover:bg-purple-50 dark:hover:bg-purple-900/20 hover:text-purple-700 dark:hover:text-purple-300 transition-colors duration-150 ${
                 language.code === currentLanguage.code 
                   ? 'bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 font-medium' 
-                  : language.code === 'en'
-                  ? 'text-gray-700 dark:text-gray-200 hover:bg-purple-50 dark:hover:bg-purple-900/20 hover:text-purple-700 dark:hover:text-purple-300'
-                  : 'text-gray-400 dark:text-gray-500 cursor-not-allowed'
+                  : 'text-gray-700 dark:text-gray-200'
               }`}
               role="menuitem"
             >
               <div className="flex items-center space-x-3">
                 <span className="text-lg">{language.flag}</span>
                 <span>{language.name}</span>
-                {language.code !== 'en' && (
-                  <span className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 px-2 py-1 rounded">Soon</span>
-                )}
               </div>
               
               {language.code === currentLanguage.code && (

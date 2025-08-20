@@ -12,8 +12,21 @@ const intlMiddleware = createMiddleware({
 });
 
 export default function middleware(request: NextRequest) {
-  // Temporarily disabled internationalization middleware to fix 404 routing issues
-  // The site will use the root-level pages in app/ directory
+  const { pathname } = request.nextUrl;
+  const hostname = request.headers.get('host') || '';
+
+  // Apply internationalization to all routes for zazapromptly.com
+  // This will handle locale routing properly with the [locale] folder structure
+  if (hostname.includes('zazapromptly.com') || 
+      pathname.startsWith('/en') || 
+      pathname.startsWith('/de') || 
+      pathname.startsWith('/es') || 
+      pathname.startsWith('/fr') || 
+      pathname.startsWith('/it')) {
+    return intlMiddleware(request);
+  }
+
+  // For other domains/routes, let Next.js handle normally
   return;
 }
 

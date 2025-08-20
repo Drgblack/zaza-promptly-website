@@ -297,6 +297,6 @@ const sentryWebpackPluginOptions = {
 };
 
 module.exports = withSentryConfig(
-  withMDX(nextConfig), // Temporarily disabled withNextIntl to fix 404 routing issues
+  withNextIntl(withMDX(nextConfig)), // Re-enabled withNextIntl for proper internationalization
   sentryWebpackPluginOptions
 );
