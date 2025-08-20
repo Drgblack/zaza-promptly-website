@@ -61,7 +61,7 @@ export function generateMetadata({
       },
     },
     openGraph: {
-      type,
+      type: type === 'product' ? 'website' : type,
       locale: 'en_US',
       url: fullUrl,
       title,
@@ -163,7 +163,7 @@ export function generateProductMetadata(
       ...features.map(f => f.toLowerCase())
     ],
     url: `/${slug}`,
-    type: 'product' as any,
+    type: 'product',
     section: 'Products'
   })
 }
