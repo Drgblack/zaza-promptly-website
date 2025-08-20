@@ -1,22 +1,7 @@
 import { Metadata } from 'next'
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { 
-  Download,
-  FileText,
-  Users,
-  Lightbulb,
-  BookOpen,
-  PenTool,
-  Star,
-  ArrowRight,
-  CheckCircle2,
-  Zap,
-  Gift
-} from 'lucide-react';
-import Link from 'next/link';
-import { FreeResourcesClient } from './FreeResourcesClient';
+import { StructuredData } from '@/components/structured-data'
+import { generateWebsiteSchema } from '@/lib/structured-data'
+import { FreeResourcesClientNew } from './FreeResourcesClientNew'
 
 export const metadata: Metadata = {
   title: 'Free Teaching Resources - AI Prompts, Templates & Guides',
@@ -40,5 +25,62 @@ export const metadata: Metadata = {
 };
 
 export default function FreeResourcesPage() {
-  return <FreeResourcesClient />;
+  const siteUrl = 'https://zazapromptly.com'
+  
+  // Generate structured data for free resources page
+  const resourcesSchema = generateWebsiteSchema({
+    name: 'Free Teaching Resources - AI Prompts, Templates & Guides',
+    url: `${siteUrl}/free-resources`,
+    description: 'Download free AI prompts, email templates, and teaching guides. Over 50 resources tested by teachers to save you time.'
+  })
+
+  return (
+    <div>
+      <StructuredData data={resourcesSchema} />
+      <FreeResourcesClientNew />
+      
+      {/* Enhanced Structured Data for Resources */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "Free Teaching Resources",
+            "description": "Download free AI prompts, email templates, and teaching guides. Over 50 resources tested by teachers to save you time.",
+            "url": "https://zazapromptly.com/free-resources",
+            "mainEntity": [
+              {
+                "@type": "DigitalDocument",
+                "name": "AI Prompts Collection",
+                "description": "Ready-to-use AI prompts for lesson planning, parent communication, and classroom management",
+                "url": "https://zazapromptly.com/downloads/AI_Prompt_Templates_for_Teachers.docx",
+                "encodingFormat": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                "license": "https://creativecommons.org/licenses/by/4.0/",
+                "isAccessibleForFree": true
+              },
+              {
+                "@type": "DigitalDocument", 
+                "name": "Assessment Rubrics and Templates",
+                "description": "Complete rubrics, templates, and report card comment banks for all subjects",
+                "url": "https://zazapromptly.com/downloads/Assessment_Rubrics_and_Templates.docx",
+                "encodingFormat": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                "license": "https://creativecommons.org/licenses/by/4.0/",
+                "isAccessibleForFree": true
+              },
+              {
+                "@type": "DigitalDocument",
+                "name": "Teacher Time Management Guide", 
+                "description": "Step-by-step strategies to reclaim your evenings and weekends",
+                "url": "https://zazapromptly.com/downloads/Teacher_Time_Management_Guide.docx",
+                "encodingFormat": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                "license": "https://creativecommons.org/licenses/by/4.0/",
+                "isAccessibleForFree": true
+              }
+            ]
+          })
+        }}
+      />
+    </div>
+  );
 }
