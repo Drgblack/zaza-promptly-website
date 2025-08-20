@@ -39,10 +39,10 @@ const pricingTiers: PricingTier[] = [
   {
     id: 'individual',
     name: 'Individual Teacher',
-    price: 12,
+    price: 14.99,
     currency: 'USD',
     interval: 'month',
-    description: 'For individual teachers wanting to save time',
+    description: 'Starting at $14.99/month (geo-pricing may vary)',
     features: [
       'Unlimited AI-generated comments',
       'Advanced parent communication templates',

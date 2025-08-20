@@ -201,19 +201,25 @@ export function generateSoftwareSchema(siteUrl: string): object {
     offers: [
       {
         '@type': 'Offer',
-        name: 'Free Plan',
+        name: 'Free Trial',
         price: '0',
         priceCurrency: 'USD',
         availability: 'https://schema.org/InStock',
-        description: 'Free trial with 5 AI comments per month'
+        description: 'Free trial with AI comment generation'
       },
       {
         '@type': 'Offer',
-        name: 'Pro Plan',
-        price: '12',
+        name: 'Teacher Plan',
+        price: '14.99',
         priceCurrency: 'USD',
         availability: 'https://schema.org/InStock',
-        description: 'Unlimited AI comments and advanced features for individual teachers'
+        description: 'Starting at $14.99/month (geo-pricing may vary) - Unlimited AI comments and advanced features for individual teachers',
+        priceSpecification: {
+          '@type': 'PriceSpecification',
+          price: '14.99',
+          priceCurrency: 'USD',
+          valueAddedTaxIncluded: false
+        }
       }
     ],
     aggregateRating: {
