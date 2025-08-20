@@ -382,5 +382,3 @@ export function PricingPageClient() {
   );
 }
 
-// Add React import for useEffect
-import React from 'react';
