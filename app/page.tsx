@@ -20,6 +20,8 @@ import { AccessibilityAnnouncer } from "@/components/accessibility-announcer"
 import { StructuredData } from "@/components/structured-data"
 import { ComprehensiveSchemas } from "@/components/structured-data/comprehensive-schemas"
 import { generateWebsiteSchema, generateOrganizationSchema, generateSoftwareSchema } from "@/lib/structured-data"
+import StreakCounter from "@/components/gamification/StreakCounter"
+import SampleOutputs from "@/components/ai/SampleOutputs"
 
 export const metadata: Metadata = {
   title: 'AI for Teachers - Parent Communications & Student Reports | Zaza Promptly',
@@ -100,10 +102,24 @@ export default function Home() {
           </div>
         </section>
         
+        {/* 2.5. Streak Counter (Gamification) */}
+        <section className="py-8 bg-gradient-to-r from-purple-50 to-blue-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <StreakCounter />
+          </div>
+        </section>
+        
         {/* 3. Core Promises */}
         <section className="py-16 md:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <CorePromisesSection />
+          </div>
+        </section>
+        
+        {/* 3.5. AI Transparency & Sample Outputs */}
+        <section className="py-16 md:py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <SampleOutputs />
           </div>
         </section>
         
