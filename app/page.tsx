@@ -56,7 +56,7 @@ export const metadata: Metadata = {
 }
 
 export default function Home() {
-  // Cache bust: Updated 2025-08-20 with new pricing and gamification features
+  // FORCE DEPLOYMENT: 2025-08-20-v3 - New pricing $14.99 and navigation
   const siteUrl = 'https://zazapromptly.com'
   
   // Generate structured data schemas for homepage

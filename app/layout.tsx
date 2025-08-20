@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     default: 'Zaza Promptly - AI-Powered Teaching Assistant for Student Feedback',
     template: '%s | Zaza Promptly - AI for Teachers'
   },
-  description: 'Transform your teaching with Zaza Promptly - the AI-powered assistant that helps teachers write student comments, parent messages, and feedback 10x faster. Save 5+ hours per week with smart, personalized AI that understands education.',
+  description: 'Transform your teaching with Zaza Promptly - the AI-powered assistant that helps teachers write student comments, parent messages, and feedback 10x faster. Starting at $14.99/month. Save 5+ hours per week with smart, personalized AI that understands education.',
   keywords: [
     'AI teacher tools', 'student comment generator', 'parent communication AI', 
     'teacher feedback assistant', 'education technology', 'AI for teachers', 
