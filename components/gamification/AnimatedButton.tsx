@@ -1,10 +1,10 @@
-'use client';
+"use client"
 
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { cn } from '@/lib/utils';
-import { Star, Zap, Trophy, Crown, Sparkles, Heart } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import { cn } from '@/lib/utils'
+import { Star, Zap, Trophy, Crown, Sparkles, Heart } from 'lucide-react'
 
 interface AnimatedButtonProps {
   children: React.ReactNode;
