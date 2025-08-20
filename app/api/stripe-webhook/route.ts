@@ -1,15 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { getStripe } from '@/lib/stripe';
 
 export const dynamic = "force-dynamic"; // ensure server-only runtime
 
 export async function POST(request: NextRequest) {
-  // Check if Stripe is properly configured
-  const key = process.env.STRIPE_SECRET_KEY;
+  // Get Stripe client with graceful error handling
+  const stripe = getStripe();
   const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
   
-  if (!key) {
+  if (!stripe) {
     return NextResponse.json(
-      { error: 'Stripe secret key not configured' },
+      { error: 'Stripe integration not configured' },
       { status: 500 }
     );
   }
@@ -20,12 +21,6 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
-
-  // Dynamically import and initialize Stripe
-  const { default: Stripe } = await import('stripe');
-  const stripe = new Stripe(key, {
-    apiVersion: '2025-06-30.basil',
-  });
 
   const body = await request.text()
   const sig = request.headers.get('stripe-signature') as string

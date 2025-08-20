@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { getStripeOrError } from '@/lib/stripe';
 
 export const dynamic = "force-dynamic"; // ensure server-only runtime
 
@@ -11,24 +12,20 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Session ID is required' }, { status: 400 });
     }
 
-    // Check if Stripe is properly configured
-    const key = process.env.STRIPE_SECRET_KEY;
-    if (!key || key === 'sk_test_REPLACE_WITH_YOUR_STRIPE_SECRET_KEY') {
+    // Get Stripe client with graceful error handling
+    const stripeResult = getStripeOrError();
+    if ('error' in stripeResult) {
       return NextResponse.json({ 
-        error: 'Stripe secret key not configured',
+        error: stripeResult.error,
         testMode: true,
         sessionId,
         planType: 'Pro Plan',
         amount: '$14.99',
         email: 'test@example.com'
-      }, { status: 500 });
+      }, { status: stripeResult.status });
     }
-
-    // Dynamically import and initialize Stripe
-    const { default: Stripe } = await import('stripe');
-    const stripe = new Stripe(key, {
-      apiVersion: '2025-06-30.basil',
-    });
+    
+    const stripe = stripeResult.stripe;
 
     // Retrieve the checkout session from Stripe
     const session = await stripe.checkout.sessions.retrieve(sessionId, {
