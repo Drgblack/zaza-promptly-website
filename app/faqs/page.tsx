@@ -1,9 +1,5 @@
 import type { Metadata } from 'next';
-import FAQ from '@/components/FAQ';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { HelpCircle, MessageCircle, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+import FAQSimple from '@/components/FAQSimple';
 import { StructuredData } from '@/components/structured-data';
 import { generateFAQSchema } from '@/lib/structured-data';
 
@@ -30,102 +26,84 @@ export const metadata: Metadata = {
 };
 
 export default function FAQsPage() {
-  // FAQ data for structured data generation
+  // Enhanced FAQ data for structured data generation
   const faqData = [
     {
-      question: 'Will this actually save me time or just create more work?',
-      answer: 'Zaza Promptly is designed to reduce mental load, not increase it. You don\'t need perfect prompts - just pick a student and get tailored, editable comments in seconds. Most teachers save 2-3 hours per week on report writing alone.',
+      question: 'Is my student data safe with AI?',
+      answer: 'Absolutely. Zaza Promptly meets the highest privacy standards with GDPR compliance, bank-level encryption, and EU-only data processing. Your student information NEVER trains other AI models or leaves secure servers.'
     },
     {
-      question: 'Is it safe to use AI for student reports?', 
-      answer: 'Yes. Promptly avoids plagiarism, doesn\'t reuse data, and is built with privacy in mind. It\'s safer than copying past reports or Googling ideas, and we never store or share student information.',
+      question: 'Will students misuse this technology?',
+      answer: 'Students cannot access Zaza Promptly - it\'s a teacher-only tool designed for professional communication and report writing with safeguards that prevent inappropriate content.'
     },
     {
-      question: 'Why not just use ChatGPT?',
-      answer: 'ChatGPT is a general tool that requires complex prompting and often produces generic responses. Zaza Promptly is specifically designed for teachers - it understands educational contexts, maintains your teaching voice, and provides curriculum-aligned suggestions without the trial-and-error of generic AI tools.',
+      question: 'Is using AI for teaching cheating or unprofessional?',
+      answer: 'No. Using AI for teacher reports and parent communication is a productivity tool, like spell-check. You maintain full control and professional judgment over all communications.'
+    },
+    {
+      question: 'How is Zaza Promptly different from ChatGPT?',
+      answer: 'ChatGPT can hallucinate false information about students. Zaza Promptly is specifically designed for education with built-in safeguards against hallucinations and GDPR compliance.'
+    },
+    {
+      question: 'Does this actually save time or create more work?',
+      answer: 'Teachers report saving 3-5 hours per week on report writing and parent communication. What used to take 15-20 minutes per comment now takes 2-3 minutes.'
+    },
+    {
+      question: 'What prevents inappropriate content about students?',
+      answer: 'Multiple safety layers: content filtering, context awareness, tone validation, and hallucination prevention. Every output is checked against educational communication standards.'
     },
     {
       question: 'Will the comments sound like me?',
-      answer: 'Yes. Promptly can match your tone, whether you\'re empathetic, direct, or positive-but-honest. You can tweak responses with one tap or write your own templates that the AI learns from.',
+      answer: 'Yes. Promptly matches your tone and you can write your own templates. Every suggestion is fully editable - you\'re always in control.'
     },
     {
-      question: 'How much does it cost?',
-      answer: 'We offer a free tier to get started, with premium plans starting from affordable monthly rates. School licenses and bulk pricing are available for educational institutions.',
+      question: 'Does this work for all ages and subjects?',
+      answer: 'From Reception to Year 13, maths to music, Zaza adapts to your teaching context. Works for primary parent communication and secondary report writing.'
     },
     {
       question: 'Can my school pay for this?',
-      answer: 'Absolutely. We offer school licenses and can provide custom pricing or quotes if your leadership team needs them. Many schools appreciate the time savings and consistency benefits for their staff.',
+      answer: 'We offer school-wide licenses with bulk pricing, admin controls, and easy billing. Many schools find the time savings justifies the investment.'
+    },
+    {
+      question: 'How quickly can I get started?',
+      answer: 'Generate your first parent message or report comment in under 2 minutes. No training courses or complex setup required.'
     }
   ]
 
   const faqSchema = generateFAQSchema(faqData)
 
   return (
-    <div className="pt-16 lg:pt-20">
+    <div>
       <StructuredData data={faqSchema} />
-      {/* Hero Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge variant="secondary" className="text-indigo-700 bg-indigo-100 px-4 py-2 mb-6">
-            <HelpCircle className="w-4 h-4 mr-2" />
-            Get Your Questions Answered
-          </Badge>
-          
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-800 mb-6">
-            Frequently Asked{" "}
-            <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-              Questions
-            </span>
-          </h1>
-          
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Everything you need to know about Zaza Promptly, the AI teaching assistant 
-            designed specifically for educators like you.
-          </p>
-        </div>
-      </section>
-
-      {/* FAQ Component */}
-      <section className="py-16 lg:py-24">
-        <FAQ />
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-r from-indigo-600 to-purple-600">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-            Still Have Questions?
-          </h2>
-          <p className="text-xl text-indigo-100 mb-8 max-w-2xl mx-auto">
-            Can't find what you're looking for? Our support team is here to help you 
-            get the most out of Zaza Promptly.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              className="bg-white text-indigo-600 hover:bg-gray-100"
-              asChild
-            >
-              <Link href="/contact">
-                <MessageCircle className="w-5 h-5 mr-2" />
-                Contact Support
-              </Link>
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-indigo-600"
-              asChild
-            >
-              <Link href="/free-resources">
-                <ArrowRight className="w-5 h-5 mr-2" />
-                Try Free Resources
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <FAQSimple />
+      
+      {/* Enhanced JSON-LD Schema for FAQ Page */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "name": "Zaza Promptly FAQ - AI Teaching Assistant Questions",
+            "description": "Frequently asked questions about Zaza Promptly AI teaching assistant, covering data safety, privacy, and time-saving benefits for teachers.",
+            "url": "https://zazapromptly.com/faqs",
+            "mainEntity": faqData.map(faq => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+              }
+            })),
+            "publisher": {
+              "@type": "Organization",
+              "name": "Zaza Promptly",
+              "url": "https://zazapromptly.com",
+              "logo": "https://zazapromptly.com/logo.png"
+            }
+          })
+        }}
+      />
     </div>
   );
 } 
