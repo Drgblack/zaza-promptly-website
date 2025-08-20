@@ -81,7 +81,10 @@ export default function AboutFounderPage() {
             ],
             "description": "PhD educator and founder building teacher-first AI tools. 20+ years experience in educational technology, focusing on reducing teacher workload through ethical AI design.",
             "url": "https://zazapromptly.com/about-founder",
-            "image": "https://zazapromptly.com/images/founder-gb-v1.jpg"
+            "image": "https://zazapromptly.com/images/founder-gb-v1.jpg",
+            "sameAs": [
+              "https://www.linkedin.com/in/drgregblackburn/"
+            ]
           })
         }}
       />

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { Users, Shield, BookOpen, Star, ArrowRight, Zap } from 'lucide-react'
+import { Users, Shield, BookOpen, Star, ArrowRight, Zap, Target, CheckCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { FounderPortrait } from '@/components/founder/FounderPortrait'
@@ -184,6 +184,86 @@ export function AboutFounderClient() {
                 <Shield className="w-5 h-5 mr-2" />
                 Privacy-first
               </Badge>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Leadership in L&D */}
+      <section className="py-16 bg-gradient-to-r from-slate-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Leadership in Learning & Development
+              </h2>
+              <p className="text-lg text-gray-600 max-w-4xl mx-auto">
+                Work focused on helping educators and teams learn faster, adopt better practices, and turn ideas into classroom impact.
+              </p>
+            </div>
+            
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0">
+                    <CheckCircle className="w-6 h-6 text-purple-600 mt-1" />
+                  </div>
+                  <p className="text-gray-700 leading-relaxed">
+                    Designs professional learning experiences grounded in evidence and practical tools.
+                  </p>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0">
+                    <CheckCircle className="w-6 h-6 text-purple-600 mt-1" />
+                  </div>
+                  <p className="text-gray-700 leading-relaxed">
+                    Builds scalable resources that reduce workload and improve feedback quality.
+                  </p>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0">
+                    <CheckCircle className="w-6 h-6 text-purple-600 mt-1" />
+                  </div>
+                  <p className="text-gray-700 leading-relaxed">
+                    Leads cross-functional edtech projects from research to shipped teacher workflows.
+                  </p>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0">
+                    <CheckCircle className="w-6 h-6 text-purple-600 mt-1" />
+                  </div>
+                  <p className="text-gray-700 leading-relaxed">
+                    Partners with educators to co-design safe, school-ready AI practices.
+                  </p>
+                </div>
+                
+                <div className="flex items-start space-x-4 md:col-span-2">
+                  <div className="flex-shrink-0">
+                    <CheckCircle className="w-6 h-6 text-purple-600 mt-1" />
+                  </div>
+                  <p className="text-gray-700 leading-relaxed">
+                    Speaks and writes on teacher workload, AI safety, and professional learning.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="mt-8 text-center">
+                <Link 
+                  href="/promptly"
+                  className="inline-flex items-center text-purple-600 hover:text-purple-700 font-medium transition-colors"
+                >
+                  Explore how Promptly helps teachers
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
+              </div>
             </div>
           </motion.div>
         </div>

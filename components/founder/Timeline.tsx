@@ -12,45 +12,45 @@ interface TimelineEvent {
 
 const timelineEvents: TimelineEvent[] = [
   {
-    year: '1990s',
+    year: '1980s',
     title: 'Painter\'s Apprenticeship',
-    description: 'Started at Cascade Brewery via father\'s connection at Tas Paints. Learned perseverance.',
+    description: 'Started at Cascade Brewery via father\'s connection at Tas Paints. Learned perseverance by finishing the trade.',
     icon: Paintbrush2
   },
   {
-    year: 'Early 2000s',
+    year: 'Early 1990s',
     title: 'World Travel',
-    description: 'Backpacked globally, discovered new cultures and the power of education.',
+    description: 'Backpacked globally, immersed in new cultures, and realised the power of education.',
     icon: Plane
   },
   {
-    year: '2003',
+    year: '1994–1995',
     title: 'German Language Course',
-    description: 'Completed Diploma in German in Frankfurt, opening doors to university.',
+    description: 'Completed a Diploma in German in Frankfurt, which opened doors to university.',
     icon: Languages
   },
   {
-    year: '2004-2008',
-    title: 'UTAS Information Systems',
-    description: 'Bachelor\'s to Honours level at University of Tasmania.',
+    year: '1995–1999',
+    title: 'UTAS — Information Systems (Honours)',
+    description: 'University of Tasmania: Information Systems through to Honours.',
     icon: GraduationCap
   },
   {
-    year: '2010',
-    title: 'MBA at UQ',
-    description: 'Master of Business Administration at The University of Queensland.',
+    year: '2000–2004',
+    title: 'MBA — The University of Queensland',
+    description: 'Master of Business Administration.',
     icon: BookOpen
   },
   {
-    year: '2018',
-    title: 'PhD Professional Education',
-    description: 'City, University of London - Research in educational technology and professional development.',
+    year: '2016–2019',
+    title: 'PhD — Professional Education',
+    description: 'City, University of London: research in educational technology and professional development.',
     icon: GraduationCap
   },
   {
-    year: '2020+',
+    year: '2025',
     title: 'Zaza Technologies',
-    description: 'Founded to build teacher-first AI tools with 20+ years of educational insight.',
+    description: 'Founded to build teacher-first AI tools, informed by decades of work across education and professional learning.',
     icon: Building2
   }
 ]
