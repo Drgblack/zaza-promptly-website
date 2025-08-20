@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import Stripe from 'stripe';
 import { getStripe } from '@/lib/stripe';
 
 export const dynamic = "force-dynamic"; // ensure server-only runtime
@@ -25,7 +26,7 @@ export async function POST(request: NextRequest) {
   const body = await request.text()
   const sig = request.headers.get('stripe-signature') as string
 
-  let event: any // Will be typed as Stripe.Event after dynamic import
+  let event: Stripe.Event
 
   try {
     event = stripe.webhooks.constructEvent(body, sig, endpointSecret)
