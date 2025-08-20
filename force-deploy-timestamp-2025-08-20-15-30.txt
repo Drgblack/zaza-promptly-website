@@ -1,0 +1,4 @@
+Force deployment trigger: 2025-08-20 15:30:00 UTC
+Critical pricing fix: Updated lib/subscription-tiers.ts with correct pricing
+Monthly: $14.99, Yearly: $149.9
+Cache bust: 8892a20d
