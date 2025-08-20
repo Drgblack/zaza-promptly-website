@@ -66,6 +66,12 @@ export default function Header() {
               Products
             </Link>
             <Link 
+              href="/pricing" 
+              className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+            >
+              Pricing
+            </Link>
+            <Link 
               href={externalLinks.blog} 
               className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
               aria-label="Visit our blog (opens in new tab)"
@@ -138,6 +144,13 @@ export default function Header() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Products
+              </Link>
+              <Link 
+                href="/pricing" 
+                className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Pricing
               </Link>
               <Link 
                 href={externalLinks.blog} 

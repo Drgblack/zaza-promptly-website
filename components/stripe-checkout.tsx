@@ -19,6 +19,7 @@ interface PricingTier {
   available?: boolean
 }
 
+// FORCED UPDATE - August 20, 2025 - New pricing structure
 const pricingTiers: PricingTier[] = [
   {
     id: 'free',
