@@ -12,7 +12,8 @@ const intlMiddleware = createMiddleware({
 });
 
 export default function middleware(request: NextRequest) {
-  return intlMiddleware(request);
+  // Temporarily disable i18n to fix /es redirect issue
+  return;
 }
 
 export const config = {

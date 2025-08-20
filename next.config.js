@@ -80,5 +80,5 @@ const nextConfig = {
   },
 };
 
-// Re-enable internationalization  
-module.exports = withNextIntl(withMDX(nextConfig));
+// Temporarily disable internationalization to fix routing issues
+module.exports = withMDX(nextConfig);
