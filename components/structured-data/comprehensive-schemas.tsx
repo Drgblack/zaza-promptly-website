@@ -111,7 +111,7 @@ export function ComprehensiveSchemas({ url = 'https://zazapromptly.com' }) {
       {
         "@type": "Offer",
         "name": "Pro Plan",
-        "price": "12",
+        "price": "14.99",
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock",
         "description": "Unlimited AI comments and advanced features for individual teachers",

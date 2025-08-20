@@ -110,7 +110,7 @@ async function createCheckoutSession({
   // Enhanced product configurations with new pricing structure
   const products = {
     'pro-monthly': {
-      price: 900, // $9.00 in cents
+      price: 1499, // $14.99 in cents
       name: 'Zaza Promptly Pro Monthly',
       description: 'AI-powered parent communication for teachers',
       interval: 'month' as const,
@@ -124,7 +124,7 @@ async function createCheckoutSession({
       ]
     },
     'pro-yearly': {
-      price: 9000, // $90.00 in cents (save 17%)
+      price: 14990, // $149.90 in cents (save 17%)
       name: 'Zaza Promptly Pro Yearly',
       description: 'AI-powered parent communication for teachers - Annual Plan',
       interval: 'year' as const,
@@ -138,7 +138,7 @@ async function createCheckoutSession({
     },
     // Legacy support
     'pro': {
-      price: 900,
+      price: 1499,
       name: 'Zaza Promptly Pro',
       description: 'AI-powered parent communication for teachers',
       interval: 'month' as const,
