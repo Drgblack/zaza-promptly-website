@@ -257,6 +257,7 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4 text-white">Support</h3>
             <ul className="space-y-3">
+              <li><Link href="/pricing" className="hover:text-purple-400 transition-colors duration-200 focus:outline-none focus:text-purple-400">Pricing</Link></li>
               <li><Link href="/contact" className="hover:text-purple-400 transition-colors duration-200 focus:outline-none focus:text-purple-400">Contact Us</Link></li>
               <li><Link href="/privacy" className="hover:text-purple-400 transition-colors duration-200 focus:outline-none focus:text-purple-400">Privacy Policy</Link></li>
               <li><Link href="/terms" className="hover:text-purple-400 transition-colors duration-200 focus:outline-none focus:text-purple-400">Terms of Use</Link></li>

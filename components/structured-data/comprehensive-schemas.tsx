@@ -307,6 +307,44 @@ export function ComprehensiveSchemas({ url = 'https://zazapromptly.com' }) {
     ]
   }
 
+  const navigationSchema = {
+    "@context": "https://schema.org",
+    "@type": "SiteNavigationElement",
+    "name": "Main Navigation",
+    "url": [
+      {
+        "@type": "WebPage",
+        "name": "Products",
+        "url": `${url}/products`
+      },
+      {
+        "@type": "WebPage", 
+        "name": "Pricing",
+        "url": `${url}/pricing`
+      },
+      {
+        "@type": "WebPage",
+        "name": "Blog", 
+        "url": `${url}/blog`
+      },
+      {
+        "@type": "WebPage",
+        "name": "Free Resources",
+        "url": `${url}/free-resources`
+      },
+      {
+        "@type": "WebPage",
+        "name": "FAQs",
+        "url": `${url}/faqs`
+      },
+      {
+        "@type": "WebPage",
+        "name": "About the Founder", 
+        "url": `${url}/about-founder`
+      }
+    ]
+  }
+
   return (
     <>
       <script
@@ -332,6 +370,10 @@ export function ComprehensiveSchemas({ url = 'https://zazapromptly.com' }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(navigationSchema) }}
       />
     </>
   )

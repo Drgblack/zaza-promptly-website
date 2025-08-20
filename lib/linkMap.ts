@@ -11,7 +11,7 @@ export const linkMap: LinkMap = {
   faqs: '/faqs',
   'free-resources': '/free-resources',
   products: '/products',
-  pricing: '/promptly-pricing',
+  pricing: '/pricing',
   'promptly-faq': '/promptly-faq',
   support: '/support',
   privacy: '/privacy',

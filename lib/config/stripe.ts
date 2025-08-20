@@ -78,7 +78,6 @@ export function getStripe(): Stripe | null {
 
   try {
     return new Stripe(config.secretKey, {
-      apiVersion: '2025-07-30.basil',
       telemetry: false, // Disable telemetry for performance
     });
   } catch (error) {
@@ -101,7 +100,6 @@ export function getStripeOrError(): { stripe: Stripe; config: StripeConfig } | {
   }
 
   const stripe = new Stripe(config.secretKey, {
-    apiVersion: '2025-07-30.basil',
     telemetry: false,
   });
 
