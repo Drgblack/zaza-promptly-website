@@ -2,7 +2,6 @@ import { Metadata } from 'next'
 import { StructuredData } from '@/components/structured-data'
 import { generateWebsiteSchema } from '@/lib/structured-data'
 import { ProductsPageClient } from './ProductsPageClient'
-import { products } from '@/lib/products'
 
 export const metadata: Metadata = {
   title: 'Zaza Products - AI-Powered Tools for Teachers | Zaza',
@@ -55,7 +54,7 @@ export default function ProductsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
       <StructuredData data={productsSchema} />
-      <ProductsPageClient products={products} />
+      <ProductsPageClient />
       
       {/* Enhanced Structured Data for SEO */}
       <script

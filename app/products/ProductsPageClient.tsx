@@ -6,13 +6,9 @@ import { motion } from 'framer-motion'
 import { EmailCaptureForm } from '@/components/EmailCaptureForm'
 import { ArrowRight, Users, Clock, CheckCircle, Sparkles, Zap } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
-import { products, getProductsByCategory } from '@/lib/products'
+import { getProductsByCategory } from '@/lib/products'
 
-interface ProductsPageClientProps {
-  products: typeof products
-}
-
-export function ProductsPageClient({ products }: ProductsPageClientProps) {
+export function ProductsPageClient() {
   const teachingTools = getProductsByCategory('teaching')
   const otherApps = getProductsByCategory('other')
 
