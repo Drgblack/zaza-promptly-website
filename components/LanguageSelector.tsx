@@ -38,10 +38,12 @@ export default function LanguageSelector({ className = '', compact = false }: La
     
     // Detect current language from URL or use saved preference
     const detectCurrentLanguage = () => {
-      // Check if URL has locale prefix (now always present)
-      const urlLocale = pathname.match(/^\/([a-z]{2})(?:\/|$)/)?.[1] || 'en';
+      // Check if URL has locale prefix (English has no prefix, others do)
+      const urlLocale = pathname.match(/^\/([a-z]{2})(?:\/|$)/)?.[1];
+      // If no locale in URL, assume English (default)
+      const detectedLocale = urlLocale || 'en';
       
-      const currentLang = languages.find(lang => lang.code === urlLocale) || languages[0];
+      const currentLang = languages.find(lang => lang.code === detectedLocale) || languages[0];
       setCurrentLanguage(currentLang);
       
       // Save to localStorage
@@ -103,8 +105,10 @@ export default function LanguageSelector({ className = '', compact = false }: La
     // Get the current path without locale prefix
     const pathWithoutLocale = pathname.replace(/^\/[a-z]{2}/, '') || '/';
     
-    // Navigate to the new locale (always with prefix now)
-    const newPath = `/${language.code}${pathWithoutLocale}`;
+    // Navigate to the new locale (English has no prefix, others do)
+    const newPath = language.code === 'en' 
+      ? pathWithoutLocale 
+      : `/${language.code}${pathWithoutLocale}`;
     
     router.push(newPath);
     setIsOpen(false);

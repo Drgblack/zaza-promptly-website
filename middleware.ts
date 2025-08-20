@@ -7,8 +7,8 @@ const intlMiddleware = createMiddleware({
   locales,
   // Used when no locale matches
   defaultLocale,
-  // Always show locale prefix for clarity
-  localePrefix: 'always'
+  // Use locale prefix only for non-default locales
+  localePrefix: 'as-needed'
 });
 
 export default function middleware(request: NextRequest) {
