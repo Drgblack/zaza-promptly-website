@@ -287,6 +287,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Pricing and plans pages
   const pricingPages = [
     {
+      url: `${baseUrl}/pricing`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.95,
+    },
+    {
       url: `${baseUrl}/promptly-pricing`,
       lastModified: currentDate,
       changeFrequency: 'monthly' as const,
@@ -342,6 +348,30 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Landing and conversion pages
   const landingPages = [
+    {
+      url: `${baseUrl}/for-primary-teachers`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/for-secondary-english`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/for-special-education-iep`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/for-heads-of-year`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.85,
+    },
     {
       url: `${baseUrl}/signup`,
       lastModified: currentDate,
