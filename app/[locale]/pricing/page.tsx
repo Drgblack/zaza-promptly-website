@@ -1,17 +1,8 @@
 import type { Metadata } from 'next'
-import { getTranslations } from 'next-intl/server'
 import { PricingPageClient } from './PricingPageClient'
 import { ProductStructuredData, FAQStructuredData } from '@/components/seo/StructuredData'
 
-interface Props {
-  params: Promise<{ locale: string }>
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations('pricing')
-  
-  return {
+export const metadata: Metadata = {
     title: 'Pricing - AI Teaching Assistant Plans | Zaza Promptly',
     description: 'Choose the perfect AI teaching plan for your needs. Free demo, Teacher monthly, School license. GDPR-compliant AI built by PhD educator.',
     keywords: [
@@ -33,11 +24,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       follow: true,
     },
   }
-}
 
-export default async function PricingPage({ params }: Props) {
-  const { locale } = await params;
-  const t = await getTranslations('pricing')
+export default function PricingPage() {
 
   // Structured data for the product and pricing
   const productData = {
