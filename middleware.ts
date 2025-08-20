@@ -12,23 +12,8 @@ const intlMiddleware = createMiddleware({
 });
 
 export default function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
-  const hostname = request.headers.get('host') || '';
-
-  // Apply internationalization to:
-  // 1. zazatechnologies.com domain (for blog)
-  // 2. Blog routes on any domain
-  // 3. All routes for zazapromptly.com (main site with i18n)
-  // 4. Locale routes (/en, /de, etc.) on any domain
-  if (hostname.includes('zazatechnologies.com') || 
-      hostname.includes('zazapromptly.com') || 
-      pathname.startsWith('/blog') || 
-      pathname.startsWith('/en') || 
-      pathname.startsWith('/de')) {
-    return intlMiddleware(request);
-  }
-
-  // For other routes, let Next.js handle normally
+  // Temporarily disabled internationalization middleware to fix 404 routing issues
+  // The site will use the root-level pages in app/ directory
   return;
 }
 
