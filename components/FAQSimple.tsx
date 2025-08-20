@@ -85,7 +85,71 @@ const prioritizedFAQs: FAQ[] = [
       quote: "Parents say my reports sound more 'like me' than ever. Zaza captures my voice perfectly.",
       author: "Lisa P.",
       role: "Reception Teacher"
-    }
+    },
+    crossLinks: [{
+      text: 'See writing style examples',
+      href: '/free-resources'
+    }]
+  },
+  {
+    id: 'classroom-safety',
+    question: 'What prevents inappropriate content about students?',
+    answer: 'Zaza Promptly includes multiple safety layers: content filtering prevents inappropriate language, context awareness ensures age-appropriate communication, tone validation maintains professional standards, and hallucination prevention guarantees factual accuracy. Every output is checked against educational communication standards.',
+    icon: Shield,
+    trustBadges: ['Content Filtering', 'Professional Standards', 'Safety Layers'],
+    crossLinks: [{
+      text: 'Read about AI safety in education',
+      href: '/blog/ai-safety-teachers'
+    }]
+  },
+  {
+    id: 'cheating-concerns',
+    question: 'Is using AI for teaching cheating or unprofessional?',
+    answer: 'No. Using AI for teacher reports and parent communication is a productivity tool, like spell-check or a calculator. You maintain full control and professional judgment over all communications. It\'s about working smarter, not harder - giving you time back for actual teaching.',
+    icon: CheckCircle2,
+    testimonial: {
+      quote: "My headteacher now encourages all staff to use Zaza - it's raised our communication standards across the school.",
+      author: "Sarah L.",
+      role: "Assistant Head Teacher"
+    },
+    trustBadges: ['Educator Approved', 'Professional Tool', 'Teacher Controlled'],
+    crossLinks: [{
+      text: 'See ethical AI use in education',
+      href: '/blog/ethical-ai-teaching'
+    }]
+  },
+  {
+    id: 'all-subjects',
+    question: 'Does this work for all ages and subjects?',
+    answer: 'Absolutely. From Reception to Year 13, maths to music, Zaza adapts to your teaching context. Primary teachers love the parent communication features, while secondary teachers find the report writing tools especially helpful during assessment periods.',
+    icon: BookOpen,
+    trustBadges: ['All Subjects', 'All Age Groups', 'Curriculum Aligned'],
+    crossLinks: [{
+      text: 'Download subject-specific templates',
+      href: '/free-resources'
+    }]
+  },
+  {
+    id: 'quick-start',
+    question: 'How quickly can I get started?',
+    answer: 'You can generate your first parent message or report comment in under 2 minutes. Sign up, add a few notes about a student, pick your template, and Zaza handles the rest. No training courses or complex setup required.',
+    icon: Zap,
+    trustBadges: ['2-Minute Setup', 'No Training Required', 'Instant Results'],
+    crossLinks: [{
+      text: 'Try free demo now',
+      href: '/#demo-section'
+    }]
+  },
+  {
+    id: 'school-payment',
+    question: 'Can my school pay for this?',
+    answer: 'Absolutely. We offer school-wide licenses with bulk pricing, admin controls, and easy billing. Many schools find the time savings across their teaching staff easily justifies the investment. We can provide quotes and demos for leadership teams.',
+    icon: Users,
+    trustBadges: ['School Licenses', 'Bulk Pricing', 'Admin Controls'],
+    crossLinks: [{
+      text: 'Request school pricing',
+      href: '/contact'
+    }]
   }
 ]
 
@@ -245,6 +309,22 @@ export default function FAQSimple() {
                               <cite className="text-sm text-gray-600">
                                 — {faq.testimonial.author}, {faq.testimonial.role}
                               </cite>
+                            </div>
+                          )}
+
+                          {/* Cross Links */}
+                          {faq.crossLinks && (
+                            <div className="pt-2">
+                              {faq.crossLinks.map((link, idx) => (
+                                <Link 
+                                  key={idx}
+                                  href={link.href}
+                                  className="inline-flex items-center text-purple-600 hover:text-purple-800 font-medium transition-colors"
+                                >
+                                  <BookOpen className="w-4 h-4 mr-1" />
+                                  {link.text}
+                                </Link>
+                              ))}
                             </div>
                           )}
 
