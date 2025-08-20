@@ -4,12 +4,7 @@ import Script from 'next/script'
 import { useEffect } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 
-declare global {
-  interface Window {
-    gtag: (...args: any[]) => void
-    plausible: (event: string, options?: { props: Record<string, any> }) => void
-  }
-}
+// Window interface is already declared in global.d.ts
 
 interface AnalyticsProps {
   googleAnalyticsId?: string
@@ -101,7 +96,7 @@ export function ComprehensiveAnalytics({
       <Script id="analytics-init" strategy="afterInteractive">
         {`
           // Initialize privacy-focused tracking
-          window.trackEvent = function(event, properties = {}) {
+          (window as any).trackEvent = function(event, properties = {}) {
             // Enhanced privacy tracking
             const commonProps = {
               timestamp: Date.now(),
@@ -122,8 +117,8 @@ export function ComprehensiveAnalytics({
             }
 
             // Plausible event
-            if (window.plausible && '${plausibleDomain}') {
-              window.plausible(event, { 
+            if ((window as any).plausible && '${plausibleDomain}') {
+              (window as any).plausible(event, { 
                 props: {
                   ...properties,
                   ...commonProps
@@ -254,8 +249,8 @@ export function ComprehensiveAnalytics({
 // Hook for tracking events throughout the app
 export function useAnalytics() {
   const trackEvent = (event: string, properties: Record<string, any> = {}) => {
-    if (typeof window !== 'undefined' && window.trackEvent) {
-      window.trackEvent(event, properties)
+    if (typeof window !== 'undefined' && (window as any).trackEvent) {
+      (window as any).trackEvent(event, properties)
     }
   }
 
