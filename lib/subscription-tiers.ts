@@ -78,7 +78,7 @@ export const SUBSCRIPTION_TIERS: SubscriptionTier[] = [
   {
     id: 'pro-monthly',
     name: 'Pro',
-    price: 9,
+    price: 14.99,
     currency: 'USD',
     interval: 'monthly',
     badge: 'Most Popular',
@@ -124,7 +124,7 @@ export const SUBSCRIPTION_TIERS: SubscriptionTier[] = [
   {
     id: 'pro-yearly',
     name: 'Pro Yearly',
-    price: 90,
+    price: 149.9,
     currency: 'USD',
     interval: 'yearly',
     badge: 'Best Value',
