@@ -12,8 +12,7 @@ const intlMiddleware = createMiddleware({
 });
 
 export default function middleware(request: NextRequest) {
-  // Temporarily disabled for debugging build issues
-  return;
+  return intlMiddleware(request);
 }
 
 export const config = {
