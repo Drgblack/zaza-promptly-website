@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -30,7 +30,7 @@ export function PricingPageClient() {
   const { trackPricingInterest, trackCheckoutClick } = useAnalytics();
 
   // Track pricing page visit
-  React.useEffect(() => {
+  useEffect(() => {
     trackPricingInterest('pricing_page_visit', 'hero');
   }, [trackPricingInterest]);
 
@@ -382,5 +382,3 @@ export function PricingPageClient() {
   );
 }
 
-// Add React import for useEffect
-import React from 'react';
