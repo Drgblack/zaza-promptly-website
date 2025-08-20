@@ -16,6 +16,7 @@ interface Plan {
   yearlyPrice: number;
   popular?: boolean;
   comingSoon?: boolean;
+  geoNote?: string;
   features: string[];
   icon: any;
   ctaText: string;
@@ -55,9 +56,10 @@ export function PricingPageClient() {
       id: 'teacher',
       name: 'Teacher Plan',
       description: 'Complete AI assistant for individual teachers',
-      monthlyPrice: 9,
-      yearlyPrice: 90, // 2 months free
+      monthlyPrice: 14.99,
+      yearlyPrice: 149.9, // 2 months free (12 * 14.99 = 179.88, so 149.90 saves ~17%)
       popular: true,
+      geoNote: '(geo-pricing may vary—contact us for your region)',
       features: [
         'Unlimited AI-generated content',
         'All tone options (6 different styles)',
@@ -158,7 +160,7 @@ export function PricingPageClient() {
     if (plan.monthlyPrice === 0) return 'Free';
     
     const price = isYearly ? plan.yearlyPrice / 12 : plan.monthlyPrice;
-    return `$${price.toFixed(0)}`;
+    return plan.id === 'teacher' ? `Starting at $${price.toFixed(2)}` : `$${price.toFixed(2)}`;
   };
 
   const getSavings = (plan: Plan) => {
@@ -276,6 +278,12 @@ export function PricingPageClient() {
                   {isYearly && plan.monthlyPrice > 0 && (
                     <div className="text-xs text-gray-500">
                       Billed ${plan.yearlyPrice} annually
+                    </div>
+                  )}
+                  
+                  {plan.geoNote && plan.id === 'teacher' && (
+                    <div className="text-xs text-gray-500 mt-1">
+                      {plan.geoNote}
                     </div>
                   )}
                 </div>

@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { ArrowRight, Play, Users, Shield, Clock } from 'lucide-react'
 import { useAnalytics } from '@/hooks/useAnalytics'
 import { InlineEmailCapture } from './inline-email-capture'
+import { AnimatedButton } from '@/components/gamification/AnimatedButton'
 
 interface CTAProps {
   variant?: 'primary' | 'secondary' | 'outline' | 'text'
@@ -101,7 +102,7 @@ export function EnhancedCTA({
 
   if (action === 'see-demo' && targetHref.startsWith('#')) {
     return (
-      <Button
+      <AnimatedButton
         onClick={() => {
           handleClick()
           const element = document.querySelector(targetHref)
@@ -109,25 +110,48 @@ export function EnhancedCTA({
             element.scrollIntoView({ behavior: 'smooth' })
           }
         }}
-        className={`${getSizeClasses()} ${getVariantClasses()} rounded-full font-semibold transition-all duration-200 ${className}`}
+        variant={variant === 'primary' ? 'primary' : 'secondary'}
+        size={size}
+        className={className}
+        gamification={{
+          bounceOnHover: true,
+          showSparkle: true,
+          achievementLevel: 2
+        }}
+        accessibilityProps={{
+          'aria-label': `${displayText} - scrolls to demo section`
+        }}
       >
         <span className="flex items-center gap-2">
           {displayText}
           {showIcon && getIcon()}
         </span>
-      </Button>
+      </AnimatedButton>
     )
   }
 
   return (
     <div className="flex flex-col items-center gap-2">
       <Link href={targetHref} onClick={handleClick}>
-        <Button className={`${getSizeClasses()} ${getVariantClasses()} rounded-full font-semibold transition-all duration-200 ${className}`}>
+        <AnimatedButton
+          variant={variant === 'primary' ? 'primary' : 'secondary'}
+          size={size}
+          className={className}
+          gamification={{
+            bounceOnHover: true,
+            showSparkle: action === 'try-promptly',
+            achievementLevel: action === 'try-promptly' ? 3 : 2
+          }}
+          badge={action === 'try-promptly' ? { text: 'Free', type: 'success' } : undefined}
+          accessibilityProps={{
+            'aria-label': `${displayText}${subtitle ? ` - ${subtitle}` : ''}`
+          }}
+        >
           <span className="flex items-center gap-2">
             {displayText}
             {showIcon && getIcon()}
           </span>
-        </Button>
+        </AnimatedButton>
       </Link>
       {subtitle && (
         <p className="text-sm text-gray-600 text-center max-w-xs">

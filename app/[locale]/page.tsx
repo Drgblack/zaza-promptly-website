@@ -20,6 +20,9 @@ import { AccessibilityAnnouncer } from "@/components/accessibility-announcer"
 import { StructuredData } from "@/components/structured-data"
 import { ComprehensiveSchemas } from "@/components/structured-data/comprehensive-schemas"
 import { generateWebsiteSchema, generateOrganizationSchema, generateSoftwareSchema } from "@/lib/structured-data"
+import { StreakCounter } from "@/components/habit-building/StreakCounter"
+import { SampleGenerator } from "@/components/ai-transparency/SampleGenerator"
+import { AccessibleCard } from "@/components/accessibility/AccessibleCard"
 
 export const metadata: Metadata = {
   title: 'AI for Teachers - Parent Communications & Student Reports | Zaza Promptly',
@@ -34,7 +37,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'AI Teaching Assistant Built by PhD Educator | 12,000+ Teachers Trust Zaza Promptly',
-    description: 'Professional AI for teachers designed by Dr. Greg Blackburn (PhD in Professional Education). Write better parent communications & student reports 10x faster. GDPR compliant & hallucination-safe.',
+    description: 'Professional AI for teachers designed by Dr. Greg Blackburn (PhD in Professional Education). Write better parent communications & student reports 10x faster. Starting at $14.99/month. GDPR compliant & hallucination-safe.',
     images: ['/og-image.png'],
     type: 'website',
     locale: 'en_US',
@@ -43,7 +46,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'AI Teaching Assistant - Built by PhD Educator for 12,000+ Teachers',
-    description: 'Professional AI tool for teachers designed by Dr. Greg Blackburn. GDPR-compliant, hallucination-safe AI for parent communications & student reports.',
+    description: 'Professional AI tool for teachers designed by Dr. Greg Blackburn. Starting at $14.99/month. GDPR-compliant, hallucination-safe AI for parent communications & student reports.',
     images: ['/og-image.png'],
     creator: '@zazateachapp',
     site: '@zazateachapp'
@@ -130,7 +133,45 @@ export default function Home() {
           <SnippetDemo />
         </section>
         
-        {/* 6. Trust Badges Section */}
+        {/* 6. AI Transparency & Habit Building */}
+        <section className="py-16 md:py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Experience the Difference
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                See AI transparency in action and build teaching habits that save you hours every week.
+              </p>
+            </div>
+            
+            <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+              {/* Streak Counter */}
+              <AccessibleCard
+                title="Build Your Teaching Streak"
+                description="Track your AI-assisted teaching journey"
+                variant="elevated"
+                focusable={true}
+                announcement="Habit tracking card with streak counter and weekly goals"
+              >
+                <StreakCounter />
+              </AccessibleCard>
+              
+              {/* AI Sample Generator */}
+              <AccessibleCard
+                title="Try AI Sample Generator"
+                description="See real examples before you commit"
+                variant="gradient" 
+                focusable={true}
+                announcement="Interactive AI demo showing real comment examples"
+              >
+                <SampleGenerator compact={true} />
+              </AccessibleCard>
+            </div>
+          </div>
+        </section>
+        
+        {/* 8. Trust Badges Section */}
         <section className="py-16 md:py-20 bg-slate-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
@@ -145,7 +186,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 7. Teacher Testimonials */}
+        {/* 9. Teacher Testimonials */}
         <LazyContent>
           <section className="py-16 md:py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

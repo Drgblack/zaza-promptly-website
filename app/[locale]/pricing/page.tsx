@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { PricingPageClient } from './PricingPageClient'
+import { ProductStructuredData, FAQStructuredData } from '@/components/seo/StructuredData'
 
 interface Props {
   params: { locale: string }
@@ -36,8 +37,60 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function PricingPage({ params }: Props) {
   const t = await getTranslations('pricing')
 
+  // Structured data for the product and pricing
+  const productData = {
+    name: "Zaza Promptly - AI Teaching Assistant",
+    description: "AI-powered teaching assistant that helps teachers generate professional student comments, parent messages, and reports 10x faster. Built by PhD educator.",
+    brand: "Zaza Technologies",
+    category: "Educational Software",
+    offers: {
+      price: "14.99",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      priceRange: "Starting at $14.99/month",
+      geoNote: "Pricing may vary by region - contact us for local pricing"
+    },
+    aggregateRating: {
+      ratingValue: 4.8,
+      reviewCount: 247
+    },
+    features: [
+      "Unlimited AI-generated student comments",
+      "Professional parent communication templates", 
+      "Multi-language support (EN, FR, DE, ES, IT)",
+      "GDPR compliant and secure",
+      "50+ professional templates",
+      "Export to PDF & Word",
+      "Mobile-friendly interface",
+      "Priority email support"
+    ]
+  };
+
+  const faqData = [
+    {
+      question: "Can I try it before I buy?",
+      answer: "Yes! All plans include a 7-day free trial. You can explore all features without entering payment details during your trial."
+    },
+    {
+      question: "Can I cancel anytime?",
+      answer: "Absolutely. You can cancel your subscription at any time from your account settings. No questions asked, no cancellation fees."
+    },
+    {
+      question: "Is my data secure and private?",
+      answer: "Yes. We're GDPR compliant and never store your student data. All communications are encrypted and we never share your content with third parties."
+    },
+    {
+      question: "What payment methods do you accept?",
+      answer: "We accept all major credit cards, debit cards, and digital wallets through our secure Stripe payment system."
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <>
+      <ProductStructuredData product={productData} />
+      <FAQStructuredData faqs={faqData} mainEntity="Zaza Promptly" />
+      
+      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* Hero Section */}
       <div className="relative bg-gradient-to-r from-purple-600 to-pink-600 text-white py-16 sm:py-20">
         <div className="absolute inset-0 bg-black/10"></div>
@@ -209,5 +262,6 @@ export default async function PricingPage({ params }: Props) {
         </div>
       </div>
     </div>
+    </>
   )
 }
