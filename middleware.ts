@@ -7,27 +7,14 @@ const intlMiddleware = createMiddleware({
   locales,
   // Used when no locale matches
   defaultLocale,
-  // Only use the locale prefix when it's not the default locale
-  localePrefix: 'as-needed'
+  // Always show locale prefix for clarity
+  localePrefix: 'always'
 });
 
 export default function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
-  const hostname = request.headers.get('host') || '';
-
-  // Apply internationalization to all routes for zazapromptly.com
-  // This will handle locale routing properly with the [locale] folder structure
-  if (hostname.includes('zazapromptly.com') || 
-      pathname.startsWith('/en') || 
-      pathname.startsWith('/de') || 
-      pathname.startsWith('/es') || 
-      pathname.startsWith('/fr') || 
-      pathname.startsWith('/it')) {
-    return intlMiddleware(request);
-  }
-
-  // For other domains/routes, let Next.js handle normally
-  return;
+  // For zazapromptly.com, apply internationalization to all routes
+  // This ensures proper locale routing with the [locale] folder structure
+  return intlMiddleware(request);
 }
 
 export const config = {
