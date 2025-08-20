@@ -29,11 +29,7 @@ export function BlogPageClient({ publishedPosts, categories }: BlogPageClientPro
     hidden: { opacity: 0, y: 20 },
     visible: { 
       opacity: 1, 
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: [0.6, -0.05, 0.01, 0.99]
-      }
+      y: 0
     }
   }
 
@@ -148,6 +144,7 @@ export function BlogPageClient({ publishedPosts, categories }: BlogPageClientPro
                   key={post.slug}
                   className="group cursor-pointer"
                   variants={cardVariants}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
                   whileHover={{ 
                     scale: 1.05, 
                     transition: { duration: 0.2 } 
