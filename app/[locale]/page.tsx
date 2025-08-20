@@ -26,7 +26,7 @@ import { AccessibleCard } from "@/components/accessibility/AccessibleCard"
 
 export const metadata: Metadata = {
   title: 'AI for Teachers - Parent Communications & Student Reports | Zaza Promptly',
-  description: 'PhD-designed AI tool for teachers. Write professional parent emails, student comments & reports 10x faster. Join 12,000+ educators using GDPR-compliant, hallucination-safe AI. Built by Dr. Greg Blackburn.',
+  description: 'PhD-designed AI tool for teachers. Write professional parent emails, student comments & reports 10x faster. Starting at $14.99/month. Join 12,000+ educators using GDPR-compliant, hallucination-safe AI. Built by Dr. Greg Blackburn.',
   keywords: [
     'AI for teachers', 'AI teacher assistant', 'parent communication AI', 'student report AI',
     'teacher productivity tools', 'AI comment generator teachers', 'professional education AI',
