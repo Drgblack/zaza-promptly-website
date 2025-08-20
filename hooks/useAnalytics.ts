@@ -28,7 +28,26 @@ export type CustomEventName =
   | 'testimonial_viewed'
   | 'faq_expanded'
   | 'social_share'
-  | 'external_link_clicked';
+  | 'external_link_clicked'
+  | 'cross_product_click'
+  | 'inline_cross_product_click'
+  | 'product_page_cta'
+  | 'blog_post_click'
+  | 'checkout_initiated'
+  | 'checkout_error'
+  | 'conversion'
+  | 'file_download'
+  | 'video_start'
+  | 'user_engagement'
+  | 'scroll_depth'
+  | 'form_interaction'
+  | 'click'
+  | 'page_performance'
+  | 'session_end'
+  | 'free_trial_started'
+  | 'quick_free_trial'
+  | 'quick_checkout_view'
+  | 'cta_clicked';
 
 export interface EventProperties {
   source?: string;
