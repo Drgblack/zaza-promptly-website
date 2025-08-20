@@ -43,8 +43,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
     languages: {
-      'en-US': '/en-US',
-      'en-GB': '/en-GB',
+      'en-US': '/',
+      'en-GB': '/',
+      'de-DE': '/de',
+      'es-ES': '/es', 
+      'fr-FR': '/fr',
+      'it-IT': '/it',
     },
   },
   openGraph: {

@@ -1,0 +1,65 @@
+{
+  "Navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "features": "Fonctionnalités",
+    "pricing": "Prix",
+    "blog": "Blog",
+    "resources": "Ressources Gratuites",
+    "support": "Support",
+    "getStarted": "Commencer",
+    "tryFree": "Essayer Gratuitement",
+    "signIn": "Se Connecter"
+  },
+  "Hero": {
+    "headline": "Libérez-vous du fardeau - rédigez des messages empathiques et professionnels aux parents en minutes, pas en heures.",
+    "subheadline": "Promptly est votre partenaire de soutien quand vous êtes trop fatigué pour trouver les bons mots.",
+    "primaryCta": "Essai Gratuit",
+    "secondaryCta": "Voir Démo",
+    "trustText": "Fait confiance par 12 000+ enseignants dans le monde",
+    "features": {
+      "aiComments": "Commentaires IA",
+      "parentMessages": "Communication parents",
+      "timeSaving": "Économise 5+ heures par semaine",
+      "multilingual": "Support multilingue"
+    }
+  },
+  "CTAs": {
+    "trySnippetNow": "Essayer un extrait maintenant",
+    "joinWaitlist": "Rejoindre la liste d'attente",
+    "saveTimeNextLessonPlan": "Économiser du temps sur votre prochaine planification de cours",
+    "readyToSaveHours": "Prêt à économiser des heures cette semaine ?",
+    "join12000Teachers": "Rejoignez 12 000+ enseignants qui économisent des heures chaque semaine"
+  },
+  "Pricing": {
+    "title": "Choisissez Votre Plan",
+    "subtitle": "Commencez gratuitement, mettez à niveau quand vous êtes prêt.",
+    "free": {
+      "title": "Gratuit",
+      "price": "0€",
+      "period": "pour toujours",
+      "description": "Parfait pour essayer Zaza Promptly",
+      "cta": "Commencer Gratuitement"
+    },
+    "pro": {
+      "title": "Pro",
+      "price": "12€",
+      "period": "par mois",
+      "description": "Pour les enseignants individuels qui veulent un accès illimité",
+      "cta": "Essai gratuit de 7 jours",
+      "popular": "Le Plus Populaire"
+    }
+  },
+  "Common": {
+    "loading": "Chargement...",
+    "error": "Quelque chose s'est mal passé",
+    "tryAgain": "Réessayer",
+    "readMore": "Lire plus",
+    "learnMore": "En savoir plus"
+  },
+  "Footer": {
+    "tagline": "IA pour les Éducateurs",
+    "description": "Nous soutenons les enseignants du monde entier avec des outils empathiques qui réduisent le fardeau.",
+    "copyright": "© 2025 Zaza Technologies. Tous droits réservés."
+  }
+}
