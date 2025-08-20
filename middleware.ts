@@ -12,9 +12,9 @@ const intlMiddleware = createMiddleware({
 });
 
 export default function middleware(request: NextRequest) {
-  // For zazapromptly.com, apply internationalization to all routes
-  // This ensures proper locale routing with the [locale] folder structure
-  return intlMiddleware(request);
+  // Temporarily disabled internationalization middleware to fix routing conflicts
+  // Site uses root-level pages in app/ directory
+  return;
 }
 
 export const config = {
