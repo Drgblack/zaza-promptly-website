@@ -56,6 +56,7 @@ export const metadata: Metadata = {
 }
 
 export default function Home() {
+  // Cache bust: Updated 2025-08-20 with new pricing and gamification features
   const siteUrl = 'https://zazapromptly.com'
   
   // Generate structured data schemas for homepage
