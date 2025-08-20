@@ -90,6 +90,7 @@ export function generateAuthorSchema(author: BlogPostData['author'], siteUrl: st
     },
     description: 'PhD-qualified educator and founder of Zaza Technologies, building AI tools for teachers worldwide.',
     sameAs: [
+      'https://www.linkedin.com/in/drgregblackburn/',
       'https://linkedin.com/company/zaza-technologies',
       'https://twitter.com/zazateachapp'
     ]
