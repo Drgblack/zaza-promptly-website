@@ -56,6 +56,10 @@ const faqCategories = [
       {
         question: 'Can I use my own writing style?',
         answer: 'Definitely. The more you use Promptly, the better it understands your tone. You can also give it examples of your preferred style, and it will match your voice while maintaining professionalism.'
+      },
+      {
+        question: 'Can I trust Promptly\'s suggestions?',
+        answer: 'Absolutely. Promptly gives you helpful starting points, but you\'re always the one in charge. Every suggestion can be edited, tweaked, or ignored — nothing is locked in. Think of it as a colleague who throws out ideas, but you decide what actually goes home to parents or into your reports.'
       }
     ]
   },

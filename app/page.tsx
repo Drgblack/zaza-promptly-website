@@ -5,12 +5,18 @@ import { CorePromisesSection } from "@/components/core-promises-section"
 import { TeacherDifferentiatorSection } from "@/components/teacher-differentiator-section"
 import { SnippetDemo } from "@/components/snippet-demo"
 import { MainEmailCaptureSection } from "@/components/main-email-capture-section"
+import { InlineEmailCapture } from "@/components/inline-email-capture"
 import { TrustBlock } from "@/components/trust-block"
+import { TrustBadges } from "@/components/trust-badges"
+import { TeacherTestimonials } from "@/components/teacher-testimonials"
+import { SEOInternalLinks } from "@/components/seo-internal-links"
+import { LazyContent } from "@/components/lazy-loading"
 import { SEOHead } from "@/components/seo-head"
 import { SkipLink } from "@/components/skip-link"
 import { PerformanceMonitor } from "@/components/performance-monitor"
 import { AccessibilityAnnouncer } from "@/components/accessibility-announcer"
 import { StructuredData } from "@/components/structured-data"
+import { ComprehensiveSchemas } from "@/components/structured-data/comprehensive-schemas"
 import { generateWebsiteSchema, generateOrganizationSchema, generateSoftwareSchema } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
@@ -64,6 +70,7 @@ export default function Home() {
   
   return (
     <>
+      <ComprehensiveSchemas url={siteUrl} />
       <SEOHead pageType="home" />
       <StructuredData data={[websiteSchema, organizationSchema, softwareSchema]} />
       <SkipLink />
@@ -121,14 +128,62 @@ export default function Home() {
           <SnippetDemo />
         </section>
         
-        {/* 7. Email Capture */}
+        {/* 6. Trust Badges Section */}
+        <section className="py-16 md:py-20 bg-slate-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                Built by Educators, for Educators
+              </h2>
+              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                Unlike generic AI tools, Zaza Promptly is designed specifically for teachers with safety, privacy, and pedagogy at its core.
+              </p>
+            </div>
+            <TrustBadges layout="grid" limit={6} className="max-w-4xl mx-auto" />
+          </div>
+        </section>
+
+        {/* 7. Teacher Testimonials */}
+        <LazyContent>
+          <section className="py-16 md:py-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                  Join 12,000+ Teachers Who've Reclaimed Their Evenings
+                </h2>
+                <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                  Real teachers sharing how Zaza Promptly transformed their work-life balance
+                </p>
+              </div>
+              <TeacherTestimonials limit={6} />
+            </div>
+          </section>
+        </LazyContent>
+        
+        {/* 8. Email Capture */}
         <section className="py-16 md:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <MainEmailCaptureSection />
           </div>
         </section>
+
+        {/* 9. Inline Email Capture - Additional opportunity */}
+        <section className="py-8 md:py-12 bg-gradient-to-r from-purple-50 to-blue-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <InlineEmailCapture 
+              variant="compact" 
+              source="homepage_bottom" 
+              title="Don't miss free teacher resources"
+              description="Join thousands of educators getting weekly AI prompts and productivity tips"
+              className="mb-6"
+            />
+            <div className="text-center">
+              <SEOInternalLinks context="homepage" />
+            </div>
+          </div>
+        </section>
         
-        {/* 8. Trust Block - FAQ, Testimonials, Badges */}
+        {/* 10. Trust Block - FAQ, Testimonials, Badges */}
         <TrustBlock />
         
         {/* 9. Footer - handled by root layout */}

@@ -5,6 +5,8 @@ import { SecurityHeaders } from '@/components/security-headers'
 import { SelectionFix } from '@/components/selection-fix'
 import { OrganizationSchema } from '@/components/organization-schema'
 import { DeferredAnalytics } from '@/components/deferred-analytics'
+import { ComprehensiveAnalytics } from '@/components/analytics/comprehensive-analytics'
+import { SkipLinks } from '@/components/accessibility/skip-links'
 import { PerformanceEnhancements, ServiceWorkerRegistration, PerformanceErrorBoundary } from '@/components/performance-enhancements'
 import { PerformanceOptimizations, CriticalCSS } from '@/components/performance-optimizations'
 import { Analytics } from '@vercel/analytics/react'
@@ -49,31 +51,31 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://zazapromptly.com',
-    title: 'Zaza Promptly - AI Teaching Assistant That Saves Teachers 5+ Hours/Week',
-    description: 'Join 12,000+ teachers using AI to write better student feedback faster. Generate personalized comments, parent messages, and assessments in seconds with Zaza Promptly.',
+    title: 'AI Teaching Assistant Built by PhD Educator - Zaza Promptly',
+    description: 'Join 12,000+ teachers using PhD-designed AI for professional parent communications & student reports. GDPR-compliant, hallucination-safe AI that saves 5+ hours weekly. Built by Dr. Greg Blackburn.',
     siteName: 'Zaza Promptly',
     images: [
       {
-        url: '/og-image.jpg',
+        url: 'https://zazapromptly.com/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Zaza Promptly - AI-Powered Teaching Assistant for Student Feedback and Parent Communication',
-        type: 'image/jpeg',
+        alt: 'Zaza Promptly - PhD-designed AI Teaching Assistant trusted by 12,000+ teachers worldwide',
+        type: 'image/png',
       },
       {
-        url: '/og-image-square.jpg',
+        url: 'https://zazapromptly.com/og-image-square.png',
         width: 800,
         height: 800,
-        alt: 'Zaza Promptly Logo - AI for Teachers',
-        type: 'image/jpeg',
+        alt: 'Zaza Promptly - Professional AI for Teachers',
+        type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Zaza Promptly - AI Teaching Assistant That Saves 5+ Hours/Week',
-    description: 'Join 12,000+ teachers using AI to write better student feedback faster. Try free today!',
-    images: ['/og-image.jpg'],
+    title: 'PhD-Designed AI Teaching Assistant - Trusted by 12,000+ Teachers',
+    description: 'GDPR-compliant, hallucination-safe AI for professional parent communications & student reports. Built by Dr. Greg Blackburn. Save 5+ hours weekly.',
+    images: ['https://zazapromptly.com/og-image.png'],
     creator: '@zazateachapp',
     site: '@zazateachapp',
   },
@@ -143,15 +145,17 @@ export default function RootLayout({
       <body className="antialiased">
         <ErrorBoundary>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+            <SkipLinks />
             <SecurityHeaders />
             <SelectionFix />
             <OrganizationSchema />
             <CriticalCSS />
             <Header />
-            <main id="main-content" className="min-h-screen">
+            <main id="main-content" className="min-h-screen" role="main">
               {children}
             </main>
             <Footer />
+            <ComprehensiveAnalytics />
             <DeferredAnalytics />
             <PerformanceEnhancements />
             <ServiceWorkerRegistration />

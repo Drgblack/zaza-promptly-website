@@ -3,26 +3,26 @@ import { ProductPageTemplate } from './product-page-template';
 export function NotablyProductPage() {
   return (
     <ProductPageTemplate
-      title="Zaza Notably Suite"
-      tagline="Professional writing for educators, minus the stress."
-      problemTitle="The Administrative Writing Burden"
-      problemText="Policy documents. Funding proposals. Meeting minutes. Professional reports. The writing never stops, but you became a teacher to teach, not to be buried in paperwork."
-      solutionTitle="Write Better, Faster, With Confidence"
-      solutionText="Notably Suite handles the heavy lifting of professional writing. Draft policies that sound authoritative, proposals that get approved, and reports that communicate clearly — all while maintaining your professional voice."
-      benefitsTitle="Transform Your Professional Communication:"
+      title="Stop Staring at the Blank Page"
+      tagline="Professional writing AI that understands the pressure you're under as an educational leader."
+      problemTitle="You're Not a Writer. You're an Educator."
+      problemText="It's 6 PM. The board meeting is tomorrow and you're staring at a blank document titled 'Budget_Proposal_FINAL_v7.docx'. You know what you want to say, but finding the right words that sound professional and persuasive? That's the hard part. You went into education to impact students, not to become a corporate writer overnight."
+      solutionTitle="Write With The Authority You Deserve"
+      solutionText="Notably Suite understands the unique language of education. Built by Dr. Greg Blackburn (PhD in Professional Education), it helps you draft policies, proposals, and reports that sound like they came from someone who's been in education leadership for decades — because they did. You bring the educational expertise, we handle the professional polish."
+      benefitsTitle="Finally Write With The Confidence You Deserve:"
       benefits={[
-        { icon: "Clock", text: "Save hours on policy drafts and professional documents", color: "text-blue-600" },
-        { icon: "Trophy", text: "Sound more confident in formal writing situations", color: "text-yellow-600" },
-        { icon: "Target", text: "Reduce stress around administrative deadlines", color: "text-green-600" },
-        { icon: "Users", text: "Maintain consistency across all school communications", color: "text-purple-600" },
-        { icon: "Briefcase", text: "Focus on leadership instead of wrestling with words", color: "text-indigo-600" },
-        { icon: "FileText", text: "Build your reputation with clear, professional documentation", color: "text-red-600" },
+        { icon: "Clock", text: "Turn weekend writing marathons into 30-minute focused sessions", color: "text-blue-600" },
+        { icon: "Trophy", text: "Sound like the educational leader you are — not someone pretending", color: "text-yellow-600" },
+        { icon: "Target", text: "Never miss a deadline because you're stuck finding the right words", color: "text-green-600" },
+        { icon: "Users", text: "Speak with one authoritative voice across all school communications", color: "text-purple-600" },
+        { icon: "Briefcase", text: "Focus on educational impact, not fighting with document formatting", color: "text-indigo-600" },
+        { icon: "FileText", text: "Build your reputation as a leader who communicates with clarity and purpose", color: "text-red-600" },
       ]}
-      testimonialQuote="I used to dread writing funding applications. Now I can draft a compelling proposal in an hour instead of an entire weekend."
-      testimonialAuthor="Dr. Sarah M., Curriculum Director"
-      credibilityText="<strong>Trust the Process</strong><br/>Created by Dr. Greg Blackburn, whose PhD in Professional Education ensures every tool respects educational leadership principles and professional writing standards."
-      ctaTitle="Ready to elevate your professional voice?"
-      ctaDescription="Join the waitlist to get early access to writing tools that understand education."
+      testimonialQuote="I was spending entire weekends on grant proposals and still felt uncertain about the language. Notably Suite helped me write like the 20-year education veteran I am, not like someone trying to sound corporate. My proposal success rate has doubled."
+      testimonialAuthor="Dr. Sarah Matthews, Assistant Superintendent, California"
+      credibilityText="<strong>Built by Someone Who Gets It</strong><br/>Dr. Greg Blackburn (PhD in Professional Education, 20+ years in education) knows the unique pressure of educational leadership writing. Every template and suggestion respects the professional standards and nuanced language of education — because it comes from education."
+      ctaTitle="Ready to write with the authority you've earned?"
+      ctaDescription="Join 12,000+ educators who've discovered professional writing doesn't have to be painful."
       ctaButtonText="Join the Waitlist"
       ctaProcessingText="Joining Waitlist..."
       ctaSecondaryText="🔒 Secure • 📧 No spam • ⚡ Early access"

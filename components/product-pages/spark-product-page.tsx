@@ -3,12 +3,12 @@ import { ProductPageTemplate } from './product-page-template';
 export function SparkProductPage() {
   return (
     <ProductPageTemplate
-      title="Zaza Spark (HR)"
-      tagline="HR workflows that actually work for schools."
-      problemTitle="School HR Is Uniquely Challenging"
-      problemText="Teacher onboarding during term time. Training schedules around classroom commitments. Communication that balances professionalism with the collaborative school culture. Generic HR tools don't get education."
-      solutionTitle="HR Solutions Built for Schools"
-      solutionText="Zaza Spark understands the rhythms of school life. Streamline onboarding for mid-year hires, create training that teachers can actually attend, and communicate with the warmth and professionalism that school communities need."
+      title="HR Shouldn't Be This Hard"
+      tagline="Finally, HR workflows that understand the chaos of school life."
+      problemTitle="When a Teacher Starts Mid-Term and Everything Falls Apart"
+      problemText="It's November. Your Year 3 teacher just resigned, and you've found a replacement who can start Monday. But your HR system wants them to complete 40 hours of online training, attend a full-day orientation (during teaching hours), and somehow get IT access sorted before they meet their new class. Sound familiar? School HR isn't corporate HR, but nobody seems to have told the systems that."
+      solutionTitle="HR That Gets the Real World of Schools" 
+      solutionText="Zaza Spark was built by Dr. Greg Blackburn after watching countless schools struggle with HR systems designed for 9-to-5 office workers. It understands that teachers need to be onboarded during lunch breaks, training has to happen after school or during holidays, and communication needs to be warm but professional — because schools are communities, not corporations."
       benefitsTitle="Simplify Your School HR:"
       benefits={[
         { icon: "Clock", text: "Faster onboarding that works around teaching schedules", color: "text-blue-600" },

@@ -10,8 +10,7 @@ const withMDX = require('@next/mdx')({
   },
 })
 
-// Temporarily disabled
-// const withNextIntl = createNextIntlPlugin('./i18n.ts');
+const withNextIntl = createNextIntlPlugin('./i18n.ts');
 
 const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
@@ -51,9 +50,42 @@ const nextConfig = {
     scrollRestoration: true,
     optimizePackageImports: [
       'lucide-react',
-      '@radix-ui/react-icons'
+      '@radix-ui/react-icons',
+      'framer-motion',
+      'date-fns'
     ]
   },
+
+  // Turbopack configuration (moved out of experimental as it's now stable)
+  turbopack: {
+    rules: {
+      '*.svg': {
+        loaders: ['@svgr/webpack'],
+        as: '*.js'
+      }
+    }
+  },
+
+  // Output standalone for better performance
+  output: process.env.NODE_ENV === 'production' ? 'standalone' : undefined,
+
+  // Compiler optimizations
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn']
+    } : false,
+  },
+
+  // Bundle analyzer for development
+  ...(process.env.ANALYZE === 'true' && {
+    webpack: (config, { isServer }) => {
+      if (!isServer) {
+        const { BundleAnalyzerPlugin } = require('@next/bundle-analyzer')();
+        config.plugins.push(new BundleAnalyzerPlugin());
+      }
+      return config;
+    }
+  }),
 
   // Headers for caching and security
   async headers() {
@@ -72,6 +104,14 @@ const nextConfig = {
           {
             key: 'Referrer-Policy',
             value: 'strict-origin-when-cross-origin'
+          },
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on'
+          },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=31536000; includeSubDomains'
           }
         ]
       },
@@ -90,6 +130,24 @@ const nextConfig = {
           {
             key: 'Cache-Control',
             value: 'public, max-age=31536000, immutable'
+          }
+        ]
+      },
+      {
+        source: '/(favicon|apple-touch|og-image|manifest)\\.(ico|png|jpg|jpeg|svg|webmanifest)$',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400' // 24 hours
+          }
+        ]
+      },
+      {
+        source: '/api/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-store, max-age=0'
           }
         ]
       }
@@ -239,6 +297,6 @@ const sentryWebpackPluginOptions = {
 };
 
 module.exports = withSentryConfig(
-  withMDX(nextConfig), // Temporarily removed withNextIntl
+  withNextIntl(withMDX(nextConfig)), // Re-enabled withNextIntl
   sentryWebpackPluginOptions
 );

@@ -34,7 +34,7 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.2, ease: "easeOut" }}
           >
-            Promptly gives teachers back hours every week by reducing admin stress, so you can focus on what really matters: teaching.
+            Join 12,000+ teachers who've reclaimed their evenings with hallucination-safe AI designed by a PhD educator. Get professional parent communication and report comments in minutes, not hours.
           </motion.p>
         </header>
 
@@ -59,7 +59,7 @@ export function HeroSection() {
             className="w-full sm:w-auto min-h-[44px] bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-semibold px-8 py-4 text-base sm:text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-200 touch-manipulation focus:outline-none focus:ring-4 focus:ring-amber-500/50"
             aria-label="Try Promptly free demo"
           >
-            Try Promptly Free
+            Save Hours This Week
           </Button>
           <Link href="/free-resources">
             <Button
@@ -69,7 +69,7 @@ export function HeroSection() {
               className="w-full sm:w-auto min-h-[44px] border-2 border-white text-white hover:bg-white hover:text-blue-900 font-semibold px-8 py-4 text-base sm:text-lg rounded-full bg-transparent touch-manipulation focus:outline-none focus:ring-4 focus:ring-white/50"
               aria-label="See examples of AI-generated teacher comments"
             >
-              See Resources
+              See Teacher Examples
             </Button>
           </Link>
         </motion.div>

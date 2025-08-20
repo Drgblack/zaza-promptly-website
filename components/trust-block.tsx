@@ -70,10 +70,10 @@ export function TrustBlock({ className = "" }: TrustBlockProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-            Questions?
+            Safe AI Designed by Educators
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Here are the answers to the most common concerns teachers have about using AI in their classroom.
+            Dr. Greg Blackburn (PhD in Professional Education) built Zaza Promptly to address teachers' biggest concerns about AI in education.
           </p>
         </div>
 
@@ -145,9 +145,9 @@ export function TrustBlock({ className = "" }: TrustBlockProps) {
             {/* Call to action */}
             <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200">
               <CardContent className="p-6 text-center">
-                <h3 className="font-semibold text-slate-900 mb-2">Ready to try it?</h3>
+                <h3 className="font-semibold text-slate-900 mb-2">Start Saving Hours This Week</h3>
                 <p className="text-sm text-slate-600 mb-4">
-                  Join thousands of teachers who've reclaimed their evenings.
+                  Join 12,000+ teachers using PhD-designed AI that never compromises on safety.
                 </p>
                 <Button
                   size="sm"
@@ -160,7 +160,7 @@ export function TrustBlock({ className = "" }: TrustBlockProps) {
                   }}
                   className="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-semibold rounded-full shadow-lg"
                 >
-                  Try Promptly Free
+                  Get Early Access
                 </Button>
               </CardContent>
             </Card>
@@ -187,7 +187,7 @@ export function TrustBlock({ className = "" }: TrustBlockProps) {
                 onClick={() => handleCTAClick('trust_block_resources')}
                 className="w-full sm:w-auto border-2 border-slate-300 text-slate-700 hover:bg-slate-50 font-semibold px-8 py-4 text-lg rounded-full transition-all duration-200"
               >
-                See Resources
+                Free Teacher Examples
               </Button>
             </Link>
             
@@ -198,7 +198,7 @@ export function TrustBlock({ className = "" }: TrustBlockProps) {
                 onClick={() => handleCTAClick('trust_block_full_faqs')}
                 className="w-full sm:w-auto border-2 border-blue-300 text-blue-700 hover:bg-blue-50 font-semibold px-8 py-4 text-lg rounded-full transition-all duration-200"
               >
-                More Questions?
+                Complete FAQ Guide
               </Button>
             </Link>
           </div>

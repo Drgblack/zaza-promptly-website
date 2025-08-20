@@ -54,34 +54,39 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-1">
+          <nav 
+            className="hidden lg:flex items-center space-x-1"
+            role="navigation"
+            aria-label="Main navigation"
+          >
             <Link 
               href="/products" 
-              className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
+              className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
             >
               Products
             </Link>
             <Link 
               href={externalLinks.blog} 
-              className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
+              className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+              aria-label="Visit our blog (opens in new tab)"
             >
               Blog
             </Link>
             <Link 
               href="/free-resources" 
-              className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
+              className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
             >
               Free Resources
             </Link>
             <Link 
               href="/faqs" 
-              className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
+              className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
             >
               FAQs
             </Link>
             <Link 
               href={externalLinks.aboutFounder} 
-              className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
+              className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
             >
               About the Founder
             </Link>
@@ -103,13 +108,16 @@ export default function Header() {
             <LanguageSelector compact />
             <button
               onClick={toggleMenu}
-              className="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
-              aria-label="Toggle menu"
+              className="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+              aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-navigation"
+              aria-haspopup="true"
             >
               {isMenuOpen ? (
-                <X className="w-6 h-6 text-gray-700" />
+                <X className="w-6 h-6 text-gray-700" aria-hidden="true" />
               ) : (
-                <Menu className="w-6 h-6 text-gray-700" />
+                <Menu className="w-6 h-6 text-gray-700" aria-hidden="true" />
               )}
             </button>
           </div>
@@ -117,8 +125,13 @@ export default function Header() {
 
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden border-t border-gray-200 bg-white/95 backdrop-blur-md">
-            <nav className="py-4 space-y-1">
+          <div 
+            className="lg:hidden border-t border-gray-200 bg-white/95 backdrop-blur-md"
+            id="mobile-navigation"
+            role="region"
+            aria-label="Mobile navigation menu"
+          >
+            <nav className="py-4 space-y-1" role="navigation" aria-label="Mobile navigation links">
               <Link 
                 href="/products" 
                 className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"

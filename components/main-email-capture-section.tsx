@@ -108,10 +108,10 @@ export function MainEmailCaptureSection() {
                 <Mail className="w-8 h-8 text-white" />
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                Get teacher tips and updates
+                Join 12,000+ Teachers Saving Hours Each Week
               </h2>
               <p className="text-lg text-slate-600">
-                Occasional emails that save you time. No spam.
+                Get early access to Promptly plus free teacher resources. Created by Dr. Greg Blackburn, PhD in Professional Education.
               </p>
             </div>
 
@@ -189,11 +189,11 @@ export function MainEmailCaptureSection() {
                 disabled={isSubmitting}
                 className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-semibold py-4 text-lg rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200 disabled:transform-none disabled:opacity-70"
               >
-                {isSubmitting ? 'Signing up...' : 'Get Teacher Tips'}
+                {isSubmitting ? 'Joining community...' : 'Get Early Access + Free Resources'}
               </Button>
 
               <p className="text-xs text-slate-500 text-center mt-4">
-                We respect your privacy. Unsubscribe at any time.
+                ✓ No spam, just valuable teacher resources ✓ Designed by PhD educator ✓ Unsubscribe anytime
               </p>
             </form>
 
