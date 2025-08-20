@@ -192,15 +192,47 @@ export function SnippetDemo({ className = "" }: SnippetDemoProps) {
                   aria-label="Generated text output"
                 >
                   {currentOutput ? (
-                    <div className="w-full">
+                    <div className="w-full space-y-4">
                       <p className="text-slate-800 dark:text-slate-200 leading-relaxed select-text">
                         {currentOutput}
                       </p>
+                      
+                      {/* Zara Assistant Persona */}
+                      <div className="bg-purple-50 border border-purple-200 rounded-lg p-4 mt-4">
+                        <div className="flex items-start gap-3">
+                          <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                            <span className="text-white text-sm font-semibold">Z</span>
+                          </div>
+                          <div>
+                            <p className="text-sm font-medium text-purple-900 mb-1">Zara (Your AI Assistant)</p>
+                            <p className="text-sm text-purple-800">
+                              "This is just a simple demo – the full version gives you multiple tone options, learns your writing style, and includes safeguards to ensure every comment is appropriate for your students and families."
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   ) : (
-                    <p className="text-slate-400 dark:text-slate-500 text-center text-sm italic">
-                      Click "Generate" to see how Promptly would write your {TABS.find(tab => tab.id === activeTab)?.label.toLowerCase()}
-                    </p>
+                    <div className="text-center space-y-4">
+                      <p className="text-slate-400 dark:text-slate-500 text-sm italic">
+                        Click "Generate" to see how Promptly would write your {TABS.find(tab => tab.id === activeTab)?.label.toLowerCase()}
+                      </p>
+                      
+                      {/* Zara Assistant Intro */}
+                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <div className="flex items-start gap-3">
+                          <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                            <span className="text-white text-sm font-semibold">Z</span>
+                          </div>
+                          <div>
+                            <p className="text-sm font-medium text-blue-900 mb-1">Meet Zara, Your AI Teaching Assistant</p>
+                            <p className="text-sm text-blue-800">
+                              "Hi! I'm here to help you write professional, caring comments for students and parents. Just add your notes above and I'll craft something appropriate and engaging."
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   )}
                 </div>
               </div>

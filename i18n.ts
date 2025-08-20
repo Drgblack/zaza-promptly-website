@@ -2,19 +2,25 @@ import {notFound} from 'next/navigation';
 import {getRequestConfig} from 'next-intl/server';
 
 // Can be imported from a shared config
-export const locales = ['en', 'de'] as const;
+export const locales = ['en', 'de', 'es', 'fr', 'it'] as const;
 export type Locale = typeof locales[number];
 
 export const defaultLocale: Locale = 'en';
 
 export const localeNames: Record<Locale, string> = {
   en: 'English',
-  de: 'Deutsch'
+  de: 'Deutsch',
+  es: 'Español',
+  fr: 'Français',
+  it: 'Italiano'
 };
 
 export const localeFlags: Record<Locale, string> = {
   en: '🇺🇸',
-  de: '🇩🇪'
+  de: '🇩🇪',
+  es: '🇪🇸',
+  fr: '🇫🇷',
+  it: '🇮🇹'
 };
 
 export default getRequestConfig(async ({locale}) => {

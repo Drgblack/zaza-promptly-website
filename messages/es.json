@@ -1,0 +1,234 @@
+{
+  "Navigation": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "features": "Características",
+    "pricing": "Precios",
+    "blog": "Blog",
+    "resources": "Recursos Gratuitos",
+    "support": "Soporte",
+    "getStarted": "Comenzar",
+    "tryFree": "Probar Gratis",
+    "signIn": "Iniciar Sesión"
+  },
+  "Hero": {
+    "headline": "Libérate de la carga - escribe mensajes empáticos y profesionales para padres en minutos, no horas.",
+    "subheadline": "Promptly es tu compañero de apoyo cuando estás demasiado cansado para encontrar las palabras correctas.",
+    "primaryCta": "Prueba Gratuita",
+    "secondaryCta": "Ver Demo",
+    "trustText": "Confiado por más de 12,000 profesores en todo el mundo",
+    "features": {
+      "aiComments": "Comentarios con IA",
+      "parentMessages": "Comunicación con padres",
+      "timeSaving": "Ahorra 5+ horas semanales",
+      "multilingual": "Soporte multiidioma"
+    }
+  },
+  "Features": {
+    "title": "Todo lo que necesitas para una enseñanza efectiva",
+    "subtitle": "Menos estrés, más energía para lo que importa: tus estudiantes. Con herramientas empáticas diseñadas específicamente para educadores.",
+    "aiComments": {
+      "title": "Escribe con calidez y confianza",
+      "description": "Promptly sugiere redacciones empáticas, frases finales y ajustes de tono. Construido para profesores, con medidas de seguridad confiables: seguro, profesional y listo para el aula."
+    },
+    "parentCommunication": {
+      "title": "Comunicación con Padres",
+      "description": "Crea mensajes claros y empáticos a los padres que construyen confianza y fortalecen la relación hogar-escuela."
+    },
+    "multiLanguage": {
+      "title": "Soporte Multiidioma",
+      "description": "Comunícate con familias diversas en su idioma preferido con capacidades de traducción automática."
+    },
+    "timeSaving": {
+      "title": "Menos estrés, más energía para lo que importa",
+      "description": "Los profesores ya están sobrecargados. Promptly ayuda a aliviar esa carga para que puedas concentrarte en enseñar."
+    },
+    "dataPrivacy": {
+      "title": "Privacidad de Datos de Estudiantes",
+      "description": "La seguridad de nivel empresarial garantiza que toda la información del estudiante permanezca privada y protegida."
+    },
+    "easyIntegration": {
+      "title": "Integración Fácil",
+      "description": "Funciona perfectamente con tus herramientas y flujos de trabajo existentes. No se requiere configuración compleja."
+    }
+  },
+  "AboutFounder": {
+    "title": "Sobre el Fundador",
+    "subtitle": "Conoce al Dr. Greg Blackburn",
+    "description": "Educador PhD, Experto en EdTech y Fundador de Zaza Technologies",
+    "bio": "El Dr. Greg Blackburn es un experto en EdTech reconocido mundialmente, educador PhD y fundador de Zaza Technologies. Con más de 20 años de experiencia en aprendizaje digital y diseño instruccional, Greg ha desarrollado herramientas utilizadas por miles de profesores en todo el mundo.",
+    "mission": "Mi misión es simple: ayudar a los profesores a manejar la sobrecarga para que puedan enfocarse en lo que mejor saben hacer: inspirar y educar a la próxima generación.",
+    "experience": {
+      "title": "Experiencia y Expertise",
+      "education": "PhD en Tecnología Educativa",
+      "years": "20+ años en EdTech",
+      "teachers": "Apoyando a 12,000+ profesores mundialmente",
+      "innovation": "Pionero en herramientas educativas con IA"
+    },
+    "contact": {
+      "title": "Ponerse en Contacto",
+      "email": "Conectar por correo electrónico",
+      "linkedin": "Ver perfil de LinkedIn"
+    }
+  },
+  "TrustBadges": {
+    "phdEducatorBuilt": {
+      "title": "Construido por Educador PhD",
+      "description": "Dr. Greg Blackburn: PhD en Educación Profesional, 20+ años de experiencia docente"
+    },
+    "hallucinationSafe": {
+      "title": "IA Segura contra Alucinaciones",
+      "description": "Nunca inventa información falsa sobre estudiantes - precisión garantizada"
+    },
+    "teacherTrusted": {
+      "title": "12,000+ Profesores en Todo el Mundo",
+      "description": "Educadores en España, Reino Unido, EE.UU., Australia confían en nuestra IA segura"
+    },
+    "gdprCompliant": {
+      "title": "Cumple con RGPD y es Seguro para Escuelas",
+      "description": "Estándares de privacidad de la UE, nunca entrena con tus datos, aprobado por escuelas"
+    },
+    "professionalEducation": {
+      "title": "Enfoque en Educación Profesional",
+      "description": "Entiende currículo, pedagogía y estándares de comunicación profesional"
+    },
+    "backedByEducators": {
+      "title": "Respaldado por Educadores",
+      "description": "Diseñado con aportes de profesores, directores y profesionales de la educación"
+    },
+    "educationResearchBased": {
+      "title": "Basado en Investigación Educativa",
+      "description": "Construido sobre principios pedagógicos probados y prácticas de enseñanza basadas en evidencia"
+    },
+    "safeForTeachers": {
+      "title": "Seguro para Profesores",
+      "description": "Diseñado específicamente para educadores con características de seguridad integradas para el aula"
+    },
+    "pedagogicallySound": {
+      "title": "Pedagógicamente Sólido",
+      "description": "Cada característica alineada con las mejores prácticas en educación profesional y desarrollo estudiantil"
+    },
+    "teacherTimeSaver": {
+      "title": "Ahorrador de Tiempo Comprobado",
+      "description": "12,000+ profesores ahorran 5+ horas semanalmente con nuestras herramientas de IA centradas en educadores"
+    }
+  },
+  "CTAs": {
+    "trySnippetNow": "Probar un fragmento ahora",
+    "joinWaitlist": "Unirse a la lista de espera",
+    "saveTimeNextLessonPlan": "Ahorrar tiempo en tu próxima planificación de lección",
+    "seeMoreTeacherStories": "Ver más historias de profesores",
+    "readyToSaveHours": "¿Listo para ahorrar horas esta semana?",
+    "join12000Teachers": "Únete a 12,000+ profesores que ahorran horas semanalmente",
+    "safeGDPRCompliant": "IA segura y compatible con RGPD del Dr. Greg Blackburn (PhD en Educación Profesional) diseñada específicamente para profesionales del aula.",
+    "joinTeachersUsing": "Únete a 12,000+ profesores que usan IA desarrollada por educadores. Prueba tu primer fragmento ahora."
+  },
+  "Pricing": {
+    "title": "Elige Tu Plan",
+    "subtitle": "Comienza gratis, actualiza cuando estés listo. Todos los planes incluyen privacidad de datos de estudiantes.",
+    "free": {
+      "title": "Gratis",
+      "price": "0€",
+      "period": "para siempre",
+      "description": "Perfecto para probar Zaza Promptly",
+      "features": [
+        "5 comentarios de IA por mes",
+        "Plantillas básicas de comunicación con padres",
+        "Privacidad de datos de estudiantes",
+        "Soporte comunitario"
+      ],
+      "cta": "Comenzar Gratis"
+    },
+    "pro": {
+      "title": "Pro",
+      "price": "12€",
+      "period": "por mes",
+      "description": "Para profesores individuales que quieren acceso ilimitado",
+      "features": [
+        "Comentarios de IA ilimitados",
+        "Herramientas avanzadas de comunicación con padres",
+        "Soporte multiidioma",
+        "Soporte prioritario por correo electrónico",
+        "Estilos de comentarios personalizados",
+        "Plantillas específicas por nivel de grado"
+      ],
+      "cta": "Prueba gratuita de 7 días",
+      "popular": "Más Popular"
+    },
+    "school": {
+      "title": "Escuela",
+      "price": "8€",
+      "period": "por profesor/mes",
+      "description": "Para escuelas y distritos (mínimo 5 profesores)",
+      "features": [
+        "Todo de Pro",
+        "Panel de administrador",
+        "Análisis de uso",
+        "Gestión masiva de usuarios",
+        "Integraciones personalizadas",
+        "Gerente de cuenta personal"
+      ],
+      "cta": "Contactar Ventas"
+    },
+    "moneyBack": "Garantía de devolución de 30 días",
+    "noSetup": "Sin tarifas de configuración",
+    "cancelAnytime": "Cancelar en cualquier momento"
+  },
+  "Common": {
+    "loading": "Cargando...",
+    "error": "Algo salió mal",
+    "tryAgain": "Intentar de nuevo",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "continue": "Continuar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "close": "Cerrar",
+    "readMore": "Leer más",
+    "learnMore": "Aprender más"
+  },
+  "Footer": {
+    "tagline": "IA para Educadores",
+    "description": "Apoyamos a profesores en todo el mundo con herramientas empáticas que reducen la carga y crean más espacio para lo que realmente importa.",
+    "quickLinks": {
+      "title": "Enlaces Rápidos",
+      "home": "Inicio",
+      "features": "Características",
+      "pricing": "Precios",
+      "about": "Acerca de",
+      "blog": "Blog",
+      "support": "Soporte"
+    },
+    "resources": {
+      "title": "Recursos",
+      "freeResources": "Recursos Gratuitos",
+      "help": "Centro de Ayuda",
+      "tutorials": "Tutoriales",
+      "community": "Comunidad",
+      "api": "Documentos API"
+    },
+    "legal": {
+      "title": "Legal",
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Servicio",
+      "cookies": "Política de Cookies",
+      "gdpr": "Cumplimiento RGPD"
+    },
+    "newsletter": {
+      "title": "Mantente Actualizado",
+      "description": "Recibe los últimos consejos, actualizaciones y recursos directamente en tu bandeja de entrada.",
+      "placeholder": "Ingresa tu dirección de correo electrónico",
+      "subscribe": "Suscribirse",
+      "success": "¡Gracias por suscribirte!",
+      "error": "Por favor ingresa una dirección de correo electrónico válida"
+    },
+    "social": {
+      "title": "Síguenos",
+      "twitter": "Síguenos en Twitter",
+      "linkedin": "Conectar en LinkedIn",
+      "tiktok": "Mírar en TikTok"
+    },
+    "copyright": "© 2025 Zaza Technologies. Todos los derechos reservados."
+  }
+}

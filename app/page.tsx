@@ -11,6 +11,8 @@ import { TrustBadges } from "@/components/trust-badges"
 import { TeacherTestimonials } from "@/components/teacher-testimonials"
 import { SEOInternalLinks } from "@/components/seo-internal-links"
 import { LazyContent } from "@/components/lazy-loading"
+import { EnhancedCTA, HeroCTASection, BottomCTASection } from "@/components/enhanced-cta"
+import { StripeCheckout, ProductPricing } from "@/components/stripe-checkout"
 import { SEOHead } from "@/components/seo-head"
 import { SkipLink } from "@/components/skip-link"
 import { PerformanceMonitor } from "@/components/performance-monitor"
@@ -183,10 +185,30 @@ export default function Home() {
           </div>
         </section>
         
-        {/* 10. Trust Block - FAQ, Testimonials, Badges */}
+        {/* 10. Pricing Preview */}
+        <LazyContent>
+          <section className="py-16 md:py-20">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                  Simple, Transparent Pricing
+                </h2>
+                <p className="text-lg text-slate-600">
+                  Start free, upgrade when you're ready. Used by teachers worldwide.
+                </p>
+              </div>
+              <ProductPricing productId="individual" />
+            </div>
+          </section>
+        </LazyContent>
+
+        {/* 11. Trust Block - FAQ, Testimonials, Badges */}
         <TrustBlock />
+
+        {/* 12. Bottom CTA Section */}
+        <BottomCTASection />
         
-        {/* 9. Footer - handled by root layout */}
+        {/* 13. Footer - handled by root layout */}
       </main>
     </>
   )

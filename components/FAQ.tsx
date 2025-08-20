@@ -17,11 +17,19 @@ const faqCategories = [
       },
       {
         question: 'How is Zaza Promptly different from ChatGPT for teachers?',
-        answer: 'Unlike ChatGPT, Zaza Promptly is hallucination-safe AI built specifically for teachers. It understands educational contexts, uses appropriate terminology, maintains GDPR compliance, and never invents fake information about students. It\'s designed by educators for educators, not a general-purpose chatbot.'
+        answer: 'ChatGPT is a general-purpose AI that can hallucinate or invent false information about students. Zaza Promptly is specifically designed for education with built-in safeguards against hallucinations, GDPR compliance, and educational context understanding. Created by Dr. Greg Blackburn (PhD in Professional Education), it speaks your professional language from day one and never compromises student privacy.'
+      },
+      {
+        question: 'Why do 12,000+ teachers trust Zaza Promptly over other AI tools?',
+        answer: 'Teachers choose Promptly because it\'s the only AI tool designed by a PhD educator specifically for the classroom. Unlike generic AI, it understands pedagogical principles, maintains professional communication standards, and includes safety features that prevent inappropriate content. Plus, it\'s GDPR-compliant and never trains on your student data.'
       },
       {
         question: 'Will my school data be safe with AI?',
-        answer: 'Yes. Zaza Promptly is GDPR compliant with bank-level encryption. Your student data never trains other models, stays within EU servers, and can be deleted anytime. We understand teachers handle sensitive information and have built enterprise-grade security from day one.'
+        answer: 'Absolutely. Zaza Promptly meets the highest privacy standards: GDPR compliant, bank-level encryption, EU-only data processing, and zero data retention after processing. Your student information NEVER trains other models or leaves secure servers. We provide data processing agreements for schools and full audit trails for compliance officers.'
+      },
+      {
+        question: 'What prevents AI from creating inappropriate content about students?',
+        answer: 'Zaza Promptly includes multiple safety layers: content filtering prevents inappropriate language, context awareness ensures age-appropriate communication, tone validation maintains professional standards, and hallucination prevention guarantees factual accuracy. Every output is checked against educational communication standards before delivery.'
       }
     ]
   },

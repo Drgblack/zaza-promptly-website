@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { useAnalytics } from "@/hooks/useAnalytics"
 import { AnimatedWords } from "@/components/animated-words"
+import { HeroCTASection } from "@/components/enhanced-cta"
 
 export function HeroSection() {
   const { trackEvent } = useAnalytics()
@@ -40,38 +41,14 @@ export function HeroSection() {
 
         {/* CTA Buttons */}
         <motion.div
-          className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center"
+          className="mt-10"
           role="group"
           aria-label="Call to action buttons"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.8, ease: "easeOut" }}
         >
-          <Button
-            size="lg"
-            onClick={() => {
-              handleCTAClick('hero_try')
-              const demoSection = document.getElementById('demo-section')
-              if (demoSection) {
-                demoSection.scrollIntoView({ behavior: 'smooth' })
-              }
-            }}
-            className="w-full sm:w-auto min-h-[44px] bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-semibold px-8 py-4 text-base sm:text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-200 touch-manipulation focus:outline-none focus:ring-4 focus:ring-amber-500/50"
-            aria-label="Try Promptly free demo"
-          >
-            Save Hours This Week
-          </Button>
-          <Link href="/free-resources">
-            <Button
-              size="lg"
-              variant="outline"
-              onClick={() => handleCTAClick('hero_examples')}
-              className="w-full sm:w-auto min-h-[44px] border-2 border-white text-white hover:bg-white hover:text-blue-900 font-semibold px-8 py-4 text-base sm:text-lg rounded-full bg-transparent touch-manipulation focus:outline-none focus:ring-4 focus:ring-white/50"
-              aria-label="See examples of AI-generated teacher comments"
-            >
-              See Teacher Examples
-            </Button>
-          </Link>
+          <HeroCTASection />
         </motion.div>
       </div>
     </div>
