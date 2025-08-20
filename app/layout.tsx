@@ -5,7 +5,7 @@ import { SecurityHeaders } from '@/components/security-headers'
 import { SelectionFix } from '@/components/selection-fix'
 import { OrganizationSchema } from '@/components/organization-schema'
 import { DeferredAnalytics } from '@/components/deferred-analytics'
-import { ComprehensiveAnalytics } from '@/components/analytics/comprehensive-analytics'
+import { AnalyticsWrapper } from '@/components/analytics/analytics-wrapper'
 import { SkipLinks } from '@/components/accessibility/skip-links'
 import { PerformanceEnhancements, ServiceWorkerRegistration, PerformanceErrorBoundary } from '@/components/performance-enhancements'
 import { PerformanceOptimizations, CriticalCSS } from '@/components/performance-optimizations'
@@ -159,7 +159,7 @@ export default function RootLayout({
               {children}
             </main>
             <Footer />
-            <ComprehensiveAnalytics />
+            <AnalyticsWrapper />
             <DeferredAnalytics />
             <PerformanceEnhancements />
             <ServiceWorkerRegistration />
