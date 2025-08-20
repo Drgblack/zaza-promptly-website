@@ -24,7 +24,6 @@ export const metadata: Metadata = {
       follow: true,
     },
   }
-}
 
 export default function PricingPage() {
 
