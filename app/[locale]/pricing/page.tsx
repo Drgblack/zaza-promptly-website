@@ -4,10 +4,11 @@ import { PricingPageClient } from './PricingPageClient'
 import { ProductStructuredData, FAQStructuredData } from '@/components/seo/StructuredData'
 
 interface Props {
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations('pricing')
   
   return {
@@ -35,6 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function PricingPage({ params }: Props) {
+  const { locale } = await params;
   const t = await getTranslations('pricing')
 
   // Structured data for the product and pricing

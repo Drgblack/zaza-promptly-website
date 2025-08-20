@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
-import { Fire, Trophy, Target, Star, Sparkles } from 'lucide-react';
+import { Flame, Trophy, Target, Star, Sparkles } from 'lucide-react';
 import { useAnalytics } from '@/hooks/useAnalytics';
 
 interface StreakData {
@@ -17,7 +17,7 @@ interface StreakData {
 
 const STREAK_BADGES = [
   { days: 3, name: 'Getting Started', icon: Target, color: 'bg-blue-500' },
-  { days: 7, name: 'Week Warrior', icon: Fire, color: 'bg-orange-500' },
+  { days: 7, name: 'Week Warrior', icon: Flame, color: 'bg-orange-500' },
   { days: 14, name: 'Committed Teacher', icon: Trophy, color: 'bg-yellow-500' },
   { days: 30, name: 'Master Educator', icon: Star, color: 'bg-purple-500' },
   { days: 100, name: 'Legend', icon: Sparkles, color: 'bg-pink-500' }
@@ -139,7 +139,7 @@ export function StreakCounter({ compact = false }: { compact?: boolean }) {
   if (compact) {
     return (
       <div className="flex items-center space-x-2 bg-gradient-to-r from-orange-50 to-red-50 px-3 py-2 rounded-lg border border-orange-200">
-        <Fire className={`w-4 h-4 ${showAnimation ? 'animate-pulse' : ''} ${streakData.currentStreak >= 7 ? 'text-orange-500' : 'text-gray-400'}`} />
+        <Flame className={`w-4 h-4 ${showAnimation ? 'animate-pulse' : ''} ${streakData.currentStreak >= 7 ? 'text-orange-500' : 'text-gray-400'}`} />
         <span className="text-sm font-medium text-gray-900">
           {streakData.currentStreak} day streak!
         </span>
@@ -161,7 +161,7 @@ export function StreakCounter({ compact = false }: { compact?: boolean }) {
               {currentBadge ? (
                 <currentBadge.icon className="w-5 h-5 text-white" />
               ) : (
-                <Fire className="w-5 h-5 text-gray-500" />
+                <Flame className="w-5 h-5 text-gray-500" />
               )}
             </div>
             <div>
@@ -221,7 +221,7 @@ export function StreakCounter({ compact = false }: { compact?: boolean }) {
         {showAnimation && (
           <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-90 rounded-lg">
             <div className="text-center animate-bounce">
-              <Fire className="w-8 h-8 text-orange-500 mx-auto mb-2" />
+              <Flame className="w-8 h-8 text-orange-500 mx-auto mb-2" />
               <p className="text-sm font-bold text-gray-900">Streak milestone!</p>
               <p className="text-xs text-gray-600">{streakData.currentStreak} days strong!</p>
             </div>

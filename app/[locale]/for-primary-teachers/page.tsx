@@ -30,10 +30,11 @@ export const metadata: Metadata = {
 }
 
 interface Props {
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }
 
 export default async function ForPrimaryTeachersPage({ params }: Props) {
+  const { locale } = await params;
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
