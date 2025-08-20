@@ -47,7 +47,15 @@ export type CustomEventName =
   | 'free_trial_started'
   | 'quick_free_trial'
   | 'quick_checkout_view'
-  | 'cta_clicked';
+  | 'cta_clicked'
+  | 'product_cta_primary'
+  | 'product_cta_secondary'
+  | 'product_cross_link'
+  | 'product_hero_cta'
+  | 'products_bottom_cta'
+  | 'comparison_cta'
+  | 'blog_hero'
+  | 'blog_bottom';
 
 export interface EventProperties {
   source?: string;
