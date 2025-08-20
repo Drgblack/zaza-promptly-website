@@ -2,6 +2,7 @@
 
 import { ProductCard } from './ProductCard'
 import { getProductsByCategory, getFeaturedProduct } from '@/lib/products'
+import Link from 'next/link'
 
 export function ProductGrid() {
   const teachingTools = getProductsByCategory('teaching')
@@ -81,12 +82,12 @@ export function ProductGrid() {
               >
                 Join Early Access
               </a>
-              <a 
+              <Link 
                 href="/#newsletter"
                 className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 hover:border-purple-300 hover:text-purple-700 transition-colors"
               >
                 Get Updates
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,12 +1,7 @@
 // Minimal Next.js config for testing build issues
 const nextConfig = {
   reactStrictMode: true,
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  }
+  output: 'standalone'
 }
 
 module.exports = nextConfig

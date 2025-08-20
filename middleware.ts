@@ -12,8 +12,7 @@ const intlMiddleware = createMiddleware({
 });
 
 export default function middleware(request: NextRequest) {
-  // Temporarily disabled internationalization middleware to fix routing conflicts
-  // Site uses root-level pages in app/ directory
+  // Temporarily disabled for debugging build issues
   return;
 }
 
