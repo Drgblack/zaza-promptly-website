@@ -18,18 +18,26 @@ export default function Icon() {
       // ImageResponse JSX element
       <div
         style={{
-          fontSize: 24,
-          background: 'linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%)',
+          background: '#7c3aed',
           width: '100%',
           height: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          color: 'white',
-          borderRadius: '20%',
+          borderRadius: '6px',
         }}
       >
-        Z
+        <div
+          style={{
+            fontSize: 22,
+            fontWeight: 'bold',
+            color: 'white',
+            fontFamily: 'system-ui, -apple-system, sans-serif',
+            lineHeight: 1,
+          }}
+        >
+          Z
+        </div>
       </div>
     ),
     // ImageResponse options

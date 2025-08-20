@@ -104,28 +104,16 @@ export const metadata: Metadata = {
       'facebook-domain-verification': 'your-facebook-domain-verification-here',
     },
   },
-  manifest: '/manifest.json',
-  icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
-      { url: '/favicon-192x192.png', sizes: '192x192', type: 'image/png' },
-    ],
-    apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
-    shortcut: '/favicon.ico',
-  },
+  manifest: '/site.webmanifest?v=2',
+  icons: [
+    { rel: 'icon', url: '/favicon.ico?v=2', sizes: 'any' },
+    { rel: 'icon', url: '/favicon.png?v=2', sizes: '32x32', type: 'image/png' },
+    { rel: 'icon', url: '/favicon.svg?v=2', type: 'image/svg+xml' },
+    { rel: 'apple-touch-icon', url: '/apple-touch-icon.png?v=2', sizes: '180x180' },
+  ],
   other: {
-    'apple-mobile-web-app-capable': 'yes',
-    'apple-mobile-web-app-status-bar-style': 'default',
-    'apple-mobile-web-app-title': 'Zaza Promptly',
     'mobile-web-app-capable': 'yes',
-    'msapplication-TileColor': '#7c3aed',
     'msapplication-TileImage': '/mstile-144x144.png',
-    'theme-color': '#7c3aed',
   },
 }
 
@@ -137,14 +125,31 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/manifest.json" />
+        {/* 
+          Comprehensive Favicon Configuration for Zaza Promptly
+          - Uses Z logo with purple (#7c3aed) background
+          - Includes cache busting with v=2 parameter
+          - Covers all major browsers and PWA requirements
+          - Dynamically generated icons via icon.tsx and apple-icon.tsx
+        */}
+        <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=2" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
+        <link rel="manifest" href="/site.webmanifest?v=2" />
+        
+        {/* Additional favicon sizes for better browser support */}
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=2" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png?v=2" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png?v=2" />
+        
+        {/* Theme and PWA metadata */}
         <meta name="theme-color" content="#7c3aed" />
+        <meta name="msapplication-TileColor" content="#7c3aed" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Zaza Promptly" />
       </head>
       <body className="antialiased">
         <ErrorBoundary>

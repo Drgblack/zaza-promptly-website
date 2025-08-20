@@ -1,0 +1,91 @@
+{
+  "name": "Zaza Promptly - AI Teaching Assistant",
+  "short_name": "Zaza Promptly",
+  "description": "PhD-designed AI tool for teachers. Write professional parent emails, student comments & reports 10x faster. Starting at $14.99/month.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#7c3aed",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "categories": ["education", "productivity", "utilities", "teacher-tools"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-32x32.png", 
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-96x96.png",
+      "sizes": "96x96", 
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png", 
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/app-screenshot.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Zaza Promptly Dashboard"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Try Promptly",
+      "short_name": "Try Now",
+      "description": "Start using Zaza Promptly AI assistant",
+      "url": "/?utm_source=pwa&utm_medium=shortcut",
+      "icons": [
+        {
+          "src": "/favicon-96x96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Pricing",
+      "short_name": "Pricing", 
+      "description": "View Zaza Promptly pricing plans",
+      "url": "/pricing?utm_source=pwa&utm_medium=shortcut",
+      "icons": [
+        {
+          "src": "/favicon-96x96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
