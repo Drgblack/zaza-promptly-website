@@ -1,5 +1,4 @@
 import { ProductPageTemplate } from './product-page-template';
-import { Globe, Heart, BookOpen, Users, Lightbulb, Languages } from 'lucide-react';
 
 export function LooopProductPage() {
   return (
@@ -12,12 +11,12 @@ export function LooopProductPage() {
       solutionText="Zaza Looop creates culturally rich language experiences for your classroom. From authentic conversations to cultural insights, give your students the real-world connection they need to truly learn a language."
       benefitsTitle="Bring Languages to Life:"
       benefits={[
-        { icon: Globe, text: "Cultural immersion without leaving the classroom", color: "text-blue-600" },
-        { icon: Heart, text: "Authentic conversations that engage and inspire", color: "text-red-600" },
-        { icon: BookOpen, text: "Teacher-friendly resources ready to use immediately", color: "text-green-600" },
-        { icon: Users, text: "Bilingual classroom support for diverse learning needs", color: "text-purple-600" },
-        { icon: Lightbulb, text: "Professional development for teachers building language skills", color: "text-yellow-600" },
-        { icon: Languages, text: "Student engagement through meaningful cultural connections", color: "text-indigo-600" },
+        { icon: "Globe", text: "Cultural immersion without leaving the classroom", color: "text-blue-600" },
+        { icon: "Heart", text: "Authentic conversations that engage and inspire", color: "text-red-600" },
+        { icon: "BookOpen", text: "Teacher-friendly resources ready to use immediately", color: "text-green-600" },
+        { icon: "Users", text: "Bilingual classroom support for diverse learning needs", color: "text-purple-600" },
+        { icon: "Lightbulb", text: "Professional development for teachers building language skills", color: "text-yellow-600" },
+        { icon: "Languages", text: "Student engagement through meaningful cultural connections", color: "text-indigo-600" },
       ]}
       testimonialQuote="My students are finally excited about Spanish class. The cultural connections make all the difference — they're not just learning words, they're discovering worlds."
       testimonialAuthor="Carmen S., Spanish Teacher"

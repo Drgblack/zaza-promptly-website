@@ -1,5 +1,4 @@
 import { ProductPageTemplate } from './product-page-template';
-import { Clock, Users, MessageCircle, Calendar, CheckCircle, School } from 'lucide-react';
 
 export function SparkProductPage() {
   return (
@@ -12,12 +11,12 @@ export function SparkProductPage() {
       solutionText="Zaza Spark understands the rhythms of school life. Streamline onboarding for mid-year hires, create training that teachers can actually attend, and communicate with the warmth and professionalism that school communities need."
       benefitsTitle="Simplify Your School HR:"
       benefits={[
-        { icon: Clock, text: "Faster onboarding that works around teaching schedules", color: "text-blue-600" },
-        { icon: Calendar, text: "Flexible training designed for busy educators", color: "text-green-600" },
-        { icon: MessageCircle, text: "Clear communication that maintains school culture", color: "text-purple-600" },
-        { icon: Users, text: "Reduced admin burden on leadership teams", color: "text-yellow-600" },
-        { icon: CheckCircle, text: "Better teacher experience from day one", color: "text-indigo-600" },
-        { icon: School, text: "Professional workflows that respect educational environments", color: "text-red-600" },
+        { icon: "Clock", text: "Faster onboarding that works around teaching schedules", color: "text-blue-600" },
+        { icon: "Calendar", text: "Flexible training designed for busy educators", color: "text-green-600" },
+        { icon: "MessageCircle", text: "Clear communication that maintains school culture", color: "text-purple-600" },
+        { icon: "Users", text: "Reduced admin burden on leadership teams", color: "text-yellow-600" },
+        { icon: "CheckCircle", text: "Better teacher experience from day one", color: "text-indigo-600" },
+        { icon: "School", text: "Professional workflows that respect educational environments", color: "text-red-600" },
       ]}
       testimonialQuote="Finally, HR tools that understand teachers don't have time for lengthy onboarding during the school day. The flexibility is game-changing."
       testimonialAuthor="Jennifer R., Deputy Head"

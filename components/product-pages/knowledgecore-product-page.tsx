@@ -1,5 +1,4 @@
 import { ProductPageTemplate } from './product-page-template';
-import { Archive, Search, TrendingUp, Share, Trophy, Zap } from 'lucide-react';
 
 export function KnowledgeCoreProductPage() {
   return (
@@ -12,12 +11,12 @@ export function KnowledgeCoreProductPage() {
       solutionText="KnowledgeCore becomes your professional memory, organising and connecting your best teaching moments. Never lose a good idea again. Build on your successes. Grow your expertise systematically across your entire career."
       benefitsTitle="Your Teaching Legacy, Organised:"
       benefits={[
-        { icon: Archive, text: "Capture everything — lessons, strategies, communications, insights", color: "text-blue-600" },
-        { icon: Search, text: "Find it instantly when you need inspiration or solutions", color: "text-green-600" },
-        { icon: TrendingUp, text: "Build on success by connecting related ideas and approaches", color: "text-purple-600" },
-        { icon: Share, text: "Share selectively with colleagues while keeping personal insights private", color: "text-yellow-600" },
-        { icon: Trophy, text: "Grow professionally by seeing patterns in your teaching journey", color: "text-red-600" },
-        { icon: Zap, text: "Never start from zero — your experience becomes your superpower", color: "text-indigo-600" },
+        { icon: "Archive", text: "Capture everything — lessons, strategies, communications, insights", color: "text-blue-600" },
+        { icon: "Search", text: "Find it instantly when you need inspiration or solutions", color: "text-green-600" },
+        { icon: "TrendingUp", text: "Build on success by connecting related ideas and approaches", color: "text-purple-600" },
+        { icon: "Share", text: "Share selectively with colleagues while keeping personal insights private", color: "text-yellow-600" },
+        { icon: "Trophy", text: "Grow professionally by seeing patterns in your teaching journey", color: "text-red-600" },
+        { icon: "Zap", text: "Never start from zero — your experience becomes your superpower", color: "text-indigo-600" },
       ]}
       testimonialQuote="It's like having a conversation with my best teaching self from every year of my career. I wish I'd had this tool from day one."
       testimonialAuthor="David K., 15-year Teaching Veteran"

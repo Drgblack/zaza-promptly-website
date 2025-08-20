@@ -2,13 +2,13 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, LucideIcon } from 'lucide-react';
+import { ArrowLeft, Archive, Search, TrendingUp, Share, Trophy, Zap, BookOpen, Heart, Users, Target, Sparkles, Clock, Globe, Lightbulb, Languages, MessageCircle, Calendar, CheckCircle, School, FileText, Briefcase } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { TrustBadges } from '@/components/trust-badges';
 
 interface Benefit {
-  icon: LucideIcon;
+  icon: string;
   text: string;
   color: string;
 }
@@ -173,7 +173,30 @@ export function ProductPageTemplate({
                 <h2 className={`text-2xl font-bold ${textColor} mb-6`}>{benefitsTitle}</h2>
                 <div className="space-y-4">
                   {benefits.map((benefit, index) => {
-                    const IconComponent = benefit.icon;
+                    const iconMap = {
+                      Archive,
+                      Search,
+                      TrendingUp,
+                      Share,
+                      Trophy,
+                      Zap,
+                      BookOpen,
+                      Heart,
+                      Users,
+                      Target,
+                      Sparkles,
+                      Clock,
+                      Globe,
+                      Lightbulb,
+                      Languages,
+                      MessageCircle,
+                      Calendar,
+                      CheckCircle,
+                      School,
+                      FileText,
+                      Briefcase
+                    };
+                    const IconComponent = iconMap[benefit.icon as keyof typeof iconMap] || Archive;
                     return (
                       <div key={index} className="flex items-start space-x-3">
                         <IconComponent className={`w-6 h-6 ${benefit.color} flex-shrink-0 mt-1`} />

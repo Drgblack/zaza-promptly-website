@@ -1,5 +1,4 @@
 import { ProductPageTemplate } from './product-page-template';
-import { FileText, Clock, Trophy, Users, Target, Briefcase } from 'lucide-react';
 
 export function NotablyProductPage() {
   return (
@@ -12,12 +11,12 @@ export function NotablyProductPage() {
       solutionText="Notably Suite handles the heavy lifting of professional writing. Draft policies that sound authoritative, proposals that get approved, and reports that communicate clearly — all while maintaining your professional voice."
       benefitsTitle="Transform Your Professional Communication:"
       benefits={[
-        { icon: Clock, text: "Save hours on policy drafts and professional documents", color: "text-blue-600" },
-        { icon: Trophy, text: "Sound more confident in formal writing situations", color: "text-yellow-600" },
-        { icon: Target, text: "Reduce stress around administrative deadlines", color: "text-green-600" },
-        { icon: Users, text: "Maintain consistency across all school communications", color: "text-purple-600" },
-        { icon: Briefcase, text: "Focus on leadership instead of wrestling with words", color: "text-indigo-600" },
-        { icon: FileText, text: "Build your reputation with clear, professional documentation", color: "text-red-600" },
+        { icon: "Clock", text: "Save hours on policy drafts and professional documents", color: "text-blue-600" },
+        { icon: "Trophy", text: "Sound more confident in formal writing situations", color: "text-yellow-600" },
+        { icon: "Target", text: "Reduce stress around administrative deadlines", color: "text-green-600" },
+        { icon: "Users", text: "Maintain consistency across all school communications", color: "text-purple-600" },
+        { icon: "Briefcase", text: "Focus on leadership instead of wrestling with words", color: "text-indigo-600" },
+        { icon: "FileText", text: "Build your reputation with clear, professional documentation", color: "text-red-600" },
       ]}
       testimonialQuote="I used to dread writing funding applications. Now I can draft a compelling proposal in an hour instead of an entire weekend."
       testimonialAuthor="Dr. Sarah M., Curriculum Director"
