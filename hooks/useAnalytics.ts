@@ -58,7 +58,20 @@ export type CustomEventName =
   | 'products_bottom_cta'
   | 'comparison_cta'
   | 'blog_hero'
-  | 'blog_bottom';
+  | 'blog_bottom'
+  // Required new events for funnel tracking
+  | 'cta_primary_click'
+  | 'cta_secondary_click'
+  | 'snippet_generate'
+  | 'lead_submit'
+  | 'faq_open'
+  | 'pricing_interest'
+  | 'locale_switch'
+  | 'outbound_social_click'
+  | 'experiment_assignment'
+  | 'experiment_conversion'
+  | 'checkout_click'
+  | 'landing_page_visit';
 
 export interface EventProperties {
   source?: string;
@@ -161,6 +174,104 @@ export function useAnalytics() {
     });
   }, [trackEvent]);
 
+  // New funnel-specific tracking methods
+  const trackCTAPrimaryClick = useCallback((ctaText: string, location?: string) => {
+    trackEvent('cta_primary_click', {
+      cta_text: ctaText,
+      cta_location: location || 'unknown',
+      page_path: typeof window !== 'undefined' ? window.location.pathname : ''
+    });
+  }, [trackEvent]);
+
+  const trackCTASecondaryClick = useCallback((ctaText: string, location?: string) => {
+    trackEvent('cta_secondary_click', {
+      cta_text: ctaText,
+      cta_location: location || 'unknown',
+      page_path: typeof window !== 'undefined' ? window.location.pathname : ''
+    });
+  }, [trackEvent]);
+
+  const trackSnippetGenerate = useCallback((snippetType: string, prompt?: string) => {
+    trackEvent('snippet_generate', {
+      snippet_type: snippetType,
+      prompt_length: prompt ? prompt.length : 0,
+      has_custom_prompt: !!prompt
+    });
+  }, [trackEvent]);
+
+  const trackLeadSubmit = useCallback((formId: string, source?: string, hasName?: boolean) => {
+    trackEvent('lead_submit', {
+      form_id: formId,
+      form_source: source || 'unknown',
+      has_name: hasName || false,
+      page_path: typeof window !== 'undefined' ? window.location.pathname : ''
+    });
+  }, [trackEvent]);
+
+  const trackFAQOpen = useCallback((question: string, section?: string) => {
+    trackEvent('faq_open', {
+      question_text: question.substring(0, 100),
+      faq_section: section || 'unknown'
+    });
+  }, [trackEvent]);
+
+  const trackPricingInterest = useCallback((planName?: string, section?: string) => {
+    trackEvent('pricing_interest', {
+      plan_name: planName || 'unknown',
+      pricing_section: section || 'unknown',
+      referrer: typeof document !== 'undefined' ? document.referrer : ''
+    });
+  }, [trackEvent]);
+
+  const trackLocaleSwitch = useCallback((fromLocale: string, toLocale: string) => {
+    trackEvent('locale_switch', {
+      from_locale: fromLocale,
+      to_locale: toLocale,
+      page_path: typeof window !== 'undefined' ? window.location.pathname : ''
+    });
+  }, [trackEvent]);
+
+  const trackOutboundSocialClick = useCallback((platform: string, url?: string) => {
+    trackEvent('outbound_social_click', {
+      social_platform: platform,
+      destination_url: url || 'unknown',
+      page_context: typeof window !== 'undefined' ? window.location.pathname : ''
+    });
+  }, [trackEvent]);
+
+  const trackExperimentAssignment = useCallback((experimentName: string, variant: string) => {
+    trackEvent('experiment_assignment', {
+      experiment_name: experimentName,
+      variant_name: variant,
+      assignment_timestamp: Date.now()
+    });
+  }, [trackEvent]);
+
+  const trackExperimentConversion = useCallback((experimentName: string, variant: string, conversionType: string) => {
+    trackEvent('experiment_conversion', {
+      experiment_name: experimentName,
+      variant_name: variant,
+      conversion_type: conversionType,
+      conversion_timestamp: Date.now()
+    });
+  }, [trackEvent]);
+
+  const trackCheckoutClick = useCallback((planName: string, billingCycle?: string) => {
+    trackEvent('checkout_click', {
+      plan_name: planName,
+      billing_cycle: billingCycle || 'monthly',
+      page_context: typeof window !== 'undefined' ? window.location.pathname : ''
+    });
+  }, [trackEvent]);
+
+  const trackLandingPageVisit = useCallback((landingPageType: string, source?: string) => {
+    trackEvent('landing_page_visit', {
+      landing_page_type: landingPageType,
+      traffic_source: source || 'direct',
+      referrer: typeof document !== 'undefined' ? document.referrer : ''
+    });
+  }, [trackEvent]);
+
   return {
     trackEvent,
     trackButtonClick,
@@ -170,6 +281,19 @@ export function useAnalytics() {
     trackCommentRewrite,
     trackResourceDownload,
     trackFeatureClick,
+    // New funnel tracking methods
+    trackCTAPrimaryClick,
+    trackCTASecondaryClick,
+    trackSnippetGenerate,
+    trackLeadSubmit,
+    trackFAQOpen,
+    trackPricingInterest,
+    trackLocaleSwitch,
+    trackOutboundSocialClick,
+    trackExperimentAssignment,
+    trackExperimentConversion,
+    trackCheckoutClick,
+    trackLandingPageVisit,
     shouldTrack
   };
 }

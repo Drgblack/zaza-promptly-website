@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, AlertCircle, Mail, Loader2 } from "lucide-react";
 import { EmailSubscriptionFeedback, useFormFeedback } from "@/components/form-feedback";
+import { useAnalytics } from "@/hooks/useAnalytics";
 
 interface BrevoFormProps {
   title?: string;
@@ -33,6 +34,7 @@ export function BrevoForm({
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
+  const { trackLeadSubmit, trackFormSubmit } = useAnalytics();
 
   const isTestMode = false; // API route handles the Brevo integration
 
@@ -64,20 +66,41 @@ export function BrevoForm({
     }
 
     try {
+      // Collect UTM data and referrer information
+      const utmData = {
+        utm_source: new URLSearchParams(window.location.search).get('utm_source') || '',
+        utm_medium: new URLSearchParams(window.location.search).get('utm_medium') || '',
+        utm_campaign: new URLSearchParams(window.location.search).get('utm_campaign') || '',
+        utm_term: new URLSearchParams(window.location.search).get('utm_term') || '',
+        utm_content: new URLSearchParams(window.location.search).get('utm_content') || '',
+      };
+
+      const formData = {
+        email,
+        firstName,
+        lastName,
+        name: firstName + (lastName ? ` ${lastName}` : ''), // Legacy compatibility
+        source,
+        tags: [...tags, 
+          // Add automatic tags based on form context
+          `form_${source}`,
+          window.location.pathname.includes('/blog/') ? 'blog_reader' : '',
+          window.location.pathname.includes('/pricing') ? 'pricing_visitor' : '',
+          utmData.utm_source ? `utm_${utmData.utm_source}` : '',
+        ].filter(Boolean),
+        utmData,
+        referrer: document.referrer || '',
+        currentPage: window.location.pathname,
+        formLocation: source || 'unknown'
+      };
+
       // Updated to use the proper Brevo API route
       const response = await fetch("/api/brevo-subscribe", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          email,
-          firstName,
-          lastName,
-          name: firstName + (lastName ? ` ${lastName}` : ''), // Legacy compatibility
-          source,
-          tags,
-        }),
+        body: JSON.stringify(formData),
       });
 
       const data = await response.json();
@@ -85,11 +108,20 @@ export function BrevoForm({
       if (response.ok && data.success) {
         setStatus("success");
         setMessage("🎉 Successfully subscribed! Check your email for your welcome gift.");
-        setEmail("");
-        setFirstName("");
-        setLastName("");
         
-        // Track successful subscription with name data
+        // Track lead submission with enhanced analytics
+        trackLeadSubmit(
+          `brevo_form_${source}`,
+          source,
+          !!(firstName || lastName)
+        );
+        
+        trackFormSubmit(
+          `brevo_${source}`,
+          source
+        );
+        
+        // Track successful subscription with name data (legacy GA4 event)
         if (typeof window !== 'undefined' && (window as any).gtag) {
           (window as any).gtag('event', 'newsletter_subscribe', {
             event_category: 'engagement',
@@ -98,10 +130,18 @@ export function BrevoForm({
             custom_parameters: {
               has_first_name: !!firstName,
               has_last_name: !!lastName,
-              has_full_name: !!(firstName && lastName)
+              has_full_name: !!(firstName && lastName),
+              form_source: source,
+              utm_source: utmData.utm_source || '',
+              page_path: window.location.pathname
             }
           });
         }
+
+        // Clear form
+        setEmail("");
+        setFirstName("");
+        setLastName("");
       } else {
         setStatus("error");
         setMessage(data.error || "Something went wrong. Please try again.");
