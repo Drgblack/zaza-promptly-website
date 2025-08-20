@@ -1,15 +1,16 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { linkMap, getLink, externalLinks } from '../lib/linkMap';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import LanguageSelector from './LanguageSelector';
-// import LanguageToggle from './LanguageToggle';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +18,16 @@ export default function Header() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   const toggleMenu = () => {
@@ -59,42 +70,100 @@ export default function Header() {
             role="navigation"
             aria-label="Main navigation"
           >
+            {/* Our Solutions Dropdown */}
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                className="flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+                aria-expanded={isDropdownOpen}
+                aria-haspopup="true"
+              >
+                Our Solutions
+                <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {isDropdownOpen && (
+                <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                  <Link
+                    href="/products"
+                    className="block px-4 py-3 text-sm text-gray-700 hover:text-purple-600 hover:bg-purple-50 transition-colors"
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    <div className="font-medium">All Products</div>
+                    <div className="text-xs text-gray-500">Complete suite overview</div>
+                  </Link>
+                  <Link
+                    href="/teach"
+                    className="block px-4 py-3 text-sm text-gray-700 hover:text-purple-600 hover:bg-purple-50 transition-colors"
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    <div className="font-medium">Zaza Teach</div>
+                    <div className="text-xs text-gray-500">Lesson planning assistant</div>
+                  </Link>
+                  <Link
+                    href="/notably"
+                    className="block px-4 py-3 text-sm text-gray-700 hover:text-purple-600 hover:bg-purple-50 transition-colors"
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    <div className="font-medium">Zaza Inbox</div>
+                    <div className="text-xs text-gray-500">Communication suite</div>
+                  </Link>
+                  <Link
+                    href="/promptly"
+                    className="block px-4 py-3 text-sm text-gray-700 hover:text-purple-600 hover:bg-purple-50 transition-colors border-l-2 border-purple-500 bg-purple-50/50"
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    <div className="font-medium">Zaza Promptly</div>
+                    <div className="text-xs text-gray-500">AI comment generator</div>
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* Learning Centre Dropdown */}
+            <div className="relative group">
+              <span className="flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 cursor-pointer">
+                Learning Centre
+                <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
+              </span>
+              
+              <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <Link
+                  href="/blog"
+                  className="block px-4 py-3 text-sm text-gray-700 hover:text-purple-600 hover:bg-purple-50 transition-colors"
+                >
+                  <div className="font-medium">Blog</div>
+                  <div className="text-xs text-gray-500">Teaching tips & insights</div>
+                </Link>
+                <Link
+                  href="/free-resources"
+                  className="block px-4 py-3 text-sm text-gray-700 hover:text-purple-600 hover:bg-purple-50 transition-colors"
+                >
+                  <div className="font-medium">Free Resources</div>
+                  <div className="text-xs text-gray-500">Templates & guides</div>
+                </Link>
+                <Link
+                  href="/faqs"
+                  className="block px-4 py-3 text-sm text-gray-700 hover:text-purple-600 hover:bg-purple-50 transition-colors"
+                >
+                  <div className="font-medium">FAQs</div>
+                  <div className="text-xs text-gray-500">Common questions</div>
+                </Link>
+              </div>
+            </div>
+            
             <Link 
-              href="/products" 
+              href="/why-zaza-promptly" 
               className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
             >
-              Products
+              Why Zaza Promptly?
             </Link>
+            
             <Link 
-              href="/pricing" 
+              href="/about-founder" 
               className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
             >
-              Pricing
-            </Link>
-            <Link 
-              href={externalLinks.blog} 
-              className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
-              aria-label="Visit our blog (opens in new tab)"
-            >
-              Blog
-            </Link>
-            <Link 
-              href="/free-resources" 
-              className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
-            >
-              Free Resources
-            </Link>
-            <Link 
-              href="/faqs" 
-              className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
-            >
-              FAQs
-            </Link>
-            <Link 
-              href={externalLinks.aboutFounder} 
-              className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
-            >
-              About the Founder
+              About Us
             </Link>
             
             {/* Language Switcher */}
@@ -105,7 +174,7 @@ export default function Header() {
               href={externalLinks.tryPromptly}
               className="ml-4 px-6 py-2.5 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
             >
-              Try Promptly
+              Start Free Trial
             </Link>
           </nav>
 
@@ -138,54 +207,79 @@ export default function Header() {
             aria-label="Mobile navigation menu"
           >
             <nav className="py-4 space-y-1" role="navigation" aria-label="Mobile navigation links">
+              {/* Our Solutions Section */}
+              <div className="px-4 py-2">
+                <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Our Solutions</div>
+                <Link 
+                  href="/products" 
+                  className="block px-2 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  All Products
+                </Link>
+                <Link 
+                  href="/teach" 
+                  className="block px-2 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Zaza Teach
+                </Link>
+                <Link 
+                  href="/notably" 
+                  className="block px-2 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Zaza Inbox
+                </Link>
+                <Link 
+                  href="/promptly" 
+                  className="block px-2 py-2 text-sm font-medium text-purple-700 bg-purple-50 rounded-lg transition-all duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Zaza Promptly
+                </Link>
+              </div>
+
+              {/* Learning Centre Section */}
+              <div className="px-4 py-2">
+                <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Learning Centre</div>
+                <Link 
+                  href="/blog" 
+                  className="block px-2 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Blog
+                </Link>
+                <Link 
+                  href="/free-resources" 
+                  className="block px-2 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Free Resources
+                </Link>
+                <Link 
+                  href="/faqs" 
+                  className="block px-2 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  FAQs
+                </Link>
+              </div>
+
+              {/* Single Links */}
               <Link 
-                href="/products" 
+                href="/why-zaza-promptly" 
                 className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Products
+                Why Zaza Promptly?
               </Link>
               <Link 
-                href="/pricing" 
+                href="/about-founder" 
                 className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Pricing
-              </Link>
-              <Link 
-                href={externalLinks.blog} 
-                className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Blog
-              </Link>
-              <Link 
-                href="/free-resources" 
-                className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Free Resources
-              </Link>
-              <Link 
-                href="/faqs" 
-                className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                FAQs
-              </Link>
-              <Link 
-                href={externalLinks.aboutFounder} 
-                className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                About the Founder
-              </Link>
-              <Link 
-                href={externalLinks.privacy} 
-                className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Privacy
+                About Us
               </Link>
               
               {/* Mobile Language Selector */}
@@ -200,7 +294,7 @@ export default function Header() {
                   className="block w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold rounded-lg shadow-lg text-center transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Try Promptly
+                  Start Free Trial
                 </Link>
               </div>
             </nav>

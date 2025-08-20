@@ -173,9 +173,9 @@ export default function Footer() {
 
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 text-sm">
+          {/* Products */}
           <div>
-            <h3 className="text-lg font-bold mb-2 text-white">{sectionTexts[locale].coreProducts}</h3>
-            <p className="text-sm text-gray-400 mb-4">{sectionTexts[locale].coreDescription}</p>
+            <h3 className="text-lg font-bold mb-4 text-white">Products</h3>
             <ul className="space-y-3">
               <li>
                 <Link 
@@ -199,108 +199,94 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/autoplanner" 
-                  className="hover:text-purple-400 transition-all duration-300 hover:translate-x-1 focus:outline-none focus:text-purple-400 focus:translate-x-1"
-                  aria-label={productLabels[locale].autoplanner}
-                  title={productLabels[locale].autoplanner}
-                >
-                  Zaza AutoPlanner
-                </Link>
-              </li>
-            </ul>
-            
-            <h3 className="text-lg font-bold mb-2 mt-8 text-white">{sectionTexts[locale].adjacentProducts}</h3>
-            <p className="text-sm text-gray-400 mb-4">{sectionTexts[locale].adjacentDescription}</p>
-            <ul className="space-y-3">
-              <li>
-                <Link 
                   href="/notably" 
                   className="hover:text-purple-400 transition-all duration-300 hover:translate-x-1 focus:outline-none focus:text-purple-400 focus:translate-x-1"
                   aria-label={productLabels[locale].notably}
                   title={productLabels[locale].notably}
                 >
-                  Zaza Notably Suite
+                  Zaza Inbox
                 </Link>
               </li>
               <li>
                 <Link 
-                  href="/spark" 
-                  className="hover:text-purple-400 transition-all duration-300 hover:translate-x-1 focus:outline-none focus:text-purple-400 focus:translate-x-1"
-                  aria-label={productLabels[locale].spark}
-                  title={productLabels[locale].spark}
+                  href="/products" 
+                  className="text-gray-400 hover:text-purple-400 transition-colors duration-200 focus:outline-none focus:text-purple-400"
                 >
-                  Zaza Spark (HR)
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/looop" 
-                  className="hover:text-purple-400 transition-all duration-300 hover:translate-x-1 focus:outline-none focus:text-purple-400 focus:translate-x-1"
-                  aria-label={productLabels[locale].looop}
-                  title={productLabels[locale].looop}
-                >
-                  Zaza Looop
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/knowledgecore" 
-                  className="hover:text-purple-400 transition-all duration-300 hover:translate-x-1 focus:outline-none focus:text-purple-400 focus:translate-x-1"
-                  aria-label={productLabels[locale].knowledgecore}
-                  title={productLabels[locale].knowledgecore}
-                >
-                  Zaza KnowledgeCore
+                  All Products →
                 </Link>
               </li>
             </ul>
           </div>
+
+          {/* Resources */}
           <div>
-            <h3 className="text-lg font-bold mb-4 text-white">Support</h3>
-            <ul className="space-y-3">
-              <li><Link href="/pricing" className="hover:text-purple-400 transition-colors duration-200 focus:outline-none focus:text-purple-400">Pricing</Link></li>
-              <li><Link href="/contact" className="hover:text-purple-400 transition-colors duration-200 focus:outline-none focus:text-purple-400">Contact Us</Link></li>
-              <li><Link href="/privacy" className="hover:text-purple-400 transition-colors duration-200 focus:outline-none focus:text-purple-400">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="hover:text-purple-400 transition-colors duration-200 focus:outline-none focus:text-purple-400">Terms of Use</Link></li>
-              <li><Link href="/support" className="hover:text-purple-400 transition-colors duration-200 focus:outline-none focus:text-purple-400">Help Center</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-lg font-bold mb-4 text-white">Learning Centre</h3>
+            <h3 className="text-lg font-bold mb-4 text-white">Resources</h3>
             <ul className="space-y-3">
               <li><Link href="/blog" className="hover:text-purple-400 transition-colors duration-200 focus:outline-none focus:text-purple-400">Blog</Link></li>
               <li><Link href="/free-resources" className="hover:text-purple-400 transition-colors duration-200 focus:outline-none focus:text-purple-400">Free Resources</Link></li>
               <li><Link href="/faqs" className="hover:text-purple-400 transition-colors duration-200 focus:outline-none focus:text-purple-400">FAQs</Link></li>
-              <li><Link href="/about-founder" className="hover:text-purple-400 transition-colors duration-200 focus:outline-none focus:text-purple-400">About the Founder</Link></li>
+              <li><Link href="/why-zaza-promptly" className="hover:text-purple-400 transition-colors duration-200 focus:outline-none focus:text-purple-400">Why Zaza Promptly?</Link></li>
             </ul>
           </div>
+
+          {/* Company */}
           <div>
-            <h3 className="text-lg font-bold mb-4 text-white">Newsletter</h3>
-            <p className="text-gray-400 mb-4">Get AI teaching tips and updates delivered to your inbox.</p>
-            <form onSubmit={handleNewsletterSubmit} className="space-y-3">
-              <div className="flex">
-                <input 
-                  type="email" 
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email" 
-                  required
-                  disabled={isSubmitting}
-                  className="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded-l-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 disabled:opacity-50"
-                />
-                <button 
-                  type="submit"
-                  disabled={isSubmitting || !email}
-                  className="px-4 py-2 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white rounded-r-lg transition-colors duration-200"
-                >
-                  {isSubmitting ? 'Subscribing...' : 'Subscribe'}
-                </button>
-              </div>
-              {message && (
-                <p className={`text-sm ${message.includes('Successfully') ? 'text-green-400' : 'text-red-400'}`}>
-                  {message}
-                </p>
-              )}
-            </form>
+            <h3 className="text-lg font-bold mb-4 text-white">Company</h3>
+            <ul className="space-y-3">
+              <li><Link href="/about-founder" className="hover:text-purple-400 transition-colors duration-200 focus:outline-none focus:text-purple-400">About Us</Link></li>
+              <li><Link href="/contact" className="hover:text-purple-400 transition-colors duration-200 focus:outline-none focus:text-purple-400">Contact</Link></li>
+              <li><Link href="/support" className="hover:text-purple-400 transition-colors duration-200 focus:outline-none focus:text-purple-400">Support</Link></li>
+              <li><Link href="/pricing" className="hover:text-purple-400 transition-colors duration-200 focus:outline-none focus:text-purple-400">Pricing</Link></li>
+            </ul>
+          </div>
+
+          {/* Follow Us */}
+          <div>
+            <h3 className="text-lg font-bold mb-4 text-white">Follow Us</h3>
+            <p className="text-gray-400 mb-4">Join our community of educators transforming teaching with AI.</p>
+            
+            {/* Social Links Grid */}
+            <div className="grid grid-cols-3 gap-3 mb-6">
+              <a 
+                href="https://www.tiktok.com/@zazatechnologies" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex flex-col items-center p-3 bg-gray-800 hover:bg-purple-600 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+                aria-label={socialLabels[locale].tiktok}
+                title={socialLabels[locale].tiktok}
+              >
+                <svg className="w-5 h-5 mb-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                </svg>
+                <span className="text-xs">TikTok</span>
+              </a>
+              <a 
+                href="https://www.linkedin.com/company/zaza-technologies/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex flex-col items-center p-3 bg-gray-800 hover:bg-purple-600 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+                aria-label={socialLabels[locale].linkedin}
+                title={socialLabels[locale].linkedin}
+              >
+                <svg className="w-5 h-5 mb-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                <span className="text-xs">LinkedIn</span>
+              </a>
+              <a 
+                href="https://twitter.com/zazateachapp" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex flex-col items-center p-3 bg-gray-800 hover:bg-purple-600 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+                aria-label={socialLabels[locale].twitter}
+                title={socialLabels[locale].twitter}
+              >
+                <svg className="w-5 h-5 mb-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                </svg>
+                <span className="text-xs">X/Twitter</span>
+              </a>
+            </div>
           </div>
         </div>
         
@@ -313,10 +299,11 @@ export default function Footer() {
                 Gumbertstraße 150, 40229 Düsseldorf, Germany
               </div>
             </div>
-            <div className="flex space-x-6 text-xs text-gray-400">
-              <Link href="/privacy" className="hover:text-purple-400 transition-colors duration-200 focus:outline-none focus:text-purple-400">Privacy</Link>
-              <Link href="/terms" className="hover:text-purple-400 transition-colors duration-200 focus:outline-none focus:text-purple-400">Terms</Link>
-              <Link href="/cookies" className="hover:text-purple-400 transition-colors duration-200 focus:outline-none focus:text-purple-400">Cookies</Link>
+            <div className="flex flex-wrap gap-6 text-xs text-gray-400">
+              <Link href="/terms" className="hover:text-purple-400 transition-colors duration-200 focus:outline-none focus:text-purple-400">Terms of Service</Link>
+              <Link href="/privacy" className="hover:text-purple-400 transition-colors duration-200 focus:outline-none focus:text-purple-400">Privacy Policy</Link>
+              <Link href="/support" className="hover:text-purple-400 transition-colors duration-200 focus:outline-none focus:text-purple-400">Support</Link>
+              <Link href="/cookies" className="hover:text-purple-400 transition-colors duration-200 focus:outline-none focus:text-purple-400">Cookie Policy</Link>
             </div>
           </div>
         </div>

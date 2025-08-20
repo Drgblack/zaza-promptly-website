@@ -1,11 +1,7 @@
-// Re-export enhanced Stripe configuration utilities
-export {
-  getStripe,
-  getStripeOrError,
-  isStripeConfigured,
-  getStripeConfig,
-  getClientStripeConfig
-} from './config/stripe';
+import Stripe from "stripe";
 
-// Legacy compatibility exports
-export type { StripeConfig } from './config/stripe';
+export function getStripe() {
+  const key = process.env.STRIPE_SECRET_KEY;
+  if (!key) return null;
+  return new Stripe(key);
+}
