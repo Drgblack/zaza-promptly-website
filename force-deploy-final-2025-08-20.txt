@@ -1,0 +1,5 @@
+FORCE DEPLOYMENT - FINAL ATTEMPT
+Timestamp: 2025-08-20 19:01:30 UTC
+Issue: Deployment stuck on commit a156ff93, need to force update to e997b2ab
+Critical: Subscription pricing data updated to $14.99/$149.9
+Status: User reports site still shows $12/month - deployment lag detected
