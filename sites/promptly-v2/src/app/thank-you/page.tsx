@@ -64,13 +64,13 @@ export default function ThankYouPage() {
         </h1>
         
         <p className="text-xl text-slate-300 mb-8 max-w-[600px] mx-auto">
-          Your subscription is confirmed and you're ready to transform your teaching with AI. 
+          Your subscription is confirmed and you&apos;re ready to transform your teaching with AI. 
           Get started with lesson planning, assessment creation, and personalized learning tools.
         </p>
 
         {/* Next Steps */}
         <div className="bg-slate-900/60 border border-white/10 rounded-2xl p-8 mb-8">
-          <h2 className="text-2xl font-semibold text-white mb-6">What's next?</h2>
+          <h2 className="text-2xl font-semibold text-white mb-6">What&apos;s next?</h2>
           
           <div className="grid md:grid-cols-2 gap-6 text-left">
             <div className="space-y-4">
