@@ -67,7 +67,6 @@
   ],
   "redirects": [
     { "source": "/home", "destination": "/", "permanent": true },
-    { "source": "/pricing", "destination": "/promptly-pricing", "permanent": true },
     { "source": "/faq", "destination": "/faqs", "permanent": true },
     { "source": "/resources", "destination": "/free-resources", "permanent": true }
   ],
