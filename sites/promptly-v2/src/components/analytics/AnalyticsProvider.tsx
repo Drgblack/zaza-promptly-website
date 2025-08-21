@@ -10,9 +10,9 @@ const PLAUSIBLE_DOMAIN = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN
 
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void
-    dataLayer: any[]
-    plausible: (...args: any[]) => void
+    gtag: (...args: unknown[]) => void
+    dataLayer: unknown[]
+    plausible: (...args: unknown[]) => void
   }
 }
 

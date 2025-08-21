@@ -184,7 +184,7 @@ export default function PricingClient() {
 
           {/* Pricing Cards */}
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {currentPlans.map((plan, index) => (
+            {currentPlans.map((plan) => (
               <div
                 key={plan.name}
                 className={`rounded-2xl shadow-card border p-6 relative ${

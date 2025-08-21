@@ -5,13 +5,13 @@ const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.co
 
 export const metadata: Metadata = {
   title: 'Thank You | Promptly',
-  description: 'Welcome to Promptly! Your subscription is confirmed and you\'re ready to transform your teaching with AI.',
+  description: 'Welcome to Promptly! Your subscription is confirmed and you&apos;re ready to transform your teaching with AI.',
   alternates: {
     canonical: '/thank-you',
   },
   openGraph: {
     title: 'Thank You | Promptly',
-    description: 'Welcome to Promptly! Your subscription is confirmed and you\'re ready to transform your teaching with AI.',
+    description: 'Welcome to Promptly! Your subscription is confirmed and you&apos;re ready to transform your teaching with AI.',
     url: `${baseUrl}/thank-you`,
     images: [
       {
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Thank You | Promptly',
-    description: 'Welcome to Promptly! Your subscription is confirmed and you\'re ready to transform your teaching with AI.',
+    description: 'Welcome to Promptly! Your subscription is confirmed and you&apos;re ready to transform your teaching with AI.',
     images: ['/og-default.png'],
   },
   robots: {
