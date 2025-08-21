@@ -24,7 +24,7 @@ export default function NotFound() {
           </h1>
           
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            Sorry, we couldn't find the page you're looking for. It might have been moved, deleted, or the URL might be incorrect.
+            Sorry, we couldn&apos;t find the page you&apos;re looking for. It might have been moved, deleted, or the URL might be incorrect.
           </p>
         </div>
 
@@ -97,7 +97,7 @@ export default function NotFound() {
             >
               Contact us
             </Link>{' '}
-            and we'll help you find the right resources.
+            and we&apos;ll help you find the right resources.
           </p>
         </div>
       </div>

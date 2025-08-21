@@ -98,7 +98,7 @@ export default function FounderPage() {
               {/* Right Column - Content */}
               <div className="max-w-[720px]">
                 <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-6">
-                  Hi, I'm <span className="text-brand-400">Alex</span>
+                  Hi, I&apos;m <span className="text-brand-400">Alex</span>
                 </h1>
                 
                 <div className="space-y-6 text-lg text-slate-300 leading-relaxed">
@@ -111,7 +111,7 @@ export default function FounderPage() {
                   </p>
                   
                   <p>
-                    When I'm not working on Promptly, you'll find me reading education research, talking to teachers about their daily challenges, or exploring how technology can enhance rather than replace human connection in learning.
+                    When I&apos;m not working on Promptly, you&apos;ll find me reading education research, talking to teachers about their daily challenges, or exploring how technology can enhance rather than replace human connection in learning.
                   </p>
                 </div>
 
@@ -172,7 +172,7 @@ export default function FounderPage() {
                 Ready to transform your teaching workflow?
               </h2>
               <p className="text-lg text-slate-300 mb-8">
-                Join thousands of educators who are already saving time with Promptly's AI-powered tools.
+                Join thousands of educators who are already saving time with Promptly&apos;s AI-powered tools.
               </p>
               <Link
                 href="/waitlist"
