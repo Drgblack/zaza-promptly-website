@@ -1,12 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server'
-import Stripe from 'stripe'
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
-  apiVersion: '2023-10-16',
-})
+import { getStripeOrError } from '@/lib/config/stripe'
 
 export async function POST(request: NextRequest) {
   try {
+    const stripeResult = getStripeOrError()
+    
+    if ('error' in stripeResult) {
+      return NextResponse.json(
+        { error: stripeResult.error },
+        { status: stripeResult.status }
+      )
+    }
+
     const body = await request.json()
     const { priceId, successUrl, cancelUrl } = body
 
@@ -17,6 +22,7 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    const { stripe } = stripeResult
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: [
