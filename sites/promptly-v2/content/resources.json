@@ -25,5 +25,50 @@
     "category": "Guides",
     "updated": "2025-08-15",
     "sizeKB": 210
+  },
+  {
+    "slug": "ai-prompt-templates",
+    "title": "AI Prompt Templates for Teachers",
+    "description": "Ready-to-use prompts for lesson planning, assessment, and student feedback.",
+    "filename": "ai-prompt-templates.pdf",
+    "category": "Templates",
+    "updated": "2025-01-15",
+    "sizeKB": 320
+  },
+  {
+    "slug": "assessment-rubrics",
+    "title": "Assessment Rubrics & Templates",
+    "description": "Comprehensive rubrics for various subjects and assessment types.",
+    "filename": "assessment-rubrics.pdf",
+    "category": "Templates",
+    "updated": "2025-01-12",
+    "sizeKB": 280
+  },
+  {
+    "slug": "classroom-management-guide",
+    "title": "Classroom Management Guide",
+    "description": "Proven strategies for effective classroom management and student engagement.",
+    "filename": "classroom-management-guide.pdf",
+    "category": "Guides",
+    "updated": "2025-01-10",
+    "sizeKB": 420
+  },
+  {
+    "slug": "lesson-planning-templates",
+    "title": "Lesson Planning Templates",
+    "description": "Structured templates for efficient lesson planning across subjects.",
+    "filename": "lesson-planning-templates.pdf",
+    "category": "Templates",
+    "updated": "2025-01-08",
+    "sizeKB": 360
+  },
+  {
+    "slug": "time-management-guide",
+    "title": "Teacher Time Management Guide",
+    "description": "Practical strategies to reduce workload and improve work-life balance.",
+    "filename": "time-management-guide.pdf",
+    "category": "Guides",
+    "updated": "2025-01-05",
+    "sizeKB": 290
   }
 ]
