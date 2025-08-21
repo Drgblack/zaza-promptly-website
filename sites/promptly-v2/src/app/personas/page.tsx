@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
+import { PERSONAS } from '@/content/personas'
 
 // Static page - revalidate every hour
 export const revalidate = 3600
@@ -7,96 +8,28 @@ export const revalidate = 3600
 export const metadata: Metadata = {
   title: 'Teaching Solutions | Promptly - AI Comments for Every Education Role',
   description: 'Discover AI comment solutions tailored to your specific teaching context. From classroom teachers to senior leadership, find the perfect tool for your role.',
+  alternates: {
+    canonical: '/personas',
+  },
 }
 
 export default function PersonasPage() {
-  const personas = [
-    {
-      id: 'teacher',
-      title: 'Classroom Teacher',
-      description: 'Primary, secondary, and subject-specific comment templates for all your students',
-      color: 'blue',
-      icon: (
-        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C20.832 18.477 19.246 18 17.5 18c-1.746 0-3.332.477-4.5 1.253" />
-        </svg>
-      ),
-      features: ['Subject-specific templates', 'Progress tracking comments', 'Behavior management', 'Achievement recognition']
-    },
-    {
-      id: 'head-of-year',
-      title: 'Head of Year',
-      description: 'Pastoral care and behavioral comments for year group management',
-      color: 'purple',
-      icon: (
-        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-        </svg>
-      ),
-      features: ['Pastoral care comments', 'Behavioral interventions', 'Parent communication', 'Year group overview']
-    },
-    {
-      id: 'slt',
-      title: 'Senior Leadership',
-      description: 'Strategic, whole-school perspective comments for leadership teams',
-      color: 'green',
-      icon: (
-        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-        </svg>
-      ),
-      features: ['Strategic overview', 'School-wide initiatives', 'Leadership feedback', 'Policy implementation']
-    },
-    {
-      id: 'senco',
-      title: 'SENCO',
-      description: 'Specialized comments for students with additional learning needs',
-      color: 'orange',
-      icon: (
-        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-        </svg>
-      ),
-      features: ['SEN-focused templates', 'Individual needs assessment', 'Support strategies', 'Progress monitoring']
-    },
-    {
-      id: 'tutor',
-      title: 'Form Tutor',
-      description: 'Personal development and tutor time comments for your tutor group',
-      color: 'red',
-      icon: (
-        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-        </svg>
-      ),
-      features: ['Personal development', 'Tutor time activities', 'Wellbeing check-ins', 'Goal setting']
-    },
-    {
-      id: 'admin',
-      title: 'School Admin',
-      description: 'Administrative and communication templates for school operations',
-      color: 'indigo',
-      icon: (
-        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v6a2 2 0 002 2h2m0 0h2m-2 0v4a2 2 0 002 2h6a2 2 0 002-2v-4m-8 0V9a2 2 0 012-2h2M9 5V3a2 2 0 012-2h2a2 2 0 012 2v2M9 5h4" />
-        </svg>
-      ),
-      features: ['Administrative templates', 'Communication tools', 'Data management', 'Operational efficiency']
-    }
-  ]
-
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-slate-900">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20">
+        <div className="container">
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               AI Solutions for Every Education Role
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Discover comment generation tools tailored to your specific teaching context and responsibilities. 
-              Each solution is designed with your unique challenges in mind.
+            <p className="text-lg text-slate-300 mb-4 max-w-[720px] mx-auto">
+              Promptly serves teachers, leaders, and support staff across all education roles. 
+              Each solution is tailored to your specific responsibilities and challenges.
+            </p>
+            <p className="text-slate-400 max-w-[720px] mx-auto">
+              From classroom teachers managing 30+ students to SENCOs supporting individual needs, 
+              discover how AI can transform your feedback process.
             </p>
           </div>
         </div>
@@ -104,36 +37,42 @@ export default function PersonasPage() {
 
       {/* Personas Grid */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {personas.map((persona) => (
-              <Link key={persona.id} href={`/personas/${persona.id}`} className="group">
-                <div className={`bg-gradient-to-br from-${persona.color}-50 to-${persona.color}-100 dark:from-${persona.color}-900 dark:to-${persona.color}-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 h-full`}>
-                  <div className={`w-16 h-16 bg-${persona.color}-600 rounded-full flex items-center justify-center mb-6 mx-auto`}>
-                    {persona.icon}
+        <div className="container">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {PERSONAS.map((persona) => (
+              <Link 
+                key={persona.slug} 
+                href={`/personas/${persona.slug}`} 
+                className="group focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded-2xl"
+              >
+                <div className={`bg-gradient-to-br from-${persona.color}-500/10 to-${persona.color}-600/10 border border-${persona.color}-500/20 hover:border-${persona.color}-500/40 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 h-full`}>
+                  <div className={`w-16 h-16 bg-${persona.color}-600 rounded-xl flex items-center justify-center mb-6 mx-auto`}>
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                      <path d={persona.icon} />
+                    </svg>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">
-                    {persona.title}
+                  <h3 className="text-xl font-bold text-white mb-4 text-center">
+                    {persona.name}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-center mb-6">
-                    {persona.description}
+                  <p className="text-slate-300 text-center mb-6 text-sm leading-relaxed">
+                    {persona.tagline}
                   </p>
                   
-                  {/* Features List */}
-                  <ul className="space-y-2">
-                    {persona.features.map((feature, index) => (
-                      <li key={index} className="flex items-center text-sm text-gray-600 dark:text-gray-300">
-                        <svg className={`w-4 h-4 text-${persona.color}-600 mr-2 flex-shrink-0`} fill="currentColor" viewBox="0 0 20 20">
+                  {/* Key Features */}
+                  <ul className="space-y-2 mb-6">
+                    {persona.features.slice(0, 3).map((feature, index) => (
+                      <li key={index} className="flex items-start text-xs text-slate-400">
+                        <svg className={`w-3 h-3 text-${persona.color}-500 mr-2 flex-shrink-0 mt-0.5`} fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
-                        {feature}
+                        {feature.title}
                       </li>
                     ))}
                   </ul>
                   
-                  <div className="mt-6 text-center">
-                    <span className={`inline-flex items-center text-${persona.color}-600 dark:text-${persona.color}-400 font-medium group-hover:text-${persona.color}-700 dark:group-hover:text-${persona.color}-300`}>
-                      Learn More
+                  <div className="text-center">
+                    <span className={`inline-flex items-center text-${persona.color}-400 font-medium group-hover:text-${persona.color}-300 transition-colors`}>
+                      Explore Solutions
                       <svg className="ml-1 w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
@@ -146,24 +85,85 @@ export default function PersonasPage() {
         </div>
       </section>
 
+      {/* Quick Links Band */}
+      <section className="py-12 bg-slate-800/30 border-y border-white/5">
+        <div className="container">
+          <div className="text-center mb-8">
+            <h2 className="text-lg font-semibold text-white mb-2">
+              Explore More Resources
+            </h2>
+            <p className="text-slate-400 text-sm">
+              Additional tools and resources to support your teaching
+            </p>
+          </div>
+          
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link 
+              href="/#snippet"
+              className="inline-flex items-center px-6 py-3 bg-slate-700/60 hover:bg-slate-700/80 border border-white/10 text-white font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+            >
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              Try Snippet Tool
+            </Link>
+            <Link 
+              href="/blog"
+              className="inline-flex items-center px-6 py-3 bg-slate-700/60 hover:bg-slate-700/80 border border-white/10 text-white font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+            >
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+              </svg>
+              Learning Centre
+            </Link>
+            <Link 
+              href="/free-resources"
+              className="inline-flex items-center px-6 py-3 bg-slate-700/60 hover:bg-slate-700/80 border border-white/10 text-white font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+            >
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              Free Resources
+            </Link>
+            <Link 
+              href="/pricing"
+              className="inline-flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+            >
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              View Pricing
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="bg-blue-600 dark:bg-blue-700 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-16 bg-gradient-to-r from-purple-600 to-blue-600">
+        <div className="container text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             Ready to Transform Your Comment Writing?
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Join thousands of educators who are already saving hours every week with AI-powered comment generation.
+          <p className="text-lg text-purple-100 mb-8 max-w-2xl mx-auto">
+            Join over 12,000 educators who are already saving hours every week with AI-powered comment generation.
           </p>
-          <Link 
-            href="/waitlist"
-            className="inline-flex items-center px-8 py-4 bg-white hover:bg-gray-100 text-blue-600 font-semibold rounded-lg transition-colors shadow-lg"
-          >
-            Start Free Trial
-            <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              href="/pricing"
+              className="inline-flex items-center px-8 py-4 bg-white hover:bg-gray-100 text-purple-600 font-semibold rounded-lg transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-purple-600"
+            >
+              Start Free Trial
+              <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+            <Link 
+              href="/#snippet"
+              className="inline-flex items-center px-8 py-4 border-2 border-white hover:bg-white hover:text-purple-600 text-white font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-purple-600"
+            >
+              Try Demo Tool
+            </Link>
+          </div>
         </div>
       </section>
     </div>
