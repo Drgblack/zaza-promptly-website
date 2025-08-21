@@ -5,10 +5,10 @@ export default function Home() {
     <div className="relative">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+        <div className="container py-20 md:py-32">
           <div className="text-center">
             {/* Main headline */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+            <h1 className="text-6xl md:text-7xl font-bold tracking-tight text-gray-900 dark:text-white mb-6 leading-tight max-w-[720px] mx-auto">
               AI comments.{' '}
               <span className="text-blue-600 dark:text-blue-400 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Done in seconds.
@@ -16,7 +16,7 @@ export default function Home() {
             </h1>
             
             {/* Subheading */}
-            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-[22px] text-slate-300 leading-relaxed mb-8 max-w-3xl mx-auto">
               Transform your teaching with AI-powered comment generation. 
               Save hours every week while maintaining the quality your students deserve.
             </p>
@@ -25,14 +25,14 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link 
                 href="/waitlist" 
-                className="group px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+                className="group inline-flex items-center justify-center h-12 px-8 bg-brand-600 hover:bg-brand-700 text-white text-lg font-semibold rounded-lg transition-colors shadow-card focus:outline-none focus:ring-2 focus:ring-brand-500/50"
               >
                 <span className="mr-2">Start Free</span>
                 <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
               </Link>
               <Link 
-                href="/personas" 
-                className="px-8 py-4 border-2 border-gray-300 hover:border-gray-400 text-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:border-gray-500 text-lg font-semibold rounded-lg transition-all duration-200 hover:scale-105"
+                href="/personas"
+                className="inline-flex items-center justify-center h-12 px-8 border border-slate-600/60 hover:border-slate-400/60 bg-transparent text-slate-300 hover:text-white text-lg font-semibold rounded-lg transition-colors"
               >
                 See Examples
               </Link>
@@ -62,36 +62,26 @@ export default function Home() {
           </div>
         </div>
         
-        {/* 3-Layer Wave Divider */}
+        {/* Wave Divider */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg
-            className="relative block w-full h-20 md:h-32"
-            viewBox="0 0 1200 120"
+            className="relative block w-full h-16 md:h-24 -mt-8"
+            viewBox="0 0 1200 80"
             preserveAspectRatio="none"
             aria-hidden="true"
           >
-            {/* Layer 1 - Bottom */}
             <path
-              d="M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z"
-              className="fill-blue-600 opacity-20"
-            />
-            {/* Layer 2 - Middle */}
-            <path
-              d="M0,80 C200,140 400,20 600,80 C800,140 1000,20 1200,80 L1200,120 L0,120 Z"
-              className="fill-blue-500 opacity-40"
-            />
-            {/* Layer 3 - Top */}
-            <path
-              d="M0,100 C250,160 450,40 600,100 C750,160 950,40 1200,100 L1200,120 L0,120 Z"
-              className="fill-white dark:fill-gray-900"
+              d="M0,40 C300,10 600,70 900,40 C1000,25 1100,55 1200,40 L1200,80 L0,80 Z"
+              className="fill-slate-800 stroke-white/10"
+              strokeWidth="1"
             />
           </svg>
         </div>
       </section>
 
       {/* Persona Tiles Section */}
-      <section className="py-20 bg-white dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section bg-white dark:bg-gray-900">
+        <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Built for Every Education Role
@@ -105,14 +95,14 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Teacher */}
             <Link href="/personas/teacher" className="group">
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-6 mx-auto">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="rounded-2xl shadow-card border border-white/5 bg-slate-800/60 hover:bg-slate-800/80 transition p-8">
+                <div className="size-8 bg-blue-600 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                  <svg className="size-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C20.832 18.477 19.246 18 17.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">Classroom Teacher</h3>
-                <p className="text-gray-600 dark:text-gray-300 text-center">Primary, secondary, and subject-specific comment templates for all your students</p>
+                <h3 className="text-lg font-semibold text-white mb-4 text-center">Classroom Teacher</h3>
+                <p className="text-slate-300 text-center">Primary, secondary, and subject-specific comment templates for all your students</p>
               </div>
             </Link>
 

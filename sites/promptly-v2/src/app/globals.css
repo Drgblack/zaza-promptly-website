@@ -5,6 +5,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --section-y: 6rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,5 +24,15 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto max-w-[1200px] px-6;
+  }
+  
+  .section {
+    @apply py-[var(--section-y)];
   }
 }

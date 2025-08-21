@@ -14,8 +14,8 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 backdrop-blur-lg bg-slate-900/70 border-b border-white/10">
+      <div className="container">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <div className="flex items-center">
@@ -25,7 +25,7 @@ export default function Header() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <span className="text-xl font-bold text-gray-900 dark:text-white">Promptly</span>
+              <span className="text-xl font-bold text-white">Promptly</span>
             </Link>
           </div>
 
@@ -35,7 +35,7 @@ export default function Header() {
             <div className="relative">
               <button
                 onClick={() => setSolutionsOpen(!solutionsOpen)}
-                className="flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium"
+                className="flex items-center text-white/80 hover:text-white/90 font-medium transition-colors"
               >
                 Our Solutions
                 <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -67,11 +67,11 @@ export default function Header() {
               )}
             </div>
 
-            <Link href="/learning" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium">
+            <Link href="/learning" className="text-white/80 hover:text-white/90 font-medium transition-colors">
               Learning Centre
             </Link>
             
-            <Link href="/about" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium">
+            <Link href="/about" className="text-white/80 hover:text-white/90 font-medium transition-colors">
               About Us
             </Link>
           </nav>
@@ -82,7 +82,7 @@ export default function Header() {
               href="https://zazateach.com" 
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium"
+              className="text-white/80 hover:text-white/90 font-medium transition-colors"
             >
               Try Zaza Teach
             </a>
