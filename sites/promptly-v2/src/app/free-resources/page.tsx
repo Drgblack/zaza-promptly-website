@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Metadata } from 'next'
 import resourcesData from '../../../content/resources.json'
 
 type Resource = {
