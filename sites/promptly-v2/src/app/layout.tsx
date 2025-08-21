@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import AnalyticsProvider from "../components/analytics/AnalyticsProvider";
+import CookieBanner from "../components/marketing/CookieBanner";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -73,15 +75,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
-      >
-        <Header />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer />
-      </body>
+      <AnalyticsProvider>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
+        >
+          <Header />
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
+          <CookieBanner />
+        </body>
+      </AnalyticsProvider>
     </html>
   );
 }

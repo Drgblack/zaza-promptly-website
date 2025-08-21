@@ -105,6 +105,10 @@ export default function Header() {
             <Link href="/about/founder" className="text-white/80 hover:text-white/90 font-medium transition-colors">
               Founder
             </Link>
+
+            <Link href="/contact" className="text-white/80 hover:text-white/90 font-medium transition-colors">
+              Contact
+            </Link>
           </nav>
 
           {/* Right-side CTAs */}
@@ -184,6 +188,9 @@ export default function Header() {
               </Link>
               <Link href="/about/founder" className="text-slate-300 font-medium py-2">
                 Founder
+              </Link>
+              <Link href="/contact" className="text-slate-300 font-medium py-2">
+                Contact
               </Link>
               <a 
                 href="https://zazateach.com" 
