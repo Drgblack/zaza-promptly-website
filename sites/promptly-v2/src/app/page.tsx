@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import SnippetDemo from '@/components/sections/SnippetDemo'
 
 export default function Home() {
   return (
@@ -31,10 +32,10 @@ export default function Home() {
                 <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
               </Link>
               <Link 
-                href="/personas"
+                href="/#snippet"
                 className="inline-flex items-center justify-center h-12 px-8 border border-slate-600/60 hover:border-slate-400/60 bg-transparent text-slate-300 hover:text-white text-lg font-semibold rounded-lg transition-colors"
               >
-                See Examples
+                Try Snippet Tool
               </Link>
             </div>
 
@@ -76,6 +77,21 @@ export default function Home() {
               strokeWidth="1"
             />
           </svg>
+        </div>
+      </section>
+
+      {/* Snippet Tool Section */}
+      <section id="snippet" className="section bg-slate-900">
+        <div className="container">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">
+              Try the Snippet Tool
+            </h2>
+            <p className="text-slate-300 mb-6">
+              Generate a sample comment in seconds—no signup required.
+            </p>
+          </div>
+          <SnippetDemo />
         </div>
       </section>
 
