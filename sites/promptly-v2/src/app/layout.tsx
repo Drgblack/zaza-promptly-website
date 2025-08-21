@@ -30,6 +30,13 @@ export const metadata: Metadata = {
   creator: "Zaza Technologies",
   publisher: "Zaza Technologies",
   robots: "index, follow",
+  icons: [
+    { rel: 'icon', url: '/favicon.svg', type: 'image/svg+xml' },
+    { rel: 'icon', url: '/favicon-32x32.svg', sizes: '32x32', type: 'image/svg+xml' },
+    { rel: 'icon', url: '/favicon-16x16.svg', sizes: '16x16', type: 'image/svg+xml' },
+    { rel: 'apple-touch-icon', url: '/apple-touch-icon.svg', sizes: '180x180' },
+    { rel: 'manifest', url: '/site.webmanifest' },
+  ],
   alternates: {
     canonical: '/',
     types: {
