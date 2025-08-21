@@ -16,16 +16,57 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const postMeta = await getPostMeta(params.slug)
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
   
   if (!postMeta) {
     return {
       title: 'Post Not Found | Promptly Blog',
+      alternates: {
+        canonical: '/404',
+      },
     }
   }
+
+  const postUrl = `${baseUrl}/blog/${params.slug}`
+  const postDate = new Date(postMeta.date)
 
   return {
     title: `${postMeta.title} | Promptly Blog`,
     description: postMeta.description,
+    authors: [{ name: postMeta.author || 'Zaza Promptly Team' }],
+    alternates: {
+      canonical: `/blog/${params.slug}`,
+    },
+    openGraph: {
+      title: postMeta.title,
+      description: postMeta.description,
+      type: 'article',
+      publishedTime: postDate.toISOString(),
+      authors: [postMeta.author || 'Zaza Promptly Team'],
+      tags: postMeta.tags || [],
+      url: postUrl,
+      images: [
+        {
+          url: '/og-default.png', // TODO: Add post-specific images if available in frontmatter
+          width: 1200,
+          height: 630,
+          alt: postMeta.title,
+        },
+      ],
+      siteName: 'Promptly',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: postMeta.title,
+      description: postMeta.description,
+      images: ['/og-default.png'],
+    },
+    other: {
+      'article:published_time': postDate.toISOString(),
+      'article:author': postMeta.author || 'Zaza Promptly Team',
+      ...(postMeta.tags && { 'article:tag': postMeta.tags.join(', ') }),
+      ...(postMeta.category && { 'article:section': postMeta.category }),
+    },
   }
 }
 
