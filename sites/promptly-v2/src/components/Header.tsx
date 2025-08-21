@@ -67,6 +67,10 @@ export default function Header() {
               )}
             </div>
 
+            <Link href="/#snippet" className="text-white/80 hover:text-white/90 font-medium transition-colors">
+              Snippet Tool
+            </Link>
+
             <Link href="/learning" className="text-white/80 hover:text-white/90 font-medium transition-colors">
               Learning Centre
             </Link>
@@ -135,6 +139,9 @@ export default function Header() {
             <div className="flex flex-col space-y-3">
               <Link href="/personas" className="text-gray-700 dark:text-gray-300 font-medium py-2">
                 Our Solutions
+              </Link>
+              <Link href="/#snippet" className="text-gray-700 dark:text-gray-300 font-medium py-2">
+                Snippet Tool
               </Link>
               <Link href="/learning" className="text-gray-700 dark:text-gray-300 font-medium py-2">
                 Learning Centre
