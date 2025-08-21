@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import SnippetDemo from '@/components/sections/SnippetDemo'
-import { getPersona, PERSONAS, type Persona } from '@/content/personas'
+import { PERSONAS, type Persona } from '@/content/personas'
 
 interface PersonaPageProps {
   params: { slug: string }
@@ -296,7 +296,7 @@ export default function PersonaPage({ params }: PersonaPageProps) {
                 {persona.testimonial && (
                   <div className="text-center mb-16">
                     <blockquote className="text-xl text-white italic mb-6 max-w-[720px] mx-auto">
-                      "{persona.testimonial.quote}"
+                      &quot;{persona.testimonial.quote}&quot;
                     </blockquote>
                     <cite className="text-slate-300 not-italic">
                       <span className="font-semibold">{persona.testimonial.author}</span>
