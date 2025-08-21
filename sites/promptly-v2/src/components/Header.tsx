@@ -31,6 +31,10 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
+            <Link href="/products" className="text-white/80 hover:text-white/90 font-medium transition-colors">
+              Products
+            </Link>
+
             {/* Our Solutions Dropdown */}
             <div className="relative">
               <button
@@ -44,25 +48,40 @@ export default function Header() {
               </button>
               
               {solutionsOpen && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 py-2">
-                  <Link href="/personas/teacher" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
-                    Classroom Teacher
-                  </Link>
-                  <Link href="/personas/head-of-year" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
-                    Head of Year
-                  </Link>
-                  <Link href="/personas/slt" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
-                    Senior Leadership
-                  </Link>
-                  <Link href="/personas/senco" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
-                    SENCO
-                  </Link>
-                  <Link href="/personas/tutor" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
-                    Form Tutor
-                  </Link>
-                  <Link href="/personas/admin" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
-                    School Admin
-                  </Link>
+                <div className="absolute top-full left-0 mt-2 w-64 bg-slate-800/95 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 py-2">
+                  <div className="px-4 py-2 border-b border-white/10 mb-2">
+                    <div className="text-xs text-slate-400 uppercase tracking-wide mb-1">Products</div>
+                    <Link href="/products" className="block text-sm text-slate-200 hover:text-brand-400 transition-colors">
+                      Promptly
+                    </Link>
+                    <a href="https://zazateach.com" target="_blank" rel="noopener noreferrer" className="block text-sm text-slate-200 hover:text-green-400 transition-colors">
+                      Teach
+                    </a>
+                    <Link href="/products#technologies" className="block text-sm text-slate-200 hover:text-purple-400 transition-colors">
+                      Technologies
+                    </Link>
+                  </div>
+                  <div className="px-4 py-1">
+                    <div className="text-xs text-slate-400 uppercase tracking-wide mb-1">By Role</div>
+                    <Link href="/personas/teacher" className="block px-0 py-1 text-sm text-slate-300 hover:text-white transition-colors">
+                      Classroom Teacher
+                    </Link>
+                    <Link href="/personas/head-of-year" className="block px-0 py-1 text-sm text-slate-300 hover:text-white transition-colors">
+                      Head of Year
+                    </Link>
+                    <Link href="/personas/slt" className="block px-0 py-1 text-sm text-slate-300 hover:text-white transition-colors">
+                      Senior Leadership
+                    </Link>
+                    <Link href="/personas/senco" className="block px-0 py-1 text-sm text-slate-300 hover:text-white transition-colors">
+                      SENCO
+                    </Link>
+                    <Link href="/personas/tutor" className="block px-0 py-1 text-sm text-slate-300 hover:text-white transition-colors">
+                      Form Tutor
+                    </Link>
+                    <Link href="/personas/admin" className="block px-0 py-1 text-sm text-slate-300 hover:text-white transition-colors">
+                      School Admin
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
@@ -81,6 +100,10 @@ export default function Header() {
             
             <Link href="/free-resources" className="text-white/80 hover:text-white/90 font-medium transition-colors">
               Free Resources
+            </Link>
+
+            <Link href="/about/founder" className="text-white/80 hover:text-white/90 font-medium transition-colors">
+              Founder
             </Link>
           </nav>
 
@@ -139,28 +162,34 @@ export default function Header() {
 
         {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-700">
+          <div className="md:hidden py-4 border-t border-white/10">
             <div className="flex flex-col space-y-3">
-              <Link href="/personas" className="text-gray-700 dark:text-gray-300 font-medium py-2">
+              <Link href="/products" className="text-slate-300 font-medium py-2">
+                Products
+              </Link>
+              <Link href="/personas" className="text-slate-300 font-medium py-2">
                 Our Solutions
               </Link>
-              <Link href="/#snippet" className="text-gray-700 dark:text-gray-300 font-medium py-2">
+              <Link href="/#snippet" className="text-slate-300 font-medium py-2">
                 Snippet Tool
               </Link>
-              <Link href="/blog" className="text-gray-700 dark:text-gray-300 font-medium py-2">
+              <Link href="/blog" className="text-slate-300 font-medium py-2">
                 Blog
               </Link>
-              <Link href="/learning-centre" className="text-gray-700 dark:text-gray-300 font-medium py-2">
+              <Link href="/learning-centre" className="text-slate-300 font-medium py-2">
                 Learning Centre
               </Link>
-              <Link href="/free-resources" className="text-gray-700 dark:text-gray-300 font-medium py-2">
+              <Link href="/free-resources" className="text-slate-300 font-medium py-2">
                 Free Resources
+              </Link>
+              <Link href="/about/founder" className="text-slate-300 font-medium py-2">
+                Founder
               </Link>
               <a 
                 href="https://zazateach.com" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-700 dark:text-gray-300 font-medium py-2"
+                className="text-slate-300 font-medium py-2"
               >
                 Try Zaza Teach
               </a>
@@ -172,7 +201,7 @@ export default function Header() {
               </Link>
               <button
                 onClick={toggleDarkMode}
-                className="flex items-center text-gray-700 dark:text-gray-300 font-medium py-2"
+                className="flex items-center text-slate-300 font-medium py-2"
               >
                 {darkMode ? '☀️' : '🌙'} Toggle theme
               </button>
