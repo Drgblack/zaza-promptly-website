@@ -1,6 +1,9 @@
 import Link from 'next/link'
 import SnippetDemo from '@/components/sections/SnippetDemo'
 
+// Static page - revalidate every hour
+export const revalidate = 3600
+
 export default function Home() {
   return (
     <div className="relative">
@@ -9,7 +12,7 @@ export default function Home() {
         <div className="container py-20 md:py-32">
           <div className="text-center">
             {/* Main headline */}
-            <h1 className="text-6xl md:text-7xl font-bold tracking-tight text-gray-900 dark:text-white mb-6 leading-tight max-w-[720px] mx-auto">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 dark:text-white mb-6 leading-tight max-w-[720px] mx-auto">
               AI comments.{' '}
               <span className="text-blue-600 dark:text-blue-400 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Done in seconds.
@@ -25,8 +28,8 @@ export default function Home() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link 
-                href="/waitlist" 
-                className="group inline-flex items-center justify-center h-12 px-8 bg-brand-600 hover:bg-brand-700 text-white text-lg font-semibold rounded-lg transition-colors shadow-card focus:outline-none focus:ring-2 focus:ring-brand-500/50"
+                href="/pricing" 
+                className="group inline-flex items-center justify-center h-12 px-8 bg-purple-600 hover:bg-purple-700 text-white text-lg font-semibold rounded-lg transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
               >
                 <span className="mr-2">Start Free</span>
                 <span className="inline-block transition-transform group-hover:translate-x-1">→</span>

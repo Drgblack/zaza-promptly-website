@@ -1,6 +1,9 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
 
+// Static page - revalidate every hour
+export const revalidate = 3600
+
 export const metadata: Metadata = {
   title: 'Teaching Solutions | Promptly - AI Comments for Every Education Role',
   description: 'Discover AI comment solutions tailored to your specific teaching context. From classroom teachers to senior leadership, find the perfect tool for your role.',

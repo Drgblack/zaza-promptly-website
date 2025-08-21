@@ -2,6 +2,9 @@ import Link from 'next/link'
 import { Metadata } from 'next'
 import { getAllPostsMeta } from '@/lib/blog'
 
+// Blog listing page - revalidate every hour
+export const revalidate = 3600
+
 export const metadata: Metadata = {
   title: 'Blog | Promptly - Education Insights & Tips',
   description: 'Latest insights, tips, and best practices for educators using AI-powered tools in the classroom.',
