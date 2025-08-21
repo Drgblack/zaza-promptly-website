@@ -1,14 +1,14 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
-import { getAllPosts } from '@/lib/posts'
+import { getAllPostsMeta } from '@/lib/blog'
 
 export const metadata: Metadata = {
   title: 'Blog | Promptly - Education Insights & Tips',
   description: 'Latest insights, tips, and best practices for educators using AI-powered tools in the classroom.',
 }
 
-export default function BlogPage() {
-  const posts = getAllPosts()
+export default async function BlogPage() {
+  const posts = await getAllPostsMeta()
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {

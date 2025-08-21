@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
-import { getLatestPost } from '@/lib/posts'
+import { getLatestPost } from '@/lib/blog'
 import resourcesData from '../../../content/resources.json'
 
 export const metadata: Metadata = {
@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   description: 'Access our blog, free resources, and educational content to enhance your teaching with AI-powered tools.',
 }
 
-export default function LearningCentrePage() {
-  const latestPost = getLatestPost()
+export default async function LearningCentrePage() {
+  const latestPost = await getLatestPost()
   const resourcesCount = resourcesData.length
 
   return (

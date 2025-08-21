@@ -70,5 +70,50 @@
     "category": "Guides",
     "updated": "2025-01-05",
     "sizeKB": 290
+  },
+  {
+    "slug": "differentiation-strategies",
+    "title": "Differentiation Strategies Toolkit",
+    "description": "Practical techniques for meeting diverse learning needs in your classroom.",
+    "filename": "differentiation-strategies.pdf",
+    "category": "Guides",
+    "updated": "2025-01-03",
+    "sizeKB": 380
+  },
+  {
+    "slug": "parent-conference-templates",
+    "title": "Parent Conference Templates",
+    "description": "Structured templates and conversation guides for productive parent meetings.",
+    "filename": "parent-conference-templates.pdf",
+    "category": "Templates",
+    "updated": "2025-01-01",
+    "sizeKB": 220
+  },
+  {
+    "slug": "behavior-intervention-plans",
+    "title": "Behavior Intervention Plans",
+    "description": "Evidence-based strategies and templates for supporting challenging behaviors.",
+    "filename": "behavior-intervention-plans.pdf",
+    "category": "Templates",
+    "updated": "2024-12-30",
+    "sizeKB": 340
+  },
+  {
+    "slug": "formative-assessment-toolkit",
+    "title": "Formative Assessment Toolkit",
+    "description": "Quick assessment strategies to monitor student learning in real-time.",
+    "filename": "formative-assessment-toolkit.pdf",
+    "category": "Guides",
+    "updated": "2024-12-28",
+    "sizeKB": 310
+  },
+  {
+    "slug": "student-goal-setting-worksheets",
+    "title": "Student Goal Setting Worksheets",
+    "description": "Printable worksheets to help students set and track academic and personal goals.",
+    "filename": "student-goal-setting-worksheets.pdf",
+    "category": "Templates",
+    "updated": "2024-12-25",
+    "sizeKB": 190
   }
 ]

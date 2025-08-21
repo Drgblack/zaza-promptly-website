@@ -1,9 +1,9 @@
 import { MetadataRoute } from 'next'
-import { getAllPosts } from '@/lib/posts'
+import { getPostSlugs } from '@/lib/blog'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.zazapromptly.com'
-  const posts = getAllPosts()
+  const slugs = getPostSlugs()
   
   return [
     {
@@ -72,9 +72,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.7,
     },
-    ...posts.map((post) => ({
-      url: `${baseUrl}/blog/${post.slug}`,
-      lastModified: new Date(post.date),
+    ...slugs.map((slug) => ({
+      url: `${baseUrl}/blog/${slug}`,
+      lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     })),

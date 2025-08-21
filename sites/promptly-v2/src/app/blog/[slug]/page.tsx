@@ -1,21 +1,21 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getPostMeta, getAllPosts } from '@/lib/posts'
+import { getPostMeta, getPostSlugs } from '@/lib/blog'
 
 type Props = {
   params: { slug: string }
 }
 
 export async function generateStaticParams() {
-  const posts = getAllPosts()
-  return posts.map((post) => ({
-    slug: post.slug,
+  const slugs = getPostSlugs()
+  return slugs.map((slug) => ({
+    slug,
   }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const postMeta = getPostMeta(params.slug)
+  const postMeta = await getPostMeta(params.slug)
   
   if (!postMeta) {
     return {
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function BlogPost({ params }: Props) {
-  const postMeta = getPostMeta(params.slug)
+  const postMeta = await getPostMeta(params.slug)
   
   if (!postMeta) {
     notFound()
