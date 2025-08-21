@@ -42,10 +42,12 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  manifest: '/manifest.json',
+  manifest: '/site.webmanifest',
   icons: [
-    { rel: 'icon', url: '/favicon.ico' },
-    { rel: 'icon', url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    { rel: 'icon', url: '/favicon.ico', sizes: 'any' },
+    { rel: 'icon', url: '/favicon.png', sizes: '32x32', type: 'image/png' },
+    { rel: 'icon', url: '/favicon-192x192.png', sizes: '192x192', type: 'image/png' },
+    { rel: 'icon', url: '/favicon-512x512.png', sizes: '512x512', type: 'image/png' },
     { rel: 'apple-touch-icon', url: '/apple-touch-icon.png', sizes: '180x180' },
   ],
 }
@@ -57,6 +59,25 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        {/* Favicon configuration as requested */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        
+        {/* Additional favicon sizes for comprehensive browser support */}
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png" />
+        
+        {/* PWA theme colors */}
+        <meta name="theme-color" content="#2563eb" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Zaza Promptly" />
+      </head>
       <body className={inter.className}>
         <Header />
         <main className="min-h-screen">

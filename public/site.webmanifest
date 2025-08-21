@@ -1,11 +1,11 @@
 {
-  "name": "Zaza Promptly - AI Teaching Assistant",
-  "short_name": "Zaza Promptly",
-  "description": "PhD-designed AI tool for teachers. Write professional parent emails, student comments & reports 10x faster. Starting at $14.99/month.",
+  "name": "Zaza Promptly - AI Comments for Teachers",
+  "short_name": "Promptly",
+  "description": "AI comments. Done in seconds. Revolutionary AI-powered comment generation for educators.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#7c3aed",
+  "theme_color": "#2563eb",
   "orientation": "portrait-primary",
   "scope": "/",
   "categories": ["education", "productivity", "utilities", "teacher-tools"],
@@ -60,10 +60,10 @@
   ],
   "shortcuts": [
     {
-      "name": "Try Promptly",
-      "short_name": "Try Now",
-      "description": "Start using Zaza Promptly AI assistant",
-      "url": "/?utm_source=pwa&utm_medium=shortcut",
+      "name": "Start Free",
+      "short_name": "Start",
+      "description": "Start using Zaza Promptly",
+      "url": "/waitlist",
       "icons": [
         {
           "src": "/favicon-96x96.png",
@@ -73,10 +73,10 @@
       ]
     },
     {
-      "name": "Pricing",
-      "short_name": "Pricing", 
-      "description": "View Zaza Promptly pricing plans",
-      "url": "/pricing?utm_source=pwa&utm_medium=shortcut",
+      "name": "Personas",
+      "short_name": "Personas", 
+      "description": "View teaching personas",
+      "url": "/personas",
       "icons": [
         {
           "src": "/favicon-96x96.png",
