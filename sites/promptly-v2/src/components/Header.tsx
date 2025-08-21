@@ -123,10 +123,10 @@ export default function Header() {
             </a>
             
             <Link 
-              href="/waitlist"
-              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors"
+              href="/pricing"
+              className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors"
             >
-              Join Waitlist
+              Get Started
             </Link>
 
             {/* Dark Mode Toggle */}
@@ -201,10 +201,10 @@ export default function Header() {
                 Try Zaza Teach
               </a>
               <Link 
-                href="/waitlist"
-                className="inline-flex items-center justify-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg"
+                href="/pricing"
+                className="inline-flex items-center justify-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg"
               >
-                Join Waitlist
+                Get Started
               </Link>
               <button
                 onClick={toggleDarkMode}

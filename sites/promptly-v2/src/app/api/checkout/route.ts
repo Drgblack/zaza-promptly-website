@@ -1,45 +1,58 @@
 import { NextRequest, NextResponse } from 'next/server'
+import Stripe from 'stripe'
+import { getBaseUrl } from '@/lib/url'
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { priceId, customerEmail, successUrl, cancelUrl } = body
+    const { priceId, quantity = 1 } = body
 
-    // TODO: Implement Stripe checkout session creation
-    // This is a stub implementation for now
-    
+    // Check if Stripe is configured
+    if (!process.env.STRIPE_SECRET_KEY) {
+      return NextResponse.json({ 
+        ok: false, 
+        reason: 'stripe_disabled' 
+      })
+    }
+
     // Basic validation
-    if (!priceId || !customerEmail) {
+    if (!priceId) {
       return NextResponse.json(
-        { error: 'Missing required fields' },
+        { error: 'Missing priceId' },
         { status: 400 }
       )
     }
 
-    // Mock response for development
-    const mockCheckoutUrl = `https://checkout.stripe.com/pay/mock-session#success_url=${encodeURIComponent(successUrl || '')}&cancel_url=${encodeURIComponent(cancelUrl || '')}`
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+      apiVersion: '2025-07-30.basil'
+    })
+
+    const baseUrl = getBaseUrl()
+
+    // Create Checkout Session
+    const session = await stripe.checkout.sessions.create({
+      mode: 'subscription',
+      line_items: [
+        {
+          price: priceId,
+          quantity: quantity
+        }
+      ],
+      success_url: `${baseUrl}/thank-you?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${baseUrl}/pricing?canceled=1`,
+      allow_promotion_codes: true
+    })
 
     return NextResponse.json({
-      url: mockCheckoutUrl,
-      sessionId: 'mock-session-' + Date.now()
+      ok: true,
+      url: session.url
     })
 
   } catch (error) {
     console.error('Checkout error:', error)
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { ok: false, error: 'Failed to create checkout session' },
       { status: 500 }
     )
   }
-}
-
-export async function GET() {
-  return NextResponse.json(
-    { 
-      message: 'Checkout API endpoint',
-      status: 'ready',
-      environment: process.env.NODE_ENV || 'development'
-    },
-    { status: 200 }
-  )
 }
