@@ -68,7 +68,7 @@ export default async function TagIndexPage() {
               Browse by Tag
             </h1>
             <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
-              Discover articles by topic. Find exactly what you're looking for with our organized tag system.
+              Discover articles by topic. Find exactly what you&apos;re looking for with our organized tag system.
             </p>
           </div>
         </div>

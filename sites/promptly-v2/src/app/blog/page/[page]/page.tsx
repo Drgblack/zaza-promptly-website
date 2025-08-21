@@ -43,7 +43,7 @@ export default async function BlogPagePaginated({ params }: BlogPageProps) {
     notFound()
   }
 
-  const { posts, totalPages, currentPage, totalPosts, hasNext, hasPrev } = await getPaginatedPosts(page, 10)
+  const { posts, totalPages, currentPage, totalPosts } = await getPaginatedPosts(page, 10)
   
   if (posts.length === 0 && page > 1) {
     notFound()

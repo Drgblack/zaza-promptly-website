@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getPostsByAuthor, getAllAuthors, slugifyAuthor, getAuthorFromSlug } from '@/lib/blog'
@@ -48,7 +49,6 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
   }
 
   // Get author bio from the first post (if available)
-  const authorBio = posts[0]?.category === 'author' || posts.find(post => post.author === authorName)
   const hasAuthorImage = authorName === 'Dr. Greg Blackburn' || authorName === 'Greg Blackburn'
 
   return (
@@ -92,9 +92,11 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
               {/* Author Avatar */}
               <div className="flex-shrink-0">
                 {hasAuthorImage ? (
-                  <img
+                  <Image
                     src="/images/authors/greg-blackburn.jpg"
                     alt={authorName}
+                    width={96}
+                    height={96}
                     className="w-24 h-24 rounded-full object-cover border-2 border-white/20"
                   />
                 ) : (
