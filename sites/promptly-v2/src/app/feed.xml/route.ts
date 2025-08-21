@@ -27,6 +27,7 @@ export async function GET() {
       <pubDate>${new Date(post.date).toUTCString()}</pubDate>
       <author>team@zazapromptly.com (${post.author || 'Zaza Promptly Team'})</author>
       ${post.category ? `<category><![CDATA[${post.category}]]></category>` : ''}
+      ${post.tags ? post.tags.map(tag => `<category><![CDATA[${tag}]]></category>`).join('\n      ') : ''}
     </item>`).join('')}
   </channel>
 </rss>`.trim()

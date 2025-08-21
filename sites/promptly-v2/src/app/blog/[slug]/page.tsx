@@ -1,7 +1,8 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getPostMeta, getPostSlugs } from '@/lib/blog'
+import { getPostMeta, getPostSlugs, getRelatedPosts, calculateReadingTime, slugifyAuthor } from '@/lib/blog'
+import BlogCard from '@/components/blog/BlogCard'
 
 type Props = {
   params: { slug: string }
@@ -87,6 +88,10 @@ export default async function BlogPost({ params }: Props) {
     notFound()
   }
 
+  // Get related posts and reading time
+  const relatedPosts = await getRelatedPosts(params.slug)
+  const readingTime = calculateReadingTime(postMeta.content || '')
+
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
@@ -100,15 +105,47 @@ export default async function BlogPost({ params }: Props) {
       {/* Header */}
       <section className="bg-gradient-to-br from-slate-800 to-slate-900 py-20">
         <div className="container">
+          {/* Breadcrumb */}
+          <nav className="mb-8 max-w-4xl mx-auto" aria-label="Breadcrumb">
+            <ol className="flex items-center space-x-2 text-sm text-slate-400">
+              <li>
+                <Link href="/" className="hover:text-white transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                </svg>
+              </li>
+              <li>
+                <Link href="/blog" className="hover:text-white transition-colors">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                </svg>
+              </li>
+              <li>
+                <span className="text-white font-medium">
+                  {postMeta.title}
+                </span>
+              </li>
+            </ol>
+          </nav>
+
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex flex-wrap justify-center gap-2 mb-6">
               {postMeta.tags?.map((tag) => (
-                <span 
+                <Link
                   key={tag}
-                  className="px-3 py-1 bg-brand-600/20 text-brand-400 text-sm rounded-full"
+                  href={`/blog/tag/${encodeURIComponent(tag.toLowerCase())}`}
+                  className="px-3 py-1 bg-brand-600/20 text-brand-400 hover:bg-brand-600/30 hover:text-brand-300 text-sm rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900"
                 >
                   {tag}
-                </span>
+                </Link>
               ))}
             </div>
             
@@ -125,9 +162,16 @@ export default async function BlogPost({ params }: Props) {
               {postMeta.author && (
                 <>
                   <span>•</span>
-                  <span>by {postMeta.author}</span>
+                  <Link 
+                    href={`/blog/author/${slugifyAuthor(postMeta.author)}`}
+                    className="hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded"
+                  >
+                    by {postMeta.author}
+                  </Link>
                 </>
               )}
+              <span>•</span>
+              <span>{readingTime} min read</span>
             </div>
           </div>
         </div>
@@ -144,13 +188,39 @@ export default async function BlogPost({ params }: Props) {
         </div>
       </section>
 
+      {/* Related Posts */}
+      {relatedPosts.length > 0 && (
+        <section className="border-t border-white/10 py-16">
+          <div className="container">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-2xl font-semibold text-white mb-8 text-center">
+                Related Articles
+              </h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {relatedPosts.slice(0, 3).map((post) => (
+                  <BlogCard 
+                    key={post.slug} 
+                    post={post}
+                    showTags={true}
+                    showAuthor={false}
+                    showDate={false}
+                    showReadTime={true}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Navigation */}
       <section className="border-t border-white/10 py-12">
         <div className="container">
           <div className="max-w-4xl mx-auto flex items-center justify-between">
             <Link 
               href="/blog"
-              className="inline-flex items-center text-brand-400 hover:text-brand-300 transition-colors"
+              className="inline-flex items-center text-brand-400 hover:text-brand-300 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded"
             >
               <svg className="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -160,11 +230,32 @@ export default async function BlogPost({ params }: Props) {
             
             <Link 
               href="/waitlist"
-              className="px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg transition-colors shadow-card"
+              className="px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg transition-colors shadow-card focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900"
             >
               Try Promptly
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="bg-slate-800/50 py-16">
+        <div className="container text-center">
+          <h2 className="text-3xl font-bold text-white mb-4">
+            Ready to Transform Your Teaching?
+          </h2>
+          <p className="text-xl text-slate-300 mb-8">
+            Join thousands of educators who are saving time while improving student outcomes.
+          </p>
+          <Link 
+            href="/waitlist"
+            className="inline-flex items-center px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg transition-colors shadow-card focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+          >
+            Get Started Today
+            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
         </div>
       </section>
     </div>

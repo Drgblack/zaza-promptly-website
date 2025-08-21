@@ -1,19 +1,53 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
-import { getPaginatedPosts } from '@/lib/blog'
+import { notFound } from 'next/navigation'
+import { getPaginatedPosts, getAllPostsMeta } from '@/lib/blog'
 import BlogCard from '@/components/blog/BlogCard'
 import Pagination from '@/components/blog/Pagination'
 
-// Blog listing page - revalidate every hour
-export const revalidate = 3600
-
-export const metadata: Metadata = {
-  title: 'Blog | Promptly - Education Insights & Tips',
-  description: 'Latest insights, tips, and best practices for educators using AI-powered tools in the classroom.',
+interface BlogPageProps {
+  params: {
+    page: string
+  }
 }
 
-export default async function BlogPage() {
-  const { posts, totalPages, currentPage, totalPosts } = await getPaginatedPosts(1, 10)
+export async function generateStaticParams() {
+  const allPosts = await getAllPostsMeta()
+  const totalPages = Math.ceil(allPosts.length / 10)
+  
+  return Array.from({ length: totalPages }, (_, i) => ({
+    page: (i + 1).toString(),
+  })).filter(({ page }) => page !== '1') // Exclude page 1 as it's handled by /blog
+}
+
+export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {
+  const page = parseInt(params.page)
+  
+  if (isNaN(page) || page < 1) {
+    return {
+      title: 'Page Not Found | Promptly Blog'
+    }
+  }
+
+  return {
+    title: `Blog - Page ${page} | Promptly - Education Insights & Tips`,
+    description: `Latest insights, tips, and best practices for educators using AI-powered tools in the classroom. Page ${page}`,
+    robots: page === 1 ? 'index, follow' : 'noindex, follow',
+  }
+}
+
+export default async function BlogPagePaginated({ params }: BlogPageProps) {
+  const page = parseInt(params.page)
+  
+  if (isNaN(page) || page < 1) {
+    notFound()
+  }
+
+  const { posts, totalPages, currentPage, totalPosts, hasNext, hasPrev } = await getPaginatedPosts(page, 10)
+  
+  if (posts.length === 0 && page > 1) {
+    notFound()
+  }
 
   return (
     <div className="min-h-screen bg-slate-900">
@@ -23,8 +57,11 @@ export default async function BlogPage() {
           <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-6">
             Education Blog
           </h1>
-          <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-300 mb-4 max-w-2xl mx-auto">
             Insights, tips, and best practices for modern educators embracing AI-powered teaching tools.
+          </p>
+          <p className="text-slate-400">
+            Page {currentPage} of {totalPages}
           </p>
         </div>
       </section>
@@ -34,7 +71,7 @@ export default async function BlogPage() {
         <div className="container">
           <div className="mb-8">
             <p className="text-slate-400 text-center">
-              Showing {posts.length} of {totalPosts} articles
+              Showing {posts.length} of {totalPosts} articles • Page {currentPage} of {totalPages}
             </p>
           </div>
           

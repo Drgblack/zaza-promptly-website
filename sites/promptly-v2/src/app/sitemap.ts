@@ -1,9 +1,15 @@
 import { MetadataRoute } from 'next'
-import { getPostSlugs } from '@/lib/blog'
+import { getPostSlugs, getAllTags, getAllAuthors, getAllPostsMeta, slugifyAuthor } from '@/lib/blog'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.zazapromptly.com'
   const slugs = getPostSlugs()
+  const tags = await getAllTags()
+  const authors = await getAllAuthors()
+  const allPosts = await getAllPostsMeta()
+  
+  // Calculate total pages for pagination
+  const totalPages = Math.ceil(allPosts.length / 10)
   
   return [
     {
@@ -102,11 +108,44 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.3,
     },
+    // Blog posts
     ...slugs.map((slug) => ({
       url: `${baseUrl}/blog/${slug}`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.6,
+    })),
+    
+    // Blog pagination pages (excluding page 1 since that's /blog)
+    ...Array.from({ length: totalPages - 1 }, (_, i) => ({
+      url: `${baseUrl}/blog/page/${i + 2}`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.5,
+    })),
+    
+    // Tag index page
+    {
+      url: `${baseUrl}/blog/tag`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.6,
+    },
+    
+    // Individual tag pages
+    ...tags.map((tag) => ({
+      url: `${baseUrl}/blog/tag/${encodeURIComponent(tag.toLowerCase())}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.5,
+    })),
+    
+    // Author pages
+    ...authors.map((author) => ({
+      url: `${baseUrl}/blog/author/${slugifyAuthor(author)}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.5,
     })),
     {
       url: `${baseUrl}/pricing`,
