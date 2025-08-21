@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { PricingPageClient } from './PricingPageClient'
 import { ProductStructuredData, FAQStructuredData } from '@/components/seo/StructuredData'
+import GlobalSchema from '@/components/seo/GlobalSchema'
 
 export const metadata: Metadata = {
     title: 'Pricing - AI Teaching Assistant Plans | Zaza Promptly',
@@ -77,6 +78,7 @@ export default function PricingPage() {
 
   return (
     <>
+      <GlobalSchema type="product" />
       <ProductStructuredData product={productData} />
       <FAQStructuredData faqs={faqData} mainEntity="Zaza Promptly" />
       
