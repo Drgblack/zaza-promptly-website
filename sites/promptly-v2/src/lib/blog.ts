@@ -50,11 +50,11 @@ export async function getPostMeta(slug: string): Promise<PostMeta | null> {
     if (hasExportMetadata) {
       // Try to dynamically import to get metadata export
       try {
-        const module = await import(`../../content/blog/${slug}.mdx`)
-        if (module.metadata) {
+        const postModule = await import(`../../content/blog/${slug}.mdx`)
+        if (postModule.metadata) {
           return {
             slug,
-            ...module.metadata
+            ...postModule.metadata
           }
         }
       } catch (error) {
