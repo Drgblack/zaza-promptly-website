@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://promptly.zazatechnologies.com'
+  
   return {
     rules: [
       {
@@ -15,28 +17,8 @@ export default function robots(): MetadataRoute.Robots {
           '*.xml',
         ],
       },
-      {
-        userAgent: 'Googlebot',
-        allow: '/',
-        disallow: [
-          '/api/',
-          '/_next/',
-          '/admin/',
-          '/private/',
-        ],
-      },
-      {
-        userAgent: 'Bingbot',
-        allow: '/',
-        disallow: [
-          '/api/',
-          '/_next/',
-          '/admin/',
-          '/private/',
-        ],
-      },
     ],
-    sitemap: 'https://zazapromptly.com/sitemap.xml',
-    host: 'https://zazapromptly.com',
+    sitemap: `${baseUrl}/sitemap.xml`,
+    host: baseUrl,
   }
-} 
+}

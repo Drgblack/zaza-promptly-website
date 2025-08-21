@@ -1,177 +1,68 @@
 import type { Metadata } from 'next'
-import { ThemeProvider } from 'next-themes'
-import { ErrorBoundary } from '@/components/error-boundary'
-import { SecurityHeaders } from '@/components/security-headers'
-import { SelectionFix } from '@/components/selection-fix'
-import { OrganizationSchema } from '@/components/organization-schema'
-import { DeferredAnalytics } from '@/components/deferred-analytics'
-import { AnalyticsWrapper } from '@/components/analytics/analytics-wrapper'
-import { SkipLinks } from '@/components/accessibility/skip-links'
-import { PerformanceEnhancements, ServiceWorkerRegistration, PerformanceErrorBoundary } from '@/components/performance-enhancements'
-import { PerformanceOptimizations, CriticalCSS } from '@/components/performance-optimizations'
-import { Analytics } from '@vercel/analytics/react'
-import { SpeedInsights } from '@vercel/speed-insights/next'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+import { Inter } from 'next/font/google'
 import './globals.css'
+import Header from '@/components/layout/Header'
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: {
-    default: 'Zaza Promptly - AI-Powered Teaching Assistant for Student Feedback',
-    template: '%s | Zaza Promptly - AI for Teachers'
-  },
-  description: 'Transform your teaching with Zaza Promptly - the AI-powered assistant that helps teachers write student comments, parent messages, and feedback 10x faster. Starting at $14.99/month. Save 5+ hours per week with smart, personalized AI that understands education.',
-  keywords: [
-    'AI teacher tools', 'student comment generator', 'parent communication AI', 
-    'teacher feedback assistant', 'education technology', 'AI for teachers', 
-    'report card comments', 'student assessment AI', 'teaching productivity tools',
-    'automated feedback generation', 'teacher time-saving apps', 'educational AI assistant',
-    'smart teaching tools', 'AI-powered education', 'teacher workflow automation'
-  ],
-  authors: [{ name: 'Zaza Technologies', url: 'https://www.zazapromptly.com' }],
+  title: 'Zaza Promptly - AI Comments. Done in seconds.',
+  description: 'Revolutionary AI-powered comment generation for educators. Save hours, maintain quality, and focus on what matters most - teaching.',
+  keywords: 'AI comments, teacher tools, education technology, automated feedback, teaching assistant',
+  authors: [{ name: 'Zaza Technologies' }],
   creator: 'Zaza Technologies',
   publisher: 'Zaza Technologies',
-  category: 'Education Technology',
-  applicationName: 'Zaza Promptly',
-  referrer: 'origin-when-cross-origin',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL('https://zazapromptly.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://promptly.zazatechnologies.com'),
   alternates: {
     canonical: '/',
-    languages: {
-      'en-US': '/',
-      'en-GB': '/',
-      'de-DE': '/de',
-      'es-ES': '/es', 
-      'fr-FR': '/fr',
-      'it-IT': '/it',
-    },
   },
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://zazapromptly.com',
-    title: 'AI Teaching Assistant Built by PhD Educator - Zaza Promptly',
-    description: 'Join 12,000+ teachers using PhD-designed AI for professional parent communications & student reports. GDPR-compliant, hallucination-safe AI that saves 5+ hours weekly. Built by Dr. Greg Blackburn.',
+    title: 'Zaza Promptly - AI Comments. Done in seconds.',
+    description: 'Revolutionary AI-powered comment generation for educators. Save hours, maintain quality, and focus on what matters most - teaching.',
+    url: '/',
     siteName: 'Zaza Promptly',
+    locale: 'en_US',
+    type: 'website',
     images: [
       {
-        url: 'https://zazapromptly.com/og-image.png',
+        url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Zaza Promptly - PhD-designed AI Teaching Assistant trusted by 12,000+ teachers worldwide',
-        type: 'image/png',
-      },
-      {
-        url: 'https://zazapromptly.com/og-image-square.png',
-        width: 800,
-        height: 800,
-        alt: 'Zaza Promptly - Professional AI for Teachers',
-        type: 'image/png',
+        alt: 'Zaza Promptly - AI Comments for Teachers',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PhD-Designed AI Teaching Assistant - Trusted by 12,000+ Teachers',
-    description: 'GDPR-compliant, hallucination-safe AI for professional parent communications & student reports. Built by Dr. Greg Blackburn. Save 5+ hours weekly.',
-    images: ['https://zazapromptly.com/og-image.png'],
-    creator: '@zazateachapp',
-    site: '@zazateachapp',
+    title: 'Zaza Promptly - AI Comments. Done in seconds.',
+    description: 'Revolutionary AI-powered comment generation for educators. Save hours, maintain quality, and focus on what matters most - teaching.',
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
     follow: true,
-    nocache: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      noimageindex: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
   },
-  verification: {
-    google: 'your-google-verification-code-here',
-    yandex: 'your-yandex-verification-code-here',
-    yahoo: 'your-yahoo-verification-code-here',
-    other: {
-      'facebook-domain-verification': 'your-facebook-domain-verification-here',
-    },
-  },
-  manifest: '/site.webmanifest?v=2',
+  manifest: '/manifest.json',
   icons: [
-    { rel: 'icon', url: '/favicon.ico?v=2', sizes: 'any' },
-    { rel: 'icon', url: '/favicon.png?v=2', sizes: '32x32', type: 'image/png' },
-    { rel: 'icon', url: '/favicon.svg?v=2', type: 'image/svg+xml' },
-    { rel: 'apple-touch-icon', url: '/apple-touch-icon.png?v=2', sizes: '180x180' },
+    { rel: 'icon', url: '/favicon.ico' },
+    { rel: 'icon', url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    { rel: 'apple-touch-icon', url: '/apple-touch-icon.png', sizes: '180x180' },
   ],
-  other: {
-    'mobile-web-app-capable': 'yes',
-    'msapplication-TileImage': '/mstile-144x144.png',
-  },
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
-    <html lang="en">
-      <head>
-        {/* 
-          Comprehensive Favicon Configuration for Zaza Promptly
-          - Uses Z logo with purple (#7c3aed) background
-          - Includes cache busting with v=2 parameter
-          - Covers all major browsers and PWA requirements
-          - Dynamically generated icons via icon.tsx and apple-icon.tsx
-        */}
-        <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=2" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
-        <link rel="manifest" href="/site.webmanifest?v=2" />
-        
-        {/* Additional favicon sizes for better browser support */}
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2" />
-        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=2" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png?v=2" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png?v=2" />
-        
-        {/* Theme and PWA metadata */}
-        <meta name="theme-color" content="#7c3aed" />
-        <meta name="msapplication-TileColor" content="#7c3aed" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="Zaza Promptly" />
-      </head>
-      <body className="antialiased">
-        <ErrorBoundary>
-          <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-            <SkipLinks />
-            <SecurityHeaders />
-            <SelectionFix />
-            <OrganizationSchema />
-            <CriticalCSS />
-            <Header />
-            <main id="main-content" className="min-h-screen" role="main">
-              {children}
-            </main>
-            <Footer />
-            <AnalyticsWrapper />
-            <DeferredAnalytics />
-            <PerformanceEnhancements />
-            <ServiceWorkerRegistration />
-            <Analytics />
-            <SpeedInsights />
-          </ThemeProvider>
-        </ErrorBoundary>
+    <html lang="en" className="scroll-smooth">
+      <body className={inter.className}>
+        <Header />
+        <main className="min-h-screen">
+          {children}
+        </main>
+        {/* Footer can be added here when ready */}
       </body>
     </html>
   )
