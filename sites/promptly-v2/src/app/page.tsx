@@ -202,6 +202,27 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Learning Centre Link */}
+      <section className="bg-slate-800/30 py-12">
+        <div className="container text-center">
+          <h2 className="text-xl font-semibold text-white mb-4">
+            Need More Resources?
+          </h2>
+          <p className="text-slate-300 mb-6">
+            Explore our Learning Centre for expert insights, practical guides, and free resources.
+          </p>
+          <Link 
+            href="/learning-centre"
+            className="inline-flex items-center px-6 py-3 bg-slate-700/60 hover:bg-slate-700/80 text-white font-medium rounded-lg transition-colors border border-white/10"
+          >
+            Visit Learning Centre
+            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+        </div>
+      </section>
     </div>
   )
 }

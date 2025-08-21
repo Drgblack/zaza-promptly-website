@@ -71,12 +71,16 @@ export default function Header() {
               Snippet Tool
             </Link>
 
-            <Link href="/learning" className="text-white/80 hover:text-white/90 font-medium transition-colors">
+            <Link href="/blog" className="text-white/80 hover:text-white/90 font-medium transition-colors">
+              Blog
+            </Link>
+
+            <Link href="/learning-centre" className="text-white/80 hover:text-white/90 font-medium transition-colors">
               Learning Centre
             </Link>
             
-            <Link href="/about" className="text-white/80 hover:text-white/90 font-medium transition-colors">
-              About Us
+            <Link href="/free-resources" className="text-white/80 hover:text-white/90 font-medium transition-colors">
+              Free Resources
             </Link>
           </nav>
 
@@ -143,11 +147,14 @@ export default function Header() {
               <Link href="/#snippet" className="text-gray-700 dark:text-gray-300 font-medium py-2">
                 Snippet Tool
               </Link>
-              <Link href="/learning" className="text-gray-700 dark:text-gray-300 font-medium py-2">
+              <Link href="/blog" className="text-gray-700 dark:text-gray-300 font-medium py-2">
+                Blog
+              </Link>
+              <Link href="/learning-centre" className="text-gray-700 dark:text-gray-300 font-medium py-2">
                 Learning Centre
               </Link>
-              <Link href="/about" className="text-gray-700 dark:text-gray-300 font-medium py-2">
-                About Us
+              <Link href="/free-resources" className="text-gray-700 dark:text-gray-300 font-medium py-2">
+                Free Resources
               </Link>
               <a 
                 href="https://zazateach.com" 
