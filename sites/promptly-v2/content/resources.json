@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "comment-tips",
+    "title": "Comment Writing Tips",
+    "description": "Practical techniques to speed up high-quality commenting.",
+    "filename": "comment-tips.pdf",
+    "category": "Guides",
+    "updated": "2025-08-20",
+    "sizeKB": 240
+  },
+  {
+    "slug": "report-template",
+    "title": "Report Template (Editable)",
+    "description": "A clean structure for termly reports.",
+    "filename": "report-template.pdf",
+    "category": "Templates",
+    "updated": "2025-08-18",
+    "sizeKB": 180
+  },
+  {
+    "slug": "parent-comm-guide",
+    "title": "Parent Communication Guide",
+    "description": "Make feedback land with families.",
+    "filename": "parent-comm-guide.pdf",
+    "category": "Guides",
+    "updated": "2025-08-15",
+    "sizeKB": 210
+  }
+]

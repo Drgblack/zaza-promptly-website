@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
 import { getLatestPost } from '@/lib/posts'
+import resourcesData from '../../../content/resources.json'
 
 export const metadata: Metadata = {
   title: 'Learning Centre | Promptly - Resources for Educators',
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 
 export default function LearningCentrePage() {
   const latestPost = getLatestPost()
+  const resourcesCount = resourcesData.length
 
   return (
     <div className="min-h-screen bg-slate-900">
@@ -85,7 +87,7 @@ export default function LearningCentrePage() {
 
                 <div className="mb-6 p-4 bg-slate-700/50 rounded-lg border border-white/5">
                   <p className="text-sm text-slate-400 mb-1">Available resources:</p>
-                  <p className="text-white font-medium">Comment templates, feedback guides, and more</p>
+                  <p className="text-white font-medium">{resourcesCount} free downloads ready</p>
                 </div>
 
                 <div className="flex items-center text-green-400 group-hover:text-green-300 transition-colors">
