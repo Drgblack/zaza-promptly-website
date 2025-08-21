@@ -17,7 +17,7 @@ export default function HomePage() {
           <div className="text-center">
             {/* Main headline */}
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
-              Test AI comments.{' '}
+              Test AI comments TEST.{' '}
               <span className="text-blue-600 dark:text-blue-400 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Done in seconds.
               </span>
