@@ -101,24 +101,24 @@ export default function Header() {
                     </Link>
                   </div>
                   <div className="px-4 py-1">
-                    <div className="text-xs text-slate-400 uppercase tracking-wide mb-1">By Role</div>
-                    <Link href="/personas/teacher" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded">
-                      Classroom Teacher
+                    <div className="text-xs text-slate-400 uppercase tracking-wide mb-1">By Teaching Context</div>
+                    <Link href="/personas/uk-primary" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded">
+                      UK Primary Teachers
                     </Link>
-                    <Link href="/personas/head-of-year" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded">
-                      Head of Year
+                    <Link href="/personas/us-secondary" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded">
+                      US Secondary Teachers
                     </Link>
-                    <Link href="/personas/slt" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded">
-                      Senior Leadership
+                    <Link href="/personas/special-needs" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded">
+                      Special Education
                     </Link>
-                    <Link href="/personas/senco" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded">
-                      SENCO
+                    <Link href="/personas/international" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded">
+                      International Teachers
                     </Link>
-                    <Link href="/personas/tutor" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded">
-                      Form Tutor
+                    <Link href="/personas/edtech-savvy" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded">
+                      EdTech-Savvy Teachers
                     </Link>
-                    <Link href="/personas/admin" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded">
-                      School Admin
+                    <Link href="/personas/head-teacher" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded">
+                      Head Teachers & Leaders
                     </Link>
                   </div>
                 </div>

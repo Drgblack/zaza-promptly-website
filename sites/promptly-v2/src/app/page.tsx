@@ -265,81 +265,81 @@ export default function Home() {
           
           {/* Persona Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Teacher */}
-            <Link href="/personas/teacher" className="group">
+            {/* UK Primary */}
+            <Link href="/personas/uk-primary" className="group">
               <div className="rounded-2xl shadow-card border border-white/5 bg-slate-800/60 hover:bg-slate-800/80 transition p-8">
-                <div className="size-8 bg-blue-600 rounded-lg flex items-center justify-center mb-6 mx-auto">
-                  <svg className="size-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center mb-6 mx-auto">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C20.832 18.477 19.246 18 17.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-4 text-center">Classroom Teacher</h3>
-                <p className="text-slate-300 text-center">Primary, secondary, and subject-specific comment templates for all your students</p>
+                <h3 className="text-lg font-semibold text-white mb-4 text-center">UK Primary Teacher</h3>
+                <p className="text-slate-300 text-center text-sm">Stop losing evenings and weekends to report writing with UK curriculum-aligned AI</p>
               </div>
             </Link>
 
-            {/* Head of Year */}
-            <Link href="/personas/head-of-year" className="group">
-              <div className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900 dark:to-purple-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+            {/* US Secondary */}
+            <Link href="/personas/us-secondary" className="group">
+              <div className="rounded-2xl shadow-card border border-white/5 bg-slate-800/60 hover:bg-slate-800/80 transition p-8">
+                <div className="w-16 h-16 bg-red-600 rounded-xl flex items-center justify-center mb-6 mx-auto">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">Head of Year</h3>
-                <p className="text-gray-600 dark:text-gray-300 text-center">Pastoral care and behavioral comments for year group management</p>
+                <h3 className="text-lg font-semibold text-white mb-4 text-center">US Secondary Teacher</h3>
+                <p className="text-slate-300 text-center text-sm">Handle parent communication overload with confidence and perfect tone</p>
               </div>
             </Link>
 
-            {/* SLT */}
-            <Link href="/personas/slt" className="group">
-              <div className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900 dark:to-green-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mb-6 mx-auto">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">Senior Leadership</h3>
-                <p className="text-gray-600 dark:text-gray-300 text-center">Strategic, whole-school perspective comments for leadership teams</p>
-              </div>
-            </Link>
-
-            {/* SENCO */}
-            <Link href="/personas/senco" className="group">
-              <div className="bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900 dark:to-orange-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+            {/* Special Education */}
+            <Link href="/personas/special-needs" className="group">
+              <div className="rounded-2xl shadow-card border border-white/5 bg-slate-800/60 hover:bg-slate-800/80 transition p-8">
+                <div className="w-16 h-16 bg-orange-600 rounded-xl flex items-center justify-center mb-6 mx-auto">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">SENCO</h3>
-                <p className="text-gray-600 dark:text-gray-300 text-center">Specialized comments for students with additional learning needs</p>
+                <h3 className="text-lg font-semibold text-white mb-4 text-center">Special Education Teacher</h3>
+                <p className="text-slate-300 text-center text-sm">Celebrate every child&apos;s unique journey with sensitive, strength-based communication</p>
               </div>
             </Link>
 
-            {/* Tutor */}
-            <Link href="/personas/tutor" className="group">
-              <div className="bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900 dark:to-red-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+            {/* International */}
+            <Link href="/personas/international" className="group">
+              <div className="rounded-2xl shadow-card border border-white/5 bg-slate-800/60 hover:bg-slate-800/80 transition p-8">
+                <div className="w-16 h-16 bg-green-600 rounded-xl flex items-center justify-center mb-6 mx-auto">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">Form Tutor</h3>
-                <p className="text-gray-600 dark:text-gray-300 text-center">Personal development and tutor time comments for your tutor group</p>
+                <h3 className="text-lg font-semibold text-white mb-4 text-center">International Teacher</h3>
+                <p className="text-slate-300 text-center text-sm">Break down language barriers and communicate with all families confidently</p>
               </div>
             </Link>
 
-            {/* Admin */}
-            <Link href="/personas/admin" className="group">
-              <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-indigo-900 dark:to-indigo-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                <div className="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+            {/* EdTech-Savvy */}
+            <Link href="/personas/edtech-savvy" className="group">
+              <div className="rounded-2xl shadow-card border border-white/5 bg-slate-800/60 hover:bg-slate-800/80 transition p-8">
+                <div className="w-16 h-16 bg-purple-600 rounded-xl flex items-center justify-center mb-6 mx-auto">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v6a2 2 0 002 2h2m0 0h2m-2 0v4a2 2 0 002 2h6a2 2 0 002-2v-4m-8 0V9a2 2 0 012-2h2M9 5V3a2 2 0 012-2h2a2 2 0 012 2v2M9 5h4" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">School Admin</h3>
-                <p className="text-gray-600 dark:text-gray-300 text-center">Administrative and communication templates for school operations</p>
+                <h3 className="text-lg font-semibold text-white mb-4 text-center">EdTech-Savvy Teacher</h3>
+                <p className="text-slate-300 text-center text-sm">Modern AI that&apos;s actually designed for education, not just repurposed ChatGPT</p>
+              </div>
+            </Link>
+
+            {/* Head Teacher */}
+            <Link href="/personas/head-teacher" className="group">
+              <div className="rounded-2xl shadow-card border border-white/5 bg-slate-800/60 hover:bg-slate-800/80 transition p-8">
+                <div className="w-16 h-16 bg-indigo-600 rounded-xl flex items-center justify-center mb-6 mx-auto">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-4 text-center">Head Teacher / School Leader</h3>
+                <p className="text-slate-300 text-center text-sm">Ensure whole-school excellence while supporting your teachers&apos; wellbeing</p>
               </div>
             </Link>
           </div>
