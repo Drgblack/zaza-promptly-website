@@ -1,7 +1,43 @@
 import Link from 'next/link'
 import SnippetToolV2 from '@/components/sections/SnippetToolV2'
 import LogoCloud from '@/components/marketing/LogoCloud'
-import Testimonials from '@/components/marketing/Testimonials'
+import dynamic from 'next/dynamic'
+
+// Lazy load testimonials as they're below the fold
+const Testimonials = dynamic(() => import('@/components/marketing/Testimonials'), {
+  ssr: false,
+  loading: () => (
+    <div className="py-16 bg-slate-900">
+      <div className="container">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="h-8 bg-slate-800 rounded animate-pulse mb-4 max-w-sm mx-auto" />
+            <div className="h-4 bg-slate-800 rounded animate-pulse max-w-lg mx-auto" />
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[1, 2, 3, 4, 5, 6].map((i) => (
+              <div key={i} className="rounded-2xl bg-slate-900/60 p-6 animate-pulse">
+                <div className="h-4 bg-slate-800 rounded mb-4" />
+                <div className="space-y-2 mb-6">
+                  <div className="h-3 bg-slate-800 rounded" />
+                  <div className="h-3 bg-slate-800 rounded" />
+                  <div className="h-3 bg-slate-800 rounded w-3/4" />
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-slate-800 rounded-full" />
+                  <div className="space-y-1 flex-1">
+                    <div className="h-3 bg-slate-800 rounded w-1/2" />
+                    <div className="h-2 bg-slate-800 rounded w-3/4" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+})
 
 // Static page - revalidate every hour
 export const revalidate = 3600
