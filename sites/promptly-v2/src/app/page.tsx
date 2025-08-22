@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import SnippetDemo from '@/components/sections/SnippetDemo'
+import SnippetToolV2 from '@/components/sections/SnippetToolV2'
 import LogoCloud from '@/components/marketing/LogoCloud'
 import Testimonials from '@/components/marketing/Testimonials'
 
@@ -130,13 +130,13 @@ export default function Home() {
         <div className="container">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">
-              Try the Snippet Tool
+              Transform Your Comments with AI
             </h2>
             <p className="text-slate-300 mb-6">
-              Generate a sample comment in seconds—no signup required.
+              Write your draft comment and let AI enhance it with the perfect tone, length, and reading level—no signup required.
             </p>
           </div>
-          <SnippetDemo />
+          <SnippetToolV2 />
         </div>
       </section>
 
