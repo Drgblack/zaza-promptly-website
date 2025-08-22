@@ -52,7 +52,7 @@ const ProductsSchema = {
       "position": 2,
       "name": "Teach",
       "description": "Comprehensive lesson planning and curriculum management tools designed for modern educators.",
-      "url": "https://zazateach.com",
+      "url": `${baseUrl}/products#teach`,
       "category": "Educational Software"
     },
     {
@@ -124,7 +124,7 @@ export default function ProductsPage() {
               </div>
 
               {/* Teach Card */}
-              <div className="rounded-2xl shadow-card border border-white/10 bg-slate-900/60 p-6 hover:bg-slate-900/80 transition-all duration-200 group">
+              <div id="teach" className="rounded-2xl shadow-card border border-white/10 bg-slate-900/60 p-6 hover:bg-slate-900/80 transition-all duration-200 group">
                 <div className="w-16 h-16 bg-green-600/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-green-600/30 transition-colors">
                   <svg className="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -138,9 +138,7 @@ export default function ProductsPage() {
                 
                 <div className="space-y-3">
                   <a
-                    href="https://zazateach.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#teach"
                     className="block w-full text-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition-colors shadow-card"
                   >
                     Try Teach

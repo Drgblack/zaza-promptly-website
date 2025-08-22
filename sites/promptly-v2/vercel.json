@@ -1,0 +1,160 @@
+{
+  "redirects": [
+    {
+      "source": "/learning-centre",
+      "destination": "/learning-centre-new",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact-new", 
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tag/ai%20comments",
+      "destination": "/blog/tag/ai-comments",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tag/student%20feedback",
+      "destination": "/blog/tag/student-feedback",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tag/report%20cards",
+      "destination": "/blog/tag/report-cards",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tag/ai%20tools",
+      "destination": "/blog/tag/ai-tools",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tag/teacher%20technology",
+      "destination": "/blog/tag/teacher-technology",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tag/classroom%20innovation",
+      "destination": "/blog/tag/classroom-innovation",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tag/best%20ai%20tools%20for%20teachers%202025",
+      "destination": "/blog/tag/best-ai-tools-for-teachers-2025",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tag/ai%20tool%20for%20teachers",
+      "destination": "/blog/tag/ai-tool-for-teachers",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tag/safe%20ai%20for%20teachers",
+      "destination": "/blog/tag/safe-ai-for-teachers",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tag/ai%20in%20education",
+      "destination": "/blog/tag/ai-in-education",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tag/teacher%20workload",
+      "destination": "/blog/tag/teacher-workload",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tag/classroom%20routines",
+      "destination": "/blog/tag/classroom-routines",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tag/lesson%20planning",
+      "destination": "/blog/tag/lesson-planning",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tag/curriculum%20design",
+      "destination": "/blog/tag/curriculum-design",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tag/reduce%20teacher%20workload%20with%20ai",
+      "destination": "/blog/tag/reduce-teacher-workload-with-ai",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tag/teacher%20productivity%20apps",
+      "destination": "/blog/tag/teacher-productivity-apps",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tag/parent%20communication",
+      "destination": "/blog/tag/parent-communication",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tag/ai%20templates",
+      "destination": "/blog/tag/ai-templates",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tag/school-home%20partnership",
+      "destination": "/blog/tag/school-home-partnership",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tag/getting%20started",
+      "destination": "/blog/tag/getting-started",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tag/teacher%20guide",
+      "destination": "/blog/tag/teacher-guide",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tag/teacher%20burnout",
+      "destination": "/blog/tag/teacher-burnout",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tag/educator%20wellness",
+      "destination": "/blog/tag/educator-wellness",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/author/dr-michael-rodriguez",
+      "destination": "/blog/author/dr-michael-rodriguez",
+      "permanent": true,
+      "statusCode": 301
+    }
+  ]
+}

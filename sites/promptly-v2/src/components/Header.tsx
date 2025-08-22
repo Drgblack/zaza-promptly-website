@@ -146,9 +146,9 @@ export default function Header() {
                     <Link href="/products" className="block text-sm text-slate-200 hover:text-brand-400 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded px-2 py-1">
                       Promptly
                     </Link>
-                    <a href="https://zazateach.com" target="_blank" rel="noopener noreferrer" className="block text-sm text-slate-200 hover:text-green-400 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded px-2 py-1">
+                    <Link href="/products#teach" className="block text-sm text-slate-200 hover:text-green-400 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded px-2 py-1">
                       Teach
-                    </a>
+                    </Link>
                     <Link href="/products#technologies" className="block text-sm text-slate-200 hover:text-purple-400 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded px-2 py-1">
                       Technologies
                     </Link>
@@ -217,14 +217,12 @@ export default function Header() {
               />
             </div>
             
-            <a 
-              href="https://zazateach.com" 
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link 
+              href="/products#teach"
               className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1"
             >
               Try Free Classroom Tool
-            </a>
+            </Link>
             
             <Link 
               href="/pricing"
@@ -305,14 +303,12 @@ export default function Header() {
                   <Link href="/contact" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
                     Contact
                   </Link>
-                  <a 
-                    href="https://zazateach.com" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2"
+                  <Link 
+                    href="/products#teach" 
+                                        className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2"
                   >
                     Try Free Classroom Tool
-                  </a>
+                  </Link>
                   <Link 
                     href="/pricing"
                     className="inline-flex items-center justify-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900"
@@ -370,14 +366,12 @@ export default function Header() {
                   <Link href="/contact" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
                     Contact
                   </Link>
-                  <a 
-                    href="https://zazateach.com" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2"
+                  <Link 
+                    href="/products#teach" 
+                                        className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2"
                   >
                     Try Free Classroom Tool
-                  </a>
+                  </Link>
                   <Link 
                     href="/pricing"
                     className="inline-flex items-center justify-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900"
