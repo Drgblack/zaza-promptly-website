@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { marked } from 'marked'
 import { getPostMeta, getPostSlugs, getRelatedPosts, calculateReadingTime, slugifyAuthor } from '@/lib/blog'
 import BlogCard from '@/components/blog/BlogCard'
 
@@ -78,19 +79,15 @@ export default async function BlogPost({ params }: Props) {
     notFound()
   }
 
-  // Dynamically import the MDX post
-  let Post
-  try {
-    const postModule = await import(`../../../../content/blog/${params.slug}.mdx`)
-    Post = postModule.default
-  } catch (error) {
-    console.error(`Failed to load post ${params.slug}:`, error)
-    notFound()
-  }
+  // Skip dynamic MDX import to avoid React context issues during static generation
+  // Content will be rendered as HTML from the processed content
 
   // Get related posts and reading time
   const relatedPosts = await getRelatedPosts(params.slug)
   const readingTime = calculateReadingTime(postMeta.content || '')
+  
+  // Process markdown content to HTML
+  const htmlContent = postMeta.content ? marked(postMeta.content.replace(/^# .+$/m, '')) : '<p>Content not available</p>'
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -182,7 +179,11 @@ export default async function BlogPost({ params }: Props) {
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <article className="prose prose-invert prose-lg max-w-none">
-              <Post />
+              <div 
+                dangerouslySetInnerHTML={{ 
+                  __html: htmlContent
+                }}
+              />
             </article>
           </div>
         </div>

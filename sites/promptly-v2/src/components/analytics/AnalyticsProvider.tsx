@@ -1,7 +1,7 @@
 'use client'
 
 import Script from 'next/script'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 
 // Google Analytics 4
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
@@ -83,7 +83,7 @@ export default function AnalyticsProvider({ children }: { children: React.ReactN
     }
   }, [])
 
-  const initializeAnalytics = () => {
+  const initializeAnalytics = useCallback(() => {
     // Don't initialize if Do Not Track is enabled
     if (isDoNotTrack()) {
       console.log('Analytics blocked: Do Not Track enabled')
@@ -99,7 +99,7 @@ export default function AnalyticsProvider({ children }: { children: React.ReactN
     }
     
     console.log('Analytics initialized with user consent')
-  }
+  }, [])
 
   const cleanupAnalytics = () => {
     // Cleanup Google Analytics

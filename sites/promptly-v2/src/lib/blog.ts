@@ -45,23 +45,31 @@ export async function getPostMeta(slug: string): Promise<PostMeta | null> {
 
     const fileContent = fs.readFileSync(filePath, 'utf8')
     
-    // Check if file has export const metadata pattern
+    // Check if file has export const metadata pattern and extract it manually
     const hasExportMetadata = /export\s+const\s+metadata\s*=/.test(fileContent)
     
     if (hasExportMetadata) {
-      // Try to dynamically import to get metadata export
+      // Extract metadata manually from the export const metadata pattern
       try {
-        const postModule = await import(`../../content/blog/${slug}.mdx`)
-        if (postModule.metadata) {
+        const metadataMatch = fileContent.match(/export\s+const\s+metadata\s*=\s*({[\s\S]*?})/m)
+        if (metadataMatch) {
+          // Create a safe evaluation of the metadata object
+          const metadataStr = metadataMatch[1]
+            .replace(/(['"])?([a-zA-Z0-9_]+)(['"])?:/g, '"$2":') // Fix property names
+            .replace(/'/g, '"') // Convert single quotes to double quotes
+          
+          const metadata = JSON.parse(metadataStr)
           const { content } = matter(fileContent)
+          
           return {
             slug,
-            ...postModule.metadata,
+            ...metadata,
             content
           }
         }
       } catch (error) {
-        console.warn(`Failed to import metadata for ${slug}:`, error)
+        console.warn(`Failed to parse metadata for ${slug}:`, error)
+        // Fall through to gray-matter parsing
       }
     }
     
