@@ -2,16 +2,16 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import resourcesData from '../../../content/resources.json'
+import resourcesData from '../../../public/resources/resources.json'
 
 type Resource = {
-  slug: string
+  filename: string
   title: string
   description: string
-  filename: string
-  category: string
-  updated: string
-  sizeKB: number
+  filesize: number
+  lastUpdated: string
+  format: string
+  preview: string
   license: string
 }
 
@@ -32,23 +32,22 @@ export default function FreeResourcesPage() {
       window.gtag('event', 'download', {
         event_category: 'Resource',
         event_label: resource.title,
-        resource_category: resource.category,
-        resource_slug: resource.slug,
+        resource_format: resource.format,
         resource_filename: resource.filename,
         value: 1
       })
     }
   }
   
-  // Get unique categories
-  const categories = ['All', ...Array.from(new Set(resources.map(r => r.category)))]
+  // Get unique formats for filtering
+  const formats = ['All', ...Array.from(new Set(resources.map(r => r.format)))]
   
   // Filter resources
   const filteredResources = resources.filter(resource => {
     const matchesSearch = resource.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          resource.description.toLowerCase().includes(searchTerm.toLowerCase())
-    const matchesCategory = selectedCategory === 'All' || resource.category === selectedCategory
-    return matchesSearch && matchesCategory
+    const matchesFormat = selectedCategory === 'All' || resource.format === selectedCategory
+    return matchesSearch && matchesFormat
   })
 
   const formatDate = (dateString: string) => {
@@ -59,8 +58,10 @@ export default function FreeResourcesPage() {
     })
   }
 
-  const formatFileSize = (sizeKB: number) => {
-    return sizeKB < 1000 ? `${sizeKB} KB` : `${(sizeKB / 1000).toFixed(1)} MB`
+  const formatFileSize = (bytes: number) => {
+    if (bytes < 1024) return `${bytes} B`
+    if (bytes < 1024 * 1024) return `${Math.round(bytes / 1024)} KB`
+    return `${Math.round(bytes / (1024 * 1024))} MB`
   }
 
   return (
@@ -96,20 +97,20 @@ export default function FreeResourcesPage() {
               />
             </div>
 
-            {/* Category Pills */}
+            {/* Format Pills */}
             <div className="flex flex-wrap gap-2 mb-8">
-              <span className="text-sm font-medium text-white mr-4">Filter by category:</span>
-              {categories.map((category) => (
+              <span className="text-sm font-medium text-white mr-4">Filter by format:</span>
+              {formats.map((format) => (
                 <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
+                  key={format}
+                  onClick={() => setSelectedCategory(format)}
                   className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
-                    selectedCategory === category
+                    selectedCategory === format
                       ? 'bg-brand-600 text-white'
                       : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
                   }`}
                 >
-                  {category}
+                  {format}
                 </button>
               ))}
             </div>
@@ -128,7 +129,7 @@ export default function FreeResourcesPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {filteredResources.map((resource) => (
                   <div
-                    key={resource.slug}
+                    key={resource.filename}
                     className="rounded-2xl shadow-card border border-white/10 bg-slate-900/60 p-6 hover:bg-slate-900/80 transition"
                   >
                     <div className="flex items-start justify-between mb-4">
@@ -136,8 +137,8 @@ export default function FreeResourcesPage() {
                         <h3 className="text-lg font-semibold text-white mb-2">
                           {resource.title}
                         </h3>
-                        <span className="px-2 py-1 bg-green-600/20 text-green-400 text-xs rounded-full">
-                          {resource.category}
+                        <span className="px-2 py-1 bg-blue-600/20 text-blue-400 text-xs rounded-full">
+                          {resource.format}
                         </span>
                       </div>
                     </div>
@@ -148,9 +149,9 @@ export default function FreeResourcesPage() {
 
                     <div className="flex items-center justify-between text-sm text-slate-400 mb-4">
                       <div className="flex items-center gap-4">
-                        <span>PDF</span>
-                        <span>{formatFileSize(resource.sizeKB)}</span>
-                        <span>Updated {formatDate(resource.updated)}</span>
+                        <span>{resource.format}</span>
+                        <span>{formatFileSize(resource.filesize)}</span>
+                        <span>Updated {formatDate(resource.lastUpdated)}</span>
                       </div>
                     </div>
 
@@ -167,16 +168,35 @@ export default function FreeResourcesPage() {
                       </div>
                     </div>
 
-                    <a
-                      href={`/resources/${resource.filename}`}
-                      onClick={() => trackDownload(resource)}
-                      className="inline-flex items-center justify-center w-full px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900"
-                    >
-                      <svg className="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                      </svg>
-                      Download
-                    </a>
+                    {/* Actions */}
+                    <div className="flex gap-3">
+                      {resource.format === 'PDF' ? (
+                        <a
+                          href={`/resources/${resource.filename}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => trackDownload(resource)}
+                          className="flex-1 inline-flex items-center justify-center px-4 py-2 border border-brand-600 text-brand-400 hover:bg-brand-600/10 font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+                        >
+                          <svg className="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                          </svg>
+                          Open
+                        </a>
+                      ) : null}
+                      <a
+                        href={`/resources/${resource.filename}`}
+                        download
+                        onClick={() => trackDownload(resource)}
+                        className={`${resource.format === 'PDF' ? 'flex-1' : 'w-full'} inline-flex items-center justify-center px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900`}
+                      >
+                        <svg className="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        Download
+                      </a>
+                    </div>
                   </div>
                 ))}
               </div>
