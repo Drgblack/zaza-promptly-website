@@ -1,0 +1,15 @@
+# CODEOWNERS file for repository
+# This file defines who has the authority to approve changes to specific parts of the repository
+
+# Default global reviewers for any files not specified below
+* @founder
+
+# Promptly V2 site requires PR review for all changes
+sites/promptly-v2/* @founder
+
+# Additional protection for critical configuration files
+sites/promptly-v2/next.config.mjs @founder
+sites/promptly-v2/package.json @founder
+sites/promptly-v2/tailwind.config.ts @founder
+sites/promptly-v2/tsconfig.json @founder
+sites/promptly-v2/src/app/layout.tsx @founder
