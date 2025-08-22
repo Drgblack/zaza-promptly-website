@@ -18,19 +18,22 @@ export default function ContactForm() {
     name: '',
     email: '',
     role: '',
+    subject: '',
     message: '',
+    honeypot: '', // Anti-spam field
   })
   const [errors, setErrors] = useState({
     name: '',
     email: '',
     role: '',
+    subject: '',
     message: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
 
   const validateForm = () => {
-    const newErrors = { name: '', email: '', role: '', message: '' }
+    const newErrors = { name: '', email: '', role: '', subject: '', message: '' }
     let isValid = true
 
     if (!formData.name.trim()) {
@@ -51,6 +54,14 @@ export default function ContactForm() {
       isValid = false
     }
 
+    if (!formData.subject.trim()) {
+      newErrors.subject = 'Subject is required'
+      isValid = false
+    } else if (formData.subject.trim().length < 5) {
+      newErrors.subject = 'Subject must be at least 5 characters'
+      isValid = false
+    }
+
     if (!formData.message.trim()) {
       newErrors.message = 'Message is required'
       isValid = false
@@ -66,6 +77,12 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     
+    // Check honeypot (anti-spam)
+    if (formData.honeypot) {
+      console.log('Spam detected')
+      return
+    }
+    
     if (!validateForm()) {
       return
     }
@@ -78,12 +95,18 @@ export default function ContactForm() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          role: formData.role,
+          subject: formData.subject.trim(),
+          message: formData.message.trim()
+        }),
       })
 
       if (response.ok) {
         setIsSuccess(true)
-        setFormData({ name: '', email: '', role: '', message: '' })
+        setFormData({ name: '', email: '', role: '', subject: '', message: '', honeypot: '' })
       } else {
         throw new Error('Failed to send message')
       }
@@ -128,6 +151,19 @@ export default function ContactForm() {
   return (
     <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-6 shadow-card">
       <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Honeypot field - hidden from users */}
+        <div className="hidden">
+          <label htmlFor="website">Leave this field empty</label>
+          <input
+            type="text"
+            id="website"
+            name="website"
+            value={formData.honeypot}
+            onChange={(e) => handleInputChange('honeypot', e.target.value)}
+            tabIndex={-1}
+            autoComplete="off"
+          />
+        </div>
         {/* Name Field */}
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-slate-200 mb-2">
@@ -186,6 +222,24 @@ export default function ContactForm() {
           )}
         </div>
 
+        {/* Subject Field */}
+        <div>
+          <label htmlFor="subject" className="block text-sm font-medium text-slate-200 mb-2">
+            Subject *
+          </label>
+          <input
+            type="text"
+            id="subject"
+            value={formData.subject}
+            onChange={(e) => handleInputChange('subject', e.target.value)}
+            className="w-full px-4 py-3 bg-slate-800/60 border border-white/20 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors"
+            placeholder="What's this about?"
+          />
+          {errors.subject && (
+            <p className="mt-1 text-sm text-red-400">{errors.subject}</p>
+          )}
+        </div>
+
         {/* Message Field */}
         <div>
           <label htmlFor="message" className="block text-sm font-medium text-slate-200 mb-2">
@@ -202,6 +256,26 @@ export default function ContactForm() {
           {errors.message && (
             <p className="mt-1 text-sm text-red-400">{errors.message}</p>
           )}
+        </div>
+
+        {/* GDPR Notice */}
+        <div className="bg-slate-800/40 border border-white/10 rounded-xl p-4 text-sm text-slate-300">
+          <p className="mb-2">
+            <strong className="text-slate-200">Data Usage:</strong> We'll use your information to respond to your inquiry. 
+            We won't share your details with third parties or add you to mailing lists without explicit consent.
+          </p>
+          <p>
+            By submitting this form, you agree to our{' '}
+            <a 
+              href="/privacy" 
+              className="text-brand-400 hover:text-brand-300 underline decoration-brand-400/50 hover:decoration-brand-300/50 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Privacy Policy
+            </a>
+            .
+          </p>
         </div>
 
         {/* Submit Button */}
