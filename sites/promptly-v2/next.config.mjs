@@ -43,6 +43,13 @@ const legacyRedirects = [
   { source: '/comment-generator', destination: '/', permanent: true },
   { source: '/teacher-tools', destination: '/personas', permanent: true },
   
+  // Legacy case study paths
+  { source: '/success-stories', destination: '/case-studies', permanent: true },
+  { source: '/stories', destination: '/case-studies', permanent: true },
+  { source: '/testimonials', destination: '/case-studies', permanent: true },
+  { source: '/examples', destination: '/case-studies', permanent: true },
+  { source: '/case-study/:slug*', destination: '/case-studies/:slug*', permanent: true },
+  
   // Legacy about/contact paths
   { source: '/about-founder', destination: '/about/founder', permanent: true },
   { source: '/about-us', destination: '/about/founder', permanent: true },

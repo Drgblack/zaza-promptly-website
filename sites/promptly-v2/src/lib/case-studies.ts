@@ -38,6 +38,11 @@ export async function getCaseStudyMeta(slug: string): Promise<CaseStudy | null> 
     const fileContents = fs.readFileSync(fullPath, 'utf8')
     const { data, content } = matter(fileContents)
     
+    // Only include published case studies
+    if (data.isPublished === false || data.isDraft === true) {
+      return null
+    }
+    
     // Extract metadata from the export statement
     const exportMatch = content.match(/export const metadata = ({[\s\S]*?})/m)
     let metadata: CaseStudyMetadata
@@ -49,7 +54,15 @@ export async function getCaseStudyMeta(slug: string): Promise<CaseStudy | null> 
       metadata = metadataObject as CaseStudyMetadata
     } else {
       // Fallback to frontmatter
-      metadata = data as CaseStudyMetadata
+      metadata = {
+        title: data.title || 'Untitled Case Study',
+        description: data.description || data.excerpt || '',
+        date: data.date || new Date().toISOString().split('T')[0],
+        author: data.author?.name || data.author || 'Zaza Team',
+        role: data.role || '',
+        school: data.school || '',
+        image: data.featuredImage || data.image || '/images/case-studies/default.jpg'
+      }
     }
     
     return {

@@ -1,0 +1,76 @@
+name: Promptly V2 Link Check
+
+on:
+  pull_request:
+    paths:
+      - 'sites/promptly-v2/**'
+    types: [opened, synchronize, reopened]
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        working-directory: sites/promptly-v2
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: 'sites/promptly-v2/package-lock.json'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build the project
+        run: npm run build
+
+      - name: Start server and check links
+        run: |
+          # Start the server in background
+          npm run start &
+          SERVER_PID=$!
+          
+          # Wait for server to start
+          echo "Waiting for server to start..."
+          timeout 30 bash -c 'until curl -f http://localhost:3000 > /dev/null 2>&1; do sleep 1; done' || {
+            echo "Server failed to start within 30 seconds"
+            kill $SERVER_PID 2>/dev/null || true
+            exit 1
+          }
+          
+          # Run link checker
+          npm run check:links
+          
+          # Clean up
+          kill $SERVER_PID 2>/dev/null || true
+
+      - name: Comment PR on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '❌ Link check failed! Please review the broken links in the workflow logs and fix them before merging.'
+            })
+
+      - name: Comment PR on success
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '✅ All internal links are working correctly!'
+            })

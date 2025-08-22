@@ -68,8 +68,13 @@ export async function getPostMeta(slug: string): Promise<PostMeta | null> {
     // Fall back to frontmatter parsing with gray-matter
     const { data, content } = matter(fileContent)
     
+    // Only include published posts
+    if (data.isPublished === false || data.isDraft === true) {
+      return null
+    }
+    
     // Extract reading time if not provided
-    const readTime = data.readTime || estimateReadingTime(content)
+    const readTime = data.readTime || data.readingTime || estimateReadingTime(content)
     
     return {
       slug,
