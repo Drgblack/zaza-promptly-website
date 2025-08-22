@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import type { PostMeta } from './blog-types'
+import { isPostPublishable } from './blog-types'
 
 // Re-export types from the types file for server-side usage
 export type {
@@ -13,7 +14,16 @@ export type {
 } from './blog-types'
 
 // Re-export client-safe utilities
-export { slugifyAuthor, slugifyTag, unslugifyTag, formatDate, extractExcerpt } from './blog-types'
+export { 
+  slugifyAuthor, 
+  slugifyTag, 
+  unslugifyTag, 
+  formatDate, 
+  extractExcerpt,
+  isPostPublishable,
+  getNextMondayAt9AM,
+  formatScheduledDate 
+} from './blog-types'
 
 type AuthorMetaFile = {
   name: string
@@ -118,15 +128,10 @@ export async function getPostMeta(slug: string): Promise<PostMeta | null> {
     // Fall back to frontmatter parsing with gray-matter
     const { data, content } = matter(fileContent)
     
-    // Only include published posts
-    if (data.isPublished === false || data.isDraft === true) {
-      return null
-    }
-    
     // Extract reading time if not provided
     const readTime = data.readTime || data.readingTime || estimateReadingTime(content)
     
-    return {
+    const postMeta: PostMeta = {
       slug,
       title: data.title || 'Untitled',
       description: data.description || data.excerpt || '',
@@ -137,8 +142,19 @@ export async function getPostMeta(slug: string): Promise<PostMeta | null> {
       readTime,
       category: data.category,
       featured: data.featured || false,
-      content
+      content,
+      isDraft: data.isDraft,
+      isPublished: data.isPublished,
+      publishDate: data.publishDate,
+      scheduledFor: data.scheduledFor
     }
+
+    // Only include publishable posts
+    if (!isPostPublishable(postMeta)) {
+      return null
+    }
+    
+    return postMeta
   } catch (error) {
     console.error(`Failed to load post metadata for ${slug}:`, error)
     return null

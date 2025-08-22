@@ -1,0 +1,104 @@
+name: Auto-Publish Blog Posts
+
+on:
+  schedule:
+    # Run every Monday at 9:00 AM UTC (adjust timezone as needed)
+    - cron: '0 9 * * 1'
+  workflow_dispatch: # Allow manual triggering for testing
+
+jobs:
+  auto-publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: sites/promptly-v2/package-lock.json
+    
+    - name: Install dependencies
+      run: |
+        cd sites/promptly-v2
+        npm ci
+    
+    - name: Check for scheduled posts
+      id: check_posts
+      run: |
+        cd sites/promptly-v2
+        # Call the auto-publish API endpoint to check for posts ready to publish
+        RESPONSE=$(curl -s -X GET \
+          -H "Authorization: Bearer ${{ secrets.AUTO_PUBLISH_SECRET }}" \
+          "https://www.zazapromptly.com/api/auto-publish" || echo '{"scheduledPosts":[],"draftPosts":[]}')
+        
+        echo "Response: $RESPONSE"
+        
+        # Extract counts from response
+        SCHEDULED_COUNT=$(echo "$RESPONSE" | jq -r '.scheduledPosts | length // 0')
+        DRAFT_COUNT=$(echo "$RESPONSE" | jq -r '.draftPosts | length // 0')
+        
+        echo "scheduled_count=$SCHEDULED_COUNT" >> $GITHUB_OUTPUT
+        echo "draft_count=$DRAFT_COUNT" >> $GITHUB_OUTPUT
+        echo "has_posts_to_publish=$([ "$SCHEDULED_COUNT" -gt 0 ] && echo 'true' || echo 'false')" >> $GITHUB_OUTPUT
+    
+    - name: Publish scheduled posts
+      if: steps.check_posts.outputs.has_posts_to_publish == 'true'
+      run: |
+        cd sites/promptly-v2
+        RESPONSE=$(curl -s -X POST \
+          -H "Authorization: Bearer ${{ secrets.AUTO_PUBLISH_SECRET }}" \
+          -H "Content-Type: application/json" \
+          "https://www.zazapromptly.com/api/auto-publish")
+        
+        echo "Publish Response: $RESPONSE"
+        
+        PUBLISHED_COUNT=$(echo "$RESPONSE" | jq -r '.publishedCount // 0')
+        echo "Published $PUBLISHED_COUNT posts"
+        
+        # If posts were published, we need to commit the changes
+        if [ "$PUBLISHED_COUNT" -gt 0 ]; then
+          echo "posts_published=true" >> $GITHUB_ENV
+          echo "published_count=$PUBLISHED_COUNT" >> $GITHUB_ENV
+        fi
+    
+    - name: Commit published posts
+      if: env.posts_published == 'true'
+      run: |
+        cd sites/promptly-v2
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add content/blog/
+        git commit -m "auto-publish: publish ${{ env.published_count }} scheduled blog posts
+
+        Automated weekly publishing of scheduled blog posts.
+        
+        🤖 Generated with GitHub Actions
+        
+        Co-Authored-By: Auto-Publish Bot <action@github.com>" || exit 0
+    
+    - name: Push changes
+      if: env.posts_published == 'true'
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        directory: sites/promptly-v2
+    
+    - name: Notify about publishing
+      if: env.posts_published == 'true'
+      run: |
+        echo "✅ Successfully published ${{ env.published_count }} blog posts"
+        echo "📝 Posts have been automatically published and pushed to the repository"
+        echo "🚀 Vercel will automatically deploy the updated content"
+    
+    - name: No posts to publish
+      if: steps.check_posts.outputs.has_posts_to_publish != 'true'
+      run: |
+        echo "ℹ️ No posts scheduled for publishing at this time"
+        echo "📊 Scheduled posts: ${{ steps.check_posts.outputs.scheduled_count }}"
+        echo "📄 Draft posts: ${{ steps.check_posts.outputs.draft_count }}"

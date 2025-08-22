@@ -1,0 +1,84 @@
+---
+title: "Sample Future Post: Testing Auto-Publishing System"
+subtitle: "This is a test post to demonstrate the weekly auto-publishing functionality"
+slug: "sample-future-post"
+author: "Dr Greg Blackburn"
+date: "2025-08-29"
+readingTime: "3 min"
+tags: ["testing", "automation", "blog system"]
+summary: "A sample blog post scheduled for future publication to test the auto-publishing workflow."
+ogImage: "/images/blog/sample-future-post-og.png"
+canonicalUrl: "https://www.zazapromptly.com/blog/sample-future-post"
+isDraft: true
+publishDate: "2025-08-29T09:00:00.000Z"
+scheduledFor: "Friday, August 29, 2025 at 9:00 AM UTC"
+---
+
+# Sample Future Post: Testing Auto-Publishing System
+
+This is a test post to demonstrate how the auto-publishing system works. This post is currently in draft mode and scheduled for publication next Monday.
+
+## How the Auto-Publishing Works
+
+The auto-publishing system uses several components:
+
+1. **Draft Mode**: Posts marked with `isDraft: true` won't appear on the site
+2. **Scheduled Publishing**: Posts with a `publishDate` field will automatically publish when that date/time arrives
+3. **GitHub Actions**: A weekly workflow checks for scheduled posts every Monday at 9 AM UTC
+4. **API Endpoints**: Custom endpoints handle the publishing logic and site revalidation
+
+## Testing the System
+
+This post demonstrates:
+- ✅ Draft functionality (post is hidden until published)
+- ✅ Scheduling with future dates
+- ✅ Automatic frontmatter updates when published
+- ✅ Integration with existing blog infrastructure
+
+When this post is automatically published, the system will:
+1. Remove the `isDraft: true` flag
+2. Add `isPublished: true` to the frontmatter
+3. Clean up scheduling fields (`publishDate`, `scheduledFor`)
+4. Commit the changes to the repository
+5. Trigger a deployment with the updated content
+
+## Next Steps
+
+After confirming this test works, we can schedule future blog posts by:
+1. Writing the complete post content
+2. Setting `isDraft: true` in the frontmatter
+3. Adding a `publishDate` for when it should go live
+4. Committing to the repository
+
+The automation will handle the rest!
+
+Ready to see this in action? This post should automatically appear on the blog when its scheduled time arrives.
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Sample Future Post: Testing Auto-Publishing System",
+  "description": "A sample blog post scheduled for future publication to test the auto-publishing workflow.",
+  "image": "https://www.zazapromptly.com/images/blog/sample-future-post-og.png",
+  "author": {
+    "@type": "Person",
+    "name": "Dr Greg Blackburn",
+    "url": "https://www.zazapromptly.com/about-founder"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Zaza Promptly",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.zazapromptly.com/images/logo.png"
+    }
+  },
+  "datePublished": "2025-08-29",
+  "dateModified": "2025-08-29",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.zazapromptly.com/blog/sample-future-post"
+  }
+}
+</script>
