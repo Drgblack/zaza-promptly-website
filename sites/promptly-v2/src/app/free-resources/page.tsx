@@ -4,12 +4,6 @@ import { useState } from 'react'
 import Link from 'next/link'
 import resourcesData from '../../../content/resources.json'
 
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void
-  }
-}
-
 type Resource = {
   slug: string
   title: string
