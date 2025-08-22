@@ -1,20 +1,26 @@
 {
   "redirects": [
     {
-      "source": "/learning-centre",
-      "destination": "/learning-centre-new",
-      "permanent": true,
-      "statusCode": 301
-    },
-    {
-      "source": "/contact",
-      "destination": "/contact-new", 
-      "permanent": true,
-      "statusCode": 301
-    },
-    {
       "source": "/blog/tag/ai%20comments",
       "destination": "/blog/tag/ai-comments",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tag/ai%20tools",
+      "destination": "/blog/tag/ai-tools", 
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tag/ai%20in%20education",
+      "destination": "/blog/tag/ai-in-education",
+      "permanent": true,
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tag/teacher%20workload",
+      "destination": "/blog/tag/teacher-workload",
       "permanent": true,
       "statusCode": 301
     },

@@ -10,7 +10,7 @@
     "start": "next start",
     "lint": "next lint",
     "content:qa": "node scripts/content-qa.js",
-    "check:links": "node scripts/check-links.js",
+    "check:links": "node scripts/check-links.cjs",
     "postbuild": "next-sitemap",
     "test": "jest",
     "test:smoke": "jest scripts/snippet-smoke.test.ts",
