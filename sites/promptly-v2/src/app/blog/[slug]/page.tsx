@@ -170,7 +170,7 @@ export default async function BlogPost({ params }: Props) {
 
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex flex-wrap justify-center gap-2 mb-6">
-              {postMeta.tags?.map((tag) => (
+              {postMeta.tags?.map((tag: string) => (
                 <Link
                   key={tag}
                   href={`/blog/tag/${encodeURIComponent(tag.toLowerCase())}`}

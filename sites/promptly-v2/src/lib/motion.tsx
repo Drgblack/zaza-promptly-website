@@ -290,7 +290,7 @@ export function getMotionTransition(transition: Transition, shouldReduceMotion: 
 }
 
 // Utility for creating motion-aware components
-export function createMotionComponent<T extends Record<string, any>>(
+export function createMotionComponent<T extends Record<string, unknown>>(
   variants: Variants,
   defaultTransition: Transition = defaultTransition
 ) {

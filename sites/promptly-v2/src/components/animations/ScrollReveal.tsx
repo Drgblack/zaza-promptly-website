@@ -15,16 +15,6 @@ interface ScrollRevealProps {
   isLCPElement?: boolean // Skip animation until after hydration for LCP elements
 }
 
-const defaultVariants = {
-  hidden: { 
-    opacity: 0, 
-    y: 30 
-  },
-  visible: { 
-    opacity: 1, 
-    y: 0 
-  },
-}
 
 export default function ScrollReveal({
   children,
@@ -204,7 +194,7 @@ export function ScrollRevealStagger({
         : <motion.div 
             variants={itemVariants}
             className="animate-transform-opacity"
-            onAnimationComplete={(definition) => {
+            onAnimationComplete={() => {
               // Clean up will-change
               const element = ref.current?.querySelector('.animate-transform-opacity')
               if (element) {

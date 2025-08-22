@@ -76,11 +76,10 @@ const itemVariants = {
 }
 
 // Custom hook for intersection observer with once-only trigger
-function useInViewOnce(threshold = 0.2) {
+function useInViewOnce() {
   const ref = useRef<HTMLDivElement>(null)
   const [hasBeenInView, setHasBeenInView] = useState(false)
   const isInView = useInView(ref, { 
-    threshold, 
     once: false // We'll handle the "once" logic ourselves
   })
 
@@ -96,16 +95,8 @@ function useInViewOnce(threshold = 0.2) {
 export default function TimelineSection() {
   const { ref, isInView } = useInViewOnce(0.1)
   const shouldReduceMotion = usePrefersReducedMotion()
-  const [pathLength, setPathLength] = useState(0)
   const svgRef = useRef<SVGPathElement>(null)
 
-  // Calculate SVG path length for dash animation
-  useEffect(() => {
-    if (svgRef.current && !shouldReduceMotion) {
-      const length = svgRef.current.getTotalLength()
-      setPathLength(length)
-    }
-  }, [shouldReduceMotion])
 
   // Skip animations if user prefers reduced motion
   if (shouldReduceMotion) {

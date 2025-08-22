@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
 import { getPaginatedPosts } from '@/lib/blog'
-import BlogCard from '@/components/blog/BlogCard'
 import Pagination from '@/components/blog/Pagination'
 import BlogList from '@/components/blog/BlogList'
 
