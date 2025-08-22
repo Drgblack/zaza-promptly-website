@@ -1,12 +1,32 @@
 [
   {
-    "filename": "report-template.pdf",
-    "title": "Report Template (Editable)",
-    "description": "Clean, parent-ready structure for term reports.",
-    "filesize": 556,
+    "filename": "report-template-v2.pdf",
+    "title": "Student Report Template (Branded)",
+    "description": "Professional report template with editable fields, progress tracking, and SMART targets.",
+    "filesize": 175351,
     "lastUpdated": "2025-08-22",
     "format": "PDF",
     "preview": "/img/resources/report-template.png",
+    "license": "Classroom use - non-commercial"
+  },
+  {
+    "filename": "parent-meeting-notes-v2.pdf",
+    "title": "Parent Meeting Notes Template",
+    "description": "Structured template for productive parent meetings with action tracking.",
+    "filesize": 184936,
+    "lastUpdated": "2025-08-22",
+    "format": "PDF",
+    "preview": "/img/resources/parent-meeting-notes.png",
+    "license": "Classroom use - non-commercial"
+  },
+  {
+    "filename": "behaviour-progress-checklist-v2.pdf",
+    "title": "Behaviour Progress Checklist",
+    "description": "Weekly behaviour tracking with intervention strategies and progress monitoring.",
+    "filesize": 202697,
+    "lastUpdated": "2025-08-22",
+    "format": "PDF",
+    "preview": "/img/resources/behaviour-progress-checklist.png",
     "license": "Classroom use - non-commercial"
   },
   {

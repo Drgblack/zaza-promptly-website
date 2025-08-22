@@ -2,16 +2,16 @@ import { NextRequest, NextResponse } from 'next/server'
 import { readFile } from 'fs/promises'
 import { stat } from 'fs/promises'
 import path from 'path'
-import resources from '../../../../content/resources.json'
+import resources from '../../../../public/resources/resources.json'
 
 interface Resource {
-  slug: string
+  filename: string
   title: string
   description: string
-  filename: string
-  category: string
-  updated: string
-  sizeKB: number
+  filesize: number
+  lastUpdated: string
+  format: string
+  preview: string
   license: string
 }
 
