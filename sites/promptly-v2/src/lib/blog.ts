@@ -2,21 +2,19 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
-export type PostMeta = {
-  slug: string
-  title: string
-  description: string
-  date: string
-  lastmod?: string
-  author?: string
-  tags?: string[]
-  readTime?: string
-  category?: string
-  featured?: boolean
-  content?: string
-}
+// Re-export types from the types file for server-side usage
+export type {
+  PostMeta,
+  AuthorMeta,
+  BlogPost,
+  TagInfo,
+  BlogStats
+} from './blog-types'
 
-export type AuthorMeta = {
+// Re-export client-safe utilities
+export { slugifyAuthor, formatDate, extractExcerpt } from './blog-types'
+
+type AuthorMetaFile = {
   name: string
   bio: string
   image: string
@@ -30,7 +28,7 @@ export type AuthorMeta = {
 export type ContentMeta = {
   ordering: string[]
   lastmod: Record<string, string>
-  authors: Record<string, AuthorMeta>
+  authors: Record<string, AuthorMetaFile>
 }
 
 const BLOG_DIR = path.join(process.cwd(), 'content', 'blog')
@@ -63,7 +61,7 @@ function getContentMeta(): ContentMeta | null {
 }
 
 // Get author information
-export function getAuthorMeta(authorName: string): AuthorMeta | null {
+export function getAuthorMeta(authorName: string): AuthorMetaFile | null {
   const meta = getContentMeta()
   if (!meta || !meta.authors) {
     return null

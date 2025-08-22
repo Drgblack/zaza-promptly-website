@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { PostMeta, slugifyAuthor } from '@/lib/blog'
+import { PostMeta, slugifyAuthor } from '@/lib/blog-types'
 
 interface BlogCardProps {
   post: PostMeta

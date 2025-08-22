@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { usePrefersReducedMotion } from '@/lib/motion'
 import BlogCard from './BlogCard'
-import type { BlogPost } from '@/lib/blog'
+import type { BlogPost } from '@/lib/blog-types'
 
 interface BlogListProps {
   posts: BlogPost[]
