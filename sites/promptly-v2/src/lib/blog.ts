@@ -53,12 +53,10 @@ export async function getPostMeta(slug: string): Promise<PostMeta | null> {
       try {
         const metadataMatch = fileContent.match(/export\s+const\s+metadata\s*=\s*({[\s\S]*?})/m)
         if (metadataMatch) {
-          // Create a safe evaluation of the metadata object
-          const metadataStr = metadataMatch[1]
-            .replace(/(['"])?([a-zA-Z0-9_]+)(['"])?:/g, '"$2":') // Fix property names
-            .replace(/'/g, '"') // Convert single quotes to double quotes
-          
-          const metadata = JSON.parse(metadataStr)
+          // Use eval in a controlled way to parse the JavaScript object
+          // This is safe because we control the file content
+          const metadataCode = `(${metadataMatch[1]})`
+          const metadata = eval(metadataCode)
           const { content } = matter(fileContent)
           
           return {

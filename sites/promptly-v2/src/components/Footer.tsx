@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import CookieSettingsButton from '@/components/cookies/CookieSettingsButton'
 
 export default function Footer() {
   return (
@@ -91,17 +92,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <button
-                  onClick={() => {
-                    if (typeof window !== 'undefined') {
-                      localStorage.removeItem('promptly-cookie-consent')
-                      window.location.reload()
-                    }
-                  }}
-                  className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 text-left"
-                >
-                  Cookie Settings
-                </button>
+                <CookieSettingsButton />
               </li>
             </ul>
           </div>
