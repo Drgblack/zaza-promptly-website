@@ -2,8 +2,9 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { marked } from 'marked'
-import { getPostMeta, getPostSlugs, getRelatedPosts, calculateReadingTime, slugifyAuthor } from '@/lib/blog'
-import BlogCard from '@/components/blog/BlogCard'
+import { getPostMeta, getPostSlugs, getAuthorMeta, calculateReadingTime, slugifyAuthor } from '@/lib/blog'
+import AuthorByline from '@/components/blog/AuthorByline'
+import RelatedPosts from '@/components/blog/RelatedPosts'
 
 type Props = {
   params: { slug: string }
@@ -31,6 +32,39 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const postUrl = `${baseUrl}/blog/${params.slug}`
   const postDate = new Date(postMeta.date)
+  const authorMeta = getAuthorMeta(postMeta.author || '')
+
+  // Add structured data for the blog post
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": postMeta.title,
+    "description": postMeta.description,
+    "image": `${baseUrl}/og-default.png`,
+    "author": {
+      "@type": "Person",
+      "name": postMeta.author || 'Promptly Team',
+      ...(authorMeta?.bio && { "description": authorMeta.bio }),
+      ...(authorMeta?.image && { "image": authorMeta.image })
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Promptly",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${baseUrl}/og-default.png`
+      }
+    },
+    "datePublished": postDate.toISOString(),
+    ...(postMeta.lastmod && { "dateModified": new Date(postMeta.lastmod).toISOString() }),
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": postUrl
+    },
+    "url": postUrl,
+    ...(postMeta.tags && { "keywords": postMeta.tags.join(', ') }),
+    ...(postMeta.category && { "articleSection": postMeta.category })
+  }
 
   return {
     title: `${postMeta.title} | Promptly Blog`,
@@ -82,23 +116,57 @@ export default async function BlogPost({ params }: Props) {
   // Skip dynamic MDX import to avoid React context issues during static generation
   // Content will be rendered as HTML from the processed content
 
-  // Get related posts and reading time
-  const relatedPosts = await getRelatedPosts(params.slug)
+  // Calculate reading time
   const readingTime = calculateReadingTime(postMeta.content || '')
+  const authorMeta = getAuthorMeta(postMeta.author || '')
   
   // Process markdown content to HTML
   const htmlContent = postMeta.content ? marked(postMeta.content.replace(/^# .+$/m, '')) : '<p>Content not available</p>'
 
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long', 
-      day: 'numeric'
-    })
+  // Generate structured data for the article
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
+  const postUrl = `${baseUrl}/blog/${params.slug}`
+  const postDate = new Date(postMeta.date)
+  
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": postMeta.title,
+    "description": postMeta.description,
+    "image": `${baseUrl}/og-default.png`,
+    "author": {
+      "@type": "Person",
+      "name": postMeta.author || 'Promptly Team',
+      ...(authorMeta?.bio && { "description": authorMeta.bio }),
+      ...(authorMeta?.image && { "image": authorMeta.image })
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Promptly",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${baseUrl}/og-default.png`
+      }
+    },
+    "datePublished": postDate.toISOString(),
+    ...(postMeta.lastmod && { "dateModified": new Date(postMeta.lastmod).toISOString() }),
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": postUrl
+    },
+    "url": postUrl,
+    ...(postMeta.tags && { "keywords": postMeta.tags.join(', ') }),
+    ...(postMeta.category && { "articleSection": postMeta.category })
   }
 
   return (
-    <div className="min-h-screen bg-slate-900">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      
+      <div className="min-h-screen bg-slate-900">
       {/* Header */}
       <section className="bg-gradient-to-br from-slate-800 to-slate-900 py-20">
         <div className="container">
@@ -154,21 +222,14 @@ export default async function BlogPost({ params }: Props) {
               {postMeta.description}
             </p>
             
-            <div className="flex items-center justify-center gap-4 text-slate-400">
-              <span>{formatDate(postMeta.date)}</span>
-              {postMeta.author && (
-                <>
-                  <span>•</span>
-                  <Link 
-                    href={`/blog/author/${slugifyAuthor(postMeta.author)}`}
-                    className="hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded"
-                  >
-                    by {postMeta.author}
-                  </Link>
-                </>
-              )}
-              <span>•</span>
-              <span>{readingTime} min read</span>
+            {/* Author Byline */}
+            <div className="flex justify-center">
+              <AuthorByline 
+                authorName={postMeta.author || 'Promptly Team'}
+                publishDate={postMeta.date}
+                readTime={`${readingTime} min read`}
+                showBio={false}
+              />
             </div>
           </div>
         </div>
@@ -190,30 +251,13 @@ export default async function BlogPost({ params }: Props) {
       </section>
 
       {/* Related Posts */}
-      {relatedPosts.length > 0 && (
-        <section className="border-t border-white/10 py-16">
-          <div className="container">
-            <div className="max-w-6xl mx-auto">
-              <h2 className="text-2xl font-semibold text-white mb-8 text-center">
-                Related Articles
-              </h2>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {relatedPosts.slice(0, 3).map((post) => (
-                  <BlogCard 
-                    key={post.slug} 
-                    post={post}
-                    showTags={true}
-                    showAuthor={false}
-                    showDate={false}
-                    showReadTime={true}
-                  />
-                ))}
-              </div>
-            </div>
+      <section className="border-t border-white/10 py-16">
+        <div className="container">
+          <div className="max-w-6xl mx-auto">
+            <RelatedPosts currentSlug={params.slug} />
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* Navigation */}
       <section className="border-t border-white/10 py-12">
@@ -259,6 +303,7 @@ export default async function BlogPost({ params }: Props) {
           </Link>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   )
 }

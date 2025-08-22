@@ -7,6 +7,7 @@ export type PostMeta = {
   title: string
   description: string
   date: string
+  lastmod?: string
   author?: string
   tags?: string[]
   readTime?: string
@@ -15,7 +16,26 @@ export type PostMeta = {
   content?: string
 }
 
+export type AuthorMeta = {
+  name: string
+  bio: string
+  image: string
+  social: {
+    linkedin?: string
+    email?: string
+    twitter?: string
+  }
+}
+
+export type ContentMeta = {
+  ordering: string[]
+  lastmod: Record<string, string>
+  authors: Record<string, AuthorMeta>
+}
+
 const BLOG_DIR = path.join(process.cwd(), 'content', 'blog')
+const CONTENT_DIR = path.join(process.cwd(), 'content')
+const META_FILE = path.join(CONTENT_DIR, '_meta.json')
 
 export function getPostSlugs(): string[] {
   if (!fs.existsSync(BLOG_DIR)) {
@@ -26,6 +46,29 @@ export function getPostSlugs(): string[] {
     .readdirSync(BLOG_DIR)
     .filter((file) => file.endsWith('.mdx') || file.endsWith('.md'))
     .map((file) => file.replace(/\.mdx?$/, ''))
+}
+
+// Load content meta file
+function getContentMeta(): ContentMeta | null {
+  try {
+    if (!fs.existsSync(META_FILE)) {
+      return null
+    }
+    const metaContent = fs.readFileSync(META_FILE, 'utf8')
+    return JSON.parse(metaContent)
+  } catch (error) {
+    console.error('Failed to load content meta:', error)
+    return null
+  }
+}
+
+// Get author information
+export function getAuthorMeta(authorName: string): AuthorMeta | null {
+  const meta = getContentMeta()
+  if (!meta || !meta.authors) {
+    return null
+  }
+  return meta.authors[authorName] || null
 }
 
 export async function getPostMeta(slug: string): Promise<PostMeta | null> {
@@ -44,6 +87,7 @@ export async function getPostMeta(slug: string): Promise<PostMeta | null> {
     }
 
     const fileContent = fs.readFileSync(filePath, 'utf8')
+    const meta = getContentMeta()
     
     // Check if file has export const metadata pattern and extract it manually
     const hasExportMetadata = /export\s+const\s+metadata\s*=/.test(fileContent)
@@ -61,6 +105,7 @@ export async function getPostMeta(slug: string): Promise<PostMeta | null> {
           
           return {
             slug,
+            lastmod: meta?.lastmod?.[slug],
             ...metadata,
             content
           }
@@ -87,6 +132,7 @@ export async function getPostMeta(slug: string): Promise<PostMeta | null> {
       title: data.title || 'Untitled',
       description: data.description || data.excerpt || '',
       date: data.date || new Date().toISOString().split('T')[0],
+      lastmod: meta?.lastmod?.[slug],
       author: data.author?.name || data.author || 'Zaza Team',
       tags: data.tags || [],
       readTime,
@@ -101,17 +147,40 @@ export async function getPostMeta(slug: string): Promise<PostMeta | null> {
 }
 
 export async function getAllPostsMeta(): Promise<PostMeta[]> {
+  const meta = getContentMeta()
   const slugs = getPostSlugs()
   const posts: PostMeta[] = []
   
   for (const slug of slugs) {
-    const meta = await getPostMeta(slug)
-    if (meta) {
-      posts.push(meta)
+    const postMeta = await getPostMeta(slug)
+    if (postMeta) {
+      posts.push(postMeta)
     }
   }
   
-  // Sort by date descending (most recent first)
+  // Sort by meta ordering if available, then by date descending
+  if (meta?.ordering) {
+    const orderedPosts = [...posts]
+    orderedPosts.sort((a, b) => {
+      const aIndex = meta.ordering.indexOf(a.slug)
+      const bIndex = meta.ordering.indexOf(b.slug)
+      
+      // If both posts are in ordering, use that order
+      if (aIndex !== -1 && bIndex !== -1) {
+        return aIndex - bIndex
+      }
+      
+      // If only one is in ordering, prioritize it
+      if (aIndex !== -1) return -1
+      if (bIndex !== -1) return 1
+      
+      // Otherwise sort by date descending
+      return new Date(b.date).getTime() - new Date(a.date).getTime()
+    })
+    return orderedPosts
+  }
+  
+  // Fallback: Sort by date descending (most recent first)
   return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 }
 

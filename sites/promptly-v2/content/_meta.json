@@ -1,0 +1,71 @@
+{
+  "ordering": [
+    "ai-comment-generation-guide",
+    "ai-tools-teachers-guide-2025",
+    "best-ai-tools-for-teachers-2025",
+    "teacher-guide-safe-use-of-ai",
+    "ai-lesson-planning-guide-2025",
+    "reduce-teacher-workload-with-ai",
+    "parent-teacher-communication-ai",
+    "getting-started-with-ai",
+    "teacher-burnout-prevention-strategies",
+    "when-grading-feels-overwhelming",
+    "the-sunday-night-teacher-anxiety",
+    "founder-story"
+  ],
+  "lastmod": {
+    "ai-comment-generation-guide": "2024-12-18T10:00:00Z",
+    "ai-tools-teachers-guide-2025": "2024-12-17T14:30:00Z",
+    "best-ai-tools-for-teachers-2025": "2024-12-16T09:15:00Z",
+    "teacher-guide-safe-use-of-ai": "2024-12-15T16:45:00Z",
+    "ai-lesson-planning-guide-2025": "2024-12-14T11:20:00Z",
+    "reduce-teacher-workload-with-ai": "2024-12-13T13:10:00Z",
+    "parent-teacher-communication-ai": "2024-12-12T08:30:00Z",
+    "getting-started-with-ai": "2024-12-11T15:45:00Z",
+    "teacher-burnout-prevention-strategies": "2024-12-10T12:00:00Z",
+    "when-grading-feels-overwhelming": "2024-12-09T17:30:00Z",
+    "the-sunday-night-teacher-anxiety": "2024-12-08T10:15:00Z",
+    "founder-story": "2024-12-07T14:00:00Z"
+  },
+  "authors": {
+    "Dr. Greg Blackburn": {
+      "name": "Dr. Greg Blackburn",
+      "bio": "PhD-qualified educator and founder of Zaza Technologies. Expert in EdTech and AI-powered teaching tools with over 20 years of experience in digital learning.",
+      "image": "/images/authors/greg-blackburn.jpg",
+      "social": {
+        "linkedin": "https://www.linkedin.com/in/drgregblackburn/",
+        "email": "greg@zazatechnologies.com"
+      }
+    },
+    "Michelle Chen": {
+      "name": "Michelle Chen",
+      "bio": "Primary school teacher and AI enthusiast. Specializes in classroom technology integration and student engagement strategies.",
+      "image": "/images/authors/michelle-chen.jpg",
+      "social": {}
+    },
+    "Dr. Michael Rodriguez": {
+      "name": "Dr. Michael Rodriguez",
+      "bio": "Educational technology researcher with a focus on AI applications in secondary education. Former head of department with 15+ years teaching experience.",
+      "image": "/images/authors/michael-rodriguez.jpg",
+      "social": {}
+    },
+    "Sarah Thompson": {
+      "name": "Sarah Thompson",
+      "bio": "SENCO and inclusion specialist. Passionate about using AI to support diverse learners and reduce teacher workload.",
+      "image": "/images/authors/sarah-thompson.jpg",
+      "social": {}
+    },
+    "James Wilson": {
+      "name": "James Wilson",
+      "bio": "Secondary mathematics teacher and EdTech coordinator. Expert in implementing AI tools for assessment and feedback.",
+      "image": "/images/authors/james-wilson.jpg",
+      "social": {}
+    },
+    "Emma Davies": {
+      "name": "Emma Davies",
+      "bio": "Primary school head teacher with expertise in whole-school technology adoption and teacher professional development.",
+      "image": "/images/authors/emma-davies.jpg",
+      "social": {}
+    }
+  }
+}
