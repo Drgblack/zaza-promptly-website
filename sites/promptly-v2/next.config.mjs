@@ -44,10 +44,16 @@ const legacyRedirects = [
   { source: '/teacher-tools', destination: '/personas', permanent: true },
   
   // Legacy about/contact paths
+  { source: '/about-founder', destination: '/about/founder', permanent: true },
+  { source: '/about-us', destination: '/about/founder', permanent: true },
   { source: '/about', destination: '/about/founder', permanent: true },
+  { source: '/pricing-old', destination: '/pricing', permanent: true },
   { source: '/contact', destination: '/waitlist', permanent: true },
   { source: '/signup', destination: '/waitlist', permanent: true },
   { source: '/get-started', destination: '/waitlist', permanent: true },
+  
+  // Strip /es prefix to avoid auto-redirects  
+  { source: '/es/:path*', destination: '/:path*', permanent: true },
 ]
 
 const withMDX = createMDX({
