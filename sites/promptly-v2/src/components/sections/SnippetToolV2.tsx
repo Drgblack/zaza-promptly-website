@@ -1,551 +1,254 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
-import ZaraOrb from '@/components/ui/ZaraOrb'
 import { usePrefersReducedMotion } from '@/lib/motion'
+import ZaraOrb from '@/components/ui/ZaraOrb'
 
-interface QualityScore {
-  score: number
-  reasons: string[]
-}
-
-interface CommentVariant {
-  improvedText: string
-  rationaleBullets: string[]
-  quality: QualityScore
-  warnings: string[]
-}
-
-interface ImproveResponse {
-  variants?: CommentVariant[]
-  // Legacy support
-  improvedText?: string
-  rationaleBullets?: string[]
-  quality?: QualityScore
-  warnings?: string[]
+interface Comment {
+  id: string
+  text: string
+  author: string
+  timestamp: Date
+  isEdited?: boolean
+  editHistory?: Array<{
+    version: string
+    timestamp: Date
+    changes: string[]
+  }>
 }
 
 interface SnippetToolProps {
-  userRole?: string
+  initialComments?: Comment[]
+  onCommentUpdate?: (comments: Comment[]) => void
 }
 
-export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps) {
-  const [draftText, setDraftText] = useState('')
-  const [variants, setVariants] = useState<CommentVariant[]>([])
-  const [activeVariantIndex, setActiveVariantIndex] = useState(0)
-  const [showAlternatives, setShowAlternatives] = useState(false)
-  const [selectedStrengths, setSelectedStrengths] = useState<string[]>([])
-  const [improvedText, setImprovedText] = useState('')
-  const [rationale, setRationale] = useState<string[]>([])
-  const [warnings, setWarnings] = useState<string[]>([])
-  const [qualityScore, setQualityScore] = useState<QualityScore | null>(null)
-  const [settings, setSettings] = useState({
-    tone: 'Supportive',
-    readingLevel: 'Parent-friendly',
-    length: 'Medium',
-    language: 'auto-detect'
-  })
-  const [isImproving, setIsImproving] = useState(false)
-  const [copySuccess, setCopySuccess] = useState(false)
-  const [showDiff, setShowDiff] = useState(false)
-  const [showExplanation, setShowExplanation] = useState(false)
+export default function SnippetToolV2({ 
+  initialComments = [], 
+  onCommentUpdate 
+}: SnippetToolProps) {
+  const [comments, setComments] = useState<Comment[]>(initialComments)
+  const [activeTab, setActiveTab] = useState<'improve' | 'explain' | 'history'>('improve')
+  const [isLoading, setIsLoading] = useState(false)
+  const [selectedComment, setSelectedComment] = useState<string>('')
+  const [improvedComment, setImprovedComment] = useState<string>('')
+  const [explanation, setExplanation] = useState<string>('')
   const [showResults, setShowResults] = useState(false)
+  const [progress, setProgress] = useState(0)
+  const [showExplainDrawer, setShowExplainDrawer] = useState(false)
   const shouldReduceMotion = usePrefersReducedMotion()
   
-  const resultRef = useRef<HTMLDivElement>(null)
+  // Refs for accessibility and scroll management
+  const resultsRef = useRef<HTMLDivElement>(null)
   const ariaLiveRef = useRef<HTMLDivElement>(null)
-  const improvedTextRef = useRef<HTMLTextAreaElement>(null)
-  const explainButtonRef = useRef<HTMLButtonElement>(null)
 
-  const toneOptions = [
-    'Supportive',
-    'Professional', 
-    'Firm-but-kind'
-  ]
-
-  const readingLevelOptions = [
-    'Parent-friendly',
-    'Year 7 level',
-    'Year 8 level',
-    'Year 9 level',
-    'Year 10 level',
-    'Year 11 level',
-    'A-Level',
-    'Professional'
-  ]
-
-  const lengthOptions = [
-    'Short',
-    'Medium',
-    'Long'
-  ]
-
-  const languageOptions = [
-    'auto-detect',
-    'English (UK)',
-    'English (US)',
-    'Spanish',
-    'French',
-    'German',
-    'Italian'
-  ]
-
-  // Non-PII strengths that can enhance suggestions
-  const strengthOptions = [
-    'Persistent',
-    'Team player',
-    'Curious',
-    'Creative',
-    'Organised',
-    'Helpful',
-    'Enthusiastic',
-    'Thoughtful',
-    'Resilient',
-    'Independent',
-    'Collaborative',
-    'Focused'
-  ]
-
-  // Load preferences from localStorage on mount
+  // Sample comments for demonstration
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      try {
-        const saved = localStorage.getItem('promptly-snippet-preferences')
-        if (saved) {
-          const preferences = JSON.parse(saved)
-          setSettings(prev => ({
-            ...prev,
-            tone: preferences.tone || prev.tone,
-            readingLevel: preferences.readingLevel || prev.readingLevel,
-            length: preferences.length || prev.length,
-            language: preferences.language || prev.language
-          }))
-        }
-      } catch (error) {
-        console.warn('Failed to load preferences:', error)
-      }
-    }
-  }, [])
-
-  // Save preferences to localStorage when settings change
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      try {
-        localStorage.setItem('promptly-snippet-preferences', JSON.stringify(settings))
-      } catch (error) {
-        console.warn('Failed to save preferences:', error)
-      }
-    }
-  }, [settings])
-
-  // Keyboard shortcuts
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      // ESC to close explanation drawer
-      if (event.key === 'Escape' && showExplanation) {
-        event.preventDefault()
-        setShowExplanation(false)
-        return
-      }
-      
-      // Ctrl+Enter to Improve
-      if (event.ctrlKey && event.key === 'Enter') {
-        event.preventDefault()
-        if (draftText.trim() && !isImproving) {
-          handleImprove()
-        }
-      }
-      
-      // Alt+E to Explain
-      if (event.altKey && event.key === 'e') {
-        event.preventDefault()
-        if (improvedText && explainButtonRef.current) {
-          explainButtonRef.current.click()
-        }
-      }
-    }
-
-    document.addEventListener('keydown', handleKeyDown)
-    return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [draftText, isImproving, improvedText, showExplanation])
-
-  const handleImprove = async () => {
-    if (!draftText.trim()) return
-
-    setIsImproving(true)
-    setShowResults(false)
-    setVariants([])
-    setActiveVariantIndex(0)
-    setImprovedText('')
-    setRationale([])
-    setWarnings([])
-    setQualityScore(null)
-    setShowExplanation(false)
-
-    // Fire telemetry event if analytics consent given
-    try {
-      const consent = localStorage.getItem('promptly-cookie-consent')
-      const consentData = consent ? JSON.parse(consent) : null
-      
-      if (consentData?.analytics && typeof window !== 'undefined' && window.plausible) {
-        window.plausible('snippet_improve', {
-          props: {
-            tone: settings.tone,
-            reading_level: settings.readingLevel,
-            length: settings.length,
-            language: settings.language,
-            draft_length: draftText.length,
-            user_role: userRole
-          }
-        })
-      }
-    } catch (error) {
-      console.log('Telemetry failed:', error)
-    }
-
-    try {
-      const response = await fetch('/api/improve-comment', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+    if (comments.length === 0) {
+      setComments([
+        {
+          id: '1',
+          text: 'Johnny needs to work harder on his math.',
+          author: 'Ms. Smith',
+          timestamp: new Date('2024-03-15T10:00:00Z')
         },
-        body: JSON.stringify({
-          draft: draftText,
-          tone: settings.tone,
-          readingLevel: settings.readingLevel,
-          length: settings.length,
-          language: settings.language,
-          role: userRole,
-          alternatives: showAlternatives,
-          strengths: selectedStrengths.length > 0 ? selectedStrengths.join(', ') : undefined
-        }),
-      })
+        {
+          id: '2', 
+          text: 'Sarah was disruptive in class today.',
+          author: 'Mr. Johnson',
+          timestamp: new Date('2024-03-15T14:30:00Z')
+        },
+        {
+          id: '3',
+          text: 'Great progress this week!',
+          author: 'Ms. Davis',
+          timestamp: new Date('2024-03-16T09:15:00Z')
+        }
+      ])
+    }
+  }, [comments.length])
 
-      if (!response.ok) {
-        throw new Error('Failed to improve comment')
+  // Handle comment selection
+  const handleCommentSelect = (commentId: string) => {
+    setSelectedComment(commentId)
+    setShowResults(false)
+    setImprovedComment('')
+    setExplanation('')
+  }
+
+  // Simulate AI improvement process
+  const handleImprove = async () => {
+    if (!selectedComment) return
+    
+    const comment = comments.find(c => c.id === selectedComment)
+    if (!comment) return
+
+    setIsLoading(true)
+    setProgress(0)
+    setShowResults(false)
+
+    // Update aria-live region
+    if (ariaLiveRef.current) {
+      ariaLiveRef.current.textContent = 'Improving comment, please wait...'
+    }
+
+    try {
+      // Simulate progress
+      for (let i = 0; i <= 100; i += 10) {
+        setProgress(i)
+        await new Promise(resolve => setTimeout(resolve, 150))
       }
 
-      const data: ImproveResponse = await response.json()
-      
-      if (data.variants && data.variants.length > 0) {
-        // Sort variants by quality score (highest first)
-        const sortedVariants = [...data.variants].sort((a, b) => b.quality.score - a.quality.score)
-        setVariants(sortedVariants)
-        setActiveVariantIndex(0)
-        
-        // Set current display to best variant
-        const bestVariant = sortedVariants[0]
-        setImprovedText(bestVariant.improvedText)
-        setRationale(bestVariant.rationaleBullets || [])
-        setWarnings(bestVariant.warnings || [])
-        setQualityScore(bestVariant.quality || null)
+      // Simulate different improvement types based on original comment content
+      let improved = comment.text
+      let explanationText = ''
+
+      if (comment.text.toLowerCase().includes('needs to work harder')) {
+        improved = 'Johnny would benefit from additional practice and support in mathematics. I recommend extra exercises and one-on-one assistance to help build his confidence and skills.'
+        explanationText = 'Replaced harsh language with constructive feedback that focuses on support rather than criticism.'
+      } else if (comment.text.toLowerCase().includes('disruptive')) {
+        improved = 'Sarah had difficulty staying focused during today\'s lesson and would benefit from strategies to help her engage more effectively with the material.'
+        explanationText = 'Reframed negative behavior as a learning opportunity and suggested solutions.'
+      } else if (comment.text.toLowerCase().includes('great progress')) {
+        improved = 'Excellent work this week! Your consistent effort and positive attitude are really paying off, and I can see significant improvement in your understanding.'
+        explanationText = 'Enhanced positive feedback with specific observations and encouragement.'
       } else {
-        // Legacy single response
-        setImprovedText(data.improvedText || '')
-        setRationale(data.rationaleBullets || [])
-        setWarnings(data.warnings || [])
-        setQualityScore(data.quality || null)
-        setVariants([])
+        // Generic improvement
+        improved = comment.text.replace(/\\b(bad|terrible|awful)\\b/gi, 'challenging')
+                             .replace(/\\b(lazy|stupid|dumb)\\b/gi, 'needing support')
+                             .replace(/\\b(always|never)\\b/gi, 'often')
+        explanationText = 'Made language more professional and constructive.'
       }
 
-      // Show results with animation
+      setImprovedComment(improved)
+      setExplanation(explanationText)
       setShowResults(true)
 
-      // Announce to screen readers
+      // Update aria-live region
       if (ariaLiveRef.current) {
-        ariaLiveRef.current.textContent = 'Comment improved successfully. Check the results panel.'
+        ariaLiveRef.current.textContent = 'Comment improvement completed. Results are now available.'
       }
 
-      // Focus management and scroll to results
+      // Auto-scroll to results
       setTimeout(() => {
-        if (improvedTextRef.current) {
-          // Focus on the improved text area for screen readers
-          improvedTextRef.current.focus()
-          improvedTextRef.current.select()
+        if (resultsRef.current && !shouldReduceMotion) {
+          resultsRef.current.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          })
         }
-        if (resultRef.current) {
-          resultRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
-        }
-      }, 120) // Match animation duration
+      }, 300)
 
     } catch (error) {
       console.error('Error improving comment:', error)
-      setImprovedText('Error improving comment. Please try again.')
       if (ariaLiveRef.current) {
         ariaLiveRef.current.textContent = 'Error improving comment. Please try again.'
       }
     } finally {
-      setIsImproving(false)
+      setIsLoading(false)
+      setProgress(0)
     }
   }
 
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(improvedText)
-      setCopySuccess(true)
-      setTimeout(() => setCopySuccess(false), 2000)
-      
-      if (ariaLiveRef.current) {
-        ariaLiveRef.current.textContent = 'Improved comment copied to clipboard.'
-      }
-    } catch (error) {
-      console.error('Error copying to clipboard:', error)
-    }
-  }
+  // Handle saving improved comment
+  const handleSave = () => {
+    if (!selectedComment || !improvedComment) return
 
-  const handleSettingChange = (field: keyof typeof settings, value: string) => {
-    setSettings(prev => ({ ...prev, [field]: value }))
-    // Clear results when settings change
-    if (improvedText) {
-      setImprovedText('')
-      setRationale([])
-      setWarnings([])
-      setQualityScore(null)
-      setVariants([])
-      setActiveVariantIndex(0)
-      setShowExplanation(false)
-    }
-  }
-
-  const handleModifierClick = async (modifier: string) => {
-    if (!draftText.trim() || isImproving) return
-    
-    const newSettings = { ...settings }
-    
-    switch (modifier) {
-      case 'Softer tone':
-        if (settings.tone !== 'Supportive') {
-          newSettings.tone = 'Supportive'
+    const updatedComments = comments.map(comment => {
+      if (comment.id === selectedComment) {
+        return {
+          ...comment,
+          text: improvedComment,
+          isEdited: true,
+          editHistory: [
+            ...(comment.editHistory || []),
+            {
+              version: comment.text,
+              timestamp: new Date(),
+              changes: [explanation]
+            }
+          ]
         }
-        break
-      case 'More specific strategies':
-        // This will trigger the explain=true mode in the API
-        break
-      case 'Shorter':
-        if (settings.length !== 'Short') {
-          newSettings.length = 'Short'
-        }
-        break
-      case 'Translate':
-        // For now, cycle through some common languages
-        const currentLang = settings.language
-        const langs = ['English (UK)', 'Spanish', 'French', 'German']
-        const currentIndex = langs.indexOf(currentLang)
-        newSettings.language = langs[(currentIndex + 1) % langs.length]
-        break
-    }
-    
-    setSettings(newSettings)
-    
-    // Trigger improvement with new settings
-    setTimeout(async () => {
-      await handleImproveWithModifier(modifier === 'More specific strategies')
-    }, 100)
-  }
-
-  const handleImproveWithModifier = async (explainMode = false) => {
-    if (!draftText.trim()) return
-
-    setIsImproving(true)
-
-    try {
-      const response = await fetch('/api/improve-comment', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          draft: draftText,
-          tone: settings.tone,
-          readingLevel: settings.readingLevel,
-          length: settings.length,
-          language: settings.language,
-          role: userRole,
-          explain: explainMode,
-          alternatives: showAlternatives,
-          strengths: selectedStrengths.length > 0 ? selectedStrengths.join(', ') : undefined
-        }),
-      })
-
-      if (!response.ok) {
-        throw new Error('Failed to improve comment')
       }
+      return comment
+    })
 
-      const data: ImproveResponse = await response.json()
-      
-      if (data.variants && data.variants.length > 0) {
-        // Sort variants by quality score (highest first)
-        const sortedVariants = [...data.variants].sort((a, b) => b.quality.score - a.quality.score)
-        setVariants(sortedVariants)
-        setActiveVariantIndex(0)
-        
-        // Set current display to best variant
-        const bestVariant = sortedVariants[0]
-        setImprovedText(bestVariant.improvedText)
-        setRationale(bestVariant.rationaleBullets || [])
-        setWarnings(bestVariant.warnings || [])
-        setQualityScore(bestVariant.quality || null)
-      } else {
-        // Legacy single response
-        setImprovedText(data.improvedText || '')
-        setRationale(data.rationaleBullets || [])
-        setWarnings(data.warnings || [])
-        setQualityScore(data.quality || null)
-        setVariants([])
-      }
-      
-      if (explainMode) {
-        setShowExplanation(true)
-      }
+    setComments(updatedComments)
+    onCommentUpdate?.(updatedComments)
+    
+    // Clear selection and results
+    setSelectedComment('')
+    setImprovedComment('')
+    setExplanation('')
+    setShowResults(false)
 
-    } catch (error) {
-      console.error('Error improving comment:', error)
-    } finally {
-      setIsImproving(false)
+    // Update aria-live region
+    if (ariaLiveRef.current) {
+      ariaLiveRef.current.textContent = 'Comment saved successfully.'
     }
   }
 
-  const handleMakeClearer = async () => {
-    if (!draftText.trim() || isImproving) return
-    await handleImproveWithModifier(false) // Trigger refinement pass
-  }
-
-  const handleContextAction = (action: string) => {
-    switch (action) {
-      case 'Why these edits?':
-        setShowExplanation(true)
-        if (resultRef.current) {
-          resultRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
-        }
-        break
-      case 'Softer tone':
-      case 'More specific strategies':
-      case 'Shorter':
-      case 'Translate':
-        handleModifierClick(action)
-        break
-      default:
-        console.log('Context action:', action)
+  // Handle tab changes with smooth underline animation
+  const handleTabChange = (tab: typeof activeTab) => {
+    setActiveTab(tab)
+    if (tab !== 'improve') {
+      setShowResults(false)
+      setSelectedComment('')
     }
   }
 
-  const getQualityLabel = (score: number) => {
-    if (score >= 0.9) return { label: 'Parent-ready', color: 'text-green-400' }
-    if (score >= 0.8) return { label: 'Solid', color: 'text-yellow-400' }
-    return { label: 'Needs work', color: 'text-red-400' }
+  // Format timestamp for display
+  const formatTimestamp = (date: Date) => {
+    return new Intl.DateTimeFormat('en-US', {
+      month: 'short',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true
+    }).format(date)
   }
 
-  const calculateImprovementPercentage = (original: string, improved: string) => {
-    const originalTokens = original.toLowerCase().match(/\b\w+\b/g) || []
-    const improvedTokens = improved.toLowerCase().match(/\b\w+\b/g) || []
-    
-    const originalSet = new Set(originalTokens)
-    const improvedSet = new Set(improvedTokens)
-    
-    const newTokens = Array.from(improvedSet).filter(token => !originalSet.has(token))
-    const totalOriginalTokens = originalTokens.length
-    
-    if (totalOriginalTokens === 0) return 100
-    
-    const improvementRatio = newTokens.length / totalOriginalTokens
-    return Math.min(Math.round(improvementRatio * 100), 100)
+  // Get selected comment object
+  const getSelectedComment = () => {
+    return comments.find(c => c.id === selectedComment)
   }
 
-  // const getCurrentVariant = (): CommentVariant | null => {
-  //   if (variants.length > 0) {
-  //     return variants[activeVariantIndex]
-  //   }
-  //   // Fallback to legacy format
-  //   if (improvedText) {
-  //     return {
-  //       improvedText,
-  //       rationaleBullets: rationale,
-  //       quality: qualityScore || { score: 0, reasons: [] },
-  //       warnings
-  //     }
-  //   }
-  //   return null
-  // }
+  // Render word-by-word comparison with animations
+  const renderComparison = () => {
+    if (!selectedComment || !improvedComment) return null
 
-  const handleVariantChange = (index: number) => {
-    if (variants.length > index) {
-      setActiveVariantIndex(index)
-      const variant = variants[index]
-      setImprovedText(variant.improvedText)
-      setRationale(variant.rationaleBullets)
-      setWarnings(variant.warnings)
-      setQualityScore(variant.quality)
-    }
-  }
+    const original = comments.find(c => c.id === selectedComment)?.text || ''
+    const improved = improvedComment
 
-  const handleStrengthToggle = (strength: string) => {
-    setSelectedStrengths(prev => 
-      prev.includes(strength)
-        ? prev.filter(s => s !== strength)
-        : [...prev, strength]
-    )
-  }
-
-  // Simple word-level diff highlighting
-  const renderDiff = (original: string, improved: string) => {
-    const originalWords = original.split(/(\s+)/)
-    const improvedWords = improved.split(/(\s+)/)
-    
-    // Basic word-level comparison
-    const result = []
+    const originalWords = original.split(' ')
+    const improvedWords = improved.split(' ')
     const maxLength = Math.max(originalWords.length, improvedWords.length)
-    
+
+    const result = []
     for (let i = 0; i < maxLength; i++) {
-      const origWord = originalWords[i] || ''
-      const impWord = improvedWords[i] || ''
+      const origWord = originalWords[i]
+      const impWord = improvedWords[i]
       
-      if (origWord !== impWord) {
-        if (origWord && !impWord) {
-          // Word removed
+      if (origWord && impWord && origWord !== impWord) {
+        // Word changed
+        if (shouldReduceMotion) {
           result.push(
-            <span key={`removed-${i}`} className="bg-red-900/40 text-red-300 line-through">
-              {origWord}
+            <span key={`changed-${i}`} className="bg-blue-900/40 text-blue-300">
+              {impWord}
             </span>
           )
-        } else if (!origWord && impWord) {
-          // Word added
-          result.push(
-            shouldReduceMotion ? (
-              <span key={`added-${i}`} className="bg-green-900/40 text-green-300">
-                {impWord}
-              </span>
-            ) : (
-              <motion.span 
-                key={`added-${i}`} 
-                className="bg-green-900/40 text-green-300"
-                initial={{ backgroundColor: 'rgba(34, 197, 94, 0.8)' }}
-                animate={{ backgroundColor: 'rgba(34, 197, 94, 0.25)' }}
-                transition={{ duration: 0.6, ease: 'easeOut' }}
-              >
-                {impWord}
-              </motion.span>
-            )
-          )
         } else {
-          // Word changed
           result.push(
-            shouldReduceMotion ? (
-              <span key={`changed-${i}`} className="bg-blue-900/40 text-blue-300">
-                {impWord}
-              </span>
-            ) : (
-              <motion.span 
-                key={`changed-${i}`} 
-                className="bg-blue-900/40 text-blue-300"
-                initial={{ backgroundColor: 'rgba(59, 130, 246, 0.8)' }}
-                animate={{ backgroundColor: 'rgba(59, 130, 246, 0.25)' }}
-                transition={{ duration: 0.6, ease: 'easeOut' }}
-              >
-                {impWord}
-              </motion.span>
-            )
+            <motion.span 
+              key={`changed-${i}`} 
+              className="bg-blue-900/40 text-blue-300"
+              initial={{ backgroundColor: 'rgba(59, 130, 246, 0.8)' }}
+              animate={{ backgroundColor: 'rgba(59, 130, 246, 0.25)' }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+            >
+              {impWord}
+            </motion.span>
           )
         }
       } else if (origWord) {
@@ -562,477 +265,461 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
       <div ref={ariaLiveRef} className="sr-only" aria-live="polite" aria-atomic="true"></div>
       
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
-        {/* Left: Draft Input */}
-        <div className="xl:col-span-1 space-y-4">
-          <div>
-            <label htmlFor="draft-text" className="block text-sm font-medium text-white mb-2">
-              Your Draft Comment
-            </label>
-            <textarea
-              id="draft-text"
-              value={draftText}
-              onChange={(e) => setDraftText(e.target.value)}
-              rows={8}
-              className="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent resize-none"
-              placeholder="Write your draft comment here..."
-              aria-describedby="draft-text-help"
-            />
-            <p id="draft-text-help" className="text-xs text-slate-400 mt-1">
-              Enter your draft comment and we&apos;ll improve it based on your preferences.
-            </p>
-            <div className="mt-2 p-2 bg-blue-900/20 border border-blue-500/30 rounded-lg">
-              <div className="flex items-start">
-                <svg className="w-3 h-3 text-blue-400 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <p className="text-xs text-blue-300">
-                  <strong>Tip:</strong> Mention the subject and this week&apos;s goal for sharper suggestions.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Controls */}
-          <div className="space-y-3">
-            <div>
-              <label htmlFor="tone-select" className="block text-xs font-medium text-slate-200 mb-1">
-                Tone
-              </label>
-              <select
-                id="tone-select"
-                value={settings.tone}
-                onChange={(e) => handleSettingChange('tone', e.target.value)}
-                className="w-full px-3 py-2 text-sm bg-slate-800 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent"
-              >
-                {toneOptions.map((tone) => (
-                  <option key={tone} value={tone}>{tone}</option>
-                ))}
-              </select>
-            </div>
-
-            <div>
-              <label htmlFor="reading-level-select" className="block text-xs font-medium text-slate-200 mb-1">
-                Reading Level
-              </label>
-              <select
-                id="reading-level-select"
-                value={settings.readingLevel}
-                onChange={(e) => handleSettingChange('readingLevel', e.target.value)}
-                className="w-full px-3 py-2 text-sm bg-slate-800 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent"
-              >
-                {readingLevelOptions.map((level) => (
-                  <option key={level} value={level}>{level}</option>
-                ))}
-              </select>
-            </div>
-
-            <div className="grid grid-cols-2 gap-2">
-              <div>
-                <label htmlFor="length-select" className="block text-xs font-medium text-slate-200 mb-1">
-                  Length
-                </label>
-                <select
-                  id="length-select"
-                  value={settings.length}
-                  onChange={(e) => handleSettingChange('length', e.target.value)}
-                  className="w-full px-3 py-2 text-sm bg-slate-800 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent"
-                >
-                  {lengthOptions.map((length) => (
-                    <option key={length} value={length}>{length}</option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label htmlFor="language-select" className="block text-xs font-medium text-slate-200 mb-1">
-                  Language
-                </label>
-                <select
-                  id="language-select"
-                  value={settings.language}
-                  onChange={(e) => handleSettingChange('language', e.target.value)}
-                  className="w-full px-3 py-2 text-sm bg-slate-800 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent"
-                >
-                  {languageOptions.map((lang) => (
-                    <option key={lang} value={lang}>
-                      {lang === 'auto-detect' ? 'Auto-detect' : lang}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
-          </div>
-
-          {/* Optional Strengths */}
-          <div>
-            <label className="block text-xs font-medium text-slate-200 mb-2">
-              Student Strengths <span className="text-slate-400">(optional - helps tailor suggestions)</span>
-            </label>
-            <div className="flex flex-wrap gap-2">
-              {strengthOptions.map((strength) => (
-                <button
-                  key={strength}
-                  onClick={() => handleStrengthToggle(strength)}
-                  className={`px-3 py-1 text-xs rounded-full border transition-colors ${
-                    selectedStrengths.includes(strength)
-                      ? 'bg-purple-600/30 border-purple-500/50 text-purple-200'
-                      : 'bg-slate-800/50 border-slate-600/50 text-slate-300 hover:border-slate-500/50 hover:text-slate-200'
+        {/* Left Column: Comment Selection */}
+        <div className="xl:col-span-1">
+          <div className="bg-slate-800/50 rounded-xl p-5 border border-slate-700/50">
+            <h3 className="text-lg font-semibold text-white mb-4 flex items-center">
+              <svg className="w-5 h-5 text-blue-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+              Comments
+            </h3>
+            
+            <div className="space-y-3">
+              {comments.map((comment) => (
+                <div
+                  key={comment.id}
+                  className={`p-4 rounded-lg border cursor-pointer transition-all duration-200 ${
+                    selectedComment === comment.id
+                      ? 'border-blue-500 bg-blue-900/20'
+                      : 'border-slate-600 bg-slate-800/30 hover:border-slate-500 hover:bg-slate-800/50'
                   }`}
-                  type="button"
-                  aria-pressed={selectedStrengths.includes(strength)}
+                  onClick={() => handleCommentSelect(comment.id)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      handleCommentSelect(comment.id)
+                    }
+                  }}
+                  aria-label={`Select comment: ${comment.text}`}
                 >
-                  {strength}
-                </button>
+                  <p className="text-slate-300 text-sm mb-2 line-clamp-3">{comment.text}</p>
+                  <div className="flex items-center justify-between text-xs text-slate-500">
+                    <span>{comment.author}</span>
+                    <span>{formatTimestamp(comment.timestamp)}</span>
+                  </div>
+                  {comment.isEdited && (
+                    <div className="mt-2 flex items-center text-xs text-blue-400">
+                      <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                      </svg>
+                      Edited
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
-            {selectedStrengths.length > 0 && (
-              <p className="text-xs text-slate-400 mt-2">
-                Selected: {selectedStrengths.join(', ')}
-              </p>
-            )}
-          </div>
-
-          {/* Progress Bar Container */}
-          <div className="relative">
-            {/* Progress Bar - only shows when improving */}
-            {isImproving && !shouldReduceMotion && (
-              <motion.div
-                className="absolute -top-1 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-500 to-purple-500 rounded-full"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: [0, 0.6, 0.8, 1, 0.8, 1] }}
-                transition={{ 
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                style={{ transformOrigin: "left" }}
-              />
-            )}
-
-          <Button
-            onClick={handleImprove}
-            disabled={!draftText.trim() || isImproving}
-            className="w-full"
-            aria-describedby="improve-button-help"
-            title="Improve comment (Ctrl+Enter)"
-          >
-            {isImproving ? 'Improving...' : 'Improve'}
-          </Button>
-          </div>
-          <p id="improve-button-help" className="text-xs text-slate-400">
-            Enhance your comment with AI suggestions
-            <br />
-            <span className="text-slate-500">
-              Keyboard shortcuts: Ctrl+Enter to improve, Alt+E to explain
-            </span>
-          </p>
-          
-          {/* Alternatives toggle */}
-          <div className="flex items-center">
-            <input
-              type="checkbox"
-              id="show-alternatives"
-              checked={showAlternatives}
-              onChange={(e) => setShowAlternatives(e.target.checked)}
-              className="w-4 h-4 text-brand-600 bg-slate-800 border-slate-600 rounded focus:ring-brand-500 focus:ring-2"
-            />
-            <label htmlFor="show-alternatives" className="ml-2 text-sm font-medium text-slate-300">
-              Show 3 alternatives
-            </label>
           </div>
         </div>
 
-        {/* Right: Improved Result */}
-        <div className="xl:col-span-2 space-y-4" ref={resultRef} aria-live="polite" aria-label="Improved comment results">
-          {/* Animated Results Panel */}
-          {shouldReduceMotion ? (
-            <div className={showResults || improvedText ? 'block' : 'hidden'}>
-          ) : (
-            <AnimatePresence>
-              {(showResults || improvedText) && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.985 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.985 }}
-                  transition={{ duration: 0.12, ease: 'easeOut' }}
-                >
-              )}
-            </AnimatePresence>
-          )}
-          
-          <div>
-            <div className="flex items-center justify-between mb-2">
-              <label htmlFor="improved-text" className="block text-sm font-medium text-white">
-                Improved by Promptly
-              </label>
-              <div className="flex items-center gap-3">
-                {/* Improvement percentage badge */}
-                {improvedText && draftText && (
-                  <>
-                    {(() => {
-                      const improvementPct = calculateImprovementPercentage(draftText, improvedText)
-                      return (
-                        <div className="flex items-center gap-2">
-                          <span className={`px-2 py-1 text-xs rounded-full ${
-                            improvementPct >= 50 ? 'bg-green-900/30 text-green-300' :
-                            improvementPct >= 30 ? 'bg-yellow-900/30 text-yellow-300' :
-                            'bg-red-900/30 text-red-300'
-                          }`}>
-                            {improvementPct}% improved
-                          </span>
-                          {improvementPct < 30 && (
-                            <span className="text-xs text-slate-400 italic">
-                              Try &apos;More specific strategies&apos;
-                            </span>
-                          )}
-                        </div>
-                      )
-                    })()}
-                  </>
-                )}
-                {improvedText && draftText && (
+        {/* Center Column: Tool Interface */}
+        <div className="xl:col-span-2">
+          <div className="bg-slate-800/50 rounded-xl border border-slate-700/50">
+            {/* Tab Navigation */}
+            <div className="relative border-b border-slate-700">
+              <div className="flex">
+                {[
+                  { key: 'improve', label: 'Improve', icon: '✨' },
+                  { key: 'explain', label: 'Explain', icon: '💡' },
+                  { key: 'history', label: 'History', icon: '📝' }
+                ].map((tab) => (
                   <button
-                    onClick={() => setShowDiff(!showDiff)}
-                    className="text-xs text-purple-400 hover:text-purple-300 underline decoration-purple-400/50 hover:decoration-purple-300/50 transition-colors"
-                    aria-pressed={showDiff}
-                  >
-                    {showDiff ? 'Hide Changes' : 'Show Changes'}
-                  </button>
-                )}
-              </div>
-            </div>
-
-            {/* Variant tabs */}
-            {variants.length > 1 && (
-              <div className="relative flex border-b border-slate-600 mb-2">
-                {/* Animated underline */}
-                {!shouldReduceMotion && (
-                  <motion.div
-                    className="absolute bottom-0 h-0.5 bg-brand-500 rounded-full"
-                    initial={false}
-                    animate={{
-                      left: `${(activeVariantIndex / variants.length) * 100}%`,
-                      width: `${100 / variants.length}%`
-                    }}
-                    transition={{ duration: 0.12, ease: 'easeOut' }}
-                  />
-                )}
-                
-                {variants.map((variant, index) => (
-                  <button
-                    key={index}
-                    onClick={() => handleVariantChange(index)}
-                    className={`flex-1 px-3 py-2 text-sm font-medium transition-colors ${
-                      activeVariantIndex === index
-                        ? 'text-brand-400'
+                    key={tab.key}
+                    onClick={() => handleTabChange(tab.key as typeof activeTab)}
+                    className={`relative px-6 py-4 text-sm font-medium transition-colors flex items-center ${
+                      activeTab === tab.key
+                        ? 'text-blue-400'
                         : 'text-slate-400 hover:text-slate-300'
                     }`}
+                    aria-selected={activeTab === tab.key}
+                    role="tab"
                   >
-                    Variant {String.fromCharCode(65 + index)} 
-                    <span className="ml-1 text-xs opacity-75">
-                      ({Math.round(variant.quality.score * 100)}%)
-                    </span>
+                    <span className="mr-2">{tab.icon}</span>
+                    {tab.label}
                   </button>
                 ))}
               </div>
-            )}
-            
-            <div className="relative">
-              <textarea
-                ref={improvedTextRef}
-                id="improved-text"
-                value={improvedText}
-                readOnly
-                rows={8}
-                className="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent resize-none"
-                placeholder="Click 'Improve' to enhance your comment..."
-                aria-live="polite"
-                aria-label="Improved comment text"
-              />
               
-              {showDiff && improvedText && draftText && (
-                <div className="absolute inset-0 px-3 py-2 bg-slate-800/95 rounded-lg overflow-y-auto">
-                  <div className="text-white text-sm leading-relaxed">
-                    <div className="text-xs text-slate-400 mb-2 font-medium">Changes highlighted:</div>
-                    <div className="space-y-2">
-                      {renderDiff(draftText, improvedText)}
-                    </div>
-                  </div>
-                </div>
+              {/* Animated Tab Underline */}
+              {!shouldReduceMotion && (
+                <motion.div
+                  className="absolute bottom-0 left-0 h-0.5 bg-blue-400"
+                  layoutId="tab-underline"
+                  transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                  style={{
+                    width: '33.333%',
+                    left: activeTab === 'improve' ? '0%' : activeTab === 'explain' ? '33.333%' : '66.666%'
+                  }}
+                />
               )}
             </div>
 
-            {/* Quality Bar */}
-            {qualityScore && (
-              <div className="mt-2 p-3 bg-slate-800/50 border border-slate-600/50 rounded-lg">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-medium text-slate-300">Quality Score</span>
-                  <span className={`text-xs font-medium ${getQualityLabel(qualityScore.score).color}`}>
-                    {getQualityLabel(qualityScore.score).label}
-                  </span>
-                </div>
-                <div className="w-full bg-slate-700 rounded-full h-2 mb-2">
-                  <div 
-                    className={`h-2 rounded-full transition-all duration-500 ${
-                      qualityScore.score >= 0.9 ? 'bg-green-500' :
-                      qualityScore.score >= 0.8 ? 'bg-yellow-500' : 'bg-red-500'
-                    }`}
-                    style={{ width: `${Math.max(qualityScore.score * 100, 5)}%` }}
-                  ></div>
-                </div>
-                {qualityScore.score < 0.8 && (
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={handleMakeClearer}
-                    disabled={isImproving}
-                    className="w-full mt-2 text-xs"
-                  >
-                    {isImproving ? 'Improving...' : 'Make it clearer'}
-                  </Button>
-                )}
-              </div>
-            )}
-
-            {/* Warnings */}
-            {warnings.length > 0 && (
-              <div className="mt-2 p-3 bg-yellow-900/20 border border-yellow-500/30 rounded-lg">
-                <div className="flex items-start">
-                  <svg className="w-4 h-4 text-yellow-400 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
-                  </svg>
-                  <div className="text-sm">
-                    <div className="font-medium text-yellow-300 mb-1">Consider:</div>
-                    <ul className="list-disc list-inside space-y-1 text-yellow-200">
-                      {warnings.map((warning, index) => (
-                        <li key={index}>{warning}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Action Buttons */}
-          {improvedText && (
-            <div className="flex flex-wrap gap-3">
-              <Button
-                variant="secondary"
-                onClick={handleCopy}
-                className="flex-1 min-w-[120px]"
-              >
-                {copySuccess ? 'Copied!' : 'Copy'}
-              </Button>
-              
-              <Button
-                ref={explainButtonRef}
-                variant="outline"
-                onClick={() => setShowExplanation(!showExplanation)}
-                className="flex-1 min-w-[120px]"
-                aria-expanded={showExplanation}
-                title="Explain changes (Alt+E)"
-              >
-                {showExplanation ? 'Hide Explanation' : 'Explain'}
-              </Button>
-            </div>
-          )}
-
-          {/* Modifier Chips */}
-          {improvedText && (
-            <div className="flex flex-wrap gap-2">
-              {['Softer tone', 'More specific strategies', 'Shorter', 'Translate'].map((modifier) => (
-                <button
-                  key={modifier}
-                  onClick={() => handleModifierClick(modifier)}
-                  disabled={isImproving}
-                  className="px-3 py-1 text-xs bg-purple-600/20 hover:bg-purple-600/30 text-purple-300 hover:text-purple-200 border border-purple-500/30 rounded-full transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {modifier}
-                </button>
-              ))}
-            </div>
-          )}
-
-          {/* Explanation Drawer */}
-          <AnimatePresence>
-            {showExplanation && rationale.length > 0 && (
-              <>
-                {/* Backdrop */}
-                <motion.div
-                  className="fixed inset-0 bg-black/50 z-40"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.16 }}
-                  onClick={() => setShowExplanation(false)}
-                />
-                
-                {/* Drawer */}
-                {shouldReduceMotion ? (
-                  <div className="fixed top-0 right-0 h-full w-full max-w-md bg-slate-800 border-l border-slate-600 shadow-2xl z-50 overflow-y-auto">
-                ) : (
-                  <motion.div
-                    className="fixed top-0 right-0 h-full w-full max-w-md bg-slate-800 border-l border-slate-600 shadow-2xl z-50 overflow-y-auto"
-                    initial={{ x: 12, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    exit={{ x: 12, opacity: 0 }}
-                    transition={{ duration: 0.16, ease: 'easeOut' }}
-                  >
-                )}
-                  <div className="p-6 space-y-4">
-                    {/* Header */}
-                    <div className="flex items-center justify-between">
-                      <h4 className="text-lg font-medium text-white">Why this is better</h4>
-                      <button
-                        onClick={() => setShowExplanation(false)}
-                        className="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-slate-700/50 transition-colors"
-                        aria-label="Close explanation"
-                      >
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                      </button>
+            {/* Tab Content */}
+            <div className="p-6">
+              {activeTab === 'improve' && (
+                <div className="space-y-6">
+                  {!selectedComment ? (
+                    <div className="text-center py-12">
+                      <svg className="w-16 h-16 text-slate-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-1.586l-4-4z" />
+                      </svg>
+                      <h4 className="text-lg font-medium text-slate-300 mb-2">Select a Comment</h4>
+                      <p className="text-slate-500">Choose a comment from the left to start improving it.</p>
                     </div>
-                    
-                    {/* Content */}
-                    <ul className="space-y-3">
-                      {rationale.map((point, index) => (
-                        <li key={index} className="flex items-start text-sm text-slate-300">
-                          <span className="w-2 h-2 bg-purple-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                          {point}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                {shouldReduceMotion ? (
-                  </div>
-                ) : (
-                  </motion.div>
-                )}
-              </>
-            )}
-          </AnimatePresence>
+                  ) : (
+                    <>
+                      {/* Selected Comment Display */}
+                      <div className="bg-slate-900/50 rounded-lg p-4 border border-slate-600">
+                        <h4 className="text-sm font-medium text-slate-400 mb-2">Selected Comment</h4>
+                        <p className="text-slate-200">{getSelectedComment()?.text}</p>
+                        <div className="flex items-center justify-between mt-3 text-xs text-slate-500">
+                          <span>{getSelectedComment()?.author}</span>
+                          <span>{getSelectedComment() && formatTimestamp(getSelectedComment()!.timestamp)}</span>
+                        </div>
+                      </div>
 
-          {/* Close animated wrapper */}
-          {shouldReduceMotion ? (
+                      {/* Improve Button */}
+                      <div className="flex justify-center">
+                        <Button
+                          onClick={handleImprove}
+                          disabled={isLoading}
+                          className="px-8 py-3 text-base font-medium"
+                          size="lg"
+                        >
+                          {isLoading ? (
+                            <div className="flex items-center">
+                              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                              Improving...
+                            </div>
+                          ) : (
+                            <div className="flex items-center">
+                              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                              </svg>
+                              Improve Comment
+                            </div>
+                          )}
+                        </Button>
+                      </div>
+
+                      {/* Progress Bar */}
+                      {isLoading && (
+                        <div className="space-y-2">
+                          <div className="flex justify-between text-sm text-slate-400">
+                            <span>Processing...</span>
+                            <span>{progress}%</span>
+                          </div>
+                          
+                          {shouldReduceMotion ? (
+                            <div className="w-full bg-slate-700 rounded-full h-2">
+                              <div 
+                                className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+                                style={{ width: `${progress}%` }}
+                              ></div>
+                            </div>
+                          ) : (
+                            <div className="w-full bg-slate-700 rounded-full h-2 overflow-hidden">
+                              <motion.div
+                                className="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full"
+                                initial={{ width: 0 }}
+                                animate={{ width: `${progress}%` }}
+                                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                              />
+                            </div>
+                          )}
+                        </div>
+                      )}
+
+                      {/* Results */}
+                      <AnimatePresence>
+                        {showResults && improvedComment && (
+                          <div ref={resultsRef}>
+                            {shouldReduceMotion ? (
+                              <div className="space-y-6 bg-slate-900/70 rounded-xl p-6 border border-green-500/30">
+                                <div className="flex items-center text-green-400">
+                                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                  </svg>
+                                  <h4 className="font-semibold">Improved Comment</h4>
+                                </div>
+
+                                <div className="space-y-4">
+                                  <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-600">
+                                    <h5 className="text-sm font-medium text-slate-400 mb-2">Before</h5>
+                                    <p className="text-slate-300">{getSelectedComment()?.text}</p>
+                                  </div>
+
+                                  <div className="bg-green-900/20 rounded-lg p-4 border border-green-500/30">
+                                    <h5 className="text-sm font-medium text-green-400 mb-2">After</h5>
+                                    <p className="text-slate-200 leading-relaxed">
+                                      {renderComparison()}
+                                    </p>
+                                  </div>
+                                </div>
+
+                                <div className="flex gap-3">
+                                  <Button onClick={handleSave} variant="default" className="flex-1">
+                                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3-3m0 0l-3 3m3-3v12" />
+                                    </svg>
+                                    Save Comment
+                                  </Button>
+                                  <Button 
+                                    onClick={() => setShowExplainDrawer(true)} 
+                                    variant="outline"
+                                    className="flex-1"
+                                  >
+                                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    Explain Changes
+                                  </Button>
+                                </div>
+                              </div>
+                            ) : (
+                              <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -20 }}
+                                transition={{ duration: 0.3 }}
+                                className="space-y-6 bg-slate-900/70 rounded-xl p-6 border border-green-500/30"
+                              >
+                                <motion.div 
+                                  className="flex items-center text-green-400"
+                                  initial={{ scale: 0.9 }}
+                                  animate={{ scale: 1 }}
+                                  transition={{ delay: 0.1 }}
+                                >
+                                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                  </svg>
+                                  <h4 className="font-semibold">Improved Comment</h4>
+                                </motion.div>
+
+                                <div className="space-y-4">
+                                  <motion.div 
+                                    className="bg-slate-800/50 rounded-lg p-4 border border-slate-600"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ delay: 0.2 }}
+                                  >
+                                    <h5 className="text-sm font-medium text-slate-400 mb-2">Before</h5>
+                                    <p className="text-slate-300">{getSelectedComment()?.text}</p>
+                                  </motion.div>
+
+                                  <motion.div 
+                                    className="bg-green-900/20 rounded-lg p-4 border border-green-500/30"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ delay: 0.3 }}
+                                  >
+                                    <h5 className="text-sm font-medium text-green-400 mb-2">After</h5>
+                                    <p className="text-slate-200 leading-relaxed">
+                                      {renderComparison()}
+                                    </p>
+                                  </motion.div>
+                                </div>
+
+                                <motion.div 
+                                  className="flex gap-3"
+                                  initial={{ opacity: 0 }}
+                                  animate={{ opacity: 1 }}
+                                  transition={{ delay: 0.4 }}
+                                >
+                                  <Button onClick={handleSave} variant="default" className="flex-1">
+                                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3-3m0 0l-3 3m3-3v12" />
+                                    </svg>
+                                    Save Comment
+                                  </Button>
+                                  <Button 
+                                    onClick={() => setShowExplainDrawer(true)} 
+                                    variant="outline"
+                                    className="flex-1"
+                                  >
+                                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    Explain Changes
+                                  </Button>
+                                </motion.div>
+                              </motion.div>
+                            )}
+                          </div>
+                        )}
+                      </AnimatePresence>
+                    </>
+                  )}
+                </div>
+              )}
+
+              {activeTab === 'explain' && (
+                <div className="text-center py-12">
+                  <svg className="w-16 h-16 text-slate-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                  <h4 className="text-lg font-medium text-slate-300 mb-2">AI Explanations</h4>
+                  <p className="text-slate-500">Get detailed explanations of comment improvements and suggestions.</p>
+                </div>
+              )}
+
+              {activeTab === 'history' && (
+                <div className="space-y-4">
+                  {comments.filter(c => c.isEdited).length === 0 ? (
+                    <div className="text-center py-12">
+                      <svg className="w-16 h-16 text-slate-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <h4 className="text-lg font-medium text-slate-300 mb-2">No Edit History</h4>
+                      <p className="text-slate-500">Comments you edit will appear here with their revision history.</p>
+                    </div>
+                  ) : (
+                    comments
+                      .filter(c => c.isEdited)
+                      .map((comment) => (
+                        <div key={comment.id} className="bg-slate-900/50 rounded-lg p-4 border border-slate-600">
+                          <div className="flex items-center justify-between mb-3">
+                            <h5 className="font-medium text-slate-200">Comment by {comment.author}</h5>
+                            <span className="text-xs text-slate-500">{formatTimestamp(comment.timestamp)}</span>
+                          </div>
+                          <p className="text-slate-300 mb-3">{comment.text}</p>
+                          {comment.editHistory && (
+                            <div className="space-y-2">
+                              {comment.editHistory.map((edit, index) => (
+                                <div key={index} className="text-sm text-slate-500 bg-slate-800/50 rounded p-2">
+                                  <div className="flex justify-between mb-1">
+                                    <span className="font-medium">Edit {index + 1}</span>
+                                    <span>{formatTimestamp(edit.timestamp)}</span>
+                                  </div>
+                                  <p className="text-xs">{edit.changes.join(', ')}</p>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      ))
+                  )}
+                </div>
+              )}
             </div>
-          ) : (
-            showResults || improvedText ? (
-                </motion.div>
-              ) : null
-            )}
+          </div>
         </div>
       </div>
 
-      <p className="text-xs text-slate-400 mt-6 text-center">
-        AI suggestions are starting points - always review and personalize for your specific context.
-      </p>
+      {/* Explanation Drawer */}
+      <AnimatePresence>
+        {showExplainDrawer && (
+          <>
+            {/* Backdrop */}
+            {shouldReduceMotion ? (
+              <div 
+                className="fixed inset-0 bg-black/50 z-40"
+                onClick={() => setShowExplainDrawer(false)}
+              />
+            ) : (
+              <motion.div 
+                className="fixed inset-0 bg-black/50 z-40"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setShowExplainDrawer(false)}
+              />
+            )}
+            
+            {/* Drawer */}
+            {shouldReduceMotion ? (
+              <div className="fixed right-0 top-0 bottom-0 w-96 bg-slate-800 border-l border-slate-700 z-50 flex flex-col">
+                <div className="flex items-center justify-between p-4 border-b border-slate-700">
+                  <h3 className="text-lg font-semibold text-white">Change Explanation</h3>
+                  <button
+                    onClick={() => setShowExplainDrawer(false)}
+                    className="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-slate-700 transition-colors"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+                
+                <div className="flex-1 p-4 overflow-y-auto">
+                  <div className="space-y-4">
+                    <div className="bg-slate-900/50 rounded-lg p-4">
+                      <h4 className="font-medium text-slate-300 mb-2">What Changed</h4>
+                      <p className="text-slate-400 text-sm">{explanation}</p>
+                    </div>
+                    
+                    <div className="bg-blue-900/20 rounded-lg p-4 border border-blue-500/30">
+                      <h4 className="font-medium text-blue-300 mb-2">Why This Improves Communication</h4>
+                      <ul className="text-blue-200 text-sm space-y-2">
+                        <li>• Uses constructive language that focuses on growth</li>
+                        <li>• Maintains professional tone appropriate for education</li>
+                        <li>• Provides actionable feedback rather than criticism</li>
+                        <li>• Builds positive relationships with students and parents</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <motion.div 
+                className="fixed right-0 top-0 bottom-0 w-96 bg-slate-800 border-l border-slate-700 z-50 flex flex-col"
+                initial={{ x: '100%' }}
+                animate={{ x: 0 }}
+                exit={{ x: '100%' }}
+                transition={{ type: 'tween', duration: 0.3 }}
+              >
+                <div className="flex items-center justify-between p-4 border-b border-slate-700">
+                  <h3 className="text-lg font-semibold text-white">Change Explanation</h3>
+                  <button
+                    onClick={() => setShowExplainDrawer(false)}
+                    className="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-slate-700 transition-colors"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+                
+                <div className="flex-1 p-4 overflow-y-auto">
+                  <motion.div 
+                    className="space-y-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 }}
+                  >
+                    <div className="bg-slate-900/50 rounded-lg p-4">
+                      <h4 className="font-medium text-slate-300 mb-2">What Changed</h4>
+                      <p className="text-slate-400 text-sm">{explanation}</p>
+                    </div>
+                    
+                    <div className="bg-blue-900/20 rounded-lg p-4 border border-blue-500/30">
+                      <h4 className="font-medium text-blue-300 mb-2">Why This Improves Communication</h4>
+                      <ul className="text-blue-200 text-sm space-y-2">
+                        <li>• Uses constructive language that focuses on growth</li>
+                        <li>• Maintains professional tone appropriate for education</li>
+                        <li>• Provides actionable feedback rather than criticism</li>
+                        <li>• Builds positive relationships with students and parents</li>
+                      </ul>
+                    </div>
+                  </motion.div>
+                </div>
+              </motion.div>
+            )}
+          </>
+        )}
+      </AnimatePresence>
 
-      {/* ZaraOrb with context-aware functionality */}
+      {/* Zara Orb Integration */}
       <ZaraOrb 
-        isInSnippetTool={true} 
-        onContextAction={handleContextAction}
+        isInSnippetTool={true}
+        onContextAction={(action) => {
+          // Handle context actions from Zara
+          if (action === 'Explain changes' && improvedComment) {
+            setShowExplainDrawer(true)
+          }
+        }}
       />
     </div>
   )
