@@ -85,6 +85,24 @@ export default function Footer() {
                   Terms
                 </Link>
               </li>
+              <li>
+                <Link href="/cookies" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
+                  Cookies
+                </Link>
+              </li>
+              <li>
+                <button
+                  onClick={() => {
+                    if (typeof window !== 'undefined') {
+                      localStorage.removeItem('promptly-cookie-consent')
+                      window.location.reload()
+                    }
+                  }}
+                  className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 text-left"
+                >
+                  Cookie Settings
+                </button>
+              </li>
             </ul>
           </div>
         </div>
