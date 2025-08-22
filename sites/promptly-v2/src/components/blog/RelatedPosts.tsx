@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { getRelatedPosts, type PostMeta } from '@/lib/blog'
+import { getRelatedPosts } from '@/lib/blog'
 
 interface RelatedPostsProps {
   currentSlug: string

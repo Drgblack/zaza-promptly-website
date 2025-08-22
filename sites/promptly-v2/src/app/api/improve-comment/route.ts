@@ -73,25 +73,6 @@ You are an expert educational comment writer specializing in creating substantia
 
 Return JSON with improved comment that transforms the draft into professional, strategic feedback.`
 
-const CRITIQUE_PROMPT = `Evaluate this comment against our rubric and score each criterion 0-1:
-
-1. **Specificity** (0-1): Does it include concrete examples, observable behaviors, or specific instances rather than generic statements?
-2. **Strategies** (0-1): Does it provide 2-3 clear, actionable strategies parents can implement at home?
-3. **Structure** (0-1): Does it have a clear flow with opening acknowledgment, main content, strategies, and encouraging close?
-4. **Tone** (0-1): Does it match the requested tone while remaining constructive and professional?
-5. **Language** (0-1): Is it parent-friendly, jargon-free, and appropriate for the reading level?
-
-Comment to evaluate: "{comment}"
-
-Return JSON:
-{
-  "specificity": 0-1,
-  "strategies": 0-1, 
-  "structure": 0-1,
-  "tone": 0-1,
-  "language": 0-1,
-  "failedCriteria": ["list specific issues if score < 0.8"]
-}`
 
 const REFINE_PROMPT = `The previous comment scored below our quality threshold. Please refine it to:
 
@@ -109,7 +90,7 @@ Settings: Tone={tone}, Reading Level={readingLevel}, Length={length}
 Return refined comment that meets all quality standards.`
 
 // Scoring rubric
-function scoreComment(comment: string, originalDraft: string): RubricScore {
+function scoreComment(comment: string): RubricScore {
   const failedCriteria: string[] = []
   
   // Specificity: Check for concrete examples, specific language
@@ -182,7 +163,7 @@ function scoreComment(comment: string, originalDraft: string): RubricScore {
 
 // Fallback template system
 function generateFallbackComment(input: z.infer<typeof InputSchema>): ImproveCommentResponse {
-  const { draft, tone, readingLevel, length, subject } = input
+  const { draft, tone, length, subject } = input
   
   // Extract key information
   const isPositive = draft.match(/\b(good|well|great|excellent|progress)\b/gi)
@@ -232,7 +213,7 @@ function generateFallbackComment(input: z.infer<typeof InputSchema>): ImproveCom
     rationale.push('Extended to provide more comprehensive feedback')
   }
   
-  const score = scoreComment(improved, draft)
+  const score = scoreComment(improved)
   
   return {
     improvedText: improved,
@@ -319,7 +300,7 @@ async function improveWithLLM(input: z.infer<typeof InputSchema>): Promise<Impro
     }
     
     // Score the result
-    const score = scoreComment(improvedText, draft)
+    const score = scoreComment(improvedText)
     
     // Self-critique: If score < 0.8 or any criteria failed, refine
     if (score.overall < 0.8 || score.failedCriteria.length > 0) {
@@ -357,7 +338,7 @@ async function improveWithLLM(input: z.infer<typeof InputSchema>): Promise<Impro
             rationaleBullets.push('Refined for enhanced specificity and strategic guidance')
             
             // Re-score
-            const newScore = scoreComment(improvedText, draft)
+            const newScore = scoreComment(improvedText)
             return {
               improvedText,
               rationaleBullets,

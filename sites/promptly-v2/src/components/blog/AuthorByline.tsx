@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { getAuthorMeta, type AuthorMeta } from '@/lib/blog'
+import { getAuthorMeta } from '@/lib/blog'
 
 interface AuthorBylineProps {
   authorName: string

@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { marked } from 'marked'
-import { getPostMeta, getPostSlugs, getAuthorMeta, calculateReadingTime, slugifyAuthor } from '@/lib/blog'
+import { getPostMeta, getPostSlugs, getAuthorMeta, calculateReadingTime } from '@/lib/blog'
 import AuthorByline from '@/components/blog/AuthorByline'
 import RelatedPosts from '@/components/blog/RelatedPosts'
 
@@ -34,37 +34,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const postDate = new Date(postMeta.date)
   const authorMeta = getAuthorMeta(postMeta.author || '')
 
-  // Add structured data for the blog post
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": postMeta.title,
-    "description": postMeta.description,
-    "image": `${baseUrl}/og-default.png`,
-    "author": {
-      "@type": "Person",
-      "name": postMeta.author || 'Promptly Team',
-      ...(authorMeta?.bio && { "description": authorMeta.bio }),
-      ...(authorMeta?.image && { "image": authorMeta.image })
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Promptly",
-      "logo": {
-        "@type": "ImageObject",
-        "url": `${baseUrl}/og-default.png`
-      }
-    },
-    "datePublished": postDate.toISOString(),
-    ...(postMeta.lastmod && { "dateModified": new Date(postMeta.lastmod).toISOString() }),
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": postUrl
-    },
-    "url": postUrl,
-    ...(postMeta.tags && { "keywords": postMeta.tags.join(', ') }),
-    ...(postMeta.category && { "articleSection": postMeta.category })
-  }
 
   return {
     title: `${postMeta.title} | Promptly Blog`,
