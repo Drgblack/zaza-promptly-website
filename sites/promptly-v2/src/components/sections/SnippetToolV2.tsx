@@ -34,6 +34,7 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
   const [variants, setVariants] = useState<CommentVariant[]>([])
   const [activeVariantIndex, setActiveVariantIndex] = useState(0)
   const [showAlternatives, setShowAlternatives] = useState(false)
+  const [selectedStrengths, setSelectedStrengths] = useState<string[]>([])
   const [improvedText, setImprovedText] = useState('')
   const [rationale, setRationale] = useState<string[]>([])
   const [warnings, setWarnings] = useState<string[]>([])
@@ -85,6 +86,22 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
     'French',
     'German',
     'Italian'
+  ]
+
+  // Non-PII strengths that can enhance suggestions
+  const strengthOptions = [
+    'Persistent',
+    'Team player',
+    'Curious',
+    'Creative',
+    'Organised',
+    'Helpful',
+    'Enthusiastic',
+    'Thoughtful',
+    'Resilient',
+    'Independent',
+    'Collaborative',
+    'Focused'
   ]
 
   // Load preferences from localStorage on mount
@@ -189,7 +206,8 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
           length: settings.length,
           language: settings.language,
           role: userRole,
-          alternatives: showAlternatives
+          alternatives: showAlternatives,
+          strengths: selectedStrengths.length > 0 ? selectedStrengths.join(', ') : undefined
         }),
       })
 
@@ -331,7 +349,8 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
           language: settings.language,
           role: userRole,
           explain: explainMode,
-          alternatives: showAlternatives
+          alternatives: showAlternatives,
+          strengths: selectedStrengths.length > 0 ? selectedStrengths.join(', ') : undefined
         }),
       })
 
@@ -446,6 +465,14 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
     }
   }
 
+  const handleStrengthToggle = (strength: string) => {
+    setSelectedStrengths(prev => 
+      prev.includes(strength)
+        ? prev.filter(s => s !== strength)
+        : [...prev, strength]
+    )
+  }
+
   // Simple word-level diff highlighting
   const renderDiff = (original: string, improved: string) => {
     const originalWords = original.split(/(\s+)/)
@@ -514,6 +541,16 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
             <p id="draft-text-help" className="text-xs text-slate-400 mt-1">
               Enter your draft comment and we&apos;ll improve it based on your preferences.
             </p>
+            <div className="mt-2 p-2 bg-blue-900/20 border border-blue-500/30 rounded-lg">
+              <div className="flex items-start">
+                <svg className="w-3 h-3 text-blue-400 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <p className="text-xs text-blue-300">
+                  <strong>Tip:</strong> Mention the subject and this week&apos;s goal for sharper suggestions.
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Controls */}
@@ -585,6 +622,35 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
                 </select>
               </div>
             </div>
+          </div>
+
+          {/* Optional Strengths */}
+          <div>
+            <label className="block text-xs font-medium text-slate-200 mb-2">
+              Student Strengths <span className="text-slate-400">(optional - helps tailor suggestions)</span>
+            </label>
+            <div className="flex flex-wrap gap-2">
+              {strengthOptions.map((strength) => (
+                <button
+                  key={strength}
+                  onClick={() => handleStrengthToggle(strength)}
+                  className={`px-3 py-1 text-xs rounded-full border transition-colors ${
+                    selectedStrengths.includes(strength)
+                      ? 'bg-purple-600/30 border-purple-500/50 text-purple-200'
+                      : 'bg-slate-800/50 border-slate-600/50 text-slate-300 hover:border-slate-500/50 hover:text-slate-200'
+                  }`}
+                  type="button"
+                  aria-pressed={selectedStrengths.includes(strength)}
+                >
+                  {strength}
+                </button>
+              ))}
+            </div>
+            {selectedStrengths.length > 0 && (
+              <p className="text-xs text-slate-400 mt-2">
+                Selected: {selectedStrengths.join(', ')}
+              </p>
+            )}
           </div>
 
           <Button
