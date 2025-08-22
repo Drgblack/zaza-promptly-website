@@ -23,7 +23,7 @@ export default function CaseStudyCard({ caseStudy, className }: CaseStudyCardPro
     <Link 
       href={`/case-studies/${slug}`}
       className={cn(
-        'group block rounded-2xl shadow-card border border-white/10 bg-slate-900/60 hover:bg-slate-900/80 transition-all duration-200 overflow-hidden',
+        'group block rounded-2xl shadow-card border border-white/10 bg-slate-900/60 hover:bg-slate-900/80 hover:shadow-lg hover:-translate-y-0.5 hover:scale-[1.01] transition-all duration-[120ms] ease-out overflow-hidden',
         'focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900',
         className
       )}

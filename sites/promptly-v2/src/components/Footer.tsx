@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import CookieSettingsButton from '@/components/cookies/CookieSettingsButton'
+import MotionSettingsButton from '@/components/motion/MotionSettingsButton'
 
 export default function Footer() {
   return (
@@ -94,6 +95,9 @@ export default function Footer() {
               </li>
               <li>
                 <CookieSettingsButton />
+              </li>
+              <li>
+                <MotionSettingsButton />
               </li>
             </ul>
           </div>

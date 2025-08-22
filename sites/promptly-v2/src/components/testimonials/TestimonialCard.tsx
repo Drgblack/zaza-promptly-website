@@ -15,7 +15,7 @@ export default function TestimonialCard({
 }: TestimonialCardProps) {
   if (variant === 'compact') {
     return (
-      <div className={`bg-slate-800/60 border border-slate-700/50 rounded-xl p-4 ${className}`}>
+      <div className={`bg-slate-800/60 border border-slate-700/50 rounded-xl p-4 hover:shadow-lg hover:-translate-y-0.5 hover:scale-[1.01] transition-all duration-[120ms] ease-out ${className}`}>
         <blockquote className="text-slate-300 text-sm mb-3 leading-relaxed">
           &ldquo;{testimonial.quote}&rdquo;
         </blockquote>
@@ -30,7 +30,7 @@ export default function TestimonialCard({
 
   if (variant === 'featured') {
     return (
-      <div className={`bg-gradient-to-br from-purple-600/10 to-blue-600/10 border border-purple-500/20 rounded-2xl p-8 ${className}`}>
+      <div className={`bg-gradient-to-br from-purple-600/10 to-blue-600/10 border border-purple-500/20 rounded-2xl p-8 hover:shadow-lg hover:-translate-y-0.5 hover:scale-[1.01] transition-all duration-[120ms] ease-out ${className}`}>
         {/* Quote Icon */}
         <div className="mb-6">
           <svg className="w-8 h-8 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
@@ -60,7 +60,7 @@ export default function TestimonialCard({
 
   // Default variant
   return (
-    <div className={`bg-slate-800/60 border border-slate-700/50 rounded-xl p-6 ${className}`}>
+    <div className={`bg-slate-800/60 border border-slate-700/50 rounded-xl p-6 hover:shadow-lg hover:-translate-y-0.5 hover:scale-[1.01] transition-all duration-[120ms] ease-out ${className}`}>
       <blockquote className="text-slate-300 mb-4 leading-relaxed">
         &ldquo;{testimonial.quote}&rdquo;
       </blockquote>

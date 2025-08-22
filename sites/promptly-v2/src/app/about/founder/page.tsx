@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import TimelineSection from '@/components/about/TimelineSection'
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
 
@@ -142,100 +143,7 @@ export default function FounderPage() {
         </section>
 
         {/* Journey Section */}
-        <section className="py-20 border-t border-white/10">
-          <div className="container">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-semibold text-white text-center mb-16">The Journey</h2>
-              
-              <div className="space-y-12">
-                {/* Timeline items */}
-                <div className="flex flex-col md:flex-row gap-6 items-start">
-                  <div className="md:w-48 flex-shrink-0">
-                    <div className="text-brand-400 font-semibold text-sm uppercase tracking-wide mb-1">1980s</div>
-                    <h3 className="text-xl font-semibold text-white">Painter&apos;s Apprenticeship</h3>
-                  </div>
-                  <div className="flex-1">
-                    <div className="p-6 bg-slate-800/40 border border-white/10 rounded-2xl">
-                      <p className="text-slate-300">Started at Cascade Brewery via father&apos;s connection at Tas Paints. Learned perseverance by finishing the trade.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col md:flex-row gap-6 items-start">
-                  <div className="md:w-48 flex-shrink-0">
-                    <div className="text-brand-400 font-semibold text-sm uppercase tracking-wide mb-1">Early 1990s</div>
-                    <h3 className="text-xl font-semibold text-white">World Travel</h3>
-                  </div>
-                  <div className="flex-1">
-                    <div className="p-6 bg-slate-800/40 border border-white/10 rounded-2xl">
-                      <p className="text-slate-300">Backpacked globally, immersed in new cultures, and realised the power of education.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col md:flex-row gap-6 items-start">
-                  <div className="md:w-48 flex-shrink-0">
-                    <div className="text-brand-400 font-semibold text-sm uppercase tracking-wide mb-1">1994–1995</div>
-                    <h3 className="text-xl font-semibold text-white">German Language Course</h3>
-                  </div>
-                  <div className="flex-1">
-                    <div className="p-6 bg-slate-800/40 border border-white/10 rounded-2xl">
-                      <p className="text-slate-300">Completed a Diploma in German in Frankfurt, which opened doors to university.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col md:flex-row gap-6 items-start">
-                  <div className="md:w-48 flex-shrink-0">
-                    <div className="text-brand-400 font-semibold text-sm uppercase tracking-wide mb-1">1995–1999</div>
-                    <h3 className="text-xl font-semibold text-white">UTAS — Information Systems</h3>
-                  </div>
-                  <div className="flex-1">
-                    <div className="p-6 bg-slate-800/40 border border-white/10 rounded-2xl">
-                      <p className="text-slate-300">University of Tasmania: Information Systems through to Honours.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col md:flex-row gap-6 items-start">
-                  <div className="md:w-48 flex-shrink-0">
-                    <div className="text-brand-400 font-semibold text-sm uppercase tracking-wide mb-1">2000–2004</div>
-                    <h3 className="text-xl font-semibold text-white">MBA — University of Queensland</h3>
-                  </div>
-                  <div className="flex-1">
-                    <div className="p-6 bg-slate-800/40 border border-white/10 rounded-2xl">
-                      <p className="text-slate-300">Master of Business Administration.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col md:flex-row gap-6 items-start">
-                  <div className="md:w-48 flex-shrink-0">
-                    <div className="text-brand-400 font-semibold text-sm uppercase tracking-wide mb-1">2016–2019</div>
-                    <h3 className="text-xl font-semibold text-white">PhD — Professional Education</h3>
-                  </div>
-                  <div className="flex-1">
-                    <div className="p-6 bg-slate-800/40 border border-white/10 rounded-2xl">
-                      <p className="text-slate-300">City, University of London: research in educational technology and professional development.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col md:flex-row gap-6 items-start">
-                  <div className="md:w-48 flex-shrink-0">
-                    <div className="text-brand-400 font-semibold text-sm uppercase tracking-wide mb-1">2025</div>
-                    <h3 className="text-xl font-semibold text-white">Zaza Technologies</h3>
-                  </div>
-                  <div className="flex-1">
-                    <div className="p-6 bg-gradient-to-br from-brand-600/20 to-purple-600/20 border border-brand-500/30 rounded-2xl">
-                      <p className="text-slate-200">Founded to build teacher-first AI tools, informed by decades of work across education and professional learning.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <TimelineSection />
 
         {/* Trust Stats Band */}
         <section className="border-t border-white/10 py-16">

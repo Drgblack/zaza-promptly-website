@@ -1,8 +1,10 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import ZaraOrb from '@/components/ui/ZaraOrb'
+import { usePrefersReducedMotion } from '@/lib/motion'
 
 interface QualityScore {
   score: number
@@ -49,6 +51,8 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
   const [copySuccess, setCopySuccess] = useState(false)
   const [showDiff, setShowDiff] = useState(false)
   const [showExplanation, setShowExplanation] = useState(false)
+  const [showResults, setShowResults] = useState(false)
+  const shouldReduceMotion = usePrefersReducedMotion()
   
   const resultRef = useRef<HTMLDivElement>(null)
   const ariaLiveRef = useRef<HTMLDivElement>(null)
@@ -139,6 +143,13 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
   // Keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      // ESC to close explanation drawer
+      if (event.key === 'Escape' && showExplanation) {
+        event.preventDefault()
+        setShowExplanation(false)
+        return
+      }
+      
       // Ctrl+Enter to Improve
       if (event.ctrlKey && event.key === 'Enter') {
         event.preventDefault()
@@ -158,12 +169,13 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
 
     document.addEventListener('keydown', handleKeyDown)
     return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [draftText, isImproving, improvedText])
+  }, [draftText, isImproving, improvedText, showExplanation])
 
   const handleImprove = async () => {
     if (!draftText.trim()) return
 
     setIsImproving(true)
+    setShowResults(false)
     setVariants([])
     setActiveVariantIndex(0)
     setImprovedText('')
@@ -238,6 +250,9 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
         setVariants([])
       }
 
+      // Show results with animation
+      setShowResults(true)
+
       // Announce to screen readers
       if (ariaLiveRef.current) {
         ariaLiveRef.current.textContent = 'Comment improved successfully. Check the results panel.'
@@ -253,7 +268,7 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
         if (resultRef.current) {
           resultRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
         }
-      }, 100)
+      }, 120) // Match animation duration
 
     } catch (error) {
       console.error('Error improving comment:', error)
@@ -497,16 +512,40 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
         } else if (!origWord && impWord) {
           // Word added
           result.push(
-            <span key={`added-${i}`} className="bg-green-900/40 text-green-300">
-              {impWord}
-            </span>
+            shouldReduceMotion ? (
+              <span key={`added-${i}`} className="bg-green-900/40 text-green-300">
+                {impWord}
+              </span>
+            ) : (
+              <motion.span 
+                key={`added-${i}`} 
+                className="bg-green-900/40 text-green-300"
+                initial={{ backgroundColor: 'rgba(34, 197, 94, 0.8)' }}
+                animate={{ backgroundColor: 'rgba(34, 197, 94, 0.25)' }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+              >
+                {impWord}
+              </motion.span>
+            )
           )
         } else {
           // Word changed
           result.push(
-            <span key={`changed-${i}`} className="bg-blue-900/40 text-blue-300">
-              {impWord}
-            </span>
+            shouldReduceMotion ? (
+              <span key={`changed-${i}`} className="bg-blue-900/40 text-blue-300">
+                {impWord}
+              </span>
+            ) : (
+              <motion.span 
+                key={`changed-${i}`} 
+                className="bg-blue-900/40 text-blue-300"
+                initial={{ backgroundColor: 'rgba(59, 130, 246, 0.8)' }}
+                animate={{ backgroundColor: 'rgba(59, 130, 246, 0.25)' }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+              >
+                {impWord}
+              </motion.span>
+            )
           )
         }
       } else if (origWord) {
@@ -653,6 +692,23 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
             )}
           </div>
 
+          {/* Progress Bar Container */}
+          <div className="relative">
+            {/* Progress Bar - only shows when improving */}
+            {isImproving && !shouldReduceMotion && (
+              <motion.div
+                className="absolute -top-1 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-500 to-purple-500 rounded-full"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: [0, 0.6, 0.8, 1, 0.8, 1] }}
+                transition={{ 
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                style={{ transformOrigin: "left" }}
+              />
+            )}
+
           <Button
             onClick={handleImprove}
             disabled={!draftText.trim() || isImproving}
@@ -662,6 +718,7 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
           >
             {isImproving ? 'Improving...' : 'Improve'}
           </Button>
+          </div>
           <p id="improve-button-help" className="text-xs text-slate-400">
             Enhance your comment with AI suggestions
             <br />
@@ -687,6 +744,22 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
 
         {/* Right: Improved Result */}
         <div className="xl:col-span-2 space-y-4" ref={resultRef} aria-live="polite" aria-label="Improved comment results">
+          {/* Animated Results Panel */}
+          {shouldReduceMotion ? (
+            <div className={showResults || improvedText ? 'block' : 'hidden'}>
+          ) : (
+            <AnimatePresence>
+              {(showResults || improvedText) && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.985 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.985 }}
+                  transition={{ duration: 0.12, ease: 'easeOut' }}
+                >
+              )}
+            </AnimatePresence>
+          )}
+          
           <div>
             <div className="flex items-center justify-between mb-2">
               <label htmlFor="improved-text" className="block text-sm font-medium text-white">
@@ -731,14 +804,27 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
 
             {/* Variant tabs */}
             {variants.length > 1 && (
-              <div className="flex border-b border-slate-600 mb-2">
+              <div className="relative flex border-b border-slate-600 mb-2">
+                {/* Animated underline */}
+                {!shouldReduceMotion && (
+                  <motion.div
+                    className="absolute bottom-0 h-0.5 bg-brand-500 rounded-full"
+                    initial={false}
+                    animate={{
+                      left: `${(activeVariantIndex / variants.length) * 100}%`,
+                      width: `${100 / variants.length}%`
+                    }}
+                    transition={{ duration: 0.12, ease: 'easeOut' }}
+                  />
+                )}
+                
                 {variants.map((variant, index) => (
                   <button
                     key={index}
                     onClick={() => handleVariantChange(index)}
-                    className={`px-3 py-2 text-sm font-medium transition-colors ${
+                    className={`flex-1 px-3 py-2 text-sm font-medium transition-colors ${
                       activeVariantIndex === index
-                        ? 'border-b-2 border-brand-500 text-brand-400'
+                        ? 'text-brand-400'
                         : 'text-slate-400 hover:text-slate-300'
                     }`}
                   >
@@ -868,20 +954,74 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
             </div>
           )}
 
-          {/* Explanation Panel */}
-          {showExplanation && rationale.length > 0 && (
-            <div className="p-4 bg-slate-800/50 border border-slate-600/50 rounded-lg">
-              <h4 className="text-sm font-medium text-white mb-3">Why this is better:</h4>
-              <ul className="space-y-2">
-                {rationale.map((point, index) => (
-                  <li key={index} className="flex items-start text-sm text-slate-300">
-                    <span className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    {point}
-                  </li>
-                ))}
-              </ul>
+          {/* Explanation Drawer */}
+          <AnimatePresence>
+            {showExplanation && rationale.length > 0 && (
+              <>
+                {/* Backdrop */}
+                <motion.div
+                  className="fixed inset-0 bg-black/50 z-40"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.16 }}
+                  onClick={() => setShowExplanation(false)}
+                />
+                
+                {/* Drawer */}
+                {shouldReduceMotion ? (
+                  <div className="fixed top-0 right-0 h-full w-full max-w-md bg-slate-800 border-l border-slate-600 shadow-2xl z-50 overflow-y-auto">
+                ) : (
+                  <motion.div
+                    className="fixed top-0 right-0 h-full w-full max-w-md bg-slate-800 border-l border-slate-600 shadow-2xl z-50 overflow-y-auto"
+                    initial={{ x: 12, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ x: 12, opacity: 0 }}
+                    transition={{ duration: 0.16, ease: 'easeOut' }}
+                  >
+                )}
+                  <div className="p-6 space-y-4">
+                    {/* Header */}
+                    <div className="flex items-center justify-between">
+                      <h4 className="text-lg font-medium text-white">Why this is better</h4>
+                      <button
+                        onClick={() => setShowExplanation(false)}
+                        className="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-slate-700/50 transition-colors"
+                        aria-label="Close explanation"
+                      >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </button>
+                    </div>
+                    
+                    {/* Content */}
+                    <ul className="space-y-3">
+                      {rationale.map((point, index) => (
+                        <li key={index} className="flex items-start text-sm text-slate-300">
+                          <span className="w-2 h-2 bg-purple-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                {shouldReduceMotion ? (
+                  </div>
+                ) : (
+                  </motion.div>
+                )}
+              </>
+            )}
+          </AnimatePresence>
+
+          {/* Close animated wrapper */}
+          {shouldReduceMotion ? (
             </div>
-          )}
+          ) : (
+            showResults || improvedText ? (
+                </motion.div>
+              ) : null
+            )}
         </div>
       </div>
 

@@ -25,7 +25,7 @@ export default function BlogCard({
   }
 
   return (
-    <article className="rounded-2xl shadow-card border border-white/5 bg-slate-800/60 hover:bg-slate-800/80 transition p-6 h-full flex flex-col">
+    <article className="rounded-2xl shadow-card border border-white/5 bg-slate-800/60 hover:bg-slate-800/80 hover:shadow-lg hover:-translate-y-0.5 hover:scale-[1.01] transition-all duration-[120ms] ease-out p-6 h-full flex flex-col">
       {/* Tags */}
       {showTags && post.tags && post.tags.length > 0 && (
         <div className="flex flex-wrap gap-2 mb-4">

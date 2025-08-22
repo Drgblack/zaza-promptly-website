@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import ScrollReveal from '@/components/animations/ScrollReveal'
 
 const STRIPE_ENABLED = Boolean(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY)
 const PRICE_ID_MONTHLY = process.env.NEXT_PUBLIC_STRIPE_PRICE_ID_PROMPTLY_MONTHLY
@@ -131,30 +132,32 @@ export default function PricingClient() {
       <div className="container">
         <div className="max-w-6xl mx-auto">
           {/* Billing Toggle */}
-          <div className="flex justify-center mb-16">
-            <div className="inline-flex items-center bg-slate-800/50 rounded-full p-1">
-              <button
-                onClick={() => setBillingCycle('monthly')}
-                className={`px-6 py-2 rounded-full font-medium transition-colors ${
-                  billingCycle === 'monthly'
-                    ? 'bg-purple-600 text-white'
-                    : 'text-slate-300 hover:text-white'
-                }`}
-              >
-                Monthly
-              </button>
-              <button
-                onClick={() => setBillingCycle('annual')}
-                className={`px-6 py-2 rounded-full font-medium transition-colors ${
-                  billingCycle === 'annual'
-                    ? 'bg-purple-600 text-white'
-                    : 'text-slate-300 hover:text-white'
-                }`}
-              >
-                Annual
-              </button>
+          <ScrollReveal duration={0.22}>
+            <div className="flex justify-center mb-16">
+              <div className="inline-flex items-center bg-slate-800/50 rounded-full p-1">
+                <button
+                  onClick={() => setBillingCycle('monthly')}
+                  className={`px-6 py-2 rounded-full font-medium transition-colors ${
+                    billingCycle === 'monthly'
+                      ? 'bg-purple-600 text-white'
+                      : 'text-slate-300 hover:text-white'
+                  }`}
+                >
+                  Monthly
+                </button>
+                <button
+                  onClick={() => setBillingCycle('annual')}
+                  className={`px-6 py-2 rounded-full font-medium transition-colors ${
+                    billingCycle === 'annual'
+                      ? 'bg-purple-600 text-white'
+                      : 'text-slate-300 hover:text-white'
+                  }`}
+                >
+                  Annual
+                </button>
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Dev Hint */}
           {process.env.NODE_ENV === 'development' && (
@@ -183,7 +186,8 @@ export default function PricingClient() {
           )}
 
           {/* Pricing Cards */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <ScrollReveal duration={0.26} delay={0.1}>
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {currentPlans.map((plan) => (
               <div
                 key={plan.name}
@@ -249,10 +253,10 @@ export default function PricingClient() {
                 <button
                   onClick={() => handleCheckout(plan.priceId, plan.name)}
                   disabled={!STRIPE_ENABLED || isLoading === plan.name}
-                  className={`w-full py-4 rounded-full font-semibold transition-all duration-200 ${
+                  className={`w-full py-4 rounded-full font-semibold transition-all duration-[120ms] ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 animate-focus-ring ${
                     plan.recommended
-                      ? 'bg-purple-600 hover:bg-purple-700 text-white shadow-lg hover:shadow-purple-600/25'
-                      : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
+                      ? 'bg-purple-600 hover:bg-purple-700 text-white shadow-lg hover:shadow-purple-600/25 focus:ring-purple-500/50'
+                      : 'bg-white/10 hover:bg-white/20 text-white border border-white/20 focus:ring-slate-500/50'
                   } ${
                     !STRIPE_ENABLED || isLoading === plan.name
                       ? 'opacity-50 cursor-not-allowed'
@@ -282,7 +286,8 @@ export default function PricingClient() {
                 )}
               </div>
             ))}
-          </div>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

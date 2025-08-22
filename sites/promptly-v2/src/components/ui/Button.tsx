@@ -1,12 +1,12 @@
 import { ButtonHTMLAttributes, forwardRef } from 'react'
 
 const getButtonClasses = (variant: 'primary' | 'secondary' | 'outline' = 'primary', size: 'sm' | 'md' | 'lg' = 'md') => {
-  const base = 'inline-flex items-center justify-center rounded-lg font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none'
+  const base = 'inline-flex items-center justify-center rounded-lg font-semibold transition-all duration-[120ms] ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none active:scale-[0.98]'
   
   const variants = {
-    primary: 'bg-brand-600 hover:bg-brand-700 text-white shadow-card focus:ring-brand-500/50',
-    secondary: 'border border-slate-600/60 hover:border-slate-400/60 bg-transparent text-slate-300 hover:text-white',
-    outline: 'border-2 border-brand-600 text-brand-600 hover:bg-brand-50 dark:hover:bg-brand-900/20',
+    primary: 'bg-brand-600 hover:bg-brand-700 text-white shadow-card focus:ring-brand-500/50 focus:ring-offset-slate-900 animate-focus-ring',
+    secondary: 'border border-slate-600/60 hover:border-slate-400/60 bg-transparent text-slate-300 hover:text-white focus:ring-slate-500/50 focus:ring-offset-slate-900 animate-focus-ring',
+    outline: 'border-2 border-brand-600 text-brand-600 hover:bg-brand-50 dark:hover:bg-brand-900/20 focus:ring-brand-500/50 focus:ring-offset-slate-900 animate-focus-ring',
   }
   
   const sizes = {

@@ -2,12 +2,17 @@
 
 import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { usePrefersReducedMotion } from '@/lib/motion'
 import ThemeToggle from './ui/ThemeToggle'
 import SearchInput from './search/SearchInput'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [solutionsOpen, setSolutionsOpen] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
+  const shouldReduceMotion = usePrefersReducedMotion()
   const solutionsRef = useRef<HTMLDivElement>(null)
   const mobileMenuRef = useRef<HTMLDivElement>(null)
 
@@ -38,8 +43,56 @@ export default function Header() {
     }
   }, [])
 
+  // Hide on scroll down, show on scroll up
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      const isScrollingDown = currentScrollY > lastScrollY
+      const scrollThreshold = 50 // Only start hiding after 50px scroll
+      
+      // Guard against mobile jank - use requestAnimationFrame for smoother animations
+      if (window.innerWidth <= 768) {
+        // On mobile, only hide after significant scroll and with debouncing
+        if (Math.abs(currentScrollY - lastScrollY) < 10) return
+      }
+      
+      if (currentScrollY < scrollThreshold) {
+        setIsVisible(true)
+      } else if (isScrollingDown && currentScrollY > lastScrollY + 10) {
+        // Hide when scrolling down (with small threshold to avoid jitter)
+        setIsVisible(false)
+        setSolutionsOpen(false) // Close dropdowns when hiding
+        setMobileMenuOpen(false)
+      } else if (!isScrollingDown && lastScrollY - currentScrollY > 10) {
+        // Show when scrolling up (with small threshold)
+        setIsVisible(true)
+      }
+      
+      setLastScrollY(currentScrollY)
+    }
+
+    // Use RAF for smoother performance
+    let ticking = false
+    const scrollListener = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll()
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+
+    window.addEventListener('scroll', scrollListener, { passive: true })
+    return () => window.removeEventListener('scroll', scrollListener)
+  }, [lastScrollY])
+
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-lg bg-slate-900/70 border-b border-white/10">
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-lg bg-slate-900/70 border-b border-white/10 transition-transform duration-300 ease-out ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}
+    >
       <div className="container">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
@@ -205,68 +258,138 @@ export default function Header() {
         </div>
 
         {/* Mobile menu */}
-        {mobileMenuOpen && (
-          <div 
-            id="mobile-menu" 
-            className="md:hidden py-4 border-t border-white/10" 
-            ref={mobileMenuRef}
-            role="navigation"
-            aria-label="Mobile navigation"
-          >
-            <div className="flex flex-col space-y-3">
-              {/* Mobile Search */}
-              <div className="pb-3 border-b border-white/10">
-                <SearchInput 
-                  placeholder="Search..."
-                  className="w-full"
-                />
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            shouldReduceMotion ? (
+              <div 
+                id="mobile-menu" 
+                className="md:hidden py-4 border-t border-white/10" 
+                ref={mobileMenuRef}
+                role="navigation"
+                aria-label="Mobile navigation"
+              >
+                {/* Mobile menu content will be duplicated in motion version */}
+                <div className="flex flex-col space-y-3">
+                  {/* Mobile Search */}
+                  <div className="pb-3 border-b border-white/10">
+                    <SearchInput 
+                      placeholder="Search..."
+                      className="w-full"
+                    />
+                  </div>
+                  
+                  <Link href="/products" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
+                    Products
+                  </Link>
+                  <Link href="/personas" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
+                    Our Solutions
+                  </Link>
+                  <Link href="/#snippet" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
+                    Snippet Tool
+                  </Link>
+                  <Link href="/blog" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
+                    Blog
+                  </Link>
+                  <Link href="/case-studies" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
+                    Case Studies
+                  </Link>
+                  <Link href="/learning-centre" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
+                    Learning Centre
+                  </Link>
+                  <Link href="/free-resources" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
+                    Free Resources
+                  </Link>
+                  <Link href="/about/founder" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
+                    Founder
+                  </Link>
+                  <Link href="/contact" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
+                    Contact
+                  </Link>
+                  <a 
+                    href="https://zazateach.com" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2"
+                  >
+                    Try Zaza Teach
+                  </a>
+                  <Link 
+                    href="/pricing"
+                    className="inline-flex items-center justify-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+                  >
+                    Get Started
+                  </Link>
+                  <ThemeToggle variant="mobile" />
+                </div>
               </div>
-              
-              <Link href="/products" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                Products
-              </Link>
-              <Link href="/personas" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                Our Solutions
-              </Link>
-              <Link href="/#snippet" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                Snippet Tool
-              </Link>
-              <Link href="/blog" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                Blog
-              </Link>
-              <Link href="/case-studies" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                Case Studies
-              </Link>
-              <Link href="/learning-centre" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                Learning Centre
-              </Link>
-              <Link href="/free-resources" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                Free Resources
-              </Link>
-              <Link href="/about/founder" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                Founder
-              </Link>
-              <Link href="/contact" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                Contact
-              </Link>
-              <a 
-                href="https://zazateach.com" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2"
+            ) : (
+              <motion.div 
+                id="mobile-menu" 
+                className="md:hidden py-4 border-t border-white/10" 
+                ref={mobileMenuRef}
+                role="navigation"
+                aria-label="Mobile navigation"
+                initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                transition={{ duration: 0.12, ease: 'easeOut' }}
               >
-                Try Zaza Teach
-              </a>
-              <Link 
-                href="/pricing"
-                className="inline-flex items-center justify-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900"
-              >
-                Get Started
-              </Link>
-              <ThemeToggle variant="mobile" />
-            </div>
-          </div>
-        )}
+                <div className="flex flex-col space-y-3">
+                  {/* Mobile Search */}
+                  <div className="pb-3 border-b border-white/10">
+                    <SearchInput 
+                      placeholder="Search..."
+                      className="w-full"
+                    />
+                  </div>
+                  
+                  <Link href="/products" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
+                    Products
+                  </Link>
+                  <Link href="/personas" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
+                    Our Solutions
+                  </Link>
+                  <Link href="/#snippet" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
+                    Snippet Tool
+                  </Link>
+                  <Link href="/blog" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
+                    Blog
+                  </Link>
+                  <Link href="/case-studies" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
+                    Case Studies
+                  </Link>
+                  <Link href="/learning-centre" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
+                    Learning Centre
+                  </Link>
+                  <Link href="/free-resources" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
+                    Free Resources
+                  </Link>
+                  <Link href="/about/founder" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
+                    Founder
+                  </Link>
+                  <Link href="/contact" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
+                    Contact
+                  </Link>
+                  <a 
+                    href="https://zazateach.com" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2"
+                  >
+                    Try Zaza Teach
+                  </a>
+                  <Link 
+                    href="/pricing"
+                    className="inline-flex items-center justify-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+                  >
+                    Get Started
+                  </Link>
+                  <ThemeToggle variant="mobile" />
+                </div>
+              </motion.div>
+            )
+          )}
+        </AnimatePresence>
       </div>
     </header>
   )

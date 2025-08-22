@@ -7,6 +7,8 @@ import AnalyticsProvider from "../components/analytics/AnalyticsProvider";
 import CookieBanner from "../components/marketing/CookieBanner";
 import ZaraOrbProvider from "../components/ui/ZaraOrbProvider";
 import { ThemeProvider } from "../providers/ThemeProvider";
+import { MotionProvider } from "../lib/motion";
+import PageTransition from "../components/layout/PageTransition";
 
 // Initialize Sentry configs safely
 if (typeof window !== 'undefined') {
@@ -110,26 +112,28 @@ export default function RootLayout({
         />
       </head>
       <ThemeProvider defaultTheme="system">
-        <AnalyticsProvider>
-          <body
-            className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
-          >
-            {/* Skip to content link for accessibility */}
-            <a 
-              href="#main-content" 
-              className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-white dark:bg-slate-800 text-black dark:text-white px-4 py-2 rounded-md font-medium shadow-lg z-50 focus:outline-none focus:ring-2 focus:ring-blue-600"
+        <MotionProvider>
+          <AnalyticsProvider>
+            <body
+              className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
             >
-              Skip to main content
-            </a>
-            <Header />
-            <main id="main-content" className="flex-1">
-              {children}
-            </main>
-            <Footer />
-            <CookieBanner />
-            <ZaraOrbProvider />
-          </body>
-        </AnalyticsProvider>
+              {/* Skip to content link for accessibility */}
+              <a 
+                href="#main-content" 
+                className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-white dark:bg-slate-800 text-black dark:text-white px-4 py-2 rounded-md font-medium shadow-lg z-50 focus:outline-none focus:ring-2 focus:ring-blue-600"
+              >
+                Skip to main content
+              </a>
+              <Header />
+              <PageTransition>
+                {children}
+              </PageTransition>
+              <Footer />
+              <CookieBanner />
+              <ZaraOrbProvider />
+            </body>
+          </AnalyticsProvider>
+        </MotionProvider>
       </ThemeProvider>
     </html>
   );

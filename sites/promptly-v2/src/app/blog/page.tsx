@@ -3,6 +3,7 @@ import { Metadata } from 'next'
 import { getPaginatedPosts } from '@/lib/blog'
 import BlogCard from '@/components/blog/BlogCard'
 import Pagination from '@/components/blog/Pagination'
+import BlogList from '@/components/blog/BlogList'
 
 // Blog listing page - revalidate every hour
 export const revalidate = 3600
@@ -52,11 +53,7 @@ export default async function BlogPage() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            {posts.map((post) => (
-              <BlogCard key={post.slug} post={post} />
-            ))}
-          </div>
+          <BlogList posts={posts} />
 
           {/* Pagination */}
           <Pagination

@@ -1,7 +1,9 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
+import { usePrefersReducedMotion } from '@/lib/motion'
 
 interface ZaraOrbProps {
   isInSnippetTool?: boolean
@@ -14,6 +16,7 @@ export default function ZaraOrb({ isInSnippetTool = false, onContextAction }: Za
   const [isMinimized, setIsMinimized] = useState(false)
   const [messages, setMessages] = useState<Array<{text: string, isUser: boolean}>>([])
   const [isLoading, setIsLoading] = useState(false)
+  const shouldReduceMotion = usePrefersReducedMotion()
   const orbRef = useRef<HTMLButtonElement>(null)
   const panelRef = useRef<HTMLDivElement>(null)
 
@@ -142,16 +145,40 @@ export default function ZaraOrb({ isInSnippetTool = false, onContextAction }: Za
   return (
     <>
       {/* Floating Orb */}
-      <button
-        ref={orbRef}
-        onClick={handleOrbClick}
-        className={`fixed bottom-6 right-6 w-14 h-14 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 flex items-center justify-center group ${
-          isMinimized ? 'animate-bounce' : ''
-        }`}
-        aria-label="Open Zara assistant"
-        aria-expanded={isOpen}
-        aria-controls="zara-panel"
-      >
+      {shouldReduceMotion ? (
+        <button
+          ref={orbRef}
+          onClick={handleOrbClick}
+          className={`fixed bottom-6 right-6 w-14 h-14 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 flex items-center justify-center group ${
+            isMinimized ? 'animate-bounce' : ''
+          }`}
+          aria-label="Open Zara assistant"
+          aria-expanded={isOpen}
+          aria-controls="zara-panel"
+        >
+      ) : (
+        <motion.button
+          ref={orbRef}
+          onClick={handleOrbClick}
+          className={`fixed bottom-6 right-6 w-14 h-14 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 flex items-center justify-center group ${
+            isMinimized ? 'animate-bounce' : ''
+          }`}
+          aria-label="Open Zara assistant"
+          aria-expanded={isOpen}
+          aria-controls="zara-panel"
+          animate={
+            !isOpen && !isMinimized ? {
+              scale: [1, 0.995, 1]
+            } : { scale: 1 }
+          }
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            repeatDelay: 8 - 2, // Total cycle is 8s: 2s animation + 6s delay
+            ease: 'easeInOut'
+          }}
+        >
+      )}
         <svg 
           className="w-6 h-6 text-white group-hover:scale-110 transition-transform" 
           fill="none" 
@@ -167,30 +194,54 @@ export default function ZaraOrb({ isInSnippetTool = false, onContextAction }: Za
           />
         </svg>
         <span className="absolute -top-2 -right-2 w-4 h-4 bg-green-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
-      </button>
+      {shouldReduceMotion ? (
+        </button>
+      ) : (
+        </motion.button>
+      )}
 
       {/* Side Panel Drawer */}
-      {isOpen && !isMinimized && (
-        <div 
-          className="fixed inset-0 z-40 overflow-hidden"
-          onKeyDown={handleKeyDown}
-        >
-          {/* Backdrop */}
+      <AnimatePresence>
+        {isOpen && !isMinimized && (
           <div 
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-            onClick={() => setIsOpen(false)}
-            aria-hidden="true"
-          ></div>
-          
-          {/* Panel */}
-          <div 
-            ref={panelRef}
-            id="zara-panel"
-            className="absolute right-0 top-0 h-full w-full max-w-md bg-slate-900 shadow-2xl border-l border-slate-700 flex flex-col"
-            role="dialog"
-            aria-labelledby="zara-title"
-            tabIndex={-1}
+            className="fixed inset-0 z-40 overflow-hidden"
+            onKeyDown={handleKeyDown}
           >
+            {/* Backdrop */}
+            <motion.div 
+              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+              onClick={() => setIsOpen(false)}
+              aria-hidden="true"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.16 }}
+            />
+            
+            {/* Panel */}
+            {shouldReduceMotion ? (
+              <div 
+                ref={panelRef}
+                id="zara-panel"
+                className="absolute right-0 top-0 h-full w-full max-w-md bg-slate-900 shadow-2xl border-l border-slate-700 flex flex-col"
+                role="dialog"
+                aria-labelledby="zara-title"
+                tabIndex={-1}
+              >
+            ) : (
+              <motion.div 
+                ref={panelRef}
+                id="zara-panel"
+                className="absolute right-0 top-0 h-full w-full max-w-md bg-slate-900 shadow-2xl border-l border-slate-700 flex flex-col"
+                role="dialog"
+                aria-labelledby="zara-title"
+                tabIndex={-1}
+                initial={{ y: 14, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: 14, opacity: 0 }}
+                transition={{ duration: 0.16, ease: 'easeOut' }}
+              >
+            )}
             {/* Header */}
             <div className="flex items-center justify-between p-4 border-b border-slate-700">
               <h2 id="zara-title" className="text-lg font-semibold text-white flex items-center">
@@ -330,10 +381,14 @@ export default function ZaraOrb({ isInSnippetTool = false, onContextAction }: Za
                   </Button>
                 </div>
               </div>
-            </div>
+            {shouldReduceMotion ? (
+              </div>
+            ) : (
+              </motion.div>
+            )}
           </div>
-        </div>
-      )}
+        )}
+      </AnimatePresence>
     </>
   )
 }
