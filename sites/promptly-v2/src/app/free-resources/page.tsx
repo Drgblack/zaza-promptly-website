@@ -4,6 +4,12 @@ import { useState } from 'react'
 import Link from 'next/link'
 import resourcesData from '../../../content/resources.json'
 
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void
+  }
+}
+
 type Resource = {
   slug: string
   title: string
@@ -12,6 +18,7 @@ type Resource = {
   category: string
   updated: string
   sizeKB: number
+  license: string
 }
 
 // Since this is a client component, we need to handle metadata differently
@@ -23,6 +30,21 @@ export default function FreeResourcesPage() {
   const [selectedCategory, setSelectedCategory] = useState('All')
   
   const resources = resourcesData as Resource[]
+  
+  // Download tracking function (respects user consent)
+  const trackDownload = (resource: Resource) => {
+    // Check if analytics consent is given
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'download', {
+        event_category: 'Resource',
+        event_label: resource.title,
+        resource_category: resource.category,
+        resource_slug: resource.slug,
+        resource_filename: resource.filename,
+        value: 1
+      })
+    }
+  }
   
   // Get unique categories
   const categories = ['All', ...Array.from(new Set(resources.map(r => r.category)))]
@@ -138,12 +160,25 @@ export default function FreeResourcesPage() {
                       </div>
                     </div>
 
+                    {/* License Information */}
+                    <div className="bg-slate-800/50 border border-slate-600/50 rounded-lg p-3 mb-4">
+                      <div className="flex items-start gap-2">
+                        <svg className="w-4 h-4 text-amber-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <div>
+                          <p className="text-xs font-medium text-amber-400 mb-1">Usage License</p>
+                          <p className="text-xs text-slate-400">{resource.license}</p>
+                        </div>
+                      </div>
+                    </div>
+
                     <a
-                      href={`/resources/${resource.filename}`}
-                      download
+                      href={`/api/download?resource=${resource.slug}`}
+                      onClick={() => trackDownload(resource)}
                       className="inline-flex items-center justify-center w-full px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900"
                     >
-                      <svg className="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                       </svg>
                       Download

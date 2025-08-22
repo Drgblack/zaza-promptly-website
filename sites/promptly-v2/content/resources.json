@@ -6,7 +6,8 @@
     "filename": "comment-tips.pdf",
     "category": "Guides",
     "updated": "2025-08-20",
-    "sizeKB": 240
+    "sizeKB": 240,
+    "license": "Personal classroom use only. Non-commercial."
   },
   {
     "slug": "report-template",
@@ -15,7 +16,8 @@
     "filename": "report-template.pdf",
     "category": "Templates",
     "updated": "2025-08-18",
-    "sizeKB": 180
+    "sizeKB": 180,
+    "license": "Personal classroom use only. Non-commercial."
   },
   {
     "slug": "parent-comm-guide",
@@ -24,7 +26,8 @@
     "filename": "parent-comm-guide.pdf",
     "category": "Guides",
     "updated": "2025-08-15",
-    "sizeKB": 210
+    "sizeKB": 210,
+    "license": "Personal classroom use only. Non-commercial."
   },
   {
     "slug": "ai-prompt-templates",
@@ -33,7 +36,8 @@
     "filename": "ai-prompt-templates.pdf",
     "category": "Templates",
     "updated": "2025-01-15",
-    "sizeKB": 320
+    "sizeKB": 320,
+    "license": "Personal classroom use only. Non-commercial."
   },
   {
     "slug": "assessment-rubrics",
@@ -42,7 +46,8 @@
     "filename": "assessment-rubrics.pdf",
     "category": "Templates",
     "updated": "2025-01-12",
-    "sizeKB": 280
+    "sizeKB": 280,
+    "license": "Personal classroom use only. Non-commercial."
   },
   {
     "slug": "classroom-management-guide",
@@ -51,7 +56,8 @@
     "filename": "classroom-management-guide.pdf",
     "category": "Guides",
     "updated": "2025-01-10",
-    "sizeKB": 420
+    "sizeKB": 420,
+    "license": "Personal classroom use only. Non-commercial."
   },
   {
     "slug": "lesson-planning-templates",
@@ -60,7 +66,8 @@
     "filename": "lesson-planning-templates.pdf",
     "category": "Templates",
     "updated": "2025-01-08",
-    "sizeKB": 360
+    "sizeKB": 360,
+    "license": "Personal classroom use only. Non-commercial."
   },
   {
     "slug": "time-management-guide",
@@ -69,7 +76,8 @@
     "filename": "time-management-guide.pdf",
     "category": "Guides",
     "updated": "2025-01-05",
-    "sizeKB": 290
+    "sizeKB": 290,
+    "license": "Personal classroom use only. Non-commercial."
   },
   {
     "slug": "differentiation-strategies",
@@ -78,7 +86,8 @@
     "filename": "differentiation-strategies.pdf",
     "category": "Guides",
     "updated": "2025-01-03",
-    "sizeKB": 380
+    "sizeKB": 380,
+    "license": "Personal classroom use only. Non-commercial."
   },
   {
     "slug": "parent-conference-templates",
@@ -87,7 +96,8 @@
     "filename": "parent-conference-templates.pdf",
     "category": "Templates",
     "updated": "2025-01-01",
-    "sizeKB": 220
+    "sizeKB": 220,
+    "license": "Personal classroom use only. Non-commercial."
   },
   {
     "slug": "behavior-intervention-plans",
@@ -96,7 +106,8 @@
     "filename": "behavior-intervention-plans.pdf",
     "category": "Templates",
     "updated": "2024-12-30",
-    "sizeKB": 340
+    "sizeKB": 340,
+    "license": "Personal classroom use only. Non-commercial."
   },
   {
     "slug": "formative-assessment-toolkit",
@@ -105,7 +116,8 @@
     "filename": "formative-assessment-toolkit.pdf",
     "category": "Guides",
     "updated": "2024-12-28",
-    "sizeKB": 310
+    "sizeKB": 310,
+    "license": "Personal classroom use only. Non-commercial."
   },
   {
     "slug": "student-goal-setting-worksheets",
@@ -114,6 +126,7 @@
     "filename": "student-goal-setting-worksheets.pdf",
     "category": "Templates",
     "updated": "2024-12-25",
-    "sizeKB": 190
+    "sizeKB": 190,
+    "license": "Personal classroom use only. Non-commercial."
   }
 ]
