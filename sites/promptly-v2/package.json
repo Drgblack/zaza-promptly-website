@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/build-search-index.js && tsx scripts/generate-pdfs.ts && tsx scripts/build-resources-meta.ts && next build && next-sitemap",
+    "build": "node scripts/build-search-index.js && npx playwright install chromium --with-deps && tsx scripts/generate-pdfs.ts && tsx scripts/build-resources-meta.ts && next build && next-sitemap",
     "build:search": "node scripts/build-search-index.js",
     "build:resources": "tsx scripts/build-resources-meta.ts",
     "start": "next start",
