@@ -47,9 +47,11 @@ function isSafeFilename(filename: string): boolean {
   return safePattern.test(filename)
 }
 
-export async function GET(
+// Shared logic for both GET and HEAD requests
+async function handleRequest(
   request: NextRequest,
-  { params }: { params: { filename: string } }
+  { params }: { params: { filename: string } },
+  isHeadRequest: boolean = false
 ) {
   const { filename } = params
 
@@ -84,9 +86,6 @@ export async function GET(
       )
     }
 
-    // Read file
-    const fileBuffer = await readFile(filePath)
-    
     // Get file info
     const { extension, mimeType } = getFileInfo(filename)
     
@@ -96,8 +95,15 @@ export async function GET(
       ? 'inline' 
       : `attachment; filename="${filename}"`
 
+    // For HEAD requests, don't read the file content
+    let responseBody: ReadableStream | null = null
+    if (!isHeadRequest) {
+      const fileBuffer = await readFile(filePath)
+      responseBody = fileBuffer as unknown as ReadableStream
+    }
+
     // Create response with proper headers
-    const response = new NextResponse(fileBuffer as unknown as ReadableStream)
+    const response = new NextResponse(responseBody)
     
     response.headers.set('Content-Type', mimeType)
     response.headers.set('Content-Disposition', disposition)
@@ -121,4 +127,20 @@ export async function GET(
       { status: 500 }
     )
   }
+}
+
+// Export GET handler
+export async function GET(
+  request: NextRequest,
+  { params }: { params: { filename: string } }
+) {
+  return handleRequest(request, { params }, false)
+}
+
+// Export HEAD handler - returns same headers but no body
+export async function HEAD(
+  request: NextRequest,
+  { params }: { params: { filename: string } }
+) {
+  return handleRequest(request, { params }, true)
 }
