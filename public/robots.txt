@@ -1,30 +1,54 @@
 # Zaza Promptly - AI-Powered Teacher Tools
-# https://zazapromptly.com User-agent: *
-Allow: / # Allow all major search engines
-User-agent: Googlebot
-Allow: / User-agent: Bingbot Allow: / User-agent: Slurp
-Allow: / User-agent: DuckDuckBot
-Allow: / User-agent: Baiduspider
-Allow: / User-agent: YandexBot
-Allow: / # Disallow admin and api endpoints
+# https://zazapromptly.com
+
+# Allow all major search engines
+User-agent: *
+Allow: /
+
+# Disallow admin and api endpoints
 Disallow: /api/
 Disallow: /admin/
 Disallow: /_next/
 Disallow: /checkout/
-Disallow: /generate-blog/ # Allow but reduce crawl frequency for legal pages
-User-agent: *
-Crawl-delay: 1 # Block AI training crawlers to protect proprietary content
+Disallow: /generate-blog/
+
+# Crawl delay
+Crawl-delay: 1
+
+# Block AI training crawlers to protect proprietary content
 User-agent: GPTBot
-Disallow: / User-agent: ChatGPT-User
-Disallow: / User-agent: CCBot
-Disallow: / User-agent: anthropic-ai
-Disallow: / User-agent: Claude-Web
-Disallow: / User-agent: FacebookBot
-Disallow: / # Block other content scrapers
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+# Block other content scrapers
 User-agent: ia_archiver
-Disallow: / User-agent: SemrushBot
-Disallow: / User-agent: AhrefsBot
-Disallow: / User-agent: MJ12bot
-Disallow: / # Sitemap location
-Sitemap: https://zazapromptly.com/sitemap.xml # Host declaration
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://zazapromptly.com/sitemap.xml
+
+# Host declaration
 Host: https://zazapromptly.com
