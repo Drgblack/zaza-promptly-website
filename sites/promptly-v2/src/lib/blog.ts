@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import type { PostMeta } from './blog-types'
 
 // Re-export types from the types file for server-side usage
 export type {
