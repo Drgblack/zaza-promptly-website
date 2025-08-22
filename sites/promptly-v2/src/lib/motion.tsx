@@ -292,14 +292,14 @@ export function getMotionTransition(transition: Transition, shouldReduceMotion: 
 // Utility for creating motion-aware components
 export function createMotionComponent<T extends Record<string, unknown>>(
   variants: Variants,
-  defaultTransition: Transition = defaultTransition
+  transition: Transition = defaultTransition
 ) {
   return function MotionComponent(props: T & { children: React.ReactNode }) {
     const shouldReduceMotion = usePrefersReducedMotion()
     
     return {
       variants: getMotionVariants(variants, shouldReduceMotion),
-      transition: getMotionTransition(defaultTransition, shouldReduceMotion),
+      transition: getMotionTransition(transition, shouldReduceMotion),
       ...props,
     }
   }
