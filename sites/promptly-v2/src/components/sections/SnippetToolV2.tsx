@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import { Button } from '@/components/ui/Button'
 import ZaraOrb from '@/components/ui/ZaraOrb'
 
@@ -264,7 +264,7 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
               aria-describedby="draft-text-help"
             />
             <p id="draft-text-help" className="text-xs text-slate-400 mt-1">
-              Enter your draft comment and we'll improve it based on your preferences.
+              Enter your draft comment and we&apos;ll improve it based on your preferences.
             </p>
           </div>
 

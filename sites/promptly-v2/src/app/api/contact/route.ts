@@ -1,8 +1,17 @@
 import { NextResponse } from 'next/server'
 import { capture } from '../../../lib/obs'
 
+interface ContactData {
+  name: string
+  email: string
+  role: string
+  subject: string
+  message: string
+  honeypot?: string
+}
+
 // Simple server-side validation
-function validateContactData(data: any) {
+function validateContactData(data: ContactData) {
   const errors = []
   
   if (!data.name?.trim()) {
@@ -30,7 +39,7 @@ function validateContactData(data: any) {
   return errors
 }
 
-async function sendBrevoEmail(contactData: any) {
+async function sendBrevoEmail(contactData: ContactData) {
   const brevoApiKey = process.env.BREVO_API_KEY
   
   if (!brevoApiKey) {

@@ -261,8 +261,8 @@ export default function ContactForm() {
         {/* GDPR Notice */}
         <div className="bg-slate-800/40 border border-white/10 rounded-xl p-4 text-sm text-slate-300">
           <p className="mb-2">
-            <strong className="text-slate-200">Data Usage:</strong> We'll use your information to respond to your inquiry. 
-            We won't share your details with third parties or add you to mailing lists without explicit consent.
+            <strong className="text-slate-200">Data Usage:</strong> We&apos;ll use your information to respond to your inquiry. 
+            We won&apos;t share your details with third parties or add you to mailing lists without explicit consent.
           </p>
           <p>
             By submitting this form, you agree to our{' '}

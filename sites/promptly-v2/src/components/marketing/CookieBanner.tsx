@@ -28,8 +28,8 @@ export default function CookieBanner() {
   const isDoNotTrack = () => {
     if (typeof window === 'undefined') return false
     return navigator.doNotTrack === '1' || 
-           (window as any).doNotTrack === '1' || 
-           (navigator as any).msDoNotTrack === '1'
+           (window as unknown as { doNotTrack?: string }).doNotTrack === '1' || 
+           (navigator as unknown as { msDoNotTrack?: string }).msDoNotTrack === '1'
   }
 
   useEffect(() => {

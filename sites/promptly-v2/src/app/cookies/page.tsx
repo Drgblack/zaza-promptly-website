@@ -43,7 +43,7 @@ export default function CookiesPage() {
             </h1>
             <p className="text-xl text-slate-300 mb-8 max-w-[720px] mx-auto">
               We use cookies to improve your experience and understand how our site is used. 
-              Here's how and why we use them.
+              Here&apos;s how and why we use them.
             </p>
             <div className="text-sm text-slate-400">
               Last updated: {new Date().toLocaleDateString('en-GB', { 
@@ -151,7 +151,7 @@ export default function CookiesPage() {
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-2">Cookie Consent</h3>
                     <p className="text-slate-300 leading-relaxed">
-                      When you first visit our site, you'll see a cookie banner asking for your consent. 
+                      When you first visit our site, you&apos;ll see a cookie banner asking for your consent. 
                       You can choose to accept all cookies, decline non-essential cookies, or manage your 
                       preferences individually.
                     </p>
@@ -160,8 +160,8 @@ export default function CookiesPage() {
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-2">Do Not Track</h3>
                     <p className="text-slate-300 leading-relaxed">
-                      We respect the "Do Not Track" setting in your browser. If you have Do Not Track enabled, 
-                      we will not load analytics cookies automatically, even if you haven't explicitly 
+                      We respect the &quot;Do Not Track&quot; setting in your browser. If you have Do Not Track enabled, 
+                      we will not load analytics cookies automatically, even if you haven&apos;t explicitly 
                       declined them.
                     </p>
                   </div>

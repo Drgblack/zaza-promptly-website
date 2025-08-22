@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 // Google Analytics 4
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 // Plausible
-const PLAUSIBLE_DOMAIN = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN || 'promptly.zazatechnologies.com'
+// const PLAUSIBLE_DOMAIN = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN || 'promptly.zazatechnologies.com'
 
 interface CookieConsent {
   version: string
@@ -33,8 +33,8 @@ export default function AnalyticsProvider({ children }: { children: React.ReactN
   const isDoNotTrack = () => {
     if (typeof window === 'undefined') return false
     return navigator.doNotTrack === '1' || 
-           (window as any).doNotTrack === '1' || 
-           (navigator as any).msDoNotTrack === '1'
+           (window as unknown as { doNotTrack?: string }).doNotTrack === '1' || 
+           (navigator as unknown as { msDoNotTrack?: string }).msDoNotTrack === '1'
   }
 
   const getStoredConsent = (): CookieConsent | null => {
