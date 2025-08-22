@@ -1,0 +1,482 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - generic [ref=e5]:
+      - link "Promptly" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img [ref=e9] [cursor=pointer]
+        - generic [ref=e11] [cursor=pointer]: Promptly
+      - navigation "Main navigation" [ref=e12]:
+        - link "Products" [ref=e13] [cursor=pointer]:
+          - /url: /products
+        - button "Our Solutions" [ref=e15] [cursor=pointer]:
+          - text: Our Solutions
+          - img [ref=e16] [cursor=pointer]
+        - link "Quick Comment Helper" [ref=e18] [cursor=pointer]:
+          - /url: /#snippet
+        - link "Blog" [ref=e19] [cursor=pointer]:
+          - /url: /blog
+        - link "Case Studies" [ref=e20] [cursor=pointer]:
+          - /url: /case-studies
+        - link "Learning Centre" [ref=e21] [cursor=pointer]:
+          - /url: /learning-centre
+        - link "FAQ" [ref=e22] [cursor=pointer]:
+          - /url: /faq
+        - link "Free Resources" [ref=e23] [cursor=pointer]:
+          - /url: /free-resources
+        - link "Meet Your Fellow Educator" [ref=e24] [cursor=pointer]:
+          - /url: /about/founder
+        - link "Contact" [ref=e25] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=e26]:
+        - generic [ref=e29]:
+          - generic:
+            - img
+          - combobox "Search blog posts and case studies" [ref=e30]
+        - link "Try Free Classroom Tool" [ref=e32] [cursor=pointer]:
+          - /url: /products#teach
+        - link "Try Free for Your Classroom" [ref=e33] [cursor=pointer]:
+          - /url: /pricing
+        - button "Switch to light theme" [ref=e34] [cursor=pointer]:
+          - img [ref=e36] [cursor=pointer]
+  - main [ref=e38]:
+    - generic [ref=e39]:
+      - generic [ref=e42]:
+        - heading "Frequently Asked Questions" [level=1] [ref=e43]
+        - paragraph [ref=e44]: Get answers about AI for teachers, data privacy, school licensing, and how Promptly helps reduce workload while improving student communication.
+        - generic [ref=e45]:
+          - generic:
+            - img
+          - textbox "Search frequently asked questions" [ref=e46]
+      - generic [ref=e48]:
+        - navigation "FAQ Categories" [ref=e50]:
+          - heading "Categories" [level=2] [ref=e51]
+          - list [ref=e52]:
+            - listitem [ref=e53]:
+              - link "Getting Started(8)" [ref=e54] [cursor=pointer]:
+                - /url: "#getting-started"
+                - text: Getting Started
+                - generic [ref=e55] [cursor=pointer]: (8)
+            - listitem [ref=e56]:
+              - link "AI Quality & Pedagogy(7)" [ref=e57] [cursor=pointer]:
+                - /url: "#ai-quality-pedagogy"
+                - text: AI Quality & Pedagogy
+                - generic [ref=e58] [cursor=pointer]: (7)
+            - listitem [ref=e59]:
+              - link "Data Privacy & Safety(4)" [ref=e60] [cursor=pointer]:
+                - /url: "#data-privacy-safety-gdpr"
+                - text: Data Privacy & Safety
+                - generic [ref=e61] [cursor=pointer]: (4)
+            - listitem [ref=e62]:
+              - link "Pricing & Billing(4)" [ref=e63] [cursor=pointer]:
+                - /url: "#pricing-billing"
+                - text: Pricing & Billing
+                - generic [ref=e64] [cursor=pointer]: (4)
+            - listitem [ref=e65]:
+              - link "Schools & IT(4)" [ref=e66] [cursor=pointer]:
+                - /url: "#schools-it-deployments-sso-dpa"
+                - text: Schools & IT
+                - generic [ref=e67] [cursor=pointer]: (4)
+            - listitem [ref=e68]:
+              - link "Accessibility & Languages(3)" [ref=e69] [cursor=pointer]:
+                - /url: "#accessibility-languages"
+                - text: Accessibility & Languages
+                - generic [ref=e70] [cursor=pointer]: (3)
+            - listitem [ref=e71]:
+              - link "Integrations(3)" [ref=e72] [cursor=pointer]:
+                - /url: "#integrations-stripe-brevo"
+                - text: Integrations
+                - generic [ref=e73] [cursor=pointer]: (3)
+            - listitem [ref=e74]:
+              - link "Accounts & Subscriptions(1)" [ref=e75] [cursor=pointer]:
+                - /url: "#accounts-subscriptions"
+                - text: Accounts & Subscriptions
+                - generic [ref=e76] [cursor=pointer]: (1)
+            - listitem [ref=e77]:
+              - link "Troubleshooting(2)" [ref=e78] [cursor=pointer]:
+                - /url: "#troubleshooting"
+                - text: Troubleshooting
+                - generic [ref=e79] [cursor=pointer]: (2)
+        - generic [ref=e81]:
+          - region "Getting Started" [ref=e82]:
+            - generic [ref=e83]:
+              - heading "Getting Started" [level=2] [ref=e84]
+              - paragraph [ref=e85]: New to Promptly? Start here for basics and getting up and running.
+            - generic [ref=e86]:
+              - button "Can AI help reduce teacher burnout and stress? Copy link to this question" [ref=e88] [cursor=pointer]:
+                - generic [ref=e89] [cursor=pointer]:
+                  - heading "Can AI help reduce teacher burnout and stress?" [level=3] [ref=e90] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e91] [cursor=pointer]:
+                    - img [ref=e92] [cursor=pointer]
+                - img [ref=e97] [cursor=pointer]
+              - button "Can Promptly help with parent emails and difficult conversations? Copy link to this question" [ref=e100] [cursor=pointer]:
+                - generic [ref=e101] [cursor=pointer]:
+                  - heading "Can Promptly help with parent emails and difficult conversations?" [level=3] [ref=e102] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e103] [cursor=pointer]:
+                    - img [ref=e104] [cursor=pointer]
+                - img [ref=e109] [cursor=pointer]
+              - button "Does Promptly work for all subjects and age groups? Copy link to this question" [ref=e112] [cursor=pointer]:
+                - generic [ref=e113] [cursor=pointer]:
+                  - heading "Does Promptly work for all subjects and age groups?" [level=3] [ref=e114] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e115] [cursor=pointer]:
+                    - img [ref=e116] [cursor=pointer]
+                - img [ref=e121] [cursor=pointer]
+              - button "How do I get started with Promptly for the first time? Copy link to this question" [ref=e124] [cursor=pointer]:
+                - generic [ref=e125] [cursor=pointer]:
+                  - heading "How do I get started with Promptly for the first time?" [level=3] [ref=e126] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e127] [cursor=pointer]:
+                    - img [ref=e128] [cursor=pointer]
+                - img [ref=e133] [cursor=pointer]
+              - button "How do I use the free Snippet Tool? Copy link to this question" [ref=e136] [cursor=pointer]:
+                - generic [ref=e137] [cursor=pointer]:
+                  - heading "How do I use the free Snippet Tool?" [level=3] [ref=e138] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e139] [cursor=pointer]:
+                    - img [ref=e140] [cursor=pointer]
+                - img [ref=e145] [cursor=pointer]
+              - button "How do I write my own comment and have Promptly improve it? Copy link to this question" [ref=e148] [cursor=pointer]:
+                - generic [ref=e149] [cursor=pointer]:
+                  - heading "How do I write my own comment and have Promptly improve it?" [level=3] [ref=e150] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e151] [cursor=pointer]:
+                    - img [ref=e152] [cursor=pointer]
+                - img [ref=e157] [cursor=pointer]
+              - button "What is Zaza Promptly and how does it help teachers? Copy link to this question" [ref=e160] [cursor=pointer]:
+                - generic [ref=e161] [cursor=pointer]:
+                  - heading "What is Zaza Promptly and how does it help teachers?" [level=3] [ref=e162] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e163] [cursor=pointer]:
+                    - img [ref=e164] [cursor=pointer]
+                - img [ref=e169] [cursor=pointer]
+              - button "Will Promptly actually reduce my workload and save time? Copy link to this question" [ref=e172] [cursor=pointer]:
+                - generic [ref=e173] [cursor=pointer]:
+                  - heading "Will Promptly actually reduce my workload and save time?" [level=3] [ref=e174] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e175] [cursor=pointer]:
+                    - img [ref=e176] [cursor=pointer]
+                - img [ref=e181] [cursor=pointer]
+          - region "AI Quality & Pedagogy" [ref=e183]:
+            - generic [ref=e184]:
+              - heading "AI Quality & Pedagogy" [level=2] [ref=e185]
+              - paragraph [ref=e186]: Understanding how AI works for education and maintaining professional standards.
+            - generic [ref=e187]:
+              - button "How can I make feedback more specific without being too personal? Copy link to this question" [ref=e189] [cursor=pointer]:
+                - generic [ref=e190] [cursor=pointer]:
+                  - heading "How can I make feedback more specific without being too personal?" [level=3] [ref=e191] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e192] [cursor=pointer]:
+                    - img [ref=e193] [cursor=pointer]
+                - img [ref=e198] [cursor=pointer]
+              - button "How does Promptly improve my report comments? Copy link to this question" [ref=e201] [cursor=pointer]:
+                - generic [ref=e202] [cursor=pointer]:
+                  - heading "How does Promptly improve my report comments?" [level=3] [ref=e203] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e204] [cursor=pointer]:
+                    - img [ref=e205] [cursor=pointer]
+                - img [ref=e210] [cursor=pointer]
+              - button "How is Zaza Promptly different from ChatGPT? Copy link to this question" [ref=e213] [cursor=pointer]:
+                - generic [ref=e214] [cursor=pointer]:
+                  - heading "How is Zaza Promptly different from ChatGPT?" [level=3] [ref=e215] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e216] [cursor=pointer]:
+                    - img [ref=e217] [cursor=pointer]
+                - img [ref=e222] [cursor=pointer]
+              - button "Is using AI for teaching cheating or unprofessional? Copy link to this question" [ref=e225] [cursor=pointer]:
+                - generic [ref=e226] [cursor=pointer]:
+                  - heading "Is using AI for teaching cheating or unprofessional?" [level=3] [ref=e227] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e228] [cursor=pointer]:
+                    - img [ref=e229] [cursor=pointer]
+                - img [ref=e234] [cursor=pointer]
+              - button "What prevents Promptly from generating false information about students? Copy link to this question" [ref=e237] [cursor=pointer]:
+                - generic [ref=e238] [cursor=pointer]:
+                  - heading "What prevents Promptly from generating false information about students?" [level=3] [ref=e239] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e240] [cursor=pointer]:
+                    - img [ref=e241] [cursor=pointer]
+                - img [ref=e246] [cursor=pointer]
+              - button "What tones and reading levels does Promptly support? Copy link to this question" [ref=e249] [cursor=pointer]:
+                - generic [ref=e250] [cursor=pointer]:
+                  - heading "What tones and reading levels does Promptly support?" [level=3] [ref=e251] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e252] [cursor=pointer]:
+                    - img [ref=e253] [cursor=pointer]
+                - img [ref=e258] [cursor=pointer]
+              - button "Will the comments sound like me or like a robot? Copy link to this question" [ref=e261] [cursor=pointer]:
+                - generic [ref=e262] [cursor=pointer]:
+                  - heading "Will the comments sound like me or like a robot?" [level=3] [ref=e263] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e264] [cursor=pointer]:
+                    - img [ref=e265] [cursor=pointer]
+                - img [ref=e270] [cursor=pointer]
+          - region "Data Privacy & Safety" [ref=e272]:
+            - generic [ref=e273]:
+              - heading "Data Privacy & Safety" [level=2] [ref=e274]
+              - paragraph [ref=e275]: GDPR compliance, data protection, and privacy for schools and teachers.
+            - generic [ref=e276]:
+              - button "Can I delete my data and account completely? Copy link to this question Draft" [ref=e278] [cursor=pointer]:
+                - generic [ref=e279] [cursor=pointer]:
+                  - heading "Can I delete my data and account completely?" [level=3] [ref=e280] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e281] [cursor=pointer]:
+                    - img [ref=e282] [cursor=pointer]
+                  - generic [ref=e285] [cursor=pointer]: Draft
+                - img [ref=e288] [cursor=pointer]
+              - button "Do you train AI models on my student data? Copy link to this question Draft" [ref=e291] [cursor=pointer]:
+                - generic [ref=e292] [cursor=pointer]:
+                  - heading "Do you train AI models on my student data?" [level=3] [ref=e293] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e294] [cursor=pointer]:
+                    - img [ref=e295] [cursor=pointer]
+                  - generic [ref=e298] [cursor=pointer]: Draft
+                - img [ref=e301] [cursor=pointer]
+              - button "Is my student data safe and GDPR compliant? Copy link to this question Draft" [ref=e304] [cursor=pointer]:
+                - generic [ref=e305] [cursor=pointer]:
+                  - heading "Is my student data safe and GDPR compliant?" [level=3] [ref=e306] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e307] [cursor=pointer]:
+                    - img [ref=e308] [cursor=pointer]
+                  - generic [ref=e311] [cursor=pointer]: Draft
+                - img [ref=e314] [cursor=pointer]
+              - button "Where is my data stored and processed? Copy link to this question Draft" [ref=e317] [cursor=pointer]:
+                - generic [ref=e318] [cursor=pointer]:
+                  - heading "Where is my data stored and processed?" [level=3] [ref=e319] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e320] [cursor=pointer]:
+                    - img [ref=e321] [cursor=pointer]
+                  - generic [ref=e324] [cursor=pointer]: Draft
+                - img [ref=e327] [cursor=pointer]
+          - region "Pricing & Billing" [ref=e329]:
+            - generic [ref=e330]:
+              - heading "Pricing & Billing" [level=2] [ref=e331]
+              - paragraph [ref=e332]: Subscription costs, payment methods, and billing questions.
+            - generic [ref=e333]:
+              - button "How do I switch plans or cancel my subscription? Copy link to this question" [ref=e335] [cursor=pointer]:
+                - generic [ref=e336] [cursor=pointer]:
+                  - heading "How do I switch plans or cancel my subscription?" [level=3] [ref=e337] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e338] [cursor=pointer]:
+                    - img [ref=e339] [cursor=pointer]
+                - img [ref=e344] [cursor=pointer]
+              - button "How much does Promptly cost for individual teachers? Copy link to this question" [ref=e347] [cursor=pointer]:
+                - generic [ref=e348] [cursor=pointer]:
+                  - heading "How much does Promptly cost for individual teachers?" [level=3] [ref=e349] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e350] [cursor=pointer]:
+                    - img [ref=e351] [cursor=pointer]
+                - img [ref=e356] [cursor=pointer]
+              - button "Is there a free version or trial available? Copy link to this question" [ref=e359] [cursor=pointer]:
+                - generic [ref=e360] [cursor=pointer]:
+                  - heading "Is there a free version or trial available?" [level=3] [ref=e361] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e362] [cursor=pointer]:
+                    - img [ref=e363] [cursor=pointer]
+                - img [ref=e368] [cursor=pointer]
+              - button "What payment methods do you accept? Copy link to this question Draft" [ref=e371] [cursor=pointer]:
+                - generic [ref=e372] [cursor=pointer]:
+                  - heading "What payment methods do you accept?" [level=3] [ref=e373] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e374] [cursor=pointer]:
+                    - img [ref=e375] [cursor=pointer]
+                  - generic [ref=e378] [cursor=pointer]: Draft
+                - img [ref=e381] [cursor=pointer]
+          - region "Schools & IT" [ref=e383]:
+            - generic [ref=e384]:
+              - heading "Schools & IT" [level=2] [ref=e385]
+              - paragraph [ref=e386]: School licences, IT deployment, data processing agreements, and technical requirements.
+            - generic [ref=e387]:
+              - button "Can my school pay for Promptly with a site licence? Copy link to this question Draft" [ref=e389] [cursor=pointer]:
+                - generic [ref=e390] [cursor=pointer]:
+                  - heading "Can my school pay for Promptly with a site licence?" [level=3] [ref=e391] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e392] [cursor=pointer]:
+                    - img [ref=e393] [cursor=pointer]
+                  - generic [ref=e396] [cursor=pointer]: Draft
+                - img [ref=e399] [cursor=pointer]
+              - button "Do you offer school licences and bulk pricing? Copy link to this question" [ref=e402] [cursor=pointer]:
+                - generic [ref=e403] [cursor=pointer]:
+                  - heading "Do you offer school licences and bulk pricing?" [level=3] [ref=e404] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e405] [cursor=pointer]:
+                    - img [ref=e406] [cursor=pointer]
+                - img [ref=e411] [cursor=pointer]
+              - button "Do you provide Data Processing Agreements (DPA) or Data Protection Impact Assessments (DPIA)? Copy link to this question Draft" [ref=e414] [cursor=pointer]:
+                - generic [ref=e415] [cursor=pointer]:
+                  - heading "Do you provide Data Processing Agreements (DPA) or Data Protection Impact Assessments (DPIA)?" [level=3] [ref=e416] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e417] [cursor=pointer]:
+                    - img [ref=e418] [cursor=pointer]
+                  - generic [ref=e421] [cursor=pointer]: Draft
+                - img [ref=e424] [cursor=pointer]
+              - button "Does Promptly work on school Chromebooks and restricted networks? Copy link to this question" [ref=e427] [cursor=pointer]:
+                - generic [ref=e428] [cursor=pointer]:
+                  - heading "Does Promptly work on school Chromebooks and restricted networks?" [level=3] [ref=e429] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e430] [cursor=pointer]:
+                    - img [ref=e431] [cursor=pointer]
+                - img [ref=e436] [cursor=pointer]
+          - region "Accessibility & Languages" [ref=e438]:
+            - generic [ref=e439]:
+              - heading "Accessibility & Languages" [level=2] [ref=e440]
+              - paragraph [ref=e441]: Accessibility features, language support, and inclusive design.
+            - generic [ref=e442]:
+              - button "Does Promptly work on mobile phones and tablets? Copy link to this question" [ref=e444] [cursor=pointer]:
+                - generic [ref=e445] [cursor=pointer]:
+                  - heading "Does Promptly work on mobile phones and tablets?" [level=3] [ref=e446] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e447] [cursor=pointer]:
+                    - img [ref=e448] [cursor=pointer]
+                - img [ref=e453] [cursor=pointer]
+              - button "Is Promptly accessible for teachers with disabilities? Copy link to this question" [ref=e456] [cursor=pointer]:
+                - generic [ref=e457] [cursor=pointer]:
+                  - heading "Is Promptly accessible for teachers with disabilities?" [level=3] [ref=e458] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e459] [cursor=pointer]:
+                    - img [ref=e460] [cursor=pointer]
+                - img [ref=e465] [cursor=pointer]
+              - button "Which languages does Promptly support? Copy link to this question" [ref=e468] [cursor=pointer]:
+                - generic [ref=e469] [cursor=pointer]:
+                  - heading "Which languages does Promptly support?" [level=3] [ref=e470] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e471] [cursor=pointer]:
+                    - img [ref=e472] [cursor=pointer]
+                - img [ref=e477] [cursor=pointer]
+          - region "Integrations" [ref=e479]:
+            - generic [ref=e480]:
+              - heading "Integrations" [level=2] [ref=e481]
+              - paragraph [ref=e482]: Payment systems, email marketing, and third-party integrations.
+            - generic [ref=e483]:
+              - button "Does Promptly integrate with school management systems like SIMS or Bromcom? Copy link to this question Draft" [ref=e485] [cursor=pointer]:
+                - generic [ref=e486] [cursor=pointer]:
+                  - heading "Does Promptly integrate with school management systems like SIMS or Bromcom?" [level=3] [ref=e487] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e488] [cursor=pointer]:
+                    - img [ref=e489] [cursor=pointer]
+                  - generic [ref=e492] [cursor=pointer]: Draft
+                - img [ref=e495] [cursor=pointer]
+              - button "How does email signup and marketing work with Brevo? Copy link to this question" [ref=e498] [cursor=pointer]:
+                - generic [ref=e499] [cursor=pointer]:
+                  - heading "How does email signup and marketing work with Brevo?" [level=3] [ref=e500] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e501] [cursor=pointer]:
+                    - img [ref=e502] [cursor=pointer]
+                - img [ref=e507] [cursor=pointer]
+              - button "What's the status of Stripe payments and checkout? Copy link to this question" [ref=e510] [cursor=pointer]:
+                - generic [ref=e511] [cursor=pointer]:
+                  - heading "What's the status of Stripe payments and checkout?" [level=3] [ref=e512] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e513] [cursor=pointer]:
+                    - img [ref=e514] [cursor=pointer]
+                - img [ref=e519] [cursor=pointer]
+          - region "Accounts & Subscriptions" [ref=e521]:
+            - generic [ref=e522]:
+              - heading "Accounts & Subscriptions" [level=2] [ref=e523]
+              - paragraph [ref=e524]: Managing your account, subscription changes, and cancellations.
+            - button "Can I cancel my subscription anytime without penalties? Copy link to this question" [ref=e527] [cursor=pointer]:
+              - generic [ref=e528] [cursor=pointer]:
+                - heading "Can I cancel my subscription anytime without penalties?" [level=3] [ref=e529] [cursor=pointer]
+                - button "Copy link to this question" [ref=e530] [cursor=pointer]:
+                  - img [ref=e531] [cursor=pointer]
+              - img [ref=e536] [cursor=pointer]
+          - region "Troubleshooting" [ref=e538]:
+            - generic [ref=e539]:
+              - heading "Troubleshooting" [level=2] [ref=e540]
+              - paragraph [ref=e541]: Technical issues, support, and problem-solving guidance.
+            - generic [ref=e542]:
+              - button "What support do you offer if I have problems? Copy link to this question" [ref=e544] [cursor=pointer]:
+                - generic [ref=e545] [cursor=pointer]:
+                  - heading "What support do you offer if I have problems?" [level=3] [ref=e546] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e547] [cursor=pointer]:
+                    - img [ref=e548] [cursor=pointer]
+                - img [ref=e553] [cursor=pointer]
+              - button "Why are downloaded resources not opening properly? Copy link to this question" [ref=e556] [cursor=pointer]:
+                - generic [ref=e557] [cursor=pointer]:
+                  - heading "Why are downloaded resources not opening properly?" [level=3] [ref=e558] [cursor=pointer]
+                  - button "Copy link to this question" [ref=e559] [cursor=pointer]:
+                    - img [ref=e560] [cursor=pointer]
+                - img [ref=e565] [cursor=pointer]
+      - generic [ref=e569]:
+        - img [ref=e570]
+        - heading "Still need help?" [level=2] [ref=e573]
+        - paragraph [ref=e574]: Can't find what you're looking for? Our support team is here to help with any questions about using Promptly in your teaching practice.
+        - generic [ref=e575]:
+          - link "Contact Support" [ref=e576] [cursor=pointer]:
+            - /url: /contact
+            - img [ref=e577] [cursor=pointer]
+            - text: Contact Support
+          - generic [ref=e580]: or
+          - link "Learning Centre" [ref=e581] [cursor=pointer]:
+            - /url: /learning-centre
+            - img [ref=e582] [cursor=pointer]
+            - text: Learning Centre
+  - contentinfo [ref=e584]:
+    - generic [ref=e585]:
+      - generic [ref=e586]:
+        - generic [ref=e587]:
+          - generic [ref=e588]:
+            - img [ref=e590]
+            - generic [ref=e592]: Promptly
+          - paragraph [ref=e593]:
+            - text: Reliable AI created by
+            - strong [ref=e594]: Dr Greg Blackburn, PhD in Professional Education
+            - text: . Trusted by 12,000+ teachers worldwide for reports and parent communication.
+          - generic [ref=e595]: © 2024 Zaza Technologies. All rights reserved.
+        - generic [ref=e596]:
+          - heading "Solutions by Teaching Role" [level=3] [ref=e597]
+          - list [ref=e598]:
+            - listitem [ref=e599]:
+              - link "UK Primary Teachers" [ref=e600] [cursor=pointer]:
+                - /url: /personas/uk-primary
+            - listitem [ref=e601]:
+              - link "US Secondary Teachers" [ref=e602] [cursor=pointer]:
+                - /url: /personas/us-secondary
+            - listitem [ref=e603]:
+              - link "Special Education Teachers" [ref=e604] [cursor=pointer]:
+                - /url: /personas/special-needs
+            - listitem [ref=e605]:
+              - link "International Teachers" [ref=e606] [cursor=pointer]:
+                - /url: /personas/international
+            - listitem [ref=e607]:
+              - link "EdTech-Savvy Teachers" [ref=e608] [cursor=pointer]:
+                - /url: /personas/edtech-savvy
+            - listitem [ref=e609]:
+              - link "Head Teachers & Leaders" [ref=e610] [cursor=pointer]:
+                - /url: /personas/head-teacher
+        - generic [ref=e611]:
+          - heading "Company" [level=3] [ref=e612]
+          - list [ref=e613]:
+            - listitem [ref=e614]:
+              - link "Meet Your Fellow Educator" [ref=e615] [cursor=pointer]:
+                - /url: /about/founder
+            - listitem [ref=e616]:
+              - link "Student Privacy Protected" [ref=e617] [cursor=pointer]:
+                - /url: /faq#privacy
+            - listitem [ref=e618]:
+              - link "Reliable AI That Won't Make Things Up" [ref=e619] [cursor=pointer]:
+                - /url: /faq#safety
+            - listitem [ref=e620]:
+              - link "FAQ" [ref=e621] [cursor=pointer]:
+                - /url: /faq
+            - listitem [ref=e622]:
+              - link "Contact" [ref=e623] [cursor=pointer]:
+                - /url: /contact
+            - listitem [ref=e624]:
+              - link "Privacy Policy" [ref=e625] [cursor=pointer]:
+                - /url: /privacy
+            - listitem [ref=e626]:
+              - button "Cookie Settings" [ref=e627] [cursor=pointer]
+            - listitem [ref=e628]:
+              - button "Reduce Motion" [ref=e630] [cursor=pointer]: Reduce Motion
+      - generic [ref=e634]:
+        - generic [ref=e635]:
+          - text: Built by educators for educators —
+          - link "Created by Dr Greg Blackburn, PhD" [ref=e636] [cursor=pointer]:
+            - /url: /about/founder
+        - generic [ref=e637]:
+          - link "Start Free Trial" [ref=e638] [cursor=pointer]:
+            - /url: /waitlist
+            - text: Start Free Trial
+            - img [ref=e639] [cursor=pointer]
+          - link "AI Ethics for Teachers" [ref=e641] [cursor=pointer]:
+            - /url: /faq#ethics
+          - generic [ref=e642]:
+            - img [ref=e643]
+            - text: Student Privacy Protected
+          - generic [ref=e645]:
+            - img [ref=e646]
+            - text: Reliable AI That Won't Make Things Up
+  - generic [ref=e650]:
+    - generic [ref=e651]:
+      - heading "Cookie Preferences" [level=3] [ref=e652]
+      - paragraph [ref=e653]:
+        - text: We use cookies to improve your experience and understand how our site is used. Essential cookies are always active. You can manage your preferences or
+        - link "learn more about our cookie policy" [ref=e654] [cursor=pointer]:
+          - /url: /cookies
+        - text: .
+    - generic [ref=e655]:
+      - button "Decline" [ref=e656] [cursor=pointer]
+      - button "Manage" [ref=e657] [cursor=pointer]
+      - button "Accept All" [ref=e658] [cursor=pointer]
+  - button "Open Zara assistant" [ref=e659] [cursor=pointer]:
+    - img [ref=e660] [cursor=pointer]
+  - generic [ref=e665] [cursor=pointer]:
+    - img [ref=e666] [cursor=pointer]
+    - generic [ref=e668] [cursor=pointer]: 1 error
+    - button "Hide Errors" [ref=e669] [cursor=pointer]:
+      - img [ref=e670] [cursor=pointer]
+```

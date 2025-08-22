@@ -6,7 +6,7 @@ import { getPostSlugs } from '@/lib/blog'
 import { isPostPublishable } from '@/lib/blog-types'
 
 const BLOG_DIR = path.join(process.cwd(), 'content', 'blog')
-const META_FILE = path.join(process.cwd(), 'content', '_meta.json')
+// const META_FILE = path.join(process.cwd(), 'content', '_meta.json')
 
 export async function POST(request: NextRequest) {
   try {
@@ -84,9 +84,9 @@ export async function POST(request: NextRequest) {
           }
 
           // Remove undefined fields
-          Object.keys(updatedFrontmatter).forEach(key => {
-            if (updatedFrontmatter[key] === undefined) {
-              delete updatedFrontmatter[key]
+          Object.entries(updatedFrontmatter).forEach(([key, value]) => {
+            if (value === undefined) {
+              delete (updatedFrontmatter as Record<string, unknown>)[key]
             }
           })
 
@@ -104,7 +104,7 @@ export async function POST(request: NextRequest) {
         console.error(`Error processing post ${slug}:`, error)
         skippedPosts.push({
           slug,
-          reason: `Error: ${error.message}`,
+          reason: `Error: ${error instanceof Error ? error.message : String(error)}`,
           error: true
         })
       }
@@ -138,7 +138,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Auto-publish error:', error)
     return NextResponse.json(
-      { error: 'Internal server error', details: error.message },
+      { error: 'Internal server error', details: error instanceof Error ? error.message : String(error) },
       { status: 500 }
     )
   }
@@ -212,7 +212,7 @@ export async function GET(request: NextRequest) {
   } catch (error) {
     console.error('Auto-publish status error:', error)
     return NextResponse.json(
-      { error: 'Internal server error', details: error.message },
+      { error: 'Internal server error', details: error instanceof Error ? error.message : String(error) },
       { status: 500 }
     )
   }

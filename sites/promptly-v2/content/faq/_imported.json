@@ -1,0 +1,316 @@
+{
+  "importDate": "2025-08-22",
+  "sources": [
+    "/workspaces/zaza-websites-claudecode/sites/promptly-v2/src/app/faq/page.tsx",
+    "/workspaces/zaza-websites-claudecode/components/FAQ.tsx",
+    "/workspaces/zaza-websites-claudecode/components/FAQSimple.tsx",
+    "/workspaces/zaza-websites-claudecode/knowledge-base/Zaza_KnowledgeBase_Promptly/Zaza-Promptly-FAQ.md",
+    "/workspaces/zaza-promptly-website-new/components/FAQ.tsx"
+  ],
+  "categories": [
+    "ethics",
+    "comparison", 
+    "privacy",
+    "productivity",
+    "safety",
+    "features",
+    "pricing",
+    "wellbeing",
+    "general",
+    "billing",
+    "technical",
+    "support"
+  ],
+  "faqs": [
+    {
+      "id": "ethics-001",
+      "question": "Is using AI for teaching cheating?",
+      "answer": "No, using AI tools like Promptly for administrative tasks is not cheating—it's working smarter. Just like using spell-check or a calculator, AI assists with time-consuming tasks while you focus on what matters most: teaching and connecting with students. Promptly helps with parent communications and report writing, freeing up hours for lesson planning and student interaction.",
+      "category": "ethics",
+      "lastUpdated": "2025-08-22",
+      "sourcePath": "/workspaces/zaza-websites-claudecode/sites/promptly-v2/src/app/faq/page.tsx",
+      "duplicates": [
+        {
+          "source": "/workspaces/zaza-websites-claudecode/components/FAQ.tsx",
+          "variation": "Is using AI for teaching cheating or unprofessional?",
+          "answer": "No. Using AI for teacher reports and parent communication is a productivity tool, like spell-check or a calculator. Zaza Promptly is hallucination-safe AI designed specifically for educational contexts, ensuring accurate and appropriate content. You maintain full control and professional judgment over all communications.",
+          "needs_review": true
+        }
+      ]
+    },
+    {
+      "id": "comparison-001", 
+      "question": "How is Zaza Promptly different from ChatGPT?",
+      "answer": "Promptly is specifically designed for education with hallucination-safe AI that understands teaching contexts. Unlike ChatGPT, Promptly is GDPR-compliant, doesn't store student data, and is trained on educational best practices. It provides accurate, contextually appropriate content for parent communications and student reports without the risk of generating inappropriate or incorrect information.",
+      "category": "comparison",
+      "lastUpdated": "2025-08-22",
+      "sourcePath": "/workspaces/zaza-websites-claudecode/sites/promptly-v2/src/app/faq/page.tsx",
+      "duplicates": [
+        {
+          "source": "/workspaces/zaza-websites-claudecode/components/FAQ.tsx",
+          "variation": "How is Zaza Promptly different from ChatGPT for teachers?",
+          "answer": "ChatGPT is a general-purpose AI that can hallucinate or invent false information about students. Zaza Promptly is specifically designed for education with built-in safeguards against hallucinations, GDPR compliance, and educational context understanding. Created by Dr. Greg Blackburn (PhD in Professional Education), it speaks your professional language from day one and never compromises student privacy.",
+          "needs_review": true
+        },
+        {
+          "source": "/workspaces/zaza-promptly-website-new/components/FAQ.tsx",
+          "variation": "How is this different from ChatGPT or other AI tools?",
+          "answer": "It's made for teachers - not tech pros. It remembers your tone, aligns to your rubrics, works on mobile, and doesn't \"hallucinate\" or go off track.",
+          "needs_review": false
+        },
+        {
+          "source": "/workspaces/zaza-websites-claudecode/knowledge-base/Zaza_KnowledgeBase_Promptly/Zaza-Promptly-FAQ.md",
+          "variation": "How does Zaza Promptly differ from ChatGPT?",
+          "answer": "While it uses GPT-4 under the hood, Zaza Promptly is *not* a general-purpose chatbot. It's fine-tuned, contextually constrained, and embedded with education-specific guardrails to reduce hallucination, keep tone appropriate, and ensure alignment with curriculum standards.",
+          "needs_review": true
+        }
+      ]
+    },
+    {
+      "id": "privacy-001",
+      "question": "Will my school data be safe with AI tools?",
+      "answer": "Yes, Promptly is GDPR-compliant and designed with education-specific privacy protections. We don't store personal student information, use bank-level encryption, and comply with all UK and EU data protection laws. Unlike general AI tools, Promptly is built specifically for the strict privacy requirements of educational institutions.",
+      "category": "privacy",
+      "lastUpdated": "2025-08-22",
+      "sourcePath": "/workspaces/zaza-websites-claudecode/sites/promptly-v2/src/app/faq/page.tsx",
+      "duplicates": [
+        {
+          "source": "/workspaces/zaza-websites-claudecode/components/FAQ.tsx",
+          "variation": "Will my school data be safe with AI?",
+          "answer": "Absolutely. Zaza Promptly meets the highest privacy standards: GDPR compliant, bank-level encryption, EU-only data processing, and zero data retention after processing. Your student information NEVER trains other models or leaves secure servers. We provide data processing agreements for schools and full audit trails for compliance officers.",
+          "needs_review": true
+        },
+        {
+          "source": "/workspaces/zaza-promptly-website-new/components/FAQ.tsx",
+          "variation": "Is it safe to use AI for student reports?",
+          "answer": "Yes. Promptly avoids plagiarism, doesn't reuse data, and is built with privacy in mind. It's safer than copying past reports or Googling ideas.",
+          "needs_review": false
+        }
+      ]
+    },
+    {
+      "id": "productivity-001",
+      "question": "Does Zaza Promptly reduce teacher workload?",
+      "answer": "Absolutely. Teachers using Promptly report saving 3-5 hours per week on administrative tasks like parent emails and report writing. This time can be redirected to lesson planning, professional development, or achieving better work-life balance. The AI handles repetitive communication tasks while maintaining your professional voice.",
+      "category": "productivity",
+      "lastUpdated": "2025-08-22",
+      "sourcePath": "/workspaces/zaza-websites-claudecode/sites/promptly-v2/src/app/faq/page.tsx",
+      "duplicates": [
+        {
+          "source": "/workspaces/zaza-websites-claudecode/components/FAQ.tsx",
+          "variation": "Does Zaza Promptly actually reduce teacher workload?",
+          "answer": "Yes — teachers report saving 3-5 hours per week on report writing and parent communication. What used to take 15-20 minutes per comment now takes 2-3 minutes, giving you time back for lesson planning, marking, or simply going home earlier. This AI tool for teachers specifically targets the most time-consuming administrative tasks.",
+          "needs_review": true
+        },
+        {
+          "source": "/workspaces/zaza-promptly-website-new/components/FAQ.tsx",
+          "variation": "Will this actually save me time or just create more work?",
+          "answer": "Zaza Promptly is designed to reduce mental load, not increase it. You don't need perfect prompts - just pick a student and get tailored, editable comments in seconds.",
+          "needs_review": false
+        }
+      ]
+    },
+    {
+      "id": "safety-001",
+      "question": "What makes AI 'hallucination-safe' for teachers?",
+      "answer": "Hallucination-safe AI means the system won't generate false or inappropriate information. Promptly is trained specifically on educational contexts and includes safety guardrails to ensure all generated content is accurate, appropriate for school communications, and aligned with educational best practices. This is crucial when communicating with parents or writing official reports.",
+      "category": "safety",
+      "lastUpdated": "2025-08-22",
+      "sourcePath": "/workspaces/zaza-websites-claudecode/sites/promptly-v2/src/app/faq/page.tsx"
+    },
+    {
+      "id": "features-001",
+      "question": "Can I use Promptly for parent email generation?",
+      "answer": "Yes, Promptly excels at parent communication. It helps you craft professional, empathetic emails for various situations—progress updates, behavior concerns, meeting requests, or celebration messages. The AI understands the delicate balance needed in parent-teacher communication and helps you maintain positive relationships.",
+      "category": "features",
+      "lastUpdated": "2025-08-22",
+      "sourcePath": "/workspaces/zaza-websites-claudecode/sites/promptly-v2/src/app/faq/page.tsx",
+      "duplicates": [
+        {
+          "source": "/workspaces/zaza-websites-claudecode/sites/promptly-v2/src/app/faq/page.tsx",
+          "variation": "How does AI help with parent email generation for teachers?",
+          "answer": "AI tools like Promptly excel at parent communication by helping teachers craft professional, empathetic emails for various situations—progress updates, behavior concerns, celebration messages, and meeting requests. The AI understands the delicate balance needed in parent-teacher communication and helps maintain positive relationships while saving hours of writing time.",
+          "needs_review": true
+        }
+      ]
+    },
+    {
+      "id": "features-002",
+      "question": "Will the comments sound like me?",
+      "answer": "Yes. Promptly can match your tone, whether you're empathetic, direct, or positive-but-honest. You can tweak responses with one tap or write your own templates that the AI learns from. Every suggestion is fully editable - you're always in control.",
+      "category": "features",
+      "lastUpdated": "2025-08-22",
+      "sourcePath": "/workspaces/zaza-websites-claudecode/components/FAQSimple.tsx",
+      "duplicates": [
+        {
+          "source": "/workspaces/zaza-websites-claudecode/components/FAQ.tsx",
+          "variation": "Can I use my own writing style?",
+          "answer": "Definitely. The more you use Promptly, the better it understands your tone. You can also give it examples of your preferred style, and it will match your voice while maintaining professionalism.",
+          "needs_review": true
+        },
+        {
+          "source": "/workspaces/zaza-promptly-website-new/components/FAQ.tsx",
+          "variation": "Will the comments sound like me?",
+          "answer": "Yes. Promptly can match your tone, whether you're empathetic, direct, or positive-but-honest. You can tweak responses with one tap or write your own templates.",
+          "needs_review": false
+        }
+      ]
+    },
+    {
+      "id": "features-003",
+      "question": "Does this work for all ages and subjects?",
+      "answer": "Absolutely. From Reception to Year 13, maths to music, Promptly adapts to your teaching context. Primary teachers love the parent communication features, while secondary teachers find the report writing tools especially helpful during assessment periods.",
+      "category": "features",
+      "lastUpdated": "2025-08-22",
+      "sourcePath": "/workspaces/zaza-websites-claudecode/components/FAQ.tsx",
+      "duplicates": [
+        {
+          "source": "/workspaces/zaza-promptly-website-new/components/FAQ.tsx",
+          "variation": "Does it work for all subjects and ages?",
+          "answer": "Yes - teachers use Promptly from Kindergarten through Year 12, across subjects like English, Math, Science, Arts, and more.",
+          "needs_review": false
+        }
+      ]
+    },
+    {
+      "id": "pricing-001",
+      "question": "Are there free AI tools for teachers available?",
+      "answer": "Promptly offers a free trial and free tier with limited usage, perfect for trying our hallucination-safe AI. While there are other free tools available, most lack the education-specific training and safety features needed for professional school communications. Promptly's free version gives you access to our safe, education-focused AI.",
+      "category": "pricing",
+      "lastUpdated": "2025-08-22",
+      "sourcePath": "/workspaces/zaza-websites-claudecode/sites/promptly-v2/src/app/faq/page.tsx",
+      "duplicates": [
+        {
+          "source": "/workspaces/zaza-promptly-website-new/components/FAQ.tsx",
+          "variation": "Is there a free version?",
+          "answer": "Yes! You can use Promptly for free to get started, with paid upgrades if you need more lesson comments or features.",
+          "needs_review": false
+        },
+        {
+          "source": "/workspaces/zaza-websites-claudecode/knowledge-base/Zaza_KnowledgeBase_Promptly/Zaza-Promptly-FAQ.md",
+          "variation": "Is Zaza Promptly free to use?",
+          "answer": "Yes, you can use Zaza Promptly for free with a monthly limit of 5 AI-generated comment sessions. This allows you to explore the tool and experience its value before committing to a paid plan.",
+          "needs_review": true
+        }
+      ]
+    },
+    {
+      "id": "pricing-002", 
+      "question": "Can my school pay for this?",
+      "answer": "Absolutely. We offer school-wide licenses with bulk pricing, admin controls, and easy billing. Many schools find the time savings across their teaching staff easily justifies the investment.",
+      "category": "pricing",
+      "lastUpdated": "2025-08-22",
+      "sourcePath": "/workspaces/zaza-websites-claudecode/components/FAQ.tsx",
+      "duplicates": [
+        {
+          "source": "/workspaces/zaza-promptly-website-new/components/FAQ.tsx",
+          "variation": "Can my school pay for this?",
+          "answer": "Absolutely. We offer school licenses and can provide custom pricing or quotes if your leadership team needs them.",
+          "needs_review": false
+        }
+      ]
+    },
+    {
+      "id": "wellbeing-001",
+      "question": "Can AI help reduce teacher burnout and stress?",
+      "answer": "AI tools like Promptly directly address major sources of teacher stress by automating time-consuming administrative tasks. By reducing the hours spent on report writing and parent communications, teachers have more time for actual teaching, self-care, and work-life balance. This technological support helps combat the epidemic of teacher burnout.",
+      "category": "wellbeing",
+      "lastUpdated": "2025-08-22",
+      "sourcePath": "/workspaces/zaza-websites-claudecode/sites/promptly-v2/src/app/faq/page.tsx"
+    },
+    {
+      "id": "general-001",
+      "question": "Can I edit or customise the AI-generated comments?",
+      "answer": "Yes! We strongly encourage it. Use AI as a foundation, then apply your professional judgment and personalise the output to reflect your student's individuality.",
+      "category": "general",
+      "lastUpdated": "2025-08-22",
+      "sourcePath": "/workspaces/zaza-websites-claudecode/knowledge-base/Zaza_KnowledgeBase_Promptly/Zaza-Promptly-FAQ.md",
+      "duplicates": [
+        {
+          "source": "/workspaces/zaza-websites-claudecode/components/FAQ.tsx",
+          "variation": "What if I don't like the generated content?",
+          "answer": "Every suggestion is fully editable. Promptly gives you a strong starting point, then you tweak, personalise, or completely rewrite as needed. Many teachers use it as a first draft, then add their personal touch and specific examples.",
+          "needs_review": true
+        }
+      ]
+    },
+    {
+      "id": "billing-001",
+      "question": "What payment options are available?",
+      "answer": "You can pay monthly or annually (20% discount for annual). Accepted methods include credit/debit cards. School Licences support purchase orders and invoicing.",
+      "category": "billing",
+      "lastUpdated": "2025-08-22",
+      "sourcePath": "/workspaces/zaza-websites-claudecode/knowledge-base/Zaza_KnowledgeBase_Promptly/Zaza-Promptly-FAQ.md"
+    },
+    {
+      "id": "billing-002",
+      "question": "Can schools or districts pay by invoice?",
+      "answer": "Absolutely. We support invoice and PO-based payments for educational institutions worldwide. Contact support@zazatechnologies.com to request a quote.",
+      "category": "billing",
+      "lastUpdated": "2025-08-22",
+      "sourcePath": "/workspaces/zaza-websites-claudecode/knowledge-base/Zaza_KnowledgeBase_Promptly/Zaza-Promptly-FAQ.md"
+    },
+    {
+      "id": "technical-001",
+      "question": "Do I need to install anything?",
+      "answer": "No installation required. Zaza Promptly is a browser-based app that works on desktops, laptops, tablets, and smartphones.",
+      "category": "technical", 
+      "lastUpdated": "2025-08-22",
+      "sourcePath": "/workspaces/zaza-websites-claudecode/knowledge-base/Zaza_KnowledgeBase_Promptly/Zaza-Promptly-FAQ.md",
+      "duplicates": [
+        {
+          "source": "/workspaces/zaza-websites-claudecode/components/FAQ.tsx",
+          "variation": "Does it work on mobile devices?",
+          "answer": "Yes, Promptly works seamlessly on phones, tablets, and computers. Many teachers draft comments on their phone during break time, then copy them into their school's reporting system.",
+          "needs_review": true
+        }
+      ]
+    },
+    {
+      "id": "technical-002",
+      "question": "Can I use Zaza on a Chromebook?",
+      "answer": "Absolutely. Chromebooks are fully supported as long as they run a modern browser.",
+      "category": "technical",
+      "lastUpdated": "2025-08-22",
+      "sourcePath": "/workspaces/zaza-websites-claudecode/knowledge-base/Zaza_KnowledgeBase_Promptly/Zaza-Promptly-FAQ.md"
+    },
+    {
+      "id": "support-001",
+      "question": "How do I get help if something goes wrong?",
+      "answer": "You can contact us at support@zazatechnologies.com. Most support requests are answered within 24 hours. Pro and School users receive priority support.",
+      "category": "support",
+      "lastUpdated": "2025-08-22",
+      "sourcePath": "/workspaces/zaza-websites-claudecode/knowledge-base/Zaza_KnowledgeBase_Promptly/Zaza-Promptly-FAQ.md",
+      "duplicates": [
+        {
+          "source": "/workspaces/zaza-websites-claudecode/components/FAQ.tsx",
+          "variation": "What support do you offer?",
+          "answer": "Email support typically responds within 4 hours, plus extensive help guides and video tutorials. Our founder (a teacher with 20+ years experience) personally reviews feedback to keep improving the product.",
+          "needs_review": true
+        }
+      ]
+    }
+  ],
+  "duplicatesFound": 15,
+  "uniqueFAQs": 18,
+  "reviewNeeded": [
+    "ethics-001",
+    "comparison-001", 
+    "privacy-001",
+    "productivity-001",
+    "features-001",
+    "features-002",
+    "pricing-001",
+    "general-001",
+    "technical-001",
+    "support-001"
+  ],
+  "notes": [
+    "Multiple sources contain similar but differently worded questions about core topics",
+    "The knowledge base FAQ is more technical/feature-focused",
+    "Component FAQs are more user-experience focused",
+    "Page FAQs include more SEO-optimized answers with internal links",
+    "Significant consolidation opportunities exist for duplicate content",
+    "Version in sites/promptly-v2/src/app/faq/page.tsx appears most current and comprehensive"
+  ]
+}

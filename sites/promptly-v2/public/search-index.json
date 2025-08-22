@@ -40,6 +40,44 @@
     "searchContent": "Best AI Tools for Teachers 2025: Complete Guide to Safe AI in Education Discover the best AI tools for teachers in 2025. Compare safe AI options vs ChatGPT, learn about hallucination-safe AI for parent communication, and find GDPR-compliant teacher productivity apps. AI tools teacher productivity education technology safe AI teacher resources Greg Beams"
   },
   {
+    "id": "blog-critical-thinking-classrooms",
+    "type": "blog",
+    "slug": "critical-thinking-classrooms",
+    "title": "Teaching Students to Think: From Theory to Classroom Practice",
+    "description": "",
+    "excerpt": "",
+    "tags": [
+      "critical thinking",
+      "classroom strategies",
+      "teacher development",
+      "AI in education",
+      "student engagement"
+    ],
+    "author": "Dr Greg Blackburn",
+    "date": "2025-08-22",
+    "url": "/blog/critical-thinking-classrooms",
+    "searchContent": "Teaching Students to Think: From Theory to Classroom Practice  critical thinking classroom strategies teacher development AI in education student engagement Dr Greg Blackburn"
+  },
+  {
+    "id": "blog-future-of-learning-2035",
+    "type": "blog",
+    "slug": "future-of-learning-2035",
+    "title": "The Future of Learning: What My Research Means for the Next Decade",
+    "description": "",
+    "excerpt": "",
+    "tags": [
+      "future of education",
+      "educational trends",
+      "teacher professional development",
+      "personalized learning",
+      "AI in education"
+    ],
+    "author": "Dr Greg Blackburn",
+    "date": "2025-08-22",
+    "url": "/blog/future-of-learning-2035",
+    "searchContent": "The Future of Learning: What My Research Means for the Next Decade  future of education educational trends teacher professional development personalized learning AI in education Dr Greg Blackburn"
+  },
+  {
     "id": "blog-is-using-ai-for-teachers-cheating",
     "type": "blog",
     "slug": "is-using-ai-for-teachers-cheating",
@@ -58,6 +96,44 @@
     "category": "Ethics & Professional Development",
     "url": "/blog/is-using-ai-for-teachers-cheating",
     "searchContent": "Is Using AI for Teachers Cheating? The Complete Ethics Guide for Educators Comprehensive guide to AI ethics in education. Learn when AI tools like Promptly help teachers work smarter, not cheat. Includes practical examples and professional guidelines. AI ethics teacher professionalism AI tools education technology professional development Dr. Greg Beams"
+  },
+  {
+    "id": "blog-pedagogy-meets-ai",
+    "type": "blog",
+    "slug": "pedagogy-meets-ai",
+    "title": "When Pedagogy Meets AI: Practical Ways Teachers Can Thrive",
+    "description": "",
+    "excerpt": "",
+    "tags": [
+      "pedagogy",
+      "AI in education",
+      "teacher agency",
+      "evidence-based practice",
+      "classroom technology"
+    ],
+    "author": "Dr Greg Blackburn",
+    "date": "2025-08-22",
+    "url": "/blog/pedagogy-meets-ai",
+    "searchContent": "When Pedagogy Meets AI: Practical Ways Teachers Can Thrive  pedagogy AI in education teacher agency evidence-based practice classroom technology Dr Greg Blackburn"
+  },
+  {
+    "id": "blog-zaza-ecosystem-teachers-thrive",
+    "type": "blog",
+    "slug": "zaza-ecosystem-teachers-thrive",
+    "title": "Why Teacher Thriving Is the Key to Thriving Schools",
+    "description": "",
+    "excerpt": "",
+    "tags": [
+      "teacher wellbeing",
+      "educator retention",
+      "school culture",
+      "AI ecosystem",
+      "teacher support"
+    ],
+    "author": "Dr Greg Blackburn",
+    "date": "2025-08-22",
+    "url": "/blog/zaza-ecosystem-teachers-thrive",
+    "searchContent": "Why Teacher Thriving Is the Key to Thriving Schools  teacher wellbeing educator retention school culture AI ecosystem teacher support Dr Greg Blackburn"
   },
   {
     "id": "blog-first-post",

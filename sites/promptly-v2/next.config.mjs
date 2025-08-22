@@ -59,6 +59,12 @@ const legacyRedirects = [
   { source: '/signup', destination: '/waitlist', permanent: true },
   { source: '/get-started', destination: '/waitlist', permanent: true },
   
+  // Legacy FAQ paths
+  { source: '/faqs', destination: '/faq', permanent: true },
+  { source: '/support/faq', destination: '/faq', permanent: true },
+  { source: '/help', destination: '/faq', permanent: true },
+  { source: '/support', destination: '/faq', permanent: true },
+  
   // Strip /es prefix to avoid auto-redirects  
   { source: '/es/:path*', destination: '/:path*', permanent: true },
 ]

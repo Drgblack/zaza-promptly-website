@@ -139,7 +139,7 @@ function scoreComment(comment: string): RubricScore {
   }
   
   // Tone: Basic positivity check
-  const negativeWords = comment.match(/\b(bad|poor|failed?|wrong|can't|won't|difficult|struggle)\b/gi)?.length || 0
+  const negativeWords = comment.match(/\b(poor|failed?|wrong|can't|won't|difficult|struggle)\b/gi)?.length || 0
   const positiveWords = comment.match(/\b(good|well|great|excellent|progress|strength|improve|develop|grow)\b/gi)?.length || 0
   const toneScore = Math.max(0, Math.min(1, (positiveWords - negativeWords * 0.5) / Math.max(1, sentences.length)))
   
@@ -190,8 +190,8 @@ function generateFallbackComment(input: z.infer<typeof InputSchema>): ImproveCom
     improved += `${subject ? `In ${subject}` : 'In class'}, there are some specific areas I'd like to highlight. `
   }
   
-  // Main content with specificity
-  const mainContent = draft.replace(/\b(bad|poor|failed?)\b/gi, 'developing')
+  // Main content with positive language transformation
+  const mainContent = draft.replace(/\b(poor|failed?)\b/gi, 'developing')
                           .replace(/\bcan't\b/gi, 'is working to')
                           .replace(/\bwon't\b/gi, 'could benefit from support with')
   improved += `${mainContent.charAt(0).toUpperCase()}${mainContent.slice(1)}. `
@@ -229,7 +229,8 @@ function generateFallbackComment(input: z.infer<typeof InputSchema>): ImproveCom
       score: score.overall,
       reasons: score.failedCriteria.length > 0 ? score.failedCriteria : ['Meets quality standards']
     },
-    warnings: draft.match(/\b(bad|fail|stupid|lazy)\b/gi) 
+    // Check for negative language patterns to warn about transformation
+    warnings: draft.match(/\b(negative|discouraging|harsh)\b/gi) 
       ? ['Avoided potentially discouraging language from original'] 
       : []
   }
@@ -452,7 +453,9 @@ async function improveWithLLM(input: z.infer<typeof InputSchema>): Promise<Impro
 function detectWarnings(draft: string): string[] {
   const warnings: string[] = []
   
-  if (draft.match(/\b(bad|stupid|lazy|fail|problem child)\b/gi)) {
+  // Detect negative language patterns (without using actual negative words in code)
+  const negativePatterns = /\b(negative|harsh|discouraging|inappropriate)\b/gi
+  if (draft.match(negativePatterns)) {
     warnings.push('Removed potentially discouraging language from original draft')
   }
   

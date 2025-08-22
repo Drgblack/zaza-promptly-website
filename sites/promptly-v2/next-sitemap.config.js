@@ -65,6 +65,7 @@ module.exports = {
       { path: '/blog', priority: 0.9, changefreq: 'daily' },
       { path: '/case-studies', priority: 0.8, changefreq: 'weekly' },
       { path: '/pricing', priority: 0.9, changefreq: 'weekly' },
+      { path: '/faq', priority: 0.7, changefreq: 'weekly' },
       { path: '/contact', priority: 0.7, changefreq: 'monthly' },
       { path: '/about/founder', priority: 0.6, changefreq: 'monthly' },
       { path: '/free-resources', priority: 0.8, changefreq: 'weekly' },
@@ -96,6 +97,7 @@ module.exports = {
     if (path === '/') return { ...defaultTransform, priority: 1.0, changefreq: 'weekly' }
     if (path === '/pricing') return { ...defaultTransform, priority: 0.9, changefreq: 'weekly' }
     if (path === '/blog') return { ...defaultTransform, priority: 0.9, changefreq: 'daily' }
+    if (path === '/faq') return { ...defaultTransform, priority: 0.7, changefreq: 'weekly' }
     if (path.startsWith('/blog/')) return { ...defaultTransform, priority: 0.8, changefreq: 'monthly' }
     if (path.startsWith('/case-studies/')) return { ...defaultTransform, priority: 0.7, changefreq: 'monthly' }
 

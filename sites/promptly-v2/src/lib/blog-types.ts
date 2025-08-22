@@ -103,7 +103,7 @@ export const isPostPublishable = (post: PostMeta): boolean => {
   }
   
   // Default: published if no draft flag and no future publish date
-  return post.isDraft !== true
+  return !post.isDraft
 }
 
 export const getNextMondayAt9AM = (fromDate: Date = new Date()): Date => {

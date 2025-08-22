@@ -193,6 +193,10 @@ export default function Header() {
             <Link href="/learning-centre" className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1">
               Learning Centre
             </Link>
+
+            <Link href="/faq" className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1">
+              FAQ
+            </Link>
             
             <Link href="/free-resources" className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1">
               Free Resources
@@ -294,6 +298,9 @@ export default function Header() {
                   <Link href="/learning-centre" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
                     Learning Centre
                   </Link>
+                  <Link href="/faq" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
+                    FAQ
+                  </Link>
                   <Link href="/free-resources" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
                     Free Resources
                   </Link>
@@ -356,6 +363,9 @@ export default function Header() {
                   </Link>
                   <Link href="/learning-centre" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
                     Learning Centre
+                  </Link>
+                  <Link href="/faq" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
+                    FAQ
                   </Link>
                   <Link href="/free-resources" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
                     Free Resources

@@ -1,0 +1,67 @@
+/* FAQ Page Styles */
+.faqPage {
+  /* Smooth scrolling for anchor links */
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+.faqButton:focus {
+  outline: 2px solid theme('colors.brand.500');
+  outline-offset: 2px;
+}
+
+.searchInput:focus {
+  box-shadow: 0 0 0 2px theme('colors.brand.500');
+}
+
+.categoryLink:focus {
+  outline: 2px solid theme('colors.brand.500');
+  outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .faqPage {
+    scroll-behavior: auto;
+  }
+  
+  .accordion {
+    transition: none;
+  }
+  
+  .faqButton {
+    transition: none;
+  }
+  
+  .categoryLink {
+    transition: none;
+  }
+}
+
+/* High contrast support */
+@media (prefers-contrast: high) {
+  .faqButton {
+    border: 2px solid currentColor;
+  }
+  
+  .searchInput {
+    border-width: 2px;
+  }
+  
+  .categoryLink {
+    border: 1px solid currentColor;
+  }
+}
+
+/* Ensure search highlights are visible */
+mark {
+  background-color: theme('colors.yellow.200');
+  color: theme('colors.yellow.900');
+  padding: 0.125rem;
+  border-radius: 0.25rem;
+}
+
+.dark mark {
+  background-color: theme('colors.yellow.800');
+  color: theme('colors.yellow.100');
+}
