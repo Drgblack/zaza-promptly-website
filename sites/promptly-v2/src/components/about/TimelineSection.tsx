@@ -93,7 +93,7 @@ function useInViewOnce() {
 }
 
 export default function TimelineSection() {
-  const { ref, isInView } = useInViewOnce(0.1)
+  const { ref, isInView } = useInViewOnce()
   const shouldReduceMotion = usePrefersReducedMotion()
   const svgRef = useRef<SVGPathElement>(null)
 
