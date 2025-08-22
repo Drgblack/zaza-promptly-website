@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Button } from '@/components/ui/Button'
 import ZaraOrb from '@/components/ui/ZaraOrb'
 
@@ -51,6 +51,8 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
   
   const resultRef = useRef<HTMLDivElement>(null)
   const ariaLiveRef = useRef<HTMLDivElement>(null)
+  const improvedTextRef = useRef<HTMLTextAreaElement>(null)
+  const explainButtonRef = useRef<HTMLButtonElement>(null)
 
   const toneOptions = [
     'Supportive',
@@ -84,6 +86,62 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
     'German',
     'Italian'
   ]
+
+  // Load preferences from localStorage on mount
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        const saved = localStorage.getItem('promptly-snippet-preferences')
+        if (saved) {
+          const preferences = JSON.parse(saved)
+          setSettings(prev => ({
+            ...prev,
+            tone: preferences.tone || prev.tone,
+            readingLevel: preferences.readingLevel || prev.readingLevel,
+            length: preferences.length || prev.length,
+            language: preferences.language || prev.language
+          }))
+        }
+      } catch (error) {
+        console.warn('Failed to load preferences:', error)
+      }
+    }
+  }, [])
+
+  // Save preferences to localStorage when settings change
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.setItem('promptly-snippet-preferences', JSON.stringify(settings))
+      } catch (error) {
+        console.warn('Failed to save preferences:', error)
+      }
+    }
+  }, [settings])
+
+  // Keyboard shortcuts
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      // Ctrl+Enter to Improve
+      if (event.ctrlKey && event.key === 'Enter') {
+        event.preventDefault()
+        if (draftText.trim() && !isImproving) {
+          handleImprove()
+        }
+      }
+      
+      // Alt+E to Explain
+      if (event.altKey && event.key === 'e') {
+        event.preventDefault()
+        if (improvedText && explainButtonRef.current) {
+          explainButtonRef.current.click()
+        }
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [draftText, isImproving, improvedText])
 
   const handleImprove = async () => {
     if (!draftText.trim()) return
@@ -167,8 +225,13 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
         ariaLiveRef.current.textContent = 'Comment improved successfully. Check the results panel.'
       }
 
-      // Scroll to results if needed
+      // Focus management and scroll to results
       setTimeout(() => {
+        if (improvedTextRef.current) {
+          // Focus on the improved text area for screen readers
+          improvedTextRef.current.focus()
+          improvedTextRef.current.select()
+        }
         if (resultRef.current) {
           resultRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
         }
@@ -529,11 +592,16 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
             disabled={!draftText.trim() || isImproving}
             className="w-full"
             aria-describedby="improve-button-help"
+            title="Improve comment (Ctrl+Enter)"
           >
             {isImproving ? 'Improving...' : 'Improve'}
           </Button>
           <p id="improve-button-help" className="text-xs text-slate-400">
             Enhance your comment with AI suggestions
+            <br />
+            <span className="text-slate-500">
+              Keyboard shortcuts: Ctrl+Enter to improve, Alt+E to explain
+            </span>
           </p>
           
           {/* Alternatives toggle */}
@@ -552,7 +620,7 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
         </div>
 
         {/* Right: Improved Result */}
-        <div className="xl:col-span-2 space-y-4" ref={resultRef}>
+        <div className="xl:col-span-2 space-y-4" ref={resultRef} aria-live="polite" aria-label="Improved comment results">
           <div>
             <div className="flex items-center justify-between mb-2">
               <label htmlFor="improved-text" className="block text-sm font-medium text-white">
@@ -619,12 +687,15 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
             
             <div className="relative">
               <textarea
+                ref={improvedTextRef}
                 id="improved-text"
                 value={improvedText}
                 readOnly
                 rows={8}
                 className="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent resize-none"
                 placeholder="Click 'Improve' to enhance your comment..."
+                aria-live="polite"
+                aria-label="Improved comment text"
               />
               
               {showDiff && improvedText && draftText && (
@@ -703,10 +774,12 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
               </Button>
               
               <Button
+                ref={explainButtonRef}
                 variant="outline"
                 onClick={() => setShowExplanation(!showExplanation)}
                 className="flex-1 min-w-[120px]"
                 aria-expanded={showExplanation}
+                title="Explain changes (Alt+E)"
               >
                 {showExplanation ? 'Hide Explanation' : 'Explain'}
               </Button>
