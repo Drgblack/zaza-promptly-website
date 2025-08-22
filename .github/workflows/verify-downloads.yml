@@ -1,0 +1,92 @@
+name: Verify Downloads
+
+on:
+  pull_request:
+    paths:
+      - 'sites/promptly-v2/public/resources/**'
+      - 'sites/promptly-v2/resources/**'
+      - 'sites/promptly-v2/src/app/free-resources/**'
+      - 'sites/promptly-v2/src/app/resources/**'
+      - 'sites/promptly-v2/content/resources.json'
+      - 'sites/promptly-v2/scripts/verify-downloads.ts'
+
+jobs:
+  verify-downloads:
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        working-directory: sites/promptly-v2
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: sites/promptly-v2/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      - name: Verify downloads
+        run: npm run test:downloads
+        env:
+          NODE_ENV: development
+        timeout-minutes: 5
+
+      - name: Upload verification results on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: download-verification-logs
+          path: sites/promptly-v2/verification-results.log
+          retention-days: 3
+
+      - name: Comment PR on failure
+        if: failure() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `❌ **Download Verification Failed**
+              
+              The download verification script found issues with one or more resource files. Please check:
+              
+              - All PDF files have valid headers and are > 5KB
+              - File extensions match their Content-Type headers  
+              - All download links on /free-resources work correctly
+              
+              View the [workflow run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) for detailed error messages.`
+            })
+
+      - name: Comment PR on success
+        if: success() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `✅ **Download Verification Passed**
+              
+              All resource downloads are working correctly:
+              - All files return proper HTTP headers
+              - Content types match file extensions
+              - File sizes are appropriate (> 5KB)
+              - File headers are valid
+              
+              Ready to merge! 🚀`
+            })
