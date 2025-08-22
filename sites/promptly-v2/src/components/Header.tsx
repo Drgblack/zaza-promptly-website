@@ -55,7 +55,7 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
-            <Link href="/products" className="text-white/80 hover:text-white/90 font-medium transition-colors">
+            <Link href="/products" className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1">
               Products
             </Link>
 
@@ -89,34 +89,34 @@ export default function Header() {
                 >
                   <div className="px-4 py-2 border-b border-white/10 mb-2">
                     <div className="text-xs text-slate-400 uppercase tracking-wide mb-1">Products</div>
-                    <Link href="/products" className="block text-sm text-slate-200 hover:text-brand-400 transition-colors">
+                    <Link href="/products" className="block text-sm text-slate-200 hover:text-brand-400 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded px-2 py-1">
                       Promptly
                     </Link>
-                    <a href="https://zazateach.com" target="_blank" rel="noopener noreferrer" className="block text-sm text-slate-200 hover:text-green-400 transition-colors">
+                    <a href="https://zazateach.com" target="_blank" rel="noopener noreferrer" className="block text-sm text-slate-200 hover:text-green-400 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded px-2 py-1">
                       Teach
                     </a>
-                    <Link href="/products#technologies" className="block text-sm text-slate-200 hover:text-purple-400 transition-colors">
+                    <Link href="/products#technologies" className="block text-sm text-slate-200 hover:text-purple-400 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded px-2 py-1">
                       Technologies
                     </Link>
                   </div>
                   <div className="px-4 py-1">
                     <div className="text-xs text-slate-400 uppercase tracking-wide mb-1">By Role</div>
-                    <Link href="/personas/teacher" className="block px-0 py-1 text-sm text-slate-300 hover:text-white transition-colors">
+                    <Link href="/personas/teacher" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded">
                       Classroom Teacher
                     </Link>
-                    <Link href="/personas/head-of-year" className="block px-0 py-1 text-sm text-slate-300 hover:text-white transition-colors">
+                    <Link href="/personas/head-of-year" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded">
                       Head of Year
                     </Link>
-                    <Link href="/personas/slt" className="block px-0 py-1 text-sm text-slate-300 hover:text-white transition-colors">
+                    <Link href="/personas/slt" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded">
                       Senior Leadership
                     </Link>
-                    <Link href="/personas/senco" className="block px-0 py-1 text-sm text-slate-300 hover:text-white transition-colors">
+                    <Link href="/personas/senco" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded">
                       SENCO
                     </Link>
-                    <Link href="/personas/tutor" className="block px-0 py-1 text-sm text-slate-300 hover:text-white transition-colors">
+                    <Link href="/personas/tutor" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded">
                       Form Tutor
                     </Link>
-                    <Link href="/personas/admin" className="block px-0 py-1 text-sm text-slate-300 hover:text-white transition-colors">
+                    <Link href="/personas/admin" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded">
                       School Admin
                     </Link>
                   </div>
@@ -124,31 +124,31 @@ export default function Header() {
               )}
             </div>
 
-            <Link href="/#snippet" className="text-white/80 hover:text-white/90 font-medium transition-colors">
+            <Link href="/#snippet" className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1">
               Snippet Tool
             </Link>
 
-            <Link href="/blog" className="text-white/80 hover:text-white/90 font-medium transition-colors">
+            <Link href="/blog" className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1">
               Blog
             </Link>
 
-            <Link href="/case-studies" className="text-white/80 hover:text-white/90 font-medium transition-colors">
+            <Link href="/case-studies" className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1">
               Case Studies
             </Link>
 
-            <Link href="/learning-centre" className="text-white/80 hover:text-white/90 font-medium transition-colors">
+            <Link href="/learning-centre" className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1">
               Learning Centre
             </Link>
             
-            <Link href="/free-resources" className="text-white/80 hover:text-white/90 font-medium transition-colors">
+            <Link href="/free-resources" className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1">
               Free Resources
             </Link>
 
-            <Link href="/about/founder" className="text-white/80 hover:text-white/90 font-medium transition-colors">
+            <Link href="/about/founder" className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1">
               Founder
             </Link>
 
-            <Link href="/contact" className="text-white/80 hover:text-white/90 font-medium transition-colors">
+            <Link href="/contact" className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1">
               Contact
             </Link>
           </nav>
@@ -159,7 +159,7 @@ export default function Header() {
               href="https://zazateach.com" 
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/80 hover:text-white/90 font-medium transition-colors"
+              className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1"
             >
               Try Zaza Teach
             </a>
@@ -205,38 +205,38 @@ export default function Header() {
             aria-label="Mobile navigation"
           >
             <div className="flex flex-col space-y-3">
-              <Link href="/products" className="text-slate-300 font-medium py-2">
+              <Link href="/products" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
                 Products
               </Link>
-              <Link href="/personas" className="text-slate-300 font-medium py-2">
+              <Link href="/personas" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
                 Our Solutions
               </Link>
-              <Link href="/#snippet" className="text-slate-300 font-medium py-2">
+              <Link href="/#snippet" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
                 Snippet Tool
               </Link>
-              <Link href="/blog" className="text-slate-300 font-medium py-2">
+              <Link href="/blog" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
                 Blog
               </Link>
-              <Link href="/case-studies" className="text-slate-300 font-medium py-2">
+              <Link href="/case-studies" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
                 Case Studies
               </Link>
-              <Link href="/learning-centre" className="text-slate-300 font-medium py-2">
+              <Link href="/learning-centre" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
                 Learning Centre
               </Link>
-              <Link href="/free-resources" className="text-slate-300 font-medium py-2">
+              <Link href="/free-resources" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
                 Free Resources
               </Link>
-              <Link href="/about/founder" className="text-slate-300 font-medium py-2">
+              <Link href="/about/founder" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
                 Founder
               </Link>
-              <Link href="/contact" className="text-slate-300 font-medium py-2">
+              <Link href="/contact" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
                 Contact
               </Link>
               <a 
                 href="https://zazateach.com" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-300 font-medium py-2"
+                className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2"
               >
                 Try Zaza Teach
               </a>

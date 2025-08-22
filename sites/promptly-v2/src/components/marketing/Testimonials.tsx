@@ -21,7 +21,7 @@ interface TestimonialsProps {
 
 function StarRating({ rating, className }: { rating: number; className?: string }) {
   return (
-    <div className={cn('flex items-center gap-1', className)} aria-label={`${rating} out of 5 stars`}>
+    <div className={cn('flex items-center gap-1', className)} role="img" aria-label={`${rating} out of 5 stars`}>
       {[1, 2, 3, 4, 5].map((star) => (
         <svg
           key={star}
