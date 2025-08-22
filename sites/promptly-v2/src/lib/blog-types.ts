@@ -44,6 +44,20 @@ export const slugifyAuthor = (author: string): string => {
     .replace(/ +/g, '-')
 }
 
+export const slugifyTag = (tag: string): string => {
+  return tag
+    .toLowerCase()
+    .replace(/[^\w ]+/g, '')
+    .replace(/ +/g, '-')
+}
+
+export const unslugifyTag = (slug: string): string => {
+  return slug
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
+}
+
 export const formatDate = (date: string): string => {
   return new Intl.DateTimeFormat('en-US', {
     year: 'numeric',

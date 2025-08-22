@@ -13,7 +13,7 @@ export type {
 } from './blog-types'
 
 // Re-export client-safe utilities
-export { slugifyAuthor, formatDate, extractExcerpt } from './blog-types'
+export { slugifyAuthor, slugifyTag, unslugifyTag, formatDate, extractExcerpt } from './blog-types'
 
 type AuthorMetaFile = {
   name: string

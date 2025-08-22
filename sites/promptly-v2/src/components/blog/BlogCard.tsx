@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { PostMeta, slugifyAuthor } from '@/lib/blog-types'
+import { PostMeta, slugifyAuthor, slugifyTag } from '@/lib/blog-types'
 
 interface BlogCardProps {
   post: PostMeta
@@ -32,7 +32,7 @@ export default function BlogCard({
           {post.tags.slice(0, 3).map((tag) => (
             <Link
               key={tag}
-              href={`/blog/tag/${encodeURIComponent(tag.toLowerCase())}`}
+              href={`/blog/tag/${slugifyTag(tag)}`}
               className="rounded-full border border-white/10 bg-slate-800/60 px-3 py-1 text-sm text-slate-300 hover:text-white hover:bg-slate-700/60 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900"
             >
               {tag}

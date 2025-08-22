@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getPostsByTag, getAllTags } from '@/lib/blog'
+import { getPostsByTag, getAllTags, slugifyTag, unslugifyTag } from '@/lib/blog'
 import BlogCard from '@/components/blog/BlogCard'
 
 interface TagPageProps {
@@ -14,13 +14,12 @@ export async function generateStaticParams() {
   const tags = await getAllTags()
   
   return tags.map((tag) => ({
-    tag: encodeURIComponent(tag.toLowerCase()),
+    tag: slugifyTag(tag),
   }))
 }
 
 export async function generateMetadata({ params }: TagPageProps): Promise<Metadata> {
-  const decodedTag = decodeURIComponent(params.tag)
-  const tag = decodedTag.charAt(0).toUpperCase() + decodedTag.slice(1)
+  const tag = unslugifyTag(params.tag)
   
   const posts = await getPostsByTag(tag)
   
@@ -42,8 +41,7 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
 }
 
 export default async function TagPage({ params }: TagPageProps) {
-  const decodedTag = decodeURIComponent(params.tag)
-  const tag = decodedTag.charAt(0).toUpperCase() + decodedTag.slice(1)
+  const tag = unslugifyTag(params.tag)
   const posts = await getPostsByTag(tag)
   
   if (posts.length === 0) {
