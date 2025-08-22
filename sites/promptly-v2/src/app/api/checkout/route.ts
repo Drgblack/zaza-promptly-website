@@ -4,7 +4,7 @@ import { getBaseUrl } from '@/lib/url'
 import { capture } from '../../../lib/obs'
 
 export async function POST(request: NextRequest) {
-  let body: any = {};
+  let body: { priceId?: string; quantity?: number } = {};
   try {
     body = await request.json()
     const { priceId, quantity = 1 } = body
