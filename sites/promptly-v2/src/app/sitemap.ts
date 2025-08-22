@@ -1,9 +1,11 @@
 import { MetadataRoute } from 'next'
 import { getPostSlugs, getAllTags, getAllAuthors, getAllPostsMeta, slugifyAuthor } from '@/lib/blog'
+import { getCaseStudySlugs } from '@/lib/case-studies'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.zazapromptly.com'
   const slugs = getPostSlugs()
+  const caseStudySlugs = getCaseStudySlugs()
   const tags = await getAllTags()
   const authors = await getAllAuthors()
   const allPosts = await getAllPostsMeta()
@@ -73,6 +75,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/case-studies`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/free-resources`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
@@ -114,6 +122,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.6,
+    })),
+    
+    // Case studies
+    ...caseStudySlugs.map((slug) => ({
+      url: `${baseUrl}/case-studies/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
     })),
     
     // Blog pagination pages (excluding page 1 since that's /blog)

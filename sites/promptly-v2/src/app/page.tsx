@@ -1,13 +1,52 @@
 import Link from 'next/link'
 import SnippetDemo from '@/components/sections/SnippetDemo'
+import LogoCloud from '@/components/marketing/LogoCloud'
+import Testimonials from '@/components/marketing/Testimonials'
 
 // Static page - revalidate every hour
 export const revalidate = 3600
 
 export default function Home() {
+  // Aggregate rating data from testimonials
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: 'Promptly',
+    description: 'AI-powered comment generation for teachers. Save hours every week while maintaining the quality your students deserve.',
+    brand: {
+      '@type': 'Brand',
+      name: 'Promptly'
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      reviewCount: '10000',
+      bestRating: '5',
+      worstRating: '1'
+    },
+    offers: {
+      '@type': 'Offer',
+      url: 'https://www.zazapromptly.com/pricing',
+      priceCurrency: 'GBP',
+      price: '14.99',
+      availability: 'https://schema.org/InStock',
+      validFrom: '2024-01-01'
+    },
+    category: 'Educational Software',
+    audience: {
+      '@type': 'EducationalAudience',
+      educationalRole: 'teacher'
+    }
+  }
   return (
-    <div className="relative">
-      {/* Hero Section */}
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      
+      <div className="relative">
+        {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <div className="container py-20 md:py-32">
           <div className="text-center">
@@ -82,6 +121,9 @@ export default function Home() {
           </svg>
         </div>
       </section>
+
+      {/* Logo Cloud Section */}
+      <LogoCloud className="bg-slate-900" />
 
       {/* Snippet Tool Section */}
       <section id="snippet" className="section bg-slate-900">
@@ -206,6 +248,42 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <Testimonials className="bg-slate-900" />
+
+      {/* Case Studies Section */}
+      <section className="bg-slate-800/30 py-16">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">
+              From the Classroom
+            </h2>
+            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+              Real stories from educators who&rsquo;ve transformed their practice with Promptly. 
+              Discover measurable results and practical insights.
+            </p>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/case-studies"
+              className="inline-flex items-center px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg transition-colors shadow-card focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+            >
+              Read Success Stories
+              <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+            <Link
+              href="/blog"
+              className="inline-flex items-center px-8 py-4 bg-transparent hover:bg-white/5 text-white font-semibold rounded-lg border border-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+            >
+              Browse Teaching Tips
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Learning Centre Link */}
       <section className="bg-slate-800/30 py-12">
         <div className="container text-center">
@@ -226,6 +304,7 @@ export default function Home() {
           </Link>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   )
 }

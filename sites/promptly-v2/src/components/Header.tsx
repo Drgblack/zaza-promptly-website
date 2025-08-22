@@ -137,6 +137,10 @@ export default function Header() {
               Blog
             </Link>
 
+            <Link href="/case-studies" className="text-white/80 hover:text-white/90 font-medium transition-colors">
+              Case Studies
+            </Link>
+
             <Link href="/learning-centre" className="text-white/80 hover:text-white/90 font-medium transition-colors">
               Learning Centre
             </Link>
@@ -231,6 +235,9 @@ export default function Header() {
               </Link>
               <Link href="/blog" className="text-slate-300 font-medium py-2">
                 Blog
+              </Link>
+              <Link href="/case-studies" className="text-slate-300 font-medium py-2">
+                Case Studies
               </Link>
               <Link href="/learning-centre" className="text-slate-300 font-medium py-2">
                 Learning Centre
