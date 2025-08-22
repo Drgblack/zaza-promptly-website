@@ -1,5 +1,5 @@
 /** @type {import('next-sitemap').IConfig} */
-module.exports = {
+export default {
   siteUrl: process.env.SITE_URL || 'https://promptly.zazatechnologies.com',
   generateRobotsTxt: true,
   exclude: [
@@ -29,37 +29,11 @@ module.exports = {
       'https://promptly.zazatechnologies.com/sitemap.xml',
     ],
   },
-  // Generate additional sitemaps for different content types
+  // Generate additional sitemaps for different content types  
   additionalPaths: async (config) => {
-    const { getAllPostsMeta } = await import('./src/lib/blog.js')
-    const { getAllCaseStudies } = await import('./src/lib/case-studies.js')
-
-    const blogPosts = await getAllPostsMeta()
-    const caseStudies = await getAllCaseStudies()
-
     const result = []
 
-    // Add blog posts
-    blogPosts.forEach(post => {
-      result.push({
-        loc: `/blog/${post.slug}`,
-        lastmod: new Date(post.date).toISOString(),
-        changefreq: 'monthly',
-        priority: 0.8,
-      })
-    })
-
-    // Add case studies
-    caseStudies.forEach(caseStudy => {
-      result.push({
-        loc: `/case-studies/${caseStudy.slug}`,
-        lastmod: new Date(caseStudy.metadata.date).toISOString(),
-        changefreq: 'monthly',
-        priority: 0.7,
-      })
-    })
-
-    // Add main pages
+    // Add main pages with priorities
     const mainPages = [
       { path: '/', priority: 1.0, changefreq: 'weekly' },
       { path: '/blog', priority: 0.9, changefreq: 'daily' },
