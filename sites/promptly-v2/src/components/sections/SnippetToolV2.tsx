@@ -4,9 +4,15 @@ import { useState, useRef } from 'react'
 import { Button } from '@/components/ui/Button'
 import ZaraOrb from '@/components/ui/ZaraOrb'
 
+interface QualityScore {
+  score: number
+  reasons: string[]
+}
+
 interface ImproveResponse {
   improvedText: string
   rationaleBullets: string[]
+  quality: QualityScore
   warnings: string[]
 }
 
@@ -19,6 +25,7 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
   const [improvedText, setImprovedText] = useState('')
   const [rationale, setRationale] = useState<string[]>([])
   const [warnings, setWarnings] = useState<string[]>([])
+  const [qualityScore, setQualityScore] = useState<QualityScore | null>(null)
   const [settings, setSettings] = useState({
     tone: 'Supportive',
     readingLevel: 'Parent-friendly',
@@ -73,6 +80,7 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
     setImprovedText('')
     setRationale([])
     setWarnings([])
+    setQualityScore(null)
     setShowExplanation(false)
 
     // Fire telemetry event if analytics consent given
@@ -120,6 +128,7 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
       setImprovedText(data.improvedText)
       setRationale(data.rationaleBullets || [])
       setWarnings(data.warnings || [])
+      setQualityScore(data.quality || null)
 
       // Announce to screen readers
       if (ariaLiveRef.current) {
@@ -165,8 +174,93 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
       setImprovedText('')
       setRationale([])
       setWarnings([])
+      setQualityScore(null)
       setShowExplanation(false)
     }
+  }
+
+  const handleModifierClick = async (modifier: string) => {
+    if (!draftText.trim() || isImproving) return
+    
+    let newSettings = { ...settings }
+    
+    switch (modifier) {
+      case 'Softer tone':
+        if (settings.tone !== 'Supportive') {
+          newSettings.tone = 'Supportive'
+        }
+        break
+      case 'More specific strategies':
+        // This will trigger the explain=true mode in the API
+        break
+      case 'Shorter':
+        if (settings.length !== 'Short') {
+          newSettings.length = 'Short'
+        }
+        break
+      case 'Translate':
+        // For now, cycle through some common languages
+        const currentLang = settings.language
+        const langs = ['English (UK)', 'Spanish', 'French', 'German']
+        const currentIndex = langs.indexOf(currentLang)
+        newSettings.language = langs[(currentIndex + 1) % langs.length]
+        break
+    }
+    
+    setSettings(newSettings)
+    
+    // Trigger improvement with new settings
+    setTimeout(async () => {
+      await handleImproveWithModifier(modifier === 'More specific strategies')
+    }, 100)
+  }
+
+  const handleImproveWithModifier = async (explainMode = false) => {
+    if (!draftText.trim()) return
+
+    setIsImproving(true)
+
+    try {
+      const response = await fetch('/api/improve-comment', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          draft: draftText,
+          tone: settings.tone,
+          readingLevel: settings.readingLevel,
+          length: settings.length,
+          language: settings.language,
+          role: userRole,
+          explain: explainMode
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to improve comment')
+      }
+
+      const data: ImproveResponse = await response.json()
+      setImprovedText(data.improvedText)
+      setRationale(data.rationaleBullets || [])
+      setWarnings(data.warnings || [])
+      setQualityScore(data.quality || null)
+      
+      if (explainMode) {
+        setShowExplanation(true)
+      }
+
+    } catch (error) {
+      console.error('Error improving comment:', error)
+    } finally {
+      setIsImproving(false)
+    }
+  }
+
+  const handleMakeClearer = async () => {
+    if (!draftText.trim() || isImproving) return
+    await handleImproveWithModifier(false) // Trigger refinement pass
   }
 
   const handleContextAction = (action: string) => {
@@ -178,24 +272,20 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
         }
         break
       case 'Softer tone':
-        if (settings.tone !== 'Supportive') {
-          handleSettingChange('tone', 'Supportive')
-          if (draftText.trim()) {
-            setTimeout(() => handleImprove(), 500)
-          }
-        }
-        break
+      case 'More specific strategies':
       case 'Shorter':
-        if (settings.length !== 'Short') {
-          handleSettingChange('length', 'Short')
-          if (draftText.trim()) {
-            setTimeout(() => handleImprove(), 500)
-          }
-        }
+      case 'Translate':
+        handleModifierClick(action)
         break
       default:
         console.log('Context action:', action)
     }
+  }
+
+  const getQualityLabel = (score: number) => {
+    if (score >= 0.9) return { label: 'Parent-ready', color: 'text-green-400' }
+    if (score >= 0.8) return { label: 'Solid', color: 'text-yellow-400' }
+    return { label: 'Needs work', color: 'text-red-400' }
   }
 
   // Simple word-level diff highlighting
@@ -392,6 +482,38 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
               )}
             </div>
 
+            {/* Quality Bar */}
+            {qualityScore && (
+              <div className="mt-2 p-3 bg-slate-800/50 border border-slate-600/50 rounded-lg">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-medium text-slate-300">Quality Score</span>
+                  <span className={`text-xs font-medium ${getQualityLabel(qualityScore.score).color}`}>
+                    {getQualityLabel(qualityScore.score).label}
+                  </span>
+                </div>
+                <div className="w-full bg-slate-700 rounded-full h-2 mb-2">
+                  <div 
+                    className={`h-2 rounded-full transition-all duration-500 ${
+                      qualityScore.score >= 0.9 ? 'bg-green-500' :
+                      qualityScore.score >= 0.8 ? 'bg-yellow-500' : 'bg-red-500'
+                    }`}
+                    style={{ width: `${Math.max(qualityScore.score * 100, 5)}%` }}
+                  ></div>
+                </div>
+                {qualityScore.score < 0.8 && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={handleMakeClearer}
+                    disabled={isImproving}
+                    className="w-full mt-2 text-xs"
+                  >
+                    {isImproving ? 'Improving...' : 'Make it clearer'}
+                  </Button>
+                )}
+              </div>
+            )}
+
             {/* Warnings */}
             {warnings.length > 0 && (
               <div className="mt-2 p-3 bg-yellow-900/20 border border-yellow-500/30 rounded-lg">
@@ -434,10 +556,26 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
             </div>
           )}
 
+          {/* Modifier Chips */}
+          {improvedText && (
+            <div className="flex flex-wrap gap-2">
+              {['Softer tone', 'More specific strategies', 'Shorter', 'Translate'].map((modifier) => (
+                <button
+                  key={modifier}
+                  onClick={() => handleModifierClick(modifier)}
+                  disabled={isImproving}
+                  className="px-3 py-1 text-xs bg-purple-600/20 hover:bg-purple-600/30 text-purple-300 hover:text-purple-200 border border-purple-500/30 rounded-full transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {modifier}
+                </button>
+              ))}
+            </div>
+          )}
+
           {/* Explanation Panel */}
           {showExplanation && rationale.length > 0 && (
             <div className="p-4 bg-slate-800/50 border border-slate-600/50 rounded-lg">
-              <h4 className="text-sm font-medium text-white mb-3">Why These Changes:</h4>
+              <h4 className="text-sm font-medium text-white mb-3">Why this is better:</h4>
               <ul className="space-y-2">
                 {rationale.map((point, index) => (
                   <li key={index} className="flex items-start text-sm text-slate-300">
