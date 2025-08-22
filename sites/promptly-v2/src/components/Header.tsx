@@ -179,7 +179,7 @@ export default function Header() {
             </div>
 
             <Link href="/#snippet" className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1">
-              Snippet Tool
+              Quick Comment Helper
             </Link>
 
             <Link href="/blog" className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1">
@@ -199,7 +199,7 @@ export default function Header() {
             </Link>
 
             <Link href="/about/founder" className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1">
-              Founder
+              Meet Your Fellow Educator
             </Link>
 
             <Link href="/contact" className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1">
@@ -223,14 +223,14 @@ export default function Header() {
               rel="noopener noreferrer"
               className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1"
             >
-              Try Zaza Teach
+              Try Free Classroom Tool
             </a>
             
             <Link 
               href="/pricing"
               className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900"
             >
-              Get Started
+              Try Free for Your Classroom
             </Link>
 
             {/* Dark Mode Toggle */}
@@ -285,7 +285,7 @@ export default function Header() {
                     Our Solutions
                   </Link>
                   <Link href="/#snippet" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                    Snippet Tool
+                    Quick Comment Helper
                   </Link>
                   <Link href="/blog" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
                     Blog
@@ -300,7 +300,7 @@ export default function Header() {
                     Free Resources
                   </Link>
                   <Link href="/about/founder" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                    Founder
+                    Meet Your Fellow Educator
                   </Link>
                   <Link href="/contact" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
                     Contact
@@ -311,13 +311,13 @@ export default function Header() {
                     rel="noopener noreferrer"
                     className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2"
                   >
-                    Try Zaza Teach
+                    Try Free Classroom Tool
                   </a>
                   <Link 
                     href="/pricing"
                     className="inline-flex items-center justify-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900"
                   >
-                    Get Started
+                    Try Free for Your Classroom
                   </Link>
                   <ThemeToggle variant="mobile" />
                 </div>
@@ -350,7 +350,7 @@ export default function Header() {
                     Our Solutions
                   </Link>
                   <Link href="/#snippet" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                    Snippet Tool
+                    Quick Comment Helper
                   </Link>
                   <Link href="/blog" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
                     Blog
@@ -365,7 +365,7 @@ export default function Header() {
                     Free Resources
                   </Link>
                   <Link href="/about/founder" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                    Founder
+                    Meet Your Fellow Educator
                   </Link>
                   <Link href="/contact" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
                     Contact
@@ -376,13 +376,13 @@ export default function Header() {
                     rel="noopener noreferrer"
                     className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2"
                   >
-                    Try Zaza Teach
+                    Try Free Classroom Tool
                   </a>
                   <Link 
                     href="/pricing"
                     className="inline-flex items-center justify-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900"
                   >
-                    Get Started
+                    Try Free for Your Classroom
                   </Link>
                   <ThemeToggle variant="mobile" />
                 </div>

@@ -19,7 +19,7 @@ export default function Footer() {
               <span className="text-xl font-bold text-gray-900 dark:text-white">Promptly</span>
             </div>
             <p className="text-gray-600 dark:text-gray-400 mb-4">
-              Hallucination-safe AI created by <strong>Dr Greg Blackburn, PhD in Professional Education</strong>. 
+              Reliable AI created by <strong>Dr Greg Blackburn, PhD in Professional Education</strong>. 
               Trusted by 12,000+ teachers worldwide for reports and parent communication.
             </p>
             <div className="text-sm text-gray-500 dark:text-gray-500">
@@ -70,17 +70,17 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link href="/about/founder" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded px-1 py-1">
-                  PhD Founder & Education Expert
+                  Meet Your Fellow Educator
                 </Link>
               </li>
               <li>
                 <Link href="/faq#privacy" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded px-1 py-1">
-                  GDPR Compliant AI
+                  Student Privacy Protected
                 </Link>
               </li>
               <li>
                 <Link href="/faq#safety" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded px-1 py-1">
-                  Hallucination-Safe AI
+                  Reliable AI That Won&apos;t Make Things Up
                 </Link>
               </li>
               <li>
@@ -132,14 +132,14 @@ export default function Footer() {
                 <svg className="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                GDPR Compliant AI for Education
+                Student Privacy Protected
               </div>
               
               <div className="flex items-center text-sm text-gray-500 dark:text-gray-500">
                 <svg className="w-4 h-4 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                Hallucination-Safe AI
+                Reliable AI That Won&apos;t Make Things Up
               </div>
             </div>
           </div>
