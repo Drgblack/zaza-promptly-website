@@ -287,14 +287,7 @@ export async function estimateReadingMinutes(slug: string): Promise<string> {
   }
 }
 
-// Utility function to create URL-friendly slugs
-export function slugifyAuthor(author: string): string {
-  return author
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '') // Remove special characters
-    .replace(/[\s_-]+/g, '-') // Replace spaces and underscores with hyphens
-    .replace(/^-+|-+$/g, '') // Remove leading/trailing hyphens
-}
+// slugifyAuthor is re-exported from blog-types.ts
 
 // Get author from slug
 export function getAuthorFromSlug(slug: string): string {
