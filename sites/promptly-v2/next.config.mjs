@@ -127,7 +127,6 @@ const nextConfig = {
     return [
       ...legacyRedirects,
       // Standard path normalizations (permanent redirects)
-      { source: '/learning-centre', destination: '/learning-centre', permanent: true },
       { source: '/learning-center', destination: '/learning-centre', permanent: true },
       // Dynamic blog post patterns for common legacy formats
       { source: '/posts/:slug*', destination: '/blog/:slug*', permanent: true },
