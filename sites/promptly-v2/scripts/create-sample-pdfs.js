@@ -8,13 +8,9 @@
 import fs from 'fs'
 import path from 'path'
 
-const resourcesDir = path.join(process.cwd(), 'public', 'resources')
-const resourceFiles = [
-  'comment-tips.pdf',
-  'report-template.pdf', 
-  'parent-comm-guide.pdf',
-  'ai-prompt-templates.pdf'
-]
+const resourcesDir = path.join(process.cwd(), 'resources')
+const resourcesJson = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'content', 'resources.json'), 'utf-8'))
+const resourceFiles = resourcesJson.map(resource => resource.filename)
 
 // Simple PDF header (minimal valid PDF structure for testing)
 const pdfContent = `%PDF-1.4
