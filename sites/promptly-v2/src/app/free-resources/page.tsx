@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import resourcesData from '../../../public/resources/resources.json'
+import { trackResourceOpen, trackResourceDownload } from '@/utils/resourceAnalytics'
 
 type Resource = {
   filename: string
@@ -25,18 +26,13 @@ export default function FreeResourcesPage() {
   
   const resources = resourcesData as Resource[]
   
-  // Download tracking function (respects user consent)
-  const trackDownload = (resource: Resource) => {
-    // Check if analytics consent is given
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'download', {
-        event_category: 'Resource',
-        event_label: resource.title,
-        resource_format: resource.format,
-        resource_filename: resource.filename,
-        value: 1
-      })
-    }
+  // Resource interaction handlers (consent-aware)
+  const handleResourceOpen = (resource: Resource) => {
+    trackResourceOpen(resource)
+  }
+  
+  const handleResourceDownload = (resource: Resource) => {
+    trackResourceDownload(resource)
   }
   
   // Get unique formats for filtering
@@ -175,7 +171,7 @@ export default function FreeResourcesPage() {
                           href={`/resources/${resource.filename}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          onClick={() => trackDownload(resource)}
+                          onClick={() => handleResourceOpen(resource)}
                           className="flex-1 inline-flex items-center justify-center px-4 py-2 border border-brand-600 text-brand-400 hover:bg-brand-600/10 font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900"
                         >
                           <svg className="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -188,7 +184,7 @@ export default function FreeResourcesPage() {
                       <a
                         href={`/resources/${resource.filename}`}
                         download
-                        onClick={() => trackDownload(resource)}
+                        onClick={() => handleResourceDownload(resource)}
                         className={`${resource.format === 'PDF' ? 'flex-1' : 'w-full'} inline-flex items-center justify-center px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900`}
                       >
                         <svg className="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
