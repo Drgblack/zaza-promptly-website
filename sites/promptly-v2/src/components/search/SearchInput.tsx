@@ -80,6 +80,18 @@ export default function SearchInput({
     setIsOpen(newQuery.trim().length > 0 && showDropdown)
   }, [showDropdown])
 
+  // Handle result selection
+  const handleResultSelect = useCallback((result: SearchResult) => {
+    if (onResultSelect) {
+      onResultSelect(result)
+    } else {
+      router.push(result.item.url)
+    }
+    setIsOpen(false)
+    setQuery('')
+    inputRef.current?.blur()
+  }, [onResultSelect, router])
+
   // Handle keyboard navigation
   const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
     if (!isOpen || results.length === 0) {
@@ -130,18 +142,6 @@ export default function SearchInput({
         break
     }
   }, [isOpen, results, selectedIndex, query, router, handleResultSelect])
-
-  // Handle result selection
-  const handleResultSelect = useCallback((result: SearchResult) => {
-    if (onResultSelect) {
-      onResultSelect(result)
-    } else {
-      router.push(result.item.url)
-    }
-    setIsOpen(false)
-    setQuery('')
-    inputRef.current?.blur()
-  }, [onResultSelect, router])
 
   // Handle click outside to close dropdown
   useEffect(() => {
