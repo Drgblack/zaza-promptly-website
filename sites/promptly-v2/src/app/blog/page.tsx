@@ -8,8 +8,22 @@ import Pagination from '@/components/blog/Pagination'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Blog | Promptly - Education Insights & Tips',
-  description: 'Latest insights, tips, and best practices for educators using AI-powered tools in the classroom.',
+  title: 'Zaza Promptly Blog – AI Teaching Tips, Strategies & Research',
+  description: 'Practical advice, research-backed insights, and AI strategies to reduce teacher workload, improve parent communication, and future-proof education.',
+  keywords: 'AI teaching tips, teacher AI strategies, AI for parent communication, teacher productivity tips, AI lesson planning, education AI research, safe AI for teachers',
+  alternates: {
+    canonical: '/blog',
+  },
+  openGraph: {
+    title: 'Zaza Promptly Blog – AI Teaching Tips, Strategies & Research',
+    description: 'Practical advice, research-backed insights, and AI strategies to reduce teacher workload, improve parent communication, and future-proof education.',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Zaza Promptly Blog – AI Teaching Tips, Strategies & Research',
+    description: 'Practical advice, research-backed insights, and AI strategies to reduce teacher workload, improve parent communication, and future-proof education.',
+  },
 }
 
 export default async function BlogPage() {

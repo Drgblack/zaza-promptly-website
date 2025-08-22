@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import SnippetToolV2 from '@/components/sections/SnippetToolV2'
 import LogoCloud from '@/components/marketing/LogoCloud'
+import TestimonialsSection from '@/components/testimonials/TestimonialsSection'
+import TrustBadges from '@/components/trust/TrustBadges'
 import dynamic from 'next/dynamic'
 
 // Lazy load testimonials as they're below the fold
@@ -296,6 +298,34 @@ export default function Home() {
             </p>
           </div>
           <SnippetToolV2 />
+          
+          {/* Enhanced CTA after snippet tool */}
+          <div className="text-center mt-12">
+            <h3 className="text-xl font-semibold text-white mb-4">
+              Ready to Save Hours Every Week?
+            </h3>
+            <p className="text-slate-300 mb-6 max-w-2xl mx-auto">
+              Created by <strong>Dr Greg Blackburn, PhD in Professional Education</strong> — 
+              join 12,000+ teachers using hallucination-safe AI designed specifically for education.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link 
+                href="/waitlist"
+                className="inline-flex items-center px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors shadow-lg"
+              >
+                Start Free Trial — No Credit Card
+                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+              <Link 
+                href="/personas"
+                className="inline-flex items-center px-8 py-4 border border-purple-600 text-purple-400 hover:bg-purple-600/10 font-semibold rounded-lg transition-colors"
+              >
+                Find Your Teaching Role
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -394,21 +424,35 @@ export default function Home() {
 
           {/* CTA */}
           <div className="text-center mt-12">
-            <Link 
-              href="/personas"
-              className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
-            >
-              Explore All Solutions
-              <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link 
+                href="/personas"
+                className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors shadow-lg"
+              >
+                Explore All Solutions
+                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+              <Link 
+                href="/waitlist"
+                className="inline-flex items-center px-8 py-4 border border-blue-600 text-blue-400 hover:bg-blue-600/10 font-semibold rounded-lg transition-colors"
+              >
+                Try Free Today
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <Testimonials className="bg-slate-900" />
+      {/* New Trust Badges Section */}
+      <TrustBadges variant="default" showTitle={true} className="bg-slate-900/50" />
+
+      {/* New Testimonials Section */}
+      <TestimonialsSection variant="quick" className="bg-slate-900" />
+
+      {/* Original Testimonials Section */}
+      <Testimonials className="bg-slate-900/50" />
 
       {/* Case Studies Section */}
       <section className="bg-slate-800/30 py-16">
@@ -426,7 +470,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/case-studies"
-              className="inline-flex items-center px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg transition-colors shadow-card focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+              className="inline-flex items-center px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg transition-colors shadow-card"
             >
               Read Success Stories
               <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -434,10 +478,13 @@ export default function Home() {
               </svg>
             </Link>
             <Link
-              href="/blog"
-              className="inline-flex items-center px-8 py-4 bg-transparent hover:bg-white/5 text-white font-semibold rounded-lg border border-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+              href="/waitlist"
+              className="inline-flex items-center px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors shadow-card"
             >
-              Browse Teaching Tips
+              Start Your Journey Today
+              <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
             </Link>
           </div>
         </div>
@@ -452,15 +499,23 @@ export default function Home() {
           <p className="text-slate-300 mb-6">
             Explore our Learning Centre for expert insights, practical guides, and free resources.
           </p>
-          <Link 
-            href="/learning-centre"
-            className="inline-flex items-center px-6 py-3 bg-slate-700/60 hover:bg-slate-700/80 text-white font-medium rounded-lg transition-colors border border-white/10"
-          >
-            Visit Learning Centre
-            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              href="/learning-centre"
+              className="inline-flex items-center px-6 py-3 bg-slate-700/60 hover:bg-slate-700/80 text-white font-medium rounded-lg transition-colors border border-white/10"
+            >
+              Visit Learning Centre
+              <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+            <Link 
+              href="/free-resources"
+              className="inline-flex items-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-colors"
+            >
+              Download Free Resources
+            </Link>
+          </div>
         </div>
       </section>
       </div>

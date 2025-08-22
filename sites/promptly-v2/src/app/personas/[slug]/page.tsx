@@ -27,16 +27,57 @@ export async function generateMetadata({ params }: PersonaPageProps): Promise<Me
   }
 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
+  
+  // Generate SEO-optimized titles and descriptions for each persona
+  const personaMetadata = {
+    'uk-primary': {
+      title: 'AI for UK Primary Teachers – Report Writing & Parent Communication | Promptly',
+      description: 'Stop losing evenings and weekends to report writing. Zaza Promptly helps UK primary teachers write EYFS-Year 6 reports and parent communications faster with safe AI.',
+      keywords: 'AI for UK primary teachers, UK primary school AI, EYFS AI tools, Year 6 reports AI, UK curriculum AI, primary teacher productivity, Ofsted AI compliance'
+    },
+    'us-secondary': {
+      title: 'AI for US Secondary Teachers – Parent Email Generator & Grade Reports | Promptly',
+      description: 'Handle parent communication overload with confidence. AI tools for US secondary teachers – generate professional emails, grade reports, and IEP communications safely.',
+      keywords: 'AI for US secondary teachers, high school teacher AI, parent email generator, US education AI, Common Core AI, IEP communication AI, American teacher tools'
+    },
+    'special-needs': {
+      title: 'AI for Special Education Teachers – SENCO Communication & IEP Reports | Promptly',
+      description: 'Celebrate every child\'s unique journey with strength-based communication. Safe AI for special education teachers, SENCO communications, and sensitive IEP documentation.',
+      keywords: 'AI for special education teachers, SENCO AI tools, IEP communication AI, special needs AI, autism communication AI, ADHD support AI, inclusive education AI'
+    },
+    'international': {
+      title: 'AI for International Teachers – Multilingual Parent Communication | Promptly',
+      description: 'Break down language barriers and communicate with all families confidently. AI translation and culturally sensitive communication tools for international schools.',
+      keywords: 'AI for international teachers, multilingual communication AI, international school AI, translation AI teachers, cross-cultural communication AI, global education AI'
+    },
+    'edtech-savvy': {
+      title: 'Education-Specific AI vs ChatGPT – Safe AI Tools for Tech-Savvy Teachers | Promptly',
+      description: 'Modern AI that\'s actually designed for education, not just repurposed ChatGPT. GDPR-compliant, hallucination-safe AI tools built specifically for classroom use.',
+      keywords: 'education AI vs ChatGPT, safe AI for teachers, GDPR compliant AI education, hallucination-safe AI, edtech AI tools, privacy-first AI education, classroom AI safety'
+    },
+    'head-teacher': {
+      title: 'AI for Head Teachers & School Leaders – Whole-School Communication Solutions | Promptly',
+      description: 'Ensure whole-school excellence while supporting teacher wellbeing. AI tools for head teachers to maintain consistent communication standards and reduce staff workload.',
+      keywords: 'AI for head teachers, school leadership AI, headteacher AI tools, whole-school AI, education management AI, teacher wellbeing AI, school administration AI'
+    }
+  }
+
+  const meta = personaMetadata[persona.slug as keyof typeof personaMetadata] || {
+    title: `${persona.name} Solutions | Promptly - ${persona.tagline}`,
+    description: `${persona.tagline}. Discover how Promptly's AI supports ${persona.name.toLowerCase()}s with safe, education-specific AI tools.`,
+    keywords: `AI for ${persona.name.toLowerCase()}s, ${persona.name.toLowerCase()} AI tools, education AI, teacher productivity, safe AI for teachers`
+  }
 
   return {
-    title: `${persona.name} Solutions | Promptly - ${persona.tagline}`,
-    description: `${persona.tagline}. Discover how Promptly's AI-powered comment generation supports ${persona.name.toLowerCase()}s in education.`,
+    title: meta.title,
+    description: meta.description,
+    keywords: meta.keywords,
     alternates: {
       canonical: `/personas/${persona.slug}`,
     },
     openGraph: {
-      title: `${persona.name} Solutions | Promptly`,
-      description: persona.tagline,
+      title: meta.title,
+      description: meta.description,
       url: `${baseUrl}/personas/${persona.slug}`,
       images: [
         {
@@ -51,8 +92,8 @@ export async function generateMetadata({ params }: PersonaPageProps): Promise<Me
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${persona.name} Solutions | Promptly`,
-      description: persona.tagline,
+      title: meta.title,
+      description: meta.description,
       images: ['/og-default.png'],
     },
   }

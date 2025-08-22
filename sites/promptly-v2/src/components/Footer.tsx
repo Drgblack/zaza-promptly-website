@@ -18,7 +18,8 @@ export default function Footer() {
               <span className="text-xl font-bold text-gray-900 dark:text-white">Promptly</span>
             </div>
             <p className="text-gray-600 dark:text-gray-400 mb-4">
-              AI-powered comment generation that saves teachers hours every week while maintaining quality and personal touch.
+              Hallucination-safe AI created by <strong>Dr Greg Blackburn, PhD in Professional Education</strong>. 
+              Trusted by 12,000+ teachers worldwide for reports and parent communication.
             </p>
             <div className="text-sm text-gray-500 dark:text-gray-500">
               © 2024 Zaza Technologies. All rights reserved.
@@ -102,15 +103,18 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-sm text-gray-500 dark:text-gray-500 mb-4 md:mb-0">
-              Built with ❤️ for educators worldwide
+              Built by educators for educators — <Link href="/about/founder" className="text-blue-600 hover:text-blue-700">Created by Dr Greg Blackburn, PhD</Link>
             </div>
             
             <div className="flex flex-wrap items-center gap-4 md:gap-6">
               <Link 
                 href="/waitlist"
-                className="text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium"
+                className="inline-flex items-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-semibold rounded-lg transition-colors"
               >
-                Try Free AI Tool →
+                Start Free Trial
+                <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
               </Link>
               
               <Link 

@@ -6,10 +6,21 @@ import { PERSONAS } from '@/content/personas'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Teaching Solutions | Promptly - AI Comments for Every Education Role',
-  description: 'Discover AI comment solutions tailored to your specific teaching context. From classroom teachers to senior leadership, find the perfect tool for your role.',
+  title: 'AI Tools for Teachers by Role – UK Primary, US Secondary & More | Promptly',
+  description: 'Discover AI solutions for your teaching context: UK Primary, US Secondary, Special Education, International, EdTech-Savvy, and Head Teachers. Safe AI built for schools.',
+  keywords: 'AI tools for teachers, UK primary teacher AI, US secondary teacher AI, special education AI, international teacher tools, edtech AI tools, head teacher AI, teacher productivity apps',
   alternates: {
     canonical: '/personas',
+  },
+  openGraph: {
+    title: 'AI Tools for Teachers by Role – UK Primary, US Secondary & More | Promptly',
+    description: 'Discover AI solutions for your teaching context: UK Primary, US Secondary, Special Education, International, EdTech-Savvy, and Head Teachers. Safe AI built for schools.',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AI Tools for Teachers by Role – UK Primary, US Secondary & More | Promptly',
+    description: 'Discover AI solutions for your teaching context: UK Primary, US Secondary, Special Education, International, EdTech-Savvy, and Head Teachers. Safe AI built for schools.',
   },
 }
 

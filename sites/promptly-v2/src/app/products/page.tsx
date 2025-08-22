@@ -4,15 +4,15 @@ import Link from 'next/link'
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
 
 export const metadata: Metadata = {
-  title: 'AI Tools for Teachers | Teacher Productivity Apps | Zaza Suite',
-  description: 'Complete suite of AI tools for teachers: Promptly for parent communication, Teach for lesson planning, AutoPlanner for multimodal planning. Reduce teacher workload with safe AI.',
+  title: 'Zaza AI Products – Tools for Teachers, Schools & HR Professionals',
+  description: 'Explore Zaza\'s AI suite: Promptly for communication, Teach for lesson planning, AutoPlanner for classrooms. Safe AI built to help teachers thrive.',
   keywords: 'AI tools for teachers, teacher productivity apps, AI lesson planning assistant, AI for parent communication, AI for teacher reports, safe AI for teachers, best AI tools for teachers 2025',
   alternates: {
     canonical: '/products',
   },
   openGraph: {
-    title: 'Our Products | Promptly',
-    description: 'Discover our suite of AI-powered educational tools: Promptly for comment generation, Teach for lesson planning, and Technologies for custom solutions.',
+    title: 'Zaza AI Products – Tools for Teachers, Schools & HR Professionals',
+    description: 'Explore Zaza\'s AI suite: Promptly for communication, Teach for lesson planning, AutoPlanner for classrooms. Safe AI built to help teachers thrive.',
     url: `${baseUrl}/products`,
     images: [
       {
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Our Products | Promptly',
-    description: 'Discover our suite of AI-powered educational tools: Promptly for comment generation, Teach for lesson planning, and Technologies for custom solutions.',
+    title: 'Zaza AI Products – Tools for Teachers, Schools & HR Professionals',
+    description: 'Explore Zaza\'s AI suite: Promptly for communication, Teach for lesson planning, AutoPlanner for classrooms. Safe AI built to help teachers thrive.',
     images: ['/og-default.png'],
   },
 }

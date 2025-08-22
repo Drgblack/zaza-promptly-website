@@ -5,14 +5,14 @@ import Image from 'next/image'
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
 
 export const metadata: Metadata = {
-  title: 'About Dr. Greg Blackburn — Founder | Promptly',
-  description: 'Dr. Greg Blackburn is a globally recognised EdTech expert, PhD-qualified educator, and founder of Zaza Technologies. Over 20 years of experience building AI tools for teachers.',
+  title: 'About Zaza Promptly – Dr Greg Blackburn, PhD in Education',
+  description: 'Dr Greg Blackburn, PhD Professional Education, founded Zaza Promptly with 20+ years EdTech expertise to build safe AI tools that teachers can trust.',
   alternates: {
     canonical: '/about/founder',
   },
   openGraph: {
-    title: 'About Dr. Greg Blackburn — Founder | Promptly',
-    description: 'Dr. Greg Blackburn is a globally recognised EdTech expert, PhD-qualified educator, and founder of Zaza Technologies. Over 20 years of experience building AI tools for teachers.',
+    title: 'About Zaza Promptly – Dr Greg Blackburn, PhD in Education',
+    description: 'Dr Greg Blackburn, PhD Professional Education, founded Zaza Promptly with 20+ years EdTech expertise to build safe AI tools that teachers can trust.',
     url: `${baseUrl}/about/founder`,
     images: [
       {
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About Dr. Greg Blackburn — Founder | Promptly',
-    description: 'Dr. Greg Blackburn is a globally recognised EdTech expert, PhD-qualified educator, and founder of Zaza Technologies. Over 20 years of experience building AI tools for teachers.',
+    title: 'About Zaza Promptly – Dr Greg Blackburn, PhD in Education',
+    description: 'Dr Greg Blackburn, PhD Professional Education, founded Zaza Promptly with 20+ years EdTech expertise to build safe AI tools that teachers can trust.',
     images: ['/images/founder/portrait.jpg'],
   },
 }

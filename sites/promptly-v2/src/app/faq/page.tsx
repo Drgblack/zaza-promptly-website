@@ -2,15 +2,15 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'FAQ: Is Using AI for Teachers Cheating? Safe AI vs ChatGPT | Promptly',
-  description: 'Common questions about AI tools for teachers. Learn why Promptly\'s hallucination-safe AI is different from ChatGPT, GDPR compliance, and how to reduce teacher workload ethically.',
+  title: 'Zaza Promptly FAQs – AI for Teachers, Reports & Parent Emails',
+  description: 'Answers to teachers\' top questions about using AI safely in education. Learn how Zaza Promptly differs from ChatGPT, protects data, and supports classrooms.',
   keywords: 'is using AI for teachers cheating, AI vs ChatGPT for teachers, safe AI for teachers, GDPR compliant AI for teachers, hallucination-safe AI, AI tool for teacher reports, best AI tools for teachers 2025',
   alternates: {
     canonical: '/faq',
   },
   openGraph: {
-    title: 'FAQ: Is Using AI for Teachers Cheating? Safe AI vs ChatGPT | Promptly',
-    description: 'Common questions about AI tools for teachers. Learn why Promptly\'s hallucination-safe AI is different from ChatGPT, GDPR compliance, and how to reduce teacher workload ethically.',
+    title: 'Zaza Promptly FAQs – AI for Teachers, Reports & Parent Emails',
+    description: 'Answers to teachers\' top questions about using AI safely in education. Learn how Zaza Promptly differs from ChatGPT, protects data, and supports classrooms.',
     type: 'article',
   }
 }
