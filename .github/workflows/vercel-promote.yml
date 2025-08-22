@@ -1,0 +1,26 @@
+name: vercel promote
+on:
+  workflow_dispatch:
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Vercel CLI
+        run: npm i -g vercel@latest
+      - name: Get latest READY deployment
+        id: list
+        run: |
+          curl -s -H "Authorization: Bearer $VERCEL_TOKEN" \
+            "https://api.vercel.com/v13/deployments?projectId=$VERCEL_PROJECT_ID&state=READY&limit=1" > deployments.json
+          URL=$(jq -r '.deployments[0].url' deployments.json)
+          echo "url=$URL" >> $GITHUB_OUTPUT
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Alias latest to PROD domain
+        run: vercel alias set "https://${{ steps.list.outputs.url }}" "$PROD_DOMAIN" --token $VERCEL_TOKEN
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          PROD_DOMAIN: ${{ secrets.PROD_DOMAIN }}
