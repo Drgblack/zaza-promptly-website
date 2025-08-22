@@ -1,10 +1,24 @@
 [
   {
+    "id": "blog-ai-vs-chatgpt-for-teachers-comparison",
+    "type": "blog",
+    "title": "AI vs ChatGPT for Teachers: Complete Comparison Guide 2025",
+    "url": "/blog/ai-vs-chatgpt-for-teachers-comparison",
+    "category": "AI Tools & Technology"
+  },
+  {
     "id": "blog-best-ai-tools-teachers-2025-complete-guide",
     "type": "blog",
     "title": "Best AI Tools for Teachers 2025: Complete Guide to Safe AI in Education",
     "url": "/blog/best-ai-tools-teachers-2025-complete-guide",
     "category": "AI Tools"
+  },
+  {
+    "id": "blog-is-using-ai-for-teachers-cheating",
+    "type": "blog",
+    "title": "Is Using AI for Teachers Cheating? The Complete Ethics Guide for Educators",
+    "url": "/blog/is-using-ai-for-teachers-cheating",
+    "category": "Ethics & Professional Development"
   },
   {
     "id": "blog-first-post",

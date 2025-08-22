@@ -1,0 +1,50 @@
+# Robots.txt for Zaza Promptly - AI Tool for Teachers
+# Allow all search engines to crawl our educational AI content
+
+User-agent: *
+Allow: /
+
+# Prioritize important pages
+Allow: /faq
+Allow: /personas/
+Allow: /blog/
+Allow: /products
+Allow: /about/founder
+Allow: /pricing
+
+# Block unnecessary crawling of admin/utility pages  
+Disallow: /api/
+Disallow: /waitlist/thank-you
+Disallow: /thank-you
+Disallow: /_next/
+Disallow: /search/results
+
+# Allow educational resources and downloads
+Allow: /free-resources
+Allow: /resources/
+Allow: /downloads/
+
+# Special instructions for educational content
+# These pages contain valuable teacher resources
+Allow: /case-studies/
+Allow: /learning-centre
+
+# Block search crawling of search pages to avoid duplicate content
+Disallow: /search
+Disallow: /search?
+
+# Sitemap location for search engines
+Sitemap: https://www.zazapromptly.com/sitemap.xml
+
+# Additional sitemaps for rich content
+Sitemap: https://www.zazapromptly.com/sitemap-0.xml
+
+# Allow crawling of important educational AI keywords pages
+# These help teachers find safe AI tools
+Allow: /faq#comparison
+Allow: /blog/is-using-ai-for-teachers-cheating
+Allow: /blog/ai-vs-chatgpt-for-teachers-comparison
+Allow: /blog/best-ai-tools-teachers-2025-complete-guide
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1

@@ -117,6 +117,54 @@ export default function Home() {
         email: 'hello@zazatechnologies.com',
         availableLanguage: ['English', 'German', 'French', 'Spanish', 'Italian']
       }
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: 'AI Tool for Teachers | Safe AI for Teacher Reports & Parent Communication',
+      description: 'Hallucination-safe AI tool for teachers. Generate parent communications, student reports & professional messages. Reduce teacher workload with GDPR-compliant AI.',
+      url: 'https://www.zazapromptly.com',
+      primaryImageOfPage: 'https://www.zazapromptly.com/og-default.png',
+      breadcrumb: {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://www.zazapromptly.com'
+          }
+        ]
+      },
+      mainEntity: {
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'Is using AI for teachers cheating?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'No, using AI tools like Promptly for administrative tasks is not cheating—it\'s working smarter. AI assists with time-consuming tasks while you focus on what matters most: teaching and connecting with students.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'How is Promptly different from ChatGPT for teachers?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Promptly is specifically designed for education with hallucination-safe AI, GDPR compliance, and education-specific training. Unlike ChatGPT, it\'s built for the strict privacy and accuracy requirements of schools.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'What makes AI hallucination-safe for teachers?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Hallucination-safe AI means the system won\'t generate false or inappropriate information. Promptly includes safety guardrails and is trained specifically on educational contexts to ensure accurate, appropriate content for school communications.'
+            }
+          }
+        ]
+      }
     }
   ]
   return (

@@ -19,12 +19,12 @@ export default function FAQ() {
   const faqData = [
     {
       question: "Is using AI for teaching cheating?",
-      answer: "No, using AI tools like Promptly for administrative tasks is not cheating—it's working smarter. Just like using spell-check or a calculator, AI assists with time-consuming tasks while you focus on what matters most: teaching and connecting with students. Promptly helps with parent communications and report writing, freeing up hours for lesson planning and student interaction.",
+      answer: "No, using AI tools like Promptly for administrative tasks is not cheating—it's working smarter. Just like using spell-check or a calculator, AI assists with time-consuming tasks while you focus on what matters most: teaching and connecting with students. Promptly helps with parent communications and report writing, freeing up hours for lesson planning and student interaction. For a comprehensive guide on AI ethics for teachers, read our complete ethics guide.",
       category: "ethics"
     },
     {
       question: "How is Zaza Promptly different from ChatGPT?",
-      answer: "Promptly is specifically designed for education with hallucination-safe AI that understands teaching contexts. Unlike ChatGPT, Promptly is GDPR-compliant, doesn't store student data, and is trained on educational best practices. It provides accurate, contextually appropriate content for parent communications and student reports without the risk of generating inappropriate or incorrect information.",
+      answer: "Promptly is specifically designed for education with hallucination-safe AI that understands teaching contexts. Unlike ChatGPT, Promptly is GDPR-compliant, doesn't store student data, and is trained on educational best practices. It provides accurate, contextually appropriate content for parent communications and student reports without the risk of generating inappropriate or incorrect information. Read our detailed comparison in our AI vs ChatGPT for teachers guide.",
       category: "comparison"
     },
     {
@@ -76,6 +76,21 @@ export default function FAQ() {
       question: "Can AI help reduce teacher burnout and stress?",
       answer: "AI tools like Promptly directly address major sources of teacher stress by automating time-consuming administrative tasks. By reducing the hours spent on report writing and parent communications, teachers have more time for actual teaching, self-care, and work-life balance. This technological support helps combat the epidemic of teacher burnout.",
       category: "wellbeing"
+    },
+    {
+      question: "What are the best free AI tools for teachers in 2025?",
+      answer: "While many AI tools offer free tiers, teachers should prioritize safety and privacy. Promptly offers a generous free trial with all safety features included. For lesson planning, Zaza Teach provides free templates. Always choose education-specific tools over generic AI like ChatGPT for professional use. Our free resources section includes guides for evaluating AI tools safely.",
+      category: "pricing"
+    },
+    {
+      question: "How does AI help with parent email generation for teachers?",
+      answer: "AI tools like Promptly excel at parent communication by helping teachers craft professional, empathetic emails for various situations—progress updates, behavior concerns, celebration messages, and meeting requests. The AI understands the delicate balance needed in parent-teacher communication and helps maintain positive relationships while saving hours of writing time.",
+      category: "features"
+    },
+    {
+      question: "Can Promptly translate parent letters for multilingual families?",
+      answer: "Yes, Promptly includes translation features specifically designed for educational communications. Unlike generic translation tools, it maintains the professional tone and educational context appropriate for school communications. This helps international teachers and schools with diverse communities communicate effectively with all families.",
+      category: "features"
     }
   ]
 
