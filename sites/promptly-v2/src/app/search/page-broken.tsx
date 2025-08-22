@@ -135,7 +135,7 @@ export default function SearchPage() {
               ].map((filter) => (
                 <button
                   key={filter.key}
-                  onClick={() => setSelectedFilter(filter.key as 'all' | 'blog' | 'case-study')}
+                  onClick={() => setSelectedFilter(filter.key as 'all' | 'blog' | 'case-study'))
                   role="tab"
                   aria-selected={selectedFilter === filter.key}
                   aria-controls="search-results"
