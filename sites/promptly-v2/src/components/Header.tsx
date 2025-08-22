@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
 import ThemeToggle from './ui/ThemeToggle'
+import SearchInput from './search/SearchInput'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -153,8 +154,16 @@ export default function Header() {
             </Link>
           </nav>
 
-          {/* Right-side CTAs */}
+          {/* Search & Right-side CTAs */}
           <div className="hidden md:flex items-center space-x-4">
+            {/* Search Input */}
+            <div className="w-64">
+              <SearchInput 
+                placeholder="Search..."
+                className="w-full"
+              />
+            </div>
+            
             <a 
               href="https://zazateach.com" 
               target="_blank"
@@ -205,6 +214,14 @@ export default function Header() {
             aria-label="Mobile navigation"
           >
             <div className="flex flex-col space-y-3">
+              {/* Mobile Search */}
+              <div className="pb-3 border-b border-white/10">
+                <SearchInput 
+                  placeholder="Search..."
+                  className="w-full"
+                />
+              </div>
+              
               <Link href="/products" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
                 Products
               </Link>

@@ -1,0 +1,321 @@
+[
+  {
+    "id": "blog-first-post",
+    "type": "blog",
+    "slug": "first-post",
+    "title": "How to write faster report comments",
+    "description": "Practical tips to speed up high-quality commenting.",
+    "excerpt": "Practical tips to speed up high-quality commenting.",
+    "tags": [
+      "reports",
+      "productivity"
+    ],
+    "author": "Zaza Team",
+    "date": "2025-08-20",
+    "url": "/blog/first-post",
+    "searchContent": "How to write faster report comments Practical tips to speed up high-quality commenting. reports productivity Zaza Team"
+  },
+  {
+    "id": "blog-teacher-guide-safe-use-of-ai",
+    "type": "blog",
+    "slug": "teacher-guide-safe-use-of-ai",
+    "title": "Trust First: A teacher's guide to safe, useful AI in the classroom",
+    "description": "A practical, teacher-first approach to using AI safely in education. Build trust, save time, and grow student thinking with research-backed routines.",
+    "excerpt": "A practical, teacher-first approach to using AI safely in education. Build trust, save time, and grow student thinking with research-backed routines.",
+    "tags": [
+      "AI in Education",
+      "Teacher Workload",
+      "Classroom Routines",
+      "Safety",
+      "Teaching Strategies"
+    ],
+    "author": "Dr Greg Blackburn",
+    "date": "2025-08-19",
+    "category": "Teaching Strategies",
+    "url": "/blog/teacher-guide-safe-use-of-ai",
+    "searchContent": "Trust First: A teacher's guide to safe, useful AI in the classroom A practical, teacher-first approach to using AI safely in education. Build trust, save time, and grow student thinking with research-backed routines. AI in Education Teacher Workload Classroom Routines Safety Teaching Strategies Dr Greg Blackburn"
+  },
+  {
+    "id": "blog-second-post",
+    "type": "blog",
+    "slug": "second-post",
+    "title": "Feedback that lands: Making comments students actually read",
+    "description": "Transform your feedback from overlooked to impactful with these evidence-based strategies.",
+    "excerpt": "Transform your feedback from overlooked to impactful with these evidence-based strategies.",
+    "tags": [
+      "feedback",
+      "engagement",
+      "student-voice"
+    ],
+    "author": "Zaza Team",
+    "date": "2025-08-18",
+    "url": "/blog/second-post",
+    "searchContent": "Feedback that lands: Making comments students actually read Transform your feedback from overlooked to impactful with these evidence-based strategies. feedback engagement student-voice Zaza Team"
+  },
+  {
+    "id": "blog-best-ai-tools-for-teachers-2025",
+    "type": "blog",
+    "slug": "best-ai-tools-for-teachers-2025",
+    "title": "Best AI Tools for Teachers 2025: Complete Guide to Safe AI in Education",
+    "description": "Discover the best AI tools for teachers in 2025. Learn about hallucination-safe AI, reduce teacher workload by 3-5 hours/week, and compare AI vs ChatGPT for teachers.",
+    "excerpt": "Discover the best AI tools for teachers in 2025. Learn about hallucination-safe AI, reduce teacher workload by 3-5 hours/week, and compare AI vs ChatGPT for teachers.",
+    "tags": [
+      "best AI tools for teachers 2025",
+      "AI tool for teachers",
+      "safe AI for teachers",
+      "teacher productivity apps"
+    ],
+    "author": "Dr. Greg Blackburn",
+    "date": "2025-01-20",
+    "category": "ai-tools",
+    "url": "/blog/best-ai-tools-for-teachers-2025",
+    "searchContent": "Best AI Tools for Teachers 2025: Complete Guide to Safe AI in Education Discover the best AI tools for teachers in 2025. Learn about hallucination-safe AI, reduce teacher workload by 3-5 hours/week, and compare AI vs ChatGPT for teachers. best AI tools for teachers 2025 AI tool for teachers safe AI for teachers teacher productivity apps Dr. Greg Blackburn"
+  },
+  {
+    "id": "blog-reduce-teacher-workload-with-ai",
+    "type": "blog",
+    "slug": "reduce-teacher-workload-with-ai",
+    "title": "How to Reduce Teacher Workload with AI: Save 5+ Hours Per Week",
+    "description": "Learn how to reduce teacher workload with AI tools. Save 3-5 hours per week on reports, parent communication, and planning with hallucination-safe AI designed for educators.",
+    "excerpt": "Learn how to reduce teacher workload with AI tools. Save 3-5 hours per week on reports, parent communication, and planning with hallucination-safe AI designed for educators.",
+    "tags": [
+      "reduce teacher workload with AI",
+      "teacher productivity apps",
+      "AI tool for teachers",
+      "teacher burnout solutions"
+    ],
+    "author": "Dr. Greg Blackburn",
+    "date": "2025-01-15",
+    "category": "productivity",
+    "url": "/blog/reduce-teacher-workload-with-ai",
+    "searchContent": "How to Reduce Teacher Workload with AI: Save 5+ Hours Per Week Learn how to reduce teacher workload with AI tools. Save 3-5 hours per week on reports, parent communication, and planning with hallucination-safe AI designed for educators. reduce teacher workload with AI teacher productivity apps AI tool for teachers teacher burnout solutions Dr. Greg Blackburn"
+  },
+  {
+    "id": "blog-teacher-burnout-prevention-strategies",
+    "type": "blog",
+    "slug": "teacher-burnout-prevention-strategies",
+    "title": "Teacher Burnout in 2025: 15 Evidence-Based Prevention Strategies That Actually Work",
+    "description": "Discover proven strategies to prevent teacher burnout and maintain your passion for education. Learn practical techniques used by thriving educators to manage stress and avoid career fatigue.",
+    "excerpt": "Discover proven strategies to prevent teacher burnout and maintain your passion for education. Learn practical techniques used by thriving educators to manage stress and avoid career fatigue.",
+    "tags": [
+      "teacher burnout",
+      "educator wellness",
+      "stress management",
+      "work-life balance",
+      "teacher mental health",
+      "education career"
+    ],
+    "author": "Zaza Promptly Team",
+    "date": "2025-01-08",
+    "category": "Teacher Wellness",
+    "url": "/blog/teacher-burnout-prevention-strategies",
+    "searchContent": "Teacher Burnout in 2025: 15 Evidence-Based Prevention Strategies That Actually Work Discover proven strategies to prevent teacher burnout and maintain your passion for education. Learn practical techniques used by thriving educators to manage stress and avoid career fatigue. teacher burnout educator wellness stress management work-life balance teacher mental health education career Zaza Promptly Team"
+  },
+  {
+    "id": "blog-ai-tools-teachers-guide-2025",
+    "type": "blog",
+    "slug": "ai-tools-teachers-guide-2025",
+    "title": "The Complete Guide to AI Tools for Teachers in 2025: Transform Your Classroom",
+    "description": "Discover the best AI tools for teachers in 2025. From lesson planning to student feedback, learn how artificial intelligence can save you time and improve learning outcomes.",
+    "excerpt": "Discover the best AI tools for teachers in 2025. From lesson planning to student feedback, learn how artificial intelligence can save you time and improve learning outcomes.",
+    "tags": [
+      "AI tools",
+      "teacher technology",
+      "classroom innovation",
+      "educational AI",
+      "teacher productivity",
+      "lesson planning",
+      "student feedback"
+    ],
+    "author": "Zaza Promptly Team",
+    "date": "2025-01-07",
+    "category": "AI & Education",
+    "url": "/blog/ai-tools-teachers-guide-2025",
+    "searchContent": "The Complete Guide to AI Tools for Teachers in 2025: Transform Your Classroom Discover the best AI tools for teachers in 2025. From lesson planning to student feedback, learn how artificial intelligence can save you time and improve learning outcomes. AI tools teacher technology classroom innovation educational AI teacher productivity lesson planning student feedback Zaza Promptly Team"
+  },
+  {
+    "id": "blog-the-sunday-night-teacher-anxiety",
+    "type": "blog",
+    "slug": "the-sunday-night-teacher-anxiety",
+    "title": "The Sunday Night Teacher Anxiety (And Why Monday Doesn't Have to Feel Like a Mountain)",
+    "description": "For every educator who feels their chest tighten as Sunday evening approaches. You're not alone in the Sunday Scaries, and there are ways to reclaim your weekends.",
+    "excerpt": "For every educator who feels their chest tighten as Sunday evening approaches. You're not alone in the Sunday Scaries, and there are ways to reclaim your weekends.",
+    "tags": [
+      "teacher anxiety",
+      "work-life balance",
+      "sunday scaries",
+      "teacher mental health",
+      "weekend recovery"
+    ],
+    "author": "Zaza Promptly Team",
+    "date": "2024-12-31",
+    "category": "Teacher Wellness",
+    "url": "/blog/the-sunday-night-teacher-anxiety",
+    "searchContent": "The Sunday Night Teacher Anxiety (And Why Monday Doesn't Have to Feel Like a Mountain) For every educator who feels their chest tighten as Sunday evening approaches. You're not alone in the Sunday Scaries, and there are ways to reclaim your weekends. teacher anxiety work-life balance sunday scaries teacher mental health weekend recovery Zaza Promptly Team"
+  },
+  {
+    "id": "blog-ai-lesson-planning-guide-2025",
+    "type": "blog",
+    "slug": "ai-lesson-planning-guide-2025",
+    "title": "Complete Guide to AI-Powered Lesson Planning in 2025",
+    "description": "Discover how artificial intelligence is revolutionizing lesson planning for teachers. Learn practical strategies, tools, and best practices for integrating AI into your curriculum design.",
+    "excerpt": "Discover how artificial intelligence is revolutionizing lesson planning for teachers. Learn practical strategies, tools, and best practices for integrating AI into your curriculum design.",
+    "tags": [
+      "AI Tools",
+      "Lesson Planning",
+      "Curriculum Design",
+      "Teacher Productivity",
+      "EdTech"
+    ],
+    "author": "Sarah Johnson",
+    "date": "2024-12-28",
+    "category": "Lesson Planning",
+    "url": "/blog/ai-lesson-planning-guide-2025",
+    "searchContent": "Complete Guide to AI-Powered Lesson Planning in 2025 Discover how artificial intelligence is revolutionizing lesson planning for teachers. Learn practical strategies, tools, and best practices for integrating AI into your curriculum design. AI Tools Lesson Planning Curriculum Design Teacher Productivity EdTech Sarah Johnson"
+  },
+  {
+    "id": "blog-when-grading-feels-overwhelming",
+    "type": "blog",
+    "slug": "when-grading-feels-overwhelming",
+    "title": "When Grading Feels Like Climbing Everest (And You're Out of Oxygen)",
+    "description": "For every teacher staring at a stack of papers at 10 PM, wondering if you'll ever catch up. You're not alone, and there are ways to make this mountain smaller.",
+    "excerpt": "For every teacher staring at a stack of papers at 10 PM, wondering if you'll ever catch up. You're not alone, and there are ways to make this mountain smaller.",
+    "tags": [
+      "grading",
+      "teacher burnout",
+      "work-life balance",
+      "productivity",
+      "self-care"
+    ],
+    "author": "Zaza Promptly Team",
+    "date": "2024-12-28",
+    "category": "Teacher Wellness",
+    "url": "/blog/when-grading-feels-overwhelming",
+    "searchContent": "When Grading Feels Like Climbing Everest (And You're Out of Oxygen) For every teacher staring at a stack of papers at 10 PM, wondering if you'll ever catch up. You're not alone, and there are ways to make this mountain smaller. grading teacher burnout work-life balance productivity self-care Zaza Promptly Team"
+  },
+  {
+    "id": "blog-ai-comment-generation-guide",
+    "type": "blog",
+    "slug": "ai-comment-generation-guide",
+    "title": "AI Comment Generation: Complete Guide for Teachers",
+    "description": "Learn how to use AI to generate meaningful, personalized student comments that save hours while improving feedback quality.",
+    "excerpt": "Learn how to use AI to generate meaningful, personalized student comments that save hours while improving feedback quality.",
+    "tags": [
+      "AI Comments",
+      "Student Feedback",
+      "Report Cards",
+      "Teaching Efficiency",
+      "AI in Education"
+    ],
+    "author": "Dr. Greg Blackburn",
+    "date": "2024-12-18",
+    "category": "AI Tools",
+    "url": "/blog/ai-comment-generation-guide",
+    "searchContent": "AI Comment Generation: Complete Guide for Teachers Learn how to use AI to generate meaningful, personalized student comments that save hours while improving feedback quality. AI Comments Student Feedback Report Cards Teaching Efficiency AI in Education Dr. Greg Blackburn"
+  },
+  {
+    "id": "blog-founder-story",
+    "type": "blog",
+    "slug": "founder-story",
+    "title": "From Paint Brushes to AI: The Founder's Journey",
+    "description": "The remarkable story of Dr. Greg Blackburn's transformation from painter to educator to AI innovator.",
+    "excerpt": "The remarkable story of Dr. Greg Blackburn's transformation from painter to educator to AI innovator.",
+    "tags": [
+      "Founder Story",
+      "Education",
+      "AI",
+      "Career Change",
+      "Inspiration"
+    ],
+    "author": "Dr. Greg Blackburn",
+    "date": "2024-12-15",
+    "category": "About",
+    "url": "/blog/founder-story",
+    "searchContent": "From Paint Brushes to AI: The Founder's Journey The remarkable story of Dr. Greg Blackburn's transformation from painter to educator to AI innovator. Founder Story Education AI Career Change Inspiration Dr. Greg Blackburn"
+  },
+  {
+    "id": "case-study-saving-hours-per-week",
+    "type": "case-study",
+    "slug": "saving-hours-per-week",
+    "title": "Saving 4+ Hours Per Week with AI-Powered Comments",
+    "description": "How Sarah Johnson transformed her feedback process and reclaimed precious time for what matters most - teaching and planning.",
+    "excerpt": "How Sarah Johnson transformed her feedback process and reclaimed precious time for what matters most - teaching and planning.",
+    "tags": [],
+    "author": "Sarah Johnson",
+    "date": "2024-12-15",
+    "category": "Case Study",
+    "school": "Greenfield Academy",
+    "url": "/case-studies/saving-hours-per-week",
+    "searchContent": "Saving 4+ Hours Per Week with AI-Powered Comments How Sarah Johnson transformed her feedback process and reclaimed precious time for what matters most - teaching and planning. Sarah Johnson Greenfield Academy"
+  },
+  {
+    "id": "blog-parent-teacher-communication-ai",
+    "type": "blog",
+    "slug": "parent-teacher-communication-ai",
+    "title": "Revolutionary Parent-Teacher Communication: How AI Creates Better Conversations",
+    "description": "Transform your parent communication with AI-powered message templates that build stronger relationships while saving hours of writing time.",
+    "excerpt": "Transform your parent communication with AI-powered message templates that build stronger relationships while saving hours of writing time.",
+    "tags": [
+      "Parent Communication",
+      "AI Templates",
+      "School-Home Partnership",
+      "Teacher Efficiency",
+      "Professional Communication"
+    ],
+    "author": "Dr. Michael Rodriguez",
+    "date": "2024-12-10",
+    "category": "Communication",
+    "url": "/blog/parent-teacher-communication-ai",
+    "searchContent": "Revolutionary Parent-Teacher Communication: How AI Creates Better Conversations Transform your parent communication with AI-powered message templates that build stronger relationships while saving hours of writing time. Parent Communication AI Templates School-Home Partnership Teacher Efficiency Professional Communication Dr. Michael Rodriguez"
+  },
+  {
+    "id": "case-study-better-parent-communication",
+    "type": "case-study",
+    "slug": "better-parent-communication",
+    "title": "Transforming Parent Communication with Clearer, Kinder Feedback",
+    "description": "How Dr. Priya Patel improved parent satisfaction and student outcomes by revolutionizing her approach to progress reports and communications.",
+    "excerpt": "How Dr. Priya Patel improved parent satisfaction and student outcomes by revolutionizing her approach to progress reports and communications.",
+    "tags": [],
+    "author": "Dr. Priya Patel",
+    "date": "2024-11-28",
+    "category": "Case Study",
+    "school": "Oaklands Secondary School",
+    "url": "/case-studies/better-parent-communication",
+    "searchContent": "Transforming Parent Communication with Clearer, Kinder Feedback How Dr. Priya Patel improved parent satisfaction and student outcomes by revolutionizing her approach to progress reports and communications. Dr. Priya Patel Oaklands Secondary School"
+  },
+  {
+    "id": "blog-getting-started-with-ai",
+    "type": "blog",
+    "slug": "getting-started-with-ai",
+    "title": "Getting Started with AI in the Classroom: A Teacher's Complete Guide",
+    "description": "Step-by-step guide for teachers to begin using artificial intelligence tools in their classrooms. Learn practical implementation strategies and best practices.",
+    "excerpt": "Step-by-step guide for teachers to begin using artificial intelligence tools in their classrooms. Learn practical implementation strategies and best practices.",
+    "tags": [
+      "getting started",
+      "AI tools",
+      "teacher guide",
+      "classroom technology",
+      "implementation"
+    ],
+    "author": "Michelle Chen",
+    "date": "2024-11-25",
+    "category": "Teacher Resources",
+    "url": "/blog/getting-started-with-ai",
+    "searchContent": "Getting Started with AI in the Classroom: A Teacher's Complete Guide Step-by-step guide for teachers to begin using artificial intelligence tools in their classrooms. Learn practical implementation strategies and best practices. getting started AI tools teacher guide classroom technology implementation Michelle Chen"
+  },
+  {
+    "id": "case-study-time-savings-primary-teacher",
+    "type": "case-study",
+    "slug": "time-savings-primary-teacher",
+    "title": "How Sarah Saved 8 Hours Per Week with AI-Powered Report Comments",
+    "description": "A Year 3 teacher's journey from weekend grading marathons to family time, powered by Zaza Promptly's AI comment generator.",
+    "excerpt": "A Year 3 teacher's journey from weekend grading marathons to family time, powered by Zaza Promptly's AI comment generator.",
+    "tags": [],
+    "author": "Zaza Research Team",
+    "date": "2024-11-20",
+    "category": "Case Study",
+    "school": "St. Mary's Primary School",
+    "url": "/case-studies/time-savings-primary-teacher",
+    "searchContent": "How Sarah Saved 8 Hours Per Week with AI-Powered Report Comments A Year 3 teacher's journey from weekend grading marathons to family time, powered by Zaza Promptly's AI comment generator. Zaza Research Team St. Mary's Primary School"
+  }
+]

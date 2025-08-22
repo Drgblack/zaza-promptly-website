@@ -1,0 +1,119 @@
+[
+  {
+    "id": "blog-first-post",
+    "type": "blog",
+    "title": "How to write faster report comments",
+    "url": "/blog/first-post"
+  },
+  {
+    "id": "blog-teacher-guide-safe-use-of-ai",
+    "type": "blog",
+    "title": "Trust First: A teacher's guide to safe, useful AI in the classroom",
+    "url": "/blog/teacher-guide-safe-use-of-ai",
+    "category": "Teaching Strategies"
+  },
+  {
+    "id": "blog-second-post",
+    "type": "blog",
+    "title": "Feedback that lands: Making comments students actually read",
+    "url": "/blog/second-post"
+  },
+  {
+    "id": "blog-best-ai-tools-for-teachers-2025",
+    "type": "blog",
+    "title": "Best AI Tools for Teachers 2025: Complete Guide to Safe AI in Education",
+    "url": "/blog/best-ai-tools-for-teachers-2025",
+    "category": "ai-tools"
+  },
+  {
+    "id": "blog-reduce-teacher-workload-with-ai",
+    "type": "blog",
+    "title": "How to Reduce Teacher Workload with AI: Save 5+ Hours Per Week",
+    "url": "/blog/reduce-teacher-workload-with-ai",
+    "category": "productivity"
+  },
+  {
+    "id": "blog-teacher-burnout-prevention-strategies",
+    "type": "blog",
+    "title": "Teacher Burnout in 2025: 15 Evidence-Based Prevention Strategies That Actually Work",
+    "url": "/blog/teacher-burnout-prevention-strategies",
+    "category": "Teacher Wellness"
+  },
+  {
+    "id": "blog-ai-tools-teachers-guide-2025",
+    "type": "blog",
+    "title": "The Complete Guide to AI Tools for Teachers in 2025: Transform Your Classroom",
+    "url": "/blog/ai-tools-teachers-guide-2025",
+    "category": "AI & Education"
+  },
+  {
+    "id": "blog-the-sunday-night-teacher-anxiety",
+    "type": "blog",
+    "title": "The Sunday Night Teacher Anxiety (And Why Monday Doesn't Have to Feel Like a Mountain)",
+    "url": "/blog/the-sunday-night-teacher-anxiety",
+    "category": "Teacher Wellness"
+  },
+  {
+    "id": "blog-ai-lesson-planning-guide-2025",
+    "type": "blog",
+    "title": "Complete Guide to AI-Powered Lesson Planning in 2025",
+    "url": "/blog/ai-lesson-planning-guide-2025",
+    "category": "Lesson Planning"
+  },
+  {
+    "id": "blog-when-grading-feels-overwhelming",
+    "type": "blog",
+    "title": "When Grading Feels Like Climbing Everest (And You're Out of Oxygen)",
+    "url": "/blog/when-grading-feels-overwhelming",
+    "category": "Teacher Wellness"
+  },
+  {
+    "id": "blog-ai-comment-generation-guide",
+    "type": "blog",
+    "title": "AI Comment Generation: Complete Guide for Teachers",
+    "url": "/blog/ai-comment-generation-guide",
+    "category": "AI Tools"
+  },
+  {
+    "id": "blog-founder-story",
+    "type": "blog",
+    "title": "From Paint Brushes to AI: The Founder's Journey",
+    "url": "/blog/founder-story",
+    "category": "About"
+  },
+  {
+    "id": "case-study-saving-hours-per-week",
+    "type": "case-study",
+    "title": "Saving 4+ Hours Per Week with AI-Powered Comments",
+    "url": "/case-studies/saving-hours-per-week",
+    "category": "Case Study"
+  },
+  {
+    "id": "blog-parent-teacher-communication-ai",
+    "type": "blog",
+    "title": "Revolutionary Parent-Teacher Communication: How AI Creates Better Conversations",
+    "url": "/blog/parent-teacher-communication-ai",
+    "category": "Communication"
+  },
+  {
+    "id": "case-study-better-parent-communication",
+    "type": "case-study",
+    "title": "Transforming Parent Communication with Clearer, Kinder Feedback",
+    "url": "/case-studies/better-parent-communication",
+    "category": "Case Study"
+  },
+  {
+    "id": "blog-getting-started-with-ai",
+    "type": "blog",
+    "title": "Getting Started with AI in the Classroom: A Teacher's Complete Guide",
+    "url": "/blog/getting-started-with-ai",
+    "category": "Teacher Resources"
+  },
+  {
+    "id": "case-study-time-savings-primary-teacher",
+    "type": "case-study",
+    "title": "How Sarah Saved 8 Hours Per Week with AI-Powered Report Comments",
+    "url": "/case-studies/time-savings-primary-teacher",
+    "category": "Case Study"
+  }
+]
