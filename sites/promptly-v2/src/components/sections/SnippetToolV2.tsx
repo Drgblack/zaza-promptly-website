@@ -9,11 +9,20 @@ interface QualityScore {
   reasons: string[]
 }
 
-interface ImproveResponse {
+interface CommentVariant {
   improvedText: string
   rationaleBullets: string[]
   quality: QualityScore
   warnings: string[]
+}
+
+interface ImproveResponse {
+  variants?: CommentVariant[]
+  // Legacy support
+  improvedText?: string
+  rationaleBullets?: string[]
+  quality?: QualityScore
+  warnings?: string[]
 }
 
 interface SnippetToolProps {
@@ -22,6 +31,9 @@ interface SnippetToolProps {
 
 export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps) {
   const [draftText, setDraftText] = useState('')
+  const [variants, setVariants] = useState<CommentVariant[]>([])
+  const [activeVariantIndex, setActiveVariantIndex] = useState(0)
+  const [showAlternatives, setShowAlternatives] = useState(false)
   const [improvedText, setImprovedText] = useState('')
   const [rationale, setRationale] = useState<string[]>([])
   const [warnings, setWarnings] = useState<string[]>([])
@@ -77,6 +89,8 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
     if (!draftText.trim()) return
 
     setIsImproving(true)
+    setVariants([])
+    setActiveVariantIndex(0)
     setImprovedText('')
     setRationale([])
     setWarnings([])
@@ -116,7 +130,8 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
           readingLevel: settings.readingLevel,
           length: settings.length,
           language: settings.language,
-          role: userRole
+          role: userRole,
+          alternatives: showAlternatives
         }),
       })
 
@@ -125,10 +140,27 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
       }
 
       const data: ImproveResponse = await response.json()
-      setImprovedText(data.improvedText)
-      setRationale(data.rationaleBullets || [])
-      setWarnings(data.warnings || [])
-      setQualityScore(data.quality || null)
+      
+      if (data.variants && data.variants.length > 0) {
+        // Sort variants by quality score (highest first)
+        const sortedVariants = [...data.variants].sort((a, b) => b.quality.score - a.quality.score)
+        setVariants(sortedVariants)
+        setActiveVariantIndex(0)
+        
+        // Set current display to best variant
+        const bestVariant = sortedVariants[0]
+        setImprovedText(bestVariant.improvedText)
+        setRationale(bestVariant.rationaleBullets || [])
+        setWarnings(bestVariant.warnings || [])
+        setQualityScore(bestVariant.quality || null)
+      } else {
+        // Legacy single response
+        setImprovedText(data.improvedText || '')
+        setRationale(data.rationaleBullets || [])
+        setWarnings(data.warnings || [])
+        setQualityScore(data.quality || null)
+        setVariants([])
+      }
 
       // Announce to screen readers
       if (ariaLiveRef.current) {
@@ -175,6 +207,8 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
       setRationale([])
       setWarnings([])
       setQualityScore(null)
+      setVariants([])
+      setActiveVariantIndex(0)
       setShowExplanation(false)
     }
   }
@@ -233,7 +267,8 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
           length: settings.length,
           language: settings.language,
           role: userRole,
-          explain: explainMode
+          explain: explainMode,
+          alternatives: showAlternatives
         }),
       })
 
@@ -242,10 +277,27 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
       }
 
       const data: ImproveResponse = await response.json()
-      setImprovedText(data.improvedText)
-      setRationale(data.rationaleBullets || [])
-      setWarnings(data.warnings || [])
-      setQualityScore(data.quality || null)
+      
+      if (data.variants && data.variants.length > 0) {
+        // Sort variants by quality score (highest first)
+        const sortedVariants = [...data.variants].sort((a, b) => b.quality.score - a.quality.score)
+        setVariants(sortedVariants)
+        setActiveVariantIndex(0)
+        
+        // Set current display to best variant
+        const bestVariant = sortedVariants[0]
+        setImprovedText(bestVariant.improvedText)
+        setRationale(bestVariant.rationaleBullets || [])
+        setWarnings(bestVariant.warnings || [])
+        setQualityScore(bestVariant.quality || null)
+      } else {
+        // Legacy single response
+        setImprovedText(data.improvedText || '')
+        setRationale(data.rationaleBullets || [])
+        setWarnings(data.warnings || [])
+        setQualityScore(data.quality || null)
+        setVariants([])
+      }
       
       if (explainMode) {
         setShowExplanation(true)
@@ -286,6 +338,49 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
     if (score >= 0.9) return { label: 'Parent-ready', color: 'text-green-400' }
     if (score >= 0.8) return { label: 'Solid', color: 'text-yellow-400' }
     return { label: 'Needs work', color: 'text-red-400' }
+  }
+
+  const calculateImprovementPercentage = (original: string, improved: string) => {
+    const originalTokens = original.toLowerCase().match(/\b\w+\b/g) || []
+    const improvedTokens = improved.toLowerCase().match(/\b\w+\b/g) || []
+    
+    const originalSet = new Set(originalTokens)
+    const improvedSet = new Set(improvedTokens)
+    
+    const newTokens = Array.from(improvedSet).filter(token => !originalSet.has(token))
+    const totalOriginalTokens = originalTokens.length
+    
+    if (totalOriginalTokens === 0) return 100
+    
+    const improvementRatio = newTokens.length / totalOriginalTokens
+    return Math.min(Math.round(improvementRatio * 100), 100)
+  }
+
+  const getCurrentVariant = (): CommentVariant | null => {
+    if (variants.length > 0) {
+      return variants[activeVariantIndex]
+    }
+    // Fallback to legacy format
+    if (improvedText) {
+      return {
+        improvedText,
+        rationaleBullets: rationale,
+        quality: qualityScore || { score: 0, reasons: [] },
+        warnings
+      }
+    }
+    return null
+  }
+
+  const handleVariantChange = (index: number) => {
+    if (variants.length > index) {
+      setActiveVariantIndex(index)
+      const variant = variants[index]
+      setImprovedText(variant.improvedText)
+      setRationale(variant.rationaleBullets)
+      setWarnings(variant.warnings)
+      setQualityScore(variant.quality)
+    }
   }
 
   // Simple word-level diff highlighting
@@ -440,6 +535,20 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
           <p id="improve-button-help" className="text-xs text-slate-400">
             Enhance your comment with AI suggestions
           </p>
+          
+          {/* Alternatives toggle */}
+          <div className="flex items-center">
+            <input
+              type="checkbox"
+              id="show-alternatives"
+              checked={showAlternatives}
+              onChange={(e) => setShowAlternatives(e.target.checked)}
+              className="w-4 h-4 text-brand-600 bg-slate-800 border-slate-600 rounded focus:ring-brand-500 focus:ring-2"
+            />
+            <label htmlFor="show-alternatives" className="ml-2 text-sm font-medium text-slate-300">
+              Show 3 alternatives
+            </label>
+          </div>
         </div>
 
         {/* Right: Improved Result */}
@@ -449,16 +558,64 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
               <label htmlFor="improved-text" className="block text-sm font-medium text-white">
                 Improved by Promptly
               </label>
-              {improvedText && draftText && (
-                <button
-                  onClick={() => setShowDiff(!showDiff)}
-                  className="text-xs text-purple-400 hover:text-purple-300 underline decoration-purple-400/50 hover:decoration-purple-300/50 transition-colors"
-                  aria-pressed={showDiff}
-                >
-                  {showDiff ? 'Hide Changes' : 'Show Changes'}
-                </button>
-              )}
+              <div className="flex items-center gap-3">
+                {/* Improvement percentage badge */}
+                {improvedText && draftText && (
+                  <>
+                    {(() => {
+                      const improvementPct = calculateImprovementPercentage(draftText, improvedText)
+                      return (
+                        <div className="flex items-center gap-2">
+                          <span className={`px-2 py-1 text-xs rounded-full ${
+                            improvementPct >= 50 ? 'bg-green-900/30 text-green-300' :
+                            improvementPct >= 30 ? 'bg-yellow-900/30 text-yellow-300' :
+                            'bg-red-900/30 text-red-300'
+                          }`}>
+                            {improvementPct}% improved
+                          </span>
+                          {improvementPct < 30 && (
+                            <span className="text-xs text-slate-400 italic">
+                              Try 'More specific strategies'
+                            </span>
+                          )}
+                        </div>
+                      )
+                    })()}
+                  </>
+                )}
+                {improvedText && draftText && (
+                  <button
+                    onClick={() => setShowDiff(!showDiff)}
+                    className="text-xs text-purple-400 hover:text-purple-300 underline decoration-purple-400/50 hover:decoration-purple-300/50 transition-colors"
+                    aria-pressed={showDiff}
+                  >
+                    {showDiff ? 'Hide Changes' : 'Show Changes'}
+                  </button>
+                )}
+              </div>
             </div>
+
+            {/* Variant tabs */}
+            {variants.length > 1 && (
+              <div className="flex border-b border-slate-600 mb-2">
+                {variants.map((variant, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleVariantChange(index)}
+                    className={`px-3 py-2 text-sm font-medium transition-colors ${
+                      activeVariantIndex === index
+                        ? 'border-b-2 border-brand-500 text-brand-400'
+                        : 'text-slate-400 hover:text-slate-300'
+                    }`}
+                  >
+                    Variant {String.fromCharCode(65 + index)} 
+                    <span className="ml-1 text-xs opacity-75">
+                      ({Math.round(variant.quality.score * 100)}%)
+                    </span>
+                  </button>
+                ))}
+              </div>
+            )}
             
             <div className="relative">
               <textarea

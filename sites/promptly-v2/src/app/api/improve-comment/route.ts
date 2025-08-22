@@ -11,7 +11,8 @@ const InputSchema = z.object({
   subject: z.string().optional(),
   goal: z.string().optional(),
   strengths: z.string().optional(),
-  concerns: z.string().optional()
+  concerns: z.string().optional(),
+  alternatives: z.boolean().optional().default(false)
 })
 
 // Response types
@@ -21,10 +22,16 @@ interface QualityScore {
 }
 
 interface ImproveCommentResponse {
-  improvedText: string
-  rationaleBullets: string[]
-  quality: QualityScore
-  warnings: string[]
+  improvedText?: string
+  rationaleBullets?: string[]
+  quality?: QualityScore
+  warnings?: string[]
+  variants?: {
+    improvedText: string
+    rationaleBullets: string[]
+    quality: QualityScore
+    warnings: string[]
+  }[]
 }
 
 interface RubricScore {
@@ -237,7 +244,7 @@ async function improveWithLLM(input: z.infer<typeof InputSchema>): Promise<Impro
     return generateFallbackComment(input)
   }
   
-  const { draft, tone, readingLevel, length, language, subject, goal, strengths, concerns } = input
+  const { draft, tone, readingLevel, length, language, subject, goal, strengths, concerns, alternatives } = input
   
   // Build context
   const context = [
@@ -360,8 +367,8 @@ async function improveWithLLM(input: z.infer<typeof InputSchema>): Promise<Impro
       // This would need translation service integration
       rationaleBullets.push(`Note: Translation to ${language} would require additional service`)
     }
-    
-    return {
+
+    const baseResult = {
       improvedText,
       rationaleBullets,
       quality: {
@@ -370,6 +377,71 @@ async function improveWithLLM(input: z.infer<typeof InputSchema>): Promise<Impro
       },
       warnings: detectWarnings(draft)
     }
+
+    // If alternatives requested, generate 2 additional variants
+    if (alternatives && openaiKey) {
+      try {
+        const variants = [baseResult]
+        
+        for (let i = 1; i <= 2; i++) {
+          const variantPrompt = `${SYSTEM_PROMPT_V2}\n\n${context}\n\nProvide a substantial rewrite that transforms this draft into specific, strategic parent-ready feedback. Create a different approach than previous versions with varied tone emphasis and different specific strategies.`
+          
+          const variantResponse = await fetch('https://api.openai.com/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${openaiKey}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              model: 'gpt-4o-mini',
+              messages: [
+                { role: 'user', content: variantPrompt }
+              ],
+              max_tokens: 600,
+              temperature: 0.5 + (i * 0.2) // Increase variety
+            })
+          })
+          
+          if (variantResponse.ok) {
+            const variantData = await variantResponse.json()
+            const variantContent = variantData.choices[0]?.message?.content
+            
+            if (variantContent) {
+              let variantText = ''
+              let variantRationale: string[] = []
+              
+              try {
+                const parsed = JSON.parse(variantContent)
+                variantText = parsed.improvedText || variantContent
+                variantRationale = parsed.rationaleBullets || [`Alternative approach ${i+1}`]
+              } catch {
+                variantText = variantContent.trim()
+                variantRationale = [`Alternative approach ${i+1} with different strategies`]
+              }
+              
+              const variantScore = scoreComment(variantText)
+              
+              variants.push({
+                improvedText: variantText,
+                rationaleBullets: variantRationale,
+                quality: {
+                  score: variantScore.overall,
+                  reasons: variantScore.failedCriteria.length > 0 ? variantScore.failedCriteria : ['Meets quality standards']
+                },
+                warnings: detectWarnings(draft)
+              })
+            }
+          }
+        }
+        
+        return { variants }
+      } catch (error) {
+        console.error('Error generating alternatives:', error)
+        return baseResult
+      }
+    }
+    
+    return baseResult
     
   } catch (error) {
     console.error('LLM error:', error)
