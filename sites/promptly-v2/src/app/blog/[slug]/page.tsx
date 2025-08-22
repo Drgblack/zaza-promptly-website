@@ -32,8 +32,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const postUrl = `${baseUrl}/blog/${params.slug}`
   const postDate = new Date(postMeta.date)
-  const authorMeta = getAuthorMeta(postMeta.author || '')
-
 
   return {
     title: `${postMeta.title} | Promptly Blog`,
