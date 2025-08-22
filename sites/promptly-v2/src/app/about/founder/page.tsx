@@ -152,11 +152,11 @@ export default function FounderPage() {
                 <div className="flex flex-col md:flex-row gap-6 items-start">
                   <div className="md:w-48 flex-shrink-0">
                     <div className="text-brand-400 font-semibold text-sm uppercase tracking-wide mb-1">1980s</div>
-                    <h3 className="text-xl font-semibold text-white">Painter's Apprenticeship</h3>
+                    <h3 className="text-xl font-semibold text-white">Painter&apos;s Apprenticeship</h3>
                   </div>
                   <div className="flex-1">
                     <div className="p-6 bg-slate-800/40 border border-white/10 rounded-2xl">
-                      <p className="text-slate-300">Started at Cascade Brewery via father's connection at Tas Paints. Learned perseverance by finishing the trade.</p>
+                      <p className="text-slate-300">Started at Cascade Brewery via father&apos;s connection at Tas Paints. Learned perseverance by finishing the trade.</p>
                     </div>
                   </div>
                 </div>
