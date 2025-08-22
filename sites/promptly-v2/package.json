@@ -8,7 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "check:links": "node scripts/check-links.js",
-    "postbuild": "next-sitemap"
+    "postbuild": "next-sitemap",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:headed": "playwright test --headed"
   },
   "dependencies": {
     "@sentry/nextjs": "^10.5.0",
@@ -27,6 +30,7 @@
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
     "@next/mdx": "^15.5.0",
+    "@playwright/test": "^1.55.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import AnalyticsProvider from "../components/analytics/AnalyticsProvider";
 import CookieBanner from "../components/marketing/CookieBanner";
 import ZaraOrbProvider from "../components/ui/ZaraOrbProvider";
+import { ThemeProvider } from "../providers/ThemeProvider";
 
 // Initialize Sentry configs safely
 if (typeof window !== 'undefined') {
@@ -98,26 +99,28 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <AnalyticsProvider>
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
-        >
-          {/* Skip to content link for accessibility */}
-          <a 
-            href="#main-content" 
-            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-white text-black px-4 py-2 rounded-md font-medium shadow-lg z-50 focus:outline-none focus:ring-2 focus:ring-blue-600"
+      <ThemeProvider defaultTheme="system">
+        <AnalyticsProvider>
+          <body
+            className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
           >
-            Skip to main content
-          </a>
-          <Header />
-          <main id="main-content" className="flex-1">
-            {children}
-          </main>
-          <Footer />
-          <CookieBanner />
-          <ZaraOrbProvider />
-        </body>
-      </AnalyticsProvider>
+            {/* Skip to content link for accessibility */}
+            <a 
+              href="#main-content" 
+              className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-white dark:bg-slate-800 text-black dark:text-white px-4 py-2 rounded-md font-medium shadow-lg z-50 focus:outline-none focus:ring-2 focus:ring-blue-600"
+            >
+              Skip to main content
+            </a>
+            <Header />
+            <main id="main-content" className="flex-1">
+              {children}
+            </main>
+            <Footer />
+            <CookieBanner />
+            <ZaraOrbProvider />
+          </body>
+        </AnalyticsProvider>
+      </ThemeProvider>
     </html>
   );
 }
