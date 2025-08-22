@@ -4,8 +4,9 @@ import Link from 'next/link'
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
 
 export const metadata: Metadata = {
-  title: 'Our Products | Promptly',
-  description: 'Discover our suite of AI-powered educational tools: Promptly for comment generation, Teach for lesson planning, and Technologies for custom solutions.',
+  title: 'AI Tools for Teachers | Teacher Productivity Apps | Zaza Suite',
+  description: 'Complete suite of AI tools for teachers: Promptly for parent communication, Teach for lesson planning, AutoPlanner for multimodal planning. Reduce teacher workload with safe AI.',
+  keywords: 'AI tools for teachers, teacher productivity apps, AI lesson planning assistant, AI for parent communication, AI for teacher reports, safe AI for teachers, best AI tools for teachers 2025',
   alternates: {
     canonical: '/products',
   },

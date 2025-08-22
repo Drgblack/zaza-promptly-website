@@ -43,37 +43,82 @@ const Testimonials = dynamic(() => import('@/components/marketing/Testimonials')
 export const revalidate = 3600
 
 export default function Home() {
-  // Aggregate rating data from testimonials
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: 'Promptly',
-    description: 'AI-powered comment generation for teachers. Save hours every week while maintaining the quality your students deserve.',
-    brand: {
-      '@type': 'Brand',
-      name: 'Promptly'
+  // Enhanced structured data for SEO and AI search
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      name: 'Promptly - AI Tool for Teachers',
+      description: 'Hallucination-safe AI tool for teachers. Generate parent communications, student reports & professional messages. Reduce teacher workload with GDPR-compliant AI.',
+      url: 'https://www.zazapromptly.com',
+      applicationCategory: 'EducationalApplication',
+      operatingSystem: 'Web',
+      keywords: 'AI tool for teachers, AI for teacher reports, AI for parent communication, safe AI for teachers, hallucination-safe AI, teacher productivity apps',
+      author: {
+        '@type': 'Organization',
+        name: 'Zaza Technologies',
+        founder: {
+          '@type': 'Person',
+          name: 'Greg Beams',
+          jobTitle: 'PhD, Educational Technology',
+          description: 'PhD-qualified founder with expertise in educational technology and AI safety'
+        }
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.8',
+        reviewCount: '12000',
+        bestRating: '5',
+        worstRating: '1'
+      },
+      offers: {
+        '@type': 'Offer',
+        url: 'https://www.zazapromptly.com/pricing',
+        priceCurrency: 'GBP',
+        price: '14.99',
+        availability: 'https://schema.org/InStock',
+        validFrom: '2024-01-01',
+        priceValidUntil: '2025-12-31'
+      },
+      audience: {
+        '@type': 'EducationalAudience',
+        educationalRole: 'teacher',
+        geographicArea: ['United Kingdom', 'United States', 'Germany', 'France', 'Spain', 'Italy']
+      },
+      featureList: [
+        'Hallucination-safe AI for accurate content',
+        'Parent communication templates',
+        'Student report generation',
+        'GDPR-compliant data handling',
+        'Multi-language support',
+        'Education-specific AI training'
+      ]
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      reviewCount: '10000',
-      bestRating: '5',
-      worstRating: '1'
-    },
-    offers: {
-      '@type': 'Offer',
-      url: 'https://www.zazapromptly.com/pricing',
-      priceCurrency: 'GBP',
-      price: '14.99',
-      availability: 'https://schema.org/InStock',
-      validFrom: '2024-01-01'
-    },
-    category: 'Educational Software',
-    audience: {
-      '@type': 'EducationalAudience',
-      educationalRole: 'teacher'
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'Zaza Technologies',
+      url: 'https://www.zazapromptly.com',
+      logo: 'https://www.zazapromptly.com/og-default.png',
+      description: 'Educational technology company providing AI tools for teachers, including Promptly for parent communication and report writing.',
+      foundingDate: '2023',
+      founder: {
+        '@type': 'Person',
+        name: 'Greg Beams',
+        jobTitle: 'PhD, Educational Technology'
+      },
+      sameAs: [
+        'https://twitter.com/zazapromptly',
+        'https://www.linkedin.com/company/zaza-technologies'
+      ],
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'customer service',
+        email: 'hello@zazatechnologies.com',
+        availableLanguage: ['English', 'German', 'French', 'Spanish', 'Italian']
+      }
     }
-  }
+  ]
   return (
     <>
       <script
@@ -88,16 +133,16 @@ export default function Home() {
           <div className="text-center">
             {/* Main headline */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 dark:text-white mb-6 leading-tight max-w-[720px] mx-auto">
-              AI comments.{' '}
+              AI Tool for Teachers:{' '}
               <span className="text-blue-600 dark:text-blue-400 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Done in seconds.
+                Safe AI for Teacher Reports
               </span>
             </h1>
             
             {/* Subheading */}
             <p className="text-xl md:text-[22px] text-slate-300 leading-relaxed mb-8 max-w-3xl mx-auto">
-              Transform your teaching with AI-powered comment generation. 
-              Save hours every week while maintaining the quality your students deserve.
+              Hallucination-safe AI for parent communication, student reports & professional messages. 
+              Reduce teacher workload with GDPR-compliant AI that understands education.
             </p>
             
             {/* CTA Buttons */}
@@ -117,25 +162,55 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Trust Indicators */}
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-gray-600 dark:text-gray-400">
-              <div className="flex items-center">
-                <svg className="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                7-day free trial
+            {/* Trust Indicators & Authority Signals */}
+            <div className="mt-8 flex flex-col items-center justify-center gap-6">
+              <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-600 dark:text-gray-400">
+                <div className="flex items-center">
+                  <svg className="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  7-day free trial
+                </div>
+                <div className="flex items-center">
+                  <svg className="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  No credit card required
+                </div>
+                <div className="flex items-center">
+                  <svg className="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  12,000+ teachers trust us
+                </div>
               </div>
-              <div className="flex items-center">
-                <svg className="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                No credit card required
-              </div>
-              <div className="flex items-center">
-                <svg className="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                12,000+ teachers trust us
+              
+              {/* Authority Badges */}
+              <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-gray-500 dark:text-gray-500">
+                <div className="flex items-center bg-slate-800/60 px-3 py-2 rounded-full border border-green-600/20">
+                  <svg className="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  GDPR Compliant
+                </div>
+                <div className="flex items-center bg-slate-800/60 px-3 py-2 rounded-full border border-blue-600/20">
+                  <svg className="w-4 h-4 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.84L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" clipRule="evenodd" />
+                  </svg>
+                  PhD-Designed Pedagogy
+                </div>
+                <div className="flex items-center bg-slate-800/60 px-3 py-2 rounded-full border border-purple-600/20">
+                  <svg className="w-4 h-4 text-purple-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                  Hallucination-Safe AI
+                </div>
+                <div className="flex items-center bg-slate-800/60 px-3 py-2 rounded-full border border-yellow-600/20">
+                  <svg className="w-4 h-4 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                  4.9/5 Teacher Rating
+                </div>
               </div>
             </div>
           </div>
@@ -166,10 +241,10 @@ export default function Home() {
         <div className="container">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">
-              Transform Your Comments with AI
+              AI for Parent Communication & Teacher Reports
             </h2>
             <p className="text-slate-300 mb-6">
-              Write your draft comment and let AI enhance it with the perfect tone, length, and reading level—no signup required.
+              Experience safe AI for teachers. Write your draft and let our hallucination-safe AI enhance it with perfect tone, length, and reading level—no signup required.
             </p>
           </div>
           <SnippetToolV2 />
@@ -181,10 +256,10 @@ export default function Home() {
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Built for Every Education Role
+              Best AI Tools for Teachers 2025: Built for Every Education Role
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Discover AI comment solutions tailored to your specific teaching context and responsibilities.
+              Discover teacher productivity apps and AI solutions tailored to your specific teaching context. From report writing to parent emails, reduce teacher workload with AI.
             </p>
           </div>
           
