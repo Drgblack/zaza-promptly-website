@@ -6,7 +6,7 @@ import resourcesData from '../../../content/resources.json'
 
 declare global {
   interface Window {
-    gtag?: (...args: any[]) => void
+    gtag?: (...args: unknown[]) => void
   }
 }
 

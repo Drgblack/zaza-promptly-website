@@ -22,7 +22,7 @@ export interface SearchItem {
 export interface SearchResult {
   item: SearchItem
   score?: number
-  matches?: any[]
+  matches?: Fuse.FuseResultMatch[]
 }
 
 const fuseOptions = {

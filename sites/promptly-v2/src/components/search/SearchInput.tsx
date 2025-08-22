@@ -129,7 +129,7 @@ export default function SearchInput({
       default:
         break
     }
-  }, [isOpen, results, selectedIndex, query, router])
+  }, [isOpen, results, selectedIndex, query, router, handleResultSelect])
 
   // Handle result selection
   const handleResultSelect = useCallback((result: SearchResult) => {
@@ -209,6 +209,7 @@ export default function SearchInput({
           role="combobox"
           aria-expanded={isOpen}
           aria-haspopup="listbox"
+          aria-controls={isOpen ? 'search-results' : undefined}
           aria-owns={isOpen ? 'search-results' : undefined}
           aria-activedescendant={
             selectedIndex >= 0 ? `search-result-${selectedIndex}` : undefined
@@ -288,7 +289,7 @@ export default function SearchInput({
               }}
               className="text-sm text-brand-400 hover:text-brand-300 transition-colors"
             >
-              View all results for "{query}"
+              View all results for &ldquo;{query}&rdquo;
             </button>
           </div>
         </div>

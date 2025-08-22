@@ -8,7 +8,7 @@ import SearchInput from '@/components/search/SearchInput'
 
 export default function SearchPage() {
   const searchParams = useSearchParams()
-  const { search, getAllItems, getItemsByType, isLoading, error } = useSearch()
+  const { search, getAllItems, isLoading, error } = useSearch()
   
   const [query, setQuery] = useState('')
   const [results, setResults] = useState<SearchResult[]>([])
@@ -135,7 +135,7 @@ export default function SearchPage() {
               ].map((filter) => (
                 <button
                   key={filter.key}
-                  onClick={() => setSelectedFilter(filter.key as any)}
+                  onClick={() => setSelectedFilter(filter.key as 'all' | 'blog' | 'case-study'))
                   role="tab"
                   aria-selected={selectedFilter === filter.key}
                   aria-controls="search-results"
@@ -161,7 +161,7 @@ export default function SearchPage() {
             {query && (
               <div className="mb-8">
                 <h2 className="text-xl text-white mb-2">
-                  Search results for "{query}"
+                  Search results for &ldquo;{query}&rdquo;
                 </h2>
                 <p className="text-slate-400">
                   {isLoading ? 'Searching...' : `${results.length} result${results.length !== 1 ? 's' : ''} found`}
@@ -275,7 +275,7 @@ export default function SearchPage() {
                 </div>
                 <h3 className="text-lg font-medium text-white mb-2">No results found</h3>
                 <p className="text-slate-400 mb-6">
-                  We couldn't find any results for "{query}". Try adjusting your search terms.
+                  We couldn&apos;t find any results for &ldquo;{query}&rdquo;. Try adjusting your search terms.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link 
