@@ -236,7 +236,7 @@ export default function SearchInput({
           {results.map((result, index) => (
             <a
               key={result.item.id}
-              ref={el => resultRefs.current[index] = el}
+              ref={el => { resultRefs.current[index] = el }}
               href={result.item.url}
               onClick={(e) => {
                 e.preventDefault()
