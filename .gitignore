@@ -77,3 +77,4 @@ schwoop-challenge/
 schwoop-homepage/
 terms-of-service-page/
 zaza-promptly-website/
+.gitignore test-results/
