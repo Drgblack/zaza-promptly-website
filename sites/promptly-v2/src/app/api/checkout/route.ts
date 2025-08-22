@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
 import Stripe from 'stripe'
 import { getBaseUrl } from '@/lib/url'
+import { capture } from '../../../lib/obs'
 
 export async function POST(request: NextRequest) {
+  let body: any = {};
   try {
-    const body = await request.json()
+    body = await request.json()
     const { priceId, quantity = 1 } = body
 
     // Check if Stripe is configured
@@ -50,6 +52,12 @@ export async function POST(request: NextRequest) {
 
   } catch (error) {
     console.error('Checkout error:', error)
+    capture(error, { 
+      endpoint: '/api/checkout',
+      priceId: body?.priceId,
+      userAgent: request.headers.get('user-agent'),
+      timestamp: new Date().toISOString()
+    })
     return NextResponse.json(
       { ok: false, error: 'Failed to create checkout session' },
       { status: 500 }

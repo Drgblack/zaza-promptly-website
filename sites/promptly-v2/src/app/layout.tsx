@@ -6,6 +6,19 @@ import Footer from "../components/Footer";
 import AnalyticsProvider from "../components/analytics/AnalyticsProvider";
 import CookieBanner from "../components/marketing/CookieBanner";
 
+// Initialize Sentry configs safely
+if (typeof window !== 'undefined') {
+  // Client-side
+  import('../../sentry.client.config').catch(() => {
+    // Silently fail if Sentry is not configured
+  });
+} else {
+  // Server-side
+  import('../../sentry.server.config').catch(() => {
+    // Silently fail if Sentry is not configured
+  });
+}
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",

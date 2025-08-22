@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { capture } from '../../../lib/obs'
 
 export async function POST(req: Request) {
   try {
@@ -19,6 +20,11 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true })
   } catch (error) {
     console.error('Contact form error:', error)
+    capture(error, { 
+      endpoint: '/api/contact',
+      userAgent: req.headers.get('user-agent'),
+      timestamp: new Date().toISOString()
+    })
     return NextResponse.json(
       { ok: false, error: 'Internal server error' },
       { status: 500 }

@@ -54,6 +54,8 @@ const withMDX = createMDX({
   // Add any MDX options here
 })
 
+const withSentry = (config) => config; // keep simple; no build-time injection
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
@@ -72,4 +74,4 @@ const nextConfig = {
   },
 };
 
-export default withMDX(nextConfig)
+export default withSentry(withMDX(nextConfig))
