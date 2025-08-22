@@ -1,4 +1,5 @@
 {
+
   "name": "promptly",
   "version": "0.1.0",
   "private": true,
@@ -10,6 +11,7 @@
     "dashes:fix": "node scripts/normalize-dashes.js",
     "lint:style:dashes": "node scripts/check-dashes.js"
   },
+      
   "dependencies": {
     "@headlessui/react": "^2.0.0",
     "@hookform/resolvers": "^3.9.1",
@@ -79,7 +81,8 @@
     "sonner": "^1.7.1",
     "stripe": "^18.3.0",
     "tailwind-merge": "^2.5.5",
-    "tailwindcss": "3.4.10",
+    "ta
+    ilwindcss": "3.4.10",
     "tailwindcss-animate": "^1.0.7",
     "uuid": "^11.1.0",
     "vaul": "^0.9.6",
