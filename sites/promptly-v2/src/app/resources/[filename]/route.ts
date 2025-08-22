@@ -115,7 +115,7 @@ async function handleRequest(
     const resource = resources.find((r: Resource) => r.filename === filename)
     if (resource) {
       response.headers.set('X-Resource-Title', resource.title)
-      response.headers.set('X-Resource-Category', resource.category)
+      response.headers.set('X-Resource-Format', resource.format)
     }
 
     return response
