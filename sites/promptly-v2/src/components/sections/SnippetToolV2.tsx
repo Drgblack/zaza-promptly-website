@@ -297,7 +297,7 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
   const handleModifierClick = async (modifier: string) => {
     if (!draftText.trim() || isImproving) return
     
-    let newSettings = { ...settings }
+    const newSettings = { ...settings }
     
     switch (modifier) {
       case 'Softer tone':
@@ -438,21 +438,21 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
     return Math.min(Math.round(improvementRatio * 100), 100)
   }
 
-  const getCurrentVariant = (): CommentVariant | null => {
-    if (variants.length > 0) {
-      return variants[activeVariantIndex]
-    }
-    // Fallback to legacy format
-    if (improvedText) {
-      return {
-        improvedText,
-        rationaleBullets: rationale,
-        quality: qualityScore || { score: 0, reasons: [] },
-        warnings
-      }
-    }
-    return null
-  }
+  // const getCurrentVariant = (): CommentVariant | null => {
+  //   if (variants.length > 0) {
+  //     return variants[activeVariantIndex]
+  //   }
+  //   // Fallback to legacy format
+  //   if (improvedText) {
+  //     return {
+  //       improvedText,
+  //       rationaleBullets: rationale,
+  //       quality: qualityScore || { score: 0, reasons: [] },
+  //       warnings
+  //     }
+  //   }
+  //   return null
+  // }
 
   const handleVariantChange = (index: number) => {
     if (variants.length > index) {
@@ -709,7 +709,7 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
                           </span>
                           {improvementPct < 30 && (
                             <span className="text-xs text-slate-400 italic">
-                              Try 'More specific strategies'
+                              Try &apos;More specific strategies&apos;
                             </span>
                           )}
                         </div>

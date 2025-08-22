@@ -133,7 +133,7 @@ function writeUpdatedMetadata(resources: ResourceMetadata[]): void {
 function generateStats(resources: ResourceMetadata[]): void {
   const totalSize = resources.reduce((sum, r) => sum + r.filesize, 0)
   const avgSize = totalSize / resources.length
-  const formats = [...new Set(resources.map(r => r.format))]
+  const formats = Array.from(new Set(resources.map(r => r.format)))
   
   console.log('\n📊 Resource Statistics:')
   console.log(`  Total files: ${resources.length}`)

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/build-search-index.js && npx playwright install chromium --with-deps && tsx scripts/generate-pdfs.ts && tsx scripts/build-resources-meta.ts && next build && next-sitemap",
+    "build": "node scripts/build-search-index.js && tsx scripts/build-resources-meta.ts && next build && next-sitemap",
     "build:search": "node scripts/build-search-index.js",
     "build:resources": "tsx scripts/build-resources-meta.ts",
     "start": "next start",
@@ -19,7 +19,8 @@
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:headed": "playwright test --headed",
     "test:downloads": "tsx scripts/verify-downloads.ts",
-    "generate:pdfs": "tsx scripts/generate-pdfs.ts"
+    "generate:pdfs": "tsx scripts/generate-pdfs.ts",
+    "build:full": "node scripts/build-search-index.js && npx playwright install chromium --with-deps && tsx scripts/generate-pdfs.ts && tsx scripts/build-resources-meta.ts && next build && next-sitemap"
   },
   "dependencies": {
     "@sentry/nextjs": "^10.5.0",

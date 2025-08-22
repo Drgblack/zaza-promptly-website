@@ -860,7 +860,7 @@ async function generatePDFs() {
     browser = await chromium.launch()
     page = await browser.newPage()
   } catch (error) {
-    console.error('⚠️  Playwright browser launch failed:', error.message)
+    console.error('⚠️  Playwright browser launch failed:', error instanceof Error ? error.message : String(error))
     console.log('🔄 Skipping PDF generation - PDFs already exist or will be served from cache')
     
     // Check if PDFs already exist, if not create minimal placeholders
