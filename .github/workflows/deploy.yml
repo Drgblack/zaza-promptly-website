@@ -1,0 +1,29 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'sites/promptly-v2/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        working-directory: sites/promptly-v2
+
+    steps:
+      - name: Trigger Vercel Deploy
+        run: |
+          curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "name": "force-prod",
+              "source": "github-action",
+              "ref": "${{ github.ref }}",
+              "sha": "${{ github.sha }}"
+            }'
+          echo "✅ Vercel deployment triggered"
+          echo "🔗 Check deployment status at: https://vercel.com/zazateam"
