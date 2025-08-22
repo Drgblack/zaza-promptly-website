@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { Button } from '@/components/ui/Button'
+import ZaraOrb from '@/components/ui/ZaraOrb'
 
 interface ImproveResponse {
   improvedText: string
@@ -165,6 +166,35 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
       setRationale([])
       setWarnings([])
       setShowExplanation(false)
+    }
+  }
+
+  const handleContextAction = (action: string) => {
+    switch (action) {
+      case 'Why these edits?':
+        setShowExplanation(true)
+        if (resultRef.current) {
+          resultRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+        }
+        break
+      case 'Softer tone':
+        if (settings.tone !== 'Supportive') {
+          handleSettingChange('tone', 'Supportive')
+          if (draftText.trim()) {
+            setTimeout(() => handleImprove(), 500)
+          }
+        }
+        break
+      case 'Shorter':
+        if (settings.length !== 'Short') {
+          handleSettingChange('length', 'Short')
+          if (draftText.trim()) {
+            setTimeout(() => handleImprove(), 500)
+          }
+        }
+        break
+      default:
+        console.log('Context action:', action)
     }
   }
 
@@ -424,6 +454,12 @@ export default function SnippetToolV2({ userRole = 'teacher' }: SnippetToolProps
       <p className="text-xs text-slate-400 mt-6 text-center">
         AI suggestions are starting points - always review and personalize for your specific context.
       </p>
+
+      {/* ZaraOrb with context-aware functionality */}
+      <ZaraOrb 
+        isInSnippetTool={true} 
+        onContextAction={handleContextAction}
+      />
     </div>
   )
 }

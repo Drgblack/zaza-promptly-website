@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AnalyticsProvider from "../components/analytics/AnalyticsProvider";
 import CookieBanner from "../components/marketing/CookieBanner";
+import ZaraOrbProvider from "../components/ui/ZaraOrbProvider";
 
 // Initialize Sentry configs safely
 if (typeof window !== 'undefined') {
@@ -114,6 +115,7 @@ export default function RootLayout({
           </main>
           <Footer />
           <CookieBanner />
+          <ZaraOrbProvider />
         </body>
       </AnalyticsProvider>
     </html>

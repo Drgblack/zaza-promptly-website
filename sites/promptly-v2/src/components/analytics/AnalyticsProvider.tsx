@@ -34,7 +34,7 @@ export default function AnalyticsProvider({ children }: { children: React.ReactN
     if (typeof window === 'undefined') return false
     return navigator.doNotTrack === '1' || 
            (window as any).doNotTrack === '1' || 
-           navigator.msDoNotTrack === '1'
+           (navigator as any).msDoNotTrack === '1'
   }
 
   const getStoredConsent = (): CookieConsent | null => {
