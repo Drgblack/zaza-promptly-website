@@ -16,7 +16,7 @@ export default function SearchPage() {
   const [announceText, setAnnounceText] = useState('')
   
   const searchInputRef = useRef<HTMLDivElement>(null)
-  const resultsRef = useRef<HTMLElement>(null)
+  const resultsRef = useRef<HTMLDivElement>(null)
 
   // Get query from URL params
   useEffect(() => {
