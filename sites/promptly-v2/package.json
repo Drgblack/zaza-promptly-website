@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/build-search-index.js && tsx scripts/build-resources-meta.ts && next build && next-sitemap",
+    "build": "node scripts/build-search-index.js && tsx scripts/build-resources-meta.ts && next build",
     "build:search": "node scripts/build-search-index.js",
     "build:resources": "tsx scripts/build-resources-meta.ts",
     "start": "next start",

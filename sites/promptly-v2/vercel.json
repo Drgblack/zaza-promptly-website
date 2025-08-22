@@ -1,4 +1,7 @@
 {
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "installCommand": "npm ci",
   "redirects": [
     {
       "source": "/blog/tag/ai%20comments",
