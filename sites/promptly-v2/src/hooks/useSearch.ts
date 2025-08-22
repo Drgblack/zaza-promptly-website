@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useMemo } from 'react'
-import Fuse from 'fuse.js'
+import Fuse, { FuseResult } from 'fuse.js'
 
 export interface SearchItem {
   id: string
@@ -22,7 +22,7 @@ export interface SearchItem {
 export interface SearchResult {
   item: SearchItem
   score?: number
-  matches?: Fuse.FuseResultMatch[]
+  matches?: FuseResult<SearchItem>['matches']
 }
 
 const fuseOptions = {
