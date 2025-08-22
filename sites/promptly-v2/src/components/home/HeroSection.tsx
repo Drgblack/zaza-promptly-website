@@ -22,12 +22,13 @@ const slideInLeft = {
   },
   visible: { 
     opacity: 1, 
-    x: 0,
-    transition: {
-      duration: 0.3,
-      ease: [0.25, 0.1, 0.25, 1],
-    },
+    x: 0
   },
+}
+
+const slideTransition = {
+  duration: 0.3,
+  ease: [0.25, 0.1, 0.25, 1] as const,
 }
 
 const fadeInUp = {
@@ -37,12 +38,13 @@ const fadeInUp = {
   },
   visible: { 
     opacity: 1, 
-    y: 0,
-    transition: {
-      duration: 0.3,
-      ease: [0.25, 0.1, 0.25, 1],
-    },
+    y: 0
   },
+}
+
+const fadeTransition = {
+  duration: 0.3,
+  ease: [0.25, 0.1, 0.25, 1] as const,
 }
 
 export default function HeroSection() {
@@ -189,6 +191,7 @@ export default function HeroSection() {
           {/* Main headline */}
           <motion.h1 
             variants={slideInLeft}
+            transition={slideTransition}
             className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 dark:text-white mb-6 leading-tight max-w-[720px] mx-auto animate-transform-opacity"
             onAnimationComplete={() => {
               // Clean up will-change after critical content animates
@@ -208,6 +211,7 @@ export default function HeroSection() {
           {/* Subheading */}
           <motion.p 
             variants={fadeInUp}
+            transition={fadeTransition}
             className="text-xl md:text-[22px] text-slate-300 leading-relaxed mb-8 max-w-3xl mx-auto animate-transform-opacity"
           >
             Stop spending your personal time writing reports, parent emails, and IEP comments. 
@@ -217,6 +221,7 @@ export default function HeroSection() {
           {/* CTA Buttons */}
           <motion.div 
             variants={fadeInUp}
+            transition={fadeTransition}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-transform-opacity"
           >
             <Link 
@@ -237,6 +242,7 @@ export default function HeroSection() {
           {/* Trust Indicators & Authority Signals */}
           <motion.div 
             variants={fadeInUp}
+            transition={fadeTransition}
             className="mt-8 flex flex-col items-center justify-center gap-6 animate-transform-opacity"
           >
             <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-600 dark:text-gray-400">

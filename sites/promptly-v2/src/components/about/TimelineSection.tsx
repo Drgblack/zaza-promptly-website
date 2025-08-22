@@ -67,12 +67,13 @@ const itemVariants = {
   },
   visible: { 
     opacity: 1, 
-    y: 0,
-    transition: {
-      duration: 0.4,
-      ease: [0.25, 0.1, 0.25, 1],
-    },
+    y: 0
   },
+}
+
+const itemTransition = {
+  duration: 0.4,
+  ease: [0.25, 0.1, 0.25, 1] as const,
 }
 
 // Custom hook for intersection observer with once-only trigger
@@ -151,7 +152,7 @@ export default function TimelineSection() {
             className="text-3xl font-semibold text-white text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, threshold: 0.8 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
           >
             The Journey
@@ -206,6 +207,7 @@ export default function TimelineSection() {
                 <motion.div 
                   key={index}
                   variants={itemVariants}
+                  transition={itemTransition}
                   className="flex flex-col md:flex-row gap-6 items-start relative"
                 >
                   {/* Timeline dot */}

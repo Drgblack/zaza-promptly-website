@@ -10,7 +10,6 @@ interface ScrollRevealProps {
   delay?: number
   duration?: number
   y?: number
-  threshold?: number
   once?: boolean
   isLCPElement?: boolean // Skip animation until after hydration for LCP elements
 }
@@ -22,14 +21,12 @@ export default function ScrollReveal({
   delay = 0,
   duration = 0.25, // 250ms default (between 220-280ms range)
   y = 30,
-  threshold = 0.2,
   once = true,
   isLCPElement = false,
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [isHydrated, setIsHydrated] = useState(false)
   const isInView = useInView(ref, { 
-    threshold,
     once 
   })
   const shouldReduceMotion = usePrefersReducedMotion()
@@ -61,13 +58,14 @@ export default function ScrollReveal({
     },
     visible: { 
       opacity: 1, 
-      y: 0,
-      transition: {
-        duration,
-        delay,
-        ease: [0.25, 0.1, 0.25, 1], // Smooth easing
-      },
+      y: 0
     },
+  }
+
+  const transition = {
+    duration,
+    delay,
+    ease: [0.25, 0.1, 0.25, 1] as const, // Smooth easing
   }
 
   return (
@@ -75,6 +73,7 @@ export default function ScrollReveal({
       ref={ref}
       className={`${className} animate-transform-opacity gpu-accelerate`}
       variants={variants}
+      transition={transition}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       onAnimationComplete={() => {
@@ -98,7 +97,6 @@ interface ScrollRevealStaggerProps {
   staggerDelay?: number
   childDelay?: number
   duration?: number
-  threshold?: number
   once?: boolean
   isLCPElement?: boolean
 }
@@ -109,14 +107,12 @@ export function ScrollRevealStagger({
   staggerDelay = 0.1, // 100ms between children
   childDelay = 0,
   duration = 0.25,
-  threshold = 0.2,
   once = true,
   isLCPElement = false,
 }: ScrollRevealStaggerProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [isHydrated, setIsHydrated] = useState(false)
   const isInView = useInView(ref, { 
-    threshold,
     once 
   })
   const shouldReduceMotion = usePrefersReducedMotion()
@@ -157,12 +153,13 @@ export function ScrollRevealStagger({
     },
     visible: { 
       opacity: 1, 
-      y: 0,
-      transition: {
-        duration,
-        ease: [0.25, 0.1, 0.25, 1],
-      },
+      y: 0
     },
+  }
+
+  const itemTransition = {
+    duration,
+    ease: [0.25, 0.1, 0.25, 1] as const,
   }
 
   return (
@@ -178,6 +175,7 @@ export function ScrollRevealStagger({
             <motion.div 
               key={index} 
               variants={itemVariants}
+              transition={itemTransition}
               className="animate-transform-opacity"
               onAnimationComplete={() => {
                 // Clean up will-change after animation
@@ -193,6 +191,7 @@ export function ScrollRevealStagger({
           ))
         : <motion.div 
             variants={itemVariants}
+            transition={itemTransition}
             className="animate-transform-opacity"
             onAnimationComplete={() => {
               // Clean up will-change

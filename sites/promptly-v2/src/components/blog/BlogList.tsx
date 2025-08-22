@@ -26,12 +26,13 @@ const itemVariants = {
   },
   visible: { 
     opacity: 1, 
-    y: 0,
-    transition: {
-      duration: 0.4,
-      ease: [0.25, 0.1, 0.25, 1],
-    },
+    y: 0
   },
+}
+
+const itemTransition = {
+  duration: 0.4,
+  ease: [0.25, 0.1, 0.25, 1] as const,
 }
 
 export default function BlogList({ posts }: BlogListProps) {
@@ -55,7 +56,7 @@ export default function BlogList({ posts }: BlogListProps) {
       animate="visible"
     >
       {posts.map((post) => (
-        <motion.div key={post.slug} variants={itemVariants}>
+        <motion.div key={post.slug} variants={itemVariants} transition={itemTransition}>
           <BlogCard post={post} />
         </motion.div>
       ))}
