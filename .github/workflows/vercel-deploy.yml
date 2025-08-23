@@ -1,3 +1,4 @@
+# .github/workflows/vercel-deploy.yml
 name: vercel deploy
 on:
   push:
@@ -14,7 +15,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 18
 
       - name: Install deps
         run: |
@@ -22,31 +23,35 @@ jobs:
             corepack enable
             corepack prepare pnpm@latest --activate
             pnpm install --frozen-lockfile
-            echo "PM=pnpm" >> $GITHUB_ENV
           elif [ -f yarn.lock ]; then
             yarn install --frozen-lockfile
-            echo "PM=yarn" >> $GITHUB_ENV
           else
             npm ci
-            echo "PM=npm" >> $GITHUB_ENV
           fi
 
       - name: Install Vercel CLI
         run: npm i -g vercel@latest
 
       - name: Pull Vercel env
-        run: vercel pull --yes --environment=production --token $VERCEL_TOKEN --project $VERCEL_PROJECT_ID --scope $VERCEL_ORG_ID
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }} # optional for personal accounts
+        run: |
+          SCOPE_ARG=""
+          if [ -n "$VERCEL_ORG_ID" ]; then SCOPE_ARG="--scope $VERCEL_ORG_ID"; fi
+          vercel pull --yes --environment=production --token "$VERCEL_TOKEN" --project "$VERCEL_PROJECT_ID" $SCOPE_ARG
 
       - name: Build
-        run: vercel build --token $VERCEL_TOKEN
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: vercel build --token "$VERCEL_TOKEN"
 
       - name: Deploy to production (alias)
-        run: vercel deploy --prebuilt --prod --yes --token $VERCEL_TOKEN
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }} # optional
+        run: |
+          SCOPE_ARG=""
+          if [ -n "$VERCEL_ORG_ID" ]; then SCOPE_ARG="--scope $VERCEL_ORG_ID"; fi
+          vercel deploy --prebuilt --prod --yes --token "$VERCEL_TOKEN" $SCOPE_ARG
