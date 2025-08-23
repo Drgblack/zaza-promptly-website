@@ -14,7 +14,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Install deps
         run: |
@@ -41,15 +41,29 @@ jobs:
           test -n "$VERCEL_PROJECT_ID" && echo "VERCEL_PROJECT_ID=SET" || (echo "VERCEL_PROJECT_ID=MISSING"; exit 1)
           if [ -n "$VERCEL_ORG_ID" ]; then echo "VERCEL_ORG_ID=SET"; else echo "VERCEL_ORG_ID=EMPTY (ok)"; fi
 
+      # NEW: write .vercel/project.json so 'vercel pull' doesn't need --project
+      - name: Link Vercel project (create .vercel/project.json)
+        env:
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+        run: |
+          mkdir -p .vercel
+          if [ -n "$VERCEL_ORG_ID" ]; then
+            echo "{\"projectId\":\"$VERCEL_PROJECT_ID\",\"orgId\":\"$VERCEL_ORG_ID\"}" > .vercel/project.json
+          else
+            echo "{\"projectId\":\"$VERCEL_PROJECT_ID\"}" > .vercel/project.json
+          fi
+          echo "Wrote .vercel/project.json:"
+          cat .vercel/project.json
+
       - name: Pull Vercel env
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
         run: |
           SCOPE_ARG=""
           if [ -n "$VERCEL_ORG_ID" ]; then SCOPE_ARG="--scope $VERCEL_ORG_ID"; fi
-          vercel pull --yes --environment=production --token "$VERCEL_TOKEN" --project "$VERCEL_PROJECT_ID" $SCOPE_ARG
+          vercel pull --yes --environment=production --token "$VERCEL_TOKEN" $SCOPE_ARG
 
       - name: Build
         env:
