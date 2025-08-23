@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -84,17 +85,25 @@ jobs:
           if [ -n "$ORG_ID" ]; then SCOPE_ARG="--scope $ORG_ID"; fi
           vercel pull --yes --environment=production --token "$VERCEL_TOKEN" $SCOPE_ARG
 
-      # Debug step: show where redirects may be defined
-      - name: Debug redirects
+      - name: Debug redirects (focused)
         run: |
-          echo "=== find redirects.json ==="
-          find . -type f -iname 'redirects.json' -print -exec sh -c 'echo "---"; sed -n "1,200p" "$1"' _ {} \; || true
-          echo "=== grep for statusCode ==="
-          grep -R -n -E 'statusCode' . || true
+          set -e
+          echo "=== look for redirects.json (exclude deps/build) ==="
+          find . \
+            -path './node_modules' -prune -o \
+            -path './.next' -prune -o \
+            -path './.turbo' -prune -o \
+            -path './.git' -prune -o \
+            -type f -iname 'redirects.json' -print -exec sh -c 'echo "--- {} ---"; sed -n "1,200p" "$1"' _ {} \;
+
+          echo "=== grep for statusCode (exclude deps/build) ==="
+          grep -R -n --exclude-dir=node_modules --exclude-dir=.next --exclude-dir=.turbo --exclude-dir=.git statusCode . || true
+
+          echo "=== grep for permanent (exclude deps/build) ==="
+          grep -R -n --exclude-dir=node_modules --exclude-dir=.next --exclude-dir=.turbo --exclude-dir=.git '"permanent"' . || true
+
           echo "=== list next.config.* ==="
-          find . -type f -name 'next.config.*' -print || true
-          echo "=== grep for redirects( ==="
-          grep -R -n 'redirects(' . || true
+          find . -type f -name 'next.config.*' -print
 
       - name: Build
         env:
