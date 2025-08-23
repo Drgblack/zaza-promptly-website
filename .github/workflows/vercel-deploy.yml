@@ -39,9 +39,8 @@ jobs:
         run: |
           test -n "$VERCEL_TOKEN" && echo "VERCEL_TOKEN=SET" || (echo "VERCEL_TOKEN=MISSING"; exit 1)
           test -n "$VERCEL_PROJECT_ID" && echo "VERCEL_PROJECT_ID=SET" || (echo "VERCEL_PROJECT_ID=MISSING"; exit 1)
-          if [ -n "$VERCEL_ORG_ID" ]; then echo "VERCEL_ORG_ID=SET"; else echo "VERCEL_ORG_ID=EMPTY (will auto-detect)"; fi
+          if [ -n "$VERCEL_ORG_ID" ]; then echo "VERCEL_ORG_ID=SET"; else echo "VERCEL_ORG_ID=EMPTY (auto-detect)"; fi
 
-      # Auto-detect orgId (accountId) from Vercel API so .vercel/project.json is valid
       - name: Discover orgId for the project
         id: org
         env:
@@ -62,7 +61,6 @@ jobs:
           echo "Detected ORG_ID=$ORG_ID"
           echo "ORG_ID=$ORG_ID" >> $GITHUB_OUTPUT
 
-      # Write .vercel/project.json with both projectId and orgId
       - name: Link Vercel project (create .vercel/project.json)
         env:
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
@@ -82,16 +80,7 @@ jobs:
           if [ -n "$ORG_ID" ]; then SCOPE_ARG="--scope $ORG_ID"; fi
           vercel pull --yes --environment=production --token "$VERCEL_TOKEN" $SCOPE_ARG
 
-      - name: Build
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: vercel build --token "$VERCEL_TOKEN"
-
-      - name: Deploy to production
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          ORG_ID: ${{ steps.org.outputs.ORG_ID }}
+      # 🔎 DEBUG: find where redirects are defined
+      - name: Debug: locate redirects definitions
         run: |
-          SCOPE_ARG=""
-          if [ -n "$ORG_ID" ]; then SCOPE_ARG="--scope $ORG_ID"; fi
-          vercel deploy --prebuilt --prod --yes --token "$VERCEL_TOKEN" $SCOPE_ARG
+          echo "===
