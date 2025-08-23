@@ -7,6 +7,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,7 +41,7 @@ jobs:
         run: |
           test -n "$VERCEL_TOKEN" && echo "VERCEL_TOKEN=SET" || (echo "VERCEL_TOKEN=MISSING"; exit 1)
           test -n "$VERCEL_PROJECT_ID" && echo "VERCEL_PROJECT_ID=SET" || (echo "VERCEL_PROJECT_ID=MISSING"; exit 1)
-          if [ -n "$VERCEL_ORG_ID" ]; then echo "VERCEL_ORG_ID=SET"; else echo "VERCEL_ORG_ID=EMPTY (auto-detect)"; fi
+          if [ -n "$VERCEL_ORG_ID" ]; then echo "VERCEL_ORG_ID=SET"; else echo "VERCEL_ORG_ID=EMPTY (will auto-detect)"; fi
 
       - name: Discover orgId for the project
         id: org
@@ -52,18 +54,12 @@ jobs:
             echo "ORG_ID=$VERCEL_ORG_ID" >> "$GITHUB_OUTPUT"
             exit 0
           fi
+          sudo apt-get update -y >/dev/null 2>&1
+          sudo apt-get install -y jq >/dev/null 2>&1
           RESP=$(curl -fsSL -H "Authorization: Bearer $VERCEL_TOKEN" "https://api.vercel.com/v9/projects/$VERCEL_PROJECT_ID" || true)
-          ORG_ID=$(printf "%s" "$RESP" | python3 - <<'PY'
-import sys, json
-try:
-  d=json.load(sys.stdin)
-  print(d.get("accountId",""))
-except Exception:
-  print("")
-PY
-)
-          if [ -z "$ORG_ID" ]; then
-            echo "Failed to auto-detect orgId. Please add VERCEL_ORG_ID secret (team_... or user_...)."
+          ORG_ID=$(printf '%s' "$RESP" | jq -r '.accountId // empty')
+          if [ -z "$ORG_ID" ] || [ "$ORG_ID" = "null" ]; then
+            echo "Failed to auto-detect orgId. Please set VERCEL_ORG_ID secret."
             exit 1
           fi
           echo "Detected ORG_ID=$ORG_ID"
@@ -88,15 +84,11 @@ PY
           if [ -n "$ORG_ID" ]; then SCOPE_ARG="--scope $ORG_ID"; fi
           vercel pull --yes --environment=production --token "$VERCEL_TOKEN" $SCOPE_ARG
 
-      # Debug: locate where redirects are defined
+      # 🔎 DEBUG: print where redirects are defined
       - name: Debug: locate redirects definitions
         run: |
           echo "=== find redirects.json files ==="
           find . -type f -iname 'redirects.json' -print -exec sh -c 'echo "---"; sed -n "1,200p" "$1"' _ {} \; || true
-          echo "=== show vercel.json if redirects key present ==="
-          if [ -f vercel.json ]; then
-            nl -ba vercel.json | sed -n '1,200p'
-          fi
           echo "=== grep for statusCode in repo ==="
           grep -R -n -E 'statusCode' . || true
           echo "=== list next.config.* files ==="
