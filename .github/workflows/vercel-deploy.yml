@@ -1,4 +1,3 @@
-# .github/workflows/vercel-deploy.yml
 name: vercel deploy
 on:
   push:
@@ -32,11 +31,21 @@ jobs:
       - name: Install Vercel CLI
         run: npm i -g vercel@latest
 
+      - name: Check required secrets are present
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+        run: |
+          test -n "$VERCEL_TOKEN" && echo "VERCEL_TOKEN=SET" || (echo "VERCEL_TOKEN=MISSING"; exit 1)
+          test -n "$VERCEL_PROJECT_ID" && echo "VERCEL_PROJECT_ID=SET" || (echo "VERCEL_PROJECT_ID=MISSING"; exit 1)
+          if [ -n "$VERCEL_ORG_ID" ]; then echo "VERCEL_ORG_ID=SET"; else echo "VERCEL_ORG_ID=EMPTY (ok)"; fi
+
       - name: Pull Vercel env
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }} # optional for personal accounts
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
         run: |
           SCOPE_ARG=""
           if [ -n "$VERCEL_ORG_ID" ]; then SCOPE_ARG="--scope $VERCEL_ORG_ID"; fi
@@ -47,10 +56,10 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: vercel build --token "$VERCEL_TOKEN"
 
-      - name: Deploy to production (alias)
+      - name: Deploy to production
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }} # optional
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
         run: |
           SCOPE_ARG=""
           if [ -n "$VERCEL_ORG_ID" ]; then SCOPE_ARG="--scope $VERCEL_ORG_ID"; fi
