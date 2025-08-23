@@ -1,4 +1,5 @@
 name: vercel deploy
+
 on:
   push:
     branches: [ main ]
@@ -7,114 +8,74 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
+
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      NEXT_TELEMETRY_DISABLED: "1"
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: "npm"
 
       - name: Install deps
-        run: |
-          if [ -f pnpm-lock.yaml ]; then
-            corepack enable
-            corepack prepare pnpm@latest --activate
-            pnpm install --frozen-lockfile
-          elif [ -f yarn.lock ]; then
-            yarn install --frozen-lockfile
-          else
-            npm ci
-          fi
+        run: npm ci
 
       - name: Install Vercel CLI
         run: npm i -g vercel@latest
 
-      - name: Check required secrets
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      - name: Check required secrets are present
         run: |
-          test -n "$VERCEL_TOKEN" && echo "VERCEL_TOKEN=SET" || (echo "VERCEL_TOKEN=MISSING"; exit 1)
-          test -n "$VERCEL_PROJECT_ID" && echo "VERCEL_PROJECT_ID=SET" || (echo "VERCEL_PROJECT_ID=MISSING"; exit 1)
-          if [ -n "$VERCEL_ORG_ID" ]; then echo "VERCEL_ORG_ID=SET"; else echo "VERCEL_ORG_ID=EMPTY (will auto-detect)"; fi
+          test -n "$VERCEL_TOKEN" || { echo "VERCEL_TOKEN missing"; exit 1; }
+          test -n "$VERCEL_PROJECT_ID" || { echo "VERCEL_PROJECT_ID missing"; exit 1; }
 
-      - name: Discover orgId (accountId)
-        id: org
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      # Discover orgId if not set and write .vercel/project.json so 'vercel' knows the project
+      - name: Link Vercel project
         run: |
-          if [ -n "$VERCEL_ORG_ID" ]; then
-            echo "ORG_ID=$VERCEL_ORG_ID" >> "$GITHUB_OUTPUT"
-            exit 0
+          if [ -z "$VERCEL_ORG_ID" ]; then
+            VERCEL_ORG_ID="$(curl -fsSL -H "Authorization: Bearer $VERCEL_TOKEN" \
+              "https://api.vercel.com/v2/projects/$VERCEL_PROJECT_ID" | jq -r '.accountId')"
           fi
-          sudo apt-get update -y >/dev/null 2>&1
-          sudo apt-get install -y jq >/dev/null 2>&1
-          RESP=$(curl -fsSL -H "Authorization: Bearer $VERCEL_TOKEN" "https://api.vercel.com/v9/projects/$VERCEL_PROJECT_ID" || true)
-          ORG_ID=$(printf '%s' "$RESP" | jq -r '.accountId // empty')
-          if [ -z "$ORG_ID" ]; then
-            echo "Failed to auto-detect orgId. Please set VERCEL_ORG_ID secret."
-            exit 1
-          fi
-          echo "Detected ORG_ID=$ORG_ID"
-          echo "ORG_ID=$ORG_ID" >> "$GITHUB_OUTPUT"
-
-      - name: Link Vercel project (.vercel/project.json)
-        env:
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-          ORG_ID: ${{ steps.org.outputs.ORG_ID }}
-        run: |
           mkdir -p .vercel
-          printf '{"projectId":"%s","orgId":"%s"}\n' "$VERCEL_PROJECT_ID" "$ORG_ID" > .vercel/project.json
+          jq -n --arg org "$VERCEL_ORG_ID" --arg proj "$VERCEL_PROJECT_ID" \
+            '{orgId:$org, projectId:$proj}' > .vercel/project.json
           echo "Wrote .vercel/project.json:"
           cat .vercel/project.json
 
       - name: Pull Vercel env
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          ORG_ID: ${{ steps.org.outputs.ORG_ID }}
+        run: vercel pull --yes --environment=production --token "$VERCEL_TOKEN"
+
+      # ---------- Focus the real build error ----------
+      - name: Build (capture log)
         run: |
-          SCOPE_ARG=""
-          if [ -n "$ORG_ID" ]; then SCOPE_ARG="--scope $ORG_ID"; fi
-          vercel pull --yes --environment=production --token "$VERCEL_TOKEN" $SCOPE_ARG
+          set -o pipefail
+          npm run build 2>&1 | tee build.log
 
-      - name: Debug redirects (focused)
+      - name: Summarize first errors
         run: |
-          set -e
-          echo "=== look for redirects.json (exclude deps/build) ==="
-          find . \
-            -path './node_modules' -prune -o \
-            -path './.next' -prune -o \
-            -path './.turbo' -prune -o \
-            -path './.git' -prune -o \
-            -type f -iname 'redirects.json' -print -exec sh -c 'echo "--- {} ---"; sed -n "1,200p" "$1"' _ {} \;
+          echo "---- FIRST ERRORS (context) ----"
+          awk '
+            /Error:|ERR!/ {for(i=NR-8;i<=NR+20;i++){ if(i>0) print buf[i%2000] } exit}
+            { buf[NR%2000]=$0 }
+          ' build.log || true
+          echo "---- END SUMMARY ----"
 
-          echo "=== grep for statusCode (exclude deps/build) ==="
-          grep -R -n --exclude-dir=node_modules --exclude-dir=.next --exclude-dir=.turbo --exclude-dir=.git statusCode . || true
+      - name: Upload full build log
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log
+          path: build.log
 
-          echo "=== grep for permanent (exclude deps/build) ==="
-          grep -R -n --exclude-dir=node_modules --exclude-dir=.next --exclude-dir=.turbo --exclude-dir=.git '"permanent"' . || true
-
-          echo "=== list next.config.* ==="
-          find . -type f -name 'next.config.*' -print
-
-      - name: Build
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: vercel build --token "$VERCEL_TOKEN"
-
-      - name: Deploy to production
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          ORG_ID: ${{ steps.org.outputs.ORG_ID }}
-        run: |
-          SCOPE_ARG=""
-          if [ -n "$ORG_ID" ]; then SCOPE_ARG="--scope $ORG_ID"; fi
-          vercel deploy --prebuilt --prod --yes --token "$VERCEL_TOKEN" $SCOPE_ARG
+      # If build succeeds, do the Vercel production deploy from the prebuilt output
+      - name: Deploy to production (alias)
+        if: ${{ success() }}
+        run: vercel deploy --prebuilt --prod --yes --token "$VERCEL_TOKEN"
