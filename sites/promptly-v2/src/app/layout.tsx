@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
+import SiteFooter from "../components/layout/SiteFooter";
 import AnalyticsProvider from "../components/analytics/AnalyticsProvider";
 import { ThemeProvider } from "../providers/ThemeProvider";
 import { MotionProvider } from "../lib/motion";
@@ -105,7 +105,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <main id="main-content" role="main" className="flex-1">
               {children}
             </main>
-            <Footer />
+            <SiteFooter />
           </body>
         </AnalyticsProvider>
       </ThemeProvider>
