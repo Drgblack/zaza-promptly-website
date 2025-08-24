@@ -23,9 +23,6 @@ const nextConfig = {
 
   // MDX + app router
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-  experimental: {
-    mdxRs: true,
-  },
 
   images: {
     formats: ['image/avif', 'image/webp'],
