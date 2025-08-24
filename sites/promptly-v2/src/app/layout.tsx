@@ -8,6 +8,7 @@ import { ThemeProvider } from "../providers/ThemeProvider";
 import { MotionProvider } from "../lib/motion";
 import RouterHydrationFix from "../components/RouterHydrationFix";
 import LinkDiagnostic from "../components/LinkDiagnostic";
+import ClickDiagnostic from "../components/ClickDiagnostic";
 // import PageTransition from "../components/layout/PageTransition";  // ⟵ remove
 
 // Initialize Sentry configs safely
@@ -140,6 +141,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
               <RouterHydrationFix />
               <LinkDiagnostic />
+              <ClickDiagnostic />
               <a
                 href="#main-content"
                 className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-white dark:bg-slate-800 text-black dark:text-white px-4 py-2 rounded-md font-medium shadow-lg z-50 focus:outline-none focus:ring-2 focus:ring-blue-600"
