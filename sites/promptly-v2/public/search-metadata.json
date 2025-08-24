@@ -14,6 +14,13 @@
     "category": "AI Tools"
   },
   {
+    "id": "blog-is-using-ai-for-teachers-cheating",
+    "type": "blog",
+    "title": "Is Using AI for Teachers Cheating? The Complete Ethics Guide for Educators",
+    "url": "/blog/is-using-ai-for-teachers-cheating",
+    "category": "Ethics & Professional Development"
+  },
+  {
     "id": "blog-critical-thinking-classrooms",
     "type": "blog",
     "title": "Teaching Students to Think: From Theory to Classroom Practice",
@@ -24,13 +31,6 @@
     "type": "blog",
     "title": "The Future of Learning: What My Research Means for the Next Decade",
     "url": "/blog/future-of-learning-2035"
-  },
-  {
-    "id": "blog-is-using-ai-for-teachers-cheating",
-    "type": "blog",
-    "title": "Is Using AI for Teachers Cheating? The Complete Ethics Guide for Educators",
-    "url": "/blog/is-using-ai-for-teachers-cheating",
-    "category": "Ethics & Professional Development"
   },
   {
     "id": "blog-pedagogy-meets-ai",

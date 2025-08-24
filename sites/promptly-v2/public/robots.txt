@@ -8,7 +8,7 @@ Disallow: /test/
 Disallow: *.json
 
 # Host
-Host: https://promptly.zazatechnologies.com
+Host: https://zazapromptly.com
 
 # Sitemaps
-Sitemap: https://promptly.zazatechnologies.com/sitemap.xml
+Sitemap: https://zazapromptly.com/sitemap.xml
