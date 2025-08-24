@@ -1,48 +1,16 @@
-name: vercel deploy
-
+﻿name: Deploy to Vercel
 on:
   push:
-    branches: [main]
-  workflow_dispatch:
-
-env:
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+    branches: [ main ]
+    paths:
+      - "sites/promptly-v2/**"
+      - ".github/workflows/vercel-deploy.yml"
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: sites/promptly-v2
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js 22.x (with npm cache)
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22.x'
-          cache: 'npm'
-          # lockfile lives in the app subfolder:
-          cache-dependency-path: 'sites/promptly-v2/package-lock.json'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Install Vercel CLI
-        run: npm i -g vercel@latest
-
-      - name: Pull Vercel environment (production)
-        run: vercel pull --yes --environment=production --token=${{ env.VERCEL_TOKEN }}
-
-      - name: Build Next.js
-        run: npm run build
-
-      - name: Create Vercel build
-        run: vercel build --prod --token=${{ env.VERCEL_TOKEN }}
-
-      - name: Deploy to Production
-        run: vercel deploy --prebuilt --prod --token=${{ env.VERCEL_TOKEN }}
+      - name: Trigger Vercel Deploy (Production)
+        env:
+          VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: curl -fsSL -X POST "$VERCEL_DEPLOY_HOOK"
