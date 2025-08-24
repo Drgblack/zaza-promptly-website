@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import CookiePreferencesButton from '@/components/cookies/CookiePreferencesButton'
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://promptly.zazatechnologies.com'
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? ''
 
 export const metadata: Metadata = {
   title: 'Cookie Policy | Promptly',

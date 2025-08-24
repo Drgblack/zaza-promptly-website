@@ -12,3 +12,4 @@ export async function GET(req: NextRequest) {
   const safe = file.replace(/[^a-zA-Z0-9._-]/g, '');
   return NextResponse.redirect(new URL(`/resources/${safe}`, url));
 }
+

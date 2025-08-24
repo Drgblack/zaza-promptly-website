@@ -1,4 +1,4 @@
-{
+﻿{
   "importDate": "2025-08-22",
   "sources": [
     "/workspaces/zaza-websites-claudecode/sites/promptly-v2/src/app/faq/page.tsx",
@@ -25,7 +25,7 @@
     {
       "id": "ethics-001",
       "question": "Is using AI for teaching cheating?",
-      "answer": "No, using AI tools like Promptly for administrative tasks is not cheating—it's working smarter. Just like using spell-check or a calculator, AI assists with time-consuming tasks while you focus on what matters most: teaching and connecting with students. Promptly helps with parent communications and report writing, freeing up hours for lesson planning and student interaction.",
+      "answer": "No, using AI tools like Promptly for administrative tasks is not cheatingâ€”it's working smarter. Just like using spell-check or a calculator, AI assists with time-consuming tasks while you focus on what matters most: teaching and connecting with students. Promptly helps with parent communications and report writing, freeing up hours for lesson planning and student interaction.",
       "category": "ethics",
       "lastUpdated": "2025-08-22",
       "sourcePath": "/workspaces/zaza-websites-claudecode/sites/promptly-v2/src/app/faq/page.tsx",
@@ -99,7 +99,7 @@
         {
           "source": "/workspaces/zaza-websites-claudecode/components/FAQ.tsx",
           "variation": "Does Zaza Promptly actually reduce teacher workload?",
-          "answer": "Yes — teachers report saving 3-5 hours per week on report writing and parent communication. What used to take 15-20 minutes per comment now takes 2-3 minutes, giving you time back for lesson planning, marking, or simply going home earlier. This AI tool for teachers specifically targets the most time-consuming administrative tasks.",
+          "answer": "Yes â€” teachers report saving 3-5 hours per week on report writing and parent communication. What used to take 15-20 minutes per comment now takes 2-3 minutes, giving you time back for lesson planning, marking, or simply going home earlier. This AI tool for teachers specifically targets the most time-consuming administrative tasks.",
           "needs_review": true
         },
         {
@@ -121,7 +121,7 @@
     {
       "id": "features-001",
       "question": "Can I use Promptly for parent email generation?",
-      "answer": "Yes, Promptly excels at parent communication. It helps you craft professional, empathetic emails for various situations—progress updates, behavior concerns, meeting requests, or celebration messages. The AI understands the delicate balance needed in parent-teacher communication and helps you maintain positive relationships.",
+      "answer": "Yes, Promptly excels at parent communication. It helps you craft professional, empathetic emails for various situationsâ€”progress updates, behavior concerns, meeting requests, or celebration messages. The AI understands the delicate balance needed in parent-teacher communication and helps you maintain positive relationships.",
       "category": "features",
       "lastUpdated": "2025-08-22",
       "sourcePath": "/workspaces/zaza-websites-claudecode/sites/promptly-v2/src/app/faq/page.tsx",
@@ -129,7 +129,7 @@
         {
           "source": "/workspaces/zaza-websites-claudecode/sites/promptly-v2/src/app/faq/page.tsx",
           "variation": "How does AI help with parent email generation for teachers?",
-          "answer": "AI tools like Promptly excel at parent communication by helping teachers craft professional, empathetic emails for various situations—progress updates, behavior concerns, celebration messages, and meeting requests. The AI understands the delicate balance needed in parent-teacher communication and helps maintain positive relationships while saving hours of writing time.",
+          "answer": "AI tools like Promptly excel at parent communication by helping teachers craft professional, empathetic emails for various situationsâ€”progress updates, behavior concerns, celebration messages, and meeting requests. The AI understands the delicate balance needed in parent-teacher communication and helps maintain positive relationships while saving hours of writing time.",
           "needs_review": true
         }
       ]
@@ -314,3 +314,4 @@
     "Version in sites/promptly-v2/src/app/faq/page.tsx appears most current and comprehensive"
   ]
 }
+

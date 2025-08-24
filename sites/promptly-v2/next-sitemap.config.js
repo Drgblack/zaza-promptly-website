@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 export default {
-  siteUrl: process.env.SITE_URL || 'https://promptly.zazatechnologies.com',
+  siteUrl: process.env.SITE_URL || '',
   generateRobotsTxt: true,
   exclude: [
     '/api/*',
@@ -26,7 +26,7 @@ export default {
       },
     ],
     additionalSitemaps: [
-      'https://promptly.zazatechnologies.com/sitemap.xml',
+      '/sitemap.xml',
     ],
   },
   // Generate additional sitemaps for different content types  

@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "../components/Header";
@@ -41,8 +41,8 @@ const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.co
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: "Zaza Promptly â€“ AI for Teacher Reports & Parent Communication",
-  description: "Save hours with Zaza Promptly â€“ hallucination-safe AI for teachers. Write reports, parent messages, and emails faster without losing empathy.",
+  title: "Zaza Promptly – AI for Teacher Reports & Parent Communication",
+  description: "Save hours with Zaza Promptly – hallucination-safe AI for teachers. Write reports, parent messages, and emails faster without losing empathy.",
   keywords: "AI tool for teachers, AI for teacher reports, AI for parent communication, safe AI for teachers, hallucination-safe AI, teacher productivity apps, report writing for teachers AI, parent email generator for teachers, reduce teacher workload with AI, GDPR compliant AI for teachers, best AI tools for teachers 2025",
   authors: [{ name: "Zaza Technologies" }],
   creator: "Zaza Technologies",
@@ -70,8 +70,8 @@ export const metadata: Metadata = {
     siteName: 'Promptly',
     type: 'website',
     locale: 'en_GB',
-    title: 'Zaza Promptly â€“ AI Tool for Teacher Reports & Parent Communication',
-    description: 'Save hours with Zaza Promptly â€“ the hallucination-safe AI built for teachers. Write reports, parent messages, and professional emails faster, without losing empathy or trust.',
+    title: 'Zaza Promptly – AI Tool for Teacher Reports & Parent Communication',
+    description: 'Save hours with Zaza Promptly – the hallucination-safe AI built for teachers. Write reports, parent messages, and professional emails faster, without losing empathy or trust.',
     url: baseUrl,
     images: [
       {
@@ -86,8 +86,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@zazapromptly',
     creator: '@zazapromptly',
-    title: 'Zaza Promptly â€“ AI Tool for Teacher Reports & Parent Communication',
-    description: 'Save hours with Zaza Promptly â€“ the hallucination-safe AI built for teachers. Write reports, parent messages, and professional emails faster, without losing empathy or trust.',
+    title: 'Zaza Promptly – AI Tool for Teacher Reports & Parent Communication',
+    description: 'Save hours with Zaza Promptly – the hallucination-safe AI built for teachers. Write reports, parent messages, and professional emails faster, without losing empathy or trust.',
     images: ['/og-default.png'],
   },
   verification: {
@@ -140,4 +140,5 @@ export default function RootLayout({
     </html>
   );
 }
+
 
