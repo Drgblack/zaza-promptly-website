@@ -4,6 +4,7 @@ import LogoCloud from '@/components/marketing/LogoCloud'
 import TestimonialsSection from '@/components/testimonials/TestimonialsSection'
 import TrustBadges from '@/components/trust/TrustBadges'
 import HeroSection from '@/components/home/HeroSection'
+import SampleOutputsSection from '@/components/home/SampleOutputsSection'
 import ScrollReveal from '@/components/animations/ScrollReveal'
 import dynamic from 'next/dynamic'
 
@@ -63,8 +64,8 @@ export default function Home() {
         name: 'Zaza Technologies',
         founder: {
           '@type': 'Person',
-          name: 'Greg Beams',
-          jobTitle: 'PhD, Educational Technology',
+          name: 'Dr. Greg Blackburn',
+          jobTitle: 'PhD, Professional Education',
           description: 'PhD-qualified founder with expertise in educational technology and AI safety'
         }
       },
@@ -108,8 +109,8 @@ export default function Home() {
       foundingDate: '2023',
       founder: {
         '@type': 'Person',
-        name: 'Greg Beams',
-        jobTitle: 'PhD, Educational Technology'
+        name: 'Dr. Greg Blackburn',
+        jobTitle: 'PhD, Professional Education'
       },
       sameAs: [
         'https://twitter.com/zazapromptly',
@@ -227,6 +228,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Sample Outputs Section */}
+      <SampleOutputsSection />
 
       {/* Persona Tiles Section */}
       <section className="section bg-white dark:bg-gray-900">

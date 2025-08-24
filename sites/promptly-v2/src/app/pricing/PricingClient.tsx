@@ -26,9 +26,9 @@ const plans: { monthly: Plan[]; annual: Plan[] } = {
       period: 'month',
       priceId: PRICE_ID_MONTHLY,
       features: [
-        'Unlimited lesson plans',
-        'Assessment generator', 
-        'Personalized learning tools',
+        'Unlimited student reports',
+        'Personalized feedback generator', 
+        'Parent communication templates',
         'Email support',
         '14-day free trial'
       ]
@@ -43,10 +43,10 @@ const plans: { monthly: Plan[]; annual: Plan[] } = {
       recommended: true,
       features: [
         'Everything in Starter',
-        'Advanced analytics',
+        'Advanced report analytics',
         'Priority support',
-        'Bulk operations',
-        'Team collaboration tools',
+        'Bulk report generation',
+        'Parent portal integration',
         '2 months free'
       ]
     }
@@ -58,9 +58,9 @@ const plans: { monthly: Plan[]; annual: Plan[] } = {
       period: 'month',
       priceId: PRICE_ID_MONTHLY,
       features: [
-        'Unlimited lesson plans',
-        'Assessment generator',
-        'Personalized learning tools', 
+        'Unlimited student reports',
+        'Personalized feedback generator',
+        'Parent communication templates', 
         'Email support',
         '14-day free trial'
       ]
@@ -75,10 +75,10 @@ const plans: { monthly: Plan[]; annual: Plan[] } = {
       recommended: true,
       features: [
         'Everything in Starter',
-        'Advanced analytics',
+        'Advanced report analytics',
         'Priority support',
-        'Bulk operations',
-        'Team collaboration tools',
+        'Bulk report generation',
+        'Parent portal integration',
         '2 months free'
       ]
     }
@@ -184,6 +184,15 @@ export default function PricingClient() {
               </div>
             </div>
           )}
+
+          {/* Geo-pricing disclaimer */}
+          <ScrollReveal duration={0.24} delay={0.08}>
+            <div className="text-center mb-8">
+              <p className="text-sm text-slate-400">
+                * Prices shown in GBP. Final price may vary by location and currency.
+              </p>
+            </div>
+          </ScrollReveal>
 
           {/* Pricing Cards */}
           <ScrollReveal duration={0.26} delay={0.1}>

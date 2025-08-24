@@ -77,16 +77,16 @@ export default function HeroSection() {
           <div className="text-center">
             {/* Main headline */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 dark:text-white mb-6 leading-tight max-w-[720px] mx-auto">
-              Get Your Evenings Back:{' '}
               <span className="text-blue-600 dark:text-blue-400 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                AI That Writes Like Teachers
-              </span>
+                AI comments.
+              </span>{' '}
+              Done in seconds.
             </h1>
             
             {/* Subheading */}
             <p className="text-xl md:text-[22px] text-slate-300 leading-relaxed mb-8 max-w-3xl mx-auto">
-              Stop spending your personal time writing reports, parent emails, and IEP comments. 
-              AI that understands classroom life and writes in your professional voice.
+              Generate, edit, and personalise feedback in minutes—and keep your voice. 
+              Save hours without sacrificing quality or care.
             </p>
             
             {/* CTA Buttons */}
@@ -113,7 +113,7 @@ export default function HeroSection() {
                   <svg className="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
-                  7-day free trial
+                  14-day free trial
                 </div>
                 <div className="flex items-center">
                   <svg className="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -202,10 +202,10 @@ export default function HeroSection() {
               }
             }}
           >
-            Get Your Evenings Back:{' '}
             <span className="text-blue-600 dark:text-blue-400 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              AI That Writes Like Teachers
-            </span>
+              AI comments.
+            </span>{' '}
+            Done in seconds.
           </motion.h1>
           
           {/* Subheading */}
@@ -214,8 +214,8 @@ export default function HeroSection() {
             transition={fadeTransition}
             className="text-xl md:text-[22px] text-slate-300 leading-relaxed mb-8 max-w-3xl mx-auto animate-transform-opacity"
           >
-            Stop spending your personal time writing reports, parent emails, and IEP comments. 
-            AI that understands classroom life and writes in your professional voice.
+            Generate, edit, and personalise feedback in minutes—and keep your voice. 
+            Save hours without sacrificing quality or care.
           </motion.p>
           
           {/* CTA Buttons */}
