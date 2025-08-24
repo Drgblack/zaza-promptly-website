@@ -88,6 +88,20 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           type="font/woff"
           crossOrigin="anonymous"
         />
+        <script
+  dangerouslySetInnerHTML={{
+    __html: `(() => {
+      try {
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.getRegistrations().then(rs => rs.forEach(r => r.unregister()));
+        }
+        if (window.caches) {
+          caches.keys().then(keys => keys.forEach(k => caches.delete(k)));
+        }
+      } catch {}
+    })();`,
+  }}
+/>
       </head>
       <ThemeProvider defaultTheme="system">
         <MotionProvider>
