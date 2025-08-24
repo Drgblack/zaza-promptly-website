@@ -3,28 +3,85 @@
 import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
 import ThemeToggle from './ui/ThemeToggle'
-// import SearchInput from './search/SearchInput'
+import LanguageSwitcher from './nav/LanguageSwitcher'
+
+interface MenuGroup {
+  title: string
+  description?: string
+  items: {
+    title: string
+    href: string
+    description?: string
+  }[]
+}
+
+const MENU_GROUPS: Record<string, MenuGroup> = {
+  products: {
+    title: 'Products',
+    description: 'AI-powered tools for modern educators',
+    items: [
+      { title: 'Promptly', href: '/', description: 'AI assistant for teacher reports and communications' },
+      { title: 'Quick Comment Helper', href: '/quick-comment-helper', description: 'Generate report comments instantly' },
+      { title: 'Try Free Classroom Tool', href: '/tools/classroom', description: 'Start with our free classroom toolkit' }, // TODO: Create placeholder page
+    ]
+  },
+  solutions: {
+    title: 'Solutions',
+    description: 'Tailored for every teaching context',
+    items: [
+      { title: 'UK Primary Teachers', href: '/solutions/uk-primary', description: 'Primary education solutions for the UK curriculum' }, // TODO: Create or link to existing
+      { title: 'US Secondary Teachers', href: '/solutions/us-secondary', description: 'Secondary education tools for US schools' }, // TODO: Create or link to existing
+      { title: 'Special Education Teachers', href: '/solutions/special-education', description: 'Specialized tools for inclusive education' }, // TODO: Create or link to existing
+      { title: 'International Teachers', href: '/solutions/international', description: 'Global solutions for diverse educational systems' }, // TODO: Create or link to existing
+      { title: 'EdTech-Savvy Teachers', href: '/solutions/edtech-savvy', description: 'Advanced tools for tech-forward educators' }, // TODO: Create or link to existing
+      { title: 'Head Teachers & Leaders', href: '/solutions/head-teachers-leaders', description: 'Leadership tools for school administrators' }, // TODO: Create or link to existing
+    ]
+  },
+  resources: {
+    title: 'Resources',
+    description: 'Everything you need to succeed',
+    items: [
+      { title: 'Learning Centre', href: '/learning-centre', description: 'Guides, tutorials, and best practices' },
+      { title: 'Free Resources', href: '/resources', description: 'Download free templates and tools' }, // TODO: Check if /resources exists vs /free-resources
+      { title: 'Case Studies', href: '/case-studies', description: 'Real teacher success stories' },
+      { title: 'Blog', href: '/blog', description: 'Latest insights on AI in education' },
+      { title: 'FAQ', href: '/faq', description: 'Frequently asked questions' },
+    ]
+  },
+  company: {
+    title: 'Company',
+    description: 'About Zaza Technologies',
+    items: [
+      { title: 'Meet Your Fellow Educator', href: '/about', description: 'Learn about our founder Dr. Greg Blackburn' }, // TODO: Check if /about exists vs /about/founder
+      { title: 'Contact', href: '/contact', description: 'Get in touch with our team' },
+      { title: 'Reliable AI That Won\'t Make Things Up', href: '/reliable-ai', description: 'Our commitment to hallucination-free AI' }, // TODO: Create placeholder
+      { title: 'Student Privacy Protected', href: '/student-privacy', description: 'How we keep student data safe' }, // TODO: Create placeholder
+      { title: 'Privacy Policy', href: '/privacy-policy', description: 'Our data protection policies' }, // TODO: Check if exists vs /privacy
+    ]
+  }
+}
 
 export default function Header() {
+  const [activeMenu, setActiveMenu] = useState<string | null>(null)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [solutionsOpen, setSolutionsOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
-  const solutionsRef = useRef<HTMLDivElement>(null)
+  const menuRefs = useRef<Record<string, HTMLDivElement | null>>({})
   const mobileMenuRef = useRef<HTMLDivElement>(null)
 
   // Handle escape key and click outside for dropdowns
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        setSolutionsOpen(false)
+        setActiveMenu(null)
         setMobileMenuOpen(false)
       }
     }
 
     const handleClickOutside = (e: MouseEvent) => {
-      if (solutionsRef.current && !solutionsRef.current.contains(e.target as Node)) {
-        setSolutionsOpen(false)
+      // Check if click is outside any open menu
+      if (activeMenu && menuRefs.current[activeMenu] && !menuRefs.current[activeMenu]?.contains(e.target as Node)) {
+        setActiveMenu(null)
       }
       if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target as Node)) {
         setMobileMenuOpen(false)
@@ -38,7 +95,7 @@ export default function Header() {
       document.removeEventListener('keydown', handleEscape)
       document.removeEventListener('mousedown', handleClickOutside)
     }
-  }, [])
+  }, [activeMenu])
 
   // Hide on scroll down, show on scroll up
   useEffect(() => {
@@ -55,7 +112,7 @@ export default function Header() {
         setIsVisible(true)
       } else if (isScrollingDown && currentScrollY > lastScrollY + 10) {
         setIsVisible(false)
-        setSolutionsOpen(false)
+        setActiveMenu(null)
         setMobileMenuOpen(false)
       } else if (!isScrollingDown && lastScrollY - currentScrollY > 10) {
         setIsVisible(true)
@@ -79,6 +136,10 @@ export default function Header() {
     return () => window.removeEventListener('scroll', scrollListener)
   }, [lastScrollY])
 
+  const handleMenuToggle = (menuKey: string) => {
+    setActiveMenu(activeMenu === menuKey ? null : menuKey)
+  }
+
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-40 backdrop-blur-lg bg-slate-900/70 border-b border-white/10 transition-transform duration-300 ease-out ${
@@ -100,130 +161,89 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
-            <Link href="/products" className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1">
-              Products
-            </Link>
-
-            {/* Our Solutions Dropdown */}
-            <div className="relative" ref={solutionsRef}>
-              <button
-                onClick={() => setSolutionsOpen(!solutionsOpen)}
-                className="flex items-center text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1"
-                aria-expanded={solutionsOpen}
-              >
-                Our Solutions
-                <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={solutionsOpen ? "M19 15l-7-7-7 7" : "M19 9l-7 7-7-7"} />
-                </svg>
-              </button>
-              
-              {solutionsOpen && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-slate-800/95 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 py-2">
-                  <div className="px-4 py-2 border-b border-white/10 mb-2">
-                    <div className="text-xs text-slate-400 uppercase tracking-wide mb-1">Products</div>
-                    <Link href="/products" className="block text-sm text-slate-200 hover:text-brand-400 transition-colors rounded px-2 py-1">
-                      Promptly
-                    </Link>
-                    <Link href="/products#teach" className="block text-sm text-slate-200 hover:text-green-400 transition-colors rounded px-2 py-1">
-                      Teach
-                    </Link>
-                    <Link href="/products#technologies" className="block text-sm text-slate-200 hover:text-purple-400 transition-colors rounded px-2 py-1">
-                      Technologies
-                    </Link>
+          <nav className="hidden lg:flex items-center space-x-1" role="navigation" aria-label="Main navigation">
+            {Object.entries(MENU_GROUPS).map(([key, group]) => (
+              <div key={key} className="relative" ref={el => { menuRefs.current[key] = el }}>
+                <button
+                  onClick={() => handleMenuToggle(key)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      handleMenuToggle(key)
+                    }
+                  }}
+                  className="flex items-center px-4 py-2 text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded-lg"
+                  aria-expanded={activeMenu === key}
+                  aria-haspopup="true"
+                  aria-controls={activeMenu === key ? `${key}-menu` : undefined}
+                >
+                  {group.title}
+                  <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={activeMenu === key ? "M19 15l-7-7-7 7" : "M19 9l-7 7-7-7"} />
+                  </svg>
+                </button>
+                
+                {activeMenu === key && (
+                  <div 
+                    id={`${key}-menu`}
+                    className="absolute top-full left-0 mt-1 w-80 bg-slate-800/95 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 py-4 z-50"
+                    role="menu"
+                  >
+                    {group.description && (
+                      <div className="px-4 pb-3 border-b border-white/10 mb-3">
+                        <p className="text-xs text-slate-400 font-medium">{group.description}</p>
+                      </div>
+                    )}
+                    <div className="space-y-1">
+                      {group.items.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="block px-4 py-3 hover:bg-slate-700/50 transition-colors focus:outline-none focus:bg-slate-700/50 rounded-none group"
+                          role="menuitem"
+                          onClick={() => setActiveMenu(null)}
+                        >
+                          <div className="text-sm font-medium text-white group-hover:text-blue-300 transition-colors">
+                            {item.title}
+                          </div>
+                          {item.description && (
+                            <div className="text-xs text-slate-400 mt-1 leading-relaxed">
+                              {item.description}
+                            </div>
+                          )}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                  <div className="px-4 py-1">
-                    <div className="text-xs text-slate-400 uppercase tracking-wide mb-1">By Teaching Context</div>
-                    <Link href="/personas/uk-primary" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors rounded">
-                      UK Primary Teachers
-                    </Link>
-                    <Link href="/personas/us-secondary" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors rounded">
-                      US Secondary Teachers
-                    </Link>
-                    <Link href="/personas/special-needs" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors rounded">
-                      Special Education
-                    </Link>
-                    <Link href="/personas/international" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors rounded">
-                      International Teachers
-                    </Link>
-                    <Link href="/personas/edtech-savvy" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors rounded">
-                      EdTech-Savvy Teachers
-                    </Link>
-                    <Link href="/personas/head-teacher" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors rounded">
-                      Head Teachers & Leaders
-                    </Link>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            <Link href="/#snippet" className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1">
-              Quick Comment Helper
-            </Link>
-
-            <Link href="/blog" className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1">
-              Blog
-            </Link>
-
-            <Link href="/case-studies" className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1">
-              Case Studies
-            </Link>
-
-            <Link href="/learning-centre" className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1">
-              Learning Centre
-            </Link>
-
-            <Link href="/faq" className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1">
-              FAQ
-            </Link>
-            
-            <Link href="/free-resources" className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1">
-              Free Resources
-            </Link>
-
-            <Link href="/about/founder" className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1">
-              Meet Your Fellow Educator
-            </Link>
-
-            <Link href="/contact" className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1">
-              Contact
-            </Link>
+                )}
+              </div>
+            ))}
           </nav>
 
-          {/* Search & Right-side CTAs */}
-          <div className="hidden md:flex items-center space-x-4">
-            {/* <div className="w-64">
-              <SearchInput 
-                placeholder="Search..."
-                className="w-full"
-              />
-            </div> */}
-            
-            <Link 
-              href="/products#teach"
-              className="text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1"
-            >
-              Try Free Classroom Tool
-            </Link>
+          {/* Right side items */}
+          <div className="hidden lg:flex items-center space-x-4">
+            <LanguageSwitcher />
             
             <Link 
               href="/pricing"
-              className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900"
             >
-              Try Free for Your Classroom
+              Start Free
             </Link>
 
             <ThemeToggle />
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-md text-white hover:text-white/80 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900"
               aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-menu"
+              aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 {mobileMenuOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
@@ -238,60 +258,62 @@ export default function Header() {
         {mobileMenuOpen && (
           <div 
             id="mobile-menu" 
-            className="md:hidden py-4 border-t border-white/10" 
+            className="lg:hidden fixed inset-0 top-[73px] bg-slate-900/95 backdrop-blur-lg z-50 overflow-y-auto" 
             ref={mobileMenuRef}
           >
-            <div className="flex flex-col space-y-3">
-              {/* <div className="pb-3 border-b border-white/10">
-                <SearchInput 
-                  placeholder="Search..."
-                  className="w-full"
-                />
-              </div> */}
+            <div className="p-4 space-y-1">
+              {/* Language selector at top */}
+              <LanguageSwitcher variant="mobile" />
               
-              <Link href="/products" className="text-slate-300 font-medium py-2 rounded px-2">
-                Products
-              </Link>
-              <Link href="/personas" className="text-slate-300 font-medium py-2 rounded px-2">
-                Our Solutions
-              </Link>
-              <Link href="/#snippet" className="text-slate-300 font-medium py-2 rounded px-2">
-                Quick Comment Helper
-              </Link>
-              <Link href="/blog" className="text-slate-300 font-medium py-2 rounded px-2">
-                Blog
-              </Link>
-              <Link href="/case-studies" className="text-slate-300 font-medium py-2 rounded px-2">
-                Case Studies
-              </Link>
-              <Link href="/learning-centre" className="text-slate-300 font-medium py-2 rounded px-2">
-                Learning Centre
-              </Link>
-              <Link href="/faq" className="text-slate-300 font-medium py-2 rounded px-2">
-                FAQ
-              </Link>
-              <Link href="/free-resources" className="text-slate-300 font-medium py-2 rounded px-2">
-                Free Resources
-              </Link>
-              <Link href="/about/founder" className="text-slate-300 font-medium py-2 rounded px-2">
-                Meet Your Fellow Educator
-              </Link>
-              <Link href="/contact" className="text-slate-300 font-medium py-2 rounded px-2">
-                Contact
-              </Link>
-              <Link 
-                href="/products#teach" 
-                className="text-slate-300 font-medium py-2 rounded px-2"
-              >
-                Try Free Classroom Tool
-              </Link>
-              <Link 
-                href="/pricing"
-                className="inline-flex items-center justify-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg"
-              >
-                Try Free for Your Classroom
-              </Link>
-              <ThemeToggle variant="mobile" />
+              {/* Menu groups as accordions */}
+              {Object.entries(MENU_GROUPS).map(([key, group]) => {
+                const isExpanded = activeMenu === key
+                return (
+                  <div key={key} className="border-b border-white/10 last:border-b-0">
+                    <button
+                      onClick={() => handleMenuToggle(key)}
+                      className="w-full flex items-center justify-between py-4 text-left text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg"
+                      aria-expanded={isExpanded}
+                    >
+                      <span>{group.title}</span>
+                      <svg className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                    {isExpanded && (
+                      <div className="pb-4 space-y-2">
+                        {group.items.map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className="block pl-4 py-2 text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            <div className="font-medium">{item.title}</div>
+                            {item.description && (
+                              <div className="text-xs text-slate-400 mt-1">{item.description}</div>
+                            )}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )
+              })}
+              
+              {/* CTA at bottom */}
+              <div className="pt-6 border-t border-white/10">
+                <Link 
+                  href="/pricing"
+                  className="block w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg text-center transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Start Free
+                </Link>
+                <div className="mt-4 flex justify-center">
+                  <ThemeToggle variant="mobile" />
+                </div>
+              </div>
             </div>
           </div>
         )}
