@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Hero from '@/components/about/Hero';
 import CredibilityStats from '@/components/about/CredibilityStats';
 import TrustPrinciples from '@/components/about/TrustPrinciples';
-import Timeline from '@/components/about/Timeline';
+import Journey from '@/components/about/Journey';
 import Testimonial from '@/components/about/Testimonial';
 import ActionBand from '@/components/about/ActionBand';
 
@@ -26,44 +26,6 @@ export default function FounderPage() {
     { title: 'No hallucinated facts', body: 'Guardrails reduce "made-up" output; teachers remain in control.' },
   ];
 
-  const timeline = [
-    {
-      period: '1980s',
-      title: "Painter's Apprenticeship — Cascade Brewery",
-      blurb:
-        'Started via Tas Paints. Learned perseverance by finishing the trade.',
-    },
-    {
-      period: 'Early 1990s',
-      title: 'World Travel',
-      blurb: 'Backpacking taught me that learning opens every door.',
-    },
-    {
-      period: '1994–1995',
-      title: 'German Language Diploma (Frankfurt)',
-      blurb: 'Enabled entry to university.',
-    },
-    {
-      period: '1995–1999',
-      title: 'UTAS — Information Systems (Honours)',
-      blurb: 'University of Tasmania.',
-    },
-    {
-      period: '2000–2004',
-      title: 'MBA — The University of Queensland',
-      blurb: 'Master of Business Administration.',
-    },
-    {
-      period: '2016–2019',
-      title: 'PhD — Professional Education (City, University of London)',
-      blurb: 'Research in educational technology and professional development.',
-    },
-    {
-      period: '2025',
-      title: 'Zaza Technologies',
-      blurb: 'Building teacher-first AI that respects educators.',
-    },
-  ];
 
   return (
     <main id="main-content">
@@ -106,7 +68,7 @@ export default function FounderPage() {
         </div>
       </section>
 
-      <Timeline items={timeline} />
+      <Journey />
 
       <Testimonial
         quote="Finally, someone who understands what we actually need. Greg's tools feel like they were built by someone who's been in our shoes."
