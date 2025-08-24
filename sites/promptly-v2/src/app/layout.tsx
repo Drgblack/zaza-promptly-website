@@ -8,7 +8,7 @@ import CookieBanner from "../components/marketing/CookieBanner";
 import ZaraOrbProvider from "../components/ui/ZaraOrbProvider";
 import { ThemeProvider } from "../providers/ThemeProvider";
 import { MotionProvider } from "../lib/motion";
-import PageTransition from "../components/layout/PageTransition";
+// import PageTransition from "../components/layout/PageTransition";  // ⟵ remove
 
 // Initialize Sentry configs safely
 if (typeof window !== 'undefined') {
@@ -65,14 +65,7 @@ export const metadata: Metadata = {
     description:
       "Save hours with Zaza Promptly – the hallucination-safe AI built for teachers. Write reports, parent messages, and professional emails faster, without losing empathy or trust.",
     url: baseUrl,
-    images: [
-      {
-        url: "/og-default.png",
-        width: 1200,
-        height: 630,
-        alt: "Promptly - AI Tools for Teachers",
-      },
-    ],
+    images: [{ url: "/og-default.png", width: 1200, height: 630, alt: "Promptly - AI Tools for Teachers" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -86,9 +79,7 @@ export const metadata: Metadata = {
   verification: { google: undefined },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="scroll-smooth">
       <head>
@@ -103,10 +94,7 @@ export default function RootLayout({
       <ThemeProvider defaultTheme="system">
         <MotionProvider>
           <AnalyticsProvider>
-            <body
-              className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
-            >
-              {/* Skip to content link for accessibility */}
+            <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
               <a
                 href="#main-content"
                 className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-white dark:bg-slate-800 text-black dark:text-white px-4 py-2 rounded-md font-medium shadow-lg z-50 focus:outline-none focus:ring-2 focus:ring-blue-600"
@@ -114,7 +102,10 @@ export default function RootLayout({
                 Skip to main content
               </a>
               <Header />
-              <PageTransition>{children}</PageTransition>
+              {/* ⟵ replace PageTransition with a plain main */}
+              <main id="main-content" role="main" className="flex-1">
+                {children}
+              </main>
               <Footer />
               <CookieBanner />
               <ZaraOrbProvider />
