@@ -1,28 +1,44 @@
-﻿"use client";
-import { useEffect } from "react";
+"use client";
 
-/** Normalizes internal anchors:
- * - "pricing"     -> "/pricing"
- * - "/foo/index"  -> "/foo"
- * - "*.md/.mdx"   -> stripped
- * Skips absolute (http://...), mailto:, tel:, and hash-only links.
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+
+/**
+ * Normalizes <a href> in rendered content so that:
+ *  - relative links become root-absolute ("/foo" instead of "foo")
+ *  - "/dir/index" -> "/dir"
+ *  - strips ".mdx" suffix
+ *  - skips in-page anchors (#...), absolute/protocol links, mailto:, tel:, etc.
  */
 export default function LinkNormalizer({ rootSelector = "main" }: { rootSelector?: string }) {
+  const pathname = usePathname();
+
   useEffect(() => {
     const root = (document.querySelector(rootSelector) ?? document.body) as HTMLElement;
-    const anchors = Array.from(root.querySelectorAll("a[href]")) as HTMLAnchorElement[];
+    if (!root) return;
+
+    const anchors = Array.from(root.querySelectorAll<HTMLAnchorElement>("a[href]"));
     for (const a of anchors) {
-      const raw = a.getAttribute("href") || "";
-      if (!raw || raw.startsWith("#")) continue;             // anchors
-      if (/^[a-z]+:/i.test(raw)) continue;                   // external schemes
-      let nextHref = raw.trim();
+      const raw = (a.getAttribute("href") || "").trim();
+      if (!raw || raw.startsWith("#")) continue;
+
+      // Any scheme like "http:", "https:", "mailto:", "tel:", "data:", etc.
+      if (/^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(raw)) continue;
+
+      let nextHref = raw;
+
+      // Ensure root-absolute
       if (!nextHref.startsWith("/")) nextHref = "/" + nextHref;
+
+      // Tidy common variations
       nextHref = nextHref
-        .replace(/\/index(\.mdx?)?$/i, "")   // "/dir/index" -> "/dir"
-        .replace(/\.mdx?$/i, "")             // "page.mdx"   -> "page"
-        .replace(/\/{2,}/g, "/");            // collapse double slashes
+        .replace(/\/index(?:\.[a-z0-9]+)?$/i, "/") // /dir/index(.html|.mdx) -> /dir/
+        .replace(/\.mdx$/i, "")                    // /page.mdx -> /page
+        .replace(/\/{2,}/g, "/");                  // collapse // -> /
+
       if (nextHref !== raw) a.setAttribute("href", nextHref || "/");
     }
-  }, [rootSelector]);
+  }, [pathname, rootSelector]); // <- run on every route change
+
   return null;
 }
