@@ -15,7 +15,7 @@ export default function ThemeToggle() {
     return null;
   }
 
-  const options = [
+  const options: Array<{ value: 'light' | 'dark' | 'system'; label: string }> = [
     { value: 'light', label: 'Light' },
     { value: 'system', label: 'System' },
     { value: 'dark', label: 'Dark' },
