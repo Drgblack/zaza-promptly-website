@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { usePrefersReducedMotion } from '@/lib/motion'
+import { getCurrentLanguage } from '@/lib/lang'
 
 const heroVariants = {
   hidden: {},
@@ -47,16 +48,48 @@ const fadeTransition = {
   ease: [0.25, 0.1, 0.25, 1] as const,
 }
 
+// Hero copy configuration for different languages
+const heroCopy = {
+  en: {
+    headline: "Get your Sunday evenings back.",
+    subheading: "Promptly helps you write caring, professional parent messages in minutes, not hours.",
+    primaryCTA: "Try Promptly Free",
+    secondaryCTA: "Try Quick Comment Helper"
+  },
+  de: {
+    headline: "Holen Sie sich Ihre Sonntagabende zurück.",
+    subheading: "Promptly hilft Ihnen, einfühlsame, professionelle Elternnachrichten in Minuten statt Stunden zu schreiben.",
+    primaryCTA: "Promptly kostenlos testen",
+    secondaryCTA: "Mehr erfahren"
+  }
+}
+
 export default function HeroSection() {
   const [showHeroImage, setShowHeroImage] = useState(false)
   const [isHydrated, setIsHydrated] = useState(false)
+  const [currentLanguage, setCurrentLanguage] = useState('en')
   const shouldReduceMotion = usePrefersReducedMotion()
+  
+  // Get copy for current language
+  const copy = heroCopy[currentLanguage as keyof typeof heroCopy] || heroCopy.en
   
   // LCP-safe hydration - delay animations for critical content
   useEffect(() => {
     // Allow time for LCP paint before starting animations
     const timer = setTimeout(() => setIsHydrated(true), 150)
     return () => clearTimeout(timer)
+  }, [])
+  
+  // Track language changes
+  useEffect(() => {
+    setCurrentLanguage(getCurrentLanguage())
+    
+    const handleLanguageChange = (event: CustomEvent) => {
+      setCurrentLanguage(event.detail)
+    }
+    
+    window.addEventListener('languageChange', handleLanguageChange as EventListener)
+    return () => window.removeEventListener('languageChange', handleLanguageChange as EventListener)
   }, [])
 
   // Gate hero image reveal after LCP to avoid blocking critical content
@@ -77,16 +110,12 @@ export default function HeroSection() {
           <div className="text-center">
             {/* Main headline */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 dark:text-white mb-6 leading-tight max-w-[720px] mx-auto">
-              <span className="text-blue-600 dark:text-blue-400 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                AI comments.
-              </span>{' '}
-              Done in seconds.
+              {copy.headline}
             </h1>
             
             {/* Subheading */}
             <p className="text-xl md:text-[22px] text-slate-300 leading-relaxed mb-8 max-w-3xl mx-auto">
-              Generate, edit, and personalise feedback in minutes—and keep your voice. 
-              Save hours without sacrificing quality or care.
+              {copy.subheading}
             </p>
             
             {/* CTA Buttons */}
@@ -95,14 +124,14 @@ export default function HeroSection() {
                 href="/pricing" 
                 className="group inline-flex items-center justify-center h-12 px-8 bg-purple-600 hover:bg-purple-700 text-white text-lg font-semibold rounded-lg transition-all duration-[120ms] ease-out shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900 active:scale-[0.98] animate-focus-ring"
               >
-                <span className="mr-2">Try Free for Your Classroom</span>
+                <span className="mr-2">{copy.primaryCTA}</span>
                 <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
               </Link>
               <Link 
                 href="/#snippet"
                 className="inline-flex items-center justify-center h-12 px-8 border border-slate-600/60 hover:border-slate-400/60 bg-transparent text-slate-300 hover:text-white text-lg font-semibold rounded-lg transition-all duration-[120ms] ease-out focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 focus:ring-offset-slate-900 active:scale-[0.98] animate-focus-ring"
               >
-                Try Quick Comment Helper
+                {copy.secondaryCTA}
               </Link>
             </div>
 
@@ -147,7 +176,7 @@ export default function HeroSection() {
                   <svg className="w-4 h-4 text-purple-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
-                  Reliable AI That Won&apos;t Make Things Up
+                  Powered by safe AI, built for teachers
                 </div>
                 <div className="flex items-center bg-slate-800/60 px-3 py-2 rounded-full border border-yellow-600/20">
                   <svg className="w-4 h-4 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -202,10 +231,7 @@ export default function HeroSection() {
               }
             }}
           >
-            <span className="text-blue-600 dark:text-blue-400 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              AI comments.
-            </span>{' '}
-            Done in seconds.
+            {copy.headline}
           </motion.h1>
           
           {/* Subheading */}
@@ -214,8 +240,7 @@ export default function HeroSection() {
             transition={fadeTransition}
             className="text-xl md:text-[22px] text-slate-300 leading-relaxed mb-8 max-w-3xl mx-auto animate-transform-opacity"
           >
-            Generate, edit, and personalise feedback in minutes—and keep your voice. 
-            Save hours without sacrificing quality or care.
+            {copy.subheading}
           </motion.p>
           
           {/* CTA Buttons */}
@@ -228,14 +253,14 @@ export default function HeroSection() {
               href="/pricing" 
               className="group inline-flex items-center justify-center h-12 px-8 bg-purple-600 hover:bg-purple-700 text-white text-lg font-semibold rounded-lg transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
             >
-              <span className="mr-2">Start Free</span>
+              <span className="mr-2">{copy.primaryCTA}</span>
               <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
             </Link>
             <Link 
               href="/#snippet"
               className="inline-flex items-center justify-center h-12 px-8 border border-slate-600/60 hover:border-slate-400/60 bg-transparent text-slate-300 hover:text-white text-lg font-semibold rounded-lg transition-colors"
             >
-              Try Quick Comment Helper
+              {copy.secondaryCTA}
             </Link>
           </motion.div>
 
@@ -284,7 +309,7 @@ export default function HeroSection() {
                 <svg className="w-4 h-4 text-purple-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
-                Hallucination-Safe AI
+                Powered by safe AI, built for teachers
               </div>
               <div className="flex items-center bg-slate-800/60 px-3 py-2 rounded-full border border-yellow-600/20">
                 <svg className="w-4 h-4 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
