@@ -1,3 +1,8 @@
+// top of file (optional but handy)
+const FORCE_BUILD_ID = `v-${Date.now()}`;
+
+// ...inside your exported Next.js config object:
+generateBuildId: async () => FORCE_BUILD_ID,
 // next.config.mjs
 import createMDX from '@next/mdx';
 import rehypeFixInternalLinks from './lib/rehype-fix-internal-links.js';
