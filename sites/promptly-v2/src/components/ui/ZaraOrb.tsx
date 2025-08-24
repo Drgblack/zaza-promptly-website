@@ -136,7 +136,7 @@ export default function ZaraOrb({ isInSnippetTool = false, onContextAction }: Za
         <button
           ref={orbRef}
           onClick={handleOrbClick}
-          className={`fixed bottom-6 right-6 w-14 h-14 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 flex items-center justify-center group ${
+          className={`fixed bottom-6 right-6 w-14 h-14 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-30 flex items-center justify-center group ${
             isMinimized ? 'animate-bounce' : ''
           }`}
           aria-label="Open Zara assistant"
@@ -163,7 +163,7 @@ export default function ZaraOrb({ isInSnippetTool = false, onContextAction }: Za
         <motion.button
           ref={orbRef}
           onClick={handleOrbClick}
-          className={`fixed bottom-6 right-6 w-14 h-14 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 flex items-center justify-center group ${
+          className={`fixed bottom-6 right-6 w-14 h-14 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-30 flex items-center justify-center group ${
             isMinimized ? 'animate-bounce' : ''
           }`}
           aria-label="Open Zara assistant"
@@ -203,12 +203,12 @@ export default function ZaraOrb({ isInSnippetTool = false, onContextAction }: Za
       <AnimatePresence>
         {isOpen && !isMinimized && (
           <div 
-            className="fixed inset-0 z-40 overflow-hidden"
+            className="fixed inset-0 z-50 overflow-hidden pointer-events-auto"
             onKeyDown={handleKeyDown}
           >
             {/* Backdrop */}
             <motion.div 
-              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/50 backdrop-blur-sm pointer-events-auto"
               onClick={() => setIsOpen(false)}
               aria-hidden="true"
               initial={{ opacity: 0 }}

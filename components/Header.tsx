@@ -35,7 +35,7 @@ export default function Header() {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
       isScrolled 
         ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100' 
         : 'bg-white/90 backdrop-blur-sm'
@@ -83,7 +83,7 @@ export default function Header() {
               </button>
               
               {isDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-40">
                   <Link
                     href="/products"
                     className="block px-4 py-3 text-sm text-gray-700 hover:text-purple-600 hover:bg-purple-50 transition-colors"
@@ -127,7 +127,7 @@ export default function Header() {
                 <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
               </span>
               
-              <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-40 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <Link
                   href="/blog"
                   className="block px-4 py-3 text-sm text-gray-700 hover:text-purple-600 hover:bg-purple-50 transition-colors"

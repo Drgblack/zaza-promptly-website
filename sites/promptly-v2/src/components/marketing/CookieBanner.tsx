@@ -188,7 +188,8 @@ export default function CookieBanner() {
   }
 
   return (
-    <div className="fixed inset-x-0 bottom-4 mx-auto max-w-[800px] px-4 z-50">
+    <div className="fixed inset-x-0 bottom-4 mx-auto max-w-[800px] px-4 z-40 pointer-events-none">
+      <div className="pointer-events-auto">
       <div className="rounded-2xl border border-white/10 bg-slate-900/95 p-6 shadow-2xl backdrop-blur-md">
         {!showManage ? (
           // Main banner
@@ -347,6 +348,7 @@ export default function CookieBanner() {
             </div>
           </div>
         )}
+      </div>
       </div>
     </div>
   )

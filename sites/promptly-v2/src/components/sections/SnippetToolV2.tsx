@@ -615,12 +615,12 @@ export default function SnippetToolV2({
             {/* Backdrop */}
             {shouldReduceMotion ? (
               <div 
-                className="fixed inset-0 bg-black/50 z-40"
+                className="fixed inset-0 bg-black/50 z-44"
                 onClick={() => setShowExplainDrawer(false)}
               />
             ) : (
               <motion.div 
-                className="fixed inset-0 bg-black/50 z-40"
+                className="fixed inset-0 bg-black/50 z-44"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -630,7 +630,7 @@ export default function SnippetToolV2({
             
             {/* Drawer */}
             {shouldReduceMotion ? (
-              <div className="fixed right-0 top-0 bottom-0 w-96 bg-slate-800 border-l border-slate-700 z-50 flex flex-col">
+              <div className="fixed right-0 top-0 bottom-0 w-96 bg-slate-800 border-l border-slate-700 z-45 flex flex-col">
                 <div className="flex items-center justify-between p-4 border-b border-slate-700">
                   <h3 className="text-lg font-semibold text-white">Change Explanation</h3>
                   <button
@@ -664,7 +664,7 @@ export default function SnippetToolV2({
               </div>
             ) : (
               <motion.div 
-                className="fixed right-0 top-0 bottom-0 w-96 bg-slate-800 border-l border-slate-700 z-50 flex flex-col"
+                className="fixed right-0 top-0 bottom-0 w-96 bg-slate-800 border-l border-slate-700 z-45 flex flex-col"
                 initial={{ x: '100%' }}
                 animate={{ x: 0 }}
                 exit={{ x: '100%' }}
