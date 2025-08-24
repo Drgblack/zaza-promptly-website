@@ -2,17 +2,14 @@
 
 import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { usePrefersReducedMotion } from '@/lib/motion'
 import ThemeToggle from './ui/ThemeToggle'
-import SearchInput from './search/SearchInput'
+// import SearchInput from './search/SearchInput'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [solutionsOpen, setSolutionsOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
-  const shouldReduceMotion = usePrefersReducedMotion()
   const solutionsRef = useRef<HTMLDivElement>(null)
   const mobileMenuRef = useRef<HTMLDivElement>(null)
 
@@ -48,30 +45,25 @@ export default function Header() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY
       const isScrollingDown = currentScrollY > lastScrollY
-      const scrollThreshold = 50 // Only start hiding after 50px scroll
+      const scrollThreshold = 50
       
-      // Guard against mobile jank - use requestAnimationFrame for smoother animations
       if (window.innerWidth <= 768) {
-        // On mobile, only hide after significant scroll and with debouncing
         if (Math.abs(currentScrollY - lastScrollY) < 10) return
       }
       
       if (currentScrollY < scrollThreshold) {
         setIsVisible(true)
       } else if (isScrollingDown && currentScrollY > lastScrollY + 10) {
-        // Hide when scrolling down (with small threshold to avoid jitter)
         setIsVisible(false)
-        setSolutionsOpen(false) // Close dropdowns when hiding
+        setSolutionsOpen(false)
         setMobileMenuOpen(false)
       } else if (!isScrollingDown && lastScrollY - currentScrollY > 10) {
-        // Show when scrolling up (with small threshold)
         setIsVisible(true)
       }
       
       setLastScrollY(currentScrollY)
     }
 
-    // Use RAF for smoother performance
     let ticking = false
     const scrollListener = () => {
       if (!ticking) {
@@ -117,60 +109,47 @@ export default function Header() {
             <div className="relative" ref={solutionsRef}>
               <button
                 onClick={() => setSolutionsOpen(!solutionsOpen)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault()
-                    setSolutionsOpen(!solutionsOpen)
-                  }
-                }}
                 className="flex items-center text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2 py-1"
                 aria-expanded={solutionsOpen}
-                aria-haspopup="true"
-                aria-controls="solutions-menu"
               >
                 Our Solutions
-                <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={solutionsOpen ? "M19 15l-7-7-7 7" : "M19 9l-7 7-7-7"} />
                 </svg>
               </button>
               
               {solutionsOpen && (
-                <div 
-                  id="solutions-menu"
-                  className="absolute top-full left-0 mt-2 w-64 bg-slate-800/95 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 py-2"
-                  role="menu"
-                  aria-labelledby="solutions-button"
-                >
+                <div className="absolute top-full left-0 mt-2 w-64 bg-slate-800/95 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 py-2">
                   <div className="px-4 py-2 border-b border-white/10 mb-2">
                     <div className="text-xs text-slate-400 uppercase tracking-wide mb-1">Products</div>
-                    <Link href="/products" className="block text-sm text-slate-200 hover:text-brand-400 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded px-2 py-1">
+                    <Link href="/products" className="block text-sm text-slate-200 hover:text-brand-400 transition-colors rounded px-2 py-1">
                       Promptly
                     </Link>
-                    <Link href="/products#teach" className="block text-sm text-slate-200 hover:text-green-400 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded px-2 py-1">
+                    <Link href="/products#teach" className="block text-sm text-slate-200 hover:text-green-400 transition-colors rounded px-2 py-1">
                       Teach
                     </Link>
-                    <Link href="/products#technologies" className="block text-sm text-slate-200 hover:text-purple-400 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded px-2 py-1">
+                    <Link href="/products#technologies" className="block text-sm text-slate-200 hover:text-purple-400 transition-colors rounded px-2 py-1">
                       Technologies
                     </Link>
                   </div>
                   <div className="px-4 py-1">
                     <div className="text-xs text-slate-400 uppercase tracking-wide mb-1">By Teaching Context</div>
-                    <Link href="/personas/uk-primary" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded">
+                    <Link href="/personas/uk-primary" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors rounded">
                       UK Primary Teachers
                     </Link>
-                    <Link href="/personas/us-secondary" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded">
+                    <Link href="/personas/us-secondary" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors rounded">
                       US Secondary Teachers
                     </Link>
-                    <Link href="/personas/special-needs" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded">
+                    <Link href="/personas/special-needs" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors rounded">
                       Special Education
                     </Link>
-                    <Link href="/personas/international" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded">
+                    <Link href="/personas/international" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors rounded">
                       International Teachers
                     </Link>
-                    <Link href="/personas/edtech-savvy" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded">
+                    <Link href="/personas/edtech-savvy" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors rounded">
                       EdTech-Savvy Teachers
                     </Link>
-                    <Link href="/personas/head-teacher" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded">
+                    <Link href="/personas/head-teacher" className="block px-2 py-1 text-sm text-slate-300 hover:text-white transition-colors rounded">
                       Head Teachers & Leaders
                     </Link>
                   </div>
@@ -213,13 +192,12 @@ export default function Header() {
 
           {/* Search & Right-side CTAs */}
           <div className="hidden md:flex items-center space-x-4">
-            {/* Search Input */}
-            <div className="w-64">
+            {/* <div className="w-64">
               <SearchInput 
                 placeholder="Search..."
                 className="w-full"
               />
-            </div>
+            </div> */}
             
             <Link 
               href="/products#teach"
@@ -235,7 +213,6 @@ export default function Header() {
               Try Free for Your Classroom
             </Link>
 
-            {/* Dark Mode Toggle */}
             <ThemeToggle />
           </div>
 
@@ -245,10 +222,8 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-md text-white hover:text-white/80 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900"
               aria-expanded={mobileMenuOpen}
-              aria-controls="mobile-menu"
-              aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {mobileMenuOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
@@ -260,140 +235,66 @@ export default function Header() {
         </div>
 
         {/* Mobile menu */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            shouldReduceMotion ? (
-              <div 
-                id="mobile-menu" 
-                className="md:hidden py-4 border-t border-white/10" 
-                ref={mobileMenuRef}
-                role="navigation"
-                aria-label="Mobile navigation"
+        {mobileMenuOpen && (
+          <div 
+            id="mobile-menu" 
+            className="md:hidden py-4 border-t border-white/10" 
+            ref={mobileMenuRef}
+          >
+            <div className="flex flex-col space-y-3">
+              {/* <div className="pb-3 border-b border-white/10">
+                <SearchInput 
+                  placeholder="Search..."
+                  className="w-full"
+                />
+              </div> */}
+              
+              <Link href="/products" className="text-slate-300 font-medium py-2 rounded px-2">
+                Products
+              </Link>
+              <Link href="/personas" className="text-slate-300 font-medium py-2 rounded px-2">
+                Our Solutions
+              </Link>
+              <Link href="/#snippet" className="text-slate-300 font-medium py-2 rounded px-2">
+                Quick Comment Helper
+              </Link>
+              <Link href="/blog" className="text-slate-300 font-medium py-2 rounded px-2">
+                Blog
+              </Link>
+              <Link href="/case-studies" className="text-slate-300 font-medium py-2 rounded px-2">
+                Case Studies
+              </Link>
+              <Link href="/learning-centre" className="text-slate-300 font-medium py-2 rounded px-2">
+                Learning Centre
+              </Link>
+              <Link href="/faq" className="text-slate-300 font-medium py-2 rounded px-2">
+                FAQ
+              </Link>
+              <Link href="/free-resources" className="text-slate-300 font-medium py-2 rounded px-2">
+                Free Resources
+              </Link>
+              <Link href="/about/founder" className="text-slate-300 font-medium py-2 rounded px-2">
+                Meet Your Fellow Educator
+              </Link>
+              <Link href="/contact" className="text-slate-300 font-medium py-2 rounded px-2">
+                Contact
+              </Link>
+              <Link 
+                href="/products#teach" 
+                className="text-slate-300 font-medium py-2 rounded px-2"
               >
-                {/* Mobile menu content will be duplicated in motion version */}
-                <div className="flex flex-col space-y-3">
-                  {/* Mobile Search */}
-                  <div className="pb-3 border-b border-white/10">
-                    <SearchInput 
-                      placeholder="Search..."
-                      className="w-full"
-                    />
-                  </div>
-                  
-                  <Link href="/products" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                    Products
-                  </Link>
-                  <Link href="/personas" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                    Our Solutions
-                  </Link>
-                  <Link href="/#snippet" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                    Quick Comment Helper
-                  </Link>
-                  <Link href="/blog" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                    Blog
-                  </Link>
-                  <Link href="/case-studies" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                    Case Studies
-                  </Link>
-                  <Link href="/learning-centre" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                    Learning Centre
-                  </Link>
-                  <Link href="/faq" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                    FAQ
-                  </Link>
-                  <Link href="/free-resources" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                    Free Resources
-                  </Link>
-                  <Link href="/about/founder" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                    Meet Your Fellow Educator
-                  </Link>
-                  <Link href="/contact" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                    Contact
-                  </Link>
-                  <Link 
-                    href="/products#teach" 
-                                        className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2"
-                  >
-                    Try Free Classroom Tool
-                  </Link>
-                  <Link 
-                    href="/pricing"
-                    className="inline-flex items-center justify-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900"
-                  >
-                    Try Free for Your Classroom
-                  </Link>
-                  <ThemeToggle variant="mobile" />
-                </div>
-              </div>
-            ) : (
-              <motion.div 
-                id="mobile-menu" 
-                className="md:hidden py-4 border-t border-white/10" 
-                ref={mobileMenuRef}
-                role="navigation"
-                aria-label="Mobile navigation"
-                initial={{ opacity: 0, scale: 0.95, y: -10 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: -10 }}
-                transition={{ duration: 0.12, ease: 'easeOut' }}
+                Try Free Classroom Tool
+              </Link>
+              <Link 
+                href="/pricing"
+                className="inline-flex items-center justify-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg"
               >
-                <div className="flex flex-col space-y-3">
-                  {/* Mobile Search */}
-                  <div className="pb-3 border-b border-white/10">
-                    <SearchInput 
-                      placeholder="Search..."
-                      className="w-full"
-                    />
-                  </div>
-                  
-                  <Link href="/products" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                    Products
-                  </Link>
-                  <Link href="/personas" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                    Our Solutions
-                  </Link>
-                  <Link href="/#snippet" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                    Quick Comment Helper
-                  </Link>
-                  <Link href="/blog" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                    Blog
-                  </Link>
-                  <Link href="/case-studies" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                    Case Studies
-                  </Link>
-                  <Link href="/learning-centre" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                    Learning Centre
-                  </Link>
-                  <Link href="/faq" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                    FAQ
-                  </Link>
-                  <Link href="/free-resources" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                    Free Resources
-                  </Link>
-                  <Link href="/about/founder" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                    Meet Your Fellow Educator
-                  </Link>
-                  <Link href="/contact" className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2">
-                    Contact
-                  </Link>
-                  <Link 
-                    href="/products#teach" 
-                                        className="text-slate-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded px-2"
-                  >
-                    Try Free Classroom Tool
-                  </Link>
-                  <Link 
-                    href="/pricing"
-                    className="inline-flex items-center justify-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900"
-                  >
-                    Try Free for Your Classroom
-                  </Link>
-                  <ThemeToggle variant="mobile" />
-                </div>
-              </motion.div>
-            )
-          )}
-        </AnimatePresence>
+                Try Free for Your Classroom
+              </Link>
+              <ThemeToggle variant="mobile" />
+            </div>
+          </div>
+        )}
       </div>
     </header>
   )

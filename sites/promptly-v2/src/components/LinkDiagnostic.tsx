@@ -12,8 +12,10 @@ export default function LinkDiagnostic() {
     linkClicked: false,
     jsLoaded: false
   })
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
     const results = {
       routerExists: !!router,
       canPush: typeof router?.push === 'function',
@@ -23,6 +25,11 @@ export default function LinkDiagnostic() {
     setDiagnostics(results)
     console.log('[Link Diagnostic]', results)
   }, [router])
+
+  // Don't render until mounted to prevent hydration mismatch
+  if (!mounted) {
+    return null
+  }
 
   const handleTestClick = (e: React.MouseEvent) => {
     e.preventDefault()

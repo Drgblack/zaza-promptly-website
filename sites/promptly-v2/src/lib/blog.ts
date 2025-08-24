@@ -204,6 +204,7 @@ export async function getLatestPost(): Promise<PostMeta | undefined> {
   return posts[0]
 }
 
+
 // Get all unique tags from all posts
 export async function getAllTags(): Promise<string[]> {
   const posts = await getAllPostsMeta()

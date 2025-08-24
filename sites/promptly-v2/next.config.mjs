@@ -58,7 +58,7 @@ const nextConfig = {
     return [
       // A few sensible canonicalizations; add your own as needed
       { source: '/learning-center', destination: '/learning-centre', permanent: true },
-      { source: '/faq', destination: '/faqs', permanent: true },
+      { source: '/faqs', destination: '/faq', permanent: true },
       { source: '/pricing/', destination: '/pricing', permanent: true },
     ];
   },

@@ -3,10 +3,10 @@
 import { motion } from 'framer-motion'
 import { usePrefersReducedMotion } from '@/lib/motion'
 import BlogCard from './BlogCard'
-import type { BlogPost } from '@/lib/blog-types'
+import type { BlogPost, PostMeta } from '@/lib/blog-types'
 
 interface BlogListProps {
-  posts: BlogPost[]
+  posts: PostMeta[]
 }
 
 const containerVariants = {
@@ -38,28 +38,12 @@ const itemTransition = {
 export default function BlogList({ posts }: BlogListProps) {
   const shouldReduceMotion = usePrefersReducedMotion()
 
-  if (shouldReduceMotion) {
-    return (
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-        {posts.map((post) => (
-          <BlogCard key={post.slug} post={post} />
-        ))}
-      </div>
-    )
-  }
-
+  // Temporarily disable animations to ensure content is visible
   return (
-    <motion.div 
-      className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
       {posts.map((post) => (
-        <motion.div key={post.slug} variants={itemVariants} transition={itemTransition}>
-          <BlogCard post={post} />
-        </motion.div>
+        <BlogCard key={post.slug} post={post} />
       ))}
-    </motion.div>
+    </div>
   )
 }

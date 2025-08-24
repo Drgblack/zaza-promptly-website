@@ -6,10 +6,8 @@ import Footer from "../components/Footer";
 import AnalyticsProvider from "../components/analytics/AnalyticsProvider";
 import { ThemeProvider } from "../providers/ThemeProvider";
 import { MotionProvider } from "../lib/motion";
-import RouterHydrationFix from "../components/RouterHydrationFix";
-import LinkDiagnostic from "../components/LinkDiagnostic";
-import ClickDiagnostic from "../components/ClickDiagnostic";
-// import PageTransition from "../components/layout/PageTransition";  // ⟵ remove
+import LoadingIndicator from "../components/LoadingIndicator";
+// import LinkDiagnostic from "../components/LinkDiagnostic";
 
 // Initialize Sentry configs safely
 if (typeof window !== 'undefined') {
@@ -91,74 +89,26 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           type="font/woff"
           crossOrigin="anonymous"
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  console.log('[Cache Clear] Starting cache invalidation...');
-                  
-                  // Clear service worker cache
-                  if ('serviceWorker' in navigator) {
-                    navigator.serviceWorker.getRegistrations().then(function(registrations) {
-                      registrations.forEach(function(registration) {
-                        console.log('[Cache Clear] Unregistering SW:', registration);
-                        registration.unregister();
-                      });
-                    });
-                  }
-                  
-                  // Clear browser caches
-                  if ('caches' in window) {
-                    caches.keys().then(function(cacheNames) {
-                      return Promise.all(
-                        cacheNames.map(function(cacheName) {
-                          console.log('[Cache Clear] Deleting cache:', cacheName);
-                          return caches.delete(cacheName);
-                        })
-                      );
-                    }).then(function() {
-                      console.log('[Cache Clear] All caches cleared');
-                      // Force reload of Next.js router
-                      if (window.location.pathname !== window.location.pathname) {
-                        window.location.reload();
-                      }
-                    });
-                  }
-                  
-                  console.log('[Cache Clear] Cache clearing initiated');
-                } catch (error) {
-                  console.log('[Cache Clear] Error:', error);
-                }
-              })();
-            `,
-          }}
-        />
       </head>
       <ThemeProvider defaultTheme="system">
-        <MotionProvider>
-          <AnalyticsProvider>
-            <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
-              <RouterHydrationFix />
-              <LinkDiagnostic />
-              <ClickDiagnostic />
-              <a
-                href="#main-content"
-                className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-white dark:bg-slate-800 text-black dark:text-white px-4 py-2 rounded-md font-medium shadow-lg z-50 focus:outline-none focus:ring-2 focus:ring-blue-600"
-              >
-                Skip to main content
-              </a>
-              <Header />
-              {/* ⟵ replace PageTransition with a plain main */}
-              <main id="main-content" role="main" className="flex-1">
-                {children}
-              </main>
-              <Footer />
-            </body>
-          </AnalyticsProvider>
-        </MotionProvider>
+        <AnalyticsProvider>
+          <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
+            <LoadingIndicator />
+            {/* <LinkDiagnostic /> */}
+            <a
+              href="#main-content"
+              className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-white dark:bg-slate-800 text-black dark:text-white px-4 py-2 rounded-md font-medium shadow-lg z-50 focus:outline-none focus:ring-2 focus:ring-blue-600"
+            >
+              Skip to main content
+            </a>
+            <Header />
+            <main id="main-content" role="main" className="flex-1">
+              {children}
+            </main>
+            <Footer />
+          </body>
+        </AnalyticsProvider>
       </ThemeProvider>
     </html>
   );
 }
-
