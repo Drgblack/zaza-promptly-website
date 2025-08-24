@@ -4,8 +4,6 @@ import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AnalyticsProvider from "../components/analytics/AnalyticsProvider";
-import CookieBanner from "../components/marketing/CookieBanner";
-import ZaraOrbProvider from "../components/ui/ZaraOrbProvider";
 import { ThemeProvider } from "../providers/ThemeProvider";
 import { MotionProvider } from "../lib/motion";
 // import PageTransition from "../components/layout/PageTransition";  // ⟵ remove
@@ -107,8 +105,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                 {children}
               </main>
               <Footer />
-              <CookieBanner />
-              <ZaraOrbProvider />
             </body>
           </AnalyticsProvider>
         </MotionProvider>
@@ -116,3 +112,4 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     </html>
   );
 }
+
