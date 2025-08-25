@@ -1,6 +1,4 @@
 {
   "framework": "nextjs",
-  "buildCommand": "cd sites/promptly-v2 && npm run build",
-  "installCommand": "cd sites/promptly-v2 && npm ci",
-  "outputDirectory": "sites/promptly-v2/.next"
+  "rootDirectory": "sites/promptly-v2"
 }
