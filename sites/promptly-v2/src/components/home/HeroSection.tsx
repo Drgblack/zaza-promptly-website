@@ -110,7 +110,7 @@ export default function HeroSection() {
         <div className="container py-20 md:py-32">
           <div className="text-center">
             {/* Main headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 dark:text-white mb-6 leading-tight max-w-[720px] mx-auto">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-100 dark:text-white mb-6 leading-tight max-w-[720px] mx-auto">
               {copy.headline}
             </h1>
             
@@ -222,7 +222,7 @@ export default function HeroSection() {
           <motion.h1 
             variants={slideInLeft}
             transition={slideTransition}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 dark:text-white mb-6 leading-tight max-w-[720px] mx-auto animate-transform-opacity"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-100 dark:text-white mb-6 leading-tight max-w-[720px] mx-auto animate-transform-opacity"
             onAnimationComplete={() => {
               // Clean up will-change after critical content animates
               const element = document.querySelector('h1.animate-transform-opacity')

@@ -107,7 +107,7 @@ export default function ReliableAIPage() {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full mb-6">
                 <Shield className="w-8 h-8 text-blue-600 dark:text-blue-400" aria-hidden="true" />
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold text-slate-100 dark:text-white mb-6">
                 Reliable AI That Won't Make Things Up
               </h1>
               <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
@@ -122,7 +122,7 @@ export default function ReliableAIPage() {
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                <h2 className="text-3xl font-bold text-slate-100 dark:text-white mb-4">
                   Built-in Safety Rails
                 </h2>
                 <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
@@ -135,7 +135,7 @@ export default function ReliableAIPage() {
                   <div className="inline-flex items-center justify-center w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg mb-4">
                     <Target className="w-6 h-6 text-green-600 dark:text-green-400" aria-hidden="true" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-xl font-semibold text-slate-100 dark:text-white mb-3">
                     School-Context Templates
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
@@ -147,7 +147,7 @@ export default function ReliableAIPage() {
                   <div className="inline-flex items-center justify-center w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-lg mb-4">
                     <AlertTriangle className="w-6 h-6 text-red-600 dark:text-red-400" aria-hidden="true" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-xl font-semibold text-slate-100 dark:text-white mb-3">
                     Toxicity Prevention
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
@@ -159,7 +159,7 @@ export default function ReliableAIPage() {
                   <div className="inline-flex items-center justify-center w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg mb-4">
                     <Brain className="w-6 h-6 text-purple-600 dark:text-purple-400" aria-hidden="true" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-xl font-semibold text-slate-100 dark:text-white mb-3">
                     Tone Guards
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
@@ -171,7 +171,7 @@ export default function ReliableAIPage() {
                   <div className="inline-flex items-center justify-center w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-lg mb-4">
                     <FileCheck className="w-6 h-6 text-orange-600 dark:text-orange-400" aria-hidden="true" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-xl font-semibold text-slate-100 dark:text-white mb-3">
                     Session Privacy
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
@@ -187,7 +187,7 @@ export default function ReliableAIPage() {
         <section className="py-16 bg-slate-50 dark:bg-slate-800">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+              <h2 className="text-3xl font-bold text-slate-100 dark:text-white mb-8 text-center">
                 Quality Assurance System
               </h2>
 
@@ -198,7 +198,7 @@ export default function ReliableAIPage() {
                       <Users className="w-6 h-6 text-blue-600 dark:text-blue-400" aria-hidden="true" />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                      <h3 className="text-2xl font-semibold text-slate-100 dark:text-white mb-4">
                         Teacher-in-the-Loop Validation
                       </h3>
                       <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
@@ -228,7 +228,7 @@ export default function ReliableAIPage() {
                       <Target className="w-6 h-6 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                      <h3 className="text-2xl font-semibold text-slate-100 dark:text-white mb-4">
                         School Scenario Testing
                       </h3>
                       <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
@@ -260,12 +260,12 @@ export default function ReliableAIPage() {
         <section className="py-16 bg-white dark:bg-slate-900">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+              <h2 className="text-3xl font-bold text-slate-100 dark:text-white mb-8 text-center">
                 What "Hallucination-safe" Means
               </h2>
               
               <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-8 mb-8">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                <h3 className="text-xl font-semibold text-slate-100 dark:text-white mb-4">
                   Our Definition
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
@@ -304,7 +304,7 @@ export default function ReliableAIPage() {
               </div>
 
               <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6">
-                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                <h4 className="text-lg font-semibold text-slate-100 dark:text-white mb-3">
                   Example: Safe vs. Unsafe
                 </h4>
                 <div className="space-y-4 text-sm">
@@ -330,13 +330,13 @@ export default function ReliableAIPage() {
         <section className="py-16 bg-slate-50 dark:bg-slate-800">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+              <h2 className="text-3xl font-bold text-slate-100 dark:text-white mb-8 text-center">
                 AI Safety Questions
               </h2>
 
               <div className="space-y-6">
                 <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-lg font-semibold text-slate-100 dark:text-white mb-3">
                     How do you reduce hallucinations?
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -345,7 +345,7 @@ export default function ReliableAIPage() {
                 </div>
 
                 <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-lg font-semibold text-slate-100 dark:text-white mb-3">
                     Will the tool invent student facts?
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -354,7 +354,7 @@ export default function ReliableAIPage() {
                 </div>
 
                 <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-lg font-semibold text-slate-100 dark:text-white mb-3">
                     Can it cite sources?
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -363,7 +363,7 @@ export default function ReliableAIPage() {
                 </div>
 
                 <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-lg font-semibold text-slate-100 dark:text-white mb-3">
                     What if I disagree with a suggestion?
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -372,7 +372,7 @@ export default function ReliableAIPage() {
                 </div>
 
                 <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-lg font-semibold text-slate-100 dark:text-white mb-3">
                     Is this safer than general chatbots?
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">

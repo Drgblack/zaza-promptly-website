@@ -38,7 +38,7 @@ const organizationJsonLd = {
   "@id": `${baseUrl}/#organization`,
   name: "Zaza Technologies",
   url: baseUrl,
-  logo: `${baseUrl}/images/zaza-logo.png`,
+  logo: `${baseUrl}/images/logo/zaza-logo.png`,
   description: "Educational technology company providing AI tools for teachers, including Promptly for parent communication and report writing.",
   foundingDate: "2023",
   founder: {
@@ -141,7 +141,7 @@ export const metadata: Metadata = {
     description:
       "Save hours with Zaza Promptly – the hallucination-safe AI built for teachers. Write reports, parent messages, and professional emails faster, without losing empathy or trust.",
     url: baseUrl,
-    images: [{ url: "/images/zaza-logo.png", width: 512, height: 512, alt: "Zaza Technologies - Promptly AI Tools for Teachers" }],
+    images: [{ url: "/images/logo/zaza-logo.png", width: 512, height: 512, alt: "Zaza Technologies - Promptly AI Tools for Teachers" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -150,7 +150,7 @@ export const metadata: Metadata = {
     title: "Zaza Promptly – AI Tool for Teacher Reports & Parent Communication",
     description:
       "Save hours with Zaza Promptly – the hallucination-safe AI built for teachers. Write reports, parent messages, and professional emails faster, without losing empathy or trust.",
-    images: ["/images/zaza-logo.png"],
+    images: ["/images/logo/zaza-logo.png"],
   },
   verification: { google: undefined },
 };
@@ -182,7 +182,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             {/* <LinkDiagnostic /> */}
             <a
               href="#main-content"
-              className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-white dark:bg-slate-800 text-black dark:text-white px-4 py-2 rounded-md font-medium shadow-lg z-50 focus:outline-none focus:ring-2 focus:ring-blue-600"
+              className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-white dark:bg-slate-800 text-slate-100 dark:text-white px-4 py-2 rounded-md font-medium shadow-lg z-50 focus:outline-none focus:ring-2 focus:ring-blue-600"
             >
               Skip to main content
             </a>

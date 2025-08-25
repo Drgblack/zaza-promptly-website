@@ -69,7 +69,7 @@ export default function FounderPage() {
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">Why I built Zaza Promptly</h2>
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-100 dark:text-white">Why I built Zaza Promptly</h2>
             <p className="mt-6 text-xl leading-8 text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               After decades of seeing EdTech that adds clicks and stress, I built Zaza Promptly to do the opposite. It's grounded in
               classroom realities and designed to save time, not create more work. Promptly suggests; teachers decide.
@@ -83,7 +83,7 @@ export default function FounderPage() {
       <section aria-labelledby="about-short" className="py-16 sm:py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 id="about-short" className="text-3xl sm:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">About the Founder</h2>
+            <h2 id="about-short" className="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-100 dark:text-white">About the Founder</h2>
             <p className="mt-6 text-xl leading-8 text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               I grew up in Tasmania and started life as a painter's apprentice at Cascade Brewery. It taught me perseverance—and that my
               path lay elsewhere. Travel and study led me to educational technology: a discipline where good tools disappear into the

@@ -134,7 +134,7 @@ export default function WaitlistForm() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-2xl font-bold text-slate-100 dark:text-white mb-4">
             You&apos;re on the waitlist! 🎉
           </h2>
           <p className="text-gray-600 dark:text-gray-300 mb-6">
@@ -142,7 +142,7 @@ export default function WaitlistForm() {
           </p>
           
           <div className="bg-blue-50 dark:bg-blue-900/30 rounded-lg p-4 mb-6">
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
+            <h3 className="font-semibold text-slate-100 dark:text-white mb-2">
               What happens next?
             </h3>
             <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-1 text-left">
@@ -192,7 +192,7 @@ export default function WaitlistForm() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
         </div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+        <h1 className="text-3xl font-bold text-slate-100 dark:text-white mb-4">
           Join the Waitlist
         </h1>
         <p className="text-gray-600 dark:text-gray-300 mb-8">

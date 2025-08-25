@@ -27,6 +27,7 @@ const FOOTER_SECTIONS: FooterSection[] = [
     title: 'Products',
     links: [
       { title: 'Promptly', href: '/' },
+      { title: 'Pricing', href: '/pricing' },
       { title: 'Quick Comment Helper', href: '/quick-comment-helper' },
       { title: 'Try Free Classroom Tool', href: '/tools/classroom' }, // TODO: Create placeholder page
     ]
@@ -72,10 +73,10 @@ export default function Footer() {
                 width={28}
                 height={28}
               />
-              <span className="text-lg font-bold text-gray-900 dark:text-white">Zaza Technologies</span>
+              <span className="text-lg font-bold text-slate-100 dark:text-white">Zaza Technologies</span>
             </Link>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <span className="text-sm font-medium text-gray-900 dark:text-white">
+              <span className="text-sm font-medium text-slate-100 dark:text-white">
                 Follow us:
               </span>
               <SocialLinks />
@@ -98,7 +99,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
           {FOOTER_SECTIONS.map((section) => (
             <div key={section.title}>
-              <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-4 uppercase tracking-wide">
+              <h3 className="text-sm font-semibold text-slate-100 dark:text-white mb-4 uppercase tracking-wide">
                 {section.title}
               </h3>
               <ul className="space-y-3">

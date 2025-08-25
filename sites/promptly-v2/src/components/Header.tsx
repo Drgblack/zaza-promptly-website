@@ -155,9 +155,9 @@ export default function Header() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded-lg p-1">
               <img 
-                src="/images/zaza-logo.svg" 
+                src="/images/logo/zaza-logo.svg" 
                 alt="Zaza Logo" 
-                className="h-6 w-auto sm:h-8"
+                className="h-6 sm:h-7 lg:h-8 w-auto"
                 width={32}
                 height={32}
               />

@@ -13,11 +13,11 @@ export default function Testimonial({
           </svg>
         </div>
         <figure className="mt-8 rounded-2xl border border-white/10 bg-white/5 dark:bg-white/5 backdrop-blur p-8 sm:p-12 shadow-2xl">
-          <blockquote className="text-xl sm:text-2xl font-medium leading-8 text-gray-900 dark:text-white text-center italic">
+          <blockquote className="text-xl sm:text-2xl font-medium leading-8 text-slate-100 dark:text-white text-center italic">
             "{quote}"
           </blockquote>
           <figcaption className="mt-6 text-center">
-            <div className="text-lg font-semibold text-gray-900 dark:text-white">{author}</div>
+            <div className="text-lg font-semibold text-slate-100 dark:text-white">{author}</div>
             {role && <div className="text-sm text-gray-600 dark:text-gray-400">{role}</div>}
           </figcaption>
         </figure>

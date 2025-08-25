@@ -83,7 +83,7 @@ export default function Journey() {
         <header className="text-center mb-8 sm:mb-12">
           <h2 
             id="journey-heading" 
-            className="text-3xl sm:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white"
+            className="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-100 dark:text-white"
           >
             The Journey
           </h2>
@@ -145,7 +145,7 @@ export default function Journey() {
                     tabIndex={0}
                     className="rounded-2xl border border-white/10 bg-white/5 dark:bg-white/5 backdrop-blur p-5 md:p-6 shadow-lg hover:shadow-xl focus:shadow-xl transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:focus-visible:ring-offset-slate-900 hover:scale-[1.01] hover:-translate-y-0.5 focus:scale-[1.01] focus:-translate-y-0.5"
                   >
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white leading-6">
+                    <h3 className="text-lg font-semibold text-slate-100 dark:text-white leading-6">
                       {step.title}
                     </h3>
                     <p className="mt-2.5 md:mt-3 text-gray-600 dark:text-gray-300 leading-relaxed">

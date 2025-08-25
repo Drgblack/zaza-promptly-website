@@ -78,7 +78,7 @@ export default function EmailCaptureSection({
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-2xl font-bold text-slate-100 dark:text-white mb-4">
               Thanks for your interest! 🎉
             </h2>
             <p className="text-gray-600 dark:text-gray-300">
@@ -94,7 +94,7 @@ export default function EmailCaptureSection({
     <section className="bg-blue-50 dark:bg-slate-800 py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl font-bold text-slate-100 dark:text-white mb-4">
             {title}
           </h2>
           <p className="text-gray-600 dark:text-gray-300 mb-8">

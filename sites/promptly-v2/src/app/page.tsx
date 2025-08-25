@@ -243,7 +243,7 @@ export default function Home() {
         <div className="container">
           <ScrollReveal duration={0.22}>
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-100 dark:text-white mb-4">
                 Best AI Tools for Teachers 2025: Built for Every Education Role
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">

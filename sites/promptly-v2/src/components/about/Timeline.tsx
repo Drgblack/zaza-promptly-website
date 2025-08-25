@@ -5,7 +5,7 @@ export default function Timeline({ items }: { items: TimelineItem[] }) {
     <section aria-labelledby="journey" className="py-16 sm:py-20">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 id="journey" className="text-3xl sm:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">The Journey</h2>
+          <h2 id="journey" className="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-100 dark:text-white">The Journey</h2>
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             From apprentice to educator technology entrepreneur
           </p>
@@ -22,7 +22,7 @@ export default function Timeline({ items }: { items: TimelineItem[] }) {
                   {it.period && (
                     <div className="text-sm font-medium text-indigo-600 dark:text-indigo-400 mb-2">{it.period}</div>
                   )}
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{it.title}</h3>
+                  <h3 className="text-xl font-semibold text-slate-100 dark:text-white">{it.title}</h3>
                   <p className="mt-3 text-gray-600 dark:text-gray-300 leading-7">{it.blurb}</p>
                 </div>
               </li>

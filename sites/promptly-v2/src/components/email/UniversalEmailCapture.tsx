@@ -183,7 +183,7 @@ export default function UniversalEmailCapture({ source, className = '' }: Univer
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            <h1 className="text-2xl font-bold text-slate-100 dark:text-white mb-4">
               {copy.successTitle}
             </h1>
             <p className="text-gray-600 dark:text-gray-300 mb-8">
@@ -206,7 +206,7 @@ export default function UniversalEmailCapture({ source, className = '' }: Univer
     <div className={`min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-900 dark:to-slate-800 flex items-center justify-center py-12 px-4 ${className}`}>
       <div className="max-w-md w-full mx-auto bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className="text-3xl font-bold text-slate-100 dark:text-white mb-4">
             {copy.title}
           </h1>
           <p className="text-gray-600 dark:text-gray-300">

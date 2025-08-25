@@ -35,7 +35,7 @@ export default function Hero({
             />
           </div>
           <div className="flex-1">
-            <h1 id="founder-hero" className="text-4xl sm:text-5xl font-semibold tracking-tight text-gray-900 dark:text-white">
+            <h1 id="founder-hero" className="text-4xl sm:text-5xl font-semibold tracking-tight text-slate-100 dark:text-white">
               {title}
             </h1>
             <p className="mt-6 text-xl leading-8 text-gray-600 dark:text-gray-300 max-w-2xl">{lead}</p>
@@ -49,7 +49,7 @@ export default function Hero({
               {secondaryCta && (
                 <a 
                   href={secondaryCta.href}
-                  className="inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-gray-900 dark:text-white bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg shadow-lg ring-1 ring-gray-300 dark:ring-gray-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 transition-colors duration-200"
+                  className="inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-slate-100 dark:text-white bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg shadow-lg ring-1 ring-gray-300 dark:ring-gray-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 transition-colors duration-200"
                 >
                   {secondaryCta.label}
                 </a>

@@ -9,7 +9,7 @@ export default function CredibilityStats({ items }: { items: Stat[] }) {
           {items.map((s, i) => (
             <li key={i} className="rounded-2xl border border-white/10 bg-white/5 dark:bg-white/5 backdrop-blur p-8 text-center shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="text-4xl sm:text-5xl font-bold text-indigo-600 dark:text-indigo-400">{s.value}</div>
-              <div className="mt-3 text-lg font-medium text-gray-900 dark:text-white">{s.label}</div>
+              <div className="mt-3 text-lg font-medium text-slate-100 dark:text-white">{s.label}</div>
               {s.sublabel && <div className="mt-1 text-sm text-gray-600 dark:text-gray-400">{s.sublabel}</div>}
             </li>
           ))}

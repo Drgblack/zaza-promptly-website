@@ -112,7 +112,7 @@ export default function StudentPrivacyPage() {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-100 dark:bg-emerald-900/30 rounded-full mb-6">
                 <Shield className="w-8 h-8 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold text-slate-100 dark:text-white mb-6">
                 Student Privacy Protected
               </h1>
               <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
@@ -127,7 +127,7 @@ export default function StudentPrivacyPage() {
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                <h2 className="text-3xl font-bold text-slate-100 dark:text-white mb-4">
                   Our Privacy Commitments
                 </h2>
                 <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
@@ -140,7 +140,7 @@ export default function StudentPrivacyPage() {
                   <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg mb-4">
                     <Eye className="w-6 h-6 text-blue-600 dark:text-blue-400" aria-hidden="true" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-xl font-semibold text-slate-100 dark:text-white mb-3">
                     Data Minimisation
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
@@ -152,7 +152,7 @@ export default function StudentPrivacyPage() {
                   <div className="inline-flex items-center justify-center w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg mb-4">
                     <Lock className="w-6 h-6 text-purple-600 dark:text-purple-400" aria-hidden="true" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-xl font-semibold text-slate-100 dark:text-white mb-3">
                     Purpose Limitation
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
@@ -164,7 +164,7 @@ export default function StudentPrivacyPage() {
                   <div className="inline-flex items-center justify-center w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg mb-4">
                     <Shield className="w-6 h-6 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-xl font-semibold text-slate-100 dark:text-white mb-3">
                     No Student Profiles
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
@@ -176,7 +176,7 @@ export default function StudentPrivacyPage() {
                   <div className="inline-flex items-center justify-center w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-lg mb-4">
                     <Globe className="w-6 h-6 text-orange-600 dark:text-orange-400" aria-hidden="true" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-xl font-semibold text-slate-100 dark:text-white mb-3">
                     Regional Hosting
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
@@ -188,7 +188,7 @@ export default function StudentPrivacyPage() {
                   <div className="inline-flex items-center justify-center w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg mb-4">
                     <CheckCircle2 className="w-6 h-6 text-green-600 dark:text-green-400" aria-hidden="true" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-xl font-semibold text-slate-100 dark:text-white mb-3">
                     Transparent Retention
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
@@ -200,7 +200,7 @@ export default function StudentPrivacyPage() {
                   <div className="inline-flex items-center justify-center w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-lg mb-4">
                     <FileText className="w-6 h-6 text-red-600 dark:text-red-400" aria-hidden="true" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-xl font-semibold text-slate-100 dark:text-white mb-3">
                     User Control & Rights
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
@@ -216,13 +216,13 @@ export default function StudentPrivacyPage() {
         <section className="py-16 bg-slate-50 dark:bg-slate-800">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+              <h2 className="text-3xl font-bold text-slate-100 dark:text-white mb-8 text-center">
                 Compliance & Standards
               </h2>
 
               <div className="space-y-8">
                 <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-8">
-                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                  <h3 className="text-2xl font-semibold text-slate-100 dark:text-white mb-4">
                     GDPR Compliance
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
@@ -245,7 +245,7 @@ export default function StudentPrivacyPage() {
                 </div>
 
                 <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-8">
-                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                  <h3 className="text-2xl font-semibold text-slate-100 dark:text-white mb-4">
                     FERPA Alignment (US Schools)
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
@@ -275,7 +275,7 @@ export default function StudentPrivacyPage() {
         <section className="py-16 bg-white dark:bg-slate-900">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+              <h2 className="text-3xl font-bold text-slate-100 dark:text-white mb-8 text-center">
                 How Your Data Flows
               </h2>
               
@@ -286,21 +286,21 @@ export default function StudentPrivacyPage() {
                       <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
                         <span className="text-blue-600 dark:text-blue-400 font-bold">1</span>
                       </div>
-                      <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Input</h4>
+                      <h4 className="font-semibold text-slate-100 dark:text-white mb-2">Input</h4>
                       <p className="text-sm">Teacher pastes draft text (can be anonymised)</p>
                     </div>
                     <div>
                       <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
                         <span className="text-purple-600 dark:text-purple-400 font-bold">2</span>
                       </div>
-                      <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Processing</h4>
+                      <h4 className="font-semibold text-slate-100 dark:text-white mb-2">Processing</h4>
                       <p className="text-sm">AI improves tone & clarity in secure EU facilities</p>
                     </div>
                     <div>
                       <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
                         <span className="text-emerald-600 dark:text-emerald-400 font-bold">3</span>
                       </div>
-                      <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Output</h4>
+                      <h4 className="font-semibold text-slate-100 dark:text-white mb-2">Output</h4>
                       <p className="text-sm">Improved text returned, session data auto-deleted</p>
                     </div>
                   </div>
@@ -314,13 +314,13 @@ export default function StudentPrivacyPage() {
         <section className="py-16 bg-slate-50 dark:bg-slate-800">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+              <h2 className="text-3xl font-bold text-slate-100 dark:text-white mb-8 text-center">
                 School Controls
               </h2>
 
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                  <h3 className="text-xl font-semibold text-slate-100 dark:text-white mb-4">
                     Teacher Controls
                   </h3>
                   <ul className="text-gray-600 dark:text-gray-300 space-y-3">
@@ -344,7 +344,7 @@ export default function StudentPrivacyPage() {
                 </div>
 
                 <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                  <h3 className="text-xl font-semibold text-slate-100 dark:text-white mb-4">
                     School Administration
                   </h3>
                   <ul className="text-gray-600 dark:text-gray-300 space-y-3">
@@ -375,13 +375,13 @@ export default function StudentPrivacyPage() {
         <section className="py-16 bg-white dark:bg-slate-900">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+              <h2 className="text-3xl font-bold text-slate-100 dark:text-white mb-8 text-center">
                 Privacy Questions
               </h2>
 
               <div className="space-y-6">
                 <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-lg font-semibold text-slate-100 dark:text-white mb-3">
                     Do you store student names?
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -390,7 +390,7 @@ export default function StudentPrivacyPage() {
                 </div>
 
                 <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-lg font-semibold text-slate-100 dark:text-white mb-3">
                     Can we request deletion of our data?
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -399,7 +399,7 @@ export default function StudentPrivacyPage() {
                 </div>
 
                 <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-lg font-semibold text-slate-100 dark:text-white mb-3">
                     Where is our data processed?
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -408,7 +408,7 @@ export default function StudentPrivacyPage() {
                 </div>
 
                 <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-lg font-semibold text-slate-100 dark:text-white mb-3">
                     Is AI output stored permanently?
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -417,7 +417,7 @@ export default function StudentPrivacyPage() {
                 </div>
 
                 <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-lg font-semibold text-slate-100 dark:text-white mb-3">
                     How do we request a Data Processing Agreement?
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
