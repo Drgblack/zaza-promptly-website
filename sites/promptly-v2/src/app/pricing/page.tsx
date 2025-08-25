@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   description: 'Simple pricing for teachers and schools. Flexible pricing from $15/month (pricing varies by region). Try free for 14 days - no credit card required.',
   keywords: ['teacher pricing', 'AI for teachers', 'education software pricing', 'teacher tools subscription'],
   alternates: {
-    canonical: 'https://www.zazapromptly.com/pricing',
+    canonical: `${baseUrl}/pricing`,
     languages: {
-      'en': 'https://www.zazapromptly.com/pricing',
-      'de': 'https://www.zazapromptly.com/pricing?lang=de',
-      'x-default': 'https://www.zazapromptly.com/pricing'
+      'en': `${baseUrl}/pricing`,
+      'de': `${baseUrl}/pricing?lang=de`,
+      'x-default': `${baseUrl}/pricing`
     }
   },
   openGraph: {

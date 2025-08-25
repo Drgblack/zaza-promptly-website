@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Contact Us | Promptly',
   description: 'Get in touch with the Promptly team. We&apos;d love to hear from you and help with any questions about our AI-powered teaching tools.',
   alternates: {
-    canonical: '/contact',
+    canonical: `${baseUrl}/contact`,
   },
   openGraph: {
     title: 'Contact Us | Promptly',

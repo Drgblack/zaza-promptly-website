@@ -3,11 +3,13 @@ import Link from 'next/link'
 import { getAllCaseStudies } from '@/lib/case-studies'
 import CaseStudyCard from '@/components/marketing/CaseStudyCard'
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
+
 export const metadata: Metadata = {
   title: 'Case Studies | Promptly - Real Stories from Educators',
   description: 'Discover how teachers worldwide are saving time, improving feedback, and transforming their practice with Promptly. Real stories, measurable results.',
   alternates: {
-    canonical: '/case-studies',
+    canonical: `${baseUrl}/case-studies`,
   },
   openGraph: {
     title: 'Case Studies | Promptly',

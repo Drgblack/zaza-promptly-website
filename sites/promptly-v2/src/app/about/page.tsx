@@ -6,10 +6,36 @@ import Journey from '@/components/about/Journey';
 import Testimonial from '@/components/about/Testimonial';
 import ActionBand from '@/components/about/ActionBand';
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
+
 export const metadata: Metadata = {
   title: 'About the Founder – Dr. Greg Blackburn | Zaza Promptly',
   description:
     'PhD-qualified educator with 20+ years in EdTech, building teacher-first AI that reduces workload while protecting privacy and professional judgement.',
+  alternates: {
+    canonical: `${baseUrl}/about`,
+  },
+  openGraph: {
+    title: 'About the Founder – Dr. Greg Blackburn | Zaza Promptly',
+    description: 'PhD-qualified educator with 20+ years in EdTech, building teacher-first AI that reduces workload while protecting privacy and professional judgement.',
+    url: `${baseUrl}/about`,
+    images: [
+      {
+        url: '/og-default.png',
+        width: 1200,
+        height: 630,
+        alt: 'About Dr. Greg Blackburn - Founder of Promptly',
+      },
+    ],
+    siteName: 'Promptly',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About the Founder – Dr. Greg Blackburn | Zaza Promptly',
+    description: 'PhD-qualified educator with 20+ years in EdTech, building teacher-first AI that reduces workload while protecting privacy and professional judgement.',
+    images: ['/og-default.png'],
+  },
 };
 
 export default function FounderPage() {
