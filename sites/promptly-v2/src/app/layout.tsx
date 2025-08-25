@@ -7,6 +7,7 @@ import AnalyticsProvider from "../components/analytics/AnalyticsProvider";
 import { ThemeProvider } from "../providers/ThemeProvider";
 import { MotionProvider } from "../lib/motion";
 import LoadingIndicator from "../components/LoadingIndicator";
+import ZaraOrbProvider from "../components/ui/ZaraOrbProvider";
 // import LinkDiagnostic from "../components/LinkDiagnostic";
 
 // Initialize Sentry configs safely
@@ -190,6 +191,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               {children}
             </main>
             <Footer />
+            <ZaraOrbProvider />
           </body>
         </AnalyticsProvider>
       </ThemeProvider>
