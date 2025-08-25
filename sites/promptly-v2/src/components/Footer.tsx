@@ -4,6 +4,7 @@ import MotionSettingsButton from '@/components/motion/MotionSettingsButton'
 import SocialLinks from '@/components/common/SocialLinks'
 import ThemeToggle from '@/components/common/ThemeToggle'
 import LanguageSelect from '@/components/common/LanguageSelect'
+import { getLinkProps } from '@/lib/link-utils'
 
 interface FooterSection {
   title: string
@@ -93,7 +94,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link 
                       href={link.href}
-                      {...(link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                      {...getLinkProps(link.href)}
                       className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50 dark:focus-visible:ring-offset-gray-900 rounded-sm px-1 py-1"
                     >
                       {link.title}

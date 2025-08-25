@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
 import ThemeToggle from './ui/ThemeToggle'
 import LanguageSwitcher from './nav/LanguageSwitcher'
+import { isExternal } from '@/lib/link-utils'
 
 interface MenuGroup {
   title: string
@@ -198,8 +199,8 @@ export default function Header() {
                     )}
                     <div className="space-y-1">
                       {group.items.map((item) => {
-                        const isExternal = item.href.startsWith('http')
-                        return isExternal ? (
+                        const external = isExternal(item.href)
+                        return external ? (
                           <a
                             key={item.href}
                             href={item.href}
@@ -310,8 +311,8 @@ export default function Header() {
                     {isExpanded && (
                       <div className="pb-4 space-y-2">
                         {group.items.map((item) => {
-                          const isExternal = item.href.startsWith('http')
-                          return isExternal ? (
+                          const external = isExternal(item.href)
+                          return external ? (
                             <a
                               key={item.href}
                               href={item.href}
