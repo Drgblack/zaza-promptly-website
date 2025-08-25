@@ -1,7 +1,10 @@
 import { Metadata } from 'next'
 import PricingClient from './PricingClient'
+import { generateSEOMetadata, seoConfigs } from '@/lib/seo/metadata'
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
+
+export const metadata: Metadata = generateSEOMetadata(seoConfigs.pricing)
 
 const productJsonLd = {
   "@context": "https://schema.org",
@@ -74,52 +77,6 @@ const productJsonLd = {
   ]
 }
 
-export const metadata: Metadata = {
-  title: 'Simple pricing for teachers and schools | Promptly',
-  description: 'Simple pricing for teachers and schools. Flexible pricing from $15/month (pricing varies by region). Try free for 14 days - no credit card required.',
-  keywords: ['teacher pricing', 'AI for teachers', 'education software pricing', 'teacher tools subscription'],
-  alternates: {
-    canonical: `${baseUrl}/pricing`,
-    languages: {
-      'en': `${baseUrl}/pricing`,
-      'de': `${baseUrl}/pricing?lang=de`,
-      'x-default': `${baseUrl}/pricing`
-    }
-  },
-  openGraph: {
-    title: 'Pricing | Promptly',
-    description: 'Choose the perfect plan for your teaching needs. Start with our free trial and upgrade anytime. Flexible pricing for individual teachers and schools.',
-    url: `${baseUrl}/pricing`,
-    images: [
-      {
-        url: '/og-default.png',
-        width: 1200,
-        height: 630,
-        alt: 'Promptly Pricing - AI Tools for Teachers',
-      },
-    ],
-    siteName: 'Promptly',
-    type: 'website',
-    locale: 'en_US',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Pricing | Promptly',
-    description: 'Choose the perfect plan for your teaching needs. Start with our free trial and upgrade anytime. Flexible pricing for individual teachers and schools.',
-    images: ['/og-default.png'],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-}
 
 export default function PricingPage() {
   return (

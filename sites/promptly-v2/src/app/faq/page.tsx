@@ -6,24 +6,11 @@ import {
   generateBreadcrumbJsonLD,
   groupFAQsByCategory 
 } from '@/lib/faq-loader'
+import { generateSEOMetadata, seoConfigs } from '@/lib/seo/metadata'
 
-export const metadata: Metadata = {
-  title: 'Promptly FAQ – Answers for Teachers & Schools | Zaza Promptly',
-  description: 'Get answers about AI for teachers, data privacy, pricing, school licences, and how Promptly helps reduce workload while improving student communication.',
-  alternates: {
-    canonical: '/faq',
-  },
-  openGraph: {
-    title: 'Promptly FAQ – Answers for Teachers & Schools',
-    description: 'Get answers about AI for teachers, data privacy, pricing, school licences, and how Promptly helps reduce workload while improving student communication.',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Promptly FAQ – Answers for Teachers & Schools',
-    description: 'Get answers about AI for teachers, data privacy, pricing, school licences, and how Promptly helps reduce workload while improving student communication.',
-  },
-}
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
+
+export const metadata: Metadata = generateSEOMetadata(seoConfigs.faq)
 
 export default async function FAQPage() {
   const faqs = await loadAllFAQs()

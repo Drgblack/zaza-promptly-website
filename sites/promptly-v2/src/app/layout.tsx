@@ -75,15 +75,28 @@ const websiteJsonLd = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: "Zaza Promptly – AI for Teacher Reports & Parent Communication",
+  title: {
+    template: "%s | Promptly",
+    default: "AI for Teacher Reports & Parent Communication | Safe AI Writing Helper for Teachers"
+  },
   description:
-    "Save hours with Zaza Promptly – hallucination-safe AI for teachers. Write reports, parent messages, and emails faster without losing empathy.",
+    "Save hours with Promptly – hallucination-safe AI for teacher report writing and parent communication. GDPR-compliant AI writing assistant designed by educators, trusted by 12,000+ teachers.",
   keywords:
-    "AI tool for teachers, AI for teacher reports, AI for parent communication, safe AI for teachers, hallucination-safe AI, teacher productivity apps, report writing for teachers AI, parent email generator for teachers, reduce teacher workload with AI, GDPR compliant AI for teachers, best AI tools for teachers 2025",
-  authors: [{ name: "Zaza Technologies" }],
+    "ai for teacher report writing, teacher report comments helper, safe ai for parent communication, teacher productivity ai, parent email generator for teachers, gdpr compliant ai for schools, hallucination-safe ai for education, ai writing assistant for educators",
+  authors: [{ name: "Dr. Greg Blackburn", url: `${baseUrl}/about/founder` }],
   creator: "Zaza Technologies",
   publisher: "Zaza Technologies",
-  robots: "index, follow",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: [
     { rel: "icon", url: "/favicon.svg", type: "image/svg+xml" },
     { rel: "icon", url: "/favicon-32x32.svg", sizes: "32x32", type: "image/svg+xml" },

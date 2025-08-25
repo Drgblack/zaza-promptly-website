@@ -3,9 +3,15 @@ import SnippetToolV2 from '@/components/sections/SnippetToolV2'
 import LogoCloud from '@/components/marketing/LogoCloud'
 import TestimonialsSection from '@/components/testimonials/TestimonialsSection'
 import TrustBadges from '@/components/trust/TrustBadges'
+import EnhancedTrustBadges from '@/components/trust/EnhancedTrustBadges'
 import HeroSection from '@/components/home/HeroSection'
 import SampleOutputsSection from '@/components/home/SampleOutputsSection'
 import ScrollReveal from '@/components/animations/ScrollReveal'
+import AnswerBlocks from '@/components/seo/AnswerBlocks'
+import Glossary from '@/components/seo/Glossary'
+import EnhancedTestimonials from '@/components/testimonials/EnhancedTestimonials'
+import { teacherAIQuestions, aiGlossary } from '@/data/aiAnswers'
+import { quickTestimonials } from '@/data/teacherTestimonials'
 import dynamic from 'next/dynamic'
 
 // Lazy load testimonials as they're below the fold
@@ -354,11 +360,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* New Trust Badges Section */}
-      <TrustBadges variant="default" showTitle={true} className="bg-slate-900/50" />
+      {/* Enhanced Trust Badges Section */}
+      <EnhancedTrustBadges variant="full" className="bg-slate-900/50" />
 
-      {/* New Testimonials Section */}
-      <TestimonialsSection variant="quick" className="bg-slate-900" />
+      {/* Enhanced Teacher Testimonials */}
+      <EnhancedTestimonials 
+        testimonials={quickTestimonials}
+        title="Real Teachers, Real Results"
+        subtitle="Join thousands of educators who've transformed their practice with AI writing assistance designed specifically for teachers"
+        className="bg-slate-900"
+        variant="grid"
+      />
 
       {/* Original Testimonials Section */}
       <Testimonials className="bg-slate-900/50" />
@@ -398,6 +410,20 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* AI Q&A for Search Engines */}
+      <AnswerBlocks 
+        title="Common Questions About AI for Teachers"
+        items={teacherAIQuestions}
+        className="bg-slate-900/50"
+      />
+
+      {/* AI Glossary */}
+      <Glossary 
+        title="AI Terms Every Teacher Should Know"
+        items={aiGlossary}
+        className="bg-slate-800/30"
+      />
 
       {/* Learning Centre Link */}
       <section className="bg-slate-800/30 py-12">
