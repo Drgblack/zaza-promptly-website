@@ -1,4 +1,15 @@
 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="16" height="16" rx="3" fill="#2563eb"/>
-  <path d="M8 4L5.333 8h2v2.667L10.667 6.667h-2V4z" fill="white"/>
+  <!-- Background circle with gradient -->
+  <circle cx="8" cy="8" r="8" fill="url(#zazeGradient)"/>
+  
+  <!-- Z letter design scaled for 16x16 -->
+  <path d="M5 4.5h6v1.75l-4.25 3.5H11V11H5v-1.75l4.25-3.5H5V4.5z" fill="white"/>
+  
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="zazeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#6366f1" />
+      <stop offset="100%" stopColor="#8b5cf6" />
+    </linearGradient>
+  </defs>
 </svg>

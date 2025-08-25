@@ -62,12 +62,24 @@ export default function Footer() {
         {/* Top section - ESLint style social icons, theme toggle, language selector */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 mb-12">
           
-          {/* Social links */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <span className="text-sm font-medium text-gray-900 dark:text-white">
-              Follow us:
-            </span>
-            <SocialLinks />
+          {/* Logo and Social links */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            <Link href="/" className="flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-50 dark:focus:ring-offset-gray-900 rounded-lg p-1">
+              <img 
+                src="/images/zaza-logo.svg" 
+                alt="Zaza Logo" 
+                className="w-7 h-7"
+                width={28}
+                height={28}
+              />
+              <span className="text-lg font-bold text-gray-900 dark:text-white">Zaza Technologies</span>
+            </Link>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <span className="text-sm font-medium text-gray-900 dark:text-white">
+                Follow us:
+              </span>
+              <SocialLinks />
+            </div>
           </div>
           
           {/* Controls - Theme toggle and Language selector */}
