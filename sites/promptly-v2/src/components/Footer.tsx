@@ -1,6 +1,9 @@
 import Link from 'next/link'
 import CookieSettingsButton from '@/components/cookies/CookieSettingsButton'
 import MotionSettingsButton from '@/components/motion/MotionSettingsButton'
+import SocialLinks from '@/components/common/SocialLinks'
+import ThemeToggle from '@/components/common/ThemeToggle'
+import LanguageSelect from '@/components/common/LanguageSelect'
 
 interface FooterSection {
   title: string
@@ -12,6 +15,14 @@ interface FooterSection {
 
 const FOOTER_SECTIONS: FooterSection[] = [
   {
+    title: 'Zaza Ecosystem',
+    links: [
+      { title: 'Zaza Promptly', href: '/' },
+      { title: 'Zaza Teach', href: 'https://zazateach.com' },
+      { title: 'Zaza Notably', href: 'https://zazanotably.com' },
+    ]
+  },
+  {
     title: 'Products',
     links: [
       { title: 'Promptly', href: '/' },
@@ -20,21 +31,10 @@ const FOOTER_SECTIONS: FooterSection[] = [
     ]
   },
   {
-    title: 'Solutions by Teaching Role',
-    links: [
-      { title: 'UK Primary Teachers', href: '/solutions/uk-primary' }, // TODO: Create or link to existing
-      { title: 'US Secondary Teachers', href: '/solutions/us-secondary' }, // TODO: Create or link to existing
-      { title: 'Special Education Teachers', href: '/solutions/special-education' }, // TODO: Create or link to existing
-      { title: 'International Teachers', href: '/solutions/international' }, // TODO: Create or link to existing
-      { title: 'EdTech-Savvy Teachers', href: '/solutions/edtech-savvy' }, // TODO: Create or link to existing
-      { title: 'Head Teachers & Leaders', href: '/solutions/head-teachers-leaders' }, // TODO: Create or link to existing
-    ]
-  },
-  {
     title: 'Resources',
     links: [
       { title: 'Learning Centre', href: '/learning-centre' },
-      { title: 'Free Resources', href: '/resources' }, // TODO: Check if /resources exists vs /free-resources
+      { title: 'Free Resources', href: '/free-resources' },
       { title: 'Case Studies', href: '/case-studies' },
       { title: 'Blog', href: '/blog' },
       { title: 'FAQ', href: '/faq' },
@@ -43,12 +43,12 @@ const FOOTER_SECTIONS: FooterSection[] = [
   {
     title: 'Company',
     links: [
-      { title: 'Meet Your Fellow Educator', href: '/about' }, // TODO: Check if /about exists vs /about/founder
+      { title: 'Meet Your Fellow Educator', href: '/about/founder' },
       { title: 'Contact', href: '/contact' },
       { title: 'Reliable AI That Won\'t Make Things Up', href: '/reliable-ai' }, // TODO: Create placeholder
       { title: 'Student Privacy Protected', href: '/student-privacy' }, // TODO: Create placeholder
-      { title: 'Privacy Policy', href: '/privacy-policy' }, // TODO: Check if exists vs /privacy
-      { title: 'FAQ', href: '/faq' },
+      { title: 'Privacy Policy', href: '/privacy-policy' },
+      { title: 'Terms of Service', href: '/terms' },
     ]
   }
 ]
@@ -58,10 +58,33 @@ export default function Footer() {
     <footer className="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800" role="contentinfo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
-        {/* Main footer content - ESLint style columns */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {FOOTER_SECTIONS.map((section, index) => (
-            <div key={section.title} className={index === 0 ? 'sm:col-span-2 lg:col-span-1' : ''}>
+        {/* Top section - ESLint style social icons, theme toggle, language selector */}
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 mb-12">
+          
+          {/* Social links */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <span className="text-sm font-medium text-gray-900 dark:text-white">
+              Follow us:
+            </span>
+            <SocialLinks />
+          </div>
+          
+          {/* Controls - Theme toggle and Language selector */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div className="flex items-center gap-4">
+              <ThemeToggle />
+              <LanguageSelect />
+            </div>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="border-t border-gray-200 dark:border-gray-800 mb-12"></div>
+        
+        {/* Main footer content - Link columns */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
+          {FOOTER_SECTIONS.map((section) => (
+            <div key={section.title}>
               <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-4 uppercase tracking-wide">
                 {section.title}
               </h3>
@@ -69,8 +92,9 @@ export default function Footer() {
                 {section.links.map((link) => (
                   <li key={link.href}>
                     <Link 
-                      href={link.href} 
-                      className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-sm px-1 py-1"
+                      href={link.href}
+                      {...(link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                      className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50 dark:focus-visible:ring-offset-gray-900 rounded-sm px-1 py-1"
                     >
                       {link.title}
                     </Link>
@@ -81,29 +105,31 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Divider */}
-        <div className="mt-12 border-t border-gray-200 dark:border-gray-800 pt-8">
+        {/* Bottom divider */}
+        <div className="border-t border-gray-200 dark:border-gray-800 pt-8">
           
           {/* Bottom legal/info bar */}
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
             
             {/* Left side - Copyright and address */}
-            <div className="text-sm text-gray-500 dark:text-gray-400 space-y-1">
+            <div className="text-sm text-gray-500 dark:text-gray-400 space-y-2">
               <div>
                 © 2024 Zaza Technologies. All rights reserved.
               </div>
-              <div>
+              <address className="not-italic">
                 Königsallee 92a, 40212 Düsseldorf, Germany
-              </div>
+              </address>
               <div className="italic">
                 Built by educators for educators
               </div>
             </div>
             
             {/* Right side - Settings and utilities */}
-            <div className="flex flex-wrap items-center gap-4">
-              <CookieSettingsButton />
-              <MotionSettingsButton />
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <div className="flex flex-wrap items-center gap-4">
+                <CookieSettingsButton />
+                <MotionSettingsButton />
+              </div>
               
               {/* Build timestamp */}
               <span id="build-marker" className="text-xs text-gray-400 dark:text-gray-500">
