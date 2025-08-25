@@ -193,7 +193,7 @@ export function ComprehensiveSchemas({ url = 'https://zazapromptly.com' }) {
     "jobTitle": "Founder & CEO",
     "description": "PhD-qualified educator, EdTech expert, and founder of Zaza Technologies. With over 20 years of experience in digital learning and instructional design, Greg has built AI tools trusted by 12,000+ teachers worldwide.",
     "url": `${url}/about-founder`,
-    "image": `${url}/images/founder-gb-v1.jpg`,
+    "image": `${url}/images/founder.jpg`,
     "worksFor": {
       "@id": `${url}#organization`
     },

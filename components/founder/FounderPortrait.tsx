@@ -21,7 +21,7 @@ export function FounderPortrait({ className = '' }: FounderPortraitProps) {
       {/* Main portrait */}
       <div className="relative">
         <Image
-          src="/images/founder-gb-v1.jpg"
+          src="/images/founder.jpg"
           alt="Dr Greg Blackburn — Founder of Zaza Technologies"
           width={280}
           height={280}

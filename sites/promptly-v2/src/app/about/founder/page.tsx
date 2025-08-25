@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
 import TimelineSection from '@/components/about/TimelineSection'
+import { AuthorAvatar, getAuthorPersonJsonLd } from '@zaza/shared-brand'
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
 
@@ -23,10 +23,10 @@ export const metadata: Metadata = {
     url: `${baseUrl}/about/founder`,
     images: [
       {
-        url: '/images/founder/portrait.jpg',
+        url: '/images/founder.jpg',
         width: 800,
         height: 800,
-        alt: 'Dr. Greg Blackburn headshot',
+        alt: 'Dr Greg Blackburn, Founder of Zaza Technologies',
       },
     ],
     siteName: 'Promptly',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'About Zaza Promptly – Dr Greg Blackburn, PhD in Education',
     description: 'Dr Greg Blackburn, PhD Professional Education, founded Zaza Promptly with 20+ years EdTech expertise to build safe AI tools that teachers can trust.',
-    images: ['/images/founder/portrait.jpg'],
+    images: ['/images/founder.jpg'],
   },
   robots: {
     index: true,
@@ -52,23 +52,11 @@ export const metadata: Metadata = {
   },
 }
 
-const PersonSchema = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Dr. Greg Blackburn",
-  "jobTitle": "Founder",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "Zaza Technologies",
-    "url": "https://zazatechnologies.com"
-  },
-  "url": `${baseUrl}/about/founder`,
-  "image": `${baseUrl}/images/founder/portrait.jpg`,
-  "sameAs": [
-    "https://www.linkedin.com/in/drgregblackburn/"
-  ],
-  "description": "Dr. Greg Blackburn is a globally recognised EdTech expert, PhD-qualified educator, and founder of Zaza Technologies. Over 20 years of experience in digital learning and instructional design."
-}
+const PersonSchema = getAuthorPersonJsonLd({
+  urlBase: baseUrl,
+  name: 'Dr Greg Blackburn',
+  sameAs: ['https://www.linkedin.com/in/drgregblackburn/']
+})
 
 const BreadcrumbSchema = {
   "@context": "https://schema.org",
@@ -127,12 +115,10 @@ export default function FounderPage() {
                 
                 <div className="relative inline-block">
                   <div className="w-64 h-64 mx-auto lg:mx-0 rounded-full overflow-hidden ring-4 ring-brand-600/20 shadow-card">
-                    <Image
-                      src="/images/founder/portrait.jpg"
-                      alt="Dr. Greg Blackburn headshot"
-                      width={256}
-                      height={256}
-                      className="w-full h-full object-cover"
+                    <AuthorAvatar 
+                      name="Dr Greg Blackburn"
+                      size={256}
+                      className="w-full h-full"
                       priority
                     />
                   </div>

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import Image from 'next/image';
+import { AuthorAvatar, getAuthorPersonJsonLd } from '@zaza/shared-brand';
 import { 
   GraduationCap,
   Award,
@@ -14,7 +14,6 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { StructuredData } from '@/components/structured-data';
-import { generateAuthorSchema } from '@/lib/structured-data';
 
 export const metadata: Metadata = {
   title: 'About the Founder | Dr. Greg Blackburn - Zaza Technologies',
@@ -25,13 +24,13 @@ export const metadata: Metadata = {
     description: 'Meet Dr. Greg Blackburn, the visionary founder behind Zaza Technologies\' revolutionary AI teaching tools.',
     type: 'website',
     url: 'https://zazapromptly.com/about-founder',
-    images: ['/images/founder.png'],
+    images: ['/images/founder.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'About the Founder - Dr. Greg Blackburn | Zaza Technologies',
     description: 'Meet Dr. Greg Blackburn, the visionary founder behind Zaza Technologies\' revolutionary AI teaching tools.',
-    images: ['/images/founder.png'],
+    images: ['/images/founder.jpg'],
   },
   alternates: {
     canonical: 'https://zazapromptly.com/about-founder',
@@ -42,10 +41,10 @@ export default function AboutFounderPage() {
   const siteUrl = 'https://zazapromptly.com'
   
   // Generate structured data for the founder
-  const authorSchema = generateAuthorSchema({
-    name: 'Dr. Greg Blackburn',
-    url: `${siteUrl}/about-founder`
-  }, siteUrl)
+  const authorSchema = getAuthorPersonJsonLd({
+    urlBase: siteUrl,
+    name: 'Dr Greg Blackburn'
+  });
 
   return (
     <div className="pt-16 lg:pt-20">
@@ -69,12 +68,10 @@ export default function AboutFounderPage() {
             {/* Founder Image */}
             <div className="flex justify-center mb-8">
               <div className="relative">
-                <Image 
-                  src="/images/founder.png" 
-                  alt="Dr. Greg Blackburn" 
-                  width={180} 
-                  height={180} 
-                  className="rounded-full shadow-xl border-4 border-white ring-4 ring-indigo-100 object-cover" 
+                <AuthorAvatar 
+                  name="Dr Greg Blackburn" 
+                  size={180}
+                  className="shadow-xl border-4 border-white ring-4 ring-indigo-100" 
                   priority
                 />
                 <div className="absolute -bottom-3 -right-3 w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">

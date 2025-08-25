@@ -28,13 +28,13 @@ export const metadata: Metadata = {
     description: 'Meet Dr. Greg Blackburn, the visionary founder behind Zaza Technologies\' revolutionary AI teaching tools.',
     type: 'website',
     url: 'https://zazapromptly.com/about-founder',
-    images: ['/images/founder.png'],
+    images: ['/images/founder.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'About the Founder - Dr. Greg Blackburn | Zaza Technologies',
     description: 'Meet Dr. Greg Blackburn, the visionary founder behind Zaza Technologies\' revolutionary AI teaching tools.',
-    images: ['/images/founder.png'],
+    images: ['/images/founder.jpg'],
   },
   alternates: {
     canonical: 'https://zazapromptly.com/about-founder',
@@ -73,8 +73,8 @@ export default function AboutFounderPage() {
             <div className="flex justify-center mb-8">
               <div className="relative">
                 <Image 
-                  src="/images/founder.png" 
-                  alt="Dr. Greg Blackburn" 
+                  src="/images/founder.jpg" 
+                  alt="Dr Greg Blackburn, Founder of Zaza Technologies" 
                   width={180} 
                   height={180} 
                   className="rounded-full shadow-xl border-4 border-white ring-4 ring-indigo-100 object-cover" 

@@ -6,6 +6,7 @@ import { BlogPost } from '@/lib/blog'
 import { Calendar, Clock, User, Tag, Share2, Facebook, Twitter, Linkedin } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { AuthorAvatar } from '@zaza/shared-brand'
 
 interface BlogPostLayoutProps {
   post: BlogPost
@@ -58,13 +59,10 @@ export function BlogPostLayout({ post, relatedPosts, children }: BlogPostLayoutP
         <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-6">
           {/* Author */}
           <div className="flex items-center gap-2">
-            {post.author.avatar && (
-              <img 
-                src={post.author.avatar} 
-                alt={post.author.name}
-                className="w-6 h-6 rounded-full"
-              />
-            )}
+            <AuthorAvatar 
+              name={post.author.name}
+              size={24}
+            />
             <User className="w-4 h-4" />
             <span className="font-medium text-gray-700">{post.author.name}</span>
           </div>
@@ -164,13 +162,10 @@ export function BlogPostLayout({ post, relatedPosts, children }: BlogPostLayoutP
       {post.author.bio && (
         <div className="bg-gray-50 rounded-lg p-6 mb-12">
           <div className="flex items-start gap-4">
-            {post.author.avatar && (
-              <img
-                src={post.author.avatar}
-                alt={post.author.name}
-                className="w-16 h-16 rounded-full"
-              />
-            )}
+            <AuthorAvatar 
+              name={post.author.name}
+              size={64}
+            />
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 About {post.author.name}

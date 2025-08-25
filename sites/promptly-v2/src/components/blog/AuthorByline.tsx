@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { getAuthorMeta } from '@/lib/blog'
+import { AuthorAvatar, getAuthorPersonJsonLd } from '@zaza/shared-brand'
 
 interface AuthorBylineProps {
   authorName: string
@@ -27,15 +28,11 @@ export default function AuthorByline({
   }
 
   // Generate structured data for the author
-  const authorStructuredData = authorMeta ? {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": authorMeta.name,
-    "description": authorMeta.bio,
-    ...(authorMeta.image && { "image": authorMeta.image }),
-    ...(authorMeta.social.linkedin && { "sameAs": [authorMeta.social.linkedin] }),
-    ...(authorMeta.social.email && { "email": authorMeta.social.email })
-  } : null
+  const authorStructuredData = getAuthorPersonJsonLd({
+    urlBase: 'https://www.zazapromptly.com',
+    name: authorName,
+    sameAs: authorMeta?.social.linkedin ? [authorMeta.social.linkedin] : []
+  })
 
   return (
     <>
@@ -49,21 +46,11 @@ export default function AuthorByline({
       <div className={`flex items-start gap-4 ${className}`}>
         {/* Author Avatar */}
         <div className="flex-shrink-0">
-          {authorMeta?.image ? (
-            <Image
-              src={authorMeta.image}
-              alt={`${authorName} profile picture`}
-              width={56}
-              height={56}
-              className="w-14 h-14 rounded-full object-cover border-2 border-white/10"
-            />
-          ) : (
-            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-brand-600 to-brand-800 flex items-center justify-center border-2 border-white/10">
-              <span className="text-white font-semibold text-lg">
-                {authorName.split(' ').map(n => n[0]).join('')}
-              </span>
-            </div>
-          )}
+          <AuthorAvatar 
+            name={authorName}
+            size={56}
+            className="border-2 border-white/10"
+          />
         </div>
 
         {/* Author Info */}
