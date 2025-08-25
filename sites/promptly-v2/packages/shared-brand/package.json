@@ -1,0 +1,29 @@
+{
+  "name": "@zaza/shared-brand",
+  "version": "1.0.0",
+  "description": "Shared brand assets and components for Zaza Technologies product suite",
+  "main": "index.ts",
+  "types": "index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./assets/*": "./assets/*",
+    "./components/*": "./components/*",
+    "./seo/*": "./seo/*",
+    "./types/*": "./types/*"
+  },
+  "peerDependencies": {
+    "next": "^14.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "keywords": [
+    "zaza",
+    "brand",
+    "shared",
+    "components",
+    "founder",
+    "avatar"
+  ],
+  "author": "Zaza Technologies",
+  "license": "MIT"
+}
