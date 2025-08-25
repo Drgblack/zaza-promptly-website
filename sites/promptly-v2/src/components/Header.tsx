@@ -17,11 +17,13 @@ interface MenuGroup {
 
 const MENU_GROUPS: Record<string, MenuGroup> = {
   products: {
-    title: 'Products',
+    title: 'Zaza Ecosystem',
     description: 'AI-powered tools for modern educators',
     items: [
       { title: 'Promptly', href: '/', description: 'AI assistant for teacher reports and communications' },
       { title: 'Quick Comment Helper', href: '/quick-comment-helper', description: 'Generate report comments instantly' },
+      { title: 'Zaza Teach', href: 'https://zazateach.com', description: 'Comprehensive teaching toolkit and lesson planning' },
+      { title: 'Zaza Notably', href: 'https://zazanotably.com', description: 'Smart note-taking for educational professionals' },
       { title: 'Try Free Classroom Tool', href: '/tools/classroom', description: 'Start with our free classroom toolkit' }, // TODO: Create placeholder page
     ]
   },
@@ -195,24 +197,49 @@ export default function Header() {
                       </div>
                     )}
                     <div className="space-y-1">
-                      {group.items.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className="block px-4 py-3 hover:bg-slate-700/50 transition-colors focus:outline-none focus:bg-slate-700/50 rounded-none group"
-                          role="menuitem"
-                          onClick={() => setActiveMenu(null)}
-                        >
-                          <div className="text-sm font-medium text-white group-hover:text-blue-300 transition-colors">
-                            {item.title}
-                          </div>
-                          {item.description && (
-                            <div className="text-xs text-slate-400 mt-1 leading-relaxed">
-                              {item.description}
+                      {group.items.map((item) => {
+                        const isExternal = item.href.startsWith('http')
+                        return isExternal ? (
+                          <a
+                            key={item.href}
+                            href={item.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block px-4 py-3 hover:bg-slate-700/50 transition-colors focus:outline-none focus:bg-slate-700/50 rounded-none group"
+                            role="menuitem"
+                            onClick={() => setActiveMenu(null)}
+                          >
+                            <div className="text-sm font-medium text-white group-hover:text-blue-300 transition-colors flex items-center">
+                              {item.title}
+                              <svg className="w-3 h-3 ml-1 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                              </svg>
                             </div>
-                          )}
-                        </Link>
-                      ))}
+                            {item.description && (
+                              <div className="text-xs text-slate-400 mt-1 leading-relaxed">
+                                {item.description}
+                              </div>
+                            )}
+                          </a>
+                        ) : (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className="block px-4 py-3 hover:bg-slate-700/50 transition-colors focus:outline-none focus:bg-slate-700/50 rounded-none group"
+                            role="menuitem"
+                            onClick={() => setActiveMenu(null)}
+                          >
+                            <div className="text-sm font-medium text-white group-hover:text-blue-300 transition-colors">
+                              {item.title}
+                            </div>
+                            {item.description && (
+                              <div className="text-xs text-slate-400 mt-1 leading-relaxed">
+                                {item.description}
+                              </div>
+                            )}
+                          </Link>
+                        )
+                      })}
                     </div>
                   </div>
                 )}
@@ -282,19 +309,41 @@ export default function Header() {
                     </button>
                     {isExpanded && (
                       <div className="pb-4 space-y-2">
-                        {group.items.map((item) => (
-                          <Link
-                            key={item.href}
-                            href={item.href}
-                            className="block pl-4 py-2 text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg"
-                            onClick={() => setMobileMenuOpen(false)}
-                          >
-                            <div className="font-medium">{item.title}</div>
-                            {item.description && (
-                              <div className="text-xs text-slate-400 mt-1">{item.description}</div>
-                            )}
-                          </Link>
-                        ))}
+                        {group.items.map((item) => {
+                          const isExternal = item.href.startsWith('http')
+                          return isExternal ? (
+                            <a
+                              key={item.href}
+                              href={item.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="block pl-4 py-2 text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              <div className="font-medium flex items-center">
+                                {item.title}
+                                <svg className="w-3 h-3 ml-1 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                              </div>
+                              {item.description && (
+                                <div className="text-xs text-slate-400 mt-1">{item.description}</div>
+                              )}
+                            </a>
+                          ) : (
+                            <Link
+                              key={item.href}
+                              href={item.href}
+                              className="block pl-4 py-2 text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              <div className="font-medium">{item.title}</div>
+                              {item.description && (
+                                <div className="text-xs text-slate-400 mt-1">{item.description}</div>
+                              )}
+                            </Link>
+                          )
+                        })}
                       </div>
                     )}
                   </div>
