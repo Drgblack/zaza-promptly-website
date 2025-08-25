@@ -1,11 +1,11 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { usePrefersReducedMotion } from '@/lib/motion'
 import { getCurrentLanguage } from '@/lib/lang'
-import HeroIllustration from '@/components/HeroIllustration'
 
 const heroVariants = {
   hidden: {},
@@ -66,6 +66,7 @@ const heroCopy = {
 }
 
 export default function HeroSection() {
+  const [showHeroImage, setShowHeroImage] = useState(false)
   const [isHydrated, setIsHydrated] = useState(false)
   const [currentLanguage, setCurrentLanguage] = useState('en')
   const shouldReduceMotion = usePrefersReducedMotion()
@@ -92,12 +93,21 @@ export default function HeroSection() {
     return () => window.removeEventListener('languageChange', handleLanguageChange as EventListener)
   }, [])
 
+  // Gate hero image reveal after LCP to avoid blocking critical content
+  useEffect(() => {
+    // Wait for LCP + small buffer before showing any hero image
+    const timer = setTimeout(() => {
+      setShowHeroImage(true)
+    }, 500) // 500ms should be well after LCP for most pages
+
+    return () => clearTimeout(timer)
+  }, [])
 
   // Skip animations if user prefers reduced motion or waiting for LCP
   if (shouldReduceMotion || !isHydrated) {
     return (
       <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-        <div className="container py-20 md:py-32 pb-6 md:pb-8">
+        <div className="container py-20 md:py-32">
           <div className="text-center">
             {/* Main headline */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-100 dark:text-white mb-6 leading-tight max-w-[720px] mx-auto">
@@ -177,9 +187,6 @@ export default function HeroSection() {
                 </div>
               </div>
             </div>
-
-            {/* Hero Illustration */}
-            <HeroIllustration />
           </div>
         </div>
         
@@ -204,7 +211,7 @@ export default function HeroSection() {
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-      <div className="container py-20 md:py-32 pb-6 md:pb-8">
+      <div className="container py-20 md:py-32">
         <motion.div 
           className="text-center gpu-accelerate"
           variants={heroVariants}
@@ -314,14 +321,30 @@ export default function HeroSection() {
             </div>
           </motion.div>
 
-          {/* Hero Illustration - Interactive SVG */}
-          <motion.div
-            variants={fadeInUp}
-            transition={fadeTransition}
-            className="animate-transform-opacity"
-          >
-            <HeroIllustration />
-          </motion.div>
+          {/* Hero Image - Gated behind LCP */}
+          {showHeroImage && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ 
+                duration: 0.2, // 200ms as requested
+                ease: [0.25, 0.1, 0.25, 1]
+              }}
+              className="mt-12"
+            >
+              {/* Zaza Promptly App Showcase */}
+              <div className="w-full max-w-4xl mx-auto">
+                <Image 
+                  src="/images/zaza-promptly-app-mockup.svg" 
+                  alt="Zaza Promptly mobile app interface" 
+                  className="w-full h-auto rounded-2xl shadow-2xl"
+                  width={400}
+                  height={300}
+                  priority={false}
+                />
+              </div>
+            </motion.div>
+          )}
         </motion.div>
       </div>
       
