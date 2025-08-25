@@ -1,2 +1,3 @@
-# Placeholder for favicon.ico - in production this would be a binary ICO file
-# The SVG favicon will work for modern browsers
+# Zaza Logo Favicon - Modern browsers will use the SVG versions
+# This placeholder maintains compatibility with older browsers
+# In production, this should be converted to a proper ICO file from the zaza-logo.svg
