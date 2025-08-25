@@ -72,6 +72,10 @@ export default function Header() {
             <Link href="/learning-centre" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
               Learning Centre
             </Link>
+
+            <Link href="/privacy/student-data" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
+              Privacy
+            </Link>
             
             <Link href="/about-us" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
               About Us
@@ -136,6 +140,9 @@ export default function Header() {
               </Link>
               <Link href="/learning-centre" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
                 Learning Centre
+              </Link>
+              <Link href="/privacy/student-data" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
+                Privacy
               </Link>
               <Link href="/about-us" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
                 About Us

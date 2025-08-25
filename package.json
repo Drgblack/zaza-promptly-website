@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/build-search-index.js && tsx scripts/build-resources-meta.ts && next build",
+    "build": "node scripts/build-search-index.js && node scripts/build-resources-meta.js && next build",
     "start": "next start",
     "lint": "next lint",
     "postbuild": "next-sitemap",

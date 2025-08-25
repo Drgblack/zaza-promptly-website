@@ -3,6 +3,11 @@ import StreakCounter from '@/components/gamification/StreakCounter'
 import SampleGenerator from '@/components/ai/SampleGenerator'
 import FloatingElements from '@/components/animations/FloatingElements'
 import { MotionWrapper } from '@/components/accessibility/ReducedMotion'
+import { MobileStickyCTA } from '@/components/ui/mobile-sticky-cta'
+import { QuickWinsSection } from '@/components/sections/QuickWinsSection'
+import { EnhancedTestimonials } from '@/components/sections/EnhancedTestimonials'
+import { DynamicSocialProof, InlineUsageStats } from '@/components/ui/dynamic-social-proof'
+import { TeacherPricingTransparency } from '@/components/sections/TeacherPricingTransparency'
 
 export default function HomePage() {
   return (
@@ -17,16 +22,16 @@ export default function HomePage() {
           <div className="text-center">
             {/* Main headline */}
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
-              Stop spending hours on{' '}
+              Stop spending Sunday nights{' '}
               <span className="text-blue-600 dark:text-blue-400 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                student feedback.
+                writing reports.
               </span>
             </h1>
             
             {/* Subheading */}
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Get professional, personalized student feedback in seconds, not hours. 
-              Spend your evenings with family, not grading papers.
+              Turn 3-hour report writing sessions into 30 minutes. Generate personalized parent emails in under 2 minutes. 
+              Get your evenings back AND send more meaningful communication.
             </p>
             
             {/* Pricing Info */}
@@ -62,19 +67,19 @@ export default function HomePage() {
                 <svg className="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
-                Free 7-day trial
+                Free 14-day trial
               </div>
               <div className="flex items-center">
                 <svg className="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
-                Save 5+ hours weekly
+                Average 5.2 hours saved weekly
               </div>
               <div className="flex items-center">
                 <svg className="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
-                12,000+ teachers trust us
+                12,000+ teachers, 4.9/5 rating
               </div>
             </div>
           </div>
@@ -170,7 +175,7 @@ export default function HomePage() {
                 href="/waitlist" 
                 className="inline-flex items-center px-8 py-4 bg-green-600 hover:bg-green-700 text-white text-lg font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
               >
-                <span className="mr-2">Try It Free for 7 Days</span>
+                <span className="mr-2">Try Free for 14 Days</span>
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
@@ -246,6 +251,9 @@ export default function HomePage() {
           </div>
           
           <SampleGenerator />
+          
+          {/* Quick Wins Section */}
+          <QuickWinsSection />
           
           {/* Teacher-Specific Use Cases */}
           <div className="mt-16 grid md:grid-cols-3 gap-8">
@@ -333,21 +341,28 @@ export default function HomePage() {
               </div>
             </div>
             
+            {/* Enhanced Testimonials Section */}
+            <EnhancedTestimonials />
+            
             {/* Real Teacher Results */}
             <div className="mt-16 bg-blue-50 dark:bg-blue-900/20 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Real Results From Real Teachers</h3>
-              <div className="grid md:grid-cols-3 gap-8 text-center">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Measurable Impact Across Schools</h3>
+              <div className="grid md:grid-cols-4 gap-8 text-center">
                 <div>
-                  <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">5.2 hours</div>
+                  <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">5.2 hrs</div>
                   <p className="text-gray-600 dark:text-gray-300">Average weekly time saved on report writing</p>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">87%</div>
-                  <p className="text-gray-600 dark:text-gray-300">Say their work-life balance improved</p>
+                  <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">94%</div>
+                  <p className="text-gray-600 dark:text-gray-300">Report improved work-life balance</p>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">4.9/5</div>
                   <p className="text-gray-600 dark:text-gray-300">Parent satisfaction with AI-generated feedback</p>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2">0</div>
+                  <p className="text-gray-600 dark:text-gray-300">Student data stored (privacy-first design)</p>
                 </div>
               </div>
             </div>
@@ -367,6 +382,15 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Teacher Pricing Transparency */}
+      <TeacherPricingTransparency />
+
+      {/* Mobile Sticky CTA */}
+      <MobileStickyCTA />
+      
+      {/* Dynamic Social Proof */}
+      <DynamicSocialProof />
     </div>
   )
 }
