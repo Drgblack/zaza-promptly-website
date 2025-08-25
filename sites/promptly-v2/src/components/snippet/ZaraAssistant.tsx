@@ -1,5 +1,19 @@
 'use client'
 
+/**
+ * ZaraAssistant - Contextual tips assistant for the Snippet Demo
+ * 
+ * Provides timed, dismissible tips during the snippet improvement flow:
+ * - On textarea focus: Encourages pasting real drafts
+ * - After first result: Suggests trying different tones/lengths  
+ * - On explain tab: Explains highlighted changes
+ * 
+ * Features:
+ * - localStorage persistence for "Hide tips" toggle
+ * - Respects prefers-reduced-motion
+ * - Fully accessible with aria-live announcements
+ * - No focus stealing, keyboard dismissible
+ */
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { usePrefersReducedMotion } from '@/lib/motion'
