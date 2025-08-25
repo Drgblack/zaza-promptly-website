@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/og-image.png',
+        url: '/images/og/zaza-og.png',
         width: 1200,
         height: 630,
         alt: 'Zaza Promptly - AI Comments for Teachers',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Zaza Promptly - AI Comments. Done in seconds.',
     description: 'Revolutionary AI-powered comment generation for educators. Save hours, maintain quality, and focus on what matters most - teaching.',
-    images: ['/og-image.png'],
+    images: ['/images/og/zaza-og.png'],
   },
   robots: {
     index: true,

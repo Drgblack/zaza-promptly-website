@@ -1,4 +1,15 @@
 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="32" height="32" rx="6" fill="#7c3aed"/>
+  <defs>
+    <linearGradient id="favicon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF4081;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#E91E63;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9C27B0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background rounded square -->
+  <rect width="32" height="32" rx="7" ry="7" fill="url(#favicon-gradient)" />
+  
+  <!-- Letter Z optimized for small size -->
   <path d="M8 9h14v3.5H13.5l8.5 8.5v3H8v-3.5h8.5L8 12V9z" fill="white"/>
 </svg>

@@ -8,9 +8,11 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">Z</span>
-              </div>
+              <img 
+                src="/images/logo/zaza-logo-dark.svg" 
+                alt="Zaza Logo"
+                className="w-8 h-8"
+              />
               <span className="font-semibold text-xl">Promptly</span>
             </div>
             <p className="text-gray-400 text-sm mb-4">
