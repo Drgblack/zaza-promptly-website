@@ -23,7 +23,6 @@ export function isExternal(href: string): boolean {
       const internalDomains = [
         'zazapromptly.com',
         'www.zazapromptly.com',
-        'promptly.zazatechnologies.com',
         'localhost',
         '127.0.0.1'
       ];

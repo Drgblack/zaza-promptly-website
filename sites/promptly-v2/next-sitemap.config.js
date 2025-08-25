@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 export default {
-  siteUrl: process.env.SITE_URL || '',
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.zazapromptly.com',
   generateRobotsTxt: true,
   exclude: [
     '/api/*',

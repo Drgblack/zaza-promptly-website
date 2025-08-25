@@ -5,8 +5,6 @@ import { useEffect, useState, useCallback } from 'react'
 
 // Google Analytics 4
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
-// Plausible
-// const PLAUSIBLE_DOMAIN = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN || 'promptly.zazatechnologies.com'
 
 interface CookieConsent {
   version: string

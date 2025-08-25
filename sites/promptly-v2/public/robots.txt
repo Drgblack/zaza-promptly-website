@@ -12,3 +12,4 @@ Host: https://www.zazapromptly.com
 
 # Sitemaps
 Sitemap: https://www.zazapromptly.com/sitemap.xml
+Sitemap: /sitemap.xml

@@ -56,6 +56,13 @@ const nextConfig = {
 
   async redirects() {
     return [
+      // Host-based redirects for legacy domain
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'promptly.zazatechnologies.com' }],
+        destination: 'https://www.zazapromptly.com/:path*',
+        permanent: true,
+      },
       // A few sensible canonicalizations; add your own as needed
       { source: '/learning-center', destination: '/learning-centre', permanent: true },
       { source: '/faqs', destination: '/faq', permanent: true },
