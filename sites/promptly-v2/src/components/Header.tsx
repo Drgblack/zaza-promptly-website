@@ -157,7 +157,7 @@ export default function Header() {
               <img 
                 src="/images/zaza-logo.svg" 
                 alt="Zaza Logo" 
-                className="w-8 h-8"
+                className="h-6 w-auto sm:h-8"
                 width={32}
                 height={32}
               />

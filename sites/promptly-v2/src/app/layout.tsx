@@ -37,7 +37,7 @@ const organizationJsonLd = {
   "@id": `${baseUrl}/#organization`,
   name: "Zaza Technologies",
   url: baseUrl,
-  logo: `${baseUrl}/og-default.png`,
+  logo: `${baseUrl}/images/zaza-logo.png`,
   description: "Educational technology company providing AI tools for teachers, including Promptly for parent communication and report writing.",
   foundingDate: "2023",
   founder: {
@@ -97,13 +97,34 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  icons: [
-    { rel: "icon", url: "/favicon.svg", type: "image/svg+xml" },
-    { rel: "icon", url: "/favicon-32x32.svg", sizes: "32x32", type: "image/svg+xml" },
-    { rel: "icon", url: "/favicon-16x16.svg", sizes: "16x16", type: "image/svg+xml" },
-    { rel: "apple-touch-icon", url: "/apple-touch-icon.svg", sizes: "180x180" },
-    { rel: "manifest", url: "/site.webmanifest" },
-  ],
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+    other: [
+      {
+        rel: "icon",
+        url: "/favicon.svg",
+        type: "image/svg+xml",
+      },
+      {
+        rel: "icon",
+        url: "/favicon-32x32.svg",
+        sizes: "32x32",
+        type: "image/svg+xml",
+      },
+      {
+        rel: "icon",
+        url: "/favicon-16x16.svg", 
+        sizes: "16x16",
+        type: "image/svg+xml",
+      },
+      {
+        rel: "manifest",
+        url: "/site.webmanifest",
+      },
+    ],
+  },
   alternates: {
     canonical: "/",
     types: {
@@ -119,7 +140,7 @@ export const metadata: Metadata = {
     description:
       "Save hours with Zaza Promptly – the hallucination-safe AI built for teachers. Write reports, parent messages, and professional emails faster, without losing empathy or trust.",
     url: baseUrl,
-    images: [{ url: "/og-default.png", width: 1200, height: 630, alt: "Promptly - AI Tools for Teachers" }],
+    images: [{ url: "/images/zaza-logo.png", width: 512, height: 512, alt: "Zaza Technologies - Promptly AI Tools for Teachers" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -128,7 +149,7 @@ export const metadata: Metadata = {
     title: "Zaza Promptly – AI Tool for Teacher Reports & Parent Communication",
     description:
       "Save hours with Zaza Promptly – the hallucination-safe AI built for teachers. Write reports, parent messages, and professional emails faster, without losing empathy or trust.",
-    images: ["/og-default.png"],
+    images: ["/images/zaza-logo.png"],
   },
   verification: { google: undefined },
 };
