@@ -6,7 +6,7 @@ import { BlogPost } from '@/lib/blog'
 import { Calendar, Clock, User, Tag, Share2, Facebook, Twitter, Linkedin } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { AuthorAvatar } from '@zaza/shared-brand'
+import { AuthorAvatar } from '@/components/shared/AuthorAvatar'
 
 interface BlogPostLayoutProps {
   post: BlogPost

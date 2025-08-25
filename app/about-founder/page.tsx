@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { AuthorAvatar, getAuthorPersonJsonLd } from '@zaza/shared-brand';
+import { AuthorAvatar } from '@/components/shared/AuthorAvatar';
+import { getAuthorPersonJsonLd } from '@/lib/author-schema';
 import { 
   GraduationCap,
   Award,
