@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { Suspense } from 'react'
 import PricingClient from './PricingClient'
 import { generateSEOMetadata, seoConfigs } from '@/lib/seo/metadata'
 
@@ -101,7 +102,13 @@ export default function PricingPage() {
       </section>
 
       {/* Pricing Component */}
-      <PricingClient />
+      <Suspense fallback={
+        <div className="py-20 flex items-center justify-center">
+          <div className="text-slate-400">Loading pricing...</div>
+        </div>
+      }>
+        <PricingClient />
+      </Suspense>
 
       {/* FAQ Section */}
       <section className="py-20">
