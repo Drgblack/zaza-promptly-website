@@ -3,6 +3,77 @@ import PricingClient from './PricingClient'
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
 
+const productJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Zaza Promptly",
+  description: "Hallucination-safe AI tool for teachers. Generate parent communications, student reports & professional messages. Reduce teacher workload with GDPR-compliant AI.",
+  url: baseUrl,
+  applicationCategory: "EducationalApplication",
+  operatingSystem: "Web",
+  keywords: "AI tool for teachers, AI for teacher reports, AI for parent communication, safe AI for teachers, hallucination-safe AI, teacher productivity apps",
+  author: {
+    "@type": "Organization",
+    name: "Zaza Technologies",
+    founder: {
+      "@type": "Person",
+      name: "Dr. Greg Blackburn",
+      jobTitle: "PhD, Professional Education"
+    }
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.8",
+    reviewCount: "12000",
+    bestRating: "5",
+    worstRating: "1"
+  },
+  offers: [
+    {
+      "@type": "Offer",
+      name: "Free Plan",
+      price: "0",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      url: `${baseUrl}/pricing`,
+      description: "5 student reports per month, basic templates, email support"
+    },
+    {
+      "@type": "Offer", 
+      name: "Pro Plan",
+      price: "15",
+      priceCurrency: "USD",
+      billingIncrement: "Month",
+      availability: "https://schema.org/InStock",
+      url: `${baseUrl}/pricing`,
+      description: "Unlimited reports, advanced personalisation, priority support, bulk generation"
+    },
+    {
+      "@type": "Offer",
+      name: "School Plan", 
+      price: "299",
+      priceCurrency: "USD",
+      billingIncrement: "Year",
+      availability: "https://schema.org/InStock",
+      url: `${baseUrl}/pricing`,
+      description: "Everything in Pro, multi-teacher dashboard, school analytics, admin controls, dedicated support"
+    }
+  ],
+  audience: {
+    "@type": "EducationalAudience",
+    educationalRole: "teacher",
+    geographicArea: ["United Kingdom", "United States", "Germany", "France", "Spain", "Italy"]
+  },
+  featureList: [
+    "Hallucination-safe AI for accurate content",
+    "Parent communication templates", 
+    "Student report generation",
+    "GDPR-compliant data handling",
+    "Multi-language support",
+    "Education-specific AI training"
+  ]
+}
+
 export const metadata: Metadata = {
   title: 'Simple pricing for teachers and schools | Promptly',
   description: 'Simple pricing for teachers and schools. Flexible pricing from $15/month (pricing varies by region). Try free for 14 days - no credit card required.',
@@ -53,6 +124,10 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   return (
     <div className="min-h-screen bg-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
       {/* Hero Section */}
       <section className="py-20">
         <div className="container">

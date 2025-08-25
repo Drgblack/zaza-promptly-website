@@ -31,6 +31,48 @@ const geistMono = localFont({
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.zazapromptly.com";
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${baseUrl}/#organization`,
+  name: "Zaza Technologies",
+  url: baseUrl,
+  logo: `${baseUrl}/og-default.png`,
+  description: "Educational technology company providing AI tools for teachers, including Promptly for parent communication and report writing.",
+  foundingDate: "2023",
+  founder: {
+    "@type": "Person",
+    name: "Dr. Greg Blackburn",
+    jobTitle: "PhD, Professional Education"
+  },
+  sameAs: [
+    "https://twitter.com/zazapromptly",
+    "https://www.linkedin.com/company/zaza-technologies"
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    email: "hello@zazatechnologies.com",
+    availableLanguage: ["English", "German", "French", "Spanish", "Italian"]
+  }
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${baseUrl}/#website`,
+  name: "Promptly - AI Tools for Teachers",
+  url: baseUrl,
+  publisher: {
+    "@id": `${baseUrl}/#organization`
+  },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: `${baseUrl}/search?q={search_term_string}`,
+    "query-input": "required name=search_term_string"
+  }
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: "Zaza Promptly – AI for Teacher Reports & Parent Communication",
@@ -88,6 +130,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           as="font"
           type="font/woff"
           crossOrigin="anonymous"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
       <ThemeProvider defaultTheme="system">

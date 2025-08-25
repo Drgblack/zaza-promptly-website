@@ -8,8 +8,14 @@ const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.co
 export const metadata: Metadata = {
   title: 'About Zaza Promptly – Dr Greg Blackburn, PhD in Education',
   description: 'Dr Greg Blackburn, PhD Professional Education, founded Zaza Promptly with 20+ years EdTech expertise to build safe AI tools that teachers can trust.',
+  keywords: ['Dr Greg Blackburn', 'Zaza Promptly founder', 'EdTech expert', 'PhD education', 'AI for teachers'],
   alternates: {
-    canonical: '/about/founder',
+    canonical: `${baseUrl}/about/founder`,
+    languages: {
+      'en': `${baseUrl}/about/founder`,
+      'de': `${baseUrl}/about/founder?lang=de`,
+      'x-default': `${baseUrl}/about/founder`
+    }
   },
   openGraph: {
     title: 'About Zaza Promptly – Dr Greg Blackburn, PhD in Education',
@@ -25,12 +31,24 @@ export const metadata: Metadata = {
     ],
     siteName: 'Promptly',
     type: 'profile',
+    locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'About Zaza Promptly – Dr Greg Blackburn, PhD in Education',
     description: 'Dr Greg Blackburn, PhD Professional Education, founded Zaza Promptly with 20+ years EdTech expertise to build safe AI tools that teachers can trust.',
     images: ['/images/founder/portrait.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 }
 
@@ -52,12 +70,41 @@ const PersonSchema = {
   "description": "Dr. Greg Blackburn is a globally recognised EdTech expert, PhD-qualified educator, and founder of Zaza Technologies. Over 20 years of experience in digital learning and instructional design."
 }
 
+const BreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": baseUrl
+    },
+    {
+      "@type": "ListItem", 
+      "position": 2,
+      "name": "About",
+      "item": `${baseUrl}/about`
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Founder",
+      "item": `${baseUrl}/about/founder`
+    }
+  ]
+}
+
 export default function FounderPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(PersonSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(BreadcrumbSchema) }}
       />
       
       <div className="min-h-screen bg-slate-900">
