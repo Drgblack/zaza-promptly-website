@@ -144,10 +144,6 @@ export default function Footer() {
                 <MotionSettingsButton />
               </div>
               
-              {/* Build timestamp */}
-              <span id="build-marker" className="text-xs text-gray-400 dark:text-gray-500">
-                build 2025-08-24 10:50 UTC
-              </span>
             </div>
           </div>
         </div>

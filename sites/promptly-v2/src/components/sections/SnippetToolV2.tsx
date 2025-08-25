@@ -4,6 +4,7 @@ import React, { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import { usePrefersReducedMotion } from '@/lib/motion'
+import ZaraAssistant from '@/components/snippet/ZaraAssistant'
 
 // Types
 interface HistoryEntry {
@@ -60,6 +61,11 @@ export default function SnippetToolV2({ onCommentUpdate }: SnippetToolProps) {
   const [progress, setProgress] = useState(0)
   const [showResults, setShowResults] = useState(false)
   const [copySuccess, setCopySuccess] = useState(false)
+  
+  // Zara assistant state
+  const [isTextareaFocused, setIsTextareaFocused] = useState(false)
+  const [hasFirstResult, setHasFirstResult] = useState(false)
+  const [zaraTipsEnabled, setZaraTipsEnabled] = useState(true)
   
   // History
   const [history, setHistory] = useState<HistoryEntry[]>([])
@@ -155,6 +161,11 @@ export default function SnippetToolV2({ onCommentUpdate }: SnippetToolProps) {
         setImprovedText(result.improvedText || '')
         setRationale(result.rationaleBullets || ['Comment improved successfully'])
         setShowResults(true)
+        
+        // Mark that we have first result for Zara tips
+        if (!hasFirstResult) {
+          setHasFirstResult(true)
+        }
 
         // Add to history
         const historyEntry: HistoryEntry = {
@@ -265,6 +276,14 @@ export default function SnippetToolV2({ onCommentUpdate }: SnippetToolProps) {
         <div className="space-y-4">
           <h3 className="text-lg font-semibold text-white">Your draft</h3>
           
+          {/* Zara Assistant */}
+          <ZaraAssistant
+            isTextareaFocused={isTextareaFocused}
+            hasResult={hasFirstResult}
+            isExplainTabOpen={activeTab === 'explain'}
+            onToggleTips={(enabled) => setZaraTipsEnabled(enabled)}
+          />
+          
           {/* Main textarea */}
           <div className="space-y-2">
             <label htmlFor="draft-input" className="block text-sm font-medium text-slate-300">
@@ -275,6 +294,8 @@ export default function SnippetToolV2({ onCommentUpdate }: SnippetToolProps) {
               id="draft-input"
               value={draft}
               onChange={(e) => setDraft(e.target.value)}
+              onFocus={() => setIsTextareaFocused(true)}
+              onBlur={() => setIsTextareaFocused(false)}
               rows={10}
               className="w-full rounded-xl border border-white/10 bg-slate-900/40 p-4 text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-violet-500 whitespace-pre-wrap"
               placeholder="Type or paste the comment you want to improve (e.g., report line, parent message)..."
