@@ -33,7 +33,7 @@ export const PERSONAS: Persona[] = [
     features: [
       {
         title: 'UK Curriculum Aligned',
-        body: 'Templates perfectly aligned with the National Curriculum, Early Years Foundation Stage, and key assessment frameworks used across England, Scotland, Wales, and Northern Ireland.'
+        body: 'Templates perfectly aligned with the UK National Curriculum, Early Years Foundation Stage, and key assessment frameworks used across England, Scotland, Wales, and Northern Ireland.'
       },
       {
         title: 'Primary-Focused Language',
@@ -59,7 +59,7 @@ export const PERSONAS: Persona[] = [
     },
     statBand: [
       { label: 'Time Saved', value: '6+ hours' },
-      { label: 'UK Teachers Using', value: '8,500+' },
+      { label: 'Teachers Using', value: '8,500+' },
       { label: 'Family Time Reclaimed', value: 'Every Weekend' }
     ],
     faq: [

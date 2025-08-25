@@ -51,7 +51,7 @@ interface LogoCloudProps {
 }
 
 export default function LogoCloud({ 
-  title = "Trusted by educators across the UK",
+  title = "Trusted by educators worldwide",
   subtitle,
   className 
 }: LogoCloudProps) {

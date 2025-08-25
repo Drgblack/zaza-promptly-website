@@ -4,10 +4,16 @@ import PricingClient from './PricingClient'
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
 
 export const metadata: Metadata = {
-  title: 'Pricing | Promptly',
-  description: 'Choose the perfect plan for your teaching needs. Start with our free trial and upgrade anytime. Flexible pricing for individual teachers and schools.',
+  title: 'Simple pricing for teachers and schools | Promptly',
+  description: 'Simple pricing for teachers and schools. Flexible pricing from $15/month (pricing varies by region). Try free for 14 days - no credit card required.',
+  keywords: ['teacher pricing', 'AI for teachers', 'education software pricing', 'teacher tools subscription'],
   alternates: {
-    canonical: '/pricing',
+    canonical: 'https://www.zazapromptly.com/pricing',
+    languages: {
+      'en': 'https://www.zazapromptly.com/pricing',
+      'de': 'https://www.zazapromptly.com/pricing?lang=de',
+      'x-default': 'https://www.zazapromptly.com/pricing'
+    }
   },
   openGraph: {
     title: 'Pricing | Promptly',
@@ -23,12 +29,24 @@ export const metadata: Metadata = {
     ],
     siteName: 'Promptly',
     type: 'website',
+    locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Pricing | Promptly',
     description: 'Choose the perfect plan for your teaching needs. Start with our free trial and upgrade anytime. Flexible pricing for individual teachers and schools.',
     images: ['/og-default.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 }
 

@@ -189,7 +189,7 @@ export default function PricingClient() {
           <ScrollReveal duration={0.24} delay={0.08}>
             <div className="text-center mb-8">
               <p className="text-sm text-slate-400">
-                * Prices shown in GBP. Final price may vary by location and currency.
+                * Pricing varies by region and currency. Contact us for local pricing.
               </p>
             </div>
           </ScrollReveal>

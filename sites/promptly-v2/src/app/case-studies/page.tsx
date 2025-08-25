@@ -5,7 +5,7 @@ import CaseStudyCard from '@/components/marketing/CaseStudyCard'
 
 export const metadata: Metadata = {
   title: 'Case Studies | Promptly - Real Stories from Educators',
-  description: 'Discover how teachers across the UK are saving time, improving feedback, and transforming their practice with Promptly. Real stories, measurable results.',
+  description: 'Discover how teachers worldwide are saving time, improving feedback, and transforming their practice with Promptly. Real stories, measurable results.',
   alternates: {
     canonical: '/case-studies',
   },
@@ -30,7 +30,7 @@ export default async function CaseStudiesPage() {
               Real Stories from the Classroom
             </h1>
             <p className="text-xl text-slate-300 mb-8">
-              Discover how educators across the UK are transforming their practice with Promptly. 
+              Discover how educators worldwide are transforming their practice with Promptly. 
               Real challenges, practical solutions, measurable results.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

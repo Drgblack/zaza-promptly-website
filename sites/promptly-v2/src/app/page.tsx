@@ -79,8 +79,8 @@ export default function Home() {
       offers: {
         '@type': 'Offer',
         url: 'https://www.zazapromptly.com/pricing',
-        priceCurrency: 'GBP',
-        price: '14.99',
+        priceCurrency: 'USD',
+        price: '15.00',
         availability: 'https://schema.org/InStock',
         validFrom: '2024-01-01',
         priceValidUntil: '2025-12-31'
