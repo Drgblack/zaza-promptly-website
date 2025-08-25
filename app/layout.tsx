@@ -8,9 +8,9 @@ import GlobalSchema from '@/components/seo/GlobalSchema'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Zaza Promptly - AI Comments. Done in seconds.',
-  description: 'Revolutionary AI-powered comment generation for educators. Save hours, maintain quality, and focus on what matters most - teaching.',
-  keywords: 'AI comments, teacher tools, education technology, automated feedback, teaching assistant',
+  title: 'Zaza Promptly – AI for Teachers & Parent Communication',
+  description: 'Save hours with Zaza Promptly – the hallucination-safe AI built for teachers. Write reports, parent messages, and professional emails faster.',
+  keywords: 'AI for teachers, AI teacher reports, AI parent communication, safe AI for teachers, teacher AI tool, hallucination-safe AI, teacher report writing',
   authors: [{ name: 'Zaza Technologies' }],
   creator: 'Zaza Technologies',
   publisher: 'Zaza Technologies',
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Zaza Promptly - AI Comments. Done in seconds.',
-    description: 'Revolutionary AI-powered comment generation for educators. Save hours, maintain quality, and focus on what matters most - teaching.',
+    title: 'Zaza Promptly – AI for Teachers & Parent Communication',
+    description: 'Save hours with Zaza Promptly – the hallucination-safe AI built for teachers. Write reports, parent messages, and professional emails faster.',
     url: '/',
     siteName: 'Zaza Promptly',
     locale: 'en_US',
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Zaza Promptly - AI Comments. Done in seconds.',
-    description: 'Revolutionary AI-powered comment generation for educators. Save hours, maintain quality, and focus on what matters most - teaching.',
+    title: 'Zaza Promptly – AI for Teachers & Parent Communication',
+    description: 'Save hours with Zaza Promptly – the hallucination-safe AI built for teachers. Write reports, parent messages, and professional emails faster.',
     images: ['/images/og/zaza-og.png'],
   },
   robots: {

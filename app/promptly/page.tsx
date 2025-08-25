@@ -21,7 +21,7 @@ export async function generateMetadata({
       ? 'Outil IA pour enseignants. Rédigez des e-mails professionnels aux parents, commentaires d\'élèves et rapports 10x plus vite. Approuvé par 12 000+ éducateurs. Conforme RGPD, sécurisé contre les hallucinations.'
       : locale === 'it'
       ? 'Strumento IA per insegnanti. Scrivi email professionali ai genitori, commenti degli studenti e rapporti 10x più velocemente. Fidato da 12.000+ educatori. Conforme GDPR, sicuro dalle allucinazioni.'
-      : 'Safe AI tool for teachers writing parent communications, reports & professional messages. Hallucination-safe AI designed by educators. GDPR compliant, reduces teacher workload by 3-5 hours/week.',
+      : 'Write teacher reports and parent communications quickly and with confidence. Zaza Promptly is the hallucination-safe AI tool trusted by educators worldwide.',
     'promptly',
     locale === 'de' 
       ? ['KI für Lehrkräfte', 'Eltern-E-Mails KI', 'Lehrerberichte KI', 'sichere KI für Schulen', 'DSGVO-konforme KI']

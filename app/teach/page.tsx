@@ -2,8 +2,20 @@ import type { Metadata } from 'next';
 import ProductPage from '@/components/ProductPage';
 
 export const metadata: Metadata = {
-  title: 'Zaza Teach - AI-Powered Lesson Planning Assistant',
-  description: 'Your AI-powered lesson planning assistant. Build engaging, curriculum-aligned lessons faster.',
+  title: 'Zaza Teach – AI Lesson Planning Assistant for Teachers',
+  description: 'Create engaging lesson plans in minutes with Zaza Teach. AI-powered, curriculum-aligned, and designed by educators to save time and reduce stress.',
+  keywords: 'AI lesson planning, teacher lesson plans, AI for teachers, curriculum planning, lesson planning assistant, educational AI, teacher productivity',
+  openGraph: {
+    title: 'Zaza Teach – AI Lesson Planning Assistant for Teachers',
+    description: 'Create engaging lesson plans in minutes with Zaza Teach. AI-powered, curriculum-aligned, and designed by educators to save time and reduce stress.',
+    type: 'website',
+    url: 'https://www.zazapromptly.com/teach',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Zaza Teach – AI Lesson Planning Assistant for Teachers',
+    description: 'Create engaging lesson plans in minutes with Zaza Teach. AI-powered, curriculum-aligned, and designed by educators to save time and reduce stress.',
+  },
   alternates: {
     canonical: '/teach',
   },

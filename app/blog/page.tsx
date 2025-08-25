@@ -13,19 +13,20 @@ export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
 export const metadata: Metadata = {
-  title: 'AI Education Blog - Teaching Tips & Strategies | Zaza Technologies',
-  description: 'Discover the latest insights, tips, and strategies for using AI in education. Written by teachers, for teachers. Expert advice on AI-powered teaching tools.',
-  keywords: ['AI in education', 'teaching with AI', 'AI teaching tools', 'educational technology', 'teacher blog', 'AI lesson planning', 'teaching strategies'],
+  title: 'Zaza Promptly Blog – AI Teaching Tips, Strategies & Research',
+  description: 'Practical advice, research-backed insights, and AI strategies to reduce teacher workload, improve parent communication, and future-proof education.',
+  keywords: ['AI teaching tips', 'AI for teacher reports', 'AI parent communication', 'teacher workload reduction', 'AI teaching strategies', 'teacher AI blog', 'educational AI research'],
+
   openGraph: {
-    title: 'AI Education Blog - Teaching Tips & Strategies | Zaza Technologies',
-    description: 'Discover the latest insights, tips, and strategies for using AI in education. Written by teachers, for teachers.',
+    title: 'Zaza Promptly Blog – AI Teaching Tips, Strategies & Research',
+    description: 'Practical advice, research-backed insights, and AI strategies to reduce teacher workload, improve parent communication, and future-proof education.',
     images: ['/opengraph-image'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI Education Blog - Teaching Tips & Strategies | Zaza Technologies',
-    description: 'Discover the latest insights, tips, and strategies for using AI in education. Written by teachers, for teachers.',
+    title: 'Zaza Promptly Blog – AI Teaching Tips, Strategies & Research',
+    description: 'Practical advice, research-backed insights, and AI strategies to reduce teacher workload, improve parent communication, and future-proof education.',
     images: ['/opengraph-image'],
   },
   alternates: {

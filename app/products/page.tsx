@@ -26,27 +26,29 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const isGerman = locale === 'de';
 
   return {
-    title: isGerman ? 'Zaza Produkte - KI-Tools für Lehrkräfte' : 'Zaza Products - AI tools for teachers',
+    title: isGerman ? 'Zaza KI Produkte – Tools für Lehrkräfte, Schulen & HR' : 'Zaza AI Products – Tools for Teachers, Schools & HR Professionals',
     description: isGerman 
-      ? 'Entdecken Sie alle Zaza-Tools - Lehrkräfte zuerst, KI, die entlastet, mit Fokus auf Schüler.'
-      : 'Explore all Zaza tools - teacher-first AI that lightens the load so you can focus on students.',
+      ? 'Entdecken Sie Zaza\'s KI-Suite: Promptly für Kommunikation, Teach für Unterrichtsplanung, AutoPlanner für zukünftige Klassenzimmer und mehr.'
+      : 'Explore Zaza\'s AI for teachers: Promptly for parent communication, Teach for lesson planning, AutoPlanner for classrooms. Safe AI tools built for teachers.',
     keywords: isGerman 
-      ? 'KI-Tools für Lehrkräfte, Zaza Promptly, Zaza Teach, Bildungstechnologie, Lehrkräfte-Produktivität'
-      : 'AI tools for teachers, Zaza Promptly, Zaza Teach, educational technology, teacher productivity',
+      ? 'KI-Tools für Lehrkräfte, Zaza Promptly, Zaza Teach, Bildungstechnologie, Lehrkräfte-Produktivität, KI für Schulen'
+      : 'AI tools for teachers, Zaza AI products, teacher AI tools, AI for schools, educational AI, teacher productivity tools, AI lesson planning',
+
     openGraph: {
-      title: isGerman ? 'Zaza Produkte - KI-Tools für Lehrkräfte' : 'Zaza Products - AI tools for teachers',
+      title: isGerman ? 'Zaza KI Produkte – Tools für Lehrkräfte, Schulen & HR' : 'Zaza AI Products – Tools for Teachers, Schools & HR Professionals',
       description: isGerman 
-        ? 'Entdecken Sie alle Zaza-Tools - Lehrkräfte zuerst, KI, die entlastet, mit Fokus auf Schüler.'
-        : 'Explore all Zaza tools - teacher-first AI that lightens the load so you can focus on students.',
+        ? 'Entdecken Sie Zaza\'s KI-Suite: Promptly für Kommunikation, Teach für Unterrichtsplanung, AutoPlanner für zukünftige Klassenzimmer und mehr.'
+        : 'Explore Zaza\'s AI for teachers: Promptly for parent communication, Teach for lesson planning, AutoPlanner for classrooms. Safe AI tools built for teachers.',
+
       type: 'website',
       url: `https://www.zazapromptly.com/${locale}/products`,
     },
     twitter: {
       card: 'summary_large_image',
-      title: isGerman ? 'Zaza Produkte - KI-Tools für Lehrkräfte' : 'Zaza Products - AI tools for teachers',
+      title: isGerman ? 'Zaza KI Produkte – Tools für Lehrkräfte, Schulen & HR' : 'Zaza AI Products – Tools for Teachers, Schools & HR Professionals',
       description: isGerman 
-        ? 'Entdecken Sie alle Zaza-Tools - Lehrkräfte zuerst, KI, die entlastet, mit Fokus auf Schüler.'
-        : 'Explore all Zaza tools - teacher-first AI that lightens the load so you can focus on students.',
+        ? 'Entdecken Sie Zaza\'s KI-Suite: Promptly für Kommunikation, Teach für Unterrichtsplanung, AutoPlanner für zukünftige Klassenzimmer und mehr.'
+        : 'Explore Zaza\'s AI for teachers: Promptly for parent communication, Teach for lesson planning, AutoPlanner for classrooms. Safe AI tools built for teachers.',
     },
     alternates: {
       canonical: `https://www.zazapromptly.com/${locale}/products`,

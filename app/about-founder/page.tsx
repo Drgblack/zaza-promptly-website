@@ -16,20 +16,21 @@ import Link from 'next/link';
 import { StructuredData } from '@/components/structured-data';
 
 export const metadata: Metadata = {
-  title: 'About the Founder | Dr. Greg Blackburn - Zaza Technologies',
-  description: 'Meet Dr. Greg Blackburn, PhD-qualified educator and founder of Zaza Technologies. Over 20 years of EdTech experience building AI tools for teachers worldwide.',
-  keywords: 'Dr Greg Blackburn, Zaza Technologies founder, EdTech expert, AI education pioneer, PhD educator, digital learning',
+  title: 'About Dr Greg Blackburn – Zaza Promptly AI for Teachers',
+  description: 'Zaza Promptly was founded by Dr Greg Blackburn, PhD in Professional Education. Built with deep pedagogical expertise to ensure AI supports teachers with trust.',
+  keywords: 'Dr Greg Blackburn, Zaza Promptly founder, PhD in education, AI for teachers founder, educational technology expert, teacher-first AI',
+
   openGraph: {
-    title: 'About the Founder - Dr. Greg Blackburn | Zaza Technologies',
-    description: 'Meet Dr. Greg Blackburn, the visionary founder behind Zaza Technologies\' revolutionary AI teaching tools.',
+    title: 'About Dr Greg Blackburn – Zaza Promptly AI for Teachers',
+    description: 'Zaza Promptly was founded by Dr Greg Blackburn, PhD in Professional Education. Built with deep pedagogical expertise to ensure AI supports teachers with trust.',
     type: 'website',
     url: 'https://zazapromptly.com/about-founder',
     images: ['/images/founder.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About the Founder - Dr. Greg Blackburn | Zaza Technologies',
-    description: 'Meet Dr. Greg Blackburn, the visionary founder behind Zaza Technologies\' revolutionary AI teaching tools.',
+    title: 'About Dr Greg Blackburn – Zaza Promptly AI for Teachers',
+    description: 'Zaza Promptly was founded by Dr Greg Blackburn, PhD in Professional Education. Built with deep pedagogical expertise to ensure AI supports teachers with trust.',
     images: ['/images/founder.jpg'],
   },
   alternates: {

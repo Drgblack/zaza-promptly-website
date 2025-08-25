@@ -154,7 +154,7 @@ export function generateProductMetadata(
   features: string[] = []
 ): Metadata {
   return generateMetadata({
-    title: `${productName} - AI Teaching Tool by PhD Educator`,
+    title: `${productName} – AI for Teachers & Parent Communication`,
     description,
     keywords: [
       `${productName.toLowerCase()} AI tool`,
@@ -170,12 +170,12 @@ export function generateProductMetadata(
 
 export function generateFAQMetadata(): Metadata {
   return generateMetadata({
-    title: 'AI for Teachers FAQ - Safety, Privacy & ChatGPT Comparison',
-    description: 'Get answers about using AI for teaching. Learn about GDPR compliance, AI safety, hallucination prevention, and why Promptly is better than ChatGPT for teachers.',
+    title: 'Zaza Promptly FAQs – AI for Teachers, Reports & Parent Emails',
+    description: 'Answers to teachers\' top questions about using AI safely in education. Learn how Zaza Promptly differs from ChatGPT, protects data, and supports classrooms.',
     keywords: [
-      'AI for teachers FAQ', 'is using AI for teaching cheating', 'AI vs ChatGPT for teachers',
-      'GDPR compliant AI for teachers', 'safe AI for teachers', 'hallucination-safe AI',
-      'AI teacher assistant safety', 'teacher AI privacy questions'
+      'AI for teachers FAQ', 'AI for teacher reports', 'AI for parent emails', 'Zaza Promptly FAQ',
+      'safe AI for teachers', 'AI vs ChatGPT for teachers', 'hallucination-safe AI',
+      'GDPR compliant AI for teachers', 'teacher AI privacy questions', 'AI teaching assistant FAQ'
     ],
     url: '/faqs'
   })
