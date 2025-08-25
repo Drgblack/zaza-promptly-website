@@ -12,7 +12,7 @@
     "lint:style:dashes": "node scripts/check-dashes.js"
   },
   "dependencies": {
-    "@zaza/shared-brand": "workspace:*",
+    "@zaza/shared-brand": "file:./packages/shared-brand",
     "@headlessui/react": "^2.0.0",
     "@hookform/resolvers": "^3.9.1",
     "@mdx-js/loader": "^3.1.0",

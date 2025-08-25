@@ -28,7 +28,7 @@
     "build:full": "node scripts/build-search-index.js && npx playwright install chromium --with-deps && tsx scripts/generate-pdfs.ts && tsx scripts/build-resources-meta.ts && next build && next-sitemap"
   },
   "dependencies": {
-    "@zaza/shared-brand": "workspace:*",
+    "@zaza/shared-brand": "file:../../packages/shared-brand",
     "@sentry/nextjs": "^10.5.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
