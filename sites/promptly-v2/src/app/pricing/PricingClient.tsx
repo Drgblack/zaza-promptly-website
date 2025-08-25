@@ -1,304 +1,342 @@
+/*
+ * Global Pricing Page with Currency Support
+ * 
+ * This component provides pricing for teachers and schools worldwide with multi-currency support.
+ * 
+ * Currency Handling:
+ * - Supports USD, EUR, GBP with localStorage persistence
+ * - URL parameter ?currency=usd|eur|gbp reflects current selection
+ * - Prices defined in pricing object below with teacher-focused value props
+ * - Currency preference saved to localStorage as 'pricing_currency'
+ * 
+ * Accessibility:
+ * - Currency switcher uses radiogroup pattern with proper ARIA labels
+ * - Semantic HTML with proper heading hierarchy (h2, h3)
+ * - Focus-visible states for keyboard navigation
+ * - Plan features use semantic lists with proper markup
+ */
+
 'use client'
 
-import { useState } from 'react'
-import ScrollReveal from '@/components/animations/ScrollReveal'
+import { useState, useEffect } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
+import Link from 'next/link'
 
-const STRIPE_ENABLED = Boolean(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY)
-const PRICE_ID_MONTHLY = process.env.NEXT_PUBLIC_STRIPE_PRICE_ID_PROMPTLY_MONTHLY
-const PRICE_ID_ANNUAL = process.env.NEXT_PUBLIC_STRIPE_PRICE_ID_PROMPTLY_ANNUAL
+type Currency = 'usd' | 'eur' | 'gbp'
 
-interface Plan {
-  name: string
-  price: string
-  period: string
-  originalPrice?: string
-  badge?: string
-  priceId?: string
-  features: string[]
-  recommended?: boolean
+interface PricingData {
+  symbol: string
+  free: { price: string; period: string }
+  pro: { price: string; period: string; originalPrice: string; savings: string }
+  school: { price: string; period: string }
 }
 
-const plans: { monthly: Plan[]; annual: Plan[] } = {
-  monthly: [
-    {
-      name: 'Promptly Starter',
-      price: '£14.99',
-      period: 'month',
-      priceId: PRICE_ID_MONTHLY,
-      features: [
-        'Unlimited student reports',
-        'Personalized feedback generator', 
-        'Parent communication templates',
-        'Email support',
-        '14-day free trial'
-      ]
-    },
-    {
-      name: 'Promptly Pro',
-      price: '£149.99', 
-      period: 'year',
-      originalPrice: '£179.88',
-      badge: 'Save £29.89',
-      priceId: PRICE_ID_ANNUAL,
-      recommended: true,
-      features: [
-        'Everything in Starter',
-        'Advanced report analytics',
-        'Priority support',
-        'Bulk report generation',
-        'Parent portal integration',
-        '2 months free'
-      ]
-    }
-  ],
-  annual: [
-    {
-      name: 'Promptly Starter',
-      price: '£14.99',
-      period: 'month',
-      priceId: PRICE_ID_MONTHLY,
-      features: [
-        'Unlimited student reports',
-        'Personalized feedback generator',
-        'Parent communication templates', 
-        'Email support',
-        '14-day free trial'
-      ]
-    },
-    {
-      name: 'Promptly Pro',
-      price: '£149.99',
-      period: 'year',
-      originalPrice: '£179.88',
-      badge: 'Save £29.89',
-      priceId: PRICE_ID_ANNUAL,
-      recommended: true,
-      features: [
-        'Everything in Starter',
-        'Advanced report analytics',
-        'Priority support',
-        'Bulk report generation',
-        'Parent portal integration',
-        '2 months free'
-      ]
-    }
-  ]
+const PRICING: Record<Currency, PricingData> = {
+  usd: {
+    symbol: '$',
+    free: { price: '0', period: 'Forever' },
+    pro: { price: '15', period: 'month', originalPrice: '18', savings: 'Save $36/year' },
+    school: { price: '299', period: 'year' }
+  },
+  eur: {
+    symbol: '€',
+    free: { price: '0', period: 'Forever' },
+    pro: { price: '14', period: 'month', originalPrice: '17', savings: 'Save €36/year' },
+    school: { price: '279', period: 'year' }
+  },
+  gbp: {
+    symbol: '£',
+    free: { price: '0', period: 'Forever' },
+    pro: { price: '12', period: 'month', originalPrice: '15', savings: 'Save £36/year' },
+    school: { price: '249', period: 'year' }
+  }
+}
+
+const CURRENCY_LABELS: Record<Currency, string> = {
+  usd: 'USD ($)',
+  eur: 'EUR (€)',
+  gbp: 'GBP (£)'
 }
 
 export default function PricingClient() {
-  const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('annual')
-  const [isLoading, setIsLoading] = useState<string | null>(null)
+  const [currency, setCurrency] = useState<Currency>('usd')
+  const [mounted, setMounted] = useState(false)
+  const router = useRouter()
+  const searchParams = useSearchParams()
 
-  const currentPlans = plans[billingCycle]
+  // Initialize currency from URL params or localStorage
+  useEffect(() => {
+    const urlCurrency = searchParams.get('currency') as Currency
+    const storedCurrency = (typeof window !== 'undefined' ? localStorage.getItem('pricing_currency') : null) as Currency
 
-  const handleCheckout = async (priceId: string | undefined, planName: string) => {
-    if (!priceId) return
+    let initialCurrency: Currency = 'usd'
     
-    setIsLoading(planName)
-    
-    try {
-      const response = await fetch('/api/checkout', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          priceId,
-          quantity: 1
-        })
-      })
-
-      const data = await response.json()
-
-      if (data.ok && data.url) {
-        window.location.href = data.url
-      } else if (data.reason === 'stripe_disabled') {
-        // Fallback to waitlist if Stripe is disabled
-        window.location.href = '/waitlist'
-      } else {
-        console.error('Checkout failed:', data)
-        alert('Sorry, there was an error processing your request. Please try again.')
-      }
-    } catch (error) {
-      console.error('Checkout error:', error)
-      alert('Sorry, there was an error processing your request. Please try again.')
-    } finally {
-      setIsLoading(null)
+    if (urlCurrency && ['usd', 'eur', 'gbp'].includes(urlCurrency)) {
+      initialCurrency = urlCurrency
+    } else if (storedCurrency && ['usd', 'eur', 'gbp'].includes(storedCurrency)) {
+      initialCurrency = storedCurrency
     }
+
+    setCurrency(initialCurrency)
+    setMounted(true)
+
+    // Update URL if different from current
+    if (urlCurrency !== initialCurrency) {
+      const url = new URL(window.location.href)
+      url.searchParams.set('currency', initialCurrency)
+      router.replace(url.pathname + url.search, { scroll: false })
+    }
+  }, [searchParams, router])
+
+  const handleCurrencyChange = (newCurrency: Currency) => {
+    setCurrency(newCurrency)
+    
+    // Save to localStorage
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('pricing_currency', newCurrency)
+    }
+    
+    // Update URL
+    const url = new URL(window.location.href)
+    url.searchParams.set('currency', newCurrency)
+    router.replace(url.pathname + url.search, { scroll: false })
   }
 
+  if (!mounted) {
+    return (
+      <div className="py-20 flex items-center justify-center">
+        <div className="text-slate-400">Loading pricing...</div>
+      </div>
+    )
+  }
+
+  const pricing = PRICING[currency]
+
   return (
-    <section className="pb-20">
-      <div className="container">
-        <div className="max-w-6xl mx-auto">
-          {/* Billing Toggle */}
-          <ScrollReveal duration={0.22}>
-            <div className="flex justify-center mb-16">
-              <div className="inline-flex items-center bg-slate-800/50 rounded-full p-1">
-                <button
-                  onClick={() => setBillingCycle('monthly')}
-                  className={`px-6 py-2 rounded-full font-medium transition-colors ${
-                    billingCycle === 'monthly'
-                      ? 'bg-purple-600 text-white'
-                      : 'text-slate-300 hover:text-white'
+    <div className="py-20">
+      <div className="container max-w-6xl mx-auto">
+        {/* Currency Switcher */}
+        <div className="flex justify-center mb-12">
+          <fieldset className="bg-slate-800 border border-slate-700 rounded-lg p-1">
+            <legend className="sr-only">Choose currency</legend>
+            <div className="flex" role="radiogroup" aria-label="Currency selection">
+              {(Object.keys(PRICING) as Currency[]).map((curr) => (
+                <label
+                  key={curr}
+                  className={`relative flex items-center justify-center px-4 py-2 rounded-md cursor-pointer transition-all duration-200 ${
+                    currency === curr 
+                      ? 'bg-indigo-600 text-white shadow-sm' 
+                      : 'text-slate-300 hover:text-white hover:bg-slate-700'
                   }`}
                 >
-                  Monthly
-                </button>
-                <button
-                  onClick={() => setBillingCycle('annual')}
-                  className={`px-6 py-2 rounded-full font-medium transition-colors ${
-                    billingCycle === 'annual'
-                      ? 'bg-purple-600 text-white'
-                      : 'text-slate-300 hover:text-white'
-                  }`}
-                >
-                  Annual
-                </button>
-              </div>
+                  <input
+                    type="radio"
+                    name="currency"
+                    value={curr}
+                    checked={currency === curr}
+                    onChange={(e) => handleCurrencyChange(e.target.value as Currency)}
+                    className="sr-only"
+                    aria-label={`Select ${CURRENCY_LABELS[curr]}`}
+                  />
+                  <span className="font-medium text-sm">
+                    {CURRENCY_LABELS[curr]}
+                  </span>
+                </label>
+              ))}
             </div>
-          </ScrollReveal>
+          </fieldset>
+        </div>
 
-          {/* Dev Hint */}
-          {process.env.NODE_ENV === 'development' && (
-            <div className="mb-8 p-4 bg-amber-900/20 border border-amber-500/30 rounded-lg">
-              <div className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-amber-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <div className="text-sm">
-                  <p className="text-amber-300 font-medium mb-1">Development Mode</p>
-                  <p className="text-amber-200">
-                    {STRIPE_ENABLED 
-                      ? '✅ Stripe is configured - checkout will work in test mode' 
-                      : '⚠️ Stripe not configured - checkout buttons will redirect to waitlist'
-                    }
-                  </p>
-                  <p className="text-amber-200 text-xs mt-1">
-                    {STRIPE_ENABLED 
-                      ? 'Use test card 4242 4242 4242 4242 with any future date and CVC'
-                      : 'Add STRIPE_SECRET_KEY and STRIPE_PUBLIC_KEY to .env.local to enable checkout'
-                    }
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Geo-pricing disclaimer */}
-          <ScrollReveal duration={0.24} delay={0.08}>
+        {/* Pricing Plans */}
+        <div className="grid lg:grid-cols-3 gap-8 lg:gap-6">
+          
+          {/* Free Plan */}
+          <div className="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 relative">
             <div className="text-center mb-8">
-              <p className="text-sm text-slate-400">
-                * Pricing varies by region and currency. Contact us for local pricing.
-              </p>
-            </div>
-          </ScrollReveal>
-
-          {/* Pricing Cards */}
-          <ScrollReveal duration={0.26} delay={0.1}>
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {currentPlans.map((plan) => (
-              <div
-                key={plan.name}
-                className={`rounded-2xl shadow-card border p-6 relative ${
-                  plan.recommended
-                    ? 'border-purple-500/50 bg-purple-900/20'
-                    : 'border-white/10 bg-slate-900/60'
-                }`}
-              >
-                {/* Recommended Badge */}
-                {plan.recommended && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-purple-600 text-white text-sm font-medium px-4 py-1 rounded-full">
-                      Recommended
-                    </div>
-                  </div>
-                )}
-
-                {/* Savings Badge */}
-                {plan.badge && (
-                  <div className="absolute -top-3 right-4">
-                    <div className="bg-green-600 text-white text-sm font-medium px-3 py-1 rounded-full">
-                      {plan.badge}
-                    </div>
-                  </div>
-                )}
-
-                {/* Plan Header */}
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-semibold text-white mb-2">
-                    {plan.name}
-                  </h3>
-                  
-                  <div className="flex items-baseline justify-center gap-2">
-                    <span className="text-4xl font-bold text-white">
-                      {plan.price}
-                    </span>
-                    <span className="text-slate-400">
-                      /{plan.period}
-                    </span>
-                  </div>
-
-                  {plan.originalPrice && (
-                    <div className="text-slate-400 text-sm mt-1">
-                      <span className="line-through">{plan.originalPrice}/year</span>
-                    </div>
-                  )}
-                </div>
-
-                {/* Features */}
-                <ul className="space-y-3 mb-8">
-                  {plan.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-slate-300">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA Button */}
-                <button
-                  onClick={() => handleCheckout(plan.priceId, plan.name)}
-                  disabled={!STRIPE_ENABLED || isLoading === plan.name}
-                  className={`w-full py-4 rounded-full font-semibold transition-all duration-[120ms] ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 animate-focus-ring ${
-                    plan.recommended
-                      ? 'bg-purple-600 hover:bg-purple-700 text-white shadow-lg hover:shadow-purple-600/25 focus:ring-purple-500/50'
-                      : 'bg-white/10 hover:bg-white/20 text-white border border-white/20 focus:ring-slate-500/50'
-                  } ${
-                    !STRIPE_ENABLED || isLoading === plan.name
-                      ? 'opacity-50 cursor-not-allowed'
-                      : 'hover:scale-[1.02] active:scale-[0.98]'
-                  }`}
-                  title={!STRIPE_ENABLED ? 'Coming soon — join the waitlist' : undefined}
-                >
-                  {isLoading === plan.name ? (
-                    <div className="flex items-center justify-center gap-2">
-                      <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
-                      Processing...
-                    </div>
-                  ) : STRIPE_ENABLED ? (
-                    'Start Free Trial'
-                  ) : (
-                    'Join Waitlist'
-                  )}
-                </button>
-
-                {STRIPE_ENABLED && (
-                  <p className="text-center text-slate-400 text-sm mt-3">
-                    14-day free trial • No credit card required • Cancel anytime
-                  </p>
-                )}
+              <h3 className="text-xl font-semibold text-white mb-2">Free</h3>
+              <p className="text-slate-400 text-sm mb-4">Perfect for trying out Promptly</p>
+              <div className="mb-4">
+                <span className="text-4xl font-bold text-white" data-testid="free-price">
+                  {pricing.symbol}{pricing.free.price}
+                </span>
+                <span className="text-slate-400 ml-2">/{pricing.free.period.toLowerCase()}</span>
               </div>
-            ))}
             </div>
-          </ScrollReveal>
+
+            <ul className="space-y-3 mb-8" role="list" aria-label="Free plan features">
+              <li className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-slate-300 text-sm">5 student reports per month</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-slate-300 text-sm">Basic comment templates</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-slate-300 text-sm">Email support</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-slate-300 text-sm">Learning resources</span>
+              </li>
+            </ul>
+
+            <Link
+              href="/signup"
+              className="w-full bg-slate-700 hover:bg-slate-600 text-white font-medium py-3 px-4 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-800 flex items-center justify-center"
+            >
+              Start Free Trial
+            </Link>
+          </div>
+
+          {/* Pro Plan - Most Popular */}
+          <div className="bg-gradient-to-b from-indigo-900/30 to-purple-900/30 border-2 border-indigo-500 rounded-2xl p-8 relative">
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+              <span className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-medium px-4 py-1 rounded-full">
+                Most Popular
+              </span>
+            </div>
+
+            <div className="text-center mb-8">
+              <h3 className="text-xl font-semibold text-white mb-2">Pro</h3>
+              <p className="text-slate-400 text-sm mb-4">For individual teachers and small teams</p>
+              <div className="mb-2">
+                <span className="text-4xl font-bold text-white" data-testid="pro-price">
+                  {pricing.symbol}{pricing.pro.price}
+                </span>
+                <span className="text-slate-400 ml-2">/{pricing.pro.period}</span>
+              </div>
+              <p className="text-sm text-green-400">{pricing.pro.savings}</p>
+            </div>
+
+            <ul className="space-y-3 mb-8" role="list" aria-label="Pro plan features">
+              <li className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-slate-300 text-sm">Unlimited student reports</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-slate-300 text-sm">Advanced comment personalisation</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-slate-300 text-sm">Parent communication templates</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-slate-300 text-sm">Bulk report generation</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-slate-300 text-sm">Priority support</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-slate-300 text-sm">Advanced analytics dashboard</span>
+              </li>
+            </ul>
+
+            <Link
+              href="/signup"
+              className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-medium py-3 px-4 rounded-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-800 flex items-center justify-center"
+            >
+              Start Free Trial
+            </Link>
+          </div>
+
+          {/* School Plan */}
+          <div className="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 relative">
+            <div className="text-center mb-8">
+              <h3 className="text-xl font-semibold text-white mb-2">School</h3>
+              <p className="text-slate-400 text-sm mb-4">For schools and education organisations</p>
+              <div className="mb-4">
+                <span className="text-4xl font-bold text-white" data-testid="school-price">
+                  {pricing.symbol}{pricing.school.price}
+                </span>
+                <span className="text-slate-400 ml-2">/{pricing.school.period}</span>
+              </div>
+              <p className="text-sm text-slate-400">Up to 50 teachers</p>
+            </div>
+
+            <ul className="space-y-3 mb-8" role="list" aria-label="School plan features">
+              <li className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-slate-300 text-sm">Everything in Pro</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-slate-300 text-sm">Multi-teacher dashboard</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-slate-300 text-sm">School-wide analytics</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-slate-300 text-sm">Admin controls and user management</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-slate-300 text-sm">Dedicated account manager</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-slate-300 text-sm">SLA and priority onboarding</span>
+              </li>
+            </ul>
+
+            <Link
+              href="/contact"
+              className="w-full bg-slate-700 hover:bg-slate-600 text-white font-medium py-3 px-4 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-800 flex items-center justify-center"
+            >
+              Talk to Sales
+            </Link>
+          </div>
+        </div>
+
+        {/* Additional Info */}
+        <div className="text-center mt-12 pt-8 border-t border-slate-700">
+          <p className="text-slate-400 text-sm mb-4">
+            All plans include a 14-day free trial. No credit card required.
+          </p>
+          <p className="text-slate-400 text-xs">
+            * Pricing varies by region and currency. Contact us for local pricing information.
+          </p>
         </div>
       </div>
-    </section>
+    </div>
   )
 }
