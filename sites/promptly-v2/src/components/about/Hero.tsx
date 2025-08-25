@@ -23,14 +23,15 @@ export default function Hero({
     <section aria-labelledby="founder-hero" className="py-16 sm:py-20">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
-          <div className="relative flex-shrink-0">
+          <div className="relative flex-shrink-0 w-full lg:w-auto flex justify-center lg:justify-start">
             <Image
               src={imageSrc}
               alt={imageAlt}
-              width={200}
-              height={200}
+              width={240}
+              height={197}
               priority
-              className="rounded-2xl shadow-lg ring-1 ring-white/10"
+              sizes="(max-width: 768px) 240px, 240px"
+              className="rounded-2xl shadow-lg ring-1 ring-white/10 w-60 h-auto"
             />
           </div>
           <div className="flex-1">

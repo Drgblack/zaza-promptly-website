@@ -32,7 +32,7 @@ export default function FounderPage() {
       <Hero
         title="Hi, I'm Dr. Greg Blackburn"
         lead="I'm a globally recognised EdTech expert and PhD-qualified educator. For 20+ years I've built tools that reduce teacher workload—without compromising professional judgement."
-        imageSrc="/images/founder/portrait.jpg"
+        imageSrc="/images/founder-gb-v1.jpg"
         imageAlt="Dr. Greg Blackburn"
         primaryCta={{ href: '/start', label: 'Start Free' }}
         secondaryCta={{ href: 'https://www.linkedin.com/in/gregblackburn', label: 'LinkedIn Profile' }}
