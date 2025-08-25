@@ -99,6 +99,6 @@ export const en = {
     termsOfService: 'Terms of Service',
     contact: 'Contact Us'
   }
-} as const
+}
 
 export type TranslationStrings = typeof en
