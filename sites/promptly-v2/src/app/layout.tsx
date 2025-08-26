@@ -99,9 +99,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/icon.png?v=3',
-    shortcut: '/icon.png?v=3',
-    apple: '/apple-icon.png?v=3',
+    icon: '/icon.png?v=4',
+    shortcut: '/icon.png?v=4',
+    apple: '/apple-icon.png?v=4',
   },
   alternates: {
     canonical: "/",
