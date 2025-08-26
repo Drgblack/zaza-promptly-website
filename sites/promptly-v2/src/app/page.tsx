@@ -480,6 +480,188 @@ export default function Home() {
           </div>
         </section>
 
+        {/* CHATGPT COMPARISON TABLE */}
+        <section className="py-20 bg-gradient-to-br from-slate-800 to-slate-900">
+          <div className="container">
+            <ScrollReveal>
+              <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                  Promptly vs ChatGPT for Teachers
+                </h2>
+                <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+                  See why 12,000+ teachers switched from generic AI to education-specific tools.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.1}>
+              <div className="max-w-5xl mx-auto">
+                <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
+                  {/* Table Header */}
+                  <div className="bg-gradient-to-r from-purple-600 to-blue-600 px-8 py-6">
+                    <div className="grid grid-cols-3 gap-8 items-center">
+                      <div className="text-center">
+                        <h3 className="text-xl font-bold text-white">Feature</h3>
+                      </div>
+                      <div className="text-center">
+                        <div className="flex items-center justify-center mb-2">
+                          <img src="/images/logo/zaza-logo.svg" alt="Promptly" className="h-6 w-6 mr-2" />
+                          <h3 className="text-xl font-bold text-white">Promptly</h3>
+                        </div>
+                        <div className="text-purple-200 text-sm">€14.99/month</div>
+                      </div>
+                      <div className="text-center">
+                        <h3 className="text-xl font-bold text-white">ChatGPT Plus</h3>
+                        <div className="text-purple-200 text-sm">€20/month</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Table Body */}
+                  <div className="divide-y divide-slate-200">
+                    <div className="px-8 py-6 grid grid-cols-3 gap-8 items-center">
+                      <div className="font-semibold text-slate-900">Hallucination Safety</div>
+                      <div className="text-center">
+                        <div className="inline-flex items-center px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">
+                          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                          Built-in safeguards
+                        </div>
+                      </div>
+                      <div className="text-center">
+                        <div className="inline-flex items-center px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm font-semibold">
+                          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                          </svg>
+                          Can hallucinate
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="px-8 py-6 grid grid-cols-3 gap-8 items-center bg-slate-50">
+                      <div className="font-semibold text-slate-900">Education-Specific Training</div>
+                      <div className="text-center">
+                        <div className="inline-flex items-center px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">
+                          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                          Pedagogy-first AI
+                        </div>
+                      </div>
+                      <div className="text-center">
+                        <div className="inline-flex items-center px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm font-semibold">
+                          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                          </svg>
+                          General purpose
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="px-8 py-6 grid grid-cols-3 gap-8 items-center">
+                      <div className="font-semibold text-slate-900">GDPR Compliance</div>
+                      <div className="text-center">
+                        <div className="inline-flex items-center px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">
+                          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                          Full compliance
+                        </div>
+                      </div>
+                      <div className="text-center">
+                        <div className="inline-flex items-center px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-semibold">
+                          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                          </svg>
+                          May train on data
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="px-8 py-6 grid grid-cols-3 gap-8 items-center bg-slate-50">
+                      <div className="font-semibold text-slate-900">Parent-Appropriate Tone</div>
+                      <div className="text-center">
+                        <div className="inline-flex items-center px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">
+                          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                          Always professional
+                        </div>
+                      </div>
+                      <div className="text-center">
+                        <div className="inline-flex items-center px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm font-semibold">
+                          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                          </svg>
+                          Inconsistent tone
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="px-8 py-6 grid grid-cols-3 gap-8 items-center">
+                      <div className="font-semibold text-slate-900">Setup Complexity</div>
+                      <div className="text-center">
+                        <div className="inline-flex items-center px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">
+                          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                          Ready to use
+                        </div>
+                      </div>
+                      <div className="text-center">
+                        <div className="inline-flex items-center px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm font-semibold">
+                          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                          </svg>
+                          Requires prompting
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Table Footer */}
+                  <div className="bg-gradient-to-r from-purple-50 to-blue-50 px-8 py-6">
+                    <div className="grid grid-cols-3 gap-8 items-center">
+                      <div className="text-slate-600 text-sm font-medium">
+                        Best Choice for Teachers
+                      </div>
+                      <div className="text-center">
+                        <Link 
+                          href="/signup"
+                          className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold rounded-lg transition-colors"
+                        >
+                          Try Promptly Free
+                          <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </Link>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-slate-600 text-sm">
+                          Requires subscription + complex prompting
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Quick benefit callout */}
+            <ScrollReveal delay={0.2}>
+              <div className="text-center mt-12">
+                <div className="inline-flex items-center px-6 py-3 bg-green-900/20 border border-green-500/30 rounded-full text-green-300">
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                  </svg>
+                  <span className="font-semibold">Save €60+ per year + get education-specific AI</span>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+
         {/* 5. SOCIAL PROOF */}
         <section className="section bg-slate-800/30">
           <div className="container">
