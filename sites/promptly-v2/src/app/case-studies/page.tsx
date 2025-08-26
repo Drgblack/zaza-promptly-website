@@ -49,7 +49,7 @@ export default async function CaseStudiesPage() {
         }
       },
       datePublished: caseStudy.dateISO,
-      image: caseStudy.cover
+      ...(caseStudy.cover && { image: caseStudy.cover })
     }))
   }
 
