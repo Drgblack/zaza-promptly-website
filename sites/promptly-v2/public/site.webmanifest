@@ -8,31 +8,21 @@
   "theme_color": "#2563eb",
   "icons": [
     {
-      "src": "/favicon-16x16.svg",
-      "sizes": "16x16",
-      "type": "image/svg+xml"
-    },
-    {
-      "src": "/favicon-32x32.svg",
-      "sizes": "32x32",
-      "type": "image/svg+xml"
-    },
-    {
-      "src": "/icon-192x192.svg",
+      "src": "/icon.png",
       "sizes": "192x192",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icon-512x512.svg",
+      "src": "/icon.png",
       "sizes": "512x512",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/apple-touch-icon.svg",
+      "src": "/apple-icon.png",
       "sizes": "180x180",
-      "type": "image/svg+xml"
+      "type": "image/png"
     }
   ],
   "categories": ["education", "productivity", "utilities"],

@@ -72,8 +72,8 @@ export async function generateJSONFeed(): Promise<string> {
     home_page_url: `${siteUrl}/blog`,
     feed_url: `${siteUrl}/blog/feed.json`,
     language: 'en-GB',
-    icon: `${siteUrl}/apple-touch-icon.svg`,
-    favicon: `${siteUrl}/favicon.svg`,
+    icon: `${siteUrl}/apple-icon.png`,
+    favicon: `${siteUrl}/favicon.png`,
     authors: [
       {
         name: 'Dr. Greg Blackburn',
