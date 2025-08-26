@@ -80,14 +80,11 @@ const createPDFHTML = (template: PDFTemplate): string => `
     .logo-icon {
       width: 24px;
       height: 24px;
-      background: ${BRAND_COLORS.primary};
       border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 12px;
-      font-weight: bold;
+      background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQwX2xpbmVhcl8xXzIiIHgxPSIzMCIgeTE9IjAiIHgyPSIzMCIgeTI9IjYwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGRjQ5OTEiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjOUM0MEZGIi8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiByeD0iMTQiIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl8xXzIpIi8+CjxwYXRoIGQ9Ik00NiA0NEgxOEwzNCAyMkg0NlYxNkgxM1Y0NEgxM1Y1MEg0NlY0NFoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
     }
     
     .resource-label {
@@ -242,7 +239,7 @@ const createPDFHTML = (template: PDFTemplate): string => `
 <body>
   <div class="pdf-header">
     <div class="logo">
-      <div class="logo-icon">⚡</div>
+      <div class="logo-icon"></div>
       <span>Promptly</span>
     </div>
     <div class="resource-label">Free Resource</div>
