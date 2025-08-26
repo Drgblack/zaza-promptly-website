@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import CookieSettingsButton from '@/components/cookies/CookieSettingsButton'
 import MotionSettingsButton from '@/components/motion/MotionSettingsButton'
 import SocialLinks from '@/components/common/SocialLinks'
@@ -65,13 +66,13 @@ export default function Footer() {
           
           {/* Logo and Social links */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-            <Link href="/" className="flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-50 dark:focus:ring-offset-gray-900 rounded-lg p-1">
-              <img 
-                src="/images/zaza-logo.svg" 
-                alt="Zaza Logo" 
-                className="w-7 h-7"
+            <Link href="/" aria-label="Zaza Technologies home" className="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-50 dark:focus:ring-offset-gray-900 rounded-lg p-1">
+              <Image
+                src="/images/zaza-logo.png"
+                alt="Zaza Technologies logo"
                 width={28}
                 height={28}
+                priority
               />
               <span className="text-lg font-bold text-slate-100 dark:text-white">Zaza Technologies</span>
             </Link>

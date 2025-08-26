@@ -99,9 +99,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/icon.png?v=4',
-    shortcut: '/icon.png?v=4',
-    apple: '/apple-icon.png?v=4',
+    icon: '/icon.png?v=5',
+    shortcut: '/icon.png?v=5',
+    apple: '/apple-icon.png?v=5',
   },
   alternates: {
     canonical: "/",
@@ -151,6 +151,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
+        {/* Manual favicon links as fallback */}
+        <link rel="icon" href="/icon.png?v=5" type="image/png" />
+        <link rel="shortcut icon" href="/icon.png?v=5" type="image/png" />
+        <link rel="apple-touch-icon" href="/apple-icon.png?v=5" type="image/png" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
       </head>
       <ThemeProvider defaultTheme="system">
         <AnalyticsProvider>
