@@ -535,21 +535,8 @@ export default function Home() {
                     {/* Left side: Founder Photo */}
                     <div className="order-2 lg:order-1 flex justify-center lg:justify-start">
                       <div className="relative">
-                        <div className="w-80 h-80 rounded-full overflow-hidden shadow-xl border-4 border-slate-100">
-                          <img 
-                            src="/images/founder-placeholder.jpg" 
-                            alt="Dr Greg Blackburn, Founder & CEO of Zaza Technologies" 
-                            className="w-full h-full object-cover"
-                            onError={(e) => {
-                              // Fallback to a colored placeholder if image doesn't exist
-                              const target = e.target as HTMLImageElement;
-                              target.style.display = 'none';
-                              target.nextElementSibling?.classList.remove('hidden');
-                            }}
-                          />
-                          <div className="hidden w-full h-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                            <div className="text-white text-6xl font-bold">GB</div>
-                          </div>
+                        <div className="w-80 h-80 rounded-full overflow-hidden shadow-xl border-4 border-slate-100 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                          <div className="text-white text-6xl font-bold">GB</div>
                         </div>
                         {/* Decorative elements */}
                         <div className="absolute -top-4 -right-4 w-8 h-8 bg-blue-500 rounded-full opacity-20"></div>
