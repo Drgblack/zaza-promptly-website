@@ -59,13 +59,13 @@ function AuthorCard({ variant = 'header' }: { variant?: 'header' | 'footer' }) {
       <div className="flex flex-col sm:flex-row items-start gap-4">
         {/* Founder Photo */}
         <div className="flex-shrink-0">
-          <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-white/20">
+          <div className="relative w-12 h-12 sm:w-16 sm:h-16 rounded-full overflow-hidden border-2 border-white/20">
             <Image
               src={founder.photo}
               alt={`${founder.name} photo`}
               width={64}
               height={64}
-              className="object-cover"
+              className="object-cover rounded-full"
               priority={variant === 'header'}
             />
           </div>
@@ -141,13 +141,13 @@ function FinalCTA() {
             <div className="flex flex-col lg:flex-row items-center gap-8">
               {/* Founder Photo */}
               <div className="flex-shrink-0">
-                <div className="relative w-24 h-24 rounded-full overflow-hidden border-3 border-brand-500/30">
+                <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-3 border-brand-500/30">
                   <Image
                     src={founder.photo}
                     alt={founder.name}
                     width={96}
                     height={96}
-                    className="object-cover"
+                    className="object-cover rounded-full"
                   />
                 </div>
               </div>
@@ -167,7 +167,7 @@ function FinalCTA() {
                 <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
                   <Link 
                     href="/waitlist"
-                    className="inline-flex items-center px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg transition-colors shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+                    className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg transition-colors shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900"
                   >
                     Start Saving Time Today
                     <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -289,8 +289,8 @@ export default function BlogLayout({
       {/* Article Content */}
       <section className="section">
         <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <article className="blog-content">
+          <div className="max-w-3xl mx-auto px-4">
+            <article className="prose prose-slate dark:prose-invert prose-lg max-w-none leading-relaxed">
               {processedContent}
             </article>
             
@@ -300,17 +300,8 @@ export default function BlogLayout({
         </div>
       </section>
       
-      {/* Author Card - Bottom */}
-      <section className="section-sm border-t border-white/10">
-        <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <AuthorCard variant="footer" />
-          </div>
-        </div>
-      </section>
-
       {/* Related Posts */}
-      <section className="border-t border-white/10 py-16">
+      <section className="py-10 border-t border-white/10">
         <div className="container">
           <div className="max-w-6xl mx-auto">
             <RelatedPosts currentSlug={slug} />
@@ -318,8 +309,14 @@ export default function BlogLayout({
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <FinalCTA />
+      {/* Author Card - Bottom */}
+      <section className="py-10 border-t border-white/10">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <AuthorCard variant="footer" />
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
