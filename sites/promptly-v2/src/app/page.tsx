@@ -1,17 +1,9 @@
 import Link from 'next/link'
 import SnippetToolV2 from '@/components/sections/SnippetToolV2'
 import LogoCloud from '@/components/marketing/LogoCloud'
-import TestimonialsSection from '@/components/testimonials/TestimonialsSection'
-import TrustBadges from '@/components/trust/TrustBadges'
-import EnhancedTrustBadges from '@/components/trust/EnhancedTrustBadges'
-import HeroSection from '@/components/home/HeroSection'
-import SampleOutputsSection from '@/components/home/SampleOutputsSection'
-import ScrollReveal from '@/components/animations/ScrollReveal'
-import AnswerBlocks from '@/components/seo/AnswerBlocks'
-import Glossary from '@/components/seo/Glossary'
 import EnhancedTestimonials from '@/components/testimonials/EnhancedTestimonials'
-import { teacherAIQuestions, aiGlossary } from '@/data/aiAnswers'
 import { quickTestimonials } from '@/data/teacherTestimonials'
+import ScrollReveal from '@/components/animations/ScrollReveal'
 import dynamic from 'next/dynamic'
 
 // Lazy load testimonials as they're below the fold
@@ -128,56 +120,9 @@ export default function Home() {
         email: 'hello@zazatechnologies.com',
         availableLanguage: ['English', 'German', 'French', 'Spanish', 'Italian']
       }
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      name: 'AI Tool for Teachers | Safe AI for Teacher Reports & Parent Communication',
-      description: 'Hallucination-safe AI tool for teachers. Generate parent communications, student reports & professional messages. Reduce teacher workload with GDPR-compliant AI.',
-      url: 'https://www.zazapromptly.com',
-      primaryImageOfPage: 'https://www.zazapromptly.com/og-default.png',
-      breadcrumb: {
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          {
-            '@type': 'ListItem',
-            position: 1,
-            name: 'Home',
-            item: 'https://www.zazapromptly.com'
-          }
-        ]
-      },
-      mainEntity: {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'Is using AI for teachers cheating?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'No, using AI tools like Promptly for administrative tasks is not cheating—it\'s working smarter. AI assists with time-consuming tasks while you focus on what matters most: teaching and connecting with students.'
-            }
-          },
-          {
-            '@type': 'Question',
-            name: 'How is Promptly different from ChatGPT for teachers?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Promptly is specifically designed for education with hallucination-safe AI, GDPR compliance, and education-specific training. Unlike ChatGPT, it\'s built for the strict privacy and accuracy requirements of schools.'
-            }
-          },
-          {
-            '@type': 'Question',
-            name: 'What makes AI hallucination-safe for teachers?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Hallucination-safe AI means the system won\'t generate false or inappropriate information. Promptly includes safety guardrails and is trained specifically on educational contexts to ensure accurate, appropriate content for school communications.'
-            }
-          }
-        ]
-      }
     }
   ]
+  
   return (
     <>
       <script
@@ -186,275 +131,315 @@ export default function Home() {
       />
       
       <div className="relative">
-        {/* Hero Section */}
-        <HeroSection />
-
-      {/* Logo Cloud Section */}
-      <LogoCloud className="bg-slate-900" />
-
-      {/* Snippet Tool Section */}
-      <section id="snippet" className="section bg-slate-900">
-        <div className="container">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">
-              AI for Parent Communication & Teacher Reports
-            </h2>
-            <p className="text-slate-300 mb-6">
-              Experience safe AI for teachers. Write your draft and let our hallucination-safe AI enhance it with perfect tone, length, and reading level—no signup required.
-            </p>
+        {/* 1. HERO SECTION */}
+        <section className="relative bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-900 min-h-[90vh] flex items-center overflow-hidden">
+          {/* Background Elements */}
+          <div className="absolute inset-0">
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl"></div>
           </div>
-          <SnippetToolV2 />
           
-          {/* Enhanced CTA after snippet tool */}
-          <div className="text-center mt-12">
-            <h3 className="text-xl font-semibold text-white mb-4">
-              Ready to Save Hours Every Week?
-            </h3>
-            <p className="text-slate-300 mb-6 max-w-2xl mx-auto">
-              Created by <strong>Dr Greg Blackburn, PhD in Professional Education</strong> — 
-              join 12,000+ teachers using hallucination-safe AI designed specifically for education.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link 
-                href="/waitlist"
-                className="inline-flex items-center px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors shadow-lg"
-              >
-                Start Free Trial — No Credit Card
-                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          <div className="container relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              {/* Who it's for - Clear targeting */}
+              <div className="inline-flex items-center px-4 py-2 bg-blue-600/20 border border-blue-500/30 rounded-full text-blue-300 text-sm font-medium mb-6">
+                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C20.832 18.477 19.246 18 17.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
-              </Link>
-              <Link 
-                href="/personas"
-                className="inline-flex items-center px-8 py-4 border border-purple-600 text-purple-400 hover:bg-purple-600/10 font-semibold rounded-lg transition-colors"
-              >
-                Find Your Teaching Role
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Sample Outputs Section */}
-      <SampleOutputsSection />
-
-      {/* Persona Tiles Section */}
-      <section className="section bg-white dark:bg-gray-900">
-        <div className="container">
-          <ScrollReveal duration={0.22}>
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-100 dark:text-white mb-4">
-                Best AI Tools for Teachers 2025: Built for Every Education Role
-              </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Discover teacher productivity apps and AI solutions tailored to your specific teaching context. From report writing to parent emails, reduce teacher workload with AI.
+                For teachers who write parent messages & report comments
+              </div>
+              
+              {/* Main Headline */}
+              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                Write better parent messages in <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">minutes — not hours</span>
+              </h1>
+              
+              {/* Subtext - Clear differentiation */}
+              <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+                The only <strong className="text-blue-400">hallucination-safe AI</strong> built for teachers writing report cards and parent communications.
               </p>
-            </div>
-          </ScrollReveal>
-          
-          {/* Persona Grid */}
-          <ScrollReveal duration={0.26} delay={0.1}>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* UK Primary */}
-            <Link href="/personas/uk-primary" className="group">
-              <div className="rounded-2xl shadow-card border border-white/5 bg-slate-800/60 hover:bg-slate-800/80 hover:shadow-lg hover:-translate-y-0.5 hover:scale-[1.01] transition-all duration-[120ms] ease-out p-8">
-                <div className="w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center mb-6 mx-auto">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C20.832 18.477 19.246 18 17.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-4 text-center">UK Primary Teacher</h3>
-                <p className="text-slate-300 text-center text-sm">Stop losing evenings and weekends to report writing with UK curriculum-aligned AI</p>
-              </div>
-            </Link>
-
-            {/* US Secondary */}
-            <Link href="/personas/us-secondary" className="group">
-              <div className="rounded-2xl shadow-card border border-white/5 bg-slate-800/60 hover:bg-slate-800/80 hover:shadow-lg hover:-translate-y-0.5 hover:scale-[1.01] transition-all duration-[120ms] ease-out p-8">
-                <div className="w-16 h-16 bg-red-600 rounded-xl flex items-center justify-center mb-6 mx-auto">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-4 text-center">US Secondary Teacher</h3>
-                <p className="text-slate-300 text-center text-sm">Handle parent communication overload with confidence and perfect tone</p>
-              </div>
-            </Link>
-
-            {/* Special Education */}
-            <Link href="/personas/special-needs" className="group">
-              <div className="rounded-2xl shadow-card border border-white/5 bg-slate-800/60 hover:bg-slate-800/80 hover:shadow-lg hover:-translate-y-0.5 hover:scale-[1.01] transition-all duration-[120ms] ease-out p-8">
-                <div className="w-16 h-16 bg-orange-600 rounded-xl flex items-center justify-center mb-6 mx-auto">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-4 text-center">Special Education Teacher</h3>
-                <p className="text-slate-300 text-center text-sm">Celebrate every child&apos;s unique journey with sensitive, strength-based communication</p>
-              </div>
-            </Link>
-
-            {/* International */}
-            <Link href="/personas/international" className="group">
-              <div className="rounded-2xl shadow-card border border-white/5 bg-slate-800/60 hover:bg-slate-800/80 hover:shadow-lg hover:-translate-y-0.5 hover:scale-[1.01] transition-all duration-[120ms] ease-out p-8">
-                <div className="w-16 h-16 bg-green-600 rounded-xl flex items-center justify-center mb-6 mx-auto">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-4 text-center">International Teacher</h3>
-                <p className="text-slate-300 text-center text-sm">Break down language barriers and communicate with all families confidently</p>
-              </div>
-            </Link>
-
-            {/* EdTech-Savvy */}
-            <Link href="/personas/edtech-savvy" className="group">
-              <div className="rounded-2xl shadow-card border border-white/5 bg-slate-800/60 hover:bg-slate-800/80 hover:shadow-lg hover:-translate-y-0.5 hover:scale-[1.01] transition-all duration-[120ms] ease-out p-8">
-                <div className="w-16 h-16 bg-purple-600 rounded-xl flex items-center justify-center mb-6 mx-auto">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-4 text-center">EdTech-Savvy Teacher</h3>
-                <p className="text-slate-300 text-center text-sm">Modern AI that&apos;s actually designed for education, not just repurposed ChatGPT</p>
-              </div>
-            </Link>
-
-            {/* Head Teacher */}
-            <Link href="/personas/head-teacher" className="group">
-              <div className="rounded-2xl shadow-card border border-white/5 bg-slate-800/60 hover:bg-slate-800/80 hover:shadow-lg hover:-translate-y-0.5 hover:scale-[1.01] transition-all duration-[120ms] ease-out p-8">
-                <div className="w-16 h-16 bg-indigo-600 rounded-xl flex items-center justify-center mb-6 mx-auto">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-4 text-center">Head Teacher / School Leader</h3>
-                <p className="text-slate-300 text-center text-sm">Ensure whole-school excellence while supporting your teachers&apos; wellbeing</p>
-              </div>
-            </Link>
-            </div>
-          </ScrollReveal>
-
-          {/* CTA */}
-          <ScrollReveal duration={0.24} delay={0.2}>
-            <div className="text-center mt-12">
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link 
-                  href="/personas"
-                  className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors shadow-lg"
-                >
-                  Explore All Solutions
-                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
+              
+              {/* Primary CTA */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                 <Link 
                   href="/waitlist"
-                  className="inline-flex items-center px-8 py-4 border border-blue-600 text-blue-400 hover:bg-blue-600/10 font-semibold rounded-lg transition-colors"
+                  className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors shadow-xl text-lg"
                 >
-                  Try Free Today
+                  Try it free — 5 comments this month
+                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+                <Link 
+                  href="#demo"
+                  className="inline-flex items-center px-8 py-4 border-2 border-slate-600 text-slate-300 hover:bg-slate-800/50 font-semibold rounded-lg transition-colors text-lg"
+                >
+                  See how it works
                 </Link>
               </div>
+              
+              {/* Quick credibility */}
+              <p className="text-slate-400 text-sm">
+                Created by <strong>Dr. Greg Blackburn, PhD in Professional Education</strong> • Trusted by 12,000+ teachers
+              </p>
             </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Enhanced Trust Badges Section */}
-      <EnhancedTrustBadges variant="full" className="bg-slate-900/50" />
-
-      {/* Enhanced Teacher Testimonials */}
-      <EnhancedTestimonials 
-        testimonials={quickTestimonials}
-        title="Real Teachers, Real Results"
-        subtitle="Join thousands of educators who've transformed their practice with AI writing assistance designed specifically for teachers"
-        className="bg-slate-900"
-        variant="grid"
-      />
-
-      {/* Original Testimonials Section */}
-      <Testimonials className="bg-slate-900/50" />
-
-      {/* Case Studies Section */}
-      <section className="bg-slate-800/30 py-16">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">
-              From the Classroom
-            </h2>
-            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-              Real stories from educators who&rsquo;ve transformed their practice with Promptly. 
-              Discover measurable results and practical insights.
-            </p>
           </div>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/case-studies"
-              className="inline-flex items-center px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg transition-colors shadow-card"
-            >
-              Read Success Stories
-              <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-            <Link
-              href="/waitlist"
-              className="inline-flex items-center px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors shadow-card"
-            >
-              Start Your Journey Today
-              <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
+        </section>
+
+        {/* Logo Cloud - Social Proof */}
+        <LogoCloud className="bg-slate-800/50" />
+
+        {/* 2. PROBLEM SECTION - Workflow Pain */}
+        <section className="section bg-slate-900">
+          <div className="container">
+            <div className="max-w-4xl mx-auto">
+              <ScrollReveal>
+                <div className="text-center mb-16">
+                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
+                    You're not alone in this struggle
+                  </h2>
+                  <div className="bg-slate-800/60 border border-red-500/30 rounded-2xl p-8 text-left">
+                    <p className="text-lg text-slate-200 leading-relaxed mb-6">
+                      <strong className="text-red-400">"You stay up past midnight rewriting the same parent messages, second-guessing your tone, and copy-pasting from last year's reports.</strong>
+                    </p>
+                    <p className="text-lg text-slate-200 leading-relaxed mb-6">
+                      Generic AI can hallucinate, misstate facts, or sound robotic. 
+                    </p>
+                    <p className="text-lg text-white font-semibold">
+                      Teachers deserve better."
+                    </p>
+                  </div>
+                </div>
+              </ScrollReveal>
+
+              {/* Competitive Alternatives - What teachers currently do */}
+              <ScrollReveal delay={0.1}>
+                <div className="grid md:grid-cols-3 gap-6 mb-16">
+                  <div className="bg-slate-800/40 border border-slate-700 rounded-xl p-6 text-center">
+                    <div className="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-lg font-semibold text-white mb-2">Copy-Pasting</h3>
+                    <p className="text-slate-400 text-sm">From old reports and comment banks</p>
+                  </div>
+                  
+                  <div className="bg-slate-800/40 border border-slate-700 rounded-xl p-6 text-center">
+                    <div className="w-12 h-12 bg-yellow-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-lg font-semibold text-white mb-2">Spreadsheets</h3>
+                    <p className="text-slate-400 text-sm">Google Docs comment banks</p>
+                  </div>
+                  
+                  <div className="bg-slate-800/40 border border-slate-700 rounded-xl p-6 text-center">
+                    <div className="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16c-.77.833.192 2.5 1.732 2.5z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-lg font-semibold text-white mb-2">Generic AI</h3>
+                    <p className="text-slate-400 text-sm">Risky hallucinations, robotic tone</p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* AI Q&A for Search Engines */}
-      <AnswerBlocks 
-        title="Common Questions About AI for Teachers"
-        items={teacherAIQuestions}
-        className="bg-slate-900/50"
-      />
+        {/* 3. SOLUTION SECTION - Demo */}
+        <section id="demo" className="section bg-slate-800/30">
+          <div className="container">
+            <ScrollReveal>
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                  Promptly gives you trusted, ready-to-send drafts in your own professional voice — in seconds
+                </h2>
+                <p className="text-xl text-slate-300 mb-8 max-w-3xl mx-auto">
+                  Experience safe AI for teachers. Write your draft and let our hallucination-safe AI enhance it with perfect tone, length, and reading level.
+                </p>
+              </div>
+            </ScrollReveal>
+            
+            <ScrollReveal delay={0.1}>
+              <SnippetToolV2 />
+            </ScrollReveal>
 
-      {/* AI Glossary */}
-      <Glossary 
-        title="AI Terms Every Teacher Should Know"
-        items={aiGlossary}
-        className="bg-slate-800/30"
-      />
-
-      {/* Learning Centre Link */}
-      <section className="bg-slate-800/30 py-12">
-        <div className="container text-center">
-          <h2 className="text-xl font-semibold text-white mb-4">
-            Need More Resources?
-          </h2>
-          <p className="text-slate-300 mb-6">
-            Explore our Learning Centre for expert insights, practical guides, and free resources.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href="/learning-centre"
-              className="inline-flex items-center px-6 py-3 bg-slate-700/60 hover:bg-slate-700/80 text-white font-medium rounded-lg transition-colors border border-white/10"
-            >
-              Visit Learning Centre
-              <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-            <Link 
-              href="/free-resources"
-              className="inline-flex items-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-colors"
-            >
-              Download Free Resources
-            </Link>
+            {/* Post-demo CTA */}
+            <ScrollReveal delay={0.2}>
+              <div className="text-center mt-12">
+                <Link 
+                  href="/waitlist"
+                  className="inline-flex items-center px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors shadow-lg text-lg"
+                >
+                  Start saving hours today — free plan included
+                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+            </ScrollReveal>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* 4. DIFFERENTIATION & FEATURES */}
+        <section className="section bg-slate-900">
+          <div className="container">
+            <ScrollReveal>
+              <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                  Why teachers choose Promptly over ChatGPT
+                </h2>
+                <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+                  Built specifically for education with the safety and accuracy teachers require.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* Safe & Accurate */}
+              <ScrollReveal delay={0.1}>
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-green-600/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <svg className="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-3">Hallucination-Safe</h3>
+                  <p className="text-slate-400 text-sm leading-relaxed">
+                    <strong>Binary advantage:</strong> Won't generate false information or inappropriate content like generic AI
+                  </p>
+                </div>
+              </ScrollReveal>
+
+              {/* Tone Tutor */}
+              <ScrollReveal delay={0.2}>
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-blue-600/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-3">Emotional Tone Tutor</h3>
+                  <p className="text-slate-400 text-sm leading-relaxed">
+                    <strong>10x faster</strong> than rewriting — perfect professional tone every time
+                  </p>
+                </div>
+              </ScrollReveal>
+
+              {/* Educator-Built */}
+              <ScrollReveal delay={0.3}>
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-purple-600/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C20.832 18.477 19.246 18 17.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-3">Pedagogy-First AI</h3>
+                  <p className="text-slate-400 text-sm leading-relaxed">
+                    <strong>Built by educators</strong> who understand the nuances of school communication
+                  </p>
+                </div>
+              </ScrollReveal>
+
+              {/* Translation */}
+              <ScrollReveal delay={0.4}>
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-orange-600/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <svg className="w-8 h-8 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-3">Instant Translation</h3>
+                  <p className="text-slate-400 text-sm leading-relaxed">
+                    Communicate with all families — <strong>translation included</strong> in every plan
+                  </p>
+                </div>
+              </ScrollReveal>
+            </div>
+          </div>
+        </section>
+
+        {/* 5. SOCIAL PROOF */}
+        <section className="section bg-slate-800/30">
+          <div className="container">
+            <ScrollReveal>
+              <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                  Trusted by teachers worldwide
+                </h2>
+                <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+                  Join thousands of educators who've transformed their practice with AI writing assistance designed specifically for teachers.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <EnhancedTestimonials 
+              testimonials={quickTestimonials}
+              title=""
+              subtitle=""
+              className=""
+              variant="grid"
+            />
+
+            {/* Stats */}
+            <ScrollReveal delay={0.2}>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 text-center">
+                <div>
+                  <div className="text-4xl font-bold text-blue-400 mb-2">12,000+</div>
+                  <p className="text-slate-400">Teachers using Promptly</p>
+                </div>
+                <div>
+                  <div className="text-4xl font-bold text-green-400 mb-2">10x</div>
+                  <p className="text-slate-400">Faster than manual writing</p>
+                </div>
+                <div>
+                  <div className="text-4xl font-bold text-purple-400 mb-2">5 mins</div>
+                  <p className="text-slate-400">Average time saved per comment</p>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+
+        {/* Traditional testimonials for additional social proof */}
+        <Testimonials className="bg-slate-900" />
+
+        {/* 6. FINAL CTA */}
+        <section className="section bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-900">
+          <div className="container">
+            <ScrollReveal>
+              <div className="max-w-4xl mx-auto text-center">
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                  Ready to get your evenings back?
+                </h2>
+                <p className="text-xl text-slate-300 mb-8 max-w-3xl mx-auto">
+                  Join 12,000+ teachers who've stopped staying up late writing reports. Start with 5 free comments this month.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                  <Link 
+                    href="/waitlist"
+                    className="inline-flex items-center px-10 py-5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors shadow-2xl text-xl"
+                  >
+                    Start saving hours today — free plan included
+                    <svg className="ml-3 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                </div>
+                
+                <p className="text-slate-400 text-sm">
+                  No credit card required • 5 comments free this month • Created by teachers, for teachers
+                </p>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
       </div>
     </>
   )
 }
-
