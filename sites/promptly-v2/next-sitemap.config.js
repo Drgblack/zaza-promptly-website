@@ -41,7 +41,7 @@ export default {
       { path: '/pricing', priority: 0.9, changefreq: 'weekly' },
       { path: '/faq', priority: 0.7, changefreq: 'weekly' },
       { path: '/contact', priority: 0.7, changefreq: 'monthly' },
-      { path: '/about/founder', priority: 0.6, changefreq: 'monthly' },
+      { path: '/about', priority: 0.6, changefreq: 'monthly' },
       { path: '/free-resources', priority: 0.8, changefreq: 'weekly' },
       { path: '/privacy', priority: 0.3, changefreq: 'yearly' },
       { path: '/terms', priority: 0.3, changefreq: 'yearly' }

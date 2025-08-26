@@ -84,7 +84,7 @@ export const metadata: Metadata = {
     "Save hours with Promptly – hallucination-safe AI for teacher report writing and parent communication. GDPR-compliant AI writing assistant designed by educators, trusted by 12,000+ teachers.",
   keywords:
     "ai for teacher report writing, teacher report comments helper, safe ai for parent communication, teacher productivity ai, parent email generator for teachers, gdpr compliant ai for schools, hallucination-safe ai for education, ai writing assistant for educators",
-  authors: [{ name: "Dr. Greg Blackburn", url: `${baseUrl}/about/founder` }],
+  authors: [{ name: "Dr. Greg Blackburn", url: `${baseUrl}/about` }],
   creator: "Zaza Technologies",
   publisher: "Zaza Technologies",
   robots: {

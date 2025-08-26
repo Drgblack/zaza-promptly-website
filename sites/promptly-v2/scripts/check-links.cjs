@@ -28,7 +28,7 @@ const CRITICAL_LINKS = [
   '/terms',
   '/cookies',
   '/faq',
-  '/about/founder',
+  '/about',
   '/personas/uk-primary',
   '/personas/us-secondary',
   '/personas/uk-secondary',

@@ -111,7 +111,7 @@ test.describe('Theme Toggle', () => {
     await expect(page.locator('html')).not.toHaveClass(/dark/)
     
     // Navigate to another page
-    await page.goto('/about/founder')
+    await page.goto('/about')
     
     // Wait for theme to be applied after navigation
     await page.waitForTimeout(500)

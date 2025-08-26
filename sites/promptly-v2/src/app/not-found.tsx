@@ -48,7 +48,7 @@ export default function NotFound() {
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto">
           <Link 
-            href="/about/founder"
+            href="/about"
             className="group p-4 rounded-2xl bg-slate-800/60 hover:bg-slate-800/80 border border-white/5 hover:border-white/10 transition-all duration-200 shadow-card hover:shadow-focus focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900"
           >
             <div className="w-10 h-10 bg-blue-600/20 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:bg-blue-600/30 transition-colors">

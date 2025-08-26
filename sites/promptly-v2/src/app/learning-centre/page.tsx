@@ -140,7 +140,7 @@ export default async function LearningCentrePage() {
             </Link>
             
             <Link 
-              href="/about/founder"
+              href="/about"
               className="p-4 text-center rounded-lg bg-slate-800/60 hover:bg-slate-800/80 transition border border-white/5"
             >
               <div className="text-blue-400 font-medium text-sm">About</div>

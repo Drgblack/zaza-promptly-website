@@ -45,7 +45,7 @@ const FOOTER_SECTIONS: FooterSection[] = [
   {
     title: 'Company',
     links: [
-      { title: 'Meet Your Fellow Educator', href: '/about/founder' },
+      { title: 'Meet Your Fellow Educator', href: '/about' },
       { title: 'Contact', href: '/contact' },
       { title: 'Reliable AI That Won\'t Make Things Up', href: '/reliable-ai' }, // TODO: Create placeholder
       { title: 'Student Privacy Protected', href: '/student-privacy' }, // TODO: Create placeholder

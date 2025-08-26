@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation'
 
-// Redirect /about-founder to /about/founder for consistency
+// Redirect /about-founder to /about for consistency
 export default function AboutFounderPage() {
-  redirect('/about/founder')
+  redirect('/about')
 }

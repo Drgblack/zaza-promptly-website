@@ -30,7 +30,7 @@ test.describe('Animation Tests', () => {
       expect(heroSubheadingOpacity).toBe('1')
       
       // Go to about/founder page to test timeline
-      await page.goto('/about/founder')
+      await page.goto('/about')
       await page.waitForLoadState('networkidle')
       
       // Test timeline elements - should be immediately visible
