@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { Suspense } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { generateSEOMetadata, seoConfigs } from '@/lib/seo/metadata'
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
@@ -242,6 +243,47 @@ export default function PricingPage() {
               >
                 Get the bundle
               </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Available on */}
+      <section id="download" className="py-12">
+        <div className="container">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-2xl font-semibold text-white mb-8">
+              Available on
+            </h2>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a 
+                href="https://placeholder-ios-store-link.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:scale-105 transition-transform"
+              >
+                <Image 
+                  src="/images/appstore-badge.svg" 
+                  alt="Download on the App Store" 
+                  width={150} 
+                  height={45} 
+                  className="rounded-md"
+                />
+              </a>
+              <a 
+                href="https://placeholder-google-play-link.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:scale-105 transition-transform"
+              >
+                <Image 
+                  src="/images/googleplay-badge.svg" 
+                  alt="Get it on Google Play" 
+                  width={150} 
+                  height={45} 
+                  className="rounded-md"
+                />
+              </a>
             </div>
           </div>
         </div>

@@ -11,10 +11,8 @@ export async function POST(request: NextRequest) {
 
     // Check if Stripe is configured
     if (!process.env.STRIPE_SECRET_KEY) {
-      return NextResponse.json({ 
-        ok: false, 
-        reason: 'stripe_disabled' 
-      })
+      console.warn("Stripe key missing — redirecting to waitlist")
+      return NextResponse.redirect(new URL('/waitlist', getBaseUrl()), 302)
     }
 
     // Basic validation

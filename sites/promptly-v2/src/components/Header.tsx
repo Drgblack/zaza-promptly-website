@@ -252,8 +252,15 @@ export default function Header() {
           </nav>
 
           {/* Right side items */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-3">
             <LanguageSwitcher />
+            
+            <Link 
+              href="/pricing#download"
+              className="px-3 py-2 text-white/80 hover:text-white font-medium text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded-lg"
+            >
+              Download App
+            </Link>
             
             <Link 
               href="/pricing"
@@ -356,13 +363,22 @@ export default function Header() {
               
               {/* CTA at bottom */}
               <div className="pt-6 border-t border-white/10">
-                <Link 
-                  href="/pricing"
-                  className="block w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg text-center transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Start Free
-                </Link>
+                <div className="space-y-3">
+                  <Link 
+                    href="/pricing#download"
+                    className="block w-full px-4 py-2 border border-white/20 text-white hover:bg-white/5 font-medium rounded-lg text-center transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Download App
+                  </Link>
+                  <Link 
+                    href="/pricing"
+                    className="block w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg text-center transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Start Free
+                  </Link>
+                </div>
                 <div className="mt-4 flex justify-center">
                   <ThemeToggle variant="mobile" />
                 </div>

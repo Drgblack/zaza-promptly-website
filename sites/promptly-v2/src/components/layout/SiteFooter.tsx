@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import SocialLinks from '@/components/common/SocialLinks';
 import ThemeToggle from '@/components/common/ThemeToggle';
 import LanguageSelect from '@/components/common/LanguageSelect';
@@ -141,6 +142,45 @@ export default function SiteFooter() {
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+
+        {/* Get the app */}
+        <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800">
+          <div className="text-center">
+            <h3 className="text-sm font-semibold text-slate-900 dark:text-white uppercase tracking-wider mb-4">
+              Get the app
+            </h3>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a 
+                href="https://placeholder-ios-store-link.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition-opacity"
+              >
+                <Image 
+                  src="/images/appstore-badge.svg" 
+                  alt="Download on the App Store" 
+                  width={120} 
+                  height={36} 
+                  className="rounded-md"
+                />
+              </a>
+              <a 
+                href="https://placeholder-google-play-link.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition-opacity"
+              >
+                <Image 
+                  src="/images/googleplay-badge.svg" 
+                  alt="Get it on Google Play" 
+                  width={120} 
+                  height={36} 
+                  className="rounded-md"
+                />
+              </a>
+            </div>
           </div>
         </div>
 
