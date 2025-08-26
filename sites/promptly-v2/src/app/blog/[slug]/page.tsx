@@ -3,8 +3,10 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { marked } from 'marked'
 import { getPostMeta, getPostSlugs, getAuthorMeta, calculateReadingTime } from '@/lib/blog'
-import AuthorByline from '@/components/blog/AuthorByline'
+import AuthorCard from '@/components/blog/AuthorCard'
 import RelatedPosts from '@/components/blog/RelatedPosts'
+import BlogContent from '@/components/blog/BlogContent'
+import { SaveTimeCTA, GetStartedCTA } from '@/components/blog/InlineCTA'
 
 type Props = {
   params: { slug: string }
@@ -214,20 +216,31 @@ export default async function BlogPost({ params }: Props) {
               {postMeta.title}
             </h1>
             
-            <p className="text-xl text-slate-300 mb-8">
+            <p className="text-xl text-slate-300 mb-8 leading-relaxed">
               {postMeta.description}
             </p>
             
-            {/* Author Byline */}
-            <div className="flex justify-center">
-              <AuthorByline 
-                authorName={postMeta.author || 'Promptly Team'}
-                publishDate={postMeta.date}
-                readTime={`${readingTime} min read`}
-                showBio={false}
-              />
+            {/* Reading Time */}
+            <div className="flex justify-center mb-8">
+              <span className="bg-brand-600/20 text-brand-400 px-4 py-2 rounded-full text-sm font-medium">
+                📚 {readingTime} min read
+              </span>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Author Card - Top */}
+      <section className="section-sm bg-slate-800/30">
+        <div className="container">
+          <AuthorCard
+            authorName={postMeta.author || 'Promptly Team'}
+            publishDate={postMeta.date}
+            readTime={`${readingTime} min read`}
+            showFullBio={true}
+            variant="header"
+            className="max-w-4xl mx-auto"
+          />
         </div>
       </section>
 
@@ -235,14 +248,32 @@ export default async function BlogPost({ params }: Props) {
       <section className="section">
         <div className="container">
           <div className="max-w-4xl mx-auto">
-            <article className="prose prose-invert prose-lg max-w-none">
-              <div 
+            {/* Quick Save Time CTA - Early in article */}
+            <SaveTimeCTA className="mb-12" />
+            
+            <BlogContent>
+              <article 
                 dangerouslySetInnerHTML={{ 
                   __html: htmlContent
                 }}
               />
-            </article>
+            </BlogContent>
+            
+            {/* Mid-article CTA */}
+            <GetStartedCTA className="my-12" />
           </div>
+        </div>
+      </section>
+      
+      {/* Author Card - Bottom */}
+      <section className="section-sm border-t border-white/10">
+        <div className="container">
+          <AuthorCard
+            authorName={postMeta.author || 'Promptly Team'}
+            showFullBio={true}
+            variant="footer"
+            className="max-w-4xl mx-auto"
+          />
         </div>
       </section>
 
@@ -279,24 +310,56 @@ export default async function BlogPost({ params }: Props) {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-slate-800/50 py-16">
-        <div className="container text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Ready to Transform Your Teaching?
-          </h2>
-          <p className="text-xl text-slate-300 mb-8">
-            Join thousands of educators who are saving time while improving student outcomes.
-          </p>
-          <Link 
-            href="/waitlist"
-            className="inline-flex items-center px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg transition-colors shadow-card focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900"
-          >
-            Get Started Today
-            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </Link>
+      {/* Final CTA Section with Founder */}
+      <section className="bg-gradient-to-br from-slate-800 to-slate-900 py-16">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-slate-800/40 border border-white/10 rounded-2xl p-8">
+              <div className="flex flex-col lg:flex-row items-center gap-8">
+                {/* Founder Photo */}
+                <div className="flex-shrink-0">
+                  <div className="relative w-24 h-24 rounded-full overflow-hidden border-3 border-brand-500/30">
+                    <img
+                      src="/images/founder-gb-v1.jpg"
+                      alt="Dr. Greg Blackburn"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+                
+                {/* Content */}
+                <div className="flex-1 text-center lg:text-left">
+                  <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                    Ready to Reclaim Your Evenings?
+                  </h2>
+                  <p className="text-lg text-slate-300 mb-6 leading-relaxed">
+                    "I built Promptly because I understand how overwhelming teaching can feel. You shouldn't have to choose between great feedback and personal time."
+                  </p>
+                  <p className="text-sm text-slate-400 mb-6">
+                    <strong className="text-white">Dr. Greg Blackburn</strong> • Founder & Fellow Educator
+                  </p>
+                  
+                  <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
+                    <Link 
+                      href="/waitlist"
+                      className="inline-flex items-center px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg transition-colors shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+                    >
+                      Start Saving Time Today
+                      <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
+                    <Link 
+                      href="/about"
+                      className="text-brand-400 hover:text-brand-300 font-medium transition-colors"
+                    >
+                      Learn more about our story →
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       </div>

@@ -23,31 +23,36 @@ export default async function RelatedPosts({ currentSlug, className = '' }: Rela
 
   return (
     <section className={`${className}`}>
-      <h2 className="text-2xl font-semibold text-white mb-8">Related Articles</h2>
+      <div className="text-center mb-12">
+        <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">
+          Continue Your Learning Journey
+        </h2>
+        <p className="text-slate-400 text-lg">
+          More teacher-friendly insights to help you save time and reduce stress
+        </p>
+      </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {relatedPosts.map((post) => (
           <article
             key={post.slug}
-            className="group rounded-2xl shadow-card border border-white/10 bg-slate-900/60 hover:bg-slate-900/80 transition-all duration-200"
+            className="group rounded-2xl shadow-lg border border-white/10 bg-slate-800/40 hover:bg-slate-800/60 hover:border-brand-500/30 transition-all duration-300 overflow-hidden"
           >
-            <div className="p-6">
-              {/* Category/Tags */}
-              <div className="flex items-center gap-2 mb-3">
+            {/* Card Image Placeholder */}
+            <div className="h-48 bg-gradient-to-br from-brand-600/20 to-slate-700/40 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
                 {post.category && (
-                  <span className="px-2 py-1 bg-brand-600/20 text-brand-400 text-xs rounded-full font-medium">
+                  <span className="inline-block px-3 py-1 bg-brand-600 text-white text-xs rounded-full font-medium mb-2">
                     {post.category}
                   </span>
                 )}
-                {post.tags && post.tags.length > 0 && (
-                  <span className="px-2 py-1 bg-slate-700/50 text-slate-400 text-xs rounded-full">
-                    {post.tags[0]}
-                  </span>
-                )}
               </div>
-
+            </div>
+            
+            <div className="p-6">
               {/* Title */}
-              <h3 className="text-lg font-semibold text-white mb-3 leading-tight">
+              <h3 className="text-lg font-semibold text-white mb-3 leading-tight group-hover:text-brand-400 transition-colors">
                 <Link 
                   href={`/blog/${post.slug}`}
                   className="hover:text-brand-400 transition-colors"
@@ -62,28 +67,28 @@ export default async function RelatedPosts({ currentSlug, className = '' }: Rela
               </p>
 
               {/* Meta */}
-              <div className="flex items-center justify-between text-xs text-slate-400">
+              <div className="flex items-center justify-between text-xs text-slate-400 mb-4">
                 <div className="flex items-center gap-2">
-                  <span>{post.author}</span>
+                  <span className="font-medium">{post.author}</span>
                   <span>•</span>
                   <time dateTime={post.date}>
                     {formatDate(post.date)}
                   </time>
                 </div>
                 {post.readTime && (
-                  <span>{post.readTime}</span>
+                  <span className="bg-slate-700/50 px-2 py-1 rounded text-xs">
+                    {post.readTime}
+                  </span>
                 )}
               </div>
-            </div>
 
-            {/* Read more hover effect */}
-            <div className="px-6 pb-6">
+              {/* Read more button */}
               <Link
                 href={`/blog/${post.slug}`}
-                className="inline-flex items-center text-brand-400 hover:text-brand-300 text-sm font-medium transition-colors group-hover:translate-x-1 transform duration-200"
+                className="inline-flex items-center w-full justify-center px-4 py-2 bg-brand-600/20 hover:bg-brand-600/30 text-brand-400 hover:text-brand-300 text-sm font-medium rounded-lg transition-all duration-200 group-hover:bg-brand-600 group-hover:text-white"
               >
-                Read more
-                <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                Read Article
+                <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </Link>
