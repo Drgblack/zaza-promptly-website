@@ -99,32 +99,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-    other: [
-      {
-        rel: "icon",
-        url: "/favicon.svg",
-        type: "image/svg+xml",
-      },
-      {
-        rel: "icon",
-        url: "/favicon-32x32.svg",
-        sizes: "32x32",
-        type: "image/svg+xml",
-      },
-      {
-        rel: "icon",
-        url: "/favicon-16x16.svg", 
-        sizes: "16x16",
-        type: "image/svg+xml",
-      },
-      {
-        rel: "manifest",
-        url: "/site.webmanifest",
-      },
-    ],
+    icon: '/icon.png?v=3',
+    shortcut: '/icon.png?v=3',
+    apple: '/apple-icon.png?v=3',
   },
   alternates: {
     canonical: "/",
