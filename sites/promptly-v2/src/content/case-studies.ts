@@ -22,8 +22,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     role: "Head of Year 7",
     org: "Greenfield Academy",
     dateISO: "2024-12-15",
-    cover: "/images/case-studies/saving-hours-per-week.jpg",
-    heroAlt: "Teacher preparing report comments efficiently",
+    // cover: "/images/case-studies/saving-hours-per-week.jpg",
+    // heroAlt: "Teacher preparing report comments efficiently",
     body: `
 ## Overview
 Before Promptly, report comments took hours. With Promptly, Sarah reduced weekly comment writing from ~4 hours to under 60 minutes.
@@ -79,8 +79,8 @@ Within my first week using Promptly:
     role: "Science Teacher & Form Tutor",
     org: "Oaklands Secondary School",
     dateISO: "2024-11-28",
-    cover: "/images/case-studies/better-parent-communication.jpg",
-    heroAlt: "Teacher sharing feedback with parent",
+    // cover: "/images/case-studies/better-parent-communication.jpg",
+    // heroAlt: "Teacher sharing feedback with parent",
     body: `
 ## Overview
 Family communications used to be inconsistent. Promptly standardized tone and clarity.
@@ -126,8 +126,8 @@ When parents understand progress clearly, they become better learning partners:
     role: "Field Notes",
     org: "St. Mary's Primary School",
     dateISO: "2024-11-20",
-    cover: "/images/case-studies/saving-hours-per-week.jpg",
-    heroAlt: "Teacher completing reports quickly",
+    // cover: "/images/case-studies/saving-hours-per-week.jpg",
+    // heroAlt: "Teacher completing reports quickly",
     body: `
 ## Overview
 When report season hit, Sarah needed a safe, repeatable way to produce high-quality comments quickly.
