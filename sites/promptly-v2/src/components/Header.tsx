@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 import ThemeToggle from './ui/ThemeToggle'
 import LanguageSwitcher from './nav/LanguageSwitcher'
@@ -153,15 +154,15 @@ export default function Header() {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded-lg p-1">
-              <img 
-                src="/images/logo/zaza-logo.svg" 
-                alt="Zaza Logo" 
-                className="h-6 sm:h-7 lg:h-8 w-auto"
-                width={32}
-                height={32}
+            <Link href="/" aria-label="Zaza Promptly home" className="flex items-center gap-2">
+              <Image
+                src="/images/zaza-logo.png"
+                alt="Zaza Promptly logo"
+                width={28}
+                height={28}
+                priority
               />
-              <span className="text-xl font-bold text-white">Promptly</span>
+              <span className="font-semibold text-xl text-white">Promptly</span>
             </Link>
           </div>
 
