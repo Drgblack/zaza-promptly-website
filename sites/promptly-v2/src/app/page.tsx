@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import SnippetToolV2 from '@/components/sections/SnippetToolV2'
 import LogoCloud from '@/components/marketing/LogoCloud'
 import EnhancedTestimonials from '@/components/testimonials/EnhancedTestimonials'
@@ -717,8 +718,18 @@ export default function Home() {
                     {/* Left side: Founder Photo */}
                     <div className="order-2 lg:order-1 flex justify-center lg:justify-start">
                       <div className="relative">
-                        <div className="w-80 h-80 rounded-full overflow-hidden shadow-xl border-4 border-slate-100 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                          <div className="text-white text-6xl font-bold">GB</div>
+                        <div className="w-80 h-80 rounded-full overflow-hidden shadow-xl border-4 border-slate-100">
+                          <Image
+                            src="/images/founder-new.jpg"
+                            alt="Dr Greg Blackburn — Founder & CEO, Zaza Technologies"
+                            width={320}
+                            height={320}
+                            loading="lazy"
+                            decoding="async"
+                            className="w-full h-full object-cover"
+                            sizes="(max-width: 768px) 240px, 320px"
+                            priority={false}
+                          />
                         </div>
                         {/* Decorative elements */}
                         <div className="absolute -top-4 -right-4 w-8 h-8 bg-blue-500 rounded-full opacity-20"></div>
