@@ -162,7 +162,7 @@ export default function Home() {
               {/* Primary CTA */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                 <Link 
-                  href="/waitlist"
+                  href="/signup"
                   className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors shadow-xl text-lg"
                 >
                   Try it free — 5 comments this month
@@ -188,6 +188,123 @@ export default function Home() {
 
         {/* Logo Cloud - Social Proof */}
         <LogoCloud className="bg-slate-800/50" />
+
+        {/* BEFORE/AFTER PRODUCT PROOF */}
+        <section className="py-16 bg-gradient-to-br from-slate-800 to-slate-900">
+          <div className="container">
+            <ScrollReveal>
+              <div className="text-center mb-12">
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                  See Promptly transform your comments in seconds
+                </h2>
+                <p className="text-slate-300 max-w-2xl mx-auto">
+                  Real examples from teachers using Promptly. Same information, professional tone, parent-friendly language.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+              {/* Example 1 */}
+              <ScrollReveal delay={0.1}>
+                <div className="bg-slate-900/60 rounded-2xl p-6 border border-slate-700">
+                  <div className="mb-6">
+                    <div className="flex items-center mb-3">
+                      <div className="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center mr-3">
+                        <span className="text-red-400 text-sm">⚠️</span>
+                      </div>
+                      <span className="text-red-400 font-medium text-sm">BEFORE</span>
+                    </div>
+                    <div className="bg-red-950/30 border border-red-500/30 rounded-lg p-4">
+                      <p className="text-slate-300 text-sm leading-relaxed">
+                        "Emma struggles with fractions and needs extra support at home."
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mb-4">
+                    <div className="flex items-center mb-3">
+                      <div className="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center mr-3">
+                        <span className="text-green-400 text-sm">✨</span>
+                      </div>
+                      <span className="text-green-400 font-medium text-sm">AFTER (Supportive tone)</span>
+                    </div>
+                    <div className="bg-green-950/30 border border-green-500/30 rounded-lg p-4">
+                      <p className="text-slate-200 text-sm leading-relaxed">
+                        "Emma is working hard to understand fractions, which can be challenging for many Year 4 students. With some additional practice at home—perhaps using visual aids like pizza slices or fraction strips—I'm confident she'll make great progress. I'd be happy to share some specific activities that might help."
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="text-center">
+                    <span className="inline-flex items-center px-3 py-1 bg-blue-600/20 border border-blue-500/50 rounded-full text-blue-300 text-xs">
+                      <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                      Transformed in 3 seconds
+                    </span>
+                  </div>
+                </div>
+              </ScrollReveal>
+
+              {/* Example 2 */}
+              <ScrollReveal delay={0.2}>
+                <div className="bg-slate-900/60 rounded-2xl p-6 border border-slate-700">
+                  <div className="mb-6">
+                    <div className="flex items-center mb-3">
+                      <div className="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center mr-3">
+                        <span className="text-red-400 text-sm">⚠️</span>
+                      </div>
+                      <span className="text-red-400 font-medium text-sm">BEFORE</span>
+                    </div>
+                    <div className="bg-red-950/30 border border-red-500/30 rounded-lg p-4">
+                      <p className="text-slate-300 text-sm leading-relaxed">
+                        "Jake was talking during quiet reading time and disturbed others."
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mb-4">
+                    <div className="flex items-center mb-3">
+                      <div className="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center mr-3">
+                        <span className="text-green-400 text-sm">✨</span>
+                      </div>
+                      <span className="text-green-400 font-medium text-sm">AFTER (Firm but Kind tone)</span>
+                    </div>
+                    <div className="bg-green-950/30 border border-green-500/30 rounded-lg p-4">
+                      <p className="text-slate-200 text-sm leading-relaxed">
+                        "During today's reading time, Jake found it challenging to maintain the quiet environment we need for concentration. We discussed the importance of respecting others' learning time, and he was receptive to the conversation. Moving forward, we'll work together on strategies to help him channel his enthusiasm more appropriately during independent work."
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="text-center">
+                    <span className="inline-flex items-center px-3 py-1 bg-blue-600/20 border border-blue-500/50 rounded-full text-blue-300 text-xs">
+                      <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                      Transformed in 3 seconds
+                    </span>
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
+
+            {/* CTA after proof */}
+            <ScrollReveal delay={0.3}>
+              <div className="text-center mt-12">
+                <Link 
+                  href="#demo"
+                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg transition-colors shadow-xl text-lg"
+                >
+                  Try it with your own comment
+                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
+                  </svg>
+                </Link>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
 
         {/* 2. PROBLEM SECTION - Workflow Pain */}
         <section className="section bg-slate-900">
@@ -272,7 +389,7 @@ export default function Home() {
             <ScrollReveal delay={0.2}>
               <div className="text-center mt-12">
                 <Link 
-                  href="/waitlist"
+                  href="/signup"
                   className="inline-flex items-center px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors shadow-lg text-lg"
                 >
                   Start saving hours today — free plan included
@@ -408,6 +525,90 @@ export default function Home() {
         {/* Traditional testimonials for additional social proof */}
         <Testimonials className="bg-slate-900" />
 
+        {/* FOUNDER SECTION - Trust Building */}
+        <section className="py-20 bg-white">
+          <div className="container">
+            <div className="max-w-6xl mx-auto">
+              <ScrollReveal>
+                <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-slate-200">
+                  <div className="grid lg:grid-cols-2 gap-12 items-center">
+                    {/* Left side: Founder Photo */}
+                    <div className="order-2 lg:order-1 flex justify-center lg:justify-start">
+                      <div className="relative">
+                        <div className="w-80 h-80 rounded-full overflow-hidden shadow-xl border-4 border-slate-100">
+                          <img 
+                            src="/images/founder-placeholder.jpg" 
+                            alt="Dr Greg Blackburn, Founder & CEO of Zaza Technologies" 
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              // Fallback to a colored placeholder if image doesn't exist
+                              const target = e.target as HTMLImageElement;
+                              target.style.display = 'none';
+                              target.nextElementSibling?.classList.remove('hidden');
+                            }}
+                          />
+                          <div className="hidden w-full h-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                            <div className="text-white text-6xl font-bold">GB</div>
+                          </div>
+                        </div>
+                        {/* Decorative elements */}
+                        <div className="absolute -top-4 -right-4 w-8 h-8 bg-blue-500 rounded-full opacity-20"></div>
+                        <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-purple-500 rounded-full opacity-15"></div>
+                      </div>
+                    </div>
+                    
+                    {/* Right side: Founder Bio */}
+                    <div className="order-1 lg:order-2 space-y-6">
+                      <div>
+                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">
+                          Dr Greg Blackburn
+                        </h2>
+                        <p className="text-xl text-blue-600 font-semibold mb-6">
+                          Founder & CEO, Zaza Technologies
+                        </p>
+                      </div>
+                      
+                      <div className="prose prose-lg max-w-none">
+                        <p className="text-slate-700 leading-relaxed mb-4">
+                          Dr Greg Blackburn holds a <strong className="text-slate-900">PhD in Professional Education</strong> from City, University of London, where his research focused on <strong className="text-slate-900">critical thinking and problem-solving in student-centred eLearning</strong>. With over 20 years' experience in <strong className="text-slate-900">Learning & Development and educational technology</strong>, Greg has worked across universities, corporate training, and EdTech innovation.
+                        </p>
+                        
+                        <p className="text-slate-700 leading-relaxed">
+                          He founded <strong className="text-slate-900">Zaza Technologies</strong> with a simple mission: to give teachers back their <strong className="text-slate-900">time, confidence, and creativity</strong> by building safe, empathetic AI tools that actually reduce workload. As both a researcher and a parent, Greg understands the pressures teachers face and is committed to creating trustworthy solutions that empower educators worldwide.
+                        </p>
+                      </div>
+                      
+                      {/* Credentials badges */}
+                      <div className="flex flex-wrap gap-3 pt-4">
+                        <div className="inline-flex items-center px-4 py-2 bg-blue-50 border border-blue-200 rounded-full">
+                          <svg className="w-4 h-4 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C20.832 18.477 19.246 18 17.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                          </svg>
+                          <span className="text-sm font-medium text-blue-700">PhD in Professional Education</span>
+                        </div>
+                        
+                        <div className="inline-flex items-center px-4 py-2 bg-purple-50 border border-purple-200 rounded-full">
+                          <svg className="w-4 h-4 text-purple-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                          </svg>
+                          <span className="text-sm font-medium text-purple-700">20+ Years EdTech</span>
+                        </div>
+                        
+                        <div className="inline-flex items-center px-4 py-2 bg-green-50 border border-green-200 rounded-full">
+                          <svg className="w-4 h-4 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                          </svg>
+                          <span className="text-sm font-medium text-green-700">Parent & Educator</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
+          </div>
+        </section>
+
         {/* 6. FINAL CTA */}
         <section className="section bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-900">
           <div className="container">
@@ -422,7 +623,7 @@ export default function Home() {
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                   <Link 
-                    href="/waitlist"
+                    href="/signup"
                     className="inline-flex items-center px-10 py-5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors shadow-2xl text-xl"
                   >
                     Start saving hours today — free plan included

@@ -27,9 +27,12 @@ interface SnippetToolProps {
 }
 
 const SAMPLE_COMMENTS = [
-  "Johnny needs to work harder on his math.",
-  "Sarah was disruptive in class today.",
-  "Great progress this week!"
+  "Emma struggles with fractions and needs extra support at home.",
+  "Jake was talking during quiet reading time and disturbed others.",
+  "Alex has shown excellent improvement in writing this term.",
+  "Parent meeting requested - concerned about homework completion.",
+  "Liam had difficulty focusing during math lesson today.",
+  "Sophie's presentation on Ancient Egypt was outstanding - well researched and confident delivery."
 ]
 
 const TONE_OPTIONS = [
