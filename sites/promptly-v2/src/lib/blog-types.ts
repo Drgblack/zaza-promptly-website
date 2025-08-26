@@ -10,6 +10,7 @@ export type PostMeta = {
   category?: string
   featured?: boolean
   content?: string
+  image?: string // Custom social/header image for the post
   // Draft and scheduling support
   isDraft?: boolean
   isPublished?: boolean
