@@ -1,11 +1,10 @@
 import { MetadataRoute } from 'next'
 import { getPostSlugs, getAllTags, getAllAuthors, getAllPostsMeta, slugifyAuthor, slugifyTag } from '@/lib/blog'
-import { getCaseStudySlugs } from '@/lib/case-studies'
+import { CASE_STUDIES } from '@/content/case-studies'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.zazapromptly.com'
   const slugs = getPostSlugs()
-  const caseStudySlugs = getCaseStudySlugs()
   const tags = await getAllTags()
   const authors = await getAllAuthors()
   const allPosts = await getAllPostsMeta()
@@ -125,9 +124,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
     
     // Case studies
-    ...caseStudySlugs.map((slug) => ({
-      url: `${baseUrl}/case-studies/${slug}`,
-      lastModified: new Date(),
+    ...CASE_STUDIES.map((caseStudy) => ({
+      url: `${baseUrl}/case-studies/${caseStudy.slug}`,
+      lastModified: new Date(caseStudy.dateISO),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     })),

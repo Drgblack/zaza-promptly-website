@@ -46,26 +46,26 @@ export default function NotFound() {
           <p className="text-sm mb-4">Or explore these popular sections:</p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
           <Link 
-            href="/about"
-            className="group p-4 rounded-2xl bg-slate-800/60 hover:bg-slate-800/80 border border-white/5 hover:border-white/10 transition-all duration-200 shadow-card hover:shadow-focus focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900"
-          >
-            <div className="w-10 h-10 bg-blue-600/20 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:bg-blue-600/30 transition-colors">
-              <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
-            </div>
-            <h3 className="font-medium text-white text-sm mb-1">About</h3>
-            <p className="text-xs text-slate-400">Our story</p>
-          </Link>
-
-          <Link 
-            href="/blog"
+            href="/case-studies"
             className="group p-4 rounded-2xl bg-slate-800/60 hover:bg-slate-800/80 border border-white/5 hover:border-white/10 transition-all duration-200 shadow-card hover:shadow-focus focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900"
           >
             <div className="w-10 h-10 bg-brand-600/20 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:bg-brand-600/30 transition-colors">
               <svg className="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            </div>
+            <h3 className="font-medium text-white text-sm mb-1">Case Studies</h3>
+            <p className="text-xs text-slate-400">Teacher stories</p>
+          </Link>
+
+          <Link 
+            href="/blog"
+            className="group p-4 rounded-2xl bg-slate-800/60 hover:bg-slate-800/80 border border-white/5 hover:border-white/10 transition-all duration-200 shadow-card hover:shadow-focus focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+          >
+            <div className="w-10 h-10 bg-blue-600/20 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:bg-blue-600/30 transition-colors">
+              <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
             </div>
@@ -87,16 +87,16 @@ export default function NotFound() {
           </Link>
 
           <Link 
-            href="/contact"
+            href="/free-resources"
             className="group p-4 rounded-2xl bg-slate-800/60 hover:bg-slate-800/80 border border-white/5 hover:border-white/10 transition-all duration-200 shadow-card hover:shadow-focus focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900"
           >
             <div className="w-10 h-10 bg-purple-600/20 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:bg-purple-600/30 transition-colors">
               <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
             </div>
-            <h3 className="font-medium text-white text-sm mb-1">Support</h3>
-            <p className="text-xs text-slate-400">Get help</p>
+            <h3 className="font-medium text-white text-sm mb-1">Resources</h3>
+            <p className="text-xs text-slate-400">Free downloads</p>
           </Link>
         </div>
 
