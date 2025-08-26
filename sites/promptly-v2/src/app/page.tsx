@@ -386,19 +386,20 @@ export default function Home() {
               <SnippetToolV2 />
             </ScrollReveal>
 
-            {/* Post-demo CTA */}
+            {/* Mid-Page CTA */}
             <ScrollReveal delay={0.2}>
-              <div className="text-center mt-12">
-                <Link 
-                  href="/signup"
-                  className="inline-flex items-center px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors shadow-lg text-lg"
-                >
-                  Start saving hours today — free plan included
-                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
+              <section className="text-center py-16">
+                <h2 className="text-2xl font-bold text-white mb-4">Ready to save hours each week?</h2>
+                <p className="mb-6 text-slate-300">Join 12,000+ teachers using Promptly to reclaim time and reduce stress.</p>
+                <div className="flex flex-col sm:flex-row justify-center gap-4">
+                  <a href="/pricing#pro" className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors hover:scale-105 transition-transform">
+                    Upgrade to Pro – €14.99/month
+                  </a>
+                  <a href="/pricing#download" className="inline-flex items-center justify-center px-8 py-4 border border-white/20 text-white hover:bg-white/5 font-medium rounded-lg transition-colors hover:scale-105 transition-transform">
+                    Download the App
+                  </a>
+                </div>
+              </section>
             </ScrollReveal>
           </div>
         </section>
@@ -789,33 +790,21 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 6. FINAL CTA */}
-        <section className="section bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-900">
+        {/* End-Page CTA */}
+        <section className="text-center py-16 bg-gradient-to-b from-slate-900 to-slate-800">
           <div className="container">
             <ScrollReveal>
-              <div className="max-w-4xl mx-auto text-center">
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                  Ready to get your evenings back?
-                </h2>
-                <p className="text-xl text-slate-300 mb-8 max-w-3xl mx-auto">
-                  Join 12,000+ teachers who've stopped staying up late writing reports. Start with 5 free comments this month.
-                </p>
-                
-                <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                  <Link 
-                    href="/signup"
-                    className="inline-flex items-center px-10 py-5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors shadow-2xl text-xl"
-                  >
-                    Start saving hours today — free plan included
-                    <svg className="ml-3 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </Link>
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-2xl font-bold text-white mb-4">Start free today – your first 5 comments are on us</h2>
+                <p className="mb-6 text-slate-300">No credit card required. Cancel anytime.</p>
+                <div className="flex flex-col sm:flex-row justify-center gap-4">
+                  <a href="/pricing#free" className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors hover:scale-105 transition-transform">
+                    Try Promptly Free
+                  </a>
+                  <a href="/pricing" className="inline-flex items-center justify-center px-8 py-4 border border-white/20 text-white hover:bg-white/5 font-medium rounded-lg transition-colors hover:scale-105 transition-transform">
+                    See Plans & Pricing
+                  </a>
                 </div>
-                
-                <p className="text-slate-400 text-sm">
-                  No credit card required • 5 comments free this month • Created by teachers, for teachers
-                </p>
               </div>
             </ScrollReveal>
           </div>

@@ -148,18 +148,17 @@ export default function SiteFooter() {
         {/* Get the app */}
         <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800">
           <div className="text-center">
-            <h3 className="text-sm font-semibold text-slate-900 dark:text-white uppercase tracking-wider mb-4">
+            <h3 className="text-sm font-semibold text-slate-900 dark:text-white uppercase tracking-wider mb-2">
               Get the app
             </h3>
+            <p className="text-xs text-slate-600 dark:text-slate-400 mb-4">Available on iOS & Android (coming soon)</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <a 
-                href="https://placeholder-ios-store-link.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
+                href="#" 
                 className="hover:opacity-80 transition-opacity"
               >
                 <Image 
-                  src="/images/appstore-badge.svg" 
+                  src="/images/appstore-badge.png" 
                   alt="Download on the App Store" 
                   width={120} 
                   height={36} 
@@ -167,13 +166,11 @@ export default function SiteFooter() {
                 />
               </a>
               <a 
-                href="https://placeholder-google-play-link.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
+                href="#" 
                 className="hover:opacity-80 transition-opacity"
               >
                 <Image 
-                  src="/images/googleplay-badge.svg" 
+                  src="/images/googleplay-badge.png" 
                   alt="Get it on Google Play" 
                   width={120} 
                   height={36} 

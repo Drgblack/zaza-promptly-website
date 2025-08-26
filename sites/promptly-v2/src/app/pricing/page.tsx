@@ -3,6 +3,7 @@ import { Suspense } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { generateSEOMetadata, seoConfigs } from '@/lib/seo/metadata'
+import CheckoutButton from '@/components/pricing/CheckoutButton'
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
 
@@ -107,7 +108,7 @@ export default function PricingPage() {
           <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             
             {/* Free Plan */}
-            <div className="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 relative">
+            <div id="free" className="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 relative">
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-white mb-2">Free</h3>
                 <p className="text-slate-400 text-sm mb-6">Perfect for trying Promptly</p>
@@ -138,16 +139,16 @@ export default function PricingPage() {
                 </li>
               </ul>
 
-              <Link
-                href="/waitlist"
+              <CheckoutButton
+                plan="free"
                 className="w-full bg-slate-700 hover:bg-slate-600 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center"
               >
                 Start free
-              </Link>
+              </CheckoutButton>
             </div>
 
             {/* Pro Plan - Most Popular */}
-            <div className="bg-gradient-to-b from-blue-900/30 to-purple-900/30 border-2 border-blue-500 rounded-2xl p-8 relative">
+            <div id="pro" className="bg-gradient-to-b from-blue-900/30 to-purple-900/30 border-2 border-blue-500 rounded-2xl p-8 relative">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                 <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white text-sm font-medium px-4 py-1 rounded-full">
                   Most Popular
@@ -190,16 +191,16 @@ export default function PricingPage() {
                 </li>
               </ul>
 
-              <Link
-                href="/waitlist"
+              <CheckoutButton
+                plan="pro"
                 className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-4 rounded-lg transition-all flex items-center justify-center"
               >
                 Upgrade to Pro
-              </Link>
+              </CheckoutButton>
             </div>
 
             {/* Bundle Plan */}
-            <div className="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 relative">
+            <div id="bundle" className="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 relative">
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-white mb-2">Bundle</h3>
                 <p className="text-slate-400 text-sm mb-6">Complete teaching toolkit</p>
@@ -237,12 +238,12 @@ export default function PricingPage() {
                 </li>
               </ul>
 
-              <Link
-                href="/waitlist"
+              <CheckoutButton
+                plan="bundle"
                 className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center"
               >
                 Get the bundle
-              </Link>
+              </CheckoutButton>
             </div>
           </div>
         </div>
@@ -257,13 +258,11 @@ export default function PricingPage() {
             </h2>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a 
-                href="https://placeholder-ios-store-link.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
+                href="#" 
                 className="hover:scale-105 transition-transform"
               >
                 <Image 
-                  src="/images/appstore-badge.svg" 
+                  src="/images/appstore-badge.png" 
                   alt="Download on the App Store" 
                   width={150} 
                   height={45} 
@@ -271,13 +270,11 @@ export default function PricingPage() {
                 />
               </a>
               <a 
-                href="https://placeholder-google-play-link.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
+                href="#" 
                 className="hover:scale-105 transition-transform"
               >
                 <Image 
-                  src="/images/googleplay-badge.svg" 
+                  src="/images/googleplay-badge.png" 
                   alt="Get it on Google Play" 
                   width={150} 
                   height={45} 
