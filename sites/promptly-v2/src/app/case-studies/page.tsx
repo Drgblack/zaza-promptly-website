@@ -72,7 +72,7 @@ export default async function CaseStudiesPage() {
 
           <ul
             className={[
-              "grid gap-5",
+              "grid gap-6",
               "sm:grid-cols-2 lg:grid-cols-3",
               "auto-rows-fr", // ensure equal-height rows
             ].join(" ")}
@@ -94,7 +94,7 @@ export default async function CaseStudiesPage() {
           </ul>
 
           {/* CTA band */}
-          <section className="mx-auto mt-14 mb-10 max-w-3xl rounded-2xl border border-white/10 bg-slate-900/50 p-6 text-center">
+          <section className="mx-auto mt-14 mb-12 max-w-3xl rounded-2xl border border-white/10 bg-slate-900/50 p-6 text-center">
             <h2 className="text-lg font-semibold text-white">Ready to write your success story?</h2>
             <p className="mt-2 text-slate-300">Join thousands of educators saving hours every week with Promptly.</p>
             <div className="mt-4 flex justify-center gap-3">

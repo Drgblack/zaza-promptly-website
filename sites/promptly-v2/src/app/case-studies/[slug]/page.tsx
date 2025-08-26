@@ -105,7 +105,7 @@ export default async function CaseStudyPage({ params }: Props) {
     '@type': 'Article',
     headline: caseStudy.title,
     description: caseStudy.excerpt,
-    image: caseStudy.cover,
+    ...(caseStudy.cover && { image: caseStudy.cover }),
     author: {
       '@type': 'Person',
       name: caseStudy.author,

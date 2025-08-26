@@ -42,7 +42,9 @@ export default function CaseStudyCard({
                 priority={false}
               />
             ) : (
-              <div className="h-full w-full bg-slate-800/60" />
+              <div className="h-full w-full bg-gradient-to-br from-purple-500/25 via-indigo-400/20 to-cyan-400/25 flex items-center justify-center">
+                <div className="text-white/60 text-4xl">📚</div>
+              </div>
             )}
           </div>
         </div>
