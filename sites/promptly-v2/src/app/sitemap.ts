@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { getPostSlugs, getAllTags, getAllAuthors, getAllPostsMeta, slugifyAuthor } from '@/lib/blog'
+import { getPostSlugs, getAllTags, getAllAuthors, getAllPostsMeta, slugifyAuthor, slugifyTag } from '@/lib/blog'
 import { getCaseStudySlugs } from '@/lib/case-studies'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -150,7 +150,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     
     // Individual tag pages
     ...tags.map((tag) => ({
-      url: `${baseUrl}/blog/tag/${encodeURIComponent(tag.toLowerCase())}`,
+      url: `${baseUrl}/blog/tag/${slugifyTag(tag)}`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.5,

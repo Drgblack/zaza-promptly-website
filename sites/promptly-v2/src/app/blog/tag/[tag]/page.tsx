@@ -19,9 +19,29 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: TagPageProps): Promise<Metadata> {
-  const tag = unslugifyTag(params.tag)
+  // Handle both URL-encoded and slugified tag formats
+  let tag = decodeURIComponent(params.tag)
   
-  const posts = await getPostsByTag(tag)
+  // If it's a slugified tag (contains hyphens), convert it back
+  if (tag.includes('-') && !tag.includes(' ')) {
+    tag = unslugifyTag(tag)
+  }
+  
+  // Try to find posts with exact tag match first
+  let posts = await getPostsByTag(tag)
+  
+  // If no posts found, try lowercase version
+  if (posts.length === 0) {
+    posts = await getPostsByTag(tag.toLowerCase())
+  }
+  
+  // If still no posts found, try title case version
+  if (posts.length === 0) {
+    const titleCaseTag = tag.split(' ').map(word => 
+      word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+    ).join(' ')
+    posts = await getPostsByTag(titleCaseTag)
+  }
   
   if (posts.length === 0) {
     return {
@@ -29,24 +49,55 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
     }
   }
 
+  // Use the actual tag from the first post for display consistency
+  const displayTag = posts[0].tags?.find(t => 
+    t.toLowerCase() === tag.toLowerCase()
+  ) || tag
+
   return {
-    title: `${tag} Articles | Promptly Blog`,
-    description: `Browse all articles tagged with "${tag}". Find insights, tips, and best practices for educators using AI-powered tools.`,
+    title: `${displayTag} Articles | Promptly Blog`,
+    description: `Browse all articles tagged with "${displayTag}". Find insights, tips, and best practices for educators using AI-powered tools.`,
     openGraph: {
-      title: `${tag} Articles | Promptly Blog`,
-      description: `Browse all articles tagged with "${tag}". Find insights, tips, and best practices for educators using AI-powered tools.`,
+      title: `${displayTag} Articles | Promptly Blog`,
+      description: `Browse all articles tagged with "${displayTag}". Find insights, tips, and best practices for educators using AI-powered tools.`,
       url: `/blog/tag/${params.tag}`,
     },
   }
 }
 
 export default async function TagPage({ params }: TagPageProps) {
-  const tag = unslugifyTag(params.tag)
-  const posts = await getPostsByTag(tag)
+  // Handle both URL-encoded and slugified tag formats
+  let tag = decodeURIComponent(params.tag)
+  
+  // If it's a slugified tag (contains hyphens), convert it back
+  if (tag.includes('-') && !tag.includes(' ')) {
+    tag = unslugifyTag(tag)
+  }
+  
+  // Try to find posts with exact tag match first
+  let posts = await getPostsByTag(tag)
+  
+  // If no posts found, try lowercase version (common in many blog posts)
+  if (posts.length === 0) {
+    posts = await getPostsByTag(tag.toLowerCase())
+  }
+  
+  // If still no posts found, try title case version
+  if (posts.length === 0) {
+    const titleCaseTag = tag.split(' ').map(word => 
+      word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+    ).join(' ')
+    posts = await getPostsByTag(titleCaseTag)
+  }
   
   if (posts.length === 0) {
     notFound()
   }
+  
+  // Use the actual tag from the first post for display consistency
+  const displayTag = posts[0].tags?.find(t => 
+    t.toLowerCase() === tag.toLowerCase()
+  ) || tag
 
   return (
     <div className="min-h-screen bg-slate-900">
@@ -78,7 +129,7 @@ export default async function TagPage({ params }: TagPageProps) {
               </li>
               <li>
                 <span className="text-white font-medium">
-                  {tag}
+                  {displayTag}
                 </span>
               </li>
             </ol>
@@ -92,10 +143,10 @@ export default async function TagPage({ params }: TagPageProps) {
               Tag
             </div>
             <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-6">
-              Posts tagged &ldquo;{tag}&rdquo;
+              Posts tagged &ldquo;{displayTag}&rdquo;
             </h1>
             <p className="text-xl text-slate-300 mb-4 max-w-2xl mx-auto">
-              {posts.length} article{posts.length === 1 ? '' : 's'} about {tag.toLowerCase()}
+              {posts.length} article{posts.length === 1 ? '' : 's'} about {displayTag.toLowerCase()}
             </p>
           </div>
         </div>

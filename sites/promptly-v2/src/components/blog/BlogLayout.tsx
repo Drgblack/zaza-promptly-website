@@ -5,6 +5,7 @@ import { founder, calculateReadingTime, extractExcerpt } from '@/config/founder'
 import { SaveTimeCTA, GetStartedCTA } from './InlineCTA'
 import RelatedPosts from './RelatedPosts'
 import { marked } from 'marked'
+import { slugifyTag } from '@/lib/blog-types'
 
 interface BlogLayoutProps {
   title: string
@@ -245,7 +246,7 @@ export default function BlogLayout({
                 {tags.map((tag: string) => (
                   <Link
                     key={tag}
-                    href={`/blog/tag/${encodeURIComponent(tag.toLowerCase())}`}
+                    href={`/blog/tag/${slugifyTag(tag)}`}
                     className="px-3 py-1 bg-brand-600/20 text-brand-400 hover:bg-brand-600/30 hover:text-brand-300 text-sm rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900"
                   >
                     {tag}
