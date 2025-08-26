@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import EmailSignupForm from '@/components/forms/EmailSignupForm'
 
 export const metadata: Metadata = {
   title: 'AI for Secondary Teachers | Scale Report Comments & Parent Messages | Promptly',
@@ -88,6 +89,22 @@ export default function SecondaryTeachersPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Email Signup Form */}
+      <section className="py-12 bg-slate-800">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto flex justify-center">
+            <EmailSignupForm 
+              variant="compact"
+              headline="Get updates made for secondary teachers like you"
+              subtext="We'll share practical tips and new features built to save your time."
+              showNameFields={false}
+              buttonText="Get Updates"
+              className="w-full max-w-md"
+            />
           </div>
         </div>
       </section>

@@ -5,6 +5,7 @@ import LogoCloud from '@/components/marketing/LogoCloud'
 import EnhancedTestimonials from '@/components/testimonials/EnhancedTestimonials'
 import { quickTestimonials } from '@/data/teacherTestimonials'
 import ScrollReveal from '@/components/animations/ScrollReveal'
+import EmailSignupForm from '@/components/forms/EmailSignupForm'
 import dynamic from 'next/dynamic'
 
 // Lazy load testimonials as they're below the fold
@@ -184,6 +185,21 @@ export default function Home() {
                 Created by <strong>Dr. Greg Blackburn, PhD in Professional Education</strong> • Trusted by 12,000+ teachers
               </p>
             </div>
+          </div>
+        </section>
+
+        {/* Email Signup Form */}
+        <section className="py-16 bg-slate-50">
+          <div className="container">
+            <ScrollReveal>
+              <EmailSignupForm 
+                variant="hero"
+                headline="Take back your evenings — join thousands of teachers already saving hours."
+                subtext="Sign up free today. No spam, just time-saving tools for teachers."
+                showNameFields={true}
+                buttonText="Join Free Today →"
+              />
+            </ScrollReveal>
           </div>
         </section>
 

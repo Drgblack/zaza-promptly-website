@@ -1,0 +1,125 @@
+import { NextRequest, NextResponse } from 'next/server'
+import { capture } from '../../../lib/obs'
+
+interface SubscriptionRequest {
+  email: string
+  firstName?: string
+  lastName?: string
+}
+
+export async function POST(request: NextRequest) {
+  let body: SubscriptionRequest = { email: '' }
+  
+  try {
+    body = await request.json()
+    const { email, firstName, lastName } = body
+
+    // Validate required fields
+    if (!email || !email.trim()) {
+      return NextResponse.json(
+        { success: false, error: 'Email is required' },
+        { status: 400 }
+      )
+    }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(email.trim())) {
+      return NextResponse.json(
+        { success: false, error: 'Please enter a valid email address' },
+        { status: 400 }
+      )
+    }
+
+    // Check if Brevo is configured
+    if (!process.env.BREVO_API_KEY) {
+      console.warn("Brevo API key missing — subscription request logged but not processed")
+      capture({ 
+        event: 'subscription_fallback',
+        email: email.trim(),
+        firstName,
+        lastName,
+        reason: 'brevo_disabled'
+      })
+      
+      return NextResponse.json({
+        success: true,
+        message: 'Thanks for subscribing! We\'ll be in touch soon.'
+      })
+    }
+
+    // Prepare Brevo contact data
+    const contactData: any = {
+      email: email.trim(),
+      attributes: {},
+      updateEnabled: true
+    }
+
+    if (firstName?.trim()) {
+      contactData.attributes.FIRSTNAME = firstName.trim()
+    }
+    if (lastName?.trim()) {
+      contactData.attributes.LASTNAME = lastName.trim()
+    }
+
+    // Add subscription timestamp
+    contactData.attributes.SUBSCRIBED_AT = new Date().toISOString()
+    contactData.attributes.SOURCE = 'website_form'
+
+    // Send to Brevo
+    const brevoResponse = await fetch('https://api.brevo.com/v3/contacts', {
+      method: 'POST',
+      headers: {
+        'accept': 'application/json',
+        'api-key': process.env.BREVO_API_KEY,
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(contactData)
+    })
+
+    const brevoData = await brevoResponse.json()
+
+    if (!brevoResponse.ok) {
+      // Handle duplicate contact (already subscribed)
+      if (brevoResponse.status === 400 && brevoData.code === 'duplicate_parameter') {
+        return NextResponse.json({
+          success: true,
+          message: 'You\'re already on our list! Thanks for your interest.'
+        })
+      }
+      
+      throw new Error(`Brevo API error: ${brevoData.message || 'Unknown error'}`)
+    }
+
+    // Log successful subscription
+    capture({ 
+      event: 'subscription_success',
+      email: email.trim(),
+      firstName,
+      lastName,
+      brevo_id: brevoData.id
+    })
+
+    return NextResponse.json({
+      success: true,
+      message: 'Thanks, you\'re on the list!'
+    })
+
+  } catch (error) {
+    console.error('Subscription error:', error)
+    capture(error, { 
+      endpoint: '/api/subscribe',
+      email: body?.email,
+      userAgent: request.headers.get('user-agent'),
+      timestamp: new Date().toISOString()
+    })
+
+    return NextResponse.json(
+      { 
+        success: false, 
+        error: 'Something went wrong — please try again.' 
+      },
+      { status: 500 }
+    )
+  }
+}
