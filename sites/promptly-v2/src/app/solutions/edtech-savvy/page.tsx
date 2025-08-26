@@ -25,10 +25,10 @@ export default function EdTechSavvyPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Advanced controls for educators who want more.
+              Advanced features for education innovators
             </h1>
             <p className="text-xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Promptly gives power users flexible tone/length presets, reusable libraries, and API-ready building blocks—without complexity for everyone else.
+              You're always exploring the latest EdTech tools to improve your practice. Promptly's advanced features help you create systematic, scalable communication workflows that adapt as your teaching evolves.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
@@ -59,9 +59,9 @@ export default function EdTechSavvyPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Precision presets</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Custom tone profiles</h3>
                 <p className="text-slate-300">
-                  Create custom tone and length profiles (e.g., "Warm-Short", "Formal-Full") and apply with one click.
+                  Build signature communication styles—create "Warm Progress Update" or "Formal Academic Concern" presets that match your teaching philosophy.
                 </p>
               </div>
 
@@ -71,9 +71,9 @@ export default function EdTechSavvyPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Snippet libraries that scale</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Scalable content libraries</h3>
                 <p className="text-slate-300">
-                  Build your own comment bank; tag by subject, year group, or behaviour.
+                  Organize your best comments by subject, learning objective, or student need—build a system that grows with your expertise.
                 </p>
               </div>
 
@@ -83,9 +83,9 @@ export default function EdTechSavvyPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Integrations-ready</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Future-ready workflows</h3>
                 <p className="text-slate-300">
-                  Export easily; future APIs planned for MIS/LMS and workflow tools.
+                  Seamless export to your school's systems—with API access coming to connect your entire EdTech ecosystem.
                 </p>
               </div>
             </div>
@@ -146,10 +146,10 @@ export default function EdTechSavvyPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-white mb-6">
-              Ready for Advanced Controls?
+              Try Promptly Free — Build your teaching system
             </h2>
             <p className="text-xl text-slate-300 mb-8">
-              Join tech-forward educators who trust Promptly for precision and flexibility.
+              Join education innovators who've made Promptly the backbone of their communication workflow.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
@@ -159,10 +159,10 @@ export default function EdTechSavvyPage() {
                 Start Free
               </Link>
               <Link
-                href="/snippet"
+                href="/about"
                 className="border border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white font-semibold py-4 px-12 rounded-lg transition-all duration-300 text-xl"
               >
-                Try the demo
+                About Our Approach
               </Link>
             </div>
           </div>

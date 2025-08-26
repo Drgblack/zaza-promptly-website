@@ -31,10 +31,10 @@ export default function SpecialEducationPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Thoughtful, IEP-sensitive communication—ready to personalise.
+              Compassionate communication for every child's journey
             </h1>
             <p className="text-xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Promptly helps Special Education teachers create caring, goal-aligned comments and parent messages without losing nuance or time.
+              Writing IEP progress reports and sensitive parent conversations takes emotional energy. Promptly helps you communicate with dignity while preserving the personal touch your families deserve.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
@@ -65,9 +65,9 @@ export default function SpecialEducationPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">IEP-aware drafts</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">IEP-informed language</h3>
                 <p className="text-slate-300">
-                  Respectful language aligned to individual learning goals and accommodations.
+                  Comments that reflect individual learning goals and celebrate progress—no matter how small the steps.
                 </p>
               </div>
 
@@ -77,9 +77,9 @@ export default function SpecialEducationPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Care, clarity, and dignity</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Strength-based focus</h3>
                 <p className="text-slate-300">
-                  Tone options designed for sensitive contexts—supportive, patient, and precise.
+                  Language that honours every child's unique abilities while addressing areas of growth with empathy and hope.
                 </p>
               </div>
 
@@ -89,9 +89,9 @@ export default function SpecialEducationPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Less admin, more support</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">More time for what matters</h3>
                 <p className="text-slate-300">
-                  Draft quickly, then adapt to the student. Save personalised templates for future reviews.
+                  Spend less time wrestling with paperwork and more time building relationships with students and families.
                 </p>
               </div>
             </div>
@@ -152,10 +152,10 @@ export default function SpecialEducationPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-white mb-6">
-              Ready to Support Your Students Better?
+              Try Promptly Free — Honour every child's story
             </h2>
             <p className="text-xl text-slate-300 mb-8">
-              Join Special Education teachers who trust Promptly for thoughtful, individualised communication.
+              Join Special Education teachers who've found a better way to share each student's unique progress and potential.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
@@ -165,10 +165,10 @@ export default function SpecialEducationPage() {
                 See example comments
               </Link>
               <Link
-                href="/pricing"
+                href="/about"
                 className="border border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white font-semibold py-4 px-12 rounded-lg transition-all duration-300 text-xl"
               >
-                Start Free
+                About Our Approach
               </Link>
             </div>
           </div>

@@ -31,10 +31,10 @@ export default function UKPrimaryPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Spend less time on reports—more time with your class.
+              AI Support Built for UK Primary Teachers
             </h1>
             <p className="text-xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Promptly helps UK primary teachers write clear, parent-friendly comments aligned with EYFS and Key Stage 1–2, so Sunday nights aren't for paperwork.
+              Writing parent messages and reports in Key Stages 1 & 2 takes hours. Promptly helps you write faster while keeping your tone warm and professional — all tailored to the UK curriculum.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
@@ -65,9 +65,9 @@ export default function UKPrimaryPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Curriculum-aligned comments</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Curriculum-aligned language (EYFS + National Curriculum)</h3>
                 <p className="text-slate-300">
-                  Report lines that reference EYFS goals and National Curriculum areas. Helpful, age-appropriate language for pupils and families.
+                  Comments that naturally reference the Early Years Foundation Stage and National Curriculum areas your pupils are working towards.
                 </p>
               </div>
 
@@ -77,9 +77,9 @@ export default function UKPrimaryPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Parent-friendly tone</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Age-appropriate report comments</h3>
                 <p className="text-slate-300">
-                  Warm, professional wording that's easy to understand—great for sensitive messages and everyday updates.
+                  Language that makes sense for each key stage—celebrating progress while highlighting next steps in ways parents understand.
                 </p>
               </div>
 
@@ -89,9 +89,9 @@ export default function UKPrimaryPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Time back for teaching</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Save hours during report card season</h3>
                 <p className="text-slate-300">
-                  Draft in seconds, then personalise. Save your favourites as reusable snippets for next term.
+                  Type your thoughts naturally, then let Promptly polish them into professional comments. From first draft to final report in minutes.
                 </p>
               </div>
             </div>
@@ -152,10 +152,10 @@ export default function UKPrimaryPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-white mb-6">
-              Ready to Get Your Evenings Back?
+              Try Promptly Free — Save time on your next report
             </h2>
             <p className="text-xl text-slate-300 mb-8">
-              Join thousands of UK primary teachers saving hours every week with Promptly.
+              Join thousands of UK primary teachers who've already transformed their report writing with Promptly.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
@@ -165,10 +165,10 @@ export default function UKPrimaryPage() {
                 Start Free Trial
               </Link>
               <Link
-                href="/snippet"
+                href="/about"
                 className="border border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white font-semibold py-4 px-12 rounded-lg transition-all duration-300 text-xl"
               >
-                See a quick demo
+                About Our Approach
               </Link>
             </div>
           </div>

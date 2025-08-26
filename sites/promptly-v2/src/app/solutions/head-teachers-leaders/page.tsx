@@ -25,10 +25,10 @@ export default function HeadTeachersLeadersPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Consistent, caring communication—across your whole school.
+              Support your team, elevate your school's communication
             </h1>
             <p className="text-xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Promptly helps leaders set a positive standard for reports and parent messages, while saving staff time and supporting wellbeing.
+              You see the late nights your teachers spend on report cards and difficult parent emails. Promptly helps you support their wellbeing while maintaining the caring, professional standard your community expects.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
@@ -59,9 +59,9 @@ export default function HeadTeachersLeadersPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Consistency with flexibility</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">School-wide communication standards</h3>
                 <p className="text-slate-300">
-                  Shared templates and tone guidance that still allow teacher voice.
+                  Ensure consistent quality across all year groups and departments while preserving each teacher's authentic voice.
                 </p>
               </div>
 
@@ -71,9 +71,9 @@ export default function HeadTeachersLeadersPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Time and wellbeing</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Protect staff wellbeing</h3>
                 <p className="text-slate-300">
-                  Reduce weekend workload—finish comments faster without cutting quality.
+                  Help teachers finish report cards faster and handle difficult conversations with confidence—reducing stress and burnout.
                 </p>
               </div>
 
@@ -83,9 +83,9 @@ export default function HeadTeachersLeadersPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5-6H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V8l-5-6z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Data protection you can defend</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Peace of mind on privacy</h3>
                 <p className="text-slate-300">
-                  GDPR-aligned practices, deletion/export controls, and transparent guidance.
+                  GDPR-compliant by design with clear data policies you can confidently share with governors and parents.
                 </p>
               </div>
             </div>
@@ -146,10 +146,10 @@ export default function HeadTeachersLeadersPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-white mb-6">
-              Ready to Support Your Staff Better?
+              Start supporting your team today
             </h2>
             <p className="text-xl text-slate-300 mb-8">
-              Join school leaders who trust Promptly for consistent, caring communication across their teams.
+              Join school leaders who've made Promptly part of their strategy to reduce teacher workload and elevate communication standards.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
@@ -159,10 +159,10 @@ export default function HeadTeachersLeadersPage() {
                 Talk to sales
               </Link>
               <Link
-                href="/snippet"
+                href="/about"
                 className="border border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white font-semibold py-4 px-12 rounded-lg transition-all duration-300 text-xl"
               >
-                See teacher demo
+                About Our Approach
               </Link>
             </div>
           </div>

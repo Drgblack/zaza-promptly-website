@@ -65,9 +65,9 @@ export default function USSecondaryPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Standards-friendly wording</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Standards-friendly report cards</h3>
                 <p className="text-slate-300">
-                  Drafts that reflect Common Core and state expectations while staying practical for your classroom.
+                  Comments that sound natural while addressing Common Core and state standards—practical for your classroom reality.
                 </p>
               </div>
 
@@ -77,9 +77,9 @@ export default function USSecondaryPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Sensitive topics, handled well</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Balanced behaviour communication</h3>
                 <p className="text-slate-300">
-                  Balanced language for behaviour, attendance, and progress—firm, respectful, and parent-readable.
+                  Professional language for challenging conversations about attendance, effort, and academic progress that maintains relationships.
                 </p>
               </div>
 
@@ -89,9 +89,9 @@ export default function USSecondaryPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Faster, calmer workflow</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Reduce grading pile overwhelm</h3>
                 <p className="text-slate-300">
-                  Turn notes into comments in seconds. Adjust tone/length, save as snippets, stay consistent across classes.
+                  Transform your rough notes into polished comments in seconds—consistent across all your classes and grade levels.
                 </p>
               </div>
             </div>
@@ -152,10 +152,10 @@ export default function USSecondaryPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-white mb-6">
-              Ready to Streamline Your Communication?
+              Try Promptly Free — Cut report writing time in half
             </h2>
             <p className="text-xl text-slate-300 mb-8">
-              Join US secondary teachers who save hours every week with professional, parent-friendly communication.
+              Join US secondary teachers who've transformed their grading workflow and reclaimed their evenings.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
@@ -165,10 +165,10 @@ export default function USSecondaryPage() {
                 Try Promptly Free
               </Link>
               <Link
-                href="/snippet"
+                href="/about"
                 className="border border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white font-semibold py-4 px-12 rounded-lg transition-all duration-300 text-xl"
               >
-                See example comments
+                About Our Approach
               </Link>
             </div>
           </div>

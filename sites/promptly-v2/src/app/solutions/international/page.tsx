@@ -31,10 +31,10 @@ export default function InternationalPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Comments that work across languages and cultures.
+              Bridge cultures, connect families
             </h1>
             <p className="text-xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Promptly supports international schools with translation, cultural awareness, and parent-friendly wording—so communication is clear everywhere.
+              International teaching means juggling multiple languages, curricula, and cultural expectations. Promptly helps you communicate meaningfully with every family—no matter where they're from.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
@@ -65,9 +65,9 @@ export default function InternationalPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Multi-language support</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Multilingual parent communication</h3>
                 <p className="text-slate-300">
-                  Draft and translate in EN/DE/FR/ES/IT. Keep tone consistent across languages.
+                  Draft in English, adapt to local languages—maintaining your caring tone across every translation.
                 </p>
               </div>
 
@@ -77,9 +77,9 @@ export default function InternationalPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Culturally aware tone</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Navigate cultural nuances</h3>
                 <p className="text-slate-300">
-                  Professional, constructive messages that land well with diverse parent communities.
+                  Comments that respect different communication styles while staying true to your teaching approach.
                 </p>
               </div>
 
@@ -89,9 +89,9 @@ export default function InternationalPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">One workflow for every subject</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Adapt to any curriculum framework</h3>
                 <p className="text-slate-300">
-                  Reports, parent emails, progress updates—faster across the whole timetable.
+                  Whether you're teaching IB, Cambridge, or local standards—consistent quality across all your classes.
                 </p>
               </div>
             </div>
@@ -152,10 +152,10 @@ export default function InternationalPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-white mb-6">
-              Ready to Connect with Global Communities?
+              Try Promptly Free — Communicate across cultures
             </h2>
             <p className="text-xl text-slate-300 mb-8">
-              Join international teachers who trust Promptly for multilingual, culturally-aware communication.
+              Join international educators who've found their bridge to meaningful parent partnerships worldwide.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
@@ -165,10 +165,10 @@ export default function InternationalPage() {
                 Start Free
               </Link>
               <Link
-                href="/snippet"
+                href="/about"
                 className="border border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white font-semibold py-4 px-12 rounded-lg transition-all duration-300 text-xl"
               >
-                See a quick demo
+                About Our Approach
               </Link>
             </div>
           </div>
