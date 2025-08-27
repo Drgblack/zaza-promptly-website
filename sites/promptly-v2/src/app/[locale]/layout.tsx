@@ -1,48 +1,45 @@
-import type { Metadata } from "next";
-import { notFound } from 'next/navigation'
-import { supportedLocales, loadTranslations, type Locale } from '@/lib/i18n'
-import { generateI18nMetadata } from '@/lib/i18n-metadata'
-
-interface LocaleLayoutProps {
-  children: React.ReactNode
-  params: { locale: Locale }
-}
+import type { Metadata } from 'next';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+import { notFound } from 'next/navigation';
+import { locales } from '@/i18n';
 
 export async function generateStaticParams() {
-  return supportedLocales.map((locale) => ({ locale }))
+  return locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata(
-  { params }: { params: { locale: Locale } }
-): Promise<Metadata> {
-  const { locale } = params
-  
-  // Validate locale
-  if (!supportedLocales.includes(locale)) {
-    notFound()
-  }
-
-  return generateI18nMetadata({
-    locale,
-    pathname: '/'
-  })
-}
+export const metadata: Metadata = {
+  icons: {
+    icon: [
+      { url: "/favicon.ico?v=10" },
+      { url: "/icon.png?v=10", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png?v=10", sizes: "180x180" }],
+    shortcut: [{ url: "/favicon.ico?v=10" }],
+  },
+};
 
 export default async function LocaleLayout({
   children,
-  params: { locale }
-}: LocaleLayoutProps) {
-  // Validate that the incoming locale is valid
-  if (!supportedLocales.includes(locale)) {
-    notFound()
+  params
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  
+  // Ensure that the incoming `locale` is valid
+  if (!locales.includes(locale as any)) {
+    notFound();
   }
 
-  // Load translations for the locale
-  await loadTranslations(locale)
+  // Providing all messages to the client
+  // side is the easiest way to get started
+  const messages = await getMessages();
 
   return (
-    <>
+    <NextIntlClientProvider messages={messages}>
       {children}
-    </>
-  )
+    </NextIntlClientProvider>
+  );
 }

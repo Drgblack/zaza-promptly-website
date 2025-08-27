@@ -1,37 +1,36 @@
-import { NextRequest, NextResponse } from 'next/server'
-
-const locales = ['en', 'de', 'fr', 'es', 'it']
-const defaultLocale = 'en'
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+import { locales, defaultLocale } from "@/i18n";
 
 export function middleware(req: NextRequest) {
-  const { pathname } = req.nextUrl
-  
-  if (pathname === '/') {
-    const cookieLocale = req.cookies.get('NEXT_LOCALE')?.value
-    const best = locales.includes(cookieLocale || '') ? cookieLocale! : defaultLocale
-    return NextResponse.redirect(new URL(`/${best}`, req.url))
-  }
-  
-  const seg = pathname.split('/')[1]
-  if (!locales.includes(seg)) {
-    // Don't redirect API routes, static files, or Next.js internal paths
-    if (
-      pathname.startsWith('/api') ||
-      pathname.startsWith('/_next') ||
-      pathname.startsWith('/images') ||
-      pathname.startsWith('/fonts') ||
-      pathname.startsWith('/icons') ||
-      pathname.includes('.') ||
-      pathname.startsWith('/favicon') ||
-      pathname.startsWith('/robots') ||
-      pathname.startsWith('/sitemap')
-    ) {
-      return NextResponse.next()
-    }
-    return NextResponse.redirect(new URL(`/${defaultLocale}${pathname}`, req.url))
+  const { pathname } = req.nextUrl;
+
+  // Skip static assets and API
+  if (
+    pathname.startsWith("/_next") ||
+    pathname.startsWith("/api") ||
+    pathname.startsWith("/favicon") ||
+    pathname.startsWith("/icon") ||
+    pathname.startsWith("/images") ||
+    pathname.match(/\.(png|jpg|jpeg|gif|webp|svg|ico)$/i)
+  ) {
+    return NextResponse.next();
   }
 
-  return NextResponse.next()
+  // Already localized?
+  if (new RegExp(`^/(${locales.join("|")})(/|$)`).test(pathname)) {
+    return NextResponse.next();
+  }
+
+  // Root or non-localized → redirect to cookie or default
+  const cookieLocale = req.cookies.get("NEXT_LOCALE")?.value;
+  const nextLocale = locales.includes((cookieLocale as any) ?? "") ? (cookieLocale as any) : defaultLocale;
+
+  const url = req.nextUrl.clone();
+  url.pathname = `/${nextLocale}${pathname}`.replace(/\/+$/, "");
+  return NextResponse.redirect(url);
 }
 
-export const config = { matcher: ['/((?!_next|.*\\..*).*)'] }
+export const config = {
+  matcher: ["/((?!_next|.*\\..*).*)"], // everything except _next and files
+};

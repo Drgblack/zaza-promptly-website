@@ -1,393 +1,307 @@
-'use client'
+'use client';
 
-import Link from 'next/link'
-import Image from 'next/image'
-import { useState, useEffect, useRef } from 'react'
-import ThemeToggle from './ui/ThemeToggle'
-import LanguageSwitcher from './nav/LanguageSwitcher'
-import { isExternal } from '@/lib/link-utils'
-import Lnk from '@/lib/Lnk'
-
-interface MenuGroup {
-  title: string
-  description?: string
-  items: {
-    title: string
-    href: string
-    description?: string
-  }[]
-}
-
-const MENU_GROUPS: Record<string, MenuGroup> = {
-  products: {
-    title: 'Zaza Ecosystem',
-    description: 'AI-powered tools for modern educators',
-    items: [
-      { title: 'Promptly', href: '/', description: 'AI assistant for teacher reports and communications' },
-      { title: 'Quick Comment Helper', href: '/quick-comment-helper', description: 'Generate report comments instantly' },
-      { title: 'Zaza Teach', href: 'https://zazateach.com', description: 'Comprehensive teaching toolkit and lesson planning' },
-      { title: 'Zaza Notably', href: 'https://zazanotably.com', description: 'Smart note-taking for educational professionals' },
-      { title: 'Try Free Classroom Tool', href: '/tools/classroom', description: 'Start with our free classroom toolkit' }, // TODO: Create placeholder page
-    ]
-  },
-  solutions: {
-    title: 'Solutions',
-    description: 'Tailored for every teaching context',
-    items: [
-      { title: 'UK Primary Teachers', href: '/solutions/uk-primary', description: 'Primary education solutions for the UK curriculum' }, // TODO: Create or link to existing
-      { title: 'US Secondary Teachers', href: '/solutions/us-secondary', description: 'Secondary education tools for US schools' }, // TODO: Create or link to existing
-      { title: 'Special Education Teachers', href: '/solutions/special-education', description: 'Specialized tools for inclusive education' }, // TODO: Create or link to existing
-      { title: 'International Teachers', href: '/solutions/international', description: 'Global solutions for diverse educational systems' }, // TODO: Create or link to existing
-      { title: 'EdTech-Savvy Teachers', href: '/solutions/edtech-savvy', description: 'Advanced tools for tech-forward educators' }, // TODO: Create or link to existing
-      { title: 'Head Teachers & Leaders', href: '/solutions/head-teachers-leaders', description: 'Leadership tools for school administrators' }, // TODO: Create or link to existing
-    ]
-  },
-  resources: {
-    title: 'Resources',
-    description: 'Everything you need to succeed',
-    items: [
-      { title: 'Learning Centre', href: '/learning-centre', description: 'Guides, tutorials, and best practices' },
-      { title: 'Free Resources', href: '/resources', description: 'Download free templates and tools' }, // TODO: Check if /resources exists vs /free-resources
-      { title: 'Case Studies', href: '/case-studies', description: 'Real teacher success stories' },
-      { title: 'Blog', href: '/blog', description: 'Latest insights on AI in education' },
-      { title: 'FAQ', href: '/faq', description: 'Frequently asked questions' },
-    ]
-  },
-  company: {
-    title: 'Company',
-    description: 'About Zaza Technologies',
-    items: [
-      { title: 'Meet Your Fellow Educator', href: '/about', description: 'Learn about our founder Dr. Greg Blackburn' }, // TODO: Check if /about exists vs /about/founder
-      { title: 'Contact', href: '/contact', description: 'Get in touch with our team' },
-      { title: 'Reliable AI That Won\'t Make Things Up', href: '/reliable-ai', description: 'Our commitment to hallucination-free AI' }, // TODO: Create placeholder
-      { title: 'Student Privacy Protected', href: '/student-privacy', description: 'How we keep student data safe' }, // TODO: Create placeholder
-      { title: 'Privacy Policy', href: '/privacy-policy', description: 'Our data protection policies' }, // TODO: Check if exists vs /privacy
-    ]
-  }
-}
+import { useState, useEffect, useRef } from 'react';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import Link from 'next/link';
+import Lnk from '@/src/lib/Lnk';
+import { paths } from '@/src/config/paths';
+import LanguageSwitcher from './nav/LanguageSwitcher';
 
 export default function Header() {
-  const [activeMenu, setActiveMenu] = useState<string | null>(null)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [isVisible, setIsVisible] = useState(true)
-  const [lastScrollY, setLastScrollY] = useState(0)
-  const menuRefs = useRef<Record<string, HTMLDivElement | null>>({})
-  const mobileMenuRef = useRef<HTMLDivElement>(null)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Handle escape key and click outside for dropdowns
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setActiveMenu(null)
-        setMobileMenuOpen(false)
-      }
-    }
-
-    const handleClickOutside = (e: MouseEvent) => {
-      // Check if click is outside any open menu
-      if (activeMenu && menuRefs.current[activeMenu] && !menuRefs.current[activeMenu]?.contains(e.target as Node)) {
-        setActiveMenu(null)
-      }
-      if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target as Node)) {
-        setMobileMenuOpen(false)
-      }
-    }
-
-    document.addEventListener('keydown', handleEscape)
-    document.addEventListener('mousedown', handleClickOutside)
-
-    return () => {
-      document.removeEventListener('keydown', handleEscape)
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [activeMenu])
-
-  // Hide on scroll down, show on scroll up
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY
-      const isScrollingDown = currentScrollY > lastScrollY
-      const scrollThreshold = 50
-      
-      if (window.innerWidth <= 768) {
-        if (Math.abs(currentScrollY - lastScrollY) < 10) return
-      }
-      
-      if (currentScrollY < scrollThreshold) {
-        setIsVisible(true)
-      } else if (isScrollingDown && currentScrollY > lastScrollY + 10) {
-        setIsVisible(false)
-        setActiveMenu(null)
-        setMobileMenuOpen(false)
-      } else if (!isScrollingDown && lastScrollY - currentScrollY > 10) {
-        setIsVisible(true)
-      }
-      
-      setLastScrollY(currentScrollY)
-    }
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-    let ticking = false
-    const scrollListener = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          handleScroll()
-          ticking = false
-        })
-        ticking = true
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
       }
-    }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
-    window.addEventListener('scroll', scrollListener, { passive: true })
-    return () => window.removeEventListener('scroll', scrollListener)
-  }, [lastScrollY])
-
-  const handleMenuToggle = (menuKey: string) => {
-    setActiveMenu(activeMenu === menuKey ? null : menuKey)
-  }
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-40 backdrop-blur-lg bg-slate-900/70 border-b border-white/10 transition-transform duration-300 ease-out ${
-        isVisible ? 'translate-y-0' : '-translate-y-full'
-      }`}
-    >
-      <div className="container">
-        <div className="flex justify-between items-center py-4">
+    <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100' 
+        : 'bg-white/90 backdrop-blur-sm'
+    }`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16 lg:h-20">
           {/* Logo */}
-          <div className="flex items-center">
-            <Lnk href="/" aria-label="Zaza Promptly home" className="flex items-center gap-2">
-              <Image
-                src="/images/zaza-logo.png"
-                alt="Zaza Promptly logo"
-                width={28}
-                height={28}
-                priority
-              />
-              <span className="font-semibold text-xl text-white">Promptly</span>
-            </Lnk>
-          </div>
+          <Link href="/" className="flex items-center space-x-3 group">
+            <div className="relative">
+              <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                <img 
+                  src="/zaza-logo.png" 
+                  alt="Zaza Technologies Logo" 
+                  className="w-8 h-8 lg:w-10 lg:h-10 rounded-lg"
+                  width={40}
+                  height={40}
+                />
+              </div>
+              <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full animate-pulse shadow-sm"></div>
+            </div>
+            <div className="hidden sm:block">
+              <div className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent group-hover:from-purple-600 group-hover:to-pink-600 transition-all duration-300">
+                Zaza Technologies
+              </div>
+              <div className="text-xs lg:text-sm text-gray-500 font-medium">AI for Educators</div>
+            </div>
+          </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-1" role="navigation" aria-label="Main navigation">
-            {Object.entries(MENU_GROUPS).map(([key, group]) => (
-              <div key={key} className="relative" ref={el => { menuRefs.current[key] = el }}>
-                <button
-                  onClick={() => handleMenuToggle(key)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault()
-                      handleMenuToggle(key)
-                    }
-                  }}
-                  className="flex items-center px-4 py-2 text-white/80 hover:text-white/90 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded-lg"
-                  aria-expanded={activeMenu === key}
-                  aria-haspopup="true"
-                  aria-controls={activeMenu === key ? `${key}-menu` : undefined}
-                >
-                  {group.title}
-                  <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={activeMenu === key ? "M19 15l-7-7-7 7" : "M19 9l-7 7-7-7"} />
-                  </svg>
-                </button>
-                
-                {activeMenu === key && (
-                  <div 
-                    id={`${key}-menu`}
-                    className="absolute top-full left-0 mt-1 w-80 bg-slate-800/95 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 py-4 z-50"
-                    role="menu"
+          <nav 
+            className="hidden lg:flex items-center space-x-1"
+            role="navigation"
+            aria-label="Main navigation"
+          >
+            {/* Our Solutions Dropdown */}
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                className="flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+                aria-expanded={isDropdownOpen}
+                aria-haspopup="true"
+              >
+                Our Solutions
+                <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {isDropdownOpen && (
+                <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-40">
+                  <Link
+                    href="/products"
+                    className="block px-4 py-3 text-sm text-gray-700 hover:text-purple-600 hover:bg-purple-50 transition-colors"
+                    onClick={() => setIsDropdownOpen(false)}
                   >
-                    {group.description && (
-                      <div className="px-4 pb-3 border-b border-white/10 mb-3">
-                        <p className="text-xs text-slate-400 font-medium">{group.description}</p>
-                      </div>
-                    )}
-                    <div className="space-y-1">
-                      {group.items.map((item) => {
-                        const external = isExternal(item.href)
-                        return external ? (
-                          <a
-                            key={item.href}
-                            href={item.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block px-4 py-3 hover:bg-slate-700/50 transition-colors focus:outline-none focus:bg-slate-700/50 rounded-none group"
-                            role="menuitem"
-                            onClick={() => setActiveMenu(null)}
-                          >
-                            <div className="text-sm font-medium text-white group-hover:text-blue-300 transition-colors flex items-center">
-                              {item.title}
-                              <svg className="w-3 h-3 ml-1 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                              </svg>
-                            </div>
-                            {item.description && (
-                              <div className="text-xs text-slate-400 mt-1 leading-relaxed">
-                                {item.description}
-                              </div>
-                            )}
-                          </a>
-                        ) : (
-                          <Lnk
-                            key={item.href}
-                            href={item.href}
-                            className="block px-4 py-3 hover:bg-slate-700/50 transition-colors focus:outline-none focus:bg-slate-700/50 rounded-none group"
-                            role="menuitem"
-                            onClick={() => setActiveMenu(null)}
-                          >
-                            <div className="text-sm font-medium text-white group-hover:text-blue-300 transition-colors">
-                              {item.title}
-                            </div>
-                            {item.description && (
-                              <div className="text-xs text-slate-400 mt-1 leading-relaxed">
-                                {item.description}
-                              </div>
-                            )}
-                          </Lnk>
-                        )
-                      })}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </nav>
+                    <div className="font-medium">All Products</div>
+                    <div className="text-xs text-gray-500">Complete suite overview</div>
+                  </Link>
+                  <Link
+                    href="/teach"
+                    className="block px-4 py-3 text-sm text-gray-700 hover:text-purple-600 hover:bg-purple-50 transition-colors"
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    <div className="font-medium">Zaza Teach</div>
+                    <div className="text-xs text-gray-500">Lesson planning assistant</div>
+                  </Link>
+                  <Link
+                    href="/notably"
+                    className="block px-4 py-3 text-sm text-gray-700 hover:text-purple-600 hover:bg-purple-50 transition-colors"
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    <div className="font-medium">Zaza Inbox</div>
+                    <div className="text-xs text-gray-500">Communication suite</div>
+                  </Link>
+                  <Link
+                    href="/promptly"
+                    className="block px-4 py-3 text-sm text-gray-700 hover:text-purple-600 hover:bg-purple-50 transition-colors border-l-2 border-purple-500 bg-purple-50/50"
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    <div className="font-medium">Zaza Promptly</div>
+                    <div className="text-xs text-gray-500">AI comment generator</div>
+                  </Link>
+                </div>
+              )}
+            </div>
 
-          {/* Right side items */}
-          <div className="hidden lg:flex items-center space-x-3">
+            {/* Learning Centre Dropdown */}
+            <div className="relative group">
+              <span className="flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 cursor-pointer">
+                Learning Centre
+                <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
+              </span>
+              
+              <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-40 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <Link
+                  href="/blog"
+                  className="block px-4 py-3 text-sm text-gray-700 hover:text-purple-600 hover:bg-purple-50 transition-colors"
+                >
+                  <div className="font-medium">Blog</div>
+                  <div className="text-xs text-gray-500">Teaching tips & insights</div>
+                </Link>
+                <Link
+                  href="/free-resources"
+                  className="block px-4 py-3 text-sm text-gray-700 hover:text-purple-600 hover:bg-purple-50 transition-colors"
+                >
+                  <div className="font-medium">Free Resources</div>
+                  <div className="text-xs text-gray-500">Templates & guides</div>
+                </Link>
+                <Link
+                  href="/faqs"
+                  className="block px-4 py-3 text-sm text-gray-700 hover:text-purple-600 hover:bg-purple-50 transition-colors"
+                >
+                  <div className="font-medium">FAQs</div>
+                  <div className="text-xs text-gray-500">Common questions</div>
+                </Link>
+              </div>
+            </div>
+            
+            <Link 
+              href="/why-zaza-promptly" 
+              className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+            >
+              Why Zaza Promptly?
+            </Link>
+            
+            <Link 
+              href="/about-founder" 
+              className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+            >
+              About Us
+            </Link>
+            
+            {/* Language Switcher */}
             <LanguageSwitcher />
             
-            <Lnk 
-              href="/pricing#download"
-              className="px-3 py-2 text-white/80 hover:text-white font-medium text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded-lg"
+            {/* CTA Button */}
+            <Link 
+              href={"https://www.zazapromptly.com"}
+              className="ml-4 px-6 py-2.5 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
             >
-              Download App
-            </Lnk>
-            
-            <Lnk 
-              href="/pricing"
-              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900"
-            >
-              Start Free
-            </Lnk>
+              Start Free Trial
+            </Link>
+          </nav>
 
-            <ThemeToggle />
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="lg:hidden">
+          {/* Mobile Controls */}
+          <div className="lg:hidden flex items-center space-x-2">
+            <LanguageSwitcher variant="header" />
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-md text-white hover:text-white/80 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900"
-              aria-expanded={mobileMenuOpen}
-              aria-controls="mobile-menu"
-              aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+              onClick={toggleMenu}
+              className="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+              aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-navigation"
+              aria-haspopup="true"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                {mobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
+              {isMenuOpen ? (
+                <X className="w-6 h-6 text-gray-700" aria-hidden="true" />
+              ) : (
+                <Menu className="w-6 h-6 text-gray-700" aria-hidden="true" />
+              )}
             </button>
           </div>
         </div>
 
-        {/* Mobile menu */}
-        {mobileMenuOpen && (
+        {/* Mobile Navigation Menu */}
+        {isMenuOpen && (
           <div 
-            id="mobile-menu" 
-            className="lg:hidden fixed inset-0 top-[73px] bg-slate-900/95 backdrop-blur-lg z-50 overflow-y-auto" 
-            ref={mobileMenuRef}
+            className="lg:hidden border-t border-gray-200 bg-white/95 backdrop-blur-md"
+            id="mobile-navigation"
+            role="region"
+            aria-label="Mobile navigation menu"
           >
-            <div className="p-4 space-y-1">
-              {/* Language selector at top */}
-              <LanguageSwitcher variant="mobile" />
-              
-              {/* Menu groups as accordions */}
-              {Object.entries(MENU_GROUPS).map(([key, group]) => {
-                const isExpanded = activeMenu === key
-                return (
-                  <div key={key} className="border-b border-white/10 last:border-b-0">
-                    <button
-                      onClick={() => handleMenuToggle(key)}
-                      className="w-full flex items-center justify-between py-4 text-left text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg"
-                      aria-expanded={isExpanded}
-                    >
-                      <span>{group.title}</span>
-                      <svg className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
-                    {isExpanded && (
-                      <div className="pb-4 space-y-2">
-                        {group.items.map((item) => {
-                          const external = isExternal(item.href)
-                          return external ? (
-                            <a
-                              key={item.href}
-                              href={item.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="block pl-4 py-2 text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg"
-                              onClick={() => setMobileMenuOpen(false)}
-                            >
-                              <div className="font-medium flex items-center">
-                                {item.title}
-                                <svg className="w-3 h-3 ml-1 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                </svg>
-                              </div>
-                              {item.description && (
-                                <div className="text-xs text-slate-400 mt-1">{item.description}</div>
-                              )}
-                            </a>
-                          ) : (
-                            <Lnk
-                              key={item.href}
-                              href={item.href}
-                              className="block pl-4 py-2 text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg"
-                              onClick={() => setMobileMenuOpen(false)}
-                            >
-                              <div className="font-medium">{item.title}</div>
-                              {item.description && (
-                                <div className="text-xs text-slate-400 mt-1">{item.description}</div>
-                              )}
-                            </Lnk>
-                          )
-                        })}
-                      </div>
-                    )}
-                  </div>
-                )
-              })}
-              
-              {/* CTA at bottom */}
-              <div className="pt-6 border-t border-white/10">
-                <div className="space-y-3">
-                  <Lnk 
-                    href="/pricing#download"
-                    className="block w-full px-4 py-2 border border-white/20 text-white hover:bg-white/5 font-medium rounded-lg text-center transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Download App
-                  </Lnk>
-                  <Lnk 
-                    href="/pricing"
-                    className="block w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg text-center transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Start Free
-                  </Lnk>
-                </div>
-                <div className="mt-4 flex justify-center">
-                  <ThemeToggle variant="mobile" />
-                </div>
+            <nav className="py-4 space-y-1" role="navigation" aria-label="Mobile navigation links">
+              {/* Our Solutions Section */}
+              <div className="px-4 py-2">
+                <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Our Solutions</div>
+                <Link 
+                  href="/products" 
+                  className="block px-2 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  All Products
+                </Link>
+                <Link 
+                  href="/teach" 
+                  className="block px-2 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Zaza Teach
+                </Link>
+                <Link 
+                  href="/notably" 
+                  className="block px-2 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Zaza Inbox
+                </Link>
+                <Link 
+                  href="/promptly" 
+                  className="block px-2 py-2 text-sm font-medium text-purple-700 bg-purple-50 rounded-lg transition-all duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Zaza Promptly
+                </Link>
               </div>
-            </div>
+
+              {/* Learning Centre Section */}
+              <div className="px-4 py-2">
+                <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Learning Centre</div>
+                <Link 
+                  href="/blog" 
+                  className="block px-2 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Blog
+                </Link>
+                <Link 
+                  href="/free-resources" 
+                  className="block px-2 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Free Resources
+                </Link>
+                <Link 
+                  href="/faqs" 
+                  className="block px-2 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  FAQs
+                </Link>
+              </div>
+
+              {/* Single Links */}
+              <Link 
+                href="/why-zaza-promptly" 
+                className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Why Zaza Promptly?
+              </Link>
+              <Link 
+                href="/about-founder" 
+                className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                About Us
+              </Link>
+              
+              {/* Mobile Language Selector */}
+              <div className="px-4 py-2">
+                <LanguageSwitcher />
+              </div>
+              
+              {/* Mobile CTA */}
+              <div className="px-4 pt-2">
+                <Link 
+                  href={"https://www.zazapromptly.com"}
+                  className="block w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold rounded-lg shadow-lg text-center transition-all duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Start Free Trial
+                </Link>
+              </div>
+            </nav>
           </div>
         )}
       </div>
     </header>
-  )
-}
+  );
+} 
