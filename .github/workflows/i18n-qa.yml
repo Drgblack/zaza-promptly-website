@@ -1,0 +1,93 @@
+name: i18n QA Checks
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  i18n-qa:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: TypeScript check
+      run: npx tsc --noEmit
+    
+    - name: Lint check
+      run: npm run lint
+      continue-on-error: true
+    
+    - name: Build check
+      run: npm run build
+      env:
+        NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL || 'https://zazapromptly.com' }}
+    
+    - name: Check for missing generateStaticParams
+      run: |
+        echo "Checking for [locale] routes without generateStaticParams..."
+        missing_params=$(find app/\[locale\] -name "page.tsx" -exec grep -L "generateStaticParams" {} \; | wc -l)
+        if [ $missing_params -gt 0 ]; then
+          echo "⚠️  Found $missing_params locale routes without generateStaticParams"
+          find app/\[locale\] -name "page.tsx" -exec grep -L "generateStaticParams" {} \;
+          exit 1
+        else
+          echo "✅ All locale routes have generateStaticParams"
+        fi
+    
+    - name: Check middleware locale handling
+      run: |
+        echo "Checking middleware for proper locale handling..."
+        if grep -q "locale" middleware.ts && grep -q "LOCALES" middleware.ts; then
+          echo "✅ Middleware has locale handling"
+        else
+          echo "❌ Middleware missing locale handling"
+          exit 1
+        fi
+    
+    - name: Check favicon versioning
+      run: |
+        echo "Checking favicon versioning in layouts..."
+        if grep -r "favicon.*v=" app/layout.tsx app/\[locale\]/layout.tsx; then
+          echo "✅ Favicon versioning found"
+        else
+          echo "❌ Missing favicon versioning"
+          exit 1
+        fi
+    
+    - name: Check for centralized components
+      run: |
+        echo "Checking for centralized components..."
+        components_found=0
+        
+        if [ -f "src/components/forms/EmailSignupForm.tsx" ]; then
+          echo "✅ EmailSignupForm centralized"
+          components_found=$((components_found + 1))
+        else
+          echo "❌ EmailSignupForm not centralized"
+        fi
+        
+        if [ -f "src/components/sections/SnippetToolV2.tsx" ]; then
+          echo "✅ SnippetToolV2 centralized"
+          components_found=$((components_found + 1))
+        else
+          echo "❌ SnippetToolV2 not centralized"
+        fi
+        
+        if [ $components_found -lt 2 ]; then
+          echo "❌ Not all critical components are centralized"
+          exit 1
+        else
+          echo "✅ Critical components are centralized"
+        fi

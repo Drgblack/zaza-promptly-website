@@ -1,34 +1,37 @@
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import { NextResponse, NextRequest } from 'next/server'
 
 const LOCALES = ['en','de','fr','es','it'] as const
 const DEFAULT = 'en'
 
+function detectLocale(req: NextRequest): string {
+  const cookie = req.cookies.get('locale')?.value
+  if (cookie && LOCALES.includes(cookie as any)) return cookie
+  const header = req.headers.get('accept-language') || ''
+  const match = LOCALES.find(l => header.toLowerCase().startsWith(l))
+  return match || DEFAULT
+}
+
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl
-
-  // Skip API, _next, static assets
+  // Ignore next internals and APIs
   if (
-    pathname.startsWith('/api') ||
     pathname.startsWith('/_next') ||
-    pathname.match(/\.(png|jpg|jpeg|gif|svg|ico|webp|pdf|txt|xml)$/)
-  ) return NextResponse.next()
+    pathname.startsWith('/api') ||
+    pathname.includes('.') // static
+  ) return
 
-  // If no leading locale, redirect with cookie/default
-  const hasLocale = LOCALES.some(l => pathname === `/${l}` || pathname.startsWith(`/${l}/`))
-  if (!hasLocale) {
-    const cookieLocale = req.cookies.get('NEXT_LOCALE')?.value
-    const locale = LOCALES.includes(cookieLocale as any) ? cookieLocale! : DEFAULT
+  // Has locale already?
+  const has = LOCALES.some(l => pathname === `/${l}` || pathname.startsWith(`/${l}/`))
+  if (!has) {
+    const locale = detectLocale(req)
     const url = req.nextUrl.clone()
-    url.pathname = `/${locale}${pathname}`
-    return NextResponse.redirect(url)
+    url.pathname = `/${locale}${pathname === '/' ? '' : pathname}`
+    const res = NextResponse.redirect(url)
+    res.cookies.set('locale', locale, { path: '/' })
+    return res
   }
 
-  // Persist locale cookie on every localized request
-  const currentLocale = pathname.split('/')[1]
-  const res = NextResponse.next()
-  res.cookies.set('NEXT_LOCALE', currentLocale, { path: '/', maxAge: 60 * 60 * 24 * 365 })
-  return res
+  return NextResponse.next()
 }
 
 export const config = {

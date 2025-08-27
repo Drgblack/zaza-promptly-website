@@ -8,6 +8,7 @@ import { Calendar, Clock, User, Tag, Share2, Facebook, Twitter, Linkedin, ArrowL
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
+import EmailSignupForm from '@/src/components/forms/EmailSignupForm'
 
 interface EnhancedBlogLayoutProps {
   post: BlogPost
@@ -195,9 +196,33 @@ export function EnhancedBlogLayout({
                   </div>
                 </div>
 
+                {/* Top Email Signup */}
+                <div className="mb-8">
+                  <EmailSignupForm 
+                    variant="compact"
+                    source={`blog-${post.slug}-top`}
+                    headline="Get More Teaching Tips"
+                    subtext="Join thousands of educators getting weekly AI prompts and productivity tips."
+                    showNameFields={false}
+                    className="max-w-lg mx-auto"
+                  />
+                </div>
+
                 {/* Article Content */}
                 <div className="prose prose-tight lg:prose-lg max-w-none mb-8">
                   {children}
+                </div>
+
+                {/* Bottom Email Signup */}
+                <div className="mb-8">
+                  <EmailSignupForm 
+                    variant="compact"
+                    source={`blog-${post.slug}-bottom`}
+                    headline="Loved this article? Get more like it."
+                    subtext="Join 12,000+ teachers saving hours with AI tools and tips."
+                    buttonText="Get Free Tips →"
+                    className="max-w-lg mx-auto"
+                  />
                 </div>
 
                 {/* Appreciation Section */}

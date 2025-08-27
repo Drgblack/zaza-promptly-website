@@ -23,40 +23,99 @@ import { generateWebsiteSchema, generateOrganizationSchema, generateSoftwareSche
 import { StreakCounter } from "@/components/habit-building/StreakCounter"
 import { SampleGenerator } from "@/components/ai-transparency/SampleGenerator"
 import { AccessibleCard } from "@/components/accessibility/AccessibleCard"
+import EmailSignupForm from "@/src/components/forms/EmailSignupForm"
+import SnippetToolV2 from "@/src/components/sections/SnippetToolV2"
+import FounderCard from "@/src/components/FounderCard"
 
-export const metadata: Metadata = {
-  title: 'AI for Teachers - Parent Communications & Student Reports | Zaza Promptly',
-  description: 'PhD-designed AI tool for teachers. Write professional parent emails, student comments & reports 10x faster. Starting at $14.99/month. Join 12,000+ educators using GDPR-compliant, hallucination-safe AI. Built by Dr. Greg Blackburn.',
-  keywords: [
-    'AI for teachers', 'AI teacher assistant', 'parent communication AI', 'student report AI',
-    'teacher productivity tools', 'AI comment generator teachers', 'professional education AI',
-    'PhD designed AI teachers', 'Dr Greg Blackburn AI', 'GDPR compliant teacher AI',
-    'hallucination-safe AI education', 'teacher workload reduction', 'AI vs ChatGPT teachers',
-    'safe AI classroom tools', 'AI for parent emails', 'teacher communication assistant',
-    'education technology AI', 'pedagogically sound AI', 'AI built by educators'
-  ],
-  openGraph: {
-    title: 'AI Teaching Assistant Built by PhD Educator | 12,000+ Teachers Trust Zaza Promptly',
-    description: 'Professional AI for teachers designed by Dr. Greg Blackburn (PhD in Professional Education). Write better parent communications & student reports 10x faster. Starting at $14.99/month. GDPR compliant & hallucination-safe.',
-    images: ['/og-image.png'],
-    type: 'website',
-    locale: 'en_US',
-    siteName: 'Zaza Promptly'
+// Multilingual content
+const content = {
+  en: {
+    title: 'AI for Teachers - Parent Communications & Student Reports | Zaza Promptly',
+    description: 'PhD-designed AI tool for teachers. Write professional parent emails, student comments & reports 10x faster. Starting at $14.99/month. Join 12,000+ educators using GDPR-compliant, hallucination-safe AI. Built by Dr. Greg Blackburn.',
+    hero: {
+      title: 'AI Teaching Assistant Built by PhD Educator',
+      subtitle: '12,000+ Teachers Trust Zaza Promptly'
+    }
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'AI Teaching Assistant - Built by PhD Educator for 12,000+ Teachers',
-    description: 'Professional AI tool for teachers designed by Dr. Greg Blackburn. Starting at $14.99/month. GDPR-compliant, hallucination-safe AI for parent communications & student reports.',
-    images: ['/og-image.png'],
-    creator: '@zazateachapp',
-    site: '@zazateachapp'
+  de: {
+    title: 'KI für Lehrer - Elternkommunikation & Schülerberichte | Zaza Promptly',
+    description: 'Von einem Doktor entworfenes KI-Tool für Lehrer. Schreiben Sie professionelle Eltern-E-Mails, Schülerkommentare und Berichte 10x schneller. Ab 14,99€/Monat. Treten Sie 12.000+ Pädagogen bei, die DSGVO-konforme, halluzinationssichere KI verwenden.',
+    hero: {
+      title: 'KI-Lehrassistent von Doktor entwickelt',
+      subtitle: '12.000+ Lehrer vertrauen Zaza Promptly'
+    }
   },
-  alternates: {
-    canonical: 'https://zazapromptly.com'
+  fr: {
+    title: 'IA pour Enseignants - Communications Parents & Rapports Étudiants | Zaza Promptly',
+    description: 'Outil IA conçu par un docteur pour les enseignants. Rédigez des emails aux parents, commentaires d\'élèves et rapports professionnels 10x plus vite. À partir de 14,99€/mois. Rejoignez 12 000+ éducateurs utilisant une IA conforme RGPD et sans hallucinations.',
+    hero: {
+      title: 'Assistant IA Enseignant conçu par un Docteur',
+      subtitle: '12 000+ Enseignants font confiance à Zaza Promptly'
+    }
+  },
+  es: {
+    title: 'IA para Profesores - Comunicaciones con Padres y Reportes Estudiantiles | Zaza Promptly',
+    description: 'Herramienta de IA diseñada por un doctor para profesores. Escriba emails profesionales a padres, comentarios de estudiantes y reportes 10x más rápido. Desde €14,99/mes. Únase a 12,000+ educadores usando IA compatible con GDPR y sin alucinaciones.',
+    hero: {
+      title: 'Asistente IA para Profesores diseñado por Doctor',
+      subtitle: '12,000+ Profesores confían en Zaza Promptly'
+    }
+  },
+  it: {
+    title: 'IA per Insegnanti - Comunicazioni Genitori & Report Studenti | Zaza Promptly',
+    description: 'Strumento IA progettato da un dottore per insegnanti. Scrivi email professionali ai genitori, commenti degli studenti e report 10x più velocemente. Da €14,99/mese. Unisciti a 12.000+ educatori che usano IA conforme GDPR e senza allucinazioni.',
+    hero: {
+      title: 'Assistente IA Insegnanti progettato da Dottore',
+      subtitle: '12.000+ Insegnanti si fidano di Zaza Promptly'
+    }
   }
 }
 
-export default function Home() {
+export async function generateStaticParams() {
+  const locales = ['en', 'de', 'fr', 'es', 'it']
+  return locales.map(locale => ({ locale }))
+}
+
+export function generateMetadata({ params }: { params: { locale: string } }): Metadata {
+  const locale = params.locale as keyof typeof content
+  const t = content[locale] || content.en
+
+  return {
+    title: t.title,
+    description: t.description,
+    keywords: [
+      'AI for teachers', 'AI teacher assistant', 'parent communication AI', 'student report AI',
+      'teacher productivity tools', 'AI comment generator teachers', 'professional education AI',
+      'PhD designed AI teachers', 'Dr Greg Blackburn AI', 'GDPR compliant teacher AI',
+      'hallucination-safe AI education', 'teacher workload reduction', 'AI vs ChatGPT teachers',
+      'safe AI classroom tools', 'AI for parent emails', 'teacher communication assistant',
+      'education technology AI', 'pedagogically sound AI', 'AI built by educators'
+    ],
+    openGraph: {
+      title: t.hero.title + ' | ' + t.hero.subtitle,
+      description: t.description,
+      images: ['/og-image.png'],
+      type: 'website',
+      locale: locale === 'en' ? 'en_US' : locale,
+      siteName: 'Zaza Promptly'
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t.hero.title + ' - ' + t.hero.subtitle,
+      description: t.description,
+      images: ['/og-image.png'],
+      creator: '@zazateachapp',
+      site: '@zazateachapp'
+    },
+    alternates: {
+      canonical: `https://zazapromptly.com/${locale === 'en' ? '' : locale}`
+    }
+  }
+}
+
+export default function Home({ params }: { params: { locale: string } }) {
+  const locale = params.locale as keyof typeof content
+  const t = content[locale] || content.en
   const siteUrl = 'https://zazapromptly.com'
   
   // Generate structured data schemas for homepage
@@ -122,7 +181,7 @@ export default function Home() {
           <TeacherDifferentiatorSection />
         </section>
         
-        {/* 5. See it in action - Full Bleed */}
+        {/* 5. See it in action - Full Bleed with centralized SnippetToolV2 */}
         <section className="relative w-full overflow-hidden">
           <div className="absolute inset-0 -z-10 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
             <div className="absolute inset-0 bg-gradient-to-t from-white/50 to-transparent" />
@@ -130,7 +189,19 @@ export default function Home() {
             <div className="absolute top-1/4 right-16 w-20 h-20 bg-blue-200/20 rounded-full" />
             <div className="absolute bottom-1/4 left-20 w-28 h-28 bg-emerald-200/15 rounded-full blur-xl" />
           </div>
-          <SnippetDemo />
+          <div className="py-16 md:py-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                  See AI Comment Generation in Action
+                </h2>
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                  Try our AI tool with your own text and see how it improves your comments instantly.
+                </p>
+              </div>
+              <SnippetToolV2 />
+            </div>
+          </div>
         </section>
         
         {/* 6. AI Transparency & Habit Building */}
@@ -171,7 +242,7 @@ export default function Home() {
           </div>
         </section>
         
-        {/* 8. Trust Badges Section */}
+        {/* 7. Trust Badges Section */}
         <section className="py-16 md:py-20 bg-slate-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
@@ -186,7 +257,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 9. Teacher Testimonials */}
+        {/* 8. Teacher Testimonials */}
         <LazyContent>
           <section className="py-16 md:py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -203,14 +274,27 @@ export default function Home() {
           </section>
         </LazyContent>
         
-        {/* 8. Email Capture */}
+        {/* 9. Email Capture with centralized EmailSignupForm */}
         <section className="py-16 md:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <MainEmailCaptureSection />
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                Ready to Transform Your Teaching?
+              </h2>
+              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                Join thousands of teachers who are already saving hours every week with AI-powered tools.
+              </p>
+            </div>
+            <EmailSignupForm 
+              variant="hero"
+              source="homepage"
+              headline="Take back your evenings - join thousands of teachers already saving hours."
+              subtext="Sign up free today. No spam, just time-saving tools for teachers."
+            />
           </div>
         </section>
 
-        {/* 9. Inline Email Capture - Additional opportunity */}
+        {/* 10. Inline Email Capture - Additional opportunity */}
         <section className="py-8 md:py-12 bg-gradient-to-r from-purple-50 to-blue-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <InlineEmailCapture 
@@ -226,7 +310,22 @@ export default function Home() {
           </div>
         </section>
         
-        {/* 10. Pricing Preview */}
+        {/* 11. Founder Section */}
+        <section className="py-16 md:py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                Built by an Educator, for Educators
+              </h2>
+              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                Meet the PhD educator who understands your classroom challenges and built AI specifically for teachers.
+              </p>
+            </div>
+            <FounderCard />
+          </div>
+        </section>
+
+        {/* 12. Pricing Preview */}
         <LazyContent>
           <section className="py-16 md:py-20">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -243,13 +342,13 @@ export default function Home() {
           </section>
         </LazyContent>
 
-        {/* 11. Trust Block - FAQ, Testimonials, Badges */}
+        {/* 13. Trust Block - FAQ, Testimonials, Badges */}
         <TrustBlock />
 
-        {/* 12. Bottom CTA Section */}
+        {/* 14. Bottom CTA Section */}
         <BottomCTASection />
         
-        {/* 13. Footer - handled by root layout */}
+        {/* 14. Footer - handled by root layout */}
       </main>
     </>
   )

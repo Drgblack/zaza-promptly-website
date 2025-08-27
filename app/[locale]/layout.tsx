@@ -1,7 +1,16 @@
+import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { locales } from '@/i18n';
+
+export const metadata: Metadata = {
+  icons: {
+    icon: '/favicon.ico?v=9',
+    shortcut: '/favicon.ico?v=9',
+    apple: '/apple-touch-icon.png?v=9',
+  },
+};
 
 export default async function LocaleLayout({
   children,
