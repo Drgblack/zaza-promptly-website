@@ -3,7 +3,14 @@ on:
   push:
     branches: [ main ]
     paths:
-      - "sites/promptly-v2/**"
+      - "app/**"
+      - "src/**"
+      - "components/**"
+      - "lib/**"
+      - "middleware.ts"
+      - "next.config.js"
+      - "package.json"
+      - "vercel.json"
       - ".github/workflows/vercel-deploy.yml"
 
 jobs:
