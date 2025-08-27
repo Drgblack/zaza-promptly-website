@@ -41,10 +41,8 @@ export default async function LocaleLayout({
   await loadTranslations(locale)
 
   return (
-    <html lang={locale} className="scroll-smooth">
-      <body className="antialiased min-h-screen flex flex-col">
-        {children}
-      </body>
-    </html>
+    <>
+      {children}
+    </>
   )
 }
