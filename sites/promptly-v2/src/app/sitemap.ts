@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next'
 import { getPostSlugs, getAllTags, getAllAuthors, getAllPostsMeta, slugifyAuthor, slugifyTag } from '@/lib/blog'
 import { CASE_STUDIES } from '@/content/case-studies'
+import { supportedLocales } from '@/lib/i18n'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.zazapromptly.com'
@@ -12,13 +13,36 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Calculate total pages for pagination
   const totalPages = Math.ceil(allPosts.length / 10)
   
-  return [
-    {
-      url: baseUrl,
+  // Main pages that should be multilingual
+  const mainPages = [
+    { path: '/', priority: 1.0, changeFrequency: 'weekly' as const },
+    { path: '/pricing', priority: 0.9, changeFrequency: 'monthly' as const },
+    { path: '/about', priority: 0.7, changeFrequency: 'monthly' as const },
+    { path: '/faq', priority: 0.8, changeFrequency: 'monthly' as const },
+    { path: '/contact', priority: 0.7, changeFrequency: 'monthly' as const },
+    { path: '/products', priority: 0.8, changeFrequency: 'monthly' as const },
+    { path: '/support', priority: 0.7, changeFrequency: 'monthly' as const }
+  ]
+  
+  // Generate multilingual main pages
+  const multilingualPages = mainPages.flatMap(page => 
+    supportedLocales.map(locale => ({
+      url: locale === 'en' ? `${baseUrl}${page.path}` : `${baseUrl}/${locale}${page.path}`,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
+      changeFrequency: page.changeFrequency,
+      priority: page.priority,
+      alternates: {
+        languages: supportedLocales.reduce((acc, loc) => {
+          acc[loc] = loc === 'en' ? `${baseUrl}${page.path}` : `${baseUrl}/${loc}${page.path}`
+          return acc
+        }, {} as Record<string, string>)
+      }
+    }))
+  )
+  
+  return [
+    // Multilingual main pages
+    ...multilingualPages,
     {
       url: `${baseUrl}/personas`,
       lastModified: new Date(),

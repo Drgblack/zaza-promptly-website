@@ -461,7 +461,7 @@ export default function LocalizedHomePage() {
                 <div className="flex flex-col md:flex-row items-center gap-8">
                   <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden bg-purple-600/20 flex items-center justify-center flex-shrink-0">
                     <Image
-                      src="/images/founder-gb-v1.jpg"
+                      src="/images/founder-new.jpg"
                       alt="Dr. Greg Blackburn, PhD in Professional Education, Founder of Promptly"
                       width={160}
                       height={160}
