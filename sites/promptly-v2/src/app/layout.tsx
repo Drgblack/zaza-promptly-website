@@ -144,6 +144,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               {children}
             </main>
             <Footer />
+            <ZaraOrbProvider />
           </body>
         </AnalyticsProvider>
       </ThemeProvider>
