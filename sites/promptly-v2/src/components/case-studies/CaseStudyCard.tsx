@@ -26,7 +26,7 @@ export default function CaseStudyCard({
           "shadow-sm hover:shadow-md transition-shadow",
           "focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/60",
         ].join(" ")}
-        aria-label={`${title} — read the case study`}
+        aria-label={`${title} - read the case study`}
       >
         {/* Media */}
         <div className="relative w-full overflow-hidden rounded-t-2xl">

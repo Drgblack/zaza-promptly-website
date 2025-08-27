@@ -9,6 +9,7 @@ interface EmailSignupFormProps {
   showNameFields?: boolean
   buttonText?: string
   className?: string
+  source?: string
 }
 
 interface FormState {
@@ -24,11 +25,12 @@ interface SubmissionState {
 
 export default function EmailSignupForm({ 
   variant = 'hero',
-  headline = "Take back your evenings — join thousands of teachers already saving hours.",
+  headline = "Take back your evenings - join thousands of teachers already saving hours.",
   subtext = "Sign up free today. No spam, just time-saving tools for teachers.",
   showNameFields = true,
-  buttonText = "Join Free Today →",
-  className = ""
+  buttonText = "Join Free Today ->",
+  className = "",
+  source = 'homepage'
 }: EmailSignupFormProps) {
   const [form, setForm] = useState<FormState>({
     email: '',
@@ -63,7 +65,9 @@ export default function EmailSignupForm({
         body: JSON.stringify({
           email: form.email.trim(),
           firstName: form.firstName.trim() || undefined,
-          lastName: form.lastName.trim() || undefined
+          lastName: form.lastName.trim() || undefined,
+          source: source,
+          locale: typeof window !== 'undefined' ? (window.location.pathname.split('/')[1] || 'en') : 'en'
         }),
       })
 
@@ -79,14 +83,14 @@ export default function EmailSignupForm({
       } else {
         setSubmission({
           status: 'error',
-          message: data.error || 'Something went wrong — please try again.'
+          message: data.error || 'Something went wrong - please try again.'
         })
       }
     } catch (error) {
       console.error('Form submission error:', error)
       setSubmission({
         status: 'error',
-        message: 'Something went wrong — please try again.'
+        message: 'Something went wrong - please try again.'
       })
     }
   }

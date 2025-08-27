@@ -43,7 +43,7 @@ const TIPS: Tip[] = [
   },
   {
     id: 'first-result', 
-    text: "Try a different tone or length—then compare in 'What changed'.",
+    text: "Try a different tone or length-then compare in 'What changed'.",
     trigger: 'first-result',
     duration: 5000,
     delay: 1000

@@ -29,17 +29,17 @@ const timelineItems: TimelineItem[] = [
   },
   {
     period: '1995–1999',
-    title: 'UTAS — Information Systems',
+    title: 'UTAS - Information Systems',
     description: 'University of Tasmania: Information Systems through to Honours.',
   },
   {
     period: '2000–2004',
-    title: 'MBA — University of Queensland',
+    title: 'MBA - University of Queensland',
     description: 'Master of Business Administration.',
   },
   {
     period: '2016–2019',
-    title: 'PhD — Professional Education',
+    title: 'PhD - Professional Education',
     description: 'City, University of London: research in educational technology and professional development.',
   },
   {
