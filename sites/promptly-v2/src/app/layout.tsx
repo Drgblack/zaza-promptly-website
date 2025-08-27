@@ -138,6 +138,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <ThemeProvider defaultTheme="system">
         <AnalyticsProvider>
           <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
+            <LoadingIndicator />
             <Header />
             <main id="main-content" role="main" className="flex-1">
               {children}
