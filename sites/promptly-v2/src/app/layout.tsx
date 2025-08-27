@@ -99,9 +99,12 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/images/zaza-logo.png?v=6',
-    shortcut: '/images/zaza-logo.png?v=6',
-    apple: '/images/zaza-logo.png?v=6',
+    icon: [
+      { url: '/favicon.ico?v=7' },
+      { url: '/icon.png?v=7', type: 'image/png', sizes: '512x512' },
+    ],
+    apple: { url: '/apple-touch-icon.png?v=7' },
+    shortcut: '/favicon.ico?v=7',
   },
   alternates: {
     canonical: "/",
@@ -152,10 +155,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
         {/* Manual favicon links as fallback */}
-        <link rel="icon" href="/images/zaza-logo.png?v=6" type="image/png" />
-        <link rel="shortcut icon" href="/images/zaza-logo.png?v=6" type="image/png" />
-        <link rel="apple-touch-icon" href="/images/zaza-logo.png?v=6" type="image/png" />
-        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="icon" href="/favicon.ico?v=7" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=7" />
       </head>
       <ThemeProvider defaultTheme="system">
         <AnalyticsProvider>

@@ -61,11 +61,15 @@ export default function LanguageSwitcher({ variant = 'header', className = '' }:
     setIsOpen(false)
     buttonRef.current?.focus()
     
-    // Get the current path without locale
-    const pathWithoutLocale = pathname.replace(/^\/(en|de|fr|es|it)/, '') || '/'
+    // Set cookie for persistence
+    document.cookie = `NEXT_LOCALE=${locale}; path=/; max-age=31536000`
     
-    // Navigate to the new locale path
-    router.push(`/${locale}${pathWithoutLocale}`)
+    // Replace only the first path segment  
+    const parts = pathname.split('/')
+    parts[1] = locale
+    const newPath = parts.join('/') || `/${locale}`
+    
+    router.push(newPath)
   }
 
   const handleKeyDown = (e: React.KeyboardEvent) => {

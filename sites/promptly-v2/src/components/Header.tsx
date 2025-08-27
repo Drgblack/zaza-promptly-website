@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from 'react'
 import ThemeToggle from './ui/ThemeToggle'
 import LanguageSwitcher from './nav/LanguageSwitcher'
 import { isExternal } from '@/lib/link-utils'
+import Lnk from '@/lib/Lnk'
 
 interface MenuGroup {
   title: string
@@ -154,7 +155,7 @@ export default function Header() {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/" aria-label="Zaza Promptly home" className="flex items-center gap-2">
+            <Lnk href="/" aria-label="Zaza Promptly home" className="flex items-center gap-2">
               <Image
                 src="/images/zaza-logo.png"
                 alt="Zaza Promptly logo"
@@ -163,7 +164,7 @@ export default function Header() {
                 priority
               />
               <span className="font-semibold text-xl text-white">Promptly</span>
-            </Link>
+            </Lnk>
           </div>
 
           {/* Desktop Navigation */}
@@ -226,7 +227,7 @@ export default function Header() {
                             )}
                           </a>
                         ) : (
-                          <Link
+                          <Lnk
                             key={item.href}
                             href={item.href}
                             className="block px-4 py-3 hover:bg-slate-700/50 transition-colors focus:outline-none focus:bg-slate-700/50 rounded-none group"
@@ -241,7 +242,7 @@ export default function Header() {
                                 {item.description}
                               </div>
                             )}
-                          </Link>
+                          </Lnk>
                         )
                       })}
                     </div>
@@ -255,19 +256,19 @@ export default function Header() {
           <div className="hidden lg:flex items-center space-x-3">
             <LanguageSwitcher />
             
-            <Link 
+            <Lnk 
               href="/pricing#download"
               className="px-3 py-2 text-white/80 hover:text-white font-medium text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded-lg"
             >
               Download App
-            </Link>
+            </Lnk>
             
-            <Link 
+            <Lnk 
               href="/pricing"
               className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900"
             >
               Start Free
-            </Link>
+            </Lnk>
 
             <ThemeToggle />
           </div>
@@ -342,7 +343,7 @@ export default function Header() {
                               )}
                             </a>
                           ) : (
-                            <Link
+                            <Lnk
                               key={item.href}
                               href={item.href}
                               className="block pl-4 py-2 text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg"
@@ -352,7 +353,7 @@ export default function Header() {
                               {item.description && (
                                 <div className="text-xs text-slate-400 mt-1">{item.description}</div>
                               )}
-                            </Link>
+                            </Lnk>
                           )
                         })}
                       </div>
@@ -364,20 +365,20 @@ export default function Header() {
               {/* CTA at bottom */}
               <div className="pt-6 border-t border-white/10">
                 <div className="space-y-3">
-                  <Link 
+                  <Lnk 
                     href="/pricing#download"
                     className="block w-full px-4 py-2 border border-white/20 text-white hover:bg-white/5 font-medium rounded-lg text-center transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Download App
-                  </Link>
-                  <Link 
+                  </Lnk>
+                  <Lnk 
                     href="/pricing"
                     className="block w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg text-center transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Start Free
-                  </Link>
+                  </Lnk>
                 </div>
                 <div className="mt-4 flex justify-center">
                   <ThemeToggle variant="mobile" />

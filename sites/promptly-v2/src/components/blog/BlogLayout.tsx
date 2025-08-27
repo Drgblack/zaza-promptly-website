@@ -6,6 +6,7 @@ import { SaveTimeCTA, GetStartedCTA } from './InlineCTA'
 import RelatedPosts from './RelatedPosts'
 import { marked } from 'marked'
 import { slugifyTag } from '@/lib/blog-types'
+import EmailSignupForm from '@/components/forms/EmailSignupForm'
 
 interface BlogLayoutProps {
   title: string
@@ -19,7 +20,7 @@ interface BlogLayoutProps {
 }
 
 // Auto-insert CTAs into content at strategic positions
-function processContentWithCTAs(content: string): ReactNode[] {
+function processContentWithCTAs(content: string, slug: string): ReactNode[] {
   const htmlContent = marked.parse(content) as string
   const paragraphs = htmlContent.split('</p>')
   const elements: ReactNode[] = []
@@ -36,10 +37,19 @@ function processContentWithCTAs(content: string): ReactNode[] {
         />
       )
       
-      // Insert CTA after ~30% of content
+      // Insert email signup form after ~30% of content
       if (index === Math.floor(paragraphs.length * 0.3)) {
         elements.push(
-          <SaveTimeCTA key="mid-cta" className="my-12" />
+          <div key="mid-email-signup" className="my-12">
+            <EmailSignupForm 
+              variant="compact"
+              source={`blog-${slug}-top`}
+              headline="Get more teaching tips like this"
+              subtext="Join 12,000+ educators saving time with our weekly insights."
+              showNameFields={false}
+              buttonText="Get Tips"
+            />
+          </div>
         )
       }
     }
@@ -201,7 +211,7 @@ export default function BlogLayout({
 }: BlogLayoutProps) {
   const readingTime = calculateReadingTime(content)
   const excerpt = description || extractExcerpt(content)
-  const processedContent = processContentWithCTAs(content)
+  const processedContent = processContentWithCTAs(content, slug)
 
   return (
     <div className="min-h-screen bg-slate-900">
@@ -294,8 +304,17 @@ export default function BlogLayout({
               {processedContent}
             </article>
             
-            {/* End-of-article CTA */}
-            <GetStartedCTA className="my-12" />
+            {/* End-of-article email signup */}
+            <div className="my-12">
+              <EmailSignupForm 
+                variant="compact"
+                source={`blog-${slug}-bottom`}
+                headline="Ready to save hours each week?"
+                subtext="Get exclusive tips and tools that help teachers reclaim their time."
+                showNameFields={true}
+                buttonText="Start Saving Time"
+              />
+            </div>
           </div>
         </div>
       </section>
