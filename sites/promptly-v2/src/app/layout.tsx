@@ -136,9 +136,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
+        <Header />
         <main id="main-content" role="main" className="flex-1">
           {children}
         </main>
+        <Footer />
       </body>
     </html>
   );
