@@ -2,12 +2,6 @@ import LocalizedHomePage from '@/components/i18n/LocalizedHomePage'
 import { notFound } from 'next/navigation'
 import { supportedLocales, loadTranslations, type Locale } from '@/lib/i18n'
 import { generateI18nMetadata } from '@/lib/i18n-metadata'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import AnalyticsProvider from '@/components/analytics/AnalyticsProvider'
-import { ThemeProvider } from '@/providers/ThemeProvider'
-import LoadingIndicator from '@/components/LoadingIndicator'
-import ZaraOrbProvider from '@/components/ui/ZaraOrbProvider'
 
 // Static page - revalidate every hour
 export const revalidate = 3600
@@ -125,29 +119,12 @@ export default async function LocalePage({ params: { locale } }: LocalePageProps
   ]
   
   return (
-    <ThemeProvider defaultTheme="system">
-      <AnalyticsProvider>
-        <>
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-          />
-          
-          <LoadingIndicator />
-          <a
-            href="#main-content"
-            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white px-4 py-2 rounded-md font-medium shadow-lg z-50 focus:outline-none focus:ring-2 focus:ring-blue-600"
-          >
-            Skip to main content
-          </a>
-          <Header />
-          <main id="main-content" role="main" className="flex-1">
-            <LocalizedHomePage />
-          </main>
-          <Footer />
-          <ZaraOrbProvider />
-        </>
-      </AnalyticsProvider>
-    </ThemeProvider>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <LocalizedHomePage />
+    </>
   )
 }

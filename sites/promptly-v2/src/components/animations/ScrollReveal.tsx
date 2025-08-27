@@ -21,10 +21,65 @@ export default function ScrollReveal({
   once = true,
   isLCPElement = false,
 }: ScrollRevealProps) {
-  // Temporarily disable all animations to fix hydration issues
-  // Just render children without any animation logic
+  const ref = useRef<HTMLDivElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
+
+  // Handle hydration
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!isMounted) return
+    
+    const element = ref.current
+    if (!element) return
+
+    // For LCP elements, don't animate initially to prevent layout shift
+    if (isLCPElement) {
+      setIsVisible(true)
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          if (once) {
+            observer.unobserve(element)
+          }
+        } else if (!once) {
+          setIsVisible(false)
+        }
+      },
+      { threshold: 0.1, rootMargin: '50px' }
+    )
+
+    observer.observe(element)
+
+    return () => observer.disconnect()
+  }, [isMounted, once, isLCPElement])
+
+  // Prevent hydration mismatch by not animating during SSR
+  if (!isMounted) {
+    return (
+      <div ref={ref} className={className}>
+        {children}
+      </div>
+    )
+  }
+
   return (
-    <div className={className}>
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        transform: isVisible ? 'translateY(0)' : `translateY(${y}px)`,
+        opacity: isVisible ? 1 : 0,
+        transition: `all ${duration}s ease-out ${delay}s`,
+      }}
+    >
       {children}
     </div>
   )
@@ -50,10 +105,61 @@ export function ScrollRevealStagger({
   once = true,
   isLCPElement = false,
 }: ScrollRevealStaggerProps) {
-  // Temporarily disable all animations to fix hydration issues
-  // Just render children without any animation logic
+  const ref = useRef<HTMLDivElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!isMounted) return
+    
+    const element = ref.current
+    if (!element) return
+
+    if (isLCPElement) {
+      setIsVisible(true)
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          if (once) {
+            observer.unobserve(element)
+          }
+        } else if (!once) {
+          setIsVisible(false)
+        }
+      },
+      { threshold: 0.1, rootMargin: '50px' }
+    )
+
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [isMounted, once, isLCPElement])
+
+  if (!isMounted) {
+    return (
+      <div ref={ref} className={className}>
+        {children}
+      </div>
+    )
+  }
+
   return (
-    <div className={className}>
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        transform: isVisible ? 'translateY(0)' : `translateY(20px)`,
+        opacity: isVisible ? 1 : 0,
+        transition: `all ${duration}s ease-out ${childDelay}s`,
+      }}
+    >
       {children}
     </div>
   )
