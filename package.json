@@ -1,0 +1,9 @@
+{
+  "name": "zaza-websites",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "echo 'Building from sites/promptly-v2' && cd sites/promptly-v2 && npm install && npm run build"
+  },
+  "dependencies": {}
+}
