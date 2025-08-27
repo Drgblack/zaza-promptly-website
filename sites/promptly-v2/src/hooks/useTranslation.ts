@@ -13,9 +13,16 @@ interface UseTranslationReturn {
 export function useTranslation(): UseTranslationReturn {
   const pathname = usePathname()
   const locale = getLocaleFromPath(pathname)
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false) // Start with false to prevent hydration mismatch
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!isMounted) return
+    
     const loadLocaleTranslations = async () => {
       setIsLoading(true)
       await loadTranslations(locale)
@@ -23,10 +30,10 @@ export function useTranslation(): UseTranslationReturn {
     }
 
     loadLocaleTranslations()
-  }, [locale])
+  }, [locale, isMounted])
 
   const t = (key: string, params?: Record<string, string>) => {
-    if (isLoading) return key
+    // Always return the translated content or fallback, but never return key during SSR
     return translate(key, locale, params)
   }
 
