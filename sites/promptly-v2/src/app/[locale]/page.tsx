@@ -23,9 +23,9 @@ import { generateWebsiteSchema, generateOrganizationSchema, generateSoftwareSche
 import { StreakCounter } from "@/components/habit-building/StreakCounter"
 import { SampleGenerator } from "@/components/ai-transparency/SampleGenerator"
 import { AccessibleCard } from "@/components/accessibility/AccessibleCard"
-import EmailSignupForm from "@/src/components/forms/EmailSignupForm"
-import SnippetToolV2 from "@/src/components/sections/SnippetToolV2"
-import FounderCard from "@/src/components/FounderCard"
+import EmailSignupForm from "@/components/forms/EmailSignupForm"
+import SnippetToolV2 from "@/components/sections/SnippetToolV2"
+import FounderCard from "@/components/FounderCard"
 
 // Multilingual content
 const content = {
