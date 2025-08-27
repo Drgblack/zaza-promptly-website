@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.6.1",
+    "@headlessui/react": "^2.2.7",
     "@sentry/nextjs": "^10.5.0",
     "@zaza/shared-brand": "file:./packages/shared-brand",
     "class-variance-authority": "^0.7.1",
