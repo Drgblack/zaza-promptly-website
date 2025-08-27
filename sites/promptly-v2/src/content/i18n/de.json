@@ -1,0 +1,49 @@
+{
+  "home": {
+    "hero": {
+      "title": "KI-gestütztes Schreibtool für Lehrer",
+      "subtitle": "Halluzinationssichere KI für Elternkommunikation, Schülerberichte und professionelle Nachrichten. Reduzieren Sie die Arbeitsbelastung von Lehrern mit DSGVO-konformer KI.",
+      "tryFree": "Kostenlos testen",
+      "credibility": "Vertraut von über 12.000 Lehrern weltweit"
+    },
+    "problem": {
+      "title": "Zu viel Schreibarbeit, zu wenig Zeit",
+      "description": "Lehrer verbringen Stunden damit, Elternbriefe zu schreiben, Berichte zu erstellen und professionelle E-Mails zu verfassen, während sich die eigentlichen Unterrichtsaufgaben stapeln."
+    },
+    "solution": {
+      "title": "Intelligente Schreibhilfe, die Ihren Ton trifft",
+      "subtitle": "Promptly verwendet fortschrittliche KI, um Ihnen beim Schreiben zu helfen, während es Ihren authentischen Lehrstil und professionellen Ton beibehält."
+    },
+    "differentiation": {
+      "title": "Warum Promptly anders ist",
+      "subtitle": "Entwickelt speziell für Lehrer, mit Bildungsexpertise und KI-Sicherheit im Fokus.",
+      "features": {
+        "safe": {
+          "title": "Sicher & Genau",
+          "description": "Halluzinationssichere KI sorgt für genaue, vertrauenswürdige Inhalte ohne falsche Informationen."
+        },
+        "tone": {
+          "title": "Ton-Tutor",
+          "description": "Passt sich automatisch an Ihren Schreibstil an - professionell für Berichte, freundlich für Elterngespräche."
+        },
+        "pedagogy": {
+          "title": "Von Pädagogen entwickelt",
+          "description": "Erstellt von Dr. Greg Blackburn (PhD Berufspädagogik) mit über 20 Jahren Bildungserfahrung."
+        },
+        "translation": {
+          "title": "Mehrsprachig",
+          "description": "Unterstützt über 100 Sprachen für vielfältige Schulgemeinschaften und internationale Kommunikation."
+        }
+      }
+    },
+    "finalCTA": {
+      "title": "Bereit, Ihre Schreibzeit zu reduzieren?",
+      "subtitle": "Schließen Sie sich Tausenden von Lehrern an, die ihre Arbeitsbelastung mit Promptly reduziert haben."
+    }
+  },
+  "cta": {
+    "tryPromptlyFree": "Promptly kostenlos testen",
+    "seeHowItWorks": "Funktionsweise ansehen",
+    "viewPricing": "Preise anzeigen"
+  }
+}

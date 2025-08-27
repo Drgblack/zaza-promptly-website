@@ -1,0 +1,49 @@
+{
+  "home": {
+    "hero": {
+      "title": "Strumento di scrittura IA per insegnanti",
+      "subtitle": "IA senza allucinazioni per comunicazione genitori, rapporti studenti e messaggi professionali. Riduci il carico di lavoro degli insegnanti con IA conforme GDPR.",
+      "tryFree": "Prova gratis",
+      "credibility": "Fidato da oltre 12.000 insegnanti in tutto il mondo"
+    },
+    "problem": {
+      "title": "Troppa scrittura, poco tempo",
+      "description": "Gli insegnanti passano ore a scrivere lettere ai genitori, creare rapporti e comporre email professionali, mentre i veri compiti di insegnamento si accumulano."
+    },
+    "solution": {
+      "title": "Assistente di scrittura intelligente che cattura il tuo tono",
+      "subtitle": "Promptly usa IA avanzata per aiutarti a scrivere preservando il tuo stile di insegnamento autentico e tono professionale."
+    },
+    "differentiation": {
+      "title": "Perché Promptly è diverso",
+      "subtitle": "Progettato specificamente per insegnanti, con esperienza educativa e sicurezza IA in primo piano.",
+      "features": {
+        "safe": {
+          "title": "Sicuro e preciso",
+          "description": "IA senza allucinazioni garantisce contenuto accurato e affidabile senza informazioni false."
+        },
+        "tone": {
+          "title": "Tutor del tono",
+          "description": "Si adatta automaticamente al tuo stile di scrittura - professionale per rapporti, amichevole per genitori."
+        },
+        "pedagogy": {
+          "title": "Creato da educatori",
+          "description": "Sviluppato da Dr. Greg Blackburn (PhD Educazione Professionale) con oltre 20 anni di esperienza educativa."
+        },
+        "translation": {
+          "title": "Multilingue",
+          "description": "Supporta oltre 100 lingue per comunità scolastiche diverse e comunicazione internazionale."
+        }
+      }
+    },
+    "finalCTA": {
+      "title": "Pronto a ridurre il tuo tempo di scrittura?",
+      "subtitle": "Unisciti a migliaia di insegnanti che hanno ridotto il loro carico di lavoro con Promptly."
+    }
+  },
+  "cta": {
+    "tryPromptlyFree": "Prova Promptly gratis",
+    "seeHowItWorks": "Vedi come funziona",
+    "viewPricing": "Vedi prezzi"
+  }
+}

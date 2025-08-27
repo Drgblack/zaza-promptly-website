@@ -1,0 +1,208 @@
+{
+  "nav": {
+    "products": "Zaza Ecosystem",
+    "solutions": "Solutions",
+    "resources": "Resources",
+    "company": "Company",
+    "pricing": "Pricing",
+    "downloadApp": "Download App",
+    "startFree": "Start Free"
+  },
+  "cta": {
+    "startFree": "Start Free",
+    "downloadApp": "Download App",
+    "tryFree": "Try Free",
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "seeHowItWorks": "See how it works",
+    "upgradeToP": "Upgrade to Pro",
+    "getTheBundle": "Get the bundle",
+    "joinFreeToday": "Join Free Today →",
+    "getTeacherTips": "Get Teacher Tips",
+    "tryPromptlyFree": "Try Promptly Free",
+    "startSavingHours": "Start saving hours today",
+    "readyToSaveHours": "Ready to save hours each week?"
+  },
+  "home": {
+    "hero": {
+      "title": "Write better parent messages in minutes — not hours",
+      "subtitle": "The only hallucination-safe AI built for teachers writing report cards and parent communications.",
+      "tryFree": "Try it free — 5 comments this month",
+      "credibility": "Created by Dr. Greg Blackburn, PhD in Professional Education • Trusted by 12,000+ teachers"
+    },
+    "problem": {
+      "title": "You're not alone in this struggle",
+      "description": "You stay up past midnight rewriting the same parent messages, second-guessing your tone, and copy-pasting from last year's reports. Generic AI can hallucinate, misstate facts, or sound robotic. Teachers deserve better."
+    },
+    "solution": {
+      "title": "Promptly gives you trusted, ready-to-send drafts in your own professional voice — in seconds",
+      "subtitle": "Experience safe AI for teachers. Write your draft and let our hallucination-safe AI enhance it with perfect tone, length, and reading level."
+    },
+    "differentiation": {
+      "title": "Why teachers choose Promptly over ChatGPT",
+      "subtitle": "Built specifically for education with the safety and accuracy teachers require.",
+      "features": {
+        "safe": {
+          "title": "Hallucination-Safe",
+          "description": "Binary advantage: Won't generate false information or inappropriate content like generic AI"
+        },
+        "tone": {
+          "title": "Emotional Tone Tutor",
+          "description": "10x faster than rewriting — perfect professional tone every time"
+        },
+        "pedagogy": {
+          "title": "Pedagogy-First AI",
+          "description": "Built by educators who understand the nuances of school communication"
+        },
+        "translation": {
+          "title": "Instant Translation",
+          "description": "Communicate with all families — translation included in every plan"
+        }
+      }
+    },
+    "socialProof": {
+      "title": "Trusted by teachers worldwide",
+      "subtitle": "Join thousands of educators who've transformed their practice with AI writing assistance designed specifically for teachers.",
+      "stats": {
+        "teachers": "12,000+ Teachers using Promptly",
+        "faster": "10x Faster than manual writing",
+        "timeSaved": "5 mins Average time saved per comment"
+      }
+    },
+    "founder": {
+      "name": "Dr Greg Blackburn",
+      "title": "Founder & CEO, Zaza Technologies",
+      "credentials": {
+        "education": "PhD in Professional Education",
+        "experience": "20+ Years EdTech",
+        "background": "Parent & Educator"
+      }
+    },
+    "finalCTA": {
+      "title": "Start free today – your first 5 comments are on us",
+      "subtitle": "No credit card required. Cancel anytime."
+    }
+  },
+  "forms": {
+    "home": {
+      "headline": "Take back your evenings — join thousands of teachers already saving hours.",
+      "subtext": "Sign up free today. No spam, just time-saving tools for teachers."
+    },
+    "blog": {
+      "headline": "Enjoying these tips? Get more teacher-friendly resources straight to your inbox.",
+      "subtext": "Quick practical tips to save your time. No spam, unsubscribe anytime."
+    },
+    "joinFreeToday": "Join Free Today →",
+    "email": "Your email address",
+    "schoolEmail": "Your school email",
+    "firstName": "First name (optional)",
+    "lastName": "Last name (optional)",
+    "joining": "Signing up...",
+    "success": "Thanks, you're on the list!",
+    "successDetail": "We'll send you practical tips and updates to help save your time.",
+    "error": "Something went wrong — please try again.",
+    "emailRequired": "Please enter your email address",
+    "trustSignal": "Join 12,000+ educators. Unsubscribe anytime."
+  },
+  "pricing": {
+    "title": "Simple pricing for every teacher",
+    "subtitle": "Start free, upgrade when ready. No contracts, cancel anytime.",
+    "plans": {
+      "free": {
+        "name": "Free",
+        "description": "Perfect for trying Promptly",
+        "price": "€0",
+        "period": "/month",
+        "features": [
+          "5 comments per month",
+          "Hallucination-safe AI",
+          "Tone tutor + rephrase"
+        ],
+        "cta": "Start free"
+      },
+      "pro": {
+        "name": "Pro",
+        "badge": "Most Popular",
+        "description": "For individual teachers",
+        "price": "€14.99",
+        "period": "/month",
+        "features": [
+          "Unlimited comments",
+          "Hallucination-safe, pedagogy-first",
+          "Translation + tone tutor",
+          "Priority support"
+        ],
+        "cta": "Upgrade to Pro"
+      },
+      "bundle": {
+        "name": "Bundle",
+        "description": "Complete teaching toolkit",
+        "price": "€24.99",
+        "period": "/month",
+        "savings": "Save €5/month",
+        "features": [
+          "Everything in Pro",
+          "Zaza Teach (lesson planning)",
+          "Resource library access",
+          "Advanced AI features"
+        ],
+        "cta": "Get the bundle"
+      }
+    },
+    "availableOn": "Available on",
+    "comparePlans": "Compare plans",
+    "faq": {
+      "title": "Frequently asked questions",
+      "questions": {
+        "safety": {
+          "q": "What makes Promptly safer than ChatGPT?",
+          "a": "Promptly is specifically designed for education with hallucination-safe AI that won't generate false information. Unlike ChatGPT, it's trained on educational contexts and includes safety guardrails to ensure accurate, appropriate content for school communications."
+        },
+        "cancel": {
+          "q": "Can I cancel anytime?",
+          "a": "Yes, absolutely. You can cancel your subscription at any time with no penalties or fees. Your access will continue until the end of your current billing period, and you can always restart later."
+        },
+        "refunds": {
+          "q": "Do you offer refunds?",
+          "a": "We offer a 30-day money-back guarantee. If you're not satisfied with Promptly for any reason within your first 30 days, contact us for a full refund."
+        },
+        "privacy": {
+          "q": "Is my data private?",
+          "a": "Yes, your data is completely private and secure. We're GDPR compliant, never train AI models on your content, and all data is encrypted. Your student information and communications remain confidential at all times."
+        },
+        "bundle": {
+          "q": "What's included in the bundle?",
+          "a": "The bundle includes full access to both Promptly (unlimited comments, translations, priority support) and Zaza Teach (lesson planning, resource library, curriculum alignment tools) at a discounted rate."
+        },
+        "changePlans": {
+          "q": "Can I upgrade or downgrade plans?",
+          "a": "Yes, you can change your plan at any time from your account settings. Upgrades take effect immediately, while downgrades take effect at your next billing cycle."
+        }
+      }
+    },
+    "finalCTA": {
+      "title": "Start saving hours today",
+      "subtitle": "Join 12,000+ teachers who've transformed their practice with hallucination-safe AI. Start with 5 free comments this month.",
+      "disclaimer": "No credit card required • Cancel anytime • Created by teachers, for teachers"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "retry": "Retry",
+    "close": "Close",
+    "open": "Open",
+    "save": "Save",
+    "cancel": "Cancel",
+    "continue": "Continue",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "viewAll": "View All",
+    "showMore": "Show More",
+    "showLess": "Show Less"
+  }
+}

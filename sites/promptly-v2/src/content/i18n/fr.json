@@ -1,0 +1,49 @@
+{
+  "home": {
+    "hero": {
+      "title": "Outil d'écriture IA pour enseignants",
+      "subtitle": "IA sans hallucination pour la communication parents, rapports d'élèves et messages professionnels. Réduisez la charge de travail des enseignants avec une IA conforme RGPD.",
+      "tryFree": "Essayer gratuitement",
+      "credibility": "Fait confiance par plus de 12 000 enseignants dans le monde"
+    },
+    "problem": {
+      "title": "Trop d'écriture, pas assez de temps",
+      "description": "Les enseignants passent des heures à rédiger des lettres aux parents, créer des rapports et composer des e-mails professionnels, pendant que les vraies tâches d'enseignement s'accumulent."
+    },
+    "solution": {
+      "title": "Assistant d'écriture intelligent qui capture votre ton",
+      "subtitle": "Promptly utilise une IA avancée pour vous aider à écrire tout en préservant votre style d'enseignement authentique et votre ton professionnel."
+    },
+    "differentiation": {
+      "title": "Pourquoi Promptly est différent",
+      "subtitle": "Conçu spécifiquement pour les enseignants, avec expertise éducative et sécurité IA au premier plan.",
+      "features": {
+        "safe": {
+          "title": "Sûr et précis",
+          "description": "IA sans hallucination garantit un contenu précis et fiable sans fausses informations."
+        },
+        "tone": {
+          "title": "Tuteur de ton",
+          "description": "S'adapte automatiquement à votre style d'écriture - professionnel pour les rapports, amical pour les parents."
+        },
+        "pedagogy": {
+          "title": "Créé par des éducateurs",
+          "description": "Développé par Dr. Greg Blackburn (PhD Éducation Professionnelle) avec plus de 20 ans d'expérience éducative."
+        },
+        "translation": {
+          "title": "Multilingue",
+          "description": "Prend en charge plus de 100 langues pour des communautés scolaires diverses et communication internationale."
+        }
+      }
+    },
+    "finalCTA": {
+      "title": "Prêt à réduire votre temps d'écriture ?",
+      "subtitle": "Rejoignez des milliers d'enseignants qui ont réduit leur charge de travail avec Promptly."
+    }
+  },
+  "cta": {
+    "tryPromptlyFree": "Essayer Promptly gratuitement",
+    "seeHowItWorks": "Voir comment ça marche",
+    "viewPricing": "Voir les prix"
+  }
+}
