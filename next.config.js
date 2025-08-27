@@ -1,6 +1,7 @@
 const path = require('path');
+const withNextIntl = require('next-intl/plugin')('./i18n.ts');
 
-const nextConfig = {
+const nextConfig = withNextIntl({
   reactStrictMode: true,
   eslint: {
     ignoreDuringBuilds: true,
@@ -28,6 +29,6 @@ const nextConfig = {
       }
     ];
   },
-};
+});
 
 module.exports = nextConfig;
