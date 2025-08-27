@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import SnippetToolV2 from '@/src/components/sections/SnippetToolV2'
+import SnippetToolV2 from '@/components/sections/SnippetToolV2'
 
 export const metadata: Metadata = {
   title: 'Quick Comment Helper - Instant AI Teacher Feedback | Zaza Promptly',

@@ -8,7 +8,7 @@ import { Calendar, Clock, User, Tag, Share2, Facebook, Twitter, Linkedin, ArrowL
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
-import EmailSignupForm from '@/src/components/forms/EmailSignupForm'
+import EmailSignupForm from '@/components/forms/EmailSignupForm'
 
 interface EnhancedBlogLayoutProps {
   post: BlogPost

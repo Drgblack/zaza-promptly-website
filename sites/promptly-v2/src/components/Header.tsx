@@ -3,8 +3,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
-import Lnk from '@/src/lib/Lnk';
-import { paths } from '@/src/config/paths';
+import Lnk from '@/lib/Lnk';
+import { paths } from '@/config/paths';
 import LanguageSwitcher from './nav/LanguageSwitcher';
 
 export default function Header() {
