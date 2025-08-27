@@ -135,10 +135,38 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <link
+          rel="preload"
+          href="/fonts/GeistVF.woff"
+          as="font"
+          type="font/woff"
+          crossOrigin="anonymous"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        {/* Manual favicon links as fallback */}
+        <link rel="icon" href="/icon.png?v=5" type="image/png" />
+        <link rel="shortcut icon" href="/icon.png?v=5" type="image/png" />
+        <link rel="apple-touch-icon" href="/apple-icon.png?v=5" type="image/png" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
+      </head>
       <ThemeProvider defaultTheme="system">
         <AnalyticsProvider>
           <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
             <LoadingIndicator />
+            <a
+              href="#main-content"
+              className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-white dark:bg-slate-800 text-slate-100 dark:text-white px-4 py-2 rounded-md font-medium shadow-lg z-50 focus:outline-none focus:ring-2 focus:ring-blue-600"
+            >
+              Skip to main content
+            </a>
             <Header />
             <main id="main-content" role="main" className="flex-1">
               {children}
