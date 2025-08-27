@@ -34,7 +34,7 @@ export function PullQuote({ quote, author, className = '' }: PullQuoteProps) {
       {author && (
         <footer className="mt-4 pl-8">
           <cite className="text-slate-400 text-sm font-medium">
-            — {author}
+            - {author}
           </cite>
         </footer>
       )}

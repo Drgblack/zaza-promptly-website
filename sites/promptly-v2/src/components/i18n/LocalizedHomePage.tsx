@@ -1,22 +1,17 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useTranslation } from '@/hooks/useTranslation'
 import ScrollReveal from '@/components/animations/ScrollReveal'
 import EmailSignupForm from '@/components/forms/EmailSignupForm'
 import TrustBadges from '@/components/trust/TrustBadges'
 import TestimonialsSection from '@/components/testimonials/TestimonialsSection'
-import SnippetDemo from '@/components/sections/SnippetDemo'
-import ZaraAssistant from '@/components/snippet/ZaraAssistant'
+import SnippetToolV2 from '@/components/sections/SnippetToolV2'
 import { useState } from 'react'
 
 export default function LocalizedHomePage() {
   const { t, locale } = useTranslation()
-  const [zaraProps] = useState({
-    isTextareaFocused: false,
-    hasResult: false,
-    isExplainTabOpen: false
-  })
 
   return (
     <>
@@ -41,7 +36,7 @@ export default function LocalizedHomePage() {
               
               {/* Main Headline */}
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                Safe AI that saves teachers hours — without losing empathy
+                Safe AI that saves teachers hours - without losing empathy
               </h1>
               
               {/* Subtext */}
@@ -75,7 +70,7 @@ export default function LocalizedHomePage() {
                 variant="hero"
                 headline="Join 12,000+ educators saving hours every week"
                 subtext="Get free time-saving tools and tips. No spam, just practical help for teachers."
-                buttonText="Join Free Today →"
+                buttonText="Join Free Today ->"
                 className="mt-12"
               />
             </ScrollReveal>
@@ -99,55 +94,57 @@ export default function LocalizedHomePage() {
         </div>
       </section>
 
-      {/* "See Promptly Transform" Section */}
+      {/* PROBLEM SECTION - Anthony Pierri Flow Step 1 */}
       <section className="py-20 bg-slate-900">
         <div className="container">
           <ScrollReveal>
             <div className="max-w-4xl mx-auto text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                See Promptly transform your communication
+                Writing parent messages shouldn't take all evening
               </h2>
-              <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-                From rushed drafts to professional messages that parents appreciate — in seconds, not hours.
+              <p className="text-xl text-slate-300 max-w-2xl mx-auto mb-8">
+                Every teacher knows the struggle: 30+ report comments due tomorrow, difficult conversations with parents, and no time for your own life.
               </p>
             </div>
           </ScrollReveal>
           
           <ScrollReveal delay={0.1}>
-            <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
-              {/* Before */}
-              <div className="bg-red-900/20 border border-red-500/30 rounded-2xl p-8">
-                <div className="text-red-400 font-semibold mb-4 flex items-center">
-                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            <div className="max-w-6xl mx-auto">
+              {/* Pain Points */}
+              <div className="bg-red-900/20 border border-red-500/30 rounded-2xl p-8 mb-8">
+                <div className="text-red-400 font-semibold mb-6 text-center">
+                  <svg className="w-6 h-6 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16c-.77.833.192 2.5 1.732 2.5z" />
                   </svg>
-                  Before Promptly
+                  The Reality for Most Teachers
                 </div>
-                <blockquote className="text-slate-300 mb-6 italic">
-                  "Hi, your child has been disruptive in class today and needs to focus more on their work instead of talking to friends..."
-                </blockquote>
-                <div className="text-sm text-red-400 space-y-2">
-                  <div>😬 Sounds harsh and confrontational</div>
-                  <div>⏰ Takes ages to write</div>
-                  <div>😰 Makes parents defensive</div>
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="text-center">
+                    <div className="text-2xl mb-2">⏰</div>
+                    <h4 className="font-semibold text-red-300 mb-2">Hours Every Week</h4>
+                    <p className="text-slate-300 text-sm">Spent writing the same types of messages over and over</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl mb-2">😰</div>
+                    <h4 className="font-semibold text-red-300 mb-2">Difficult Conversations</h4>
+                    <p className="text-slate-300 text-sm">Struggling to find the right tone for sensitive topics</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl mb-2">🔥</div>
+                    <h4 className="font-semibold text-red-300 mb-2">Teacher Burnout</h4>
+                    <p className="text-slate-300 text-sm">No time for lesson planning or personal life</p>
+                  </div>
                 </div>
               </div>
               
-              {/* After */}
-              <div className="bg-green-900/20 border border-green-500/30 rounded-2xl p-8">
-                <div className="text-green-400 font-semibold mb-4 flex items-center">
-                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  After Promptly
-                </div>
-                <blockquote className="text-slate-300 mb-6">
-                  "I wanted to touch base about [Child's name]'s social engagement in class. While their enthusiasm for connecting with peers shows wonderful social skills, I'd love to work with you on channeling this energy..."
+              {/* Example Problem */}
+              <div className="bg-slate-800/40 rounded-2xl p-6">
+                <h4 className="text-slate-300 font-medium mb-4 text-center">Sound familiar?</h4>
+                <blockquote className="text-slate-300 italic text-center text-lg mb-4">
+                  "Hi, your child has been disruptive in class today and needs to focus more on their work instead of talking to friends..."
                 </blockquote>
-                <div className="text-sm text-green-400 space-y-2">
-                  <div>✨ Professional and empathetic tone</div>
-                  <div>⚡ Generated in seconds</div>
-                  <div>🤝 Builds parent partnership</div>
+                <div className="text-center text-sm text-red-400">
+                  😬 Sounds harsh • 😰 Makes parents defensive • ⏰ Took 15 minutes to write
                 </div>
               </div>
             </div>
@@ -155,36 +152,71 @@ export default function LocalizedHomePage() {
         </div>
       </section>
 
-      {/* Interactive Demo Section */}
+      {/* SOLUTION SECTION - Anthony Pierri Flow Step 2 */}
+      <section className="py-20 bg-slate-800/50">
+        <div className="container">
+          <ScrollReveal>
+            <div className="max-w-4xl mx-auto text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                What if AI could write like you - but better and faster?
+              </h2>
+              <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+                Promptly transforms your rushed drafts into professional, empathetic messages that strengthen parent relationships.
+              </p>
+            </div>
+          </ScrollReveal>
+          
+          <ScrollReveal delay={0.1}>
+            <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+              {/* Before */}
+              <div className="bg-slate-900/60 border border-slate-600/50 rounded-2xl p-8">
+                <div className="text-slate-400 font-semibold mb-4 text-center">
+                  Your Draft (2 minutes)
+                </div>
+                <blockquote className="text-slate-300 mb-6">
+                  "Hi, your child has been disruptive in class today and needs to focus more on their work instead of talking to friends..."
+                </blockquote>
+              </div>
+              
+              {/* After */}
+              <div className="bg-green-900/20 border border-green-500/30 rounded-2xl p-8">
+                <div className="text-green-400 font-semibold mb-4 text-center">
+                  Promptly's Improvement (30 seconds)
+                </div>
+                <blockquote className="text-slate-300 mb-6">
+                  "I wanted to touch base about [Child's name]'s social engagement in class. While their enthusiasm for connecting with peers shows wonderful social skills, I'd love to work with you on channeling this energy to support their learning..."
+                </blockquote>
+                <div className="text-center text-sm text-green-400">
+                  ✨ Professional tone • 🤝 Builds partnership • ⚡ Generated in seconds
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* PRODUCT DEMO SECTION - Anthony Pierri Flow Step 3 */}
       <section id="demo" className="py-20 bg-gradient-to-b from-slate-900 to-purple-900/30">
         <div className="container">
           <ScrollReveal>
             <div className="max-w-4xl mx-auto text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Try it yourself — improve any comment instantly
+                Try it yourself - improve any comment instantly
               </h2>
               <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-                Paste your draft, choose your tone, and watch Promptly make it better. This is just a demo — the real tool does much more.
+                Paste your draft, choose your tone, and watch Promptly make it better. Experience the Improve/Explain/History tabs that teachers love.
               </p>
             </div>
           </ScrollReveal>
           
           <ScrollReveal delay={0.1}>
             <div className="max-w-6xl mx-auto">
-              {/* Zara Assistant */}
-              <ZaraAssistant 
-                isTextareaFocused={zaraProps.isTextareaFocused}
-                hasResult={zaraProps.hasResult} 
-                isExplainTabOpen={zaraProps.isExplainTabOpen}
-                onToggleTips={(enabled) => console.log('Tips toggled:', enabled)}
-              />
-              
-              {/* Demo Tool */}
-              <SnippetDemo />
+              {/* Advanced Demo Tool with Zara and tabs */}
+              <SnippetToolV2 />
               
               <div className="text-center mt-8">
                 <p className="text-slate-400 text-sm mb-4">
-                  This is just a taste. The real Promptly includes parent email templates, report generators, and 25+ languages.
+                  This demo shows Promptly's core features. The full version includes parent email templates, report generators, and 25+ languages.
                 </p>
                 <Link
                   href="/pricing#free"
@@ -201,13 +233,39 @@ export default function LocalizedHomePage() {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* MID-PAGE CTA - Anthony Pierri Flow */}
+      <section className="py-16 bg-blue-600">
+        <div className="container">
+          <ScrollReveal>
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl font-bold text-white mb-4">
+                Ready to get your evenings back?
+              </h2>
+              <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Start with 5 free comments this month. No credit card required.
+              </p>
+              
+              <Link 
+                href="/pricing#free"
+                className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition-colors shadow-lg text-lg"
+              >
+                Start Your Free Trial
+                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Features Section - Why Promptly Works */}
       <section id="features" className="py-20 bg-slate-900">
         <div className="container">
           <ScrollReveal>
             <div className="max-w-4xl mx-auto text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Everything you need for better communication
+                Why teachers choose Promptly over generic AI
               </h2>
               <p className="text-xl text-slate-300 max-w-2xl mx-auto">
                 Purpose-built tools that understand education, not generic AI that might get things wrong.
@@ -299,13 +357,13 @@ export default function LocalizedHomePage() {
         </div>
       </section>
 
-      {/* Promptly vs ChatGPT Comparison */}
+      {/* Promptly vs ChatGPT Comparison - PROOF Section */}
       <section className="py-20 bg-slate-800/50">
         <div className="container">
           <ScrollReveal>
             <div className="max-w-4xl mx-auto text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Why teachers choose Promptly over ChatGPT
+                Promptly vs ChatGPT - Why teachers make the switch
               </h2>
               <p className="text-xl text-slate-300 max-w-2xl mx-auto">
                 Both are AI tools, but only one is built specifically for education with safety guardrails.
@@ -386,7 +444,7 @@ export default function LocalizedHomePage() {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* PROOF SECTION - Testimonials */}
       <TestimonialsSection 
         variant="quick" 
         title="Trusted by 12,000+ teachers worldwide"
@@ -394,32 +452,44 @@ export default function LocalizedHomePage() {
         className="bg-slate-900"
       />
 
-      {/* Founder Block */}
+      {/* Founder Block - Trust Building */}
       <section className="py-20 bg-slate-800/50">
         <div className="container">
           <ScrollReveal>
             <div className="max-w-4xl mx-auto">
               <div className="bg-gradient-to-r from-purple-900/30 to-blue-900/30 border border-purple-500/30 rounded-2xl p-8 md:p-12">
                 <div className="flex flex-col md:flex-row items-center gap-8">
-                  <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-purple-600/20 flex items-center justify-center flex-shrink-0">
-                    <span className="text-2xl md:text-3xl font-bold text-purple-400">GB</span>
+                  <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden bg-purple-600/20 flex items-center justify-center flex-shrink-0">
+                    <Image
+                      src="/images/founder-gb-v1.jpg"
+                      alt="Dr. Greg Blackburn, PhD in Professional Education, Founder of Promptly"
+                      width={160}
+                      height={160}
+                      className="rounded-full object-cover w-full h-full"
+                      priority={false}
+                    />
                   </div>
                   <div className="text-center md:text-left">
                     <h3 className="text-2xl font-bold text-white mb-4">
                       Built by an educator who understands your challenges
                     </h3>
                     <p className="text-slate-300 mb-6 leading-relaxed">
-                      "I'm Dr. Greg Blackburn, PhD in Professional Education. After 20+ years building tools for teachers, I created Promptly because educators deserve AI that actually understands education — not generic tools that might get things wrong."
+                      "I'm Dr. Greg Blackburn, PhD in Professional Education. After 20+ years building tools for teachers, I created Promptly because educators deserve AI that actually understands education - not generic tools that might get things wrong."
                     </p>
-                    <Link 
-                      href="/about-founder"
-                      className="inline-flex items-center text-purple-400 hover:text-purple-300 font-medium"
-                    >
-                      Learn more about my story
-                      <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </Link>
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <Link 
+                        href="/about-founder"
+                        className="inline-flex items-center text-purple-400 hover:text-purple-300 font-medium"
+                      >
+                        Learn more about my story
+                        <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </Link>
+                      <span className="text-slate-400 text-sm">
+                        PhD in Professional Education • 20+ years in EdTech
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -428,7 +498,7 @@ export default function LocalizedHomePage() {
         </div>
       </section>
 
-      {/* Final CTA */}
+      {/* FINAL CTA - Anthony Pierri Flow Step 5 */}
       <section className="py-20 bg-gradient-to-b from-slate-900 to-indigo-900">
         <div className="container">
           <ScrollReveal>
@@ -458,8 +528,17 @@ export default function LocalizedHomePage() {
                 </Link>
               </div>
               
-              <p className="text-slate-400 text-sm">
-                Join the 12,000+ teachers who've already transformed their practice
+              <EmailSignupForm
+                variant="compact"
+                headline="Or get free tips while you decide"
+                subtext="Join 12,000+ educators. Unsubscribe anytime."
+                showNameFields={false}
+                buttonText="Get Tips ->"
+                className="mt-8 max-w-md mx-auto"
+              />
+              
+              <p className="text-slate-400 text-sm mt-8">
+                Trusted by teachers in 50+ countries • GDPR compliant • Created by educators
               </p>
             </div>
           </ScrollReveal>

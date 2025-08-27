@@ -10,31 +10,31 @@ type JourneyStep = {
 
 const steps: JourneyStep[] = [
   { 
-    title: "1980s — Painter's Apprenticeship (Cascade Brewery)", 
+    title: "1980s - Painter's Apprenticeship (Cascade Brewery)", 
     detail: "Learned perseverance by finishing the trade." 
   },
   { 
-    title: "Early 1990s — World Travel", 
+    title: "Early 1990s - World Travel", 
     detail: "Backpacking taught me learning opens every door." 
   },
   { 
-    title: "1994–1995 — German Language Diploma (Frankfurt)", 
+    title: "1994–1995 - German Language Diploma (Frankfurt)", 
     detail: "Enabled entry to university." 
   },
   { 
-    title: "1995–1999 — UTAS — Information Systems (Honours)", 
+    title: "1995–1999 - UTAS - Information Systems (Honours)", 
     detail: "University of Tasmania." 
   },
   { 
-    title: "2000–2004 — MBA (The University of Queensland)", 
+    title: "2000–2004 - MBA (The University of Queensland)", 
     detail: "Master of Business Administration." 
   },
   { 
-    title: "2016–2019 — PhD, Professional Education (City, University of London)", 
+    title: "2016–2019 - PhD, Professional Education (City, University of London)", 
     detail: "Research in ed-tech and professional development." 
   },
   { 
-    title: "2025 — Zaza Technologies", 
+    title: "2025 - Zaza Technologies", 
     detail: "Building teacher-first AI that respects educators." 
   },
 ];

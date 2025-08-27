@@ -17,7 +17,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: "saving-hours-per-week",
     title: "Saving 4–8 Hours Per Week with AI-Powered Comments",
     kicker: "Case Study",
-    excerpt: "How Sarah transformed her feedback process and reclaimed precious time for what matters most—teaching and students.",
+    excerpt: "How Sarah transformed her feedback process and reclaimed precious time for what matters most-teaching and students.",
     author: "Sarah Johnson",
     role: "Head of Year 7",
     org: "Greenfield Academy",

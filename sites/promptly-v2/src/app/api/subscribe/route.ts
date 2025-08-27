@@ -5,6 +5,8 @@ interface SubscriptionRequest {
   email: string
   firstName?: string
   lastName?: string
+  source?: string
+  locale?: string
 }
 
 export async function POST(request: NextRequest) {
@@ -12,7 +14,7 @@ export async function POST(request: NextRequest) {
   
   try {
     body = await request.json()
-    const { email, firstName, lastName } = body
+    const { email, firstName, lastName, source, locale } = body
 
     // Validate required fields
     if (!email || !email.trim()) {
@@ -39,6 +41,8 @@ export async function POST(request: NextRequest) {
         email: email.trim(),
         firstName,
         lastName,
+        source: source || 'unknown',
+        locale: locale || 'en',
         reason: 'brevo_disabled'
       })
       
@@ -62,9 +66,11 @@ export async function POST(request: NextRequest) {
       contactData.attributes.LASTNAME = lastName.trim()
     }
 
-    // Add subscription timestamp
+    // Add subscription metadata
     contactData.attributes.SUBSCRIBED_AT = new Date().toISOString()
-    contactData.attributes.SOURCE = 'website_form'
+    contactData.attributes.SOURCE = source || 'website_form'
+    contactData.attributes.LOCALE = locale || 'en'
+    contactData.attributes.PAGE_SOURCE = source || 'homepage'
 
     // Send to Brevo
     const brevoResponse = await fetch('https://api.brevo.com/v3/contacts', {

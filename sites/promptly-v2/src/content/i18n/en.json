@@ -25,9 +25,9 @@
   },
   "home": {
     "hero": {
-      "title": "Write better parent messages in minutes — not hours",
+      "title": "Write better parent messages in minutes - not hours",
       "subtitle": "The only hallucination-safe AI built for teachers writing report cards and parent communications.",
-      "tryFree": "Try it free — 5 comments this month",
+      "tryFree": "Try it free - 5 comments this month",
       "credibility": "Created by Dr. Greg Blackburn, PhD in Professional Education • Trusted by 12,000+ teachers"
     },
     "problem": {
@@ -35,7 +35,7 @@
       "description": "You stay up past midnight rewriting the same parent messages, second-guessing your tone, and copy-pasting from last year's reports. Generic AI can hallucinate, misstate facts, or sound robotic. Teachers deserve better."
     },
     "solution": {
-      "title": "Promptly gives you trusted, ready-to-send drafts in your own professional voice — in seconds",
+      "title": "Promptly gives you trusted, ready-to-send drafts in your own professional voice - in seconds",
       "subtitle": "Experience safe AI for teachers. Write your draft and let our hallucination-safe AI enhance it with perfect tone, length, and reading level."
     },
     "differentiation": {
@@ -48,7 +48,7 @@
         },
         "tone": {
           "title": "Emotional Tone Tutor",
-          "description": "10x faster than rewriting — perfect professional tone every time"
+          "description": "10x faster than rewriting - perfect professional tone every time"
         },
         "pedagogy": {
           "title": "Pedagogy-First AI",
@@ -56,7 +56,7 @@
         },
         "translation": {
           "title": "Instant Translation",
-          "description": "Communicate with all families — translation included in every plan"
+          "description": "Communicate with all families - translation included in every plan"
         }
       }
     },
@@ -85,7 +85,7 @@
   },
   "forms": {
     "home": {
-      "headline": "Take back your evenings — join thousands of teachers already saving hours.",
+      "headline": "Take back your evenings - join thousands of teachers already saving hours.",
       "subtext": "Sign up free today. No spam, just time-saving tools for teachers."
     },
     "blog": {
@@ -100,7 +100,7 @@
     "joining": "Signing up...",
     "success": "Thanks, you're on the list!",
     "successDetail": "We'll send you practical tips and updates to help save your time.",
-    "error": "Something went wrong — please try again.",
+    "error": "Something went wrong - please try again.",
     "emailRequired": "Please enter your email address",
     "trustSignal": "Join 12,000+ educators. Unsubscribe anytime."
   },
