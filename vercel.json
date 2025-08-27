@@ -2,5 +2,10 @@
   "framework": "nextjs",
   "installCommand": "cd sites/promptly-v2 && npm ci",
   "buildCommand": "cd sites/promptly-v2 && npm run build",
-  "outputDirectory": "sites/promptly-v2/.next"
+  "outputDirectory": "sites/promptly-v2/.next",
+  "functions": {
+    "app/api/**/*.ts": {
+      "maxDuration": 10
+    }
+  }
 }
