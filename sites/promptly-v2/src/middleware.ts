@@ -9,7 +9,7 @@ export function middleware(request: NextRequest) {
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   )
 
-  // If no locale prefix and not the default locale path, redirect to default locale
+  // If no locale prefix, redirect to default locale
   if (!pathnameHasLocale) {
     // Don't redirect API routes, static files, or Next.js internal paths
     if (
@@ -26,16 +26,30 @@ export function middleware(request: NextRequest) {
       return NextResponse.next()
     }
 
-    // Only redirect the root path to locale routing for now
-    if (pathname === '/') {
-      return NextResponse.redirect(new URL(`/${defaultLocale}`, request.url))
-    }
-    
-    // For all other paths, let them through to existing route structure
-    return NextResponse.next()
+    // Redirect all paths to include default locale prefix
+    return NextResponse.redirect(new URL(`/${defaultLocale}${pathname}`, request.url))
   }
 
-  // If locale is in path, continue normally
+  // If locale is in path, rewrite to the actual page location
+  const locale = supportedLocales.find(
+    (l) => pathname.startsWith(`/${l}/`) || pathname === `/${l}`
+  )
+  
+  if (locale) {
+    const pathWithoutLocale = pathname.replace(`/${locale}`, '') || '/'
+    
+    // Handle homepage - rewrite to [locale] route
+    if (pathWithoutLocale === '/') {
+      return NextResponse.next()
+    }
+    
+    // For all other paths, rewrite to the original page location
+    // but keep the locale in the URL for the user
+    const url = request.nextUrl.clone()
+    url.pathname = pathWithoutLocale
+    return NextResponse.rewrite(url)
+  }
+
   return NextResponse.next()
 }
 
