@@ -6,9 +6,12 @@ import { locales } from '@/i18n';
 
 export const metadata: Metadata = {
   icons: {
-    icon: '/favicon.ico?v=9',
-    shortcut: '/favicon.ico?v=9',
-    apple: '/apple-touch-icon.png?v=9',
+    icon: [
+      { url: "/favicon.ico?v=10" },
+      { url: "/icon.png?v=10", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png?v=10", sizes: "180x180" }],
+    shortcut: [{ url: "/favicon.ico?v=10" }],
   },
 };
 

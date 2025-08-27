@@ -6,6 +6,11 @@ import { HelpCircle, MessageCircle, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { StructuredData } from '@/components/structured-data';
 import { generateFAQSchema } from '@/lib/structured-data';
+import { locales } from '@/i18n';
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
 export const metadata: Metadata = {
   title: 'FAQs | Frequently Asked Questions - Zaza Promptly',

@@ -1,6 +1,11 @@
 import type { Metadata } from 'next'
 import { PricingPageClient } from './PricingPageClient'
 import { ProductStructuredData, FAQStructuredData } from '@/components/seo/StructuredData'
+import { locales } from '@/i18n'
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
 export const metadata: Metadata = {
     title: 'Pricing - AI Teaching Assistant Plans | Zaza Promptly',

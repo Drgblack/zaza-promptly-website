@@ -1,9 +1,9 @@
 'use client';
 
-import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
-import { linkMap, getLink, externalLinks } from '../lib/linkMap';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import Lnk from '@/src/lib/Lnk';
+import { paths } from '@/src/config/paths';
 import LanguageSelector from './LanguageSelector';
 
 export default function Header() {
