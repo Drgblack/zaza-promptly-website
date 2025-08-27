@@ -12,7 +12,6 @@
     "lint:style:dashes": "node scripts/check-dashes.js"
   },
   "dependencies": {
-    "@zaza/shared-brand": "file:./packages/shared-brand",
     "@headlessui/react": "^2.0.0",
     "@hookform/resolvers": "^3.9.1",
     "@mdx-js/loader": "^3.1.0",
@@ -49,6 +48,7 @@
     "@sentry/nextjs": "^9.42.1",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
+    "@zaza/shared-brand": "file:./packages/shared-brand",
     "autoprefixer": "10.4.20",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -98,6 +98,7 @@
     "@next/bundle-analyzer": "14.2.8",
     "@playwright/test": "^1.54.2",
     "@svgr/webpack": "^8.1.0",
+    "@types/jest": "^30.0.0",
     "@types/node": "^22.0.0",
     "@types/react": "^18.2.41",
     "@types/react-dom": "^18.2.14",
