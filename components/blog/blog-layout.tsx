@@ -16,6 +16,7 @@ import { BlogPost } from '@/lib/blog'
 import { SmartFooterCTA } from '@/components/cross-app/smart-footer-cta'
 import { mdxComponents } from './mdx-components'
 import { SEOCrossLinking } from '@/lib/seo-cross-linking'
+import { BrevoForm } from '@/components/brevo-form'
 
 interface BlogLayoutProps {
   post: BlogPost
@@ -165,12 +166,38 @@ export function BlogLayout({ post, relatedPosts = [], popularPosts = [], childre
             </div>
           </header>
 
+          {/* Top Email Signup */}
+          <div className="mb-12">
+            <BrevoForm
+              title="Get More AI Teaching Tips"
+              description="Join 5,000+ teachers getting weekly AI strategies and time-saving tips"
+              buttonText="Get Free Tips"
+              placeholder="Your email address"
+              source={`blog-${post.slug}-top`}
+              tags={['blog_reader', 'top_signup']}
+              className="max-w-lg mx-auto"
+            />
+          </div>
+
           {/* Article Content */}
           <article className="pb-16">
             <div className="prose prose-lg prose-purple max-w-none mdx-content">
               {children}
             </div>
           </article>
+
+          {/* Bottom Email Signup */}
+          <div className="mb-12">
+            <BrevoForm
+              title="Loved this article? Get more like it!"
+              description="Subscribe to our weekly newsletter for the latest AI teaching strategies"
+              buttonText="Subscribe Now"
+              placeholder="Enter your email"
+              source={`blog-${post.slug}-bottom`}
+              tags={['blog_reader', 'bottom_signup']}
+              className="max-w-lg mx-auto"
+            />
+          </div>
 
           {/* Smart Footer CTA */}
           <SmartFooterCTA

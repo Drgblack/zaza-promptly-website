@@ -378,6 +378,35 @@ export function PricingPageClient() {
           </div>
         </div>
       </div>
+
+      {/* App Store Badges */}
+      <div className="text-center mt-12">
+        <p className="text-gray-600 mb-6">Also available on mobile</p>
+        <div className="flex justify-center space-x-6">
+          <a href="#app-store" className="inline-block">
+            <div className="bg-black text-white px-6 py-3 rounded-lg flex items-center space-x-3 hover:bg-gray-800 transition-colors">
+              <div className="w-8 h-8 bg-white rounded-md flex items-center justify-center">
+                <span className="text-black font-bold text-lg">📱</span>
+              </div>
+              <div className="text-left">
+                <div className="text-xs">Download on the</div>
+                <div className="text-lg font-semibold">App Store</div>
+              </div>
+            </div>
+          </a>
+          <a href="#google-play" className="inline-block">
+            <div className="bg-black text-white px-6 py-3 rounded-lg flex items-center space-x-3 hover:bg-gray-800 transition-colors">
+              <div className="w-8 h-8 bg-white rounded-md flex items-center justify-center">
+                <span className="text-black font-bold text-lg">▶️</span>
+              </div>
+              <div className="text-left">
+                <div className="text-xs">Get it on</div>
+                <div className="text-lg font-semibold">Google Play</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

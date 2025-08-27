@@ -59,9 +59,26 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   }
 }
 
-// Disable static generation - render pages dynamically to prevent build errors
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
+// Generate static params for all locales and slugs
+export async function generateStaticParams() {
+  const locales = ['en', 'de', 'fr', 'es', 'it'];
+  
+  try {
+    // Get all blog slugs from the content folder
+    const slugs = await getBlogPostSlugs();
+    
+    return locales.flatMap(locale => 
+      slugs.map(slug => ({ 
+        locale, 
+        slug 
+      }))
+    );
+  } catch (error) {
+    console.warn('Error generating static params for blog:', error);
+    // Return empty array if there's an error - pages will be generated on demand
+    return [];
+  }
+}
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug, locale } = await params

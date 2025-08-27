@@ -14,6 +14,7 @@ import {
   Zap,
   Gift
 } from 'lucide-react';
+import { BrevoForm } from '@/components/brevo-form';
 
 export function FreeResourcesClient() {
   const { trackResourceDownload, trackButtonClick } = useAnalytics();
@@ -174,6 +175,20 @@ export function FreeResourcesClient() {
         </div>
       </section>
 
+      {/* Top Email Signup */}
+      <section className="py-8">
+        <div className="max-w-lg mx-auto px-4 sm:px-6 lg:px-8">
+          <BrevoForm
+            title="Get New Resources First"
+            description="Join 5,000+ teachers getting weekly AI resources and teaching strategies"
+            buttonText="Get Free Updates"
+            placeholder="Your email address"
+            source="resources-top"
+            tags={['resource_visitor', 'top_signup']}
+          />
+        </div>
+      </section>
+
       {/* Resource Categories */}
       <section className="py-16 lg:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -264,6 +279,20 @@ export function FreeResourcesClient() {
               </Card>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Bottom Email Signup */}
+      <section className="py-12 bg-white">
+        <div className="max-w-lg mx-auto px-4 sm:px-6 lg:px-8">
+          <BrevoForm
+            title="Want More Resources?"
+            description="Get notified when we add new resources and AI teaching guides"
+            buttonText="Subscribe for Updates"
+            placeholder="Enter your email"
+            source="resources-bottom"
+            tags={['resource_visitor', 'bottom_signup']}
+          />
         </div>
       </section>
 
