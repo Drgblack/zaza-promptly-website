@@ -17,7 +17,7 @@ import {
 import { BrevoForm } from '@/components/brevo-form';
 
 export function FreeResourcesClient() {
-  const { trackResourceDownload, trackButtonClick } = useAnalytics();
+  const { trackEvent } = useAnalytics();
   const resourceCategories = [
     {
       icon: <Zap className="w-8 h-8" />,
@@ -101,8 +101,8 @@ export function FreeResourcesClient() {
     ];
     
     // Track bulk download event
-    trackResourceDownload('bulk_download', 'all_resources');
-    trackButtonClick('Download All Resources', 'free_resources_page');
+    trackEvent('resource_download', { type: 'bulk_download', resource: 'all_resources' });
+    trackEvent('button_click', { button: 'Download All Resources', page: 'free_resources_page' });
     
     allResources.forEach((url, index) => {
       setTimeout(() => {
@@ -116,7 +116,7 @@ export function FreeResourcesClient() {
 
   const handleDownload = (url: string, fileName: string) => {
     // Track individual download
-    trackResourceDownload('individual_download', fileName.replace('.docx', ''));
+    trackEvent('resource_download', { type: 'individual_download', resource: fileName.replace('.docx', '') });
     
     const link = document.createElement('a');
     link.href = url;
