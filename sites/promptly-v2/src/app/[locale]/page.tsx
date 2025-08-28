@@ -134,8 +134,8 @@ export default function Home({ params }: { params: { locale: string } }) {
   
   return (
     <>
-      <ComprehensiveSchemas url={siteUrl} />
-      <SEOHead pageType="home" />
+      <ComprehensiveSchemas />
+      <SEOHead />
       <StructuredData data={[websiteSchema, organizationSchema, softwareSchema]} />
       <SkipLink />
       <AccessibilityAnnouncer />
