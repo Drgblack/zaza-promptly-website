@@ -218,25 +218,13 @@ export default function Home({ params }: { params: { locale: string } }) {
             
             <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
               {/* Streak Counter */}
-              <AccessibleCard
-                title="Build Your Teaching Streak"
-                description="Track your AI-assisted teaching journey"
-                variant="elevated"
-                focusable={true}
-                announcement="Habit tracking card with streak counter and weekly goals"
-              >
+              <AccessibleCard>
                 <StreakCounter />
               </AccessibleCard>
               
               {/* AI Sample Generator */}
-              <AccessibleCard
-                title="Try AI Sample Generator"
-                description="See real examples before you commit"
-                variant="gradient" 
-                focusable={true}
-                announcement="Interactive AI demo showing real comment examples"
-              >
-                <SampleGenerator compact={true} />
+              <AccessibleCard>
+                <SampleGenerator />
               </AccessibleCard>
             </div>
           </div>
