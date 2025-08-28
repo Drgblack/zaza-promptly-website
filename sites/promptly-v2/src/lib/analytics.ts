@@ -43,6 +43,15 @@ export function trackEvent(eventName: string, parameters: Record<string, unknown
   }
 }
 
+// React hook for analytics
+export function useAnalytics() {
+  return {
+    canTrack: canTrackAnalytics(),
+    trackEvent,
+    faq: faqAnalytics
+  }
+}
+
 // FAQ-specific tracking events
 export const faqAnalytics = {
   search: (query: string, resultsCount: number) => {

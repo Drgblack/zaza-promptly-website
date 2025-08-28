@@ -6,3 +6,4 @@ export default function Component() {
 export const LazyloadingSection = Component
 export const Lazyloading = Component
 export const LazyLoading = Component
+export const LazyContent = Component

@@ -6,3 +6,4 @@ export default function Component() {
 export const SeoheadSection = Component
 export const Seohead = Component
 export const SeoHead = Component
+export const SEOHead = Component

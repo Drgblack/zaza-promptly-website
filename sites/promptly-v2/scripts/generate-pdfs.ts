@@ -4,7 +4,14 @@
  * Generates branded PDFs from HTML templates using Playwright
  */
 
-import { chromium } from 'playwright'
+// Import playwright conditionally to avoid build failures
+let chromium: any = null
+try {
+  const playwright = require('playwright')
+  chromium = playwright.chromium
+} catch {
+  // Playwright not available - will be handled later
+}
 import { writeFileSync, mkdirSync, existsSync } from 'fs'
 import path from 'path'
 
@@ -854,6 +861,9 @@ async function generatePDFs() {
   let page
   
   try {
+    if (!chromium) {
+      throw new Error('Playwright not available')
+    }
     browser = await chromium.launch()
     page = await browser.newPage()
   } catch (error) {

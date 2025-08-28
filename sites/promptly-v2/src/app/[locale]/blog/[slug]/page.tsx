@@ -19,36 +19,43 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   try {
     const post = await getBlogPost(slug, locale || 'en')
     
+    if (!post) {
+      return {
+        title: 'Post Not Found',
+        description: 'The requested blog post could not be found.'
+      }
+    }
+    
     // Generate enhanced keywords if not provided
-    const enhancedKeywords: string[] = post.seo.keywords || generateKeywordsFromContent(
+    const enhancedKeywords: string[] = generateKeywordsFromContent(
       post.title,
       post.description,
       slug,
-      post.tags
+      post.tags || []
     )
     
     return {
-      title: post.seo.title,
-      description: post.seo.description,
+      title: post.title,
+      description: post.description,
       keywords: enhancedKeywords,
-      authors: [{ name: post.author.name }],
+      authors: [{ name: post.author || 'Zaza Team' }],
       openGraph: {
         title: post.title,
         description: post.description,
-        images: post.featuredImage ? [post.featuredImage] : ['/opengraph-image'],
+        images: post.image ? [post.image] : ['/opengraph-image'],
         type: 'article',
         publishedTime: post.date,
-        authors: [post.author.name],
+        authors: [post.author || 'Zaza Team'],
         tags: post.tags,
       },
       twitter: {
         card: 'summary_large_image',
         title: post.title,
         description: post.description,
-        images: post.featuredImage ? [post.featuredImage] : ['/opengraph-image'],
+        images: post.image ? [post.image] : ['/opengraph-image'],
       },
       alternates: {
-        canonical: post.seo.canonicalUrl,
+        canonical: `https://zazatechnologies.com/blog/${slug}`,
       },
     }
   } catch (error) {
@@ -87,14 +94,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   try {
     const [post, relatedPosts, popularPosts, allPosts, categories, tags] = await Promise.all([
       getBlogPost(slug, locale || 'en'),
-      getRelatedPosts(slug, 6, locale || 'en'),
-      getPopularPosts(8, locale || 'en'),
-      getPublishedBlogPosts(locale || 'en'),
-      getAllCategories(locale || 'en'),
-      getAllTags(locale || 'en')
+      getRelatedPosts(slug, 6),
+      getPopularPosts(slug, 8),
+      getPublishedBlogPosts(),
+      getAllCategories(),
+      getAllTags()
     ])
     
-    if (!post.isPublished) {
+    if (!post || !post.isPublished) {
       notFound()
     }
 
@@ -105,20 +112,24 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       .slice(0, 8)
 
     // Generate structured data schemas
+    const authorData = {
+      name: post.author || 'Zaza Team'
+    }
+    
     const articleSchema = generateArticleSchema({
       title: post.title,
       description: post.description,
       slug: slug,
-      author: post.author,
+      author: authorData,
       datePublished: post.date,
       dateModified: post.date,
-      featuredImage: post.featuredImage,
-      tags: post.tags,
+      featuredImage: post.image,
+      tags: post.tags || [],
       category: post.category,
-      readingTime: post.readingTime.toString()
+      readingTime: post.readTime || '5 min read'
     }, siteUrl)
 
-    const authorSchema = generateAuthorSchema(post.author, siteUrl)
+    const authorSchema = generateAuthorSchema(authorData, siteUrl)
 
     return (
       <div className="pt-16 lg:pt-20">
@@ -131,7 +142,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           categories={categories}
           tags={tags}
         >
-          <MDXRenderer content={post.content} />
+          <MDXRenderer content={post.content || ''} />
         </EnhancedBlogLayout>
       </div>
     )

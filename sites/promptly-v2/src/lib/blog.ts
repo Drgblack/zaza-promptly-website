@@ -360,3 +360,11 @@ export function calculateReadingTime(content: string): number {
   const minutes = Math.ceil(words / wordsPerMinute)
   return minutes
 }
+
+// Aliases for compatibility with page imports
+export const getBlogPost = (slug: string, locale?: string) => getPostMeta(slug) // locale parameter ignored for now
+export const getBlogPostSlugs = getPostSlugs
+export const getPublishedBlogPosts = getAllPostsMeta
+export const getAllBlogPosts = getAllPostsMeta
+export const getPopularPosts = getRelatedPosts
+export const getAllCategories = getAllTags // Using tags as categories for now

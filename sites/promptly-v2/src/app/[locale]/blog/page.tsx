@@ -49,7 +49,7 @@ export default async function BlogPage({
   try {
     [allPosts, popularPosts, categories, tags] = await Promise.all([
       getAllBlogPosts(),
-      getPopularPosts(6),
+      getRelatedPosts('', 6),
       getAllCategories(),
       getAllTags()
     ]);
