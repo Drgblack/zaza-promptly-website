@@ -4,10 +4,8 @@ import Stripe from 'stripe';
 import { getBaseUrl } from '@/lib/url';
 import { capture } from '../../../lib/obs';
 
-export const runtime = 'nodejs'; // Stripe needs Node APIs
-
-// Let the SDK use its default apiVersion (avoids TS literal mismatch)
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
 
 export async function POST(request: NextRequest) {
   let body: { priceId?: string; quantity?: number } = {};
@@ -16,7 +14,8 @@ export async function POST(request: NextRequest) {
     body = await request.json();
     const { priceId, quantity = 1 } = body;
 
-    if (!process.env.STRIPE_SECRET_KEY) {
+    const secret = process.env.STRIPE_SECRET_KEY;
+    if (!secret) {
       console.warn('Stripe key missing — redirecting to waitlist');
       return NextResponse.redirect(new URL('/waitlist', getBaseUrl()), 302);
     }
@@ -25,8 +24,10 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Missing priceId' }, { status: 400 });
     }
 
-    const baseUrl = getBaseUrl();
+    // Create the client only when a request hits the route
+    const stripe = new Stripe(secret); // no apiVersion — let SDK default
 
+    const baseUrl = getBaseUrl();
     const session = await stripe.checkout.sessions.create({
       mode: 'subscription',
       line_items: [{ price: priceId, quantity }],
@@ -41,7 +42,7 @@ export async function POST(request: NextRequest) {
     capture(error, {
       endpoint: '/api/checkout',
       priceId: body?.priceId,
-      userAgent: request.headers.get('user-agent'),
+      userAgent: request.headers.get('user-agent') ?? undefined,
       timestamp: new Date().toISOString(),
     });
     return NextResponse.json(
