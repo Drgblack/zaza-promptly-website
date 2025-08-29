@@ -23,9 +23,14 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: '2025-07-30.basil'
-    })
+// Option A: match the types in your installed SDK
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  apiVersion: '2025-08-27.basil',
+});
+
+// Option B: omit apiVersion and let the SDK default
+// const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+
 
     const baseUrl = getBaseUrl()
 
