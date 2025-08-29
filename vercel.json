@@ -1,4 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "cleanUrls": true
+  "cleanUrls": true,
+  "buildCommand": "cd sites/promptly-v2 && npm run build",
+  "outputDirectory": "sites/promptly-v2/.next",
+  "installCommand": "cd sites/promptly-v2 && npm install",
+  "rootDirectory": "sites/promptly-v2"
 }
