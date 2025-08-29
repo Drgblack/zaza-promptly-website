@@ -9,7 +9,11 @@ function stripLeadingLocale(pathname: string): string {
   return pathname || "/";
 }
 
-export default function LanguageSwitcher() {
+interface LanguageSwitcherProps {
+  variant?: string;
+}
+
+export default function LanguageSwitcher({ variant = "default" }: LanguageSwitcherProps) {
   const pathname = usePathname();
   const router = useRouter();
 

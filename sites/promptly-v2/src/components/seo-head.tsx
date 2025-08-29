@@ -1,5 +1,9 @@
-export default function Component() {
-  return <div>Component: seo-head</div>
+interface SEOHeadProps {
+  pageType?: string;
+}
+
+export default function Component({ pageType = "default" }: SEOHeadProps) {
+  return null // SEO head tags should be handled in Next.js metadata
 }
 
 // Named exports for flexibility

@@ -1,5 +1,9 @@
-export default function Component() {
-  return <div>Component: lazy-loading</div>
+interface LazyContentProps {
+  children: React.ReactNode;
+}
+
+export default function Component({ children }: LazyContentProps) {
+  return <>{children}</>
 }
 
 // Named exports for flexibility

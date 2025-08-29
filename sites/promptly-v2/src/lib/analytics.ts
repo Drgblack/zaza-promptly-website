@@ -48,7 +48,10 @@ export function useAnalytics() {
   return {
     canTrack: canTrackAnalytics(),
     trackEvent,
-    faq: faqAnalytics
+    faq: faqAnalytics,
+    trackEmailSubmitted: (...args: any[]) => {},
+    trackFormSubmit: (...args: any[]) => {},
+    trackFAQExpanded: (...args: any[]) => {}
   }
 }
 

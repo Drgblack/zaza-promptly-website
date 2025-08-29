@@ -294,10 +294,15 @@ export function createStructuredDataScript(schema: object): string {
 export function addStructuredDataToMetadata(schema: object, existingMetadata?: Metadata): Metadata {
   const structuredDataScript = createStructuredDataScript(schema)
   
+  const filteredOther = existingMetadata?.other ? 
+    Object.fromEntries(
+      Object.entries(existingMetadata.other).filter(([key, value]) => value !== undefined)
+    ) : {}
+
   return {
     ...existingMetadata,
     other: {
-      ...existingMetadata?.other,
+      ...filteredOther,
       'structured-data': structuredDataScript
     }
   }

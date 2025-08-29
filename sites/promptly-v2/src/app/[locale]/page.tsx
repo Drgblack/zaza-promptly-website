@@ -241,26 +241,24 @@ export default function Home({ params }: { params: { locale: string } }) {
                 Unlike generic AI tools, Zaza Promptly is designed specifically for teachers with safety, privacy, and pedagogy at its core.
               </p>
             </div>
-            <TrustBadges layout="grid" limit={6} className="max-w-4xl mx-auto" />
+            <TrustBadges />
           </div>
         </section>
 
         {/* 8. Teacher Testimonials */}
-        <LazyContent>
-          <section className="py-16 md:py-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                  Join 12,000+ Teachers Who've Reclaimed Their Evenings
-                </h2>
-                <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                  Real teachers sharing how Zaza Promptly transformed their work-life balance
-                </p>
-              </div>
-              <TeacherTestimonials limit={6} />
+        <section className="py-16 md:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                Join 12,000+ Teachers Who've Reclaimed Their Evenings
+              </h2>
+              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                Real teachers sharing how Zaza Promptly transformed their work-life balance
+              </p>
             </div>
-          </section>
-        </LazyContent>
+            <TeacherTestimonials />
+          </div>
+        </section>
         
         {/* 9. Email Capture with centralized EmailSignupForm */}
         <section className="py-16 md:py-20">

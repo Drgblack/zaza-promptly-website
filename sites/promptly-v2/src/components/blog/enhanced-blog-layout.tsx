@@ -29,7 +29,7 @@ export function EnhancedBlogLayout({
   tags,
   children 
 }: EnhancedBlogLayoutProps) {
-  const shareUrl = typeof window !== 'undefined' ? window.location.href : post.seo.canonicalUrl
+  const shareUrl = typeof window !== 'undefined' ? window.location.href : `https://www.zazapromptly.com/blog/${post.slug}`
   const shareTitle = encodeURIComponent(post.title)
 
   const shareLinks = {
@@ -64,10 +64,10 @@ export function EnhancedBlogLayout({
           <div className="lg:col-span-2">
             <article className="bg-white rounded-2xl shadow-lg overflow-hidden">
               {/* Featured Image - only render if image exists and loads */}
-              {post.featuredImage && post.featuredImage.trim() !== '' && (
+              {(post as any).featuredImage && (post as any).featuredImage.trim() !== '' && (
                 <figure className="relative overflow-hidden">
                   <img
-                    src={post.featuredImage}
+                    src={(post as any).featuredImage}
                     alt={post.title}
                     className="object-cover w-full h-auto aspect-[16/9]"
                     onError={(e) => {
@@ -82,7 +82,7 @@ export function EnhancedBlogLayout({
                 <header className="mb-2">
                   {/* Category Badge */}
                   <div className="mb-2">
-                    <Link href={`/blog/category/${post.category.toLowerCase().replace(/\s+/g, '-')}`}>
+                    <Link href={`/blog/category/${post.category?.toLowerCase().replace(/\s+/g, '-') || 'general'}`}>
                       <Badge className="bg-purple-100 text-purple-800 hover:bg-purple-200">
                         {post.category}
                       </Badge>
@@ -103,17 +103,17 @@ export function EnhancedBlogLayout({
                   <div className="flex flex-wrap items-center gap-6 text-sm text-gray-500 mb-4 pb-4 border-b border-gray-200">
                     {/* Author */}
                     <div className="flex items-center gap-3">
-                      {post.author.avatar && (
+                      {(post.author as any)?.avatar && (
                         <img 
-                          src={post.author.avatar} 
-                          alt={post.author.name}
+                          src={(post.author as any)?.avatar} 
+                          alt={(post.author as any)?.name}
                           className="w-10 h-10 rounded-full"
                         />
                       )}
                       <div>
                         <div className="flex items-center gap-2">
                           <User className="w-4 h-4" />
-                          <span className="font-medium text-gray-700">{post.author.name}</span>
+                          <span className="font-medium text-gray-700">{(post.author as any)?.name}</span>
                         </div>
                         <div className="text-xs text-gray-500">Author</div>
                       </div>
@@ -138,7 +138,7 @@ export function EnhancedBlogLayout({
                     <div className="flex items-center gap-2">
                       <Clock className="w-4 h-4" />
                       <div>
-                        <span className="text-gray-700">{post.readingTime} min read</span>
+                        <span className="text-gray-700">{post.readTime} min read</span>
                         <div className="text-xs text-gray-500">Reading time</div>
                       </div>
                     </div>
@@ -146,7 +146,7 @@ export function EnhancedBlogLayout({
 
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {post.tags.map((tag) => (
+                    {post.tags?.map((tag) => (
                       <Link key={tag} href={`/blog/tag/${tag.toLowerCase().replace(/\s+/g, '-')}`}>
                         <Badge variant="outline" className="text-xs hover:bg-gray-100 cursor-pointer">
                           <Tag className="w-3 h-3 mr-1" />
@@ -252,23 +252,23 @@ export function EnhancedBlogLayout({
                 </div>
 
                 {/* Author Bio */}
-                {post.author.bio && (
+                {(post.author as any)?.bio && (
                   <Card className="mb-8">
                     <CardContent className="p-6">
                       <div className="flex items-start gap-4">
-                        {post.author.avatar && (
+                        {(post.author as any)?.avatar && (
                           <img
-                            src={post.author.avatar}
-                            alt={post.author.name}
+                            src={(post.author as any)?.avatar}
+                            alt={(post.author as any)?.name}
                             className="w-16 h-16 rounded-full"
                           />
                         )}
                         <div>
                           <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                            About {post.author.name}
+                            About {(post.author as any)?.name}
                           </h3>
                           <p className="text-gray-600 leading-relaxed">
-                            {post.author.bio}
+                            {(post.author as any)?.bio}
                           </p>
                         </div>
                       </div>
@@ -285,33 +285,33 @@ export function EnhancedBlogLayout({
                 <div className="grid md:grid-cols-2 gap-6">
                   {relatedPosts.slice(0, 4).map((relatedPost) => (
                     <Link
-                      key={relatedPost.slug}
-                      href={`/blog/${relatedPost.slug}`}
+                      key={(relatedPost as any).slug}
+                      href={`/blog/${(relatedPost as any).slug}`}
                       className="group block"
                     >
                       <Card className="overflow-hidden group-hover:shadow-lg transition-shadow duration-200">
-                        {relatedPost.featuredImage && (
+                        {(relatedPost as any).featuredImage && (
                           <div className="h-48 overflow-hidden">
                             <img
-                              src={relatedPost.featuredImage}
-                              alt={relatedPost.title}
+                              src={(relatedPost as any).featuredImage}
+                              alt={(relatedPost as any).title}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
                             />
                           </div>
                         )}
                         <CardContent className="p-6">
                           <Badge className="mb-3 bg-purple-100 text-purple-800">
-                            {relatedPost.category}
+                            {(relatedPost as any).category}
                           </Badge>
                           <h3 className="text-lg font-semibold text-gray-900 group-hover:text-purple-600 transition-colors duration-200 mb-2 line-clamp-2">
-                            {relatedPost.title}
+                            {(relatedPost as any).title}
                           </h3>
                           <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                            {relatedPost.excerpt}
+                            {(relatedPost as any).excerpt}
                           </p>
                           <div className="flex items-center justify-between text-xs text-gray-500">
-                            <span>{relatedPost.author.name}</span>
-                            <span>{relatedPost.readingTime} min read</span>
+                            <span>{(relatedPost as any).author.name}</span>
+                            <span>{(relatedPost as any).readingTime} min read</span>
                           </div>
                         </CardContent>
                       </Card>
@@ -346,13 +346,13 @@ export function EnhancedBlogLayout({
             "@type": "Article",
             "headline": post.title,
             "description": post.description,
-            "image": post.featuredImage || "https://zazapromptly.com/opengraph-image",
+            "image": (post as any).featuredImage || "https://zazapromptly.com/opengraph-image",
             "datePublished": post.date,
             "dateModified": post.date,
             "author": {
               "@type": "Person",
-              "name": post.author.name,
-              "description": post.author.bio
+              "name": (post.author as any)?.name,
+              "description": (post.author as any)?.bio
             },
             "publisher": {
               "@type": "Organization",
@@ -364,11 +364,11 @@ export function EnhancedBlogLayout({
             },
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": post.seo.canonicalUrl
+              "@id": `https://www.zazapromptly.com/blog/${post.slug}`
             },
-            "keywords": post.tags.join(", "),
+            "keywords": post.tags?.join(", ") || "",
             "articleSection": post.category,
-            "wordCount": post.content.split(/\s+/).length,
+            "wordCount": post.content?.split(/\s+/).length || 0,
             "isAccessibleForFree": true,
             "genre": "Education",
             "audience": {
