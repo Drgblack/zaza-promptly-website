@@ -1,6 +1,4 @@
 {
-  "buildCommand": "cd sites/promptly-v2 && npm install && npm run build",
-  "outputDirectory": "sites/promptly-v2/.next",
-  "installCommand": "echo 'Skipping root install'",
-  "framework": null
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true
 }
