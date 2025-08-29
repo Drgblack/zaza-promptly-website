@@ -1,0 +1,10 @@
+Force deployment to sync Vercel project settings with production deployment.
+
+Issue: "Configuration Settings in the current Production deployment differ from your current Project Settings."
+
+Solution: Trigger fresh deployment to use current project settings:
+- Root Directory: sites/promptly-v2
+- Build Command: pnpm build  
+- Install Command: pnpm install
+
+Timestamp: $(date)
