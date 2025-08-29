@@ -1,7 +1,4 @@
 {
-  "framework": "nextjs",
-  "buildCommand": "pnpm build",
-  "installCommand": "pnpm install",
   "redirects": [
     { "source": "/blog/tag/ai%20comments", "destination": "/blog/tag/ai-comments", "statusCode": 301 },
     { "source": "/blog/tag/ai%20tools", "destination": "/blog/tag/ai-tools", "statusCode": 301 },
@@ -28,4 +25,3 @@
     { "source": "/blog/tag/educator%20wellness", "destination": "/blog/tag/educator-wellness", "statusCode": 301 }
   ]
 }
-
