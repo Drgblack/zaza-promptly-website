@@ -6,7 +6,7 @@ import ScrollReveal from '@/components/animations/ScrollReveal'
 import EmailSignupForm from '@/components/forms/EmailSignupForm'
 import TrustBadges from '@/components/trust/TrustBadges'
 import TestimonialsSection from '@/components/testimonials/TestimonialsSection'
-import SnippetDemo from '@/components/sections/SnippetDemo'
+import TextImprovementDemo from '@/components/sections/TextImprovementDemo'
 import ZaraAssistant from '@/components/snippet/ZaraAssistant'
 import { useState } from 'react'
 
@@ -24,6 +24,9 @@ export default function LocalizedHomePage({ locale: propLocale }: LocalizedHomeP
   
   // Check if Stripe is available
   const hasStripe = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY && process.env.STRIPE_SECRET_KEY
+  
+  // Check if demo is enabled
+  const isDemoEnabled = process.env.NEXT_PUBLIC_DEMO_ENABLED === 'true'
   
   // Use passed locale or fall back to detected locale
   const currentLocale = propLocale || locale
@@ -166,50 +169,53 @@ export default function LocalizedHomePage({ locale: propLocale }: LocalizedHomeP
       </section>
 
       {/* Interactive Demo Section */}
-      <section id="demo" className="py-20 bg-gradient-to-b from-slate-900 to-purple-900/30">
-        <div className="container">
-          <ScrollReveal>
-            <div className="max-w-4xl mx-auto text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Try it yourself — improve any comment instantly
-              </h2>
-              <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-                Paste your draft, choose your tone, and watch Promptly make it better. This is just a demo — the real tool does much more.
-              </p>
-            </div>
-          </ScrollReveal>
-          
-          <ScrollReveal delay={0.1}>
-            <div className="max-w-6xl mx-auto">
-              {/* Zara Assistant */}
-              <ZaraAssistant 
-                isTextareaFocused={zaraProps.isTextareaFocused}
-                hasResult={zaraProps.hasResult} 
-                isExplainTabOpen={zaraProps.isExplainTabOpen}
-                onToggleTips={(enabled) => console.log('Tips toggled:', enabled)}
-              />
-              
-              {/* Demo Tool */}
-              <SnippetDemo />
-              
-              <div className="text-center mt-8">
-                <p className="text-slate-400 text-sm mb-4">
-                  This is just a taste. The real Promptly includes parent email templates, report generators, and 25+ languages.
+      {isDemoEnabled && (
+        <section id="demo" className="py-20 bg-gradient-to-b from-slate-900 to-purple-900/30">
+          <div className="container">
+            <ScrollReveal>
+              <div className="max-w-4xl mx-auto text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                  Try it yourself — improve any comment instantly
+                </h2>
+                <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+                  Paste your draft, choose your tone, and watch Promptly make it better. This is just a demo — the real tool does much more.
                 </p>
-                <Link
-                  href={hasStripe ? `/${currentLocale}/pricing#free` : `/${currentLocale}/waitlist`}
-                  className="inline-flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors"
-                >
-                  Get Full Access Free
-                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
               </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+            </ScrollReveal>
+            
+            <ScrollReveal delay={0.1}>
+              <div className="max-w-6xl mx-auto">
+                {/* Zara Assistant */}
+                <ZaraAssistant 
+                  isTextareaFocused={zaraProps.isTextareaFocused}
+                  hasResult={zaraProps.hasResult} 
+                  isExplainTabOpen={zaraProps.isExplainTabOpen}
+                  onToggleTips={(enabled) => console.log('Tips toggled:', enabled)}
+                />
+                
+                {/* Demo Tool */}
+                <TextImprovementDemo />
+                
+                <div className="text-center mt-8">
+                  <p className="text-slate-400 text-sm mb-4">
+                    This is just a taste. The real Promptly includes parent email templates, report generators, and 25+ languages.{' '}
+                    <a href="#" className="text-purple-400 hover:text-purple-300">Learn more about Zara →</a>
+                  </p>
+                  <Link
+                    href={hasStripe ? `/${currentLocale}/pricing#free` : `/${currentLocale}/waitlist`}
+                    className="inline-flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors"
+                  >
+                    Get Full Access Free
+                    <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
 
       {/* Features Section */}
       <section id="features" className="py-20 bg-slate-900">
