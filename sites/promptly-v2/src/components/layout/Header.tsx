@@ -3,17 +3,26 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
+  
+  // Extract locale from pathname
+  const locale = pathname.startsWith('/en') ? 'en' : 
+                 pathname.startsWith('/de') ? 'de' :
+                 pathname.startsWith('/fr') ? 'fr' :
+                 pathname.startsWith('/es') ? 'es' :
+                 pathname.startsWith('/it') ? 'it' : 'en'
 
   const navigation = [
     { name: 'Features', href: '#features' },
-    { name: 'Pricing', href: '/pricing' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Case Studies', href: '/case-studies' },
-    { name: 'Resources', href: '/resources' },
-    { name: 'Demo', href: '/demo' }
+    { name: 'Pricing', href: `/${locale}/pricing` },
+    { name: 'Blog', href: `/${locale}/blog` },
+    { name: 'Case Studies', href: `/${locale}/case-studies` },
+    { name: 'Resources', href: `/${locale}/free-resources` },
+    { name: 'About', href: `/${locale}/about-founder` }
   ]
 
   return (

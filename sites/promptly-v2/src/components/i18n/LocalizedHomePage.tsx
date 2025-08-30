@@ -10,13 +10,20 @@ import SnippetDemo from '@/components/sections/SnippetDemo'
 import ZaraAssistant from '@/components/snippet/ZaraAssistant'
 import { useState } from 'react'
 
-export default function LocalizedHomePage() {
+interface LocalizedHomePageProps {
+  locale: string;
+}
+
+export default function LocalizedHomePage({ locale: propLocale }: LocalizedHomePageProps) {
   const { t, locale } = useTranslation()
   const [zaraProps] = useState({
     isTextareaFocused: false,
     hasResult: false,
     isExplainTabOpen: false
   })
+  
+  // Check if Stripe is available
+  const hasStripe = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY && process.env.STRIPE_SECRET_KEY
 
   return (
     <>
@@ -52,7 +59,7 @@ export default function LocalizedHomePage() {
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
                 <Link
-                  href="/pricing#free"
+                  href={hasStripe ? "/pricing#free" : "/waitlist"}
                   className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold rounded-lg transition-all hover:scale-105 shadow-xl"
                 >
                   Start Free Today
@@ -187,7 +194,7 @@ export default function LocalizedHomePage() {
                   This is just a taste. The real Promptly includes parent email templates, report generators, and 25+ languages.
                 </p>
                 <Link
-                  href="/pricing#free"
+                  href={hasStripe ? "/pricing#free" : "/waitlist"}
                   className="inline-flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors"
                 >
                   Get Full Access Free
@@ -442,7 +449,7 @@ export default function LocalizedHomePage() {
               
               <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
                 <Link 
-                  href="/pricing#free"
+                  href={hasStripe ? "/pricing#free" : "/waitlist"}
                   className="inline-flex items-center px-10 py-5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors shadow-2xl text-xl"
                 >
                   Start Your Free Trial
