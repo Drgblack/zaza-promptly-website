@@ -88,7 +88,7 @@ export function FeatureFlagDebug({ userId, customFlags }: {
     <div className="fixed bottom-4 right-4 bg-black/90 text-white p-4 rounded-lg max-w-sm text-xs font-mono z-50">
       <div className="font-bold mb-2">Feature Flags Debug</div>
       <div className="space-y-1 max-h-64 overflow-y-auto">
-        {flags.map((flag) => (
+        {flags.map((flag: any) => (
           <div key={flag.flagName} className="flex items-center justify-between">
             <span className="truncate mr-2">{flag.flagName}</span>
             <span className={flag.enabled ? 'text-green-400' : 'text-red-400'}>
