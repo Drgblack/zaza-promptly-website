@@ -199,7 +199,7 @@ export default function TextImprovementDemo() {
       <div className="mt-6 pt-4 border-t border-slate-700">
         <p className="text-xs text-slate-400 text-center">
           This demo shows sample improvements. The full version provides personalized AI assistance.{' '}
-          <a href="#" className="text-purple-400 hover:text-purple-300">Learn more about Zara →</a>
+          <a href="/zara" className="text-purple-400 hover:text-purple-300">Learn more about Zara →</a>
         </p>
       </div>
     </div>

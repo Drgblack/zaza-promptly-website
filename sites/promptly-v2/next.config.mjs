@@ -70,6 +70,8 @@ const nextConfig = {
       { source: '/learning-center', destination: '/learning-centre', permanent: true },
       { source: '/faqs', destination: '/faq', permanent: true },
       { source: '/pricing/', destination: '/pricing', permanent: true },
+      { source: '/free-resources', destination: '/resources', permanent: true },
+      { source: '/:locale(en|de)/free-resources', destination: '/:locale/resources', permanent: true },
     ];
   },
 };

@@ -16,11 +16,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Main pages that should be multilingual
   const mainPages = [
     { path: '/', priority: 1.0, changeFrequency: 'weekly' as const },
+    { path: '/zara', priority: 0.9, changeFrequency: 'monthly' as const },
     { path: '/pricing', priority: 0.9, changeFrequency: 'monthly' as const },
-    { path: '/about', priority: 0.7, changeFrequency: 'monthly' as const },
+    { path: '/blog', priority: 0.8, changeFrequency: 'daily' as const },
+    { path: '/case-studies', priority: 0.8, changeFrequency: 'weekly' as const },
+    { path: '/resources', priority: 0.7, changeFrequency: 'weekly' as const },
+    { path: '/about-founder', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/faq', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/contact', priority: 0.7, changeFrequency: 'monthly' as const },
-    { path: '/products', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/support', priority: 0.7, changeFrequency: 'monthly' as const }
   ]
   
@@ -90,24 +93,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/case-studies`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/free-resources`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.7,
     },
     {
       url: `${baseUrl}/about`,
@@ -203,18 +188,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/faq`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/support`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
     },
     {
       url: `${baseUrl}/quick-comment-helper`,

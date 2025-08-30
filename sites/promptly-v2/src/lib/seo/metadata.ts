@@ -23,12 +23,11 @@ export function generateSEOMetadata(config: SEOPageConfig): Metadata {
       canonical: config.url,
       languages: {
         'en': `${baseUrl}${config.url}`,
+        'de': `${baseUrl}/de${config.url}`,
+        'fr': `${baseUrl}/fr${config.url}`,
+        'es': `${baseUrl}/es${config.url}`,
+        'it': `${baseUrl}/it${config.url}`,
         'x-default': `${baseUrl}${config.url}`
-        // TODO: Add other locales when enabled
-        // 'de': `${baseUrl}/de${config.url}`,
-        // 'fr': `${baseUrl}/fr${config.url}`,
-        // 'es': `${baseUrl}/es${config.url}`,
-        // 'it': `${baseUrl}/it${config.url}`
       }
     },
     openGraph: {
@@ -86,6 +85,24 @@ export const seoConfigs: Record<string, SEOPageConfig> = {
     ogTitle: 'Promptly – AI Tool for Teacher Reports & Parent Communication',
     ogDescription: 'Hallucination-safe AI that helps teachers write better parent communications and report comments. Save hours weekly while maintaining your caring teacher voice.',
   },
+
+  zara: {
+    title: 'Meet Zara: Your AI Teaching Assistant | Safe AI for Teachers',
+    description: 'Discover Zara, the hallucination-safe AI assistant designed specifically for teachers. Learn about safety features, supported languages, and how to get the best results.',
+    keywords: [
+      'AI teaching assistant',
+      'Zara AI',
+      'safe AI for teachers',
+      'educational AI',
+      'teacher AI assistant',
+      'hallucination-safe AI',
+      'AI for parent communication',
+      'teacher productivity AI'
+    ],
+    url: '/zara',
+    ogTitle: 'Meet Zara: Your AI Teaching Assistant',
+    ogDescription: 'Discover Zara, the hallucination-safe AI assistant designed specifically for teachers.',
+  },
   
   pricing: {
     title: 'Teacher AI Pricing | GDPR-Compliant AI Tools for Schools & Individual Teachers',
@@ -115,7 +132,7 @@ export const seoConfigs: Record<string, SEOPageConfig> = {
     url: '/faq'
   },
 
-  freeResources: {
+  resources: {
     title: 'Free Teacher Resources | AI Tools, Templates & Professional Development',
     description: 'Free downloadable resources for teachers: AI writing templates, parent communication guides, report comment examples, and professional development materials for teacher productivity.',
     keywords: [
@@ -126,7 +143,7 @@ export const seoConfigs: Record<string, SEOPageConfig> = {
       'teacher report writing templates',
       'empathetic parent communication tools'
     ],
-    url: '/free-resources'
+    url: '/resources'
   },
 
   aboutFounder: {
@@ -140,7 +157,7 @@ export const seoConfigs: Record<string, SEOPageConfig> = {
       'teacher productivity ai expert',
       'educational ai safety'
     ],
-    url: '/about/founder'
+    url: '/about-founder'
   },
 
   blog: {

@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import LanguageSwitcher from '@/components/nav/LanguageSwitcher'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -17,12 +18,13 @@ export default function Header() {
                  pathname.startsWith('/it') ? 'it' : 'en'
 
   const navigation = [
-    { name: 'Features', href: '#features' },
+    { name: 'Features', href: `/${locale}/zara` },
     { name: 'Pricing', href: `/${locale}/pricing` },
     { name: 'Blog', href: `/${locale}/blog` },
     { name: 'Case Studies', href: `/${locale}/case-studies` },
-    { name: 'Resources', href: `/${locale}/free-resources` },
-    { name: 'About', href: `/${locale}/about-founder` }
+    { name: 'Resources', href: `/${locale}/resources` },
+    { name: 'About', href: `/${locale}/about-founder` },
+    { name: 'FAQ', href: `/${locale}/faq` }
   ]
 
   return (
@@ -52,6 +54,7 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
+            <LanguageSwitcher />
             <Link
               href="/login"
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
@@ -97,6 +100,9 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
+            <div className="px-3 py-2">
+              <LanguageSwitcher />
+            </div>
             <Link
               href="/login"
               className="block px-3 py-2 text-gray-700 hover:text-blue-600 font-medium"

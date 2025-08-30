@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import LanguageSwitcher from '@/components/nav/LanguageSwitcher'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -19,7 +20,7 @@ export default function Footer() {
     product: {
       title: 'Product',
       links: [
-        { name: 'Features', href: '#features' },
+        { name: 'Features', href: `/${locale}/zara` },
         { name: 'Pricing', href: `/${locale}/pricing` },
         { name: 'Case Studies', href: `/${locale}/case-studies` }
       ]
@@ -28,9 +29,9 @@ export default function Footer() {
       title: 'Resources',
       links: [
         { name: 'Blog', href: `/${locale}/blog` },
-        { name: 'Teacher Resources', href: `/${locale}/free-resources` },
+        { name: 'Teacher Resources', href: `/${locale}/resources` },
         { name: 'Support', href: `/${locale}/support` },
-        { name: 'FAQs', href: `/${locale}/faqs` }
+        { name: 'FAQ', href: `/${locale}/faq` }
       ]
     },
     company: {
@@ -114,9 +115,12 @@ export default function Footer() {
           <p className="text-slate-400 text-sm">
             © {currentYear} Zaza Technologies. All rights reserved.
           </p>
-          <p className="text-slate-400 text-sm mt-4 md:mt-0">
-            Built by educators, for educators.
-          </p>
+          <div className="flex flex-col md:flex-row items-center gap-4 mt-4 md:mt-0">
+            <LanguageSwitcher />
+            <p className="text-slate-400 text-sm">
+              Built by educators, for educators.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
