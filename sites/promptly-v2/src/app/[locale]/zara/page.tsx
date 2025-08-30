@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { ZaraFAQAccordion } from '@/components/ZaraFAQAccordion'
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
@@ -288,7 +289,7 @@ export default function ZaraPage({ params }: ZaraPageProps) {
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
                   <span className="text-xl font-bold text-purple-600">3</span>
                 </div>
-                <h3 className="text-xl font-semibent text-slate-900 mb-4">Give Examples</h3>
+                <h3 className="text-xl font-semibold text-slate-900 mb-4">Give Examples</h3>
                 <p className="text-slate-600">
                   Share what the student did well or areas for improvement. Specific examples help Zara create more personalized messages.
                 </p>
@@ -335,18 +336,7 @@ export default function ZaraPage({ params }: ZaraPageProps) {
                 Frequently Asked Questions
               </h2>
 
-              <div className="space-y-8">
-                {faqs.map((faq, index) => (
-                  <div key={index} className="border-b border-slate-200 pb-8">
-                    <h3 className="text-xl font-semibold text-slate-900 mb-4">
-                      {faq.question}
-                    </h3>
-                    <p className="text-slate-600 leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </div>
-                ))}
-              </div>
+              <ZaraFAQAccordion faqs={faqs} />
             </div>
           </div>
         </section>
