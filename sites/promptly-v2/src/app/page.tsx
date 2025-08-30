@@ -1,7 +1,4 @@
-import { redirect } from 'next/navigation'
-
-// This page redirects to the localized homepage
-// The actual homepage content is now in /[locale]/page.tsx
-export default function HomePage() {
-  redirect('/en')
-}
+// sites/promptly-v2/src/app/page.tsx
+import { redirect } from 'next/navigation';
+export const dynamic = 'force-dynamic';
+export default function Root() { redirect('/en'); }
