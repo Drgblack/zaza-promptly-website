@@ -22,6 +22,12 @@ export async function GET(request: NextRequest) {
     return NextResponse.redirect(new URL('/pricing?error=missing-price', getBaseUrl()), 302);
   }
 
+  // Server-side price ID validation
+  if (!STRIPE_CONFIG.validatePriceId(priceId)) {
+    console.warn(`Invalid price ID attempted: ${priceId}`);
+    return NextResponse.redirect(new URL('/pricing?error=invalid-price', getBaseUrl()), 302);
+  }
+
   return createCheckoutSession(priceId, quantity, request);
 }
 
@@ -42,6 +48,15 @@ export async function POST(request: NextRequest) {
 
     if (!priceId) {
       return NextResponse.json({ error: 'Missing priceId' }, { status: 400 });
+    }
+
+    // Server-side price ID validation  
+    if (!STRIPE_CONFIG.validatePriceId(priceId)) {
+      console.warn(`Invalid price ID attempted: ${priceId}`);
+      return NextResponse.json({ 
+        error: 'Invalid price ID',
+        validPriceIds: STRIPE_CONFIG.getValidPriceIds() 
+      }, { status: 400 });
     }
 
     return createCheckoutSession(priceId, quantity, request);
@@ -78,9 +93,16 @@ async function createCheckoutSession(priceId: string, quantity: number, request:
     const session = await stripe.checkout.sessions.create({
       mode: 'subscription',
       line_items: [{ price: priceId, quantity }],
-      success_url: `${baseUrl}/thank-you?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${baseUrl}/pricing?canceled=1`,
+      success_url: `${baseUrl}/en/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${baseUrl}/en/checkout/cancel`,
       allow_promotion_codes: true,
+      customer_creation: 'always',
+      billing_address_collection: 'required',
+      metadata: {
+        priceId,
+        quantity: quantity.toString(),
+        created_at: new Date().toISOString()
+      }
     });
 
     const isGetRequest = request.method === 'GET';

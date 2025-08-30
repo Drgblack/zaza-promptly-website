@@ -3,16 +3,14 @@ export const STRIPE_CONFIG = {
   
   // Test price IDs - safe to commit
   testPriceIds: {
-    starter: 'price_test_starter_123',
-    professional: 'price_test_pro_456', 
-    enterprise: 'price_test_ent_789'
+    promptlyMonthly: 'price_1QKMfnGLWNYhKl5w2gqWExWG',
+    promptlyAnnual: 'price_1QKMh2GLWNYhKl5w4dqJQZl7'
   },
   
   // Production price IDs from environment
   productionPriceIds: {
-    starter: process.env.NEXT_PUBLIC_STRIPE_PRICE_STARTER,
-    professional: process.env.NEXT_PUBLIC_STRIPE_PRICE_PRO,
-    enterprise: process.env.NEXT_PUBLIC_STRIPE_PRICE_ENTERPRISE
+    promptlyMonthly: process.env.STRIPE_PRICE_ID_PROMPTLY_MONTHLY,
+    promptlyAnnual: process.env.STRIPE_PRICE_ID_PROMPTLY_ANNUAL
   },
   
   get priceIds() {
@@ -23,6 +21,20 @@ export const STRIPE_CONFIG = {
   },
   
   get isEnabled() {
-    return !!this.publishableKey
+    return !!this.publishableKey && !!process.env.STRIPE_SECRET_KEY
+  },
+  
+  // Server-side price validation
+  validatePriceId(priceId: string): boolean {
+    const allValidIds = [
+      ...Object.values(this.testPriceIds),
+      ...Object.values(this.productionPriceIds).filter(Boolean)
+    ]
+    return allValidIds.includes(priceId)
+  },
+  
+  // Get current environment's valid price IDs
+  getValidPriceIds(): string[] {
+    return Object.values(this.priceIds).filter(Boolean) as string[]
   }
 } as const
