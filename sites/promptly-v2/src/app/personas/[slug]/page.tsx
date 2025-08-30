@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import SnippetDemo from '@/components/sections/SnippetDemo'
+import SnippetDemoEnhanced from '@/components/sections/SnippetDemoEnhanced'
 import { PERSONAS, type Persona } from '@/content/personas'
 
 interface PersonaPageProps {
@@ -324,7 +324,7 @@ export default function PersonaPage({ params }: PersonaPageProps) {
                 No signup required.
               </p>
             </div>
-            <SnippetDemo />
+            <SnippetDemoEnhanced locale="en" />
           </div>
         </section>
 
