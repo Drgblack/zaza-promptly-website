@@ -12,8 +12,8 @@ export default function Header() {
     { name: 'Pricing', href: '/pricing' },
     { name: 'Blog', href: '/blog' },
     { name: 'Case Studies', href: '/case-studies' },
-    { name: 'FAQ', href: '/faq' },
-    { name: 'About', href: '/about-founder' }
+    { name: 'Resources', href: '/resources' },
+    { name: 'Demo', href: '/demo' }
   ]
 
   return (
