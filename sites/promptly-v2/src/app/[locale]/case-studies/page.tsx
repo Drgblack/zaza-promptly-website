@@ -3,6 +3,10 @@ import { Card, CardContent } from '@/components/ui/card'
 import Link from 'next/link'
 import { Calendar, Clock, ArrowRight } from 'lucide-react'
 
+// Disable static generation - render pages dynamically to prevent build errors
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export const metadata: Metadata = {
   title: 'Case Studies - Real Teacher Success Stories | Zaza Promptly',
   description: 'See how teachers are saving 5+ hours weekly with Zaza Promptly. Real case studies from primary, secondary, and special education teachers.',

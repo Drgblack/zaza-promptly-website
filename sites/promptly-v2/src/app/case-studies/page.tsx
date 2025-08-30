@@ -2,6 +2,10 @@ import { Metadata } from 'next'
 import CaseStudyCard from '@/components/case-studies/CaseStudyCard'
 import { getAllCaseStudies } from '@/content/case-studies'
 
+// Disable static generation - render pages dynamically to prevent build errors
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
 
 export const metadata: Metadata = {

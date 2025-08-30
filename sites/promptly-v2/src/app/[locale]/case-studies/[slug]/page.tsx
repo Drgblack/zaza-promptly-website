@@ -4,6 +4,10 @@ import Link from 'next/link'
 import { ArrowLeft, Calendar, Clock, Share2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
+// Disable static generation - render pages dynamically to prevent build errors
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 // Mock case studies data
 const caseStudies = {
   'saving-hours-per-week': {

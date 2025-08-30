@@ -3,6 +3,10 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getCaseStudy, getAllCaseStudies, getRelatedCaseStudies, calculateReadingTime, CASE_STUDIES } from '@/content/case-studies'
 
+// Disable static generation - render pages dynamically to prevent build errors
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 type Props = {
   params: { slug: string }
 }
