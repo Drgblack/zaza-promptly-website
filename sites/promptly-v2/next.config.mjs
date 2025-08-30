@@ -3,6 +3,9 @@ import createMDX from '@next/mdx';
 import rehypeFixInternalLinks from './lib/rehype-fix-internal-links.js';
 // If you use Sentry, keep this. If not, you can remove the import and wrapper at the bottom.
 import { withSentryConfig } from '@sentry/nextjs';
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 const withMDX = createMDX({
   extension: /\.mdx?$/,
@@ -71,8 +74,8 @@ const nextConfig = {
   },
 };
 
-// Export with MDX + (optionally) Sentry
-const withAll = withMDX(nextConfig);
+// Export with next-intl, MDX + (optionally) Sentry
+const withAll = withNextIntl(withMDX(nextConfig));
 export default withSentryConfig
   ? withSentryConfig(withAll, { silent: true })
   : withAll;
