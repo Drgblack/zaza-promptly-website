@@ -124,7 +124,7 @@ export function FeatureFlagAdmin() {
                 </Button>
                 <Button
                   onClick={() => setIsVisible(false)}
-                  variant="ghost"
+                  variant="outline"
                   size="sm"
                   className="text-xs"
                 >
@@ -168,7 +168,7 @@ export function FeatureFlagAdmin() {
                       
                       <Button
                         onClick={() => toggleOverride(flag.flagName)}
-                        variant="ghost"
+                        variant="outline"
                         size="sm"
                         className="ml-2 p-1 h-auto"
                       >
@@ -221,7 +221,7 @@ export function FeatureFlagAdmin() {
               <span>{flags.length} flags total</span>
               <Button
                 onClick={loadFeatureFlags}
-                variant="ghost"
+                variant="outline"
                 size="sm"
                 className="text-xs"
               >
