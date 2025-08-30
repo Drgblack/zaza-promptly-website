@@ -24,6 +24,9 @@ export default function LocalizedHomePage({ locale: propLocale }: LocalizedHomeP
   
   // Check if Stripe is available
   const hasStripe = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY && process.env.STRIPE_SECRET_KEY
+  
+  // Use passed locale or fall back to detected locale
+  const currentLocale = propLocale || locale
 
   return (
     <>
@@ -59,7 +62,7 @@ export default function LocalizedHomePage({ locale: propLocale }: LocalizedHomeP
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
                 <Link
-                  href={hasStripe ? "/pricing#free" : "/waitlist"}
+                  href={hasStripe ? `/${currentLocale}/pricing#free` : `/${currentLocale}/waitlist`}
                   className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold rounded-lg transition-all hover:scale-105 shadow-xl"
                 >
                   Start Free Today
@@ -194,7 +197,7 @@ export default function LocalizedHomePage({ locale: propLocale }: LocalizedHomeP
                   This is just a taste. The real Promptly includes parent email templates, report generators, and 25+ languages.
                 </p>
                 <Link
-                  href={hasStripe ? "/pricing#free" : "/waitlist"}
+                  href={hasStripe ? `/${currentLocale}/pricing#free` : `/${currentLocale}/waitlist`}
                   className="inline-flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors"
                 >
                   Get Full Access Free
@@ -449,7 +452,7 @@ export default function LocalizedHomePage({ locale: propLocale }: LocalizedHomeP
               
               <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
                 <Link 
-                  href={hasStripe ? "/pricing#free" : "/waitlist"}
+                  href={hasStripe ? `/${currentLocale}/pricing#free` : `/${currentLocale}/waitlist`}
                   className="inline-flex items-center px-10 py-5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors shadow-2xl text-xl"
                 >
                   Start Your Free Trial

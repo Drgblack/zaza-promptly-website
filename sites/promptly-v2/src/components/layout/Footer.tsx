@@ -1,35 +1,45 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+  const pathname = usePathname()
+  
+  // Extract locale from pathname
+  const locale = pathname.startsWith('/en') ? 'en' : 
+                 pathname.startsWith('/de') ? 'de' :
+                 pathname.startsWith('/fr') ? 'fr' :
+                 pathname.startsWith('/es') ? 'es' :
+                 pathname.startsWith('/it') ? 'it' : 'en'
 
   const footerSections = {
     product: {
       title: 'Product',
       links: [
         { name: 'Features', href: '#features' },
-        { name: 'Demo', href: '/demo' },
-        { name: 'Pricing', href: '/pricing' },
-        { name: 'Case Studies', href: '/case-studies' }
+        { name: 'Pricing', href: `/${locale}/pricing` },
+        { name: 'Case Studies', href: `/${locale}/case-studies` }
       ]
     },
     resources: {
       title: 'Resources',
       links: [
-        { name: 'Blog', href: '/blog' },
-        { name: 'Teacher Resources', href: '/resources' },
-        { name: 'Support', href: '/support' },
-        { name: 'Documentation', href: '/docs' }
+        { name: 'Blog', href: `/${locale}/blog` },
+        { name: 'Teacher Resources', href: `/${locale}/free-resources` },
+        { name: 'Support', href: `/${locale}/support` },
+        { name: 'FAQs', href: `/${locale}/faqs` }
       ]
     },
     company: {
       title: 'Company',
       links: [
-        { name: 'About', href: '/about-founder' },
-        { name: 'Privacy Policy', href: '/privacy' },
-        { name: 'Terms of Service', href: '/terms' },
-        { name: 'Contact', href: '/contact' }
+        { name: 'About', href: `/${locale}/about-founder` },
+        { name: 'Privacy Policy', href: `/${locale}/privacy` },
+        { name: 'Terms of Service', href: `/${locale}/terms` },
+        { name: 'Contact', href: `/${locale}/contact` }
       ]
     }
   }
