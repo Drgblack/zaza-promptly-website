@@ -5,6 +5,10 @@ import { getPaginatedPosts, getAllPostsMeta } from '@/lib/blog'
 import BlogCard from '@/components/blog/BlogCard'
 import Pagination from '@/components/blog/Pagination'
 
+// Disable static generation - render pages dynamically to prevent build errors
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 interface BlogPageProps {
   params: {
     page: string

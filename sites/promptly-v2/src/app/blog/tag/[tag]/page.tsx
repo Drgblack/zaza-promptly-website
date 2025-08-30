@@ -4,6 +4,10 @@ import { notFound } from 'next/navigation'
 import { getPostsByTag, getAllTags, slugifyTag, unslugifyTag } from '@/lib/blog'
 import BlogCard from '@/components/blog/BlogCard'
 
+// Disable static generation - render pages dynamically to prevent build errors
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 interface TagPageProps {
   params: {
     tag: string

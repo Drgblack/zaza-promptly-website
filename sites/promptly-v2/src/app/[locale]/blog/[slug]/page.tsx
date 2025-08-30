@@ -6,6 +6,10 @@ import { MDXRenderer } from '@/components/blog/mdx-renderer'
 import { StructuredData } from '@/components/structured-data'
 import { generateArticleSchema, generateAuthorSchema, generateKeywordsFromContent } from '@/lib/structured-data'
 
+// Disable static generation - render pages dynamically to prevent build errors
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 interface BlogPostPageProps {
   params: Promise<{
     slug: string

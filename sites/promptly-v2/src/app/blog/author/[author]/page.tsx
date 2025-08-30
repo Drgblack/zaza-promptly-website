@@ -5,6 +5,10 @@ import { notFound } from 'next/navigation'
 import { getPostsByAuthor, getAllAuthors, slugifyAuthor, getAuthorFromSlug } from '@/lib/blog'
 import BlogCard from '@/components/blog/BlogCard'
 
+// Disable static generation - render pages dynamically to prevent build errors
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 interface AuthorPageProps {
   params: {
     author: string

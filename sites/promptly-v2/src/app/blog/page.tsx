@@ -4,8 +4,9 @@ import { getPaginatedPosts } from '@/lib/blog'
 import Pagination from '@/components/blog/Pagination'
 import BlogList from '@/components/blog/BlogList'
 
-// Blog listing page - revalidate every hour
-export const revalidate = 3600
+// Disable static generation - render pages dynamically to prevent build errors
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 export const metadata: Metadata = {
   title: 'Zaza Promptly Blog – AI Teaching Tips, Strategies & Research',

@@ -2,7 +2,9 @@ import Link from 'next/link'
 import { Metadata } from 'next'
 import { getAllTags, getPostsByTag } from '@/lib/blog'
 
-export const revalidate = 3600
+// Disable static generation - render pages dynamically to prevent build errors
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 export const metadata: Metadata = {
   title: 'Browse by Tag | Promptly Blog',
