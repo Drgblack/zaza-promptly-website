@@ -1,5 +1,8 @@
 export default function Component() {
-  return <div>Component: snippet-demo</div>
+  if (process.env.NODE_ENV !== 'production') {
+    return <div>Component: snippet-demo</div>
+  }
+  return null
 }
 
 // Named exports for flexibility

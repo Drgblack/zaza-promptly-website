@@ -1,5 +1,8 @@
 export default function Component() {
-  return <div>Component: teacher-testimonials</div>
+  if (process.env.NODE_ENV !== 'production') {
+    return <div>Component: teacher-testimonials</div>
+  }
+  return null
 }
 
 // Named exports for flexibility

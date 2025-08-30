@@ -1,5 +1,8 @@
 export default function Component() {
-  return <div>Component: accessibility-announcer</div>
+  if (process.env.NODE_ENV !== 'production') {
+    return <div>Component: accessibility-announcer</div>
+  }
+  return null
 }
 
 // Named exports for flexibility

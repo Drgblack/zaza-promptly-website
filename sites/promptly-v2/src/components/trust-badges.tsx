@@ -1,5 +1,8 @@
 export default function Component() {
-  return <div>Component: trust-badges</div>
+  if (process.env.NODE_ENV !== 'production') {
+    return <div>Component: trust-badges</div>
+  }
+  return null
 }
 
 // Named exports for flexibility

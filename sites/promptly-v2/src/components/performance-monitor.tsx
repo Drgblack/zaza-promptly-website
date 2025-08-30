@@ -1,5 +1,8 @@
 export default function Component() {
-  return <div>Component: performance-monitor</div>
+  if (process.env.NODE_ENV !== 'production') {
+    return <div>Component: performance-monitor</div>
+  }
+  return null
 }
 
 // Named exports for flexibility

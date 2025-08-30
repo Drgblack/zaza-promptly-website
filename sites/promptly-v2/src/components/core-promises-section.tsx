@@ -1,5 +1,8 @@
 export default function Component() {
-  return <div>Component: core-promises-section</div>
+  if (process.env.NODE_ENV !== 'production') {
+    return <div>Component: core-promises-section</div>
+  }
+  return null
 }
 
 // Named exports for flexibility

@@ -1,5 +1,8 @@
 export default function Component() {
-  return <div>Component: teacher-differentiator-section</div>
+  if (process.env.NODE_ENV !== 'production') {
+    return <div>Component: teacher-differentiator-section</div>
+  }
+  return null
 }
 
 // Named exports for flexibility
