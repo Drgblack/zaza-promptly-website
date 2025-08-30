@@ -8,10 +8,10 @@ export default function Footer() {
     product: {
       title: 'Product',
       links: [
-        { name: 'Features', href: '/features' },
+        { name: 'Features', href: '#features' },
+        { name: 'Demo', href: '/demo' },
         { name: 'Pricing', href: '/pricing' },
-        { name: 'Case Studies', href: '/case-studies' },
-        { name: 'FAQ', href: '/faq' }
+        { name: 'Case Studies', href: '/case-studies' }
       ]
     },
     resources: {
