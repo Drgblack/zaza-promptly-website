@@ -340,7 +340,7 @@ export default function HeroSection() {
                   className="w-full h-auto rounded-2xl shadow-2xl"
                   width={400}
                   height={300}
-                  priority={false}
+                  priority
                 />
               </div>
             </motion.div>

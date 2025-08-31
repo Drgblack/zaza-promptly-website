@@ -69,6 +69,10 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Zaza Promptly" />
+        
+        {/* Preconnect to Stripe for pricing page performance */}
+        <link rel="preconnect" href="https://js.stripe.com" />
+        <link rel="preconnect" href="https://api.stripe.com" />
       </head>
       <body className={inter.className}>
         <ErrorBoundary>
