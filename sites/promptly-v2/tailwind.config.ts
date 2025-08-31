@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import { tailwindTheme } from "@zaza/shared-brand";
+import { tailwindTheme } from "@zaza/shared-brand/tokens";
 
 const config: Config = {
   darkMode: 'class',
