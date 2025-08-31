@@ -9,10 +9,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
-    defaults:
-      run:
-        working-directory: sites/promptly-v2
 
     steps:
       - name: Trigger Vercel Deploy
