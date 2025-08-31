@@ -19,6 +19,11 @@ const withMDX = createMDX({
 const nextConfig = {
   reactStrictMode: true,
   
+  // Enable instrumentation for Sentry
+  experimental: {
+    instrumentationHook: true,
+  },
+  
   // Force new build ID to clear caches
   generateBuildId: async () => `v-${Date.now()}`,
 
@@ -36,23 +41,60 @@ const nextConfig = {
   typescript: { ignoreBuildErrors: false },
 
   async headers() {
+    const securityHeaders = [
+      // Security headers for all routes
+      { key: 'X-Content-Type-Options', value: 'nosniff' },
+      { key: 'X-Frame-Options', value: 'DENY' },
+      { key: 'X-XSS-Protection', value: '1; mode=block' },
+      { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+      { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+      {
+        key: 'Content-Security-Policy',
+        value: [
+          "default-src 'self'",
+          "script-src 'self' 'unsafe-eval' 'unsafe-inline' *.stripe.com *.sentry.io",
+          "style-src 'self' 'unsafe-inline' fonts.googleapis.com",
+          "font-src 'self' fonts.gstatic.com",
+          "img-src 'self' data: blob: *.stripe.com",
+          "connect-src 'self' *.stripe.com *.sentry.io api.brevo.com",
+          "frame-src 'self' *.stripe.com",
+          "object-src 'none'",
+          "base-uri 'self'",
+          "form-action 'self'",
+          "frame-ancestors 'none'",
+          "upgrade-insecure-requests"
+        ].join('; ')
+      }
+    ];
+
     return [
+      // Security headers for all routes
+      {
+        source: '/(.*)',
+        headers: securityHeaders,
+      },
       // Cache PDFs in /resources aggressively (immutable)
       {
         source: '/resources/:path*',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
-          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          ...securityHeaders,
         ],
       },
       // Reasonable caching for SEO feeds
       {
         source: '/sitemap.xml',
-        headers: [{ key: 'Cache-Control', value: 'public, max-age=3600' }],
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=3600' },
+          ...securityHeaders,
+        ],
       },
       {
         source: '/robots.txt',
-        headers: [{ key: 'Cache-Control', value: 'public, max-age=3600' }],
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=3600' },
+          ...securityHeaders,
+        ],
       },
     ];
   },

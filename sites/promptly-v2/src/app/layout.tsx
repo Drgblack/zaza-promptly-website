@@ -4,6 +4,7 @@ import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import GlobalSchema from '@/components/seo/GlobalSchema'
+import { ErrorBoundary } from '@/components/ErrorBoundary'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -70,12 +71,14 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Zaza Promptly" />
       </head>
       <body className={inter.className}>
-        <Header />
-        <main className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
-        <GlobalSchema type="website" />
+        <ErrorBoundary>
+          <Header />
+          <main className="min-h-screen">
+            {children}
+          </main>
+          <Footer />
+          <GlobalSchema type="website" />
+        </ErrorBoundary>
       </body>
     </html>
   )

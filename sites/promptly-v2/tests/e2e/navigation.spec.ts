@@ -3,20 +3,20 @@ import { test, expect } from '@playwright/test'
 test.describe('Header Navigation', () => {
   test('header links navigate client-side correctly', async ({ page }) => {
     // Start at home page
-    await page.goto('/')
+    await page.goto('/en')
     
     // Verify we're on home page
-    await expect(page).toHaveURL('/')
+    await expect(page).toHaveURL('/en')
     
     // Test pricing CTA button
     const pricingButton = page.getByRole('link', { name: /start free/i })
     if (await pricingButton.isVisible()) {
       await pricingButton.click()
-      await expect(page).toHaveURL('/pricing')
+      await expect(page).toHaveURL('/en/pricing')
     }
     
     // Go back home
-    await page.goto('/')
+    await page.goto('/en')
     
     // Test dropdown navigation - hover over Resources
     const resourcesButton = page.getByRole('button', { name: /resources/i })
@@ -28,33 +28,33 @@ test.describe('Header Navigation', () => {
       if (await dropdownItems.isVisible()) {
         await dropdownItems.click()
         // Verify navigation occurred (URL should change)
-        await expect(page.url()).not.toBe('/')
+        await expect(page.url()).not.toBe('/en')
       }
     }
   })
   
   test('logo link navigates to home', async ({ page }) => {
-    await page.goto('/pricing')
+    await page.goto('/en/pricing')
     
     // Click logo to navigate home
     await page.getByRole('link').filter({ has: page.getByText('Promptly') }).first().click()
-    await expect(page).toHaveURL('/')
+    await expect(page).toHaveURL('/en')
   })
   
   test('mobile menu navigation works', async ({ page }) => {
     // Set mobile viewport
     await page.setViewportSize({ width: 375, height: 667 })
     
-    await page.goto('/')
+    await page.goto('/en')
     
     // Open mobile menu
     const menuButton = page.getByRole('button', { name: /menu/i })
     if (await menuButton.isVisible()) {
       await menuButton.click()
       
-      // Navigate to pricing via mobile menu
-      await page.getByRole('link', { name: 'Pricing' }).click()
-      await expect(page).toHaveURL('/pricing')
+      // Navigate to pricing via mobile menu - use first() to select header link
+      await page.getByRole('banner').getByRole('link', { name: 'Pricing' }).click()
+      await expect(page).toHaveURL('/en/pricing')
     }
   })
 })

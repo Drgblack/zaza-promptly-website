@@ -12,6 +12,9 @@ export {
   getBlogPostingWithAuthorJsonLd 
 } from './seo/author';
 
+// Design tokens
+export * from './tokens';
+
 // Asset paths - these should be copied to each site's public directory
 export const FOUNDER_IMAGE_PATH = '/images/founder.jpg';
 export const FOUNDER_ALT_TEXT = 'Dr Greg Blackburn, Founder of Zaza Technologies';

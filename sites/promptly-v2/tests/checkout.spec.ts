@@ -30,7 +30,7 @@ test.describe('Stripe Checkout Integration', () => {
     await page.goto(`/api/checkout?priceId=${invalidPriceId}`, { waitUntil: 'networkidle' });
     
     // Should redirect to pricing with error
-    expect(page.url()).toContain('/pricing');
+    expect(page.url()).toContain('/en/pricing');
     expect(page.url()).toContain('error=invalid-price');
   });
 
@@ -39,7 +39,7 @@ test.describe('Stripe Checkout Integration', () => {
     await page.goto('/api/checkout', { waitUntil: 'networkidle' });
     
     // Should redirect to pricing with error
-    expect(page.url()).toContain('/pricing');
+    expect(page.url()).toContain('/en/pricing');
     expect(page.url()).toContain('error=missing-price');
   });
 
@@ -77,7 +77,7 @@ test.describe('Stripe Checkout Integration', () => {
     if (response.status() === 503) {
       // Service unavailable - Stripe not configured
       expect(responseBody.error).toBe('Payment processing unavailable');
-      expect(responseBody.redirectUrl).toBe('/waitlist');
+      expect(responseBody.redirectUrl).toBe('/en/waitlist');
     } else if (response.status() === 400) {
       // Bad request - invalid price ID
       expect(responseBody.error).toBe('Invalid price ID');
