@@ -1,0 +1,98 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+        
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 8
+        run_install: false
+        
+    - name: Get pnpm store directory
+      shell: bash
+      run: |
+        echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+        
+    - name: Setup pnpm cache
+      uses: actions/cache@v4
+      with:
+        path: ${{ env.STORE_PATH }}
+        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pnpm-store-
+          
+    - name: Install dependencies
+      working-directory: ./sites/promptly-v2
+      run: pnpm install --frozen-lockfile
+      
+    - name: Run linting
+      working-directory: ./sites/promptly-v2
+      run: pnpm run lint
+      
+    - name: Build search index
+      working-directory: ./sites/promptly-v2
+      run: pnpm run build:search
+      
+    - name: Build resource metadata
+      working-directory: ./sites/promptly-v2
+      run: pnpm run build:resources
+      
+    - name: Build application
+      working-directory: ./sites/promptly-v2
+      run: pnpm run build
+      env:
+        # Required for build
+        NEXT_PUBLIC_SITE_URL: https://www.zazapromptly.com
+        NEXT_PUBLIC_ENV: production
+        # Stripe test keys for build (won't be used in production)
+        STRIPE_PUBLIC_KEY: pk_test_51234567890abcdef
+        STRIPE_SECRET_KEY: sk_test_51234567890abcdef
+        STRIPE_PRICE_ID_PROMPTLY_MONTHLY: price_test_monthly
+        STRIPE_PRICE_ID_PROMPTLY_ANNUAL: price_test_annual
+        # Disable features not needed for CI build
+        NEXT_PUBLIC_ENABLE_ANALYTICS: false
+        NEXT_PUBLIC_ENABLE_WAITLIST: false
+        NEXT_PUBLIC_ENABLE_CHECKOUT: false
+        
+    - name: Install Playwright Browsers
+      working-directory: ./sites/promptly-v2
+      run: pnpm exec playwright install --with-deps
+      
+    - name: Run Playwright tests
+      working-directory: ./sites/promptly-v2
+      run: pnpm run test:e2e
+      env:
+        # Test environment variables
+        NEXT_PUBLIC_SITE_URL: http://localhost:3000
+        NEXT_PUBLIC_ENV: test
+        STRIPE_PUBLIC_KEY: pk_test_51234567890abcdef
+        STRIPE_SECRET_KEY: sk_test_51234567890abcdef
+        STRIPE_PRICE_ID_PROMPTLY_MONTHLY: price_test_monthly
+        STRIPE_PRICE_ID_PROMPTLY_ANNUAL: price_test_annual
+        NEXT_PUBLIC_ENABLE_ANALYTICS: false
+        NEXT_PUBLIC_ENABLE_WAITLIST: true
+        NEXT_PUBLIC_ENABLE_CHECKOUT: true
+        NEXT_PUBLIC_DEMO_ENABLED: true
+        
+    - uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: playwright-report
+        path: ./sites/promptly-v2/playwright-report/
+        retention-days: 30
