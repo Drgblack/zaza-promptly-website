@@ -2,9 +2,13 @@
 import createMiddleware from 'next-intl/middleware';
 import { NextRequest, NextResponse } from 'next/server';
 
+// Safe fallback for locales when LOCALES_ENABLED is missing
+const defaultLocales = ['en', 'de'];
+const defaultLocale = 'en';
+
 const intlMiddleware = createMiddleware({
-  locales: ['en', 'de'],
-  defaultLocale: 'en',
+  locales: defaultLocales,
+  defaultLocale: defaultLocale,
   localePrefix: 'always' // we're using /[locale]/... routes
 });
 
