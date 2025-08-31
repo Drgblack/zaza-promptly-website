@@ -28,8 +28,6 @@ if (SENTRY_DSN) {
         maskAllText: true,
         blockAllMedia: true,
         maskAllInputs: true,
-        blockClass: 'sentry-block',
-        maskTextClass: 'sentry-mask',
       }),
       Sentry.feedbackIntegration({
         colorScheme: 'light',
