@@ -12,7 +12,8 @@ export function captureError(error: Error, context?: Record<string, unknown>) {
 }
 
 export function captureMessage(message: string, level: 'error' | 'warning' | 'info' = 'info', context?: Record<string, unknown>) {
-  return Sentry.captureMessage(message, level, {
+  return Sentry.captureMessage(message, {
+    level,
     extra: context,
   });
 }
