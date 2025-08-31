@@ -16,6 +16,7 @@
     "content:qa": "node scripts/content-qa.js",
     "content:validate-faq": "node scripts/validate-faq-frontmatter.js",
     "check:links": "node scripts/check-links.cjs",
+    "check:i18n": "node scripts/check-i18n-parity.mjs",
     "postbuild": "next-sitemap",
     "test": "jest",
     "test:smoke": "jest scripts/snippet-smoke.test.ts",
