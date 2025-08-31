@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   // Intentional error for validation
   // eslint-disable-next-line no-throw-literal
