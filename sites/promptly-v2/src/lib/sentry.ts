@@ -51,13 +51,13 @@ export function withSentryAPI<T extends unknown[], R>(
  */
 export function withSentry<P extends object>(
   Component: React.ComponentType<P>,
-  fallback?: React.ComponentType<{ error: Error; resetError: () => void }>
+  fallback?: React.ComponentType<{ error: Error; retry: () => void }>
 ) {
   return function WrappedComponent(props: P) {
     return React.createElement(
       Sentry.ErrorBoundary,
       { 
-        fallback: fallback ? ({ error, resetError }) => 
+        fallback: fallback ? ({ error, resetError }: { error: Error; resetError: () => void }) => 
           React.createElement(fallback, { error, retry: resetError }) : undefined 
       },
       React.createElement(Component, props)
