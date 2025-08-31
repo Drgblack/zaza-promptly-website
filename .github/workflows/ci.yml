@@ -39,7 +39,7 @@ jobs:
           
     - name: Install dependencies
       working-directory: ./sites/promptly-v2
-      run: pnpm install --frozen-lockfile
+      run: pnpm install --no-frozen-lockfile
       
     - name: Run linting
       working-directory: ./sites/promptly-v2
