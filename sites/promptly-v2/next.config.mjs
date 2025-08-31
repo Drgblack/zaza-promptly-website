@@ -79,6 +79,9 @@ const nextConfig = {
 
   async redirects() {
     return [
+      // Emergency root redirect to /en for production fix
+      { source: '/', destination: '/en', permanent: false },
+      
       // Host-based redirects for legacy domain
       {
         source: '/:path*',
