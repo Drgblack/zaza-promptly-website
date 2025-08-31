@@ -57,8 +57,8 @@ export function withSentry<P extends object>(
     return React.createElement(
       Sentry.ErrorBoundary,
       { 
-        fallback: fallback ? ({ error, resetError }: { error: Error; resetError: () => void }) => 
-          React.createElement(fallback, { error, retry: resetError }) : undefined 
+        fallback: fallback ? ({ error, resetError }: { error: unknown; componentStack: string; eventId: string; resetError(): void }) => 
+          React.createElement(fallback, { error: error as Error, retry: resetError }) : undefined 
       },
       React.createElement(Component, props)
     );
