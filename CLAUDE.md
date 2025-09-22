@@ -1,5 +1,21 @@
 ﻿# Zaza Promptly - CLAUDE.md
 
+## Working Coordinates (do not change)
+- Repo: Drgblack/zaza-promptly-website
+- Local: C:\Users\User\zaza-promptly-website
+- Vercel Project: zaza-site-base (only)
+- Production Baseline: f02a5c6  (tag: prod/2025-09-21-f02a5c6, branch: lock/f02a5c6-base)
+- Feature Branch: feat/site-polish-20250921  (rebased from f02a5c6)
+- NEVER use zaza-website-promptly Vercel project or zaza-websites-promptly repo.
+
+## Do-not-regress pages
+- /en/community must contain "Making a Difference" and "Top Contributors".
+- Blog posts render with styled blocks and readable contrast.
+- Pricing uses real copy (no i18n keys).
+
+## Pre-merge CI
+- `npm run test:smoke` must pass
+
 ## Mission
 Design teacher-friendly UI that ships fast, reads clearly, and builds trust. Keep it calm, accessible, and easy to scan.
 
