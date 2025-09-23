@@ -114,9 +114,6 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div className="text-sm text-gray-500 dark:text-gray-400 space-y-1">
               <div>{t('copyright', { year: currentYear })}</div>
-              <address className="not-italic">
-                {t('address')}
-              </address>
               <div className="flex items-center space-x-3 text-xs mt-2">
                 <a href="https://zazatechnologies.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-700 dark:hover:text-gray-300">
                   Zaza Technologies
