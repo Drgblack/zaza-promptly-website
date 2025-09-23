@@ -163,10 +163,13 @@
   },
   "pricing": {
     "title": "Simple, Transparent Pricing",
+    "headline": "Simple, Transparent Pricing",
     "badge": "Annual is best value",
     "hero_explainer": "Zaza Pass is your annual teacher membership. Get Promptly plus pro tools that save 5+ hours every week—backed by a 30-day money-back guarantee.",
 
     "zaza_pass": {
+      "badge_annual_best_value": "Annual is best value",
+      "hero_desc": "Zaza Pass is your annual teacher membership. Get Promptly plus pro tools that save 5+ hours every week—backed by a 30-day money-back guarantee.",
       "tiles": {
         "minutes_to_quality": "Minutes to Quality",
         "minutes_to_quality_desc": "Transform rough drafts into polished, professional communication in seconds",
@@ -175,6 +178,12 @@
         "remembers_classes": "Remembers Classes",
         "remembers_classes_desc": "Personalized suggestions based on your teaching style and student needs"
       }
+    },
+
+    "billing": {
+      "annual": "Annual",
+      "monthly": "Monthly",
+      "save_percent": "(save 15%)"
     },
 
     "switch": {
