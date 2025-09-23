@@ -112,9 +112,6 @@ export function Footer() {
               <div className="text-white/80">
                 © {currentYear} Zaza Technologies. All rights reserved.
               </div>
-              <address className="not-italic text-white/50 text-xs">
-                Zaza Technologies UG (haftungsbeschränkt), Gumbertstraße 150, 40229 Düsseldorf, Germany
-              </address>
             </div>
             
             {/* Social links */}

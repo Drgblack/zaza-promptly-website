@@ -73,7 +73,7 @@ export default function ContactPageClient() {
     {
       icon: Mail,
       title: 'Email Us',
-      content: 'hello@zazatechnologies.com',
+      content: 'help@zazatechnologies.com',
       description: 'Send us an email and we\'ll respond within 24 hours'
     },
     {
@@ -99,7 +99,7 @@ export default function ContactPageClient() {
             <h1 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               Get in Touch
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Have questions about our AI tools? Need help with implementation? 
               Want to share feedback? We&rsquo;d love to hear from you.
             </p>
@@ -108,15 +108,15 @@ export default function ContactPageClient() {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-24 bg-white">
+      <section className="py-16 lg:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
             {/* Contact Form */}
             <div>
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl">Send us a message</CardTitle>
-                  <CardDescription>
+                  <CardTitle className="text-2xl mb-2">Send us a message</CardTitle>
+                  <CardDescription className="text-base leading-relaxed">
                     Fill out the form below and we&rsquo;ll get back to you as soon as possible.
                   </CardDescription>
                 </CardHeader>
@@ -234,17 +234,17 @@ export default function ContactPageClient() {
             {/* Contact Info */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-2xl font-bold mb-6">Other ways to reach us</h2>
-                <div className="space-y-6">
+                <h2 className="text-2xl font-bold mb-8">Other ways to reach us</h2>
+                <div className="space-y-8">
                   {contactInfo.map((item, index) => (
-                    <div key={index} className="flex items-start space-x-4">
+                    <div key={index} className="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors">
                       <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
                         <item.icon className="w-6 h-6 text-purple-600" />
                       </div>
-                      <div>
-                        <h3 className="font-semibold text-gray-900">{item.title}</h3>
-                        <p className="text-lg text-gray-800">{item.content}</p>
-                        <p className="text-sm text-gray-600">{item.description}</p>
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-gray-900 mb-1">{item.title}</h3>
+                        <p className="text-lg text-gray-800 mb-1">{item.content}</p>
+                        <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
                       </div>
                     </div>
                   ))}
@@ -252,8 +252,8 @@ export default function ContactPageClient() {
               </div>
 
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6">
-                <h3 className="text-xl font-semibold mb-4">Quick Questions?</h3>
-                <p className="text-gray-600 mb-4">
+                <h3 className="text-xl font-semibold mb-4">Need Quick Answers?</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">
                   For immediate answers, check out our FAQ section or browse our help documentation.
                 </p>
                 <div className="space-y-2">
@@ -271,14 +271,14 @@ export default function ContactPageClient() {
       </section>
 
       {/* Newsletter Signup */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-16 lg:py-24 bg-gray-50">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-2xl mx-auto">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-6">
                 Stay Updated
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-gray-600 leading-relaxed">
                 Get the latest AI tools and teaching tips delivered to your inbox.
               </p>
             </div>
