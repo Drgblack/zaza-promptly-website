@@ -1,317 +1,335 @@
-// src/components/zara/ZaraPanel.tsx
-import React, { useEffect, useState } from "react";
-import { X, Copy, Sparkles, Lock, Shield } from "lucide-react";
-import { useZara } from "./useZara";
-import type { ZaraMode, Tone, ReadingLevel, TransformType, ZaraRequest } from "./types";
+'use client';
 
-type Props = { onClose: () => void };
+import { useState, useRef, useEffect } from 'react';
+import { Send, Minimize2, X, Loader2, Lock } from 'lucide-react';
+import { ZaraAnswer as ZaraAnswerComponent } from './ZaraAnswer';
+import { useLocale } from 'next-intl';
+import type { ZaraAnswer } from '@/lib/zara/schema';
 
-export default function ZaraPanel({ onClose }: Props) {
-  const { busy, last, callZara, insertAtCursor, copyToClipboard, isLimited, remaining, dailyLimit } = useZara();
-  
-  // UI State
-  const [input, setInput] = useState("");
-  const [mode, setMode] = useState<ZaraMode>("advice");
-  const [tone, setTone] = useState<Tone>("warm");
-  const [language, setLanguage] = useState("en");
-  const [readingLevel, setReadingLevel] = useState<ReadingLevel>("6-8");
+type Message = {
+  id: string;
+  content: string;
+  answer?: ZaraAnswer;
+  isUser: boolean;
+  timestamp: Date;
+};
 
-  // Close on Escape
+type ZaraPanelProps = {
+  isMinimized: boolean;
+  onMinimize: () => void;
+  onClose: () => void;
+};
+
+export function ZaraPanel({ isMinimized, onMinimize, onClose }: ZaraPanelProps) {
+  const locale = useLocale();
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [input, setInput] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [usageCount, setUsageCount] = useState(0);
+  const [showMiniWall, setShowMiniWall] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
+
+  const MAX_DAILY_MESSAGES = 3;
+
+  // Quick action chips
+  const quickActions = [
+    { text: "Write a parent message", icon: "✉️" },
+    { text: "Strategy: after-lunch calm", icon: "🧘" },
+    { text: "Pricing & plans", icon: "💳" },
+    { text: "Privacy & GDPR", icon: "🔒" }
+  ];
+
   useEffect(() => {
-    function onEsc(e: KeyboardEvent) {
-      if (e.key === "Escape") onClose();
+    // Load usage count from localStorage (24h rolling window)
+    const now = new Date();
+    const today = now.toDateString();
+    const stored = localStorage.getItem('zara-usage-v2');
+    const usage = stored ? JSON.parse(stored) : {};
+    
+    // Clean up old entries (older than 24h)
+    Object.keys(usage).forEach(date => {
+      const entryDate = new Date(date);
+      if (now.getTime() - entryDate.getTime() > 24 * 60 * 60 * 1000) {
+        delete usage[date];
+      }
+    });
+    
+    setUsageCount(usage[today] || 0);
+    localStorage.setItem('zara-usage-v2', JSON.stringify(usage));
+  }, []);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
+
+  const updateUsageCount = () => {
+    const today = new Date().toDateString();
+    const stored = localStorage.getItem('zara-usage-v2');
+    const usage = stored ? JSON.parse(stored) : {};
+    
+    const newCount = (usage[today] || 0) + 1;
+    usage[today] = newCount;
+    
+    localStorage.setItem('zara-usage-v2', JSON.stringify(usage));
+    setUsageCount(newCount);
+    
+    // Show mini-wall after 3rd message
+    if (newCount >= MAX_DAILY_MESSAGES) {
+      setShowMiniWall(true);
     }
-    window.addEventListener("keydown", onEsc);
-    return () => window.removeEventListener("keydown", onEsc);
-  }, [onClose]);
-
-  // Handle main action (Ask Zara / Generate)
-  const handleMainAction = async () => {
-    if (!input.trim() || isLimited) return;
-
-    const request: ZaraRequest = {
-      mode,
-      tone,
-      language,
-      readingLevel: mode === 'explain' || mode === 'draft' || mode === 'plan' || mode === 'assess' ? readingLevel : undefined,
-      topic: input,
-      userText: input
-    };
-
-    await callZara(request);
   };
 
-  // Handle transform actions (existing buttons)
-  const handleTransform = async (transformType: TransformType) => {
-    if (!input.trim() || isLimited) return;
+  const handleSubmit = async (messageText?: string) => {
+    const textToSend = messageText || input.trim();
+    if (!textToSend || isLoading) return;
+    
+    if (usageCount >= MAX_DAILY_MESSAGES) {
+      setShowMiniWall(true);
+      return;
+    }
 
-    const request: ZaraRequest = {
-      mode: 'transform',
-      tone,
-      language,
-      userText: input,
-      transform: transformType
+    const userMessage: Message = {
+      id: Date.now().toString(),
+      content: textToSend,
+      isUser: true,
+      timestamp: new Date()
     };
 
-    await callZara(request);
+    setMessages(prev => [...prev, userMessage]);
+    setInput('');
+    setIsLoading(true);
+
+    try {
+      const response = await fetch('/api/zara/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: textToSend,
+          locale,
+          history: messages.slice(-4)
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to get response');
+      }
+
+      const data = await response.json();
+      
+      const assistantMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        content: data.answer?.title || 'Response',
+        answer: data.answer,
+        isUser: false,
+        timestamp: new Date()
+      };
+
+      setMessages(prev => [...prev, assistantMessage]);
+      updateUsageCount();
+
+      // Track analytics
+      fetch('/api/zara/analytics', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          action: 'message_sent',
+          locale,
+          lane: data.lane,
+          usedPlaybook: data.usedPlaybook,
+          path: window.location.pathname
+        }),
+      }).catch(() => {
+        // Ignore analytics errors
+      });
+
+    } catch (error) {
+      console.error('Error getting Zara response:', error);
+      const errorMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        content: 'Error',
+        isUser: false,
+        timestamp: new Date()
+      };
+      setMessages(prev => [...prev, errorMessage]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const primaryLabel = mode === 'advice' || mode === 'explain' ? 'Ask Zara' : 'Generate';
-  const showReadingLevel = mode === 'explain' || mode === 'draft' || mode === 'plan' || mode === 'assess';
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSubmit();
+    }
+  };
+
+  if (isMinimized) {
+    return (
+      <div className="fixed bottom-20 right-6 z-50 w-80 h-16 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 flex items-center justify-between px-4">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center">
+            <span className="text-white text-sm font-bold">Z</span>
+          </div>
+          <span className="text-sm font-medium">Zara</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-xs text-gray-500">{usageCount}/{MAX_DAILY_MESSAGES}</span>
+          <button
+            onClick={onMinimize}
+            className="p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
+            aria-label="Restore Zara"
+          >
+            <Minimize2 className="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className="fixed top-0 right-0 h-full w-full sm:w-[420px] z-[60] p-4 bg-gradient-to-b from-black/30 to-black/10 backdrop-blur-xl border-l border-white/10 text-white" role="dialog" aria-label="Zara Assistant Panel">
-      
+    <div className="fixed bottom-20 right-6 z-50 w-96 h-[500px] bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 flex flex-col overflow-hidden">
       {/* Header */}
-      <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center gap-2">
-          <span className="px-2 py-1 rounded-md bg-white/10 border border-white/20 text-xs backdrop-blur">
-            Powered by Zara
-          </span>
-          <div className="flex items-center gap-1 text-xs text-white/70">
-            <Shield className="w-3 h-3" />
-            <span>Privacy-first · No student data stored</span>
+      <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center">
+            <span className="text-white text-sm font-bold">Z</span>
+          </div>
+          <div>
+            <h3 className="font-semibold text-sm">Zara</h3>
+            <p className="text-xs text-gray-500">Teacher Assistant</p>
           </div>
         </div>
-        <button onClick={onClose} className="p-1 rounded hover:bg-white/10" aria-label="Close Zara panel">
-          <X className="w-4 h-4" />
-        </button>
-      </div>
-
-      {/* Usage counter */}
-      {!isLimited && (
-        <div className="text-xs text-white/60 mb-3">
-          {remaining} of {dailyLimit} free interactions remaining today
-        </div>
-      )}
-
-      {/* Mode Selector */}
-      <div className="mb-3">
-        <label className="block text-xs text-white/80 mb-2">Mode</label>
-        <select 
-          value={mode} 
-          onChange={(e) => setMode(e.target.value as ZaraMode)}
-          className="w-full bg-white/10 border border-white/20 rounded-md px-3 py-2 text-sm text-white"
-          disabled={busy}
-        >
-          <option value="advice" className="bg-black text-white">Advice</option>
-          <option value="explain" className="bg-black text-white">Explain</option>
-          <option value="draft" className="bg-black text-white">Draft</option>
-          <option value="plan" className="bg-black text-white">Plan</option>
-          <option value="assess" className="bg-black text-white">Assess</option>
-        </select>
-      </div>
-
-      {/* Tone & Language */}
-      <div className="grid grid-cols-2 gap-2 mb-3">
-        <div>
-          <label className="block text-xs text-white/80 mb-1">Tone</label>
-          <select 
-            value={tone} 
-            onChange={(e) => setTone(e.target.value as Tone)}
-            className="w-full bg-white/10 border border-white/20 rounded-md px-2 py-1 text-sm text-white"
-            disabled={busy}
-          >
-            <option value="warm" className="bg-black text-white">Warm</option>
-            <option value="professional" className="bg-black text-white">Professional</option>
-            <option value="neutral" className="bg-black text-white">Neutral</option>
-            <option value="supportive" className="bg-black text-white">Supportive</option>
-          </select>
-        </div>
-        <div>
-          <label className="block text-xs text-white/80 mb-1">Language</label>
-          <select 
-            value={language} 
-            onChange={(e) => setLanguage(e.target.value)}
-            className="w-full bg-white/10 border border-white/20 rounded-md px-2 py-1 text-sm text-white"
-            disabled={busy}
-          >
-            <option value="en" className="bg-black text-white">English</option>
-            <option value="de" className="bg-black text-white">Deutsch</option>
-            <option value="fr" className="bg-black text-white">Français</option>
-            <option value="es" className="bg-black text-white">Español</option>
-            <option value="it" className="bg-black text-white">Italiano</option>
-          </select>
-        </div>
-      </div>
-
-      {/* Reading Level (conditional) */}
-      {showReadingLevel && (
-        <div className="mb-3">
-          <label className="block text-xs text-white/80 mb-2">Reading Level</label>
-          <div className="flex gap-1 flex-wrap">
-            {(['K-2', '3-5', '6-8', '9-12', 'Adult'] as ReadingLevel[]).map((level) => (
-              <button
-                key={level}
-                onClick={() => setReadingLevel(level)}
-                className={`px-2 py-1 rounded text-xs ${
-                  readingLevel === level 
-                    ? 'bg-white/20 border border-white/40' 
-                    : 'bg-white/5 border border-white/20'
-                }`}
-                disabled={busy}
-              >
-                {level}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Input Textarea */}
-      <div className="mb-3">
-        <label className="block text-xs text-white/80 mb-2">
-          {mode === 'advice' || mode === 'explain' ? 'Ask or paste here...' : 'Topic or content...'}
-        </label>
-        <textarea
-          className="w-full h-24 bg-white/10 border border-white/20 rounded-md p-3 text-sm text-white placeholder:text-white/60 whitespace-pre-wrap break-words resize-none"
-          placeholder={
-            mode === 'advice' ? 'e.g., Strategies for low-noise transitions Grade 3' :
-            mode === 'explain' ? 'e.g., Explain photosynthesis for Grade 6' :
-            mode === 'draft' ? 'e.g., Warm parent message re: missed homework' :
-            mode === 'plan' ? 'e.g., Mini-lesson multiplying fractions, 30 min' :
-            mode === 'assess' ? 'e.g., Rubric row for scientific argument claim-evidence-reasoning' :
-            'Ask for advice, explanations, or paste text to transform...'
-          }
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          disabled={busy}
-        />
-      </div>
-
-      {/* Primary Action */}
-      <div className="mb-3">
-        {isLimited ? (
-          <div className="bg-amber-900/30 border border-amber-600/50 rounded-md p-3 text-center">
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <Lock className="w-4 h-4 text-amber-400" />
-              <span className="text-sm text-amber-200">Daily limit reached</span>
-            </div>
-            <p className="text-xs text-amber-300 mb-3">
-              Get unlimited advice & drafting with Promptly.
-            </p>
-            <a 
-              href="/pricing" 
-              className="inline-block px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white text-sm font-medium rounded-md transition-colors"
-            >
-              Try Promptly Free
-            </a>
-          </div>
-        ) : (
+        <div className="flex items-center gap-1">
+          <span className="text-xs text-gray-500 px-2">{usageCount}/{MAX_DAILY_MESSAGES}</span>
           <button
-            onClick={handleMainAction}
-            disabled={!input.trim() || busy}
-            className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 disabled:from-gray-600 disabled:to-gray-700 text-white font-medium px-4 py-3 rounded-md transition-all duration-200 flex items-center justify-center gap-2"
+            onClick={onMinimize}
+            className="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
+            aria-label="Minimize"
           >
-            <Sparkles className="w-4 h-4" />
-            {busy ? 'Working...' : primaryLabel}
+            <Minimize2 className="w-4 h-4" />
           </button>
-        )}
+          <button
+            onClick={onClose}
+            className="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
+            aria-label="Close"
+          >
+            <X className="w-4 h-4" />
+          </button>
+        </div>
       </div>
 
-      {/* Transform Actions (Secondary Buttons) */}
-      {mode !== 'advice' && mode !== 'explain' && !isLimited && (
-        <div className="mb-4">
-          <div className="text-xs text-white/60 mb-2">Quick transforms:</div>
-          <div className="grid grid-cols-2 gap-2 text-xs">
-            <button
-              onClick={() => handleTransform('rewrite')}
-              disabled={!input.trim() || busy}
-              className="px-2 py-1 bg-white/5 border border-white/20 rounded hover:bg-white/10 disabled:opacity-50"
-            >
-              Rewrite
-            </button>
-            <button
-              onClick={() => handleTransform('shorten')}
-              disabled={!input.trim() || busy}
-              className="px-2 py-1 bg-white/5 border border-white/20 rounded hover:bg-white/10 disabled:opacity-50"
-            >
-              Shorten
-            </button>
-            <button
-              onClick={() => handleTransform('expand')}
-              disabled={!input.trim() || busy}
-              className="px-2 py-1 bg-white/5 border border-white/20 rounded hover:bg-white/10 disabled:opacity-50"
-            >
-              Expand
-            </button>
-            <button
-              onClick={() => handleTransform('fix')}
-              disabled={!input.trim() || busy}
-              className="px-2 py-1 bg-white/5 border border-white/20 rounded hover:bg-white/10 disabled:opacity-50"
-            >
-              Fix grammar
-            </button>
-            <button
-              onClick={() => handleTransform('tone')}
-              disabled={!input.trim() || busy}
-              className="px-2 py-1 bg-white/5 border border-white/20 rounded hover:bg-white/10 disabled:opacity-50"
-            >
-              Apply tone
-            </button>
-            <button
-              onClick={() => handleTransform('alts')}
-              disabled={!input.trim() || busy}
-              className="px-2 py-1 bg-white/5 border border-white/20 rounded hover:bg-white/10 disabled:opacity-50"
-            >
-              3 alternatives
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Response Display */}
-      {last && (
-        <div className="space-y-3 max-h-64 overflow-auto">
-          <div className="bg-white/10 border border-white/20 rounded-md p-3">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs text-white/80">Response</span>
-              <div className="flex gap-1">
-                <button
-                  onClick={() => copyToClipboard(last.text)}
-                  className="p-1 rounded hover:bg-white/10"
-                  title="Copy to clipboard"
-                >
-                  <Copy className="w-3 h-3" />
-                </button>
-                <button
-                  onClick={() => insertAtCursor(last.text)}
-                  className="px-2 py-1 text-xs bg-white/10 rounded hover:bg-white/20"
-                >
-                  Insert
-                </button>
-              </div>
+      {/* Messages */}
+      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        {messages.length === 0 && (
+          <div className="space-y-4">
+            <div className="text-center text-gray-500 text-sm py-4">
+              <p className="mb-2">👋 Hi! I'm Zara, your teaching assistant.</p>
+              <p>I provide classroom strategies, help with parent communications, and answer product questions.</p>
             </div>
-            <div className="text-sm whitespace-pre-wrap break-words text-white/95 leading-relaxed">
-              {last.text}
-            </div>
-          </div>
-
-          {/* Variants for alternatives */}
-          {last.variants && last.variants.length > 0 && (
-            <div className="bg-white/10 border border-white/20 rounded-md p-3">
-              <div className="text-xs text-white/80 mb-2">Alternatives</div>
-              <div className="space-y-2">
-                {last.variants.map((variant, i) => (
-                  <div key={i} className="p-2 bg-white/5 rounded border border-white/10">
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-xs text-white/60">#{i + 1}</span>
-                      <button
-                        onClick={() => copyToClipboard(variant)}
-                        className="p-1 rounded hover:bg-white/10"
-                        title="Copy to clipboard"
-                      >
-                        <Copy className="w-3 h-3" />
-                      </button>
-                    </div>
-                    <div className="text-sm whitespace-pre-wrap break-words text-white/90">
-                      {variant}
-                    </div>
-                  </div>
+            
+            {/* Quick Action Chips */}
+            <div className="space-y-2">
+              <p className="text-xs text-gray-500 font-medium">Quick help:</p>
+              <div className="grid grid-cols-2 gap-2">
+                {quickActions.map((action, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleSubmit(action.text)}
+                    className="text-left p-2 text-xs bg-gray-50 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 rounded-lg transition-colors"
+                    disabled={isLoading || usageCount >= MAX_DAILY_MESSAGES}
+                  >
+                    <span className="mr-1">{action.icon}</span>
+                    {action.text}
+                  </button>
                 ))}
               </div>
             </div>
-          )}
+          </div>
+        )}
+        
+        {messages.map((message) => (
+          <div
+            key={message.id}
+            className={`flex ${message.isUser ? 'justify-end' : 'justify-start'}`}
+          >
+            {message.isUser ? (
+              <div className="max-w-[80%] bg-purple-600 text-white rounded-lg px-3 py-2 text-sm">
+                {message.content}
+              </div>
+            ) : (
+              message.answer ? (
+                <ZaraAnswerComponent answer={message.answer} />
+              ) : (
+                <div className="max-w-[85%] bg-gray-50 dark:bg-gray-700 rounded-lg p-3 text-sm">
+                  {message.content}
+                </div>
+              )
+            )}
+          </div>
+        ))}
+        
+        {isLoading && (
+          <div className="flex justify-start">
+            <div className="bg-gray-100 dark:bg-gray-700 rounded-lg px-3 py-2 flex items-center gap-2">
+              <Loader2 className="w-4 h-4 animate-spin" />
+              <span className="text-sm text-gray-600 dark:text-gray-300">Zara is thinking...</span>
+            </div>
+          </div>
+        )}
+        
+        <div ref={messagesEndRef} />
+      </div>
+
+      {/* Mini Wall */}
+      {showMiniWall && (
+        <div className="p-4 border-t border-amber-200 bg-amber-50 dark:bg-amber-900/20">
+          <div className="flex items-center gap-2 mb-2">
+            <Lock className="w-4 h-4 text-amber-600" />
+            <span className="text-sm font-medium text-amber-800 dark:text-amber-200">Daily limit reached</span>
+          </div>
+          <p className="text-xs text-amber-700 dark:text-amber-300 mb-3">
+            You've used your 3 free conversations today. Get unlimited access with Promptly.
+          </p>
+          <a 
+            href="/pricing" 
+            className="inline-flex items-center px-3 py-1.5 bg-amber-600 hover:bg-amber-700 text-white text-xs font-medium rounded transition-colors"
+          >
+            Try Promptly Free →
+          </a>
+        </div>
+      )}
+
+      {/* Input */}
+      {!showMiniWall && (
+        <div className="p-4 border-t border-gray-200 dark:border-gray-700">
+          <form onSubmit={(e) => { e.preventDefault(); handleSubmit(); }} className="flex gap-2">
+            <textarea
+              ref={inputRef}
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder="Ask about teaching strategies, write parent messages, or get product info..."
+              className="flex-1 min-h-[40px] max-h-[100px] px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
+              disabled={isLoading || usageCount >= MAX_DAILY_MESSAGES}
+              rows={1}
+            />
+            <button
+              type="submit"
+              disabled={!input.trim() || isLoading || usageCount >= MAX_DAILY_MESSAGES}
+              className="px-3 py-2 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white rounded-lg transition-colors duration-200 flex items-center justify-center min-w-[40px]"
+            >
+              {isLoading ? (
+                <Loader2 className="w-4 h-4 animate-spin" />
+              ) : (
+                <Send className="w-4 h-4" />
+              )}
+            </button>
+          </form>
         </div>
       )}
     </div>
