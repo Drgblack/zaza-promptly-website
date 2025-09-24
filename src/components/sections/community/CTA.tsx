@@ -22,7 +22,7 @@ export function CommunityCTA() {
             {t('primary')}
           </a>
           <a 
-            href="/resources"
+            href="/pricing"
             className="inline-flex items-center justify-center rounded-lg border border-input bg-background px-6 py-2.5 text-sm font-semibold shadow-sm hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-all duration-200"
           >
             {t('secondary')}

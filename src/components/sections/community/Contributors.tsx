@@ -136,12 +136,18 @@ export function Contributors() {
             
             {/* Action Buttons */}
             <div className="flex gap-2 pt-2">
-              <button className="flex-1 bg-muted/50 hover:bg-muted/70 text-muted-foreground px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-                View Profile
-              </button>
-              <button className={`flex-1 bg-gradient-to-r ${contributor.gradient} hover:shadow-md hover:scale-105 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring`}>
-                See Resources
-              </button>
+              <a 
+                href="/contact"
+                className="flex-1 bg-muted/50 hover:bg-muted/70 text-muted-foreground px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring text-center"
+              >
+                Contact
+              </a>
+              <a 
+                href="/resources/grading-comment-bank"
+                className={`flex-1 bg-gradient-to-r ${contributor.gradient} hover:shadow-md hover:scale-105 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring text-center`}
+              >
+                Resources
+              </a>
             </div>
             
             {/* Join date */}
