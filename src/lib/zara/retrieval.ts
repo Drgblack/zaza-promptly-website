@@ -10,6 +10,13 @@ type RetrievalResult = {
   searchTerms: string[];
 };
 
+type PlaybookMatch = {
+  title: string;
+  content: string;
+  keywords: string[];
+  filename: string;
+};
+
 export async function retrieveSnippets(query: string): Promise<RetrievalResult> {
   const searchTerms = extractSearchTerms(query);
   const snippetPromises = searchTerms.map(term => fetchRelevantSnippets(term));
@@ -20,34 +27,90 @@ export async function retrieveSnippets(query: string): Promise<RetrievalResult> 
   const scored = scoreAndSort(deduplicated, searchTerms);
   
   return {
-    matches: scored.slice(0, 5), // Top 5 most relevant
+    matches: scored.slice(0, 3), // Top 3 most relevant
     hasResults: scored.length > 0,
     searchTerms
   };
 }
 
-function extractSearchTerms(query: string): string[] {
-  const productTerms = ['pricing', 'price', 'cost', 'free', 'trial', 'plan', 'subscription', 'billing'];
-  const featureTerms = ['feature', 'comment', 'feedback', 'translate', 'language', 'export', 'integration'];
-  const supportTerms = ['help', 'support', 'privacy', 'data', 'security', 'gdpr', 'ferpa'];
+export async function retrievePlaybook(query: string): Promise<PlaybookMatch | null> {
+  const playbooks = [
+    'after-lunch-reset',
+    'noisy-transitions', 
+    'new-seating-plan',
+    'low-level-disruption',
+    'positive-reinforcement',
+    'formative-checks',
+    'time-on-task-stamina',
+    'group-work-norms',
+    'calm-corner-regulation',
+    'entry-routines-do-now'
+  ];
   
+  const queryLower = query.toLowerCase();
+  let bestMatch: PlaybookMatch | null = null;
+  let highestScore = 0;
+  
+  for (const playbook of playbooks) {
+    try {
+      const response = await fetch(`/zara/playbooks/${playbook}.md`);
+      if (!response.ok) continue;
+      
+      const content = await response.text();
+      const keywordsMatch = content.match(/## Keywords\n(.+)/);
+      const keywords = keywordsMatch ? keywordsMatch[1].split(', ') : [];
+      
+      // Score based on keyword matches
+      let score = 0;
+      keywords.forEach(keyword => {
+        if (queryLower.includes(keyword.toLowerCase())) {
+          score += keyword.length > 5 ? 3 : 2; // Longer keywords get higher weight
+        }
+      });
+      
+      // Boost score for title matches
+      if (queryLower.includes(playbook.replace('-', ' '))) {
+        score += 5;
+      }
+      
+      if (score > highestScore) {
+        highestScore = score;
+        bestMatch = {
+          title: playbook.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase()),
+          content,
+          keywords,
+          filename: playbook
+        };
+      }
+    } catch (error) {
+      continue; // Skip if playbook can't be loaded
+    }
+  }
+  
+  return highestScore >= 2 ? bestMatch : null;
+}
+
+function extractSearchTerms(query: string): string[] {
   const queryLower = query.toLowerCase();
   const terms: string[] = [];
   
-  // Check for specific product/feature mentions
-  if (productTerms.some(term => queryLower.includes(term))) {
-    terms.push('pricing');
-  }
+  // Product info categories
+  const productMappings = {
+    pricing: ['pricing', 'price', 'cost', 'plan', 'subscription', 'billing', 'payment', 'free', 'trial'],
+    features: ['feature', 'what can', 'what does', 'how does', 'capability', 'function'],
+    privacy: ['privacy', 'data', 'gdpr', 'ferpa', 'security', 'safe', 'store', 'collect'],
+    limits: ['limit', 'usage', 'how many', 'how much', 'restriction', 'quota'],
+    contact: ['help', 'support', 'contact', 'email', 'phone', 'chat', 'assistance']
+  };
   
-  if (featureTerms.some(term => queryLower.includes(term))) {
-    terms.push('features');
-  }
+  // Check each category
+  Object.entries(productMappings).forEach(([category, keywords]) => {
+    if (keywords.some(keyword => queryLower.includes(keyword))) {
+      terms.push(category);
+    }
+  });
   
-  if (supportTerms.some(term => queryLower.includes(term))) {
-    terms.push('support');
-  }
-  
-  // Always include a general term if no specific category matched
+  // Default to general if nothing matches
   if (terms.length === 0) {
     terms.push('general');
   }
@@ -57,7 +120,20 @@ function extractSearchTerms(query: string): string[] {
 
 async function fetchRelevantSnippets(category: string): Promise<SnippetMatch[]> {
   try {
-    const response = await fetch(`/zara/snippets/${category}.json`);
+    // Try markdown first, fallback to JSON
+    let response = await fetch(`/zara/snippets/${category}.md`);
+    
+    if (response.ok) {
+      const content = await response.text();
+      return [{
+        content: content.replace(/^# .+\n\n/, ''), // Remove title line
+        score: 1.0,
+        source: category
+      }];
+    }
+    
+    // Fallback to JSON format
+    response = await fetch(`/zara/snippets/${category}.json`);
     if (!response.ok) return [];
     
     const snippets = await response.json();
