@@ -19,7 +19,7 @@
   },
   "hero": {
     "title": "AI-powered tools for modern educators",
-    "subtitle": "Promptly turns stressful late-night messages into calm, professional replies in seconds—so you can focus on teaching, not typing.",
+    "subtitle": "Promptly turns stressful late-night messages into calm, professional replies in seconds - so you can focus on teaching, not typing.",
     "headline": "Stop stressing over",
     "headline_highlight": "parent emails.",
     "tagline": "Get your Sundays back",
@@ -164,11 +164,11 @@
     "title": "Simple, Transparent Pricing",
     "headline": "Simple, Transparent Pricing",
     "badge": "Annual is best value",
-    "hero_explainer": "Zaza Pass is your annual teacher membership. Get Promptly plus pro tools that save 5+ hours every week—backed by a 30-day money-back guarantee.",
+    "hero_explainer": "Zaza Pass is your annual teacher membership. Get Promptly plus pro tools that save 5+ hours every week - backed by a 30-day money-back guarantee.",
 
     "zaza_pass": {
       "badge_annual_best_value": "Annual is best value",
-      "hero_desc": "Zaza Pass is your annual teacher membership. Get Promptly plus pro tools that save 5+ hours every week—backed by a 30-day money-back guarantee.",
+      "hero_desc": "Zaza Pass is your annual teacher membership. Get Promptly plus pro tools that save 5+ hours every week - backed by a 30-day money-back guarantee.",
       "tiles": {
         "minutes_to_quality": "Minutes to Quality",
         "minutes_to_quality_desc": "Transform rough drafts into polished, professional communication in seconds",
@@ -227,7 +227,7 @@
       "title": "Risk-Free 30-Day Trial",
       "points": [
         "Full refund within 30 days",
-        "Cancel anytime — no questions asked",
+        "Cancel anytime - no questions asked",
         "No student data stored"
       ]
     },
@@ -245,10 +245,10 @@
     "pricing_secondary_cta": "See Plans",
     "zaza_pass_microcopy": "Annual saves you ~2 months vs. monthly.",
     "problem_heading": "Teachers are overwhelmed.",
-    "problem_body": "Parent emails pile up. Reports drag into the weekend. The work never ends—and your time with family keeps slipping away. You didn't become a teacher to spend nights glued to your inbox.",
+    "problem_body": "Parent emails pile up. Reports drag into the weekend. The work never ends - and your time with family keeps slipping away. You didn't become a teacher to spend nights glued to your inbox.",
     "solution_heading": "How can Promptly actually help?",
     "solution_card1_title": "Smart Message Writer",
-    "solution_card1_desc": "Draft professional replies instantly—no overthinking, no wasted minutes.",
+    "solution_card1_desc": "Draft professional replies instantly - no overthinking, no wasted minutes.",
     "solution_card2_title": "Rewrite with the right tone",
     "solution_card2_desc": "Choose supportive, firm, or neutral voice to match each situation.",
     "solution_card3_title": "Translate instantly",
@@ -256,7 +256,7 @@
     "outcomes_heading": "See the difference every week.",
     "outcomes_item1": "Save 2–3 hours of admin time every week",
     "outcomes_item2": "No more late-night guilt over unfinished messages",
-    "outcomes_item3": "Confidence in every reply—even the tricky ones",
+    "outcomes_item3": "Confidence in every reply - even the tricky ones",
     "testimonials_heading": "Trusted by teachers who value their time",
     "testimonials_1_quote": "Promptly cut my Sunday email time in half.",
     "testimonials_1_name": "Emma",
