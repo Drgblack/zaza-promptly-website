@@ -3,7 +3,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { Header } from '@/components/site/header';
 import { Footer } from '@/components/site/footer';
-import { ZaraAssistant } from '@/components/ai/zara-assistant';
+import { ZaraRouteIntegration } from '@/components/zara/ZaraRouteIntegration';
 import { Inter } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { locales } from '@/i18n';
@@ -31,7 +31,7 @@ export default async function LocaleLayout({
           <Header />
           {children}
           <Footer />
-          {process.env.NEXT_PUBLIC_ENABLE_ZARA === "1" && <ZaraAssistant />}
+          <ZaraRouteIntegration />
           
           {/* Build stamp for QA */}
           <div data-build-stamp className="text-xs text-gray-500/70 text-center py-6">

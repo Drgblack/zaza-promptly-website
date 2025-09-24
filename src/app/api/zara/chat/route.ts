@@ -1,62 +1,33 @@
-﻿// src/app/api/zara/chat/route.ts
 import { NextRequest, NextResponse } from "next/server";
-
-type Tone = "neutral" | "warm" | "formal" | "friendly";
-type ContextType = "parent_email" | "report_comment" | "student_feedback" | "staff_note";
+import { ZARA_SYSTEM_PROMPT } from '@/lib/zara/prompt';
+import { retrieveSnippets } from '@/lib/zara/retrieval';
 
 interface ApiRequest {
   message: string;
-  context?: {
-    type?: ContextType;
-    grade?: string | null;
-    language?: string;
-    tone?: Tone;
-  };
-  userPrefs?: {
-    defaultTone?: Tone;
-    defaultLanguage?: string;
-  };
+  locale: string;
+  history?: Array<{
+    id: string;
+    content: string;
+    isUser: boolean;
+  }>;
 }
 
 interface ApiResponse {
-  text: string;
-  explanation: string;
-  alternatives: string[];
+  response: string;
+  topic: string;
+  isProductQuery: boolean;
 }
 
-const SYSTEM_PROMPT = `
-You are **Zara**, a concise, on-demand writing helper for teachers.
-Your job: turn rough notes into clear, kind, professional messages across:
-- parent emails
-- report card comments and progress notes
-- student feedback
-- staff/admin notes
+function detectProductQuery(message: string): boolean {
+  const productTerms = ['pricing', 'price', 'cost', 'plan', 'subscription', 'billing', 'feature', 'privacy', 'data', 'security', 'support', 'help'];
+  const messageLower = message.toLowerCase();
+  return productTerms.some(term => messageLower.includes(term));
+}
 
-Rules:
-- Be clear, concise, and kind. No slang. No filler.
-- Respect requested tone and language. If none provided, use the user's defaults.
-- NEVER invent facts, dates, grades, or attendance details. If missing, ask briefly.
-- For report comments: avoid grades/marks unless provided. Focus on observable behavior, growth, next steps.
-- For parent emails: be empathetic, action-forward, no confidential PII.
-- For student feedback: specific, growth-oriented, short.
-- For staff notes: neutral, factual, time-efficient.
-- Always include a one-line explanation of what you changed and why (e.g., "Tightened repetition; clarified the request.")
-- Provide up to 3 short alternative phrasings when asked, each on a new line.
-- Keep outputs compact-teachers are busy.
-
-Safety:
-- Do not reveal private student info. If input contains sensitive data, generalize it (e.g., "the student").
-- Do not fabricate policy references; if asked, suggest confirming school policy.
-- If an instruction conflicts with safety, follow safety.
-`.trim();
-
-function basicRedactPII(input: string): string {
-  // light-touch scrubbing; we avoid over-scrubbing teacher context
-  return input
-    // emails
-    .replace(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi, "[redacted email]")
-    // phone numbers (very rough)
-    .replace(/\+?\d[\d\s().-]{7,}\d/g, "[redacted number]");
+function extractTopic(message: string): string {
+  // Extract key topic from message for context payload
+  const words = message.toLowerCase().split(' ').filter(word => word.length > 3);
+  return words.slice(0, 3).join(' ');
 }
 
 export async function POST(request: NextRequest) {
@@ -67,35 +38,32 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Missing message" }, { status: 400 });
     }
 
-    const message = basicRedactPII(body.message).slice(0, 4000); // clamp long inputs
-    const tone = body.context?.tone || body.userPrefs?.defaultTone || "neutral";
-    const language = body.context?.language || body.userPrefs?.defaultLanguage || "en";
-    const ctype = body.context?.type || "parent_email";
+    const message = body.message.slice(0, 2000);
+    const locale = body.locale || 'en';
+    const isProductQuery = detectProductQuery(message);
+    const topic = extractTopic(message);
 
-    const userInstruction = `
-Language: ${language}
-Tone: ${tone}
-Context: ${ctype}
-Grade (if any): ${body.context?.grade ?? "none"}
+    let contextSnippets = '';
+    if (isProductQuery) {
+      const retrievalResult = await retrieveSnippets(message);
+      if (retrievalResult.hasResults) {
+        contextSnippets = '\n\nRelevant information:\n' + 
+          retrievalResult.matches.map(match => match.content).join('\n\n');
+      }
+    }
 
-User text:
-"""${message}"""
+    const userInstruction = `User message: "${message}"
+User locale: ${locale}${contextSnippets}
 
-Tasks:
-1) Produce the best single improved version for this context.
-2) Provide a one-line explanation of your edits.
-3) Provide 3 concise alternative phrasings.
+Follow the system instructions exactly. Respond in ${locale === 'en' ? 'English' : locale === 'de' ? 'German' : locale === 'fr' ? 'French' : locale === 'es' ? 'Spanish' : locale === 'it' ? 'Italian' : 'English'}.`;
 
-Return as JSON with keys: text, explanation, alternatives (array of 3).
-`.trim();
-
-    // ---- OpenAI (fetch) ----
+    // Use OpenAI API
     const apiKey = process.env.OPENAI_API_KEY;
     if (!apiKey) {
       return NextResponse.json({ error: "Missing OPENAI_API_KEY" }, { status: 500 });
     }
 
-    const r = await fetch("https://api.openai.com/v1/chat/completions", {
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${apiKey}`,
@@ -103,32 +71,36 @@ Return as JSON with keys: text, explanation, alternatives (array of 3).
       },
       body: JSON.stringify({
         model: "gpt-4o-mini",
-        temperature: 0.4,
-        max_tokens: 600,
+        temperature: 0.7,
+        max_tokens: 800,
         messages: [
-          { role: "system", content: SYSTEM_PROMPT },
+          { role: "system", content: ZARA_SYSTEM_PROMPT },
+          ...(body.history?.slice(-4).map(h => ({ 
+            role: h.isUser ? "user" : "assistant" as const,
+            content: h.content
+          })) || []),
           { role: "user", content: userInstruction },
         ],
-        response_format: { type: "json_object" },
       }),
     });
 
-    if (!r.ok) {
-      const text = await r.text();
-      return NextResponse.json({ error: `Upstream error: ${text}` }, { status: 500 });
+    if (!response.ok) {
+      const error = await response.text();
+      return NextResponse.json({ error: `AI service error: ${error}` }, { status: 500 });
     }
 
-    const data = await r.json();
-    const parsed = JSON.parse(data.choices?.[0]?.message?.content ?? "{}");
+    const data = await response.json();
+    const aiResponse = data.choices?.[0]?.message?.content || "I apologize, but I couldn't generate a response. Please try again.";
 
     const payload: ApiResponse = {
-      text: parsed.text ?? "",
-      explanation: parsed.explanation ?? "",
-      alternatives: Array.isArray(parsed.alternatives) ? parsed.alternatives.slice(0, 3) : [],
+      response: aiResponse,
+      topic,
+      isProductQuery
     };
     
     return NextResponse.json(payload);
-  } catch (e: unknown) {
-    return NextResponse.json({ error: e?.message ?? "Unknown error" }, { status: 500 });
+  } catch (error: any) {
+    console.error('Zara chat error:', error);
+    return NextResponse.json({ error: error.message || "Unknown error" }, { status: 500 });
   }
 }
