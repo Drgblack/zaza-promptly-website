@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { ZARA_SYSTEM_PROMPT } from '../../../../lib/zara/prompt';
-import { retrieveSnippets } from '../../../../lib/zara/retrieval';
+import { ZARA_SYSTEM_PROMPT } from '@/lib/zara/prompt';
+import { retrieveSnippets } from '@/lib/zara/retrieval';
 
 interface ApiRequest {
   message: string;
