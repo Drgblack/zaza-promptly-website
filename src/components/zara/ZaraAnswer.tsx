@@ -1,6 +1,6 @@
 'use client';
 
-import { formatTeachingResponse, formatProductResponse, buildDeepLinkUrl } from '@/lib/zara/format';
+import { formatTeachingResponse, formatProductResponse, buildDeepLinkUrl } from '../../../lib/zara/format';
 import { ExternalLink, ArrowRight } from 'lucide-react';
 
 type ZaraAnswerProps = {
