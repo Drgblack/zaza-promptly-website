@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { Send, Minimize2, X, Loader2, Lock } from 'lucide-react';
-import { ZaraAnswer as ZaraAnswerComponent } from './ZaraAnswer';
+import { ZaraAnswerComponent } from './ZaraAnswer';
 import { useLocale } from 'next-intl';
 import type { ZaraAnswer } from '@/lib/zara/schema';
 

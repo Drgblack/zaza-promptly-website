@@ -8,7 +8,7 @@ type ZaraAnswerProps = {
   answer: ZaraAnswer;
 };
 
-export function ZaraAnswer({ answer }: ZaraAnswerProps) {
+export function ZaraAnswerComponent({ answer }: ZaraAnswerProps) {
   const [copiedItems, setCopiedItems] = useState<Set<string>>(new Set());
 
   const copyToClipboard = async (text: string, itemId: string) => {
