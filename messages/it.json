@@ -150,6 +150,38 @@
       "aboutFounder": "Chi è il fondatore"
     }
   },
+  "community": {
+    "title": "Comunità",
+    "subtitle": "Connettiti con altri educatori",
+    "description": "Unisciti a migliaia di educatori che stanno usando l'IA per trasformare la loro pratica didattica. Condividi risorse, ottieni supporto e impara dalle esperienze degli altri.",
+    "impact": {
+      "badge": "Impatto Comunitario Globale",
+      "title": "Fare la Differenza",
+      "desc": "Vedi come la nostra comunità globale di educatori sta trasformando le aule e risparmiando tempo prezioso",
+      "teachers": "Insegnanti Attivi",
+      "resources": "Risorse Condivise",
+      "downloads": "Download Totali",
+      "rating": "Valutazione Media",
+      "countries": "Paesi",
+      "time_saved": "Tempo Risparmiato"
+    },
+    "contributors": {
+      "badge": "Spotlight Comunitario",
+      "title": "Top Contributori",
+      "desc": "Incontra gli incredibili educatori che guidano la nostra comunità e ispirano migliaia di insegnanti in tutto il mondo"
+    },
+    "cta": {
+      "title": "Pronto a Trasformare il Tuo Insegnamento?",
+      "desc": "Unisciti a migliaia di educatori che stanno già usando l'IA per risparmiare tempo, migliorare la comunicazione e arricchire l'apprendimento degli studenti.",
+      "primary": "Inizia Oggi",
+      "secondary": "Vedi Risorse"
+    },
+    "stats": {
+      "teachers": "Insegnanti Attivi",
+      "resources": "Risorse Condivise",
+      "success_stories": "Storie di Successo"
+    }
+  },
   "home": {
     "pricing_banner_title": "Piani semplici per ogni classe",
     "pricing_banner_copy": "Ogni insegnante merita di recuperare tempo. Scegli il piano adatto alle tue esigenze.",

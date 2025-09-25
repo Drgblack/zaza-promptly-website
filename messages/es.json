@@ -150,6 +150,38 @@
       "aboutFounder": "Acerca del fundador"
     }
   },
+  "community": {
+    "title": "Comunidad",
+    "subtitle": "Conéctate con otros educadores",
+    "description": "Únete a miles de educadores que están usando IA para transformar su práctica docente. Comparte recursos, obtén apoyo y aprende de las experiencias de otros.",
+    "impact": {
+      "badge": "Impacto Comunitario Global",
+      "title": "Haciendo una Diferencia",
+      "desc": "Ve cómo nuestra comunidad global de educadores está transformando aulas y ahorrando tiempo valioso",
+      "teachers": "Maestros Activos",
+      "resources": "Recursos Compartidos",
+      "downloads": "Descargas Totales",
+      "rating": "Calificación Promedio",
+      "countries": "Países",
+      "time_saved": "Tiempo Ahorrado"
+    },
+    "contributors": {
+      "badge": "Spotlight Comunitario",
+      "title": "Principales Contribuyentes",
+      "desc": "Conoce a los increíbles educadores que lideran nuestra comunidad e inspiran a miles de maestros en todo el mundo"
+    },
+    "cta": {
+      "title": "¿Listo para Transformar tu Enseñanza?",
+      "desc": "Únete a miles de educadores que ya están usando IA para ahorrar tiempo, mejorar la comunicación y enriquecer el aprendizaje estudiantil.",
+      "primary": "Comenzar Hoy",
+      "secondary": "Ver Recursos"
+    },
+    "stats": {
+      "teachers": "Maestros Activos",
+      "resources": "Recursos Compartidos",
+      "success_stories": "Historias de Éxito"
+    }
+  },
   "home": {
     "pricing_banner_title": "Planes simples para cada aula",
     "pricing_banner_copy": "Cada maestro merece recuperar tiempo. Elige el plan que se ajuste a tus necesidades.",

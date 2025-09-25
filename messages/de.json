@@ -150,6 +150,38 @@
       "aboutFounder": "Über den Gründer"
     }
   },
+  "community": {
+    "title": "Gemeinschaft",
+    "subtitle": "Verbinde dich mit anderen Pädagogen",
+    "description": "Schließe dich Tausenden von Pädagogen an, die KI nutzen, um ihre Unterrichtspraxis zu transformieren. Teile Ressourcen, erhalte Unterstützung und lerne von den Erfahrungen anderer.",
+    "impact": {
+      "badge": "Globaler Gemeinschaftseinfluss",
+      "title": "Einen Unterschied machen",
+      "desc": "Sieh, wie unsere globale Gemeinschaft von Pädagogen Klassenzimmer transformiert und kostbare Zeit spart",
+      "teachers": "Aktive Lehrer",
+      "resources": "Geteilte Ressourcen",
+      "downloads": "Gesamte Downloads",
+      "rating": "Durchschnittliche Bewertung",
+      "countries": "Länder",
+      "time_saved": "Zeit gespart"
+    },
+    "contributors": {
+      "badge": "Gemeinschafts-Spotlight",
+      "title": "Top-Beitragszahler",
+      "desc": "Lerne die unglaublichen Pädagogen kennen, die unsere Gemeinschaft anführen und Tausende von Lehrern weltweit inspirieren"
+    },
+    "cta": {
+      "title": "Bereit, dein Unterrichten zu transformieren?",
+      "desc": "Schließe dich Tausenden von Pädagogen an, die bereits KI nutzen, um Zeit zu sparen, die Kommunikation zu verbessern und das Lernen der Schüler zu verbessern.",
+      "primary": "Heute loslegen",
+      "secondary": "Ressourcen ansehen"
+    },
+    "stats": {
+      "teachers": "Aktive Lehrer",
+      "resources": "Geteilte Ressourcen",
+      "success_stories": "Erfolgsgeschichten"
+    }
+  },
   "home": {
     "pricing_banner_title": "Einfache Pläne für jedes Klassenzimmer",
     "pricing_banner_copy": "Jeder Lehrer verdient seine Zeit zurück. Wähle den Plan, der zu deinen Bedürfnissen passt.",

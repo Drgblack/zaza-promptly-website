@@ -146,6 +146,38 @@
       "aboutFounder": "À propos du fondateur"
     }
   },
+  "community": {
+    "title": "Communauté",
+    "subtitle": "Connectez-vous avec d'autres éducateurs",
+    "description": "Rejoignez des milliers d'éducateurs qui utilisent l'IA pour transformer leur pratique pédagogique. Partagez des ressources, obtenez du soutien et apprenez des expériences des autres.",
+    "impact": {
+      "badge": "Impact Communautaire Global",
+      "title": "Faire une Différence",
+      "desc": "Voyez comment notre communauté mondiale d'éducateurs transforme les classes et économise un temps précieux",
+      "teachers": "Enseignants Actifs",
+      "resources": "Ressources Partagées",
+      "downloads": "Téléchargements Totaux",
+      "rating": "Note Moyenne",
+      "countries": "Pays",
+      "time_saved": "Temps Économisé"
+    },
+    "contributors": {
+      "badge": "Spotlight Communautaire",
+      "title": "Top Contributeurs",
+      "desc": "Rencontrez les incroyables éducateurs qui dirigent notre communauté et inspirent des milliers d'enseignants dans le monde"
+    },
+    "cta": {
+      "title": "Prêt à Transformer Votre Enseignement ?",
+      "desc": "Rejoignez des milliers d'éducateurs qui utilisent déjà l'IA pour économiser du temps, améliorer la communication et enrichir l'apprentissage des élèves.",
+      "primary": "Commencer Aujourd'hui",
+      "secondary": "Voir les Ressources"
+    },
+    "stats": {
+      "teachers": "Enseignants Actifs",
+      "resources": "Ressources Partagées",
+      "success_stories": "Histoires de Réussite"
+    }
+  },
   "home": {
     "pricing_banner_title": "Des plans simples pour chaque classe",
     "pricing_banner_copy": "Chaque enseignant mérite de récupérer du temps. Choisissez le plan qui correspond à vos besoins.",
