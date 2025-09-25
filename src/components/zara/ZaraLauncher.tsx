@@ -1,12 +1,13 @@
 // src/components/zara/ZaraLauncher.tsx
 import React, { useState } from "react";
-import ZaraPanel from "./ZaraPanel";
+import { ZaraPanel } from "./ZaraPanel";
 
 export default function ZaraLauncher() {
   const [open, setOpen] = useState(false);
+  const [minimized, setMinimized] = useState(false);
 
-  return (
-    <>
+  if (!open) {
+    return (
       <button
         onClick={() => setOpen(true)}
         className="fixed bottom-5 right-5 z-[999] rounded-full h-12 w-12
@@ -19,7 +20,14 @@ export default function ZaraLauncher() {
         <span className="sr-only">Open Zara</span>
         <div className="w-full h-full flex items-center justify-center text-lg">Z</div>
       </button>
-      {open && <ZaraPanel onClose={() => setOpen(false)} />}
-    </>
+    );
+  }
+
+  return (
+    <ZaraPanel 
+      isMinimized={minimized}
+      onMinimize={() => setMinimized(!minimized)}
+      onClose={() => setOpen(false)}
+    />
   );
 }
