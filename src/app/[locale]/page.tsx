@@ -111,9 +111,9 @@ export default async function HomePage({ params }: Props) {
                   </div>
                   <div className="hidden sm:block text-slate-400">•</div>
                   <div className="flex items-center gap-1">
-                    <div className="flex">
+                    <div className="flex" role="img" aria-label="4.9 out of 5 stars rating">
                       {[...Array(5)].map((_, i) => (
-                        <div key={i} className="w-4 h-4 text-yellow-400 fill-current">★</div>
+                        <span key={i} className="w-4 h-4 text-yellow-400" aria-hidden="true">★</span>
                       ))}
                     </div>
                     <span className="font-medium">4.9/5 rating</span>
