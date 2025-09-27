@@ -1,0 +1,3 @@
+# This directory should not exist. Only use src/app/ for Next.js App Router.
+# Having both app/ and src/app/ causes routing conflicts.
+# This file serves as a guard to prevent accidental creation of this directory.

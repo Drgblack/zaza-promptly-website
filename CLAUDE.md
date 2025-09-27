@@ -26,3 +26,30 @@
 - Visual consistency maintained ✅
 - Build and deployment successful ✅
 - Page loads correctly at /about-founder ✅
+
+## Snippet Tool UX V2 - Completed ✅
+
+### What Changed:
+- **Fixed dropdown clipping** with HeadlessUI portal-based selects
+- **Simple mode default** with 3 intuitive preset buttons
+- **"Improve my draft"** functionality for enhancing existing comments
+- **Feature flag** `NEXT_PUBLIC_SNIPPET_V2` for safe rollout (OFF by default)
+- **Portal rendering** prevents dropdown overlap issues
+- **Backward compatibility** when flag disabled
+
+### Deployment Safety:
+- Clean implementation from stable production base
+- Only touches snippet-related files
+- No routing, middleware, or global config changes
+- Guard file prevents app directory conflicts
+
+### Feature Flag Usage:
+- **Preview**: `NEXT_PUBLIC_SNIPPET_V2=true` (ON for testing)
+- **Production**: `NEXT_PUBLIC_SNIPPET_V2=false` (OFF by default)
+- Toggle in Vercel environment variables when ready
+
+### Important Rules:
+- **Never create** `sites/promptly-v2/app/` directory; only use `sites/promptly-v2/src/app/`
+- **Do not edit** vercel.json for outputDir; use minimal config only
+- **Feature work** must ship behind flags; preview=on, prod=off
+- **Deployment issues** → revert branch changes, not Vercel project settings
