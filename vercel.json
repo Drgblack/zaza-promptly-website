@@ -1,3 +1,4 @@
 {
-  "outputDirectory": "sites/promptly-v2/.next"
+  "outputDirectory": "sites/promptly-v2/.next",
+  "framework": "nextjs"
 }
