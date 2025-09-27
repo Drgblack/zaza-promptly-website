@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
+import { withRateLimit, analyticsRateLimit } from '@/lib/rate-limit';
 
-export async function POST(request: Request) {
+async function handleAnalytics(request: Request) {
   try {
     const body = await request.json();
     const { action, locale, topic, path, metadata } = body;
@@ -32,3 +33,6 @@ export async function POST(request: Request) {
     );
   }
 }
+
+// Export rate-limited version
+export const POST = withRateLimit(analyticsRateLimit, handleAnalytics);

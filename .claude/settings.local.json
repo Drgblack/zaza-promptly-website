@@ -37,7 +37,13 @@
       "Bash(set PUPPETEER_SKIP_DOWNLOAD=true)",
       "Bash(cp:*)",
       "Bash(dir:*)",
-      "Bash(mv:*)"
+      "Bash(mv:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(find:*)",
+      "Bash(curl:*)",
+      "Bash(ls:*)"
     ],
     "deny": []
   }

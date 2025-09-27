@@ -1,4 +1,5 @@
 export const runtime = "nodejs";
+import { withRateLimit, formRateLimit } from '@/lib/rate-limit';
 
 type SubscribeBody = {
   email?: string;
@@ -16,7 +17,7 @@ function json(status: number, data: unknown) {
   });
 }
 
-export async function POST(req: Request) {
+async function handleSubscribe(req: Request) {
   try {
     const body = (await req.json()) as SubscribeBody;
     const email = body.email?.trim();
@@ -68,3 +69,6 @@ export async function POST(req: Request) {
 export async function GET() {
   return json(405, { ok: false, error: "Method not allowed" });
 }
+
+// Export rate-limited version
+export const POST = withRateLimit(formRateLimit, handleSubscribe);

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { withRateLimit, formRateLimit } from '@/lib/rate-limit';
 
 interface ContactRequest {
   email: string;
@@ -6,7 +7,7 @@ interface ContactRequest {
   message?: string;
 }
 
-export async function POST(request: NextRequest) {
+async function handleContact(request: NextRequest) {
   try {
     const body: ContactRequest = await request.json();
     
@@ -74,3 +75,6 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+
+// Export rate-limited version
+export const POST = withRateLimit(formRateLimit, handleContact);

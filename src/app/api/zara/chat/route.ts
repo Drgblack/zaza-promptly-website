@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { classifyMessage, MessageLane } from '@/lib/zara/classifier';
 import { retrieveSnippets, retrievePlaybook } from '@/lib/zara/retrieval';
 import { validateZaraAnswer, createFallbackAnswer, sanitizeAnswer, ZaraAnswer } from '@/lib/zara/schema';
+import { withRateLimit, aiRateLimit } from '@/lib/rate-limit';
 
 interface ApiRequest {
   message: string;
@@ -88,7 +89,7 @@ For parent notes: Focus on the 3 versions in say_this. Preserve names/dates from
 Only use the provided retrieval information. If information is missing, say so and direct to appropriate page.`
 };
 
-export async function POST(request: NextRequest) {
+async function handleZaraChat(request: NextRequest) {
   try {
     const body = await request.json() as ApiRequest;
     
@@ -268,3 +269,6 @@ function extractSection(lines: string[], sectionHeader: string): string[] {
   }
   return items.filter(item => item.length > 0);
 }
+
+// Export rate-limited version
+export const POST = withRateLimit(aiRateLimit, handleZaraChat);
