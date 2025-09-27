@@ -11,6 +11,9 @@ importers:
       next:
         specifier: 14.2.8
         version: 14.2.8(@babel/core@7.28.4)(@opentelemetry/api@1.9.0)(@playwright/test@1.55.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      pnpm:
+        specifier: ^10.0.0
+        version: 10.17.1
     devDependencies:
       typescript:
         specifier: ^5.0.0
@@ -4160,6 +4163,11 @@ packages:
   playwright@1.55.1:
     resolution: {integrity: sha512-cJW4Xd/G3v5ovXtJJ52MAOclqeac9S/aGGgRzLabuF8TnIb6xHvMzKIa6JmrRzUkeXJgfL1MhukP0NK6l39h3A==}
     engines: {node: '>=18'}
+    hasBin: true
+
+  pnpm@10.17.1:
+    resolution: {integrity: sha512-F8Vg/KSGeulHOjiZrYSogzSRTzeb5G1FXL+S5c9LOdNJhdRS0lg7rxmWf6dstcF7yeJFUp0LmHRXIapyAOyveg==}
+    engines: {node: '>=18.12'}
     hasBin: true
 
   possible-typed-array-names@1.1.0:
@@ -10152,6 +10160,8 @@ snapshots:
       playwright-core: 1.55.1
     optionalDependencies:
       fsevents: 2.3.2
+
+  pnpm@10.17.1: {}
 
   possible-typed-array-names@1.1.0: {}
 
