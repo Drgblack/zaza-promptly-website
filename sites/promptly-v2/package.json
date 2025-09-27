@@ -31,6 +31,7 @@
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.6.1",
     "@headlessui/react": "^2.2.7",
+    "@heroicons/react": "^2.2.0",
     "@radix-ui/react-switch": "^1.2.6",
     "@sentry/nextjs": "^10.5.0",
     "@zaza/shared-brand": "file:./packages/shared-brand",

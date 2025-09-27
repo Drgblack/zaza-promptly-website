@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(timeout 10s pnpm run dev)"
+    ],
+    "deny": []
+  }
+}
