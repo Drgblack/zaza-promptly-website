@@ -6,9 +6,9 @@ interface MDXRendererProps {
   content: string
 }
 
-export function MDXRenderer({ content }: MDXRendererProps): ReactElement {
-  // Use marked to parse markdown content
-  const html = marked(content)
+export async function MDXRenderer({ content }: MDXRendererProps): Promise<ReactElement> {
+  // Use marked to parse markdown content - await the result since marked can return a Promise
+  const html = await marked(content)
   
   // Create a simple renderer for markdown without MDX dependencies
   return (
