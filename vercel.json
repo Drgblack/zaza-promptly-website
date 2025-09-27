@@ -1,5 +1,5 @@
 {
-  "buildCommand": "cd sites/promptly-v2 && pnpm install && pnpm run build",
+  "buildCommand": "cd sites/promptly-v2 && pnpm run build",
   "outputDirectory": "sites/promptly-v2/.next",
-  "installCommand": "pnpm install --frozen-lockfile"
+  "installCommand": "pnpm install"
 }
