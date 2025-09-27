@@ -3,7 +3,17 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "echo 'Building from sites/promptly-v2' && cd sites/promptly-v2 && pnpm install && pnpm run build"
+    "build": "echo 'Building from sites/promptly-v2' && cd sites/promptly-v2 && pnpm install && pnpm run build",
+    "dev": "cd sites/promptly-v2 && pnpm run dev",
+    "start": "cd sites/promptly-v2 && pnpm run start"
   },
-  "dependencies": {}
+  "workspaces": [
+    "sites/promptly-v2"
+  ],
+  "dependencies": {
+    "next": "^14.2.8"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
 }

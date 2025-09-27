@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(npm install:*)",
-      "Bash(timeout 10s pnpm run dev)"
+      "Bash(timeout 10s pnpm run dev)",
+      "Bash(gh repo view:*)"
     ],
     "deny": []
   }
