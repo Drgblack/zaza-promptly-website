@@ -1,1 +1,7 @@
-{ "framework": "nextjs" }
+{
+  "monorepo": false,
+  "buildCommand": "cd sites/promptly-v2 && npm run build",
+  "outputDirectory": "sites/promptly-v2/.next",
+  "installCommand": "cd sites/promptly-v2 && npm install",
+  "framework": "nextjs"
+}
