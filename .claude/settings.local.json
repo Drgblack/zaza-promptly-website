@@ -43,7 +43,23 @@
       "Bash(git push:*)",
       "Bash(find:*)",
       "Bash(curl:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(git -C \"C:\\Users\\User\\zaza-website-technologies\" status)",
+      "Bash(git -C \"C:\\Users\\User\\zaza-website-technologies\" add app/de/resources/)",
+      "Bash(git -C \"C:\\Users\\User\\zaza-website-technologies\" push)",
+      "Bash(git pull:*)",
+      "Bash(gh pr create:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr merge:*)",
+      "Bash(git -C \"C:\\Users\\User\\zaza-website-technologies\" add app/de/)",
+      "Bash(git -C \"C:\\Users\\User\\zaza-website-technologies\" log --oneline -5)",
+      "Bash(git -C \"C:\\Users\\User\\zaza-website-technologies\" push --set-upstream origin chore/dev-env-banner)",
+      "Bash(git -C \"C:\\Users\\User\\zaza-website-technologies\" add components/SiteFooter.tsx app/de/products/layout.tsx app/de/pricing/layout.tsx app/de/company/about/layout.tsx)",
+      "Bash(git -C \"C:\\Users\\User\\zaza-website-technologies\" push --set-upstream origin ci/vercel-deploy)",
+      "Bash(test:*)",
+      "WebFetch(domain:zazatechnologies.com)",
+      "WebFetch(domain:teach.zazatechnologies.com)",
+      "WebFetch(domain:zazateach.com)"
     ],
     "deny": []
   }

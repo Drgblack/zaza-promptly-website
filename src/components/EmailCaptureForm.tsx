@@ -43,6 +43,7 @@ export function EmailCaptureForm({
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+  const [consent, setConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [message, setMessage] = useState('');
@@ -60,6 +61,11 @@ export function EmailCaptureForm({
     if (!validateEmail(email)) {
       setStatus('error');
       setMessage('Please enter a valid email address');
+      return;
+    }
+    if (!consent) {
+      setStatus('error');
+      setMessage('Please agree to the privacy policy to continue');
       return;
     }
 
@@ -89,6 +95,7 @@ export function EmailCaptureForm({
         setEmail('');
         setFirstName('');
         setLastName('');
+        setConsent(false);
 
         if (typeof window !== 'undefined' && window.gtag) {
           window.gtag('event', 'email_capture', {
@@ -201,7 +208,7 @@ export function EmailCaptureForm({
           />
           <button
             type="submit"
-            disabled={isSubmitting || !email}
+            disabled={isSubmitting || !email || !consent}
             className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
           >
             {isSubmitting ? (
@@ -216,6 +223,25 @@ export function EmailCaptureForm({
               </>
             )}
           </button>
+        </div>
+
+        {/* GDPR Consent Checkbox */}
+        <div className="flex items-start space-x-3">
+          <input
+            type="checkbox"
+            id="consent"
+            checked={consent}
+            onChange={(e) => setConsent(e.target.checked)}
+            className="mt-1 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+            disabled={isSubmitting}
+          />
+          <label htmlFor="consent" className="text-sm text-gray-600 leading-relaxed">
+            I agree to receive emails from Zaza Promptly and consent to the collection and use of my email address as described in our{' '}
+            <a href="/privacy" target="_blank" className="text-purple-600 hover:text-purple-700 underline">
+              Privacy Policy
+            </a>
+            . You can unsubscribe at any time.
+          </label>
         </div>
 
         {status === 'error' && (

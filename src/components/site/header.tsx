@@ -138,7 +138,7 @@ export function Header() {
             <LanguageSwitcher />
 
             <Button asChild>
-              <a href="https://teach.zazatechnologies.com">
+              <a href="https://zazateach.com">
                 {hero('cta_primary')}
               </a>
             </Button>
@@ -176,7 +176,7 @@ export function Header() {
               ))}
               <div className="pt-4">
                 <Button asChild className="w-full">
-                  <a href="https://teach.zazatechnologies.com">
+                  <a href="https://zazateach.com">
                     {hero('cta_primary')}
                   </a>
                 </Button>
