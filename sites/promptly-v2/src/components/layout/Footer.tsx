@@ -5,6 +5,17 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import LanguageSwitcher from '@/components/nav/LanguageSwitcher'
 
+interface FooterLink {
+  name: string
+  href: string
+  external?: boolean
+}
+
+interface FooterSection {
+  title: string
+  links: FooterLink[]
+}
+
 export default function Footer() {
   const currentYear = new Date().getFullYear()
   const pathname = usePathname()
@@ -16,7 +27,7 @@ export default function Footer() {
                  pathname.startsWith('/es') ? 'es' :
                  pathname.startsWith('/it') ? 'it' : 'en'
 
-  const footerSections = {
+  const footerSections: Record<string, FooterSection> = {
     product: {
       title: 'Product',
       links: [
