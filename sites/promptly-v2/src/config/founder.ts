@@ -19,7 +19,7 @@ export const founder: FounderConfig = {
   bio: "Dr. Greg Blackburn is the founder of Zaza Technologies and creator of Promptly. With over 20 years of experience building educational tools and a PhD in Professional Education, he understands the daily challenges teachers face and is passionate about creating AI solutions that truly serve educators.",
   shortBio: "Founder of Zaza Technologies, PhD Professional Education. Building AI tools that actually help teachers save time without losing the personal touch.",
   social: {
-    email: "greg@zazatechnologies.com",
+    email: "help@zazatechnologies.com",
     linkedin: "https://www.linkedin.com/in/greg-blackburn-phd"
   },
   profileUrl: "/about"

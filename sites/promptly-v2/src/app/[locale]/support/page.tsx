@@ -39,7 +39,7 @@ export default function Support() {
             <h3 className="text-xl font-semibold text-gray-800 mb-4">Contact Support</h3>
             <div className="bg-gray-50 p-6 rounded-lg">
               <p className="text-gray-700 mb-4">
-                <strong>Email:</strong> support@zazatechnologies.com
+                <strong>Email:</strong> help@zazatechnologies.com
               </p>
               <p className="text-gray-700 mb-4">
                 <strong>Response Time:</strong> Within 24 hours

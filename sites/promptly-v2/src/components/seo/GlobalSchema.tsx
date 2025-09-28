@@ -18,12 +18,14 @@ export default function GlobalSchema({ type = "website" }: GlobalSchemaProps) {
       "url": "https://promptly.zazatechnologies.com/about-founder"
     },
     "sameAs": [
-      "https://www.linkedin.com/company/zaza-technologies"
+      "https://www.linkedin.com/company/zaza-technologies",
+      "https://x.com/zazateachapp",
+      "https://www.tiktok.com/@zazatechnologies"
     ],
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "customer support",
-      "email": "support@zazatechnologies.com"
+      "email": "help@zazatechnologies.com"
     }
   };
 
