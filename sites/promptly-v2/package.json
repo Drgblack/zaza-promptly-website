@@ -58,6 +58,7 @@
     "remark-html": "^16.0.1",
     "stripe": "^18.4.0",
     "tailwind-merge": "^3.3.1",
+    "tsx": "^4.20.5",
     "use-intl": "^4.3.5",
     "zod": "^4.0.17"
   },
@@ -89,7 +90,6 @@
     "tailwindcss": "^3.4.1",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
-    "tsx": "^4.20.5",
     "typescript": "^5"
   }
 }
