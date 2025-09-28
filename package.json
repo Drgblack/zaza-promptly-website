@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "echo 'Building from sites/promptly-v2' && cd sites/promptly-v2 && npm install && npm run build"
+    "build": "echo 'Building from sites/promptly-v2' && cd sites/promptly-v2 && npm install && npm run build && cd ../.. && cp -r sites/promptly-v2/.next .next && cp -r sites/promptly-v2/public public && cp sites/promptly-v2/next.config.mjs next.config.mjs",
+    "start": "next start"
   },
   "dependencies": {
     "next": "14.2.8",
