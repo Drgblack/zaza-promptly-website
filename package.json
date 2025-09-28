@@ -5,5 +5,9 @@
   "scripts": {
     "build": "echo 'Building from sites/promptly-v2' && cd sites/promptly-v2 && pnpm install && pnpm run build"
   },
-  "dependencies": {}
+  "dependencies": {
+    "next": "14.2.8",
+    "react": "^18",
+    "react-dom": "^18"
+  }
 }
