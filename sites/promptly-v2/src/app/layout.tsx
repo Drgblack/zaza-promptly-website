@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   creator: 'Zaza Technologies',
   publisher: 'Zaza Technologies',
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://promptly.zazatechnologies.com'),
+  viewport: 'width=device-width, initial-scale=1',
   alternates: {
     canonical: '/',
   },
@@ -64,6 +65,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <meta charSet="utf-8" />
         {/* PWA theme colors */}
         <meta name="theme-color" content="#2563eb" />
         <meta name="apple-mobile-web-app-capable" content="yes" />

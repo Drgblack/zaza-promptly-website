@@ -24,6 +24,11 @@ export const metadata: Metadata = {
       description: 'Transparent pricing for teachers. Free 7-day trial, cancel anytime. Built by PhD educator for real classroom needs.',
       type: 'website',
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'AI Teaching Assistant Pricing - Start Your Free Trial',
+      description: 'Transparent pricing for teachers. Free 7-day trial, cancel anytime. Built by PhD educator for real classroom needs.',
+    },
     robots: {
       index: true,
       follow: true,

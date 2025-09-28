@@ -15,7 +15,7 @@ export interface FounderConfig {
 export const founder: FounderConfig = {
   name: "Dr. Greg Blackburn",
   title: "Founder & Fellow Educator",
-  photo: "/images/founder-new.jpg",
+  photo: "/images/founder-new-optimized.webp",
   bio: "Dr. Greg Blackburn is the founder of Zaza Technologies and creator of Promptly. With over 20 years of experience building educational tools and a PhD in Professional Education, he understands the daily challenges teachers face and is passionate about creating AI solutions that truly serve educators.",
   shortBio: "Founder of Zaza Technologies, PhD Professional Education. Building AI tools that actually help teachers save time without losing the personal touch.",
   social: {
