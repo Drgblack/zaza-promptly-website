@@ -64,7 +64,8 @@
     "use-intl": "^4.3.5",
     "zod": "^4.0.17",
     "jsdom": "^26.1.0",
-    "@types/jsdom": "^21.1.7"
+    "@types/jsdom": "^21.1.7",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@axe-core/cli": "^4.10.2",
@@ -85,7 +86,6 @@
     "linkinator": "^6.1.4",
     "postcss": "^8",
     "rehype-highlight": "^7.0.2",
-    "remark-gfm": "^4.0.1",
     "sharp": "^0.33.5",
     "tailwindcss": "^3.4.1",
     "ts-jest": "^29.1.2",
