@@ -375,7 +375,7 @@ export default async function HomePage({ params }: Props) {
       </section>
 
       {/* 3.5. Interactive Demo - Snippet Tool */}
-      <SimplifiedSnippetTool />
+      {process.env.NEXT_PUBLIC_SHOW_SNIPPET === '1' && <SimplifiedSnippetTool />}
 
       {/* 3.6. ROI Calculator */}
       <section className="py-24 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 dark:from-green-950/30 dark:via-emerald-950/30 dark:to-teal-950/30">
@@ -704,7 +704,7 @@ export default async function HomePage({ params }: Props) {
       <StickyCTA />
 
       {/* Zara Assistant Launcher */}
-      <ZaraClient />
+      {process.env.NEXT_PUBLIC_SHOW_ZARA === '1' && <ZaraClient />}
 
       {/* CRO Elements */}
       <SocialProofCounter />

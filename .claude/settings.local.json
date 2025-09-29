@@ -64,7 +64,10 @@
       "Bash(test:*)",
       "Bash(find:*)",
       "Bash(grep:*)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(npm run type-check:*)",
+      "Bash(npm run:*)",
+      "Bash(npx tsc:*)"
     ],
     "deny": []
   }

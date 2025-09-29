@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuPortal } from '@/components/ui/dropdown-menu';
 import { useDailyLimit } from '@/hooks/useDailyLimit';
 import { Copy, Sparkles, Loader2, Share2, Link, Mail, Twitter, Facebook } from 'lucide-react';
 import { generateSnippet } from '@/lib/ai/generateSnippet';
@@ -152,7 +152,7 @@ export function SimplifiedSnippetTool({ className }: SimplifiedSnippetToolProps)
     const shareUrl = await createShareLink();
     if (shareUrl) {
       const subject = encodeURIComponent("Try Promptly – AI Comment Helper");
-      const body = encodeURIComponent(`I just used Promptly to polish a parent message and it saved me so much time.\n\nSee what it created: ${shareUrl}\n\nTry it free here: https://zazapromptly.com`);
+      const body = encodeURIComponent(`I used Promptly to polish a parent message and it saved me time.\n\nSee the example: ${shareUrl}\n\nTry it free: https://zazapromptly.com`);
       window.open(`mailto:?subject=${subject}&body=${body}`);
     }
   };
@@ -284,41 +284,45 @@ export function SimplifiedSnippetTool({ className }: SimplifiedSnippetToolProps)
                           <Copy className="h-4 w-4 mr-1" />
                           {copied ? 'Copied!' : 'Copy'}
                         </Button>
-                        <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <Button
-                              variant="outline"
-                              size="sm"
-                              disabled={sharing}
-                            >
-                              <Share2 className="h-4 w-4 mr-1" />
-                              Share
-                            </Button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent 
-                            align="end" 
-                            sideOffset={8} 
-                            collisionPadding={8} 
-                            className="w-48 z-50 shadow-lg bg-background"
-                          >
-                            <DropdownMenuItem onClick={handleCopyLink} disabled={sharing}>
-                              <Link className="h-4 w-4 mr-2" />
-                              Copy Link
-                            </DropdownMenuItem>
-                            <DropdownMenuItem onClick={handleShareEmail} disabled={sharing}>
-                              <Mail className="h-4 w-4 mr-2" />
-                              Share via Email
-                            </DropdownMenuItem>
-                            <DropdownMenuItem onClick={handleShareTwitter} disabled={sharing}>
-                              <Twitter className="h-4 w-4 mr-2" />
-                              Share to X (Twitter)
-                            </DropdownMenuItem>
-                            <DropdownMenuItem onClick={handleShareFacebook} disabled={sharing}>
-                              <Facebook className="h-4 w-4 mr-2" />
-                              Share to Facebook
-                            </DropdownMenuItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
+                        {process.env.NEXT_PUBLIC_ENABLE_SHARE === '1' && (
+                          <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                disabled={sharing}
+                              >
+                                <Share2 className="h-4 w-4 mr-1" />
+                                Share
+                              </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuPortal>
+                              <DropdownMenuContent 
+                                side="top"
+                                sideOffset={10}
+                                collisionPadding={8}
+                                className="z-[60] w-48 shadow-lg bg-background pointer-events-auto"
+                              >
+                                <DropdownMenuItem onClick={handleCopyLink} disabled={sharing}>
+                                  <Link className="h-4 w-4 mr-2" />
+                                  Copy Link
+                                </DropdownMenuItem>
+                                <DropdownMenuItem onClick={handleShareEmail} disabled={sharing}>
+                                  <Mail className="h-4 w-4 mr-2" />
+                                  Share via Email
+                                </DropdownMenuItem>
+                                <DropdownMenuItem onClick={handleShareTwitter} disabled={sharing}>
+                                  <Twitter className="h-4 w-4 mr-2" />
+                                  Share to X (Twitter)
+                                </DropdownMenuItem>
+                                <DropdownMenuItem onClick={handleShareFacebook} disabled={sharing}>
+                                  <Facebook className="h-4 w-4 mr-2" />
+                                  Share to Facebook
+                                </DropdownMenuItem>
+                              </DropdownMenuContent>
+                            </DropdownMenuPortal>
+                          </DropdownMenu>
+                        )}
                       </div>
                     </div>
                     
