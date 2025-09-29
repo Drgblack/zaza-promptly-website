@@ -35,7 +35,7 @@ export default async function LocaleLayout({
             {children}
           </main>
           <Footer />
-          <ZaraRouteIntegration />
+          {process.env.NEXT_PUBLIC_SHOW_ZARA === '1' && <ZaraRouteIntegration />}
           
           {/* Build stamp for QA */}
           <div data-build-stamp className="text-xs text-gray-500/70 text-center py-6">

@@ -143,12 +143,14 @@ export default async function SignupPage({params}: Props) {
                     </div>
                     <span className="text-slate-800 dark:text-slate-200 font-bold">🌍 Multi-language support</span>
                   </li>
-                  <li className="flex items-center gap-3">
-                    <div className="w-6 h-6 bg-gradient-to-br from-orange-400 to-amber-500 rounded-full flex items-center justify-center shadow-sm">
-                      <Check className="h-4 w-4 text-white font-bold" />
-                    </div>
-                    <span className="text-slate-800 dark:text-slate-200 font-bold">🤖 Zara AI Assistant</span>
-                  </li>
+                  {process.env.NEXT_PUBLIC_SHOW_ZARA === '1' && (
+                    <li className="flex items-center gap-3">
+                      <div className="w-6 h-6 bg-gradient-to-br from-orange-400 to-amber-500 rounded-full flex items-center justify-center shadow-sm">
+                        <Check className="h-4 w-4 text-white font-bold" />
+                      </div>
+                      <span className="text-slate-800 dark:text-slate-200 font-bold">🤖 Zara AI Assistant</span>
+                    </li>
+                  )}
                 </ul>
                 <Button 
                   className="w-full bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 hover:from-orange-600 hover:via-amber-600 hover:to-orange-700 text-white font-bold py-4 shadow-xl text-lg transform hover:scale-105 transition-all duration-300" 
