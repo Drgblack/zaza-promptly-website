@@ -6,8 +6,9 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { useDailyLimit } from '@/hooks/useDailyLimit';
-import { Copy, Sparkles, Loader2 } from 'lucide-react';
+import { Copy, Sparkles, Loader2, Share2, Link, Mail, Twitter, Facebook } from 'lucide-react';
 import { generateSnippet } from '@/lib/ai/generateSnippet';
 import type { SnippetInput } from '@/lib/ai/buildPrompt';
 
@@ -33,6 +34,7 @@ export function SimplifiedSnippetTool({ className }: SimplifiedSnippetToolProps)
   const [activeTab, setActiveTab] = useState('polished');
   const [isLoading, setIsLoading] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [sharing, setSharing] = useState(false);
 
   // Toast state
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
@@ -103,6 +105,70 @@ export function SimplifiedSnippetTool({ className }: SimplifiedSnippetToolProps)
     } catch (error) {
       console.error('Copy failed:', error);
       showToast("Copy failed. Please try again.", 'error');
+    }
+  };
+
+  // Share functionality
+  const createShareLink = async () => {
+    if (!output) return null;
+    
+    const contentToShare = activeTab === 'email' 
+      ? `${output.email.greeting}\n\n${output.email.body}\n\n${output.email.closing}\n${output.email.signature}`
+      : output.polished;
+
+    try {
+      setSharing(true);
+      const response = await fetch('/api/share', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          content: contentToShare,
+          locale: 'en' 
+        })
+      });
+
+      if (!response.ok) throw new Error('Failed to create share link');
+      
+      const data = await response.json();
+      return data.url;
+    } catch (error) {
+      console.error('Share failed:', error);
+      showToast("Failed to create share link.", 'error');
+      return null;
+    } finally {
+      setSharing(false);
+    }
+  };
+
+  const handleCopyLink = async () => {
+    const shareUrl = await createShareLink();
+    if (shareUrl) {
+      await navigator.clipboard.writeText(shareUrl);
+      showToast("Share link copied!");
+    }
+  };
+
+  const handleShareEmail = async () => {
+    const shareUrl = await createShareLink();
+    if (shareUrl) {
+      const subject = encodeURIComponent("Check out this parent message tool");
+      const body = encodeURIComponent(`I just used Promptly to polish a parent message - it saved me so much time!\n\nTry it here: ${shareUrl}`);
+      window.open(`mailto:?subject=${subject}&body=${body}`);
+    }
+  };
+
+  const handleShareTwitter = async () => {
+    const shareUrl = await createShareLink();
+    if (shareUrl) {
+      const text = encodeURIComponent(`Just saved 30 mins using Promptly to write a parent message. Game-changer for teachers! Try it free 👉 ${shareUrl} #EdTech #Teachers`);
+      window.open(`https://twitter.com/intent/tweet?text=${text}`);
+    }
+  };
+
+  const handleShareFacebook = async () => {
+    const shareUrl = await createShareLink();
+    if (shareUrl) {
+      window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`);
     }
   };
 
@@ -208,15 +274,47 @@ export function SimplifiedSnippetTool({ className }: SimplifiedSnippetToolProps)
                         <TabsTrigger value="polished">Polished</TabsTrigger>
                         <TabsTrigger value="email">Email-ready</TabsTrigger>
                       </TabsList>
-                      <Button
-                        onClick={handleCopy}
-                        variant="outline"
-                        size="sm"
-                        disabled={copied}
-                      >
-                        <Copy className="h-4 w-4 mr-1" />
-                        {copied ? 'Copied!' : 'Copy'}
-                      </Button>
+                      <div className="flex items-center gap-2">
+                        <Button
+                          onClick={handleCopy}
+                          variant="outline"
+                          size="sm"
+                          disabled={copied}
+                        >
+                          <Copy className="h-4 w-4 mr-1" />
+                          {copied ? 'Copied!' : 'Copy'}
+                        </Button>
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              disabled={sharing}
+                            >
+                              <Share2 className="h-4 w-4 mr-1" />
+                              Share
+                            </Button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent align="end" className="w-48">
+                            <DropdownMenuItem onClick={handleCopyLink} disabled={sharing}>
+                              <Link className="h-4 w-4 mr-2" />
+                              Copy Link
+                            </DropdownMenuItem>
+                            <DropdownMenuItem onClick={handleShareEmail} disabled={sharing}>
+                              <Mail className="h-4 w-4 mr-2" />
+                              Share via Email
+                            </DropdownMenuItem>
+                            <DropdownMenuItem onClick={handleShareTwitter} disabled={sharing}>
+                              <Twitter className="h-4 w-4 mr-2" />
+                              Share to X (Twitter)
+                            </DropdownMenuItem>
+                            <DropdownMenuItem onClick={handleShareFacebook} disabled={sharing}>
+                              <Facebook className="h-4 w-4 mr-2" />
+                              Share to Facebook
+                            </DropdownMenuItem>
+                          </DropdownMenuContent>
+                        </DropdownMenu>
+                      </div>
                     </div>
                     
                     <TabsContent value="polished">
