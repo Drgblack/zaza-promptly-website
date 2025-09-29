@@ -13,14 +13,14 @@ const Schema = z.object({
 });
 
 export async function generateSnippet(input: SnippetInput): Promise<GeneratedOutput> {
-  const { roughNote } = input;
+  const { roughNote, pronouns, preset } = input;
   
   if (!roughNote?.trim()) {
     throw new Error('No input provided');
   }
   
-  // Use the new 3-stage pipeline
-  const result = await runSnippetPipeline(roughNote.trim());
+  // Use the new 3-stage pipeline with pronouns and preset support
+  const result = await runSnippetPipeline(roughNote.trim(), pronouns, preset);
   
   // Validate with existing schema for backwards compatibility
   const parsed = Schema.safeParse(result);

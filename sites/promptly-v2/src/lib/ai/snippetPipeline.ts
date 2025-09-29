@@ -1,5 +1,7 @@
 // Three-stage pipeline for snippet generation
 import { z } from 'zod';
+import type { PronounSet } from '@/lib/text/pronouns';
+import { enforcePronouns } from '@/lib/text/pronouns';
 
 // Types for the pipeline
 export interface ParsedInput {
@@ -8,6 +10,8 @@ export interface ParsedInput {
   concerns: string[];
   severity: 'low' | 'med' | 'high';
   raw: string;
+  pronouns?: PronounSet;
+  preset?: 'behaviour' | 'praise' | 'missing' | 'attendance';
 }
 
 export interface GeneratedOutput {
@@ -39,7 +43,7 @@ const GeneratedOutputSchema = z.object({
 });
 
 // Stage A: Parse & Sanitize
-export function parseAndSanitize(roughNote: string): ParsedInput {
+export function parseAndSanitize(roughNote: string, pronouns?: PronounSet, preset?: 'behaviour' | 'praise' | 'missing' | 'attendance'): ParsedInput {
   // Sanitize text first (deterministic replacements)
   const sanitized = sanitizeLanguage(roughNote);
   
@@ -74,7 +78,9 @@ export function parseAndSanitize(roughNote: string): ParsedInput {
     positives,
     concerns,
     severity,
-    raw: sanitized
+    raw: sanitized,
+    pronouns,
+    preset
   };
 }
 
@@ -115,11 +121,14 @@ export async function generateConstrainedOutput(parsed: ParsedInput): Promise<Ge
   // Mock AI call with structured prompt
   await new Promise(resolve => setTimeout(resolve, 1500));
   
-  const { name, positives, concerns, severity, raw } = parsed;
+  const { name, positives, concerns, severity, raw, pronouns, preset } = parsed;
   
   let polishedContent: string;
   
-  if (positives.length > 0 && concerns.length === 0) {
+  // Use preset-specific generation if available
+  if (preset) {
+    polishedContent = buildPresetMessage(name, preset, raw, positives, concerns);
+  } else if (positives.length > 0 && concerns.length === 0) {
     // Pure praise - can be more positive
     polishedContent = buildPraiseMessage(name, positives, raw);
   } else if (concerns.length > 0 && positives.length > 0) {
@@ -133,14 +142,24 @@ export async function generateConstrainedOutput(parsed: ParsedInput): Promise<Ge
     polishedContent = buildNeutralMessage(name, raw);
   }
   
+  // Apply pronoun enforcement if pronouns are provided
+  if (pronouns) {
+    polishedContent = enforcePronouns(polishedContent, pronouns);
+  }
+  
   // Ensure 90-120 words
   polishedContent = enforceWordLimit(polishedContent, 90, 120);
+  
+  let emailBody = polishedContent;
+  if (pronouns) {
+    emailBody = enforcePronouns(polishedContent, pronouns);
+  }
   
   return {
     polished: polishedContent,
     email: {
       greeting: "Hi there,",
-      body: polishedContent,
+      body: emailBody,
       closing: "Warm regards,",
       signature: "Ms. Johnson"
     }
@@ -195,6 +214,34 @@ function buildConcernMessage(name: string, concerns: string[], severity: string,
   const close = `Please let me know if you'd like to discuss strategies we can try together.`;
   
   return `${opener} ${concernDescription} ${action} ${close}`;
+}
+
+function buildPresetMessage(name: string, preset: string, raw: string, positives: string[], concerns: string[]): string {
+  switch (preset) {
+    case 'praise':
+      return buildPraiseMessage(name, positives.length > 0 ? positives : ['effort'], raw);
+    case 'behaviour':
+      const opener = `I'd like to share an update about ${name}.`;
+      const issue = `Today they found it challenging to stay focused during independent work time.`;
+      const impact = `This affected their ability to complete the task and was distracting to nearby students.`;
+      const action = `At school we will provide more structured check-ins and movement breaks.`;
+      const close = `Please let me know if you've noticed similar patterns at home so we can work together.`;
+      return `${opener} ${issue} ${impact} ${action} ${close}`;
+    case 'missing':
+      const missingOpener = `I wanted to follow up about the assignment that was due today.`;
+      const missingIssue = `${name}'s homework was not submitted or was incomplete.`;
+      const missingAction = `At school we will review the task requirements and provide additional support during study time.`;
+      const missingClose = `At home, please check their planner and help establish a consistent homework routine.`;
+      return `${missingOpener} ${missingIssue} ${missingAction} ${missingClose}`;
+    case 'attendance':
+      const attendanceOpener = `I'd like to follow up about ${name}'s recent attendance.`;
+      const attendanceIssue = `They have missed several days recently, which means they've missed foundational concepts we're building on this week.`;
+      const attendanceAction = `We can provide catch-up materials and pair them with a study buddy to help them get back on track.`;
+      const attendanceClose = `Please let me know if there are any ongoing challenges we should be aware of.`;
+      return `${attendanceOpener} ${attendanceIssue} ${attendanceAction} ${attendanceClose}`;
+    default:
+      return buildNeutralMessage(name, raw);
+  }
 }
 
 function buildNeutralMessage(name: string, raw: string): string {
@@ -261,10 +308,10 @@ export function reviewAndRepair(output: GeneratedOutput): { isValid: boolean; er
   };
 }
 
-// Main pipeline function
-export async function runSnippetPipeline(roughNote: string): Promise<GeneratedOutput> {
+// Main pipeline function  
+export async function runSnippetPipeline(roughNote: string, pronouns?: PronounSet, preset?: 'behaviour' | 'praise' | 'missing' | 'attendance'): Promise<GeneratedOutput> {
   // Stage A: Parse & Sanitize
-  const parsed = parseAndSanitize(roughNote);
+  const parsed = parseAndSanitize(roughNote, pronouns, preset);
   
   // Stage B: Generate
   const generated = await generateConstrainedOutput(parsed);
