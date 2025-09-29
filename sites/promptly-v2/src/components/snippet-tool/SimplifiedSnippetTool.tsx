@@ -151,8 +151,8 @@ export function SimplifiedSnippetTool({ className }: SimplifiedSnippetToolProps)
   const handleShareEmail = async () => {
     const shareUrl = await createShareLink();
     if (shareUrl) {
-      const subject = encodeURIComponent("Check out this parent message tool");
-      const body = encodeURIComponent(`I just used Promptly to polish a parent message - it saved me so much time!\n\nTry it here: ${shareUrl}`);
+      const subject = encodeURIComponent("Try Promptly – AI Comment Helper");
+      const body = encodeURIComponent(`I just used Promptly to polish a parent message and it saved me so much time.\n\nSee what it created: ${shareUrl}\n\nTry it free here: https://zazapromptly.com`);
       window.open(`mailto:?subject=${subject}&body=${body}`);
     }
   };
@@ -160,7 +160,7 @@ export function SimplifiedSnippetTool({ className }: SimplifiedSnippetToolProps)
   const handleShareTwitter = async () => {
     const shareUrl = await createShareLink();
     if (shareUrl) {
-      const text = encodeURIComponent(`Just saved 30 mins using Promptly to write a parent message. Game-changer for teachers! Try it free 👉 ${shareUrl} #EdTech #Teachers`);
+      const text = encodeURIComponent(`Just used Promptly to polish a parent message – saved me time and stress! Try it free 👉 ${shareUrl} #EdTech #Teachers`);
       window.open(`https://twitter.com/intent/tweet?text=${text}`);
     }
   };
@@ -295,7 +295,12 @@ export function SimplifiedSnippetTool({ className }: SimplifiedSnippetToolProps)
                               Share
                             </Button>
                           </DropdownMenuTrigger>
-                          <DropdownMenuContent align="end" className="w-48">
+                          <DropdownMenuContent 
+                            align="end" 
+                            sideOffset={8} 
+                            collisionPadding={8} 
+                            className="w-48 z-50 shadow-lg bg-background"
+                          >
                             <DropdownMenuItem onClick={handleCopyLink} disabled={sharing}>
                               <Link className="h-4 w-4 mr-2" />
                               Copy Link

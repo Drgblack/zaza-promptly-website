@@ -15,23 +15,25 @@ const Schema = z.object({
 // Sanitization function to replace harsh language
 function sanitizeLanguage(text: string): string {
   const replacements = {
-    'lazy': 'needs motivation',
-    'stupid': 'struggling with concepts',
+    'lazy': 'struggles with motivation',
+    'stupid': 'struggling with concepts', 
     'bad kid': 'child who needs support',
-    'naughty': 'challenging behavior',
-    'disruptive': 'struggles with focus',
+    'naughty': 'finding it hard to stay focused',
+    'disruptive': 'finding it hard to stay focused',
     'refuses to work': 'reluctant to engage',
     'won\'t listen': 'needs reminders',
+    'doesn\'t care': 'is not fully engaged right now',
     'terrible': 'concerning',
     'awful': 'challenging',
     'horrible': 'difficult',
     'acting out': 'showing challenging behavior',
-    'being difficult': 'finding it hard to engage'
+    'being difficult': 'finding it hard to engage',
+    'bad behavior': 'challenging behavior'
   };
 
   let sanitized = text;
   Object.entries(replacements).forEach(([harsh, professional]) => {
-    const regex = new RegExp(harsh, 'gi');
+    const regex = new RegExp(`\\b${harsh}\\b`, 'gi');
     sanitized = sanitized.replace(regex, professional);
   });
 
@@ -45,31 +47,33 @@ async function callOpenAIJSON(prompt: string, input: SnippetInput) {
   const { roughNote } = input;
   const sanitizedNote = sanitizeLanguage(roughNote || '');
   
-  // Detect if this is praise or concern
-  const isPraise = /great|excellent|wonderful|helped|kind|good|improved|progress|proud|positive|achievement|success/i.test(sanitizedNote);
-  const isConcern = /challenging|struggles|needs|concern|missing|absent|late|homework|assignment|focus/i.test(sanitizedNote);
+  // Detect if this is clearly praise vs concern vs mixed
+  const isPraise = /great|excellent|wonderful|helped|kind|good|improved|progress|proud|positive|achievement|success|brilliant/i.test(roughNote || '');
+  const hasConcerns = /lazy|disrupt|problem|issue|concern|fight|rude|inappropriate|missing|absent|late|homework|assignment|struggles|difficult|challenge/i.test(roughNote || '');
+  const hasStrengths = /good at|strong|talent|ability|sports|art|math|reading|creative|helps|kind|friendly/i.test(roughNote || '');
   
   let polishedContent: string;
   
-  if (isPraise) {
-    // Praise - K-12 best practice structure
-    polishedContent = `I'm delighted to share some positive news about your child. ${sanitizedNote.replace(/\[.*?\]/g, 'They')} 
+  if (isPraise && !hasConcerns) {
+    // Pure praise - can be more positive
+    polishedContent = `I wanted to let you know about your child's positive contribution recently. ${sanitizedNote.replace(/\[.*?\]/g, 'They')} 
 
-This kind of effort and progress really stands out. Your child should be proud of their achievement, and I hope you'll celebrate this success together. Please let me know if you'd like to discuss how we can continue building on these strengths.`;
-  } else if (isConcern) {
-    // Concern - Required structure: Positive opener → Observation → Constructive suggestion → Partnership close
-    polishedContent = `I wanted to reach out about your child, who shows real potential in our classroom. Recently, ${sanitizedNote.toLowerCase()}
+This kind of effort and progress really stands out in our classroom. It's great to see their growing confidence and willingness to engage. Please celebrate this success with them at home, as it makes a real difference.`;
+  } else if (hasConcerns && hasStrengths) {
+    // Mixed - acknowledge both (realistic balance)
+    polishedContent = `I'd like to share an update about your child. While they ${sanitizedNote.toLowerCase().includes('good at') || sanitizedNote.toLowerCase().includes('sports') ? 'show real strength in areas like sports and have natural ability' : 'have areas where they shine'}, they have been ${sanitizedNote.toLowerCase().includes('lazy') ? 'struggling with motivation' : 'finding some aspects challenging'}.
 
-This has been affecting their learning progress, and I want to help them succeed. We're trying some new strategies to support their engagement and focus in class.
+We're working on strategies to help them transfer their strengths to all areas of learning. Your support at home will make a real difference, and I'd be happy to share specific ideas.`;
+  } else if (hasConcerns) {
+    // Concerns - neutral, professional opener
+    polishedContent = `I'd like to share an update about your child. Recently they have been ${sanitizedNote.replace(/\[.*?\]/g, 'the student').toLowerCase()}
 
-I'd love to partner with you on this. Could we schedule a quick chat to discuss how we can best support them together?`;
+This has affected their learning and participation in class. We're encouraging them to develop stronger habits and providing extra support where needed. Please let me know if you'd like to discuss strategies we can try together.`;
   } else {
-    // Neutral update - still follow structure
-    polishedContent = `I wanted to share an update about your child, who is a valued member of our classroom community. ${sanitizedNote}
+    // Neutral update - measured tone
+    polishedContent = `Here's a quick update on your child's progress. ${sanitizedNote}
 
-I'm committed to supporting their continued growth and development. We'll keep working on building positive learning habits together.
-
-Please feel free to reach out anytime you'd like to discuss their progress. Your partnership means so much in helping them thrive.`;
+I'm committed to supporting their continued development and will keep you informed of their growth. Please reach out anytime you'd like to discuss how things are going.`;
   }
 
   // Final sanitization pass
