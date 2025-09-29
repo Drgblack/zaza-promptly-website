@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 
 interface DailyLimitHook {
   count: number;
+  canGenerate: boolean;
   isLimited: boolean;
   incrementCount: () => void;
   resetCount: () => void;
+  resetAt: string;
 }
 
 export function useDailyLimit(limit: number = 5): DailyLimitHook {
@@ -58,10 +60,19 @@ export function useDailyLimit(limit: number = 5): DailyLimitHook {
     localStorage.setItem(dateKey, todayKey);
   };
 
+  const getResetTime = () => {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    tomorrow.setHours(0, 0, 0, 0);
+    return tomorrow.toISOString();
+  };
+
   return {
     count,
+    canGenerate: count < limit,
     isLimited: count >= limit,
     incrementCount,
-    resetCount
+    resetCount,
+    resetAt: getResetTime()
   };
 }
