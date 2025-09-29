@@ -53,5 +53,68 @@
                  "subtitle": "We're here to help with setup, billing, and technical questions.",
                  "cta_faq": "Open FAQ",
                  "contact_label": "Email us:"
-             }
+             },
+    "snippet": {
+        "quickStart": "Quick Start",
+        "presets": {
+            "behaviour": "Behaviour update",
+            "praise": "Praise note", 
+            "missing": "Missing homework",
+            "attendance": "Attendance"
+        },
+        "student": {
+            "label": "Student name (optional)",
+            "placeholder": "e.g., Max"
+        },
+        "tone": {
+            "label": "Tone",
+            "supportive": "Supportive",
+            "neutral": "Neutral", 
+            "firm": "Firm",
+            "enthusiastic": "Enthusiastic"
+        },
+        "language": {
+            "label": "Language"
+        },
+        "note": {
+            "label": "Rough note",
+            "placeholder": "Write your rough note here. We'll polish it into a professional parent message."
+        },
+        "btn": {
+            "generate": "Generate",
+            "improve": "Improve",
+            "copy": "Copy",
+            "startTrial": "Start Free Trial"
+        },
+        "limit": {
+            "helper": "5 free messages per day. Upgrade for unlimited.",
+            "banner": {
+                "title": "Daily limit reached",
+                "body": "You've used your 5 free messages for today. Start a free trial to unlock unlimited messages."
+            }
+        },
+        "output": {
+            "tabs": {
+                "polished": "Polished draft",
+                "email": "Email-ready"
+            },
+            "titleWithStudent": "Message about {name}",
+            "titleNoStudent": "Message about this student", 
+            "empty": "Your polished message will appear here."
+        },
+        "toast": {
+            "copied": "Copied to clipboard.",
+            "generated": "Message ready.",
+            "improved": "Your draft has been polished.",
+            "rateLimited": "You've reached today's free limit. Start a free trial for unlimited access.",
+            "error": "Something went wrong. Please try again in a moment.",
+            "needNote": "Please write a rough note or use a preset."
+        },
+        "footer": {
+            "madeWith": "Made with Promptly – free demo"
+        },
+        "stickyCta": {
+            "text": "Love this? Save and refine in Promptly"
+        }
+    }
 }
