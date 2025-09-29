@@ -1,9 +1,12 @@
+import type { PronounSet } from '@/lib/text/pronouns';
+
 export type SnippetInput = {
   preset?: 'behaviour' | 'praise' | 'missing' | 'attendance';
   roughNote?: string;
   studentName?: string;
   tone: 'supportive' | 'neutral' | 'firm' | 'enthusiastic';
   language: 'en' | 'de' | 'es' | 'fr' | 'it';
+  pronouns?: PronounSet;
 };
 
 export const buildPrompt = (input: SnippetInput) => {

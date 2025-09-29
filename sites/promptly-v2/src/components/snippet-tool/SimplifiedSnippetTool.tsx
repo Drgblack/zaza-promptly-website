@@ -7,18 +7,22 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuPortal } from '@/components/ui/dropdown-menu';
+import { PronounToggle, type PronounOption } from '@/components/ui/pronoun-toggle';
 import { useDailyLimit } from '@/hooks/useDailyLimit';
 import { Copy, Sparkles, Loader2, Share2, Link, Mail, Twitter, Facebook } from 'lucide-react';
 import { generateSnippet } from '@/lib/ai/generateSnippet';
 import type { SnippetInput } from '@/lib/ai/buildPrompt';
+import { inferPronouns, extractStudentName, enforcePronouns } from '@/lib/text/pronouns';
 
-// Preset scaffolds for different message types
+// Preset scaffolds with proper placeholders
 const presetScaffolds = {
-  praise: "I wanted to share some positive news about [student name]. Today they...",
-  behaviour: "I need to discuss [student name]'s behaviour today. What happened: ... Impact: ... Next step: ...",
-  missing: "About the homework due on [date]: [student name] has not submitted... Next step: ...",
-  attendance: "Following up about [student name]'s recent absences on [dates]... Impact: ... Support: ..."
+  praise: "Positive note about {name}: today they showed great effort in class. Example: they helped a peer with their work and stayed focused throughout the lesson. Impact: their positive attitude helped create a supportive learning environment.",
+  behaviour: "Brief behaviour update about {name}. What happened: they found it challenging to stay focused during independent work time. Impact on learning: it affected their ability to complete the task and distracted nearby students. At school we will: provide more structured check-ins and movement breaks.",
+  missing: "About homework due on {date}: assignment was not submitted or incomplete. At school we will: review the task requirements and provide additional support during study time. At home, please: check their planner and establish a consistent homework routine.",
+  attendance: "Following up about recent absences/tardiness. Dates: missed [specific dates]. Impact: missing foundational concepts that we're building on this week. Support options: we can provide catch-up materials and pair them with a study buddy."
 };
+
+type PresetKey = keyof typeof presetScaffolds;
 
 interface SimplifiedSnippetToolProps {
   className?: string;
@@ -35,6 +39,8 @@ export function SimplifiedSnippetTool({ className }: SimplifiedSnippetToolProps)
   const [isLoading, setIsLoading] = useState(false);
   const [copied, setCopied] = useState(false);
   const [sharing, setSharing] = useState(false);
+  const [pronounPreference, setPronounPreference] = useState<PronounOption>('auto');
+  const [activePreset, setActivePreset] = useState<PresetKey | null>(null);
 
   // Toast state
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
@@ -49,6 +55,7 @@ export function SimplifiedSnippetTool({ className }: SimplifiedSnippetToolProps)
   const handlePresetClick = (presetKey: keyof typeof presetScaffolds) => {
     if (!roughNote.trim()) {
       setRoughNote(presetScaffolds[presetKey]);
+      setActivePreset(presetKey);
     }
   };
 
@@ -67,13 +74,34 @@ export function SimplifiedSnippetTool({ className }: SimplifiedSnippetToolProps)
     setIsLoading(true);
     
     try {
+      // Extract student name and infer pronouns
+      const studentName = extractStudentName(roughNote);
+      const pronouns = inferPronouns(studentName, pronounPreference);
+      
       const input: SnippetInput = {
         roughNote: roughNote.trim(),
-        tone: 'supportive', // Default tone
-        language: 'en' // Default language
+        tone: 'supportive',
+        language: 'en',
+        // Pass pronoun context to generation
+        pronouns: pronouns,
+        preset: activePreset
       };
 
-      const result = await generateSnippet(input);
+      let result = await generateSnippet(input);
+      
+      // Enforce pronouns in the output if needed
+      if (pronounPreference !== 'auto' || studentName) {
+        result = {
+          polished: enforcePronouns(result.polished, pronouns),
+          email: {
+            greeting: enforcePronouns(result.email.greeting, pronouns),
+            body: enforcePronouns(result.email.body, pronouns),
+            closing: result.email.closing,
+            signature: result.email.signature
+          }
+        };
+      }
+      
       setOutput(result);
       incrementCount();
       showToast("Message ready!");
@@ -193,49 +221,64 @@ export function SimplifiedSnippetTool({ className }: SimplifiedSnippetToolProps)
                 <h3 className="text-sm font-medium text-muted-foreground mb-4">Quick Start</h3>
                 <div className="flex flex-wrap justify-center gap-2">
                   <Button
-                    variant="outline"
+                    variant={activePreset === 'praise' ? 'default' : 'outline'}
                     size="sm"
                     onClick={() => handlePresetClick('praise')}
-                    className="text-sm"
+                    className="text-sm hover:bg-primary/10 focus:ring-2 focus:ring-primary/60 focus:ring-offset-1 transition-all"
                   >
                     Praise
                   </Button>
                   <Button
-                    variant="outline"
+                    variant={activePreset === 'behaviour' ? 'default' : 'outline'}
                     size="sm"
                     onClick={() => handlePresetClick('behaviour')}
-                    className="text-sm"
+                    className="text-sm hover:bg-primary/10 focus:ring-2 focus:ring-primary/60 focus:ring-offset-1 transition-all"
                   >
                     Behaviour
                   </Button>
                   <Button
-                    variant="outline"
+                    variant={activePreset === 'missing' ? 'default' : 'outline'}
                     size="sm"
                     onClick={() => handlePresetClick('missing')}
-                    className="text-sm"
+                    className="text-sm hover:bg-primary/10 focus:ring-2 focus:ring-primary/60 focus:ring-offset-1 transition-all"
                   >
                     Missing Homework
                   </Button>
                   <Button
-                    variant="outline"
+                    variant={activePreset === 'attendance' ? 'default' : 'outline'}
                     size="sm"
                     onClick={() => handlePresetClick('attendance')}
-                    className="text-sm"
+                    className="text-sm hover:bg-primary/10 focus:ring-2 focus:ring-primary/60 focus:ring-offset-1 transition-all"
                   >
                     Attendance
                   </Button>
                 </div>
               </div>
 
-              {/* Textarea - Centered */}
-              <div className="max-w-2xl mx-auto">
+              {/* Textarea with Pronoun Toggle */}
+              <div className="max-w-2xl mx-auto space-y-3">
                 <Textarea
                   placeholder="Type or paste your rough note here…"
                   value={roughNote}
-                  onChange={(e) => setRoughNote(e.target.value)}
-                  className="min-h-[120px] resize-none"
+                  onChange={(e) => {
+                    setRoughNote(e.target.value);
+                    // Clear active preset when user types
+                    if (activePreset && e.target.value !== presetScaffolds[activePreset]) {
+                      setActivePreset(null);
+                    }
+                  }}
+                  className="min-h-[120px] resize-none focus:ring-2 focus:ring-primary/60 focus:ring-offset-1 transition-all"
                   rows={4}
                 />
+                
+                {/* Pronoun Toggle - Only show when there's content */}
+                {roughNote.trim() && (
+                  <PronounToggle
+                    value={pronounPreference}
+                    onChange={setPronounPreference}
+                    className="justify-end"
+                  />
+                )}
               </div>
 
               {/* Main Button - Big and Centered */}
@@ -280,6 +323,7 @@ export function SimplifiedSnippetTool({ className }: SimplifiedSnippetToolProps)
                           variant="outline"
                           size="sm"
                           disabled={copied}
+                          className="hover:bg-secondary/80 focus:ring-2 focus:ring-primary/60 focus:ring-offset-1 transition-all"
                         >
                           <Copy className="h-4 w-4 mr-1" />
                           {copied ? 'Copied!' : 'Copy'}
@@ -291,6 +335,7 @@ export function SimplifiedSnippetTool({ className }: SimplifiedSnippetToolProps)
                                 variant="outline"
                                 size="sm"
                                 disabled={sharing}
+                                className="hover:bg-secondary/80 focus:ring-2 focus:ring-primary/60 focus:ring-offset-1 transition-all"
                               >
                                 <Share2 className="h-4 w-4 mr-1" />
                                 Share
@@ -362,7 +407,7 @@ export function SimplifiedSnippetTool({ className }: SimplifiedSnippetToolProps)
                     </span>
                     <Button 
                       size="sm"
-                      className="bg-purple-600 hover:bg-purple-700 text-white"
+                      className="bg-purple-600 hover:bg-purple-700 text-white focus:ring-2 focus:ring-purple-500/60 focus:ring-offset-1 transition-all"
                     >
                       Start Free Trial
                     </Button>
