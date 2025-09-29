@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import type { SnippetInput } from './buildPrompt';
-import { runSnippetPipeline, type GeneratedOutput } from './snippetPipeline';
+import { runPromptlyPipeline, type PromptlyOutput } from './promptlyPipeline';
 
 const Schema = z.object({
   polished: z.string().min(40),
@@ -12,15 +12,15 @@ const Schema = z.object({
   })
 });
 
-export async function generateSnippet(input: SnippetInput): Promise<GeneratedOutput> {
+export async function generateSnippet(input: SnippetInput): Promise<PromptlyOutput> {
   const { roughNote, pronouns, preset } = input;
   
   if (!roughNote?.trim()) {
     throw new Error('No input provided');
   }
   
-  // Use the new 3-stage pipeline with pronouns and preset support
-  const result = await runSnippetPipeline(roughNote.trim(), pronouns, preset);
+  // Use the new Promptly-grade pipeline with slot-filled generation
+  const result = await runPromptlyPipeline(roughNote.trim(), pronouns, preset);
   
   // Validate with existing schema for backwards compatibility
   const parsed = Schema.safeParse(result);

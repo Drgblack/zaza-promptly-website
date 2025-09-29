@@ -47,22 +47,28 @@ export function inferPronouns(name?: string, override: Override = 'auto'): Prono
   return pronounsFor('they');
 }
 
-// Helper to force pronouns if the model slips to neutral
+// Helper to force pronouns consistently 
 export function enforcePronouns(text: string, p: PronounSet): string {
-  // Only replace if the current pronouns are different - preserve intentional they/them usage
-  if (p.subj === 'they') return text; // Don't force replacements when they/them is intended
+  // Always replace with specified pronouns - this ensures consistency
+  let result = text;
   
-  // simple replacements; keeps words bounded
-  return text
-    .replace(/\bthey\b/gi,  p.subj)
-    .replace(/\btheir\b/gi, p.possAdj)
-    .replace(/\bthem\b/gi,  p.obj);
+  // Handle capitalized versions (sentence start)
+  result = result.replace(/\bThey\b/g, p.subj.charAt(0).toUpperCase() + p.subj.slice(1));
+  result = result.replace(/\bTheir\b/g, p.possAdj.charAt(0).toUpperCase() + p.possAdj.slice(1));
+  result = result.replace(/\bThem\b/g, p.obj.charAt(0).toUpperCase() + p.obj.slice(1));
+  
+  // Handle lowercase versions  
+  result = result.replace(/\bthey\b/g, p.subj);
+  result = result.replace(/\btheir\b/g, p.possAdj);
+  result = result.replace(/\bthem\b/g, p.obj);
+  
+  return result;
 }
 
 // Extract first name from text (helper for pipeline)
 export function extractStudentName(text: string): string {
   // Look for capitalized words that appear before common verbs or contexts
-  const namePattern = /\b([A-Z][a-z]+)\s+(?:is|has|was|were|had|did|does|will|would|can|could|should|needs|seems|appears|shows|struggles|helped|improved|completed|finished|started|began)/;
+  const namePattern = /\b([A-Z][a-z]+)\s+(?:is|has|was|were|had|did|does|will|would|can|could|should|needs|seems|appears|shows|struggles|helped|improved|completed|finished|started|began|helps|falls|misses|led)/;
   const match = text.match(namePattern);
   return match ? match[1] : '';
 }
