@@ -3,6 +3,7 @@ import { z } from 'zod';
 import type { PronounSet } from '@/lib/text/pronouns';
 import { enforcePronouns, extractStudentName, inferPronouns } from '@/lib/text/pronouns';
 import { extractConcerns, extractPositives, determineSeverity, getStrategy, formatStrategy, type ConcernType } from '@/lib/strategies';
+import { qualityGate, fixPronounAgreement, fixSentenceSeams } from '@/lib/quality/qualityGate';
 
 // Parse results (deterministic first, model second)
 export interface ParsedData {
@@ -98,8 +99,9 @@ export function parsePromptlyInput(
 
 function sanitizeInput(text: string): string {
   const replacements = {
-    'naughty': 'showing challenging behavior',
-    'lazy': 'struggling with motivation',
+    'lazy': 'struggles with motivation',
+    'naughty': 'not following expectations', 
+    'bad at': 'finding {subject} challenging',
     'stupid': 'needs additional support',
     'dumb': 'needs additional support', 
     'bad kid': 'child who needs support',
@@ -110,7 +112,10 @@ function sanitizeInput(text: string): string {
     "doesn't care": 'not fully engaged',
     'terrible': 'concerning',
     'awful': 'challenging',
-    'horrible': 'difficult'
+    'horrible': 'difficult',
+    'always': 'often',
+    'never': 'sometimes',
+    'very naughty': 'not following expectations'
   };
 
   let sanitized = text;
@@ -162,23 +167,48 @@ export async function generateSlots(parsed: ParsedData): Promise<SlotOutput> {
   const strategy = getStrategy(concerns);
   const formattedStrategy = formatStrategy(strategy, name, pronouns);
   
-  // Preferred openers
+  // Preferred openers (pick one)
   const openers = [
     `I'd like to share an update about ${name}.`,
-    `Here's a quick update on ${name}'s week.`,
-    `I wanted to let you know how ${name} has been doing recently.`
+    `Here's a quick update on ${name}.`,
+    `I wanted to let you know how ${name} has been doing.`
   ];
   
   const opener = concerns.length === 0 ? 
     `I'm pleased to share some positive news about ${name}.` : 
-    openers[0];
+    openers[0]; // Use first for consistency
   
   // Build observation based on concerns and examples
   let observation = '';
   if (concerns.length > 0) {
     const concernDesc = getConcernDescription(concerns[0], pronouns);
     const impact = getImpactDescription(concerns[0], pronouns);
-    observation = `${concernDesc}. ${impact}`;
+    
+    // Add specific examples or additional concerns for richer content
+    let additionalDetail = '';
+    if (concerns.length > 1) {
+      // Build a simpler additional concern description
+      const secondConcern = concerns[1];
+      let secondDesc = '';
+      switch (secondConcern) {
+        case 'missing_homework':
+          secondDesc = `${pronouns.possAdj} homework has often been incomplete`;
+          break;
+        case 'throwing_items':
+          secondDesc = `${pronouns.subj} has thrown items during group work`;
+          break;
+        case 'focus_disruption':
+          secondDesc = `${pronouns.subj} has had difficulty maintaining focus`;
+          break;
+        default:
+          secondDesc = `${pronouns.subj} has also shown other challenging behaviors`;
+      }
+      additionalDetail = ` ${secondDesc}.`;
+    } else if (examples.length > 0) {
+      additionalDetail = ` For example, ${examples[0]}.`;
+    }
+    
+    observation = `${concernDesc}.${additionalDetail} ${impact}`;
   } else {
     observation = `${pronouns.subj.charAt(0).toUpperCase() + pronouns.subj.slice(1)} demonstrated excellent engagement and positive contributions to our classroom community. ${pronouns.possAdj.charAt(0).toUpperCase() + pronouns.possAdj.slice(1)} enthusiasm and effort have been noticed by both peers and staff.`;
   }
@@ -203,11 +233,11 @@ export async function generateSlots(parsed: ParsedData): Promise<SlotOutput> {
     strength,
     nextStepSchool: isPraiseOnly ? 
       `We will continue to provide opportunities for ${pronouns.obj} to build on these leadership skills.` :
-      `At school, we will ${formattedStrategy.school} to help ${pronouns.obj} get back on track with learning.`,
+      `At school, ${formattedStrategy.school}`,
     nextStepHome: isPraiseOnly ? 
       `Please continue to encourage ${pronouns.possAdj} natural leadership at home as well.` :
-      `At home, please ${formattedStrategy.home} as this will reinforce what we're doing at school.`,
-    invite: "Please let me know a good time to talk through next steps together. Your partnership in this approach will make a real difference."
+      `At home, ${formattedStrategy.home}`,
+    invite: `Please let me know a good time to talk through the plan together. Your partnership in this approach will make a real difference for ${name}.`
   };
 }
 
@@ -249,7 +279,7 @@ function getImpactDescription(concern: ConcernType, pronouns: PronounSet): strin
 
 // Stage C: Compose final output
 export function composeFinalOutput(slots: SlotOutput): PromptlyOutput {
-  // Assemble 3 paragraphs
+  // Assemble exactly 3 paragraphs with proper spacing
   const para1 = slots.strength ? 
     `${slots.opener} ${slots.observation} ${slots.strength}` :
     `${slots.opener} ${slots.observation}`;
@@ -258,7 +288,8 @@ export function composeFinalOutput(slots: SlotOutput): PromptlyOutput {
   
   const para3 = slots.invite;
   
-  const polished = `${para1}\n\n${para2}\n\n${para3}`;
+  // Ensure proper paragraph breaks
+  const polished = `${para1.trim()}\n\n${para2.trim()}\n\n${para3.trim()}`;
   
   return {
     polished,
@@ -325,15 +356,21 @@ export async function runPromptlyPipeline(
   // Stage C: Compose
   let output = composeFinalOutput(slots);
   
-  // Enforce pronouns on final output
+  // Stage D: Micro-edit passes
   output.polished = enforcePronouns(output.polished, parsed.pronouns);
-  output.email.body = enforcePronouns(output.email.body, parsed.pronouns);
+  output.polished = fixPronounAgreement(output.polished, parsed.pronouns);
+  output.polished = fixSentenceSeams(output.polished);
   
-  // Stage D: Review
-  const review = reviewAndRepair(output);
-  if (!review.isValid) {
-    console.warn('Output failed validation:', review.errors);
-    // In production, this would trigger re-generation
+  output.email.body = enforcePronouns(output.email.body, parsed.pronouns);
+  output.email.body = fixPronounAgreement(output.email.body, parsed.pronouns);
+  output.email.body = fixSentenceSeams(output.email.body);
+  
+  // Stage E: Quality gate
+  const gate = qualityGate(output.polished, parsed.pronouns);
+  if (!gate.ok) {
+    console.warn('Output failed quality gate:', gate.errors);
+    console.warn('Metrics:', gate.metrics);
+    // In production, this would trigger one repair pass on the JSON slots, then recompose
   }
   
   return output;

@@ -372,7 +372,7 @@ export function SimplifiedSnippetTool({ className }: SimplifiedSnippetToolProps)
                     </div>
                     
                     <TabsContent value="polished">
-                      <Card>
+                      <Card className="border-l-4 border-primary/50">
                         <CardContent className="p-6">
                           <div className="prose prose-sm max-w-none">
                             <div className="text-sm leading-relaxed whitespace-pre-wrap">
@@ -384,7 +384,7 @@ export function SimplifiedSnippetTool({ className }: SimplifiedSnippetToolProps)
                     </TabsContent>
                     
                     <TabsContent value="email">
-                      <Card>
+                      <Card className="border-l-4 border-primary/50">
                         <CardContent className="p-6">
                           <div className="prose prose-sm max-w-none">
                             <div className="text-sm leading-relaxed whitespace-pre-wrap">

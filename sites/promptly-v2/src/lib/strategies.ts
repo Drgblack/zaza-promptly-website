@@ -11,6 +11,7 @@ export type ConcernType =
   | 'incomplete_work' 
   | 'unprepared' 
   | 'off_task'
+  | 'throwing_items'
   | 'clarify_needed';
 
 export interface Strategy {
@@ -20,48 +21,52 @@ export interface Strategy {
 
 export const STRATEGY_BANK: Record<ConcernType, Strategy> = {
   lateness: {
-    school: "meet at door with a quick start task",
-    home: "aim to leave 10 minutes earlier"
+    school: "I'll meet {name} at the door with a short 'Do Now' so {subj} can start immediately.",
+    home: "Please aim to leave 10 minutes earlier; packing the bag the night before often helps."
   },
   missing_homework: {
-    school: "provide checklist and accept partial as restart", 
-    home: "set a 15-minute homework slot"
+    school: "I'll give a simple checklist and accept a partial restart.",
+    home: "Set a 15-minute homework slot; a timer and quiet space make it easier."
   },
   focus_disruption: {
-    school: "2-step cue and seating that reduces distractions",
-    home: "agree one cue word to refocus"
+    school: "I'll use a quiet 2-step cue and seat {name} where distractions are lower.",
+    home: "Let's agree on one cue word you can also use so the message is consistent."
   },
   tired_sleepy: {
-    school: "provide regular water breaks and short stretch breaks",
-    home: "establish consistent bedtime and provide a quick morning snack"
+    school: "I'll offer a water break and short stretch at the start.",
+    home: "A steady bedtime and a quick breakfast or snack usually improves focus."
   },
   rude_language: {
-    school: "calm reminder of respectful words we use",
-    home: "practice using kind words when frustrated"
+    school: "We'll reteach respectful language and provide a safe place to pause when upset.",
+    home: "If this happens at home, a calm pause + practice using kind words is helpful."
   },
   low_effort: {
-    school: "break tasks into smaller steps",
-    home: "praise for starting, not just finishing"
+    school: "I'll break tasks into smaller steps and check in more frequently.",
+    home: "Praise for starting, not just finishing; small wins build momentum."
   },
   absence: {
-    school: "provide catch-up materials and pair with study buddy",
-    home: "consistent morning routine to support attendance"
+    school: "I'll provide catch-up materials and pair {name} with a study buddy.",
+    home: "A consistent morning routine and early bedtime help support attendance."
   },
   incomplete_work: {
-    school: "check understanding and simplify task as needed",
-    home: "set up quiet space for focused work time"
+    school: "I'll check understanding first and simplify the task if needed.",
+    home: "Set up a quiet homework space with supplies ready; remove distractions."
   },
   unprepared: {
-    school: "morning check-in and backup supplies available",
-    home: "evening pack-up routine with visual checklist"
+    school: "I'll do a morning check-in and keep backup supplies available.",
+    home: "Try an evening pack-up routine with a visual checklist by the door."
   },
   off_task: {
-    school: "clear expectations and gentle redirect signals",
-    home: "practice following 2-step instructions"
+    school: "I'll give clear 2-step expectations and use gentle redirect signals.",
+    home: "Practice following simple instructions at home; start with fun activities."
+  },
+  throwing_items: {
+    school: "We'll reteach room-safety routines and provide a safe place to put items when upset.",
+    home: "If this happens at home, a calm pause + practice putting the item down is helpful."
   },
   clarify_needed: {
-    school: "observe more closely and note specific patterns",
-    home: "share any changes you've noticed at home"
+    school: "I'll observe more closely and note specific patterns to understand better.",
+    home: "Please share any changes you've noticed at home that might help us."
   }
 };
 
@@ -105,6 +110,8 @@ export const CONCERN_KEYWORDS: Record<string, ConcernType> = {
   'using inappropriate language': 'rude_language',
   
   'struggling with motivation': 'low_effort',
+  'struggles with': 'low_effort',
+  'struggling': 'low_effort',
   'no effort': 'low_effort', 
   'gave up': 'low_effort',
   'not trying': 'low_effort',
@@ -128,7 +135,14 @@ export const CONCERN_KEYWORDS: Record<string, ConcernType> = {
   'off task': 'off_task',
   'wandering': 'off_task',
   'not following': 'off_task',
-  'doing other things': 'off_task'
+  'doing other things': 'off_task',
+  
+  'throwing': 'throwing_items',
+  'threw': 'throwing_items',
+  'throws': 'throwing_items',
+  'throwing items': 'throwing_items',
+  'threw items': 'throwing_items',
+  'throws things': 'throwing_items'
 };
 
 // Positive keywords for strength detection
@@ -190,8 +204,19 @@ export function getStrategy(concerns: ConcernType[]): Strategy {
 
 // Format strategy for use in templates (with pronouns)
 export function formatStrategy(strategy: Strategy, name: string, pronouns: { subj: string; obj: string; possAdj: string }): { school: string; home: string } {
+  const formatText = (text: string) => {
+    return text
+      .replace(/{name}/g, name)
+      .replace(/{subj}/g, pronouns.subj)
+      .replace(/{obj}/g, pronouns.obj)
+      .replace(/{possAdj}/g, pronouns.possAdj)
+      .replace(/\bthey\b/gi, pronouns.subj)
+      .replace(/\btheir\b/gi, pronouns.possAdj)
+      .replace(/\bthem\b/gi, pronouns.obj);
+  };
+
   return {
-    school: strategy.school.replace(/{name}/g, name).replace(/\bthey\b/gi, pronouns.subj).replace(/\btheir\b/gi, pronouns.possAdj).replace(/\bthem\b/gi, pronouns.obj),
-    home: strategy.home.replace(/{name}/g, name).replace(/\bthey\b/gi, pronouns.subj).replace(/\btheir\b/gi, pronouns.possAdj).replace(/\bthem\b/gi, pronouns.obj)
+    school: formatText(strategy.school),
+    home: formatText(strategy.home)
   };
 }
