@@ -61,7 +61,10 @@
       "WebFetch(domain:teach.zazatechnologies.com)",
       "WebFetch(domain:zazateach.com)",
       "Bash(cp:*)",
-      "Bash(test:*)"
+      "Bash(test:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(mkdir:*)"
     ],
     "deny": []
   }
