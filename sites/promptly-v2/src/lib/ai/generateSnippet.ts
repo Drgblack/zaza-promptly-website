@@ -16,39 +16,39 @@ const Schema = z.object({
 async function callOpenAIJSON(prompt: string, input: SnippetInput) {
   await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate API delay
   
-  const { roughNote, tone, studentName, preset } = input;
-  const studentRef = studentName?.trim() || "your child";
+  const { roughNote } = input;
   
-  // Detect sentiment of rough note to generate appropriate response
-  const isNegative = /loud|disrupt|problem|issue|concern|fight|rude|inappropriate|missing|absent|late/.test(roughNote?.toLowerCase() || '');
-  const isPositive = /great|excellent|wonderful|helped|kind|good|improved|progress|proud/.test(roughNote?.toLowerCase() || '');
+  // Detect if this is praise or concern
+  const isPraise = /great|excellent|wonderful|helped|kind|good|improved|progress|proud|positive|achievement|success/i.test(roughNote || '');
+  const isConcern = /loud|disrupt|problem|issue|concern|fight|rude|inappropriate|missing|absent|late|homework|assignment/i.test(roughNote || '');
   
   let polishedContent: string;
   
-  if (isNegative) {
-    // Negative behavior - structured response
-    polishedContent = `I wanted to share an update about ${studentRef}'s behavior this week. ${roughNote}
+  if (isPraise) {
+    // Praise - brief and warm (2-3 sentences, under 130 words)
+    polishedContent = `I'm delighted to share some wonderful news about your child's progress. ${roughNote.replace(/\[.*?\]/g, 'they').trim()}
 
-I understand this can be concerning, and I want to work together to support ${studentRef} in making better choices. We're implementing a simple strategy to help redirect their energy positively.
+This positive behavior really stands out and deserves recognition. I hope you'll celebrate this achievement at home!`;
+  } else if (isConcern) {
+    // Concern - 4-part structure (under 130 words)
+    const cleanNote = roughNote.replace(/\[.*?\]/g, 'the student').trim();
+    polishedContent = `I wanted to update you about what happened in class today. ${cleanNote}
 
-Please let me know if you'd like to discuss this further. Your partnership is valuable in helping ${studentRef} succeed.`;
-  } else if (isPositive) {
-    // Positive behavior - praise focused
-    polishedContent = `I'm delighted to share some wonderful news about ${studentRef}. ${roughNote}
+This is impacting their learning and the classroom environment. We're implementing a simple strategy to help redirect their focus positively.
 
-This kind of positive behavior really stands out and deserves recognition. ${studentRef} should be proud of their efforts, and I hope you'll celebrate this achievement at home.`;
+I'd love to discuss how we can work together to support them. Please feel free to reach out if you'd like to chat about next steps.`;
   } else {
-    // Neutral/general update
-    polishedContent = `I wanted to share a quick update about ${studentRef}. ${roughNote}
+    // Neutral update
+    const cleanNote = roughNote.replace(/\[.*?\]/g, 'your child').trim();
+    polishedContent = `I wanted to share a quick update about your child's week. ${cleanNote}
 
-I'll continue to monitor their progress and keep you informed. Please feel free to reach out if you have any questions or concerns.`;
+I'll continue monitoring their progress and keep you informed. Please reach out if you have any questions.`;
   }
 
-  // Adjust tone
-  if (tone === 'firm' && isNegative) {
-    polishedContent = polishedContent.replace('I wanted to share', 'I need to discuss');
-  } else if (tone === 'enthusiastic' && isPositive) {
-    polishedContent = polishedContent.replace('I\'m delighted', 'I\'m absolutely thrilled');
+  // Ensure under 130 words
+  const words = polishedContent.split(/\s+/);
+  if (words.length > 130) {
+    polishedContent = words.slice(0, 130).join(' ') + '...';
   }
 
   return {
