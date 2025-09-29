@@ -59,7 +59,9 @@
       "Bash(test:*)",
       "WebFetch(domain:zazatechnologies.com)",
       "WebFetch(domain:teach.zazatechnologies.com)",
-      "WebFetch(domain:zazateach.com)"
+      "WebFetch(domain:zazateach.com)",
+      "Bash(cp:*)",
+      "Bash(test:*)"
     ],
     "deny": []
   }

@@ -1,0 +1,794 @@
+ZAZA PROMPTLY BRAND GUIDELINES
+=====================================
+
+TABLE OF CONTENTS
+==================
+1. Brand Overview
+2. Logo Guidelines
+3. Color Palette
+4. Typography
+5. Voice & Tone
+6. Photography & Imagery
+7. Digital Guidelines
+8. Print Guidelines
+9. Social Media Guidelines
+10. Brand Applications
+11. Do's and Don'ts
+12. Contact Information
+
+=====================================
+
+1. BRAND OVERVIEW
+================
+
+MISSION STATEMENT
+-----------------
+Empower educators with AI tools that save time, improve communication, and enhance student learning.
+
+VISION STATEMENT
+----------------
+Every teacher deserves time back. We build AI that understands the classroom.
+
+BRAND PERSONALITY
+-----------------
+• Professional: Reliable, trustworthy, and credible
+• Empathetic: Understanding of teacher challenges and pressures
+• Teacher-focused: Built by educators, for educators
+• Trustworthy: Safe, secure, and privacy-conscious
+• Innovative: Cutting-edge AI that actually works for education
+• Supportive: Helping teachers succeed and thrive
+• Approachable: Friendly, not corporate or intimidating
+
+BRAND PROMISE
+-------------
+We promise to give teachers their time back while maintaining the quality and warmth of their communications with parents and students.
+
+CORE VALUES
+-----------
+• Teacher-First: Every decision is made with teachers in mind
+• Privacy-First: Student and teacher data is protected above all
+• Quality: AI that produces genuinely helpful, contextual responses
+• Empathy: Understanding the emotional labor of teaching
+• Innovation: Continuous improvement and feature development
+• Community: Building connections between educators globally
+
+=====================================
+
+2. LOGO GUIDELINES
+==================
+
+PRIMARY LOGO
+------------
+The Zaza Promptly logo consists of a modern wordmark paired with a distinctive icon representing AI assistance for education.
+
+LOGO CONSTRUCTION
+-----------------
+• The logo icon is a stylized "Z" integrated with subtle AI/tech elements
+• The wordmark uses custom lettering based on Inter font family
+• The icon and wordmark work together as one cohesive unit
+• Proportions must be maintained exactly as provided
+
+CLEAR SPACE
+-----------
+Minimum clear space around the logo equals half the height of the logo.
+This ensures the logo has breathing room and maximum impact.
+
+MINIMUM SIZES
+-------------
+• Digital: 120px width minimum
+• Print: 1 inch (25.4mm) width minimum
+• App icons: 512px x 512px for master, scalable down
+
+LOGO VARIATIONS
+---------------
+1. Full Logo (Primary)
+   - Use whenever possible
+   - Best for headers, business cards, presentations
+
+2. Logo Mark Only
+   - Use when space is limited
+   - Social media profile pictures
+   - App icons
+   - Watermarks
+
+3. Reversed/White Logo
+   - Use on dark backgrounds
+   - Maintains all proportions and relationships
+
+4. Single Color Logo
+   - When color reproduction is limited
+   - Fax, stamps, single-color printing
+   - Can be used in any brand color
+
+IMPROPER LOGO USAGE
+-------------------
+DO NOT:
+• Stretch, skew, or distort the logo in any way
+• Change the colors without approval
+• Separate the icon from the wordmark
+• Add drop shadows or effects
+• Place on busy backgrounds without proper contrast
+• Use outdated versions of the logo
+• Recreate or redraw the logo
+• Use the logo smaller than minimum size requirements
+
+=====================================
+
+3. COLOR PALETTE
+================
+
+PRIMARY COLORS
+--------------
+
+Zaza Purple (Primary Brand Color)
+• HEX: #9333EA
+• RGB: 147, 51, 234
+• CMYK: 39, 78, 0, 8
+• Pantone: 2665 C
+• Usage: Primary brand elements, CTAs, headers
+
+Promptly Blue (Secondary Brand Color)
+• HEX: #2563EB
+• RGB: 37, 99, 235
+• CMYK: 84, 58, 0, 8
+• Pantone: 2727 C
+• Usage: Secondary elements, gradients with purple
+
+White
+• HEX: #FFFFFF
+• RGB: 255, 255, 255
+• CMYK: 0, 0, 0, 0
+• Usage: Backgrounds, reverse text
+
+SECONDARY COLORS
+----------------
+
+Slate Gray (Body Text)
+• HEX: #64748B
+• RGB: 100, 116, 139
+• CMYK: 28, 16, 0, 45
+• Usage: Body text, secondary information
+
+Success Green
+• HEX: #10B981
+• RGB: 16, 185, 129
+• CMYK: 91, 0, 30, 27
+• Usage: Success states, positive messaging
+
+Accent Pink
+• HEX: #EC4899
+• RGB: 236, 72, 153
+• CMYK: 0, 69, 35, 7
+• Usage: Highlights, accents, gradient pairs
+
+SUPPORTING COLORS
+-----------------
+
+Light Gray
+• HEX: #F8FAFC
+• RGB: 248, 250, 252
+• Usage: Light backgrounds, subtle sections
+
+Dark Gray
+• HEX: #1E293B
+• RGB: 30, 41, 59
+• Usage: Dark backgrounds, high contrast text
+
+Warning Orange
+• HEX: #F59E0B
+• RGB: 245, 158, 11
+• Usage: Warnings, attention-grabbing elements
+
+Error Red
+• HEX: #EF4444
+• RGB: 239, 68, 68
+• Usage: Error states, critical information
+
+COLOR USAGE GUIDELINES
+----------------------
+• Purple should dominate in brand applications
+• Use blue to complement purple in gradients and pairings
+• Maintain proper contrast ratios (minimum 4.5:1 for text)
+• Test color combinations for accessibility
+• Avoid using too many colors in one design
+• When in doubt, use purple and white
+
+ACCESSIBILITY CONSIDERATIONS
+----------------------------
+All color combinations must meet WCAG 2.1 AA standards:
+• Normal text: 4.5:1 contrast ratio minimum
+• Large text: 3:1 contrast ratio minimum
+• UI elements: 3:1 contrast ratio minimum
+
+=====================================
+
+4. TYPOGRAPHY
+=============
+
+PRIMARY FONT FAMILY: INTER
+---------------------------
+Inter is our primary font family for all digital and print applications.
+It's a highly readable, modern sans-serif designed for user interfaces.
+
+FONT WEIGHTS AVAILABLE
+----------------------
+• Inter Thin (100) - Rarely used
+• Inter Light (300) - Captions, fine print
+• Inter Regular (400) - Body text, paragraphs
+• Inter Medium (500) - UI elements, buttons
+• Inter Semi-Bold (600) - Subheadings, emphasis
+• Inter Bold (700) - Headlines, titles
+• Inter Extra Bold (800) - Display headlines
+• Inter Black (900) - Rarely used
+
+TYPOGRAPHY HIERARCHY
+--------------------
+
+Display Headlines (H1)
+• Font: Inter Bold (700) or Extra Bold (800)
+• Size: 48-72px (3-4.5rem)
+• Line Height: 1.1
+• Usage: Hero headlines, main page titles
+
+Primary Headlines (H2)
+• Font: Inter Bold (700)
+• Size: 36-48px (2.25-3rem)
+• Line Height: 1.2
+• Usage: Section headers, primary headings
+
+Secondary Headlines (H3)
+• Font: Inter Semi-Bold (600)
+• Size: 24-36px (1.5-2.25rem)
+• Line Height: 1.3
+• Usage: Subsection headers
+
+Tertiary Headlines (H4)
+• Font: Inter Semi-Bold (600)
+• Size: 20-24px (1.25-1.5rem)
+• Line Height: 1.4
+• Usage: Card titles, small headers
+
+Body Text Large
+• Font: Inter Regular (400)
+• Size: 18-20px (1.125-1.25rem)
+• Line Height: 1.6
+• Usage: Intro paragraphs, important body text
+
+Body Text Standard
+• Font: Inter Regular (400)
+• Size: 16px (1rem)
+• Line Height: 1.6
+• Usage: Standard paragraphs, main content
+
+Body Text Small
+• Font: Inter Regular (400)
+• Size: 14px (0.875rem)
+• Line Height: 1.5
+• Usage: Captions, secondary information
+
+UI Text
+• Font: Inter Medium (500)
+• Size: 14-16px (0.875-1rem)
+• Line Height: 1.4
+• Usage: Buttons, navigation, interface elements
+
+Fine Print
+• Font: Inter Regular (400)
+• Size: 12px (0.75rem)
+• Line Height: 1.4
+• Usage: Legal text, disclaimers, footnotes
+
+FALLBACK FONTS
+--------------
+If Inter is not available, use these fallbacks in order:
+1. -apple-system (iOS/macOS)
+2. BlinkMacSystemFont (Chromium on macOS)
+3. "Segoe UI" (Windows)
+4. Roboto (Android)
+5. Helvetica (older macOS)
+6. Arial (Windows fallback)
+7. sans-serif (generic fallback)
+
+TYPOGRAPHY BEST PRACTICES
+--------------------------
+• Maintain consistent spacing between elements
+• Use proper line height for readability
+• Limit line length to 45-75 characters
+• Use appropriate font weights for hierarchy
+• Ensure sufficient contrast for all text
+• Test typography across different devices and sizes
+
+=====================================
+
+5. VOICE & TONE
+===============
+
+BRAND VOICE CHARACTERISTICS
+---------------------------
+
+SUPPORTIVE
+• We understand the challenges teachers face daily
+• We acknowledge the emotional labor of teaching
+• We provide solutions, not just sympathy
+• We speak as fellow educators, not outsiders
+
+PROFESSIONAL
+• We maintain credibility and trustworthiness
+• We use proper grammar and clear language
+• We avoid slang and overly casual expressions
+• We respect the profession of teaching
+
+CONVERSATIONAL
+• We write as humans, not robots
+• We use contractions and natural language patterns
+• We avoid corporate jargon and buzzwords
+• We speak directly to our audience using "you"
+
+EMPOWERING
+• We focus on teacher success and achievements
+• We highlight positive outcomes and possibilities
+• We provide actionable advice and solutions
+• We build confidence rather than creating dependency
+
+TONE GUIDELINES BY CONTEXT
+---------------------------
+
+Website Copy (Primary Marketing)
+• Warm but professional
+• Confident without being boastful
+• Solution-focused
+• Empathetic to teacher pain points
+
+Educational Content
+• Authoritative but approachable
+• Evidence-based when possible
+• Practical and actionable
+• Supportive of different teaching styles
+
+Customer Support
+• Patient and understanding
+• Clear and helpful
+• Apologetic when appropriate
+• Solution-oriented
+
+Social Media
+• More casual but still professional
+• Celebratory of teacher achievements
+• Community-focused
+• Encouraging and uplifting
+
+Email Communications
+• Personal but professional
+• Respectful of teachers' time
+• Clear subject lines and calls-to-action
+• Value-driven content
+
+LANGUAGE GUIDELINES
+-------------------
+
+USE THESE WORDS/PHRASES:
+• Save time, get time back
+• Professional, warm, supportive
+• Built for teachers, by teachers
+• Understanding, empathetic
+• Efficient, effective, simple
+• Community, connection, support
+• Growth, improvement, success
+
+AVOID THESE WORDS/PHRASES:
+• Disruptive, revolutionary (overused in tech)
+• Seamless, effortless (minimizes teacher skill)
+• Game-changing, paradigm shift (corporate speak)
+• Cutting-edge, bleeding-edge (scary for educators)
+• Artificial intelligence (use "AI" or be more specific)
+• Users (say "teachers" or "educators")
+
+KEY MESSAGING FRAMEWORKS
+-------------------------
+
+The Problem We Solve:
+"Teachers spend too much time on administrative tasks and not enough time on what they love: teaching."
+
+Our Solution:
+"AI that understands education and gives teachers their time back."
+
+Our Difference:
+"Built by teachers who understand the classroom, not tech companies who don't."
+
+Our Promise:
+"More time for what matters: your students, your family, your life."
+
+WRITING STYLE GUIDELINES
+------------------------
+• Use active voice whenever possible
+• Write in second person (you, your) to connect directly
+• Keep sentences concise and clear
+• Use bullet points and lists for scannable content
+• Include specific examples and use cases
+• End with clear calls-to-action
+• Proofread everything - teachers notice errors!
+
+=====================================
+
+6. PHOTOGRAPHY & IMAGERY
+=========================
+
+PHOTOGRAPHY STYLE
+------------------
+
+AUTHENTIC MOMENTS
+• Real teachers in real classrooms
+• Natural expressions and interactions
+• Candid moments over posed shots
+• Genuine emotion and connection
+
+DIVERSE REPRESENTATION
+• Teachers of all backgrounds and ages
+• Students from diverse communities
+• Various educational settings (urban, suburban, rural)
+• Different grade levels and subjects
+
+LIGHTING & COMPOSITION
+• Natural lighting preferred over artificial
+• Clean, uncluttered backgrounds
+• Focus on the human element
+• Technology as tool, not focal point
+
+COLOR TREATMENT
+• Slight warm tone adjustment
+• Enhanced but not oversaturated colors
+• Consistent editing style across all images
+• Brand colors subtly incorporated when possible
+
+SUBJECT MATTER
+--------------
+
+PREFERRED SUBJECTS:
+• Teachers working with students
+• Collaborative learning environments
+• Teachers using technology naturally
+• Professional development settings
+• Parent-teacher conferences
+• Classroom management moments
+• Teachers celebrating successes
+
+AVOID:
+• Stock photo look
+• Overly staged interactions
+• Outdated technology
+• Stereotypical teacher imagery
+• Stressful or negative classroom situations
+• Images that don't represent our diverse user base
+
+TECHNICAL SPECIFICATIONS
+------------------------
+• Minimum resolution: 1920x1080 for web use
+• Print resolution: 300 DPI minimum
+• Format: High-quality JPEG or PNG
+• Color space: sRGB for web, Adobe RGB for print
+• File naming: Descriptive and organized
+
+IMAGE USAGE RIGHTS
+------------------
+• All images must have proper licensing
+• Obtain model releases for recognizable people
+• Respect student privacy and COPPA guidelines
+• Credit photographers when required
+• Maintain organized image library with metadata
+
+ILLUSTRATION STYLE
+------------------
+When photography isn't available, use illustrations that are:
+• Simple and clean
+• Consistent with brand colors
+• Professional but approachable
+• Diverse and inclusive
+• Functional and purposeful
+
+=====================================
+
+7. DIGITAL GUIDELINES
+======================
+
+WEBSITE DESIGN PRINCIPLES
+--------------------------
+
+CLEAN & MODERN
+• Plenty of white space
+• Minimal but effective design elements
+• Focus on content and usability
+• Professional appearance
+
+TEACHER-CENTRIC UX
+• Quick access to key features
+• Clear navigation and labeling
+• Mobile-responsive design
+• Fast loading times
+
+BRAND INTEGRATION
+• Consistent use of brand colors
+• Proper logo placement and sizing
+• Brand voice in all copy
+• Cohesive visual experience
+
+UI ELEMENTS
+-----------
+
+BUTTONS
+• Primary: Purple background, white text
+• Secondary: White background, purple border and text
+• Success: Green background, white text
+• Gradient: Purple to blue gradient background
+
+FORMS
+• Clean, simple layouts
+• Clear labels and instructions
+• Proper error states
+• Brand color for focus states
+
+NAVIGATION
+• Clear hierarchy
+• Brand colors for active states
+• Responsive mobile navigation
+• Breadcrumbs for complex flows
+
+CARDS & CONTAINERS
+• Subtle shadows for depth
+• Rounded corners (8px standard)
+• Brand colors for borders when needed
+• Proper spacing and alignment
+
+RESPONSIVE DESIGN
+-----------------
+• Mobile-first approach
+• Breakpoints: 320px, 768px, 1024px, 1440px
+• Touch-friendly interface elements
+• Readable typography at all sizes
+• Optimized images for different screen densities
+
+ACCESSIBILITY REQUIREMENTS
+---------------------------
+• WCAG 2.1 AA compliance minimum
+• Keyboard navigation support
+• Screen reader compatibility
+• Color contrast requirements
+• Alternative text for images
+• Proper heading structure
+
+=====================================
+
+8. PRINT GUIDELINES
+===================
+
+BUSINESS COLLATERAL
+-------------------
+
+BUSINESS CARDS
+• Logo placement: Top left or centered
+• Contact information in clear hierarchy
+• Brand colors used sparingly
+• Professional paper stock
+
+LETTERHEAD
+• Logo in top left corner
+• Contact information in header or footer
+• Subtle brand color accents
+• Professional, clean layout
+
+PRESENTATION TEMPLATES
+• Consistent slide layouts
+• Brand colors in headers and accents
+• Readable fonts at presentation size
+• Professional appearance for education conferences
+
+PROMOTIONAL MATERIALS
+---------------------
+
+BROCHURES & FLYERS
+• Strong visual hierarchy
+• Brand colors prominently featured
+• High-quality photography
+• Clear calls-to-action
+
+CONFERENCE MATERIALS
+• Booth displays with brand consistency
+• Branded swag and giveaways
+• Professional presentation materials
+• Educational focus in all messaging
+
+TECHNICAL SPECIFICATIONS
+------------------------
+• Color mode: CMYK for print
+• Resolution: 300 DPI minimum
+• Bleed: 3mm for trimmed materials
+• File format: PDF/X-1a for print production
+• Fonts: Outline or embed all fonts
+
+=====================================
+
+9. SOCIAL MEDIA GUIDELINES
+===========================
+
+PLATFORM-SPECIFIC GUIDELINES
+-----------------------------
+
+TWITTER/X
+• Brand voice: Professional but conversational
+• Hashtags: #EdTech #TeacherLife #AI #Education
+• Visual: Quote cards, tips, product features
+• Engagement: Reply to teachers, share educational content
+
+LINKEDIN
+• Brand voice: More professional and business-focused
+• Content: Industry insights, thought leadership
+• Visual: Professional photography, infographics
+• Engagement: B2B focused, educational partnerships
+
+INSTAGRAM
+• Brand voice: Warm and community-focused
+• Content: Behind-the-scenes, teacher spotlights
+• Visual: High-quality photos, teacher stories
+• Engagement: Teacher community building
+
+FACEBOOK
+• Brand voice: Community-oriented and supportive
+• Content: Educational tips, teacher resources
+• Visual: Mixed content, community highlights
+• Engagement: Teacher groups and communities
+
+DISCORD/COMMUNITY
+• Brand voice: Casual but respectful
+• Content: Direct teacher support and discussion
+• Visual: Minimal, focus on conversation
+• Engagement: Active community management
+
+CONTENT TYPES
+-------------
+• Educational tips and best practices
+• Teacher success stories and testimonials
+• Product features and updates
+• Behind-the-scenes company content
+• Industry news and commentary
+• Community highlights and celebrations
+
+VISUAL CONSISTENCY
+------------------
+• Use brand colors in all graphics
+• Consistent photo editing style
+• Logo placement on branded content
+• Template-based designs for efficiency
+• High-quality, professional imagery
+
+=====================================
+
+10. BRAND APPLICATIONS
+======================
+
+PRODUCT INTERFACE
+-----------------
+• Consistent with web brand guidelines
+• Teacher-friendly UI patterns
+• Brand colors for key actions
+• Professional but approachable design
+
+EMAIL COMMUNICATIONS
+--------------------
+• Branded email templates
+• Consistent typography hierarchy
+• Brand colors for headers and CTAs
+• Professional signature blocks
+
+PACKAGING & MERCHANDISE
+-----------------------
+• Branded conference materials
+• Professional swag items
+• Consistent application of brand elements
+• High-quality materials that reflect brand values
+
+DIGITAL ADVERTISING
+-------------------
+• Consistent visual style across platforms
+• Brand colors prominently featured
+• Professional photography or illustrations
+• Clear value proposition messaging
+
+=====================================
+
+11. DO'S AND DON'TS
+===================
+
+LOGO DO'S
+---------
+✓ Use the official logo files provided
+✓ Maintain proper clear space around logo
+✓ Scale proportionally only
+✓ Use on appropriate backgrounds
+✓ Choose the right logo variation for the context
+
+LOGO DON'TS
+-----------
+✗ Don't stretch, skew, or distort the logo
+✗ Don't change the logo colors
+✗ Don't separate logo elements
+✗ Don't add effects or modify the logo
+✗ Don't use low-resolution logo files
+
+COLOR DO'S
+----------
+✓ Use the specified brand colors
+✓ Maintain proper contrast ratios
+✓ Test colors across different mediums
+✓ Use purple as the primary brand color
+✓ Follow accessibility guidelines
+
+COLOR DON'TS
+------------
+✗ Don't create new color combinations without approval
+✗ Don't use colors that don't meet accessibility standards
+✗ Don't overuse accent colors
+✗ Don't use competitor colors
+✗ Don't ignore color psychology in education
+
+TYPOGRAPHY DO'S
+---------------
+✓ Use Inter font family consistently
+✓ Maintain proper hierarchy
+✓ Ensure good readability
+✓ Use appropriate font weights
+✓ Test across different devices
+
+TYPOGRAPHY DON'TS
+-----------------
+✗ Don't use fonts outside the approved family
+✗ Don't use too many font weights in one design
+✗ Don't ignore hierarchy guidelines
+✗ Don't compromise readability for style
+✗ Don't use decorative fonts for body text
+
+=====================================
+
+12. CONTACT INFORMATION
+=======================
+
+BRAND TEAM
+----------
+For questions about brand guidelines, logo usage, or brand applications:
+Email: brand@zazapromptly.com
+
+MARKETING TEAM
+--------------
+For marketing partnerships, co-marketing opportunities, or promotional materials:
+Email: marketing@zazapromptly.com
+
+PRESS INQUIRIES
+---------------
+For media requests, press releases, or interview requests:
+Email: press@zazapromptly.com
+
+PARTNERSHIP TEAM
+----------------
+For business partnerships, integrations, or collaboration opportunities:
+Email: partnerships@zazapromptly.com
+
+DESIGN TEAM
+-----------
+For specific design questions or custom brand applications:
+Email: design@zazapromptly.com
+
+=====================================
+
+BRAND GUIDELINES VERSION HISTORY
+=================================
+Version 1.0 - December 2024 - Initial brand guidelines
+Version 1.1 - January 2025 - Updated color specifications and accessibility guidelines
+
+=====================================
+
+© 2025 Zaza Technologies UG (haftungsbeschränkt)
+All rights reserved.
+
+This document is proprietary and confidential. 
+Distribution restricted to authorized partners, employees, and press.
+
+Last updated: December 2024
+Document length: Approximately 15,000 words

@@ -1,0 +1,241 @@
+{
+  "navigation": {
+    "home": "Home",
+    "blog": "Blog",
+    "resources": "Risorse",
+    "about": "Chi siamo",
+    "pricing": "Prezzi",
+    "community": "Comunità",
+    "faq": "FAQ",
+    "company": "Azienda",
+    "press": "Stampa",
+    "contact": "Contatto",
+    "ourSolutions": "Le nostre soluzioni",
+    "learningCentre": "Centro di apprendimento",
+    "aboutUs": "Chi siamo",
+    "tryZazaPromptly": "Prova Zaza Promptly",
+    "tryZazaTeach": "Prova Zaza Teach",
+    "language": "Lingua"
+  },
+  "hero": {
+    "title": "Strumenti alimentati dall'IA per educatori moderni",
+    "subtitle": "Risparmia 5+ ore a settimana con pianificazione intelligente delle lezioni, assistenza alla valutazione e gestione della classe.",
+    "cta_primary": "Prova Zaza Teach",
+    "cta_secondary": "Iscriviti alla lista d'attesa",
+    "tagline": "IA per educatori"
+  },
+  "features": {
+    "title": "Perché Zaza Promptly?",
+    "subtitle": "Costruito da educatori, per educatori",
+    "instant_feedback": {
+      "title": "Feedback istantaneo",
+      "description": "Genera commenti personalizzati e feedback in pochi secondi"
+    },
+    "time_saving": {
+      "title": "Risparmia tempo",
+      "description": "Riduci il tempo di valutazione fino all'80% con l'assistenza IA"
+    },
+    "student_focused": {
+      "title": "Focalizzato sullo studente",
+      "description": "Mantieni la connessione personale mentre ampli il tuo impatto"
+    }
+  },
+  "snippet_tool": {
+    "title": "Demo dal vivo: Strumento Snippet",
+    "description": "Prova il nostro generatore di commenti alimentato dall'IA",
+    "placeholder": "Inserisci l'argomento dell'assegnazione o un campione di lavoro dello studente...",
+    "generate": "Genera commenti"
+  },
+  "footer": {
+    "tagline": "Costruito da educatori per educatori",
+    "copyright": "© 2024 Zaza Technologies. Tutti i diritti riservati."
+  },
+  "blog": {
+    "title": "Blog per educatori",
+    "subtitle": "Consigli pratici, strumenti IA e approfondimenti educativi",
+    "read_more": "Leggi di più",
+    "subscribe": "Iscriviti gratis",
+    "search_placeholder": "Cerca nel blog...",
+    "all_categories": "Tutte le categorie",
+    "no_posts": "Nessun post trovato",
+    "reading_time": "min di lettura",
+    "published": "Pubblicato",
+    "category": "Categoria",
+    "share": "Condividi",
+    "related_posts": "Post correlati",
+    "breadcrumb": {
+      "home": "Home",
+      "blog": "Blog"
+    }
+  },
+  "resources": {
+    "title": "Risorse per educatori",
+    "subtitle": "Material gratuito per migliorare il tuo insegnamento",
+    "download": "Scarica",
+    "view": "Visualizza",
+    "free": "Gratuito",
+    "premium": "Premium",
+    "breadcrumb": {
+      "home": "Home",
+      "resources": "Risorse"
+    },
+    "usageNote": "Queste risorse sono gratuite per l'uso in classe. Si prega di mantenere il credito del piè di pagina e di non rivendere.",
+    "downloadTip": {
+      "label": "Suggerimento:",
+      "text": "Fai clic su 'Visualizza e stampa' per aprire in una nuova scheda, quindi usa Ctrl+P (Cmd+P su Mac) e seleziona 'Salva come PDF' per la tua copia PDF."
+    }
+  },
+  "about": {
+    "title": "Chi è Zaza Promptly",
+    "subtitle": "La nostra missione è potenziare gli educatori con strumenti IA",
+    "our_story": "La nostra storia",
+    "our_team": "Il nostro team",
+    "our_values": "I nostri valori"
+  },
+  "pricing": {
+    "title": "Prezzi",
+    "subtitle": "Scegli il piano che fa per te",
+    "free_plan": "Piano gratuito",
+    "pro_plan": "Piano Pro",
+    "enterprise_plan": "Piano Enterprise",
+    "monthly": "Mensile",
+    "yearly": "Annuale",
+    "save": "Risparmia",
+    "get_started": "Inizia",
+    "contact_sales": "Contatta le vendite"
+  },
+  "faq": {
+    "title": "Domande frequenti",
+    "subtitle": "Tutto quello che devi sapere su Zaza Promptly",
+    "breadcrumb": {
+      "home": "Home",
+      "faqs": "FAQ"
+    }
+  },
+  "community": {
+    "title": "Comunità",
+    "subtitle": "Connettiti con altri educatori",
+    "join_discord": "Unisciti a Discord",
+    "join_facebook": "Unisciti al gruppo Facebook"
+  },
+  "common": {
+    "loading": "Caricamento...",
+    "error": "Errore",
+    "success": "Successo",
+    "cancel": "Annulla",
+    "confirm": "Conferma",
+    "save": "Salva",
+    "delete": "Elimina",
+    "edit": "Modifica",
+    "close": "Chiudi",
+    "back": "Indietro",
+    "next": "Avanti",
+    "previous": "Precedente",
+    "search": "Cerca",
+    "filter": "Filtra",
+    "sort": "Ordina",
+    "clear": "Cancella",
+    "apply": "Applica",
+    "reset": "Reimposta"
+  },
+  "aboutFounder": {
+    "metaTitle": "Chi è il fondatore - Dr. Greg Blackburn | Zaza Teach",
+    "metaDescription": "Dr. Greg Blackburn, Fondatore e CEO di Zaza Technologies. Dai mestieri della Tasmania al dottorato presso City, University of London - una carriera dedicata ad aiutare gli insegnanti a prosperare.",
+    "ogDescription": "L'istruzione ha trasformato la vita di Greg. Ora la sua missione è aiutare gli insegnanti a prosperare - con un'IA empatica e pedagogicamente valida.",
+    "ogImageAlt": "Dr. Greg Blackburn, Fondatore di Zaza Technologies",
+    "jobTitle": "Fondatore e CEO",
+    "personDescription": "Imprenditore di tecnologia educativa con dottorato in Educazione Professionale e oltre 20 anni di esperienza nell'apprendimento e sviluppo.",
+    "breadcrumb": {
+      "home": "Home",
+      "aboutFounder": "Chi è il fondatore"
+    }
+  },
+  "community": {
+    "title": "Comunità",
+    "subtitle": "Connettiti con altri educatori",
+    "description": "Unisciti a migliaia di educatori che stanno usando l'IA per trasformare la loro pratica didattica. Condividi risorse, ottieni supporto e impara dalle esperienze degli altri.",
+    "impact": {
+      "badge": "Impatto Comunitario Globale",
+      "title": "Fare la Differenza",
+      "desc": "Vedi come la nostra comunità globale di educatori sta trasformando le aule e risparmiando tempo prezioso",
+      "teachers": "Insegnanti Attivi",
+      "resources": "Risorse Condivise",
+      "downloads": "Download Totali",
+      "rating": "Valutazione Media",
+      "countries": "Paesi",
+      "time_saved": "Tempo Risparmiato"
+    },
+    "contributors": {
+      "badge": "Spotlight Comunitario",
+      "title": "Top Contributori",
+      "desc": "Incontra gli incredibili educatori che guidano la nostra comunità e ispirano migliaia di insegnanti in tutto il mondo"
+    },
+    "cta": {
+      "title": "Pronto a Trasformare il Tuo Insegnamento?",
+      "desc": "Unisciti a migliaia di educatori che stanno già usando l'IA per risparmiare tempo, migliorare la comunicazione e arricchire l'apprendimento degli studenti.",
+      "primary": "Inizia Oggi",
+      "secondary": "Vedi Risorse"
+    },
+    "stats": {
+      "teachers": "Insegnanti Attivi",
+      "resources": "Risorse Condivise",
+      "success_stories": "Storie di Successo"
+    }
+  },
+  "home": {
+    "pricing_banner_title": "Piani semplici per ogni classe",
+    "pricing_banner_copy": "Ogni insegnante merita di recuperare tempo. Scegli il piano adatto alle tue esigenze.",
+    "pricing_primary_cta": "Prova gratuita",
+    "pricing_secondary_cta": "Vedi i piani",
+    "zaza_pass_microcopy": "Annuale ti fa risparmiare ~2 mesi vs. mensile.",
+    "problem_heading": "Gli insegnanti sono sopraffatti.",
+    "problem_body": "Le email dei genitori si accumulano. Le relazioni si trascinano nel fine settimana. Il lavoro non finisce mai - e il tuo tempo con la famiglia continua a diminuire. Non sei diventato insegnante per passare le notti incollato alla tua casella di posta.",
+    "solution_heading": "Come può Promptly aiutare davvero?",
+    "solution_card1_title": "Scrittore di messaggi intelligente",
+    "solution_card1_desc": "Bozza risposte professionali istantaneamente - niente pensieri eccessivi, niente minuti sprecati.",
+    "solution_card2_title": "Riscrivi con il tono giusto",
+    "solution_card2_desc": "Scegli voce di supporto, ferma o neutrale per ogni situazione.",
+    "solution_card3_title": "Traduci istantaneamente",
+    "solution_card3_desc": "Rispondi ai genitori nella loro lingua preferita con un clic.",
+    "outcomes_heading": "Vedi la differenza ogni settimana.",
+    "outcomes_item1": "Risparmia 2-3 ore di tempo amministrativo ogni settimana",
+    "outcomes_item2": "Basta sensi di colpa notturni per messaggi incompiuti",
+    "outcomes_item3": "Fiducia in ogni risposta - anche quelle difficili",
+    "testimonials_heading": "Fiducia degli insegnanti che valorizzano il loro tempo",
+    "testimonials_1_quote": "Promptly ha dimezzato il mio tempo di email domenicali.",
+    "testimonials_1_name": "Emma",
+    "testimonials_1_role": "Insegnante di quinta elementare",
+    "testimonials_2_quote": "Risposte che mi richiedevano 30 minuti ora ne richiedono 2. Finalmente chiudo il laptop in orario.",
+    "testimonials_2_name": "James",
+    "testimonials_2_role": "Insegnante di inglese delle superiori",
+    "testimonials_3_quote": "Promptly ha reso la comunicazione con i genitori meno stressante e più professionale.",
+    "testimonials_3_name": "Aisha",
+    "testimonials_3_role": "Scienze scuola media",
+    "compare_heading": "Promptly vs ChatGPT per insegnanti",
+    "compare_subhead": "Entrambi scrivono testo. Solo Promptly comprende l'aula.",
+    "closing_heading": "Immagina pomeriggi domenicali liberi.",
+    "closing_body": "Il tuo lavoro è finito. La tua mente è chiara. E il tuo tempo è di nuovo tuo. Promptly lo rende possibile.",
+    "closing_cta_primary": "Prova Promptly gratis",
+    "closing_cta_secondary": "Vedi i piani",
+    "closing_tagline": "Unisciti a migliaia di insegnanti che hanno già recuperato il loro tempo"
+  },
+  "footer": {
+    "products": "Prodotti",
+    "resources": "Risorse", 
+    "company": "Azienda",
+    "blog": "Blog",
+    "freeResources": "Risorse gratuite",
+    "faqs": "Domande frequenti",
+    "support": "Supporto",
+    "contact": "Contatto",
+    "aboutFounder": "Chi è il fondatore",
+    "visionMission": "Visione e missione",
+    "productList": "Lista prodotti Zaza",
+    "featureRequest": "Richiesta funzionalità",
+    "privacy": "Politica sulla privacy e sui dati",
+    "terms": "Termini di servizio",
+    "comingSoon": "Prossimamente",
+    "copyright": "© 2025 Zaza Technologies UG (haftungsbeschränkt). Tutti i diritti riservati.",
+    "tagline": "Creato con 💙 da insegnanti, per insegnanti."
+  }
+}

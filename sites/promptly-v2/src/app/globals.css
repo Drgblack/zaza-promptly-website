@@ -1,0 +1,469 @@
+@import "tailwindcss";
+@import "../styles/blog-animations.css";
+
+/* Pricing page animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.42s ease-out forwards;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* CACHE BUST: Footer address must show Düsseldorf, Deutschland - 2025-09-15 06:00 */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-white;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+}
+
+/* Netflix-style animations and effects */
+@layer utilities {
+  /* Smooth scrolling for horizontal scroll containers */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Advanced hover animations */
+  .netflix-card-hover {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .netflix-card-hover:hover {
+    transform: scale(1.05) translateY(-8px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Sophisticated fade-in animation */
+  @keyframes netflix-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .netflix-fade-in {
+    animation: netflix-fade-in 0.6s ease-out;
+  }
+
+  /* Fix unreadable <select> options */
+  select, select option {
+    color: rgb(15 23 42);           /* slate-900 */
+    background-color: #fff;
+  }
+  @media (prefers-color-scheme: dark) {
+    select, select option {
+      color: rgb(241 245 249);      /* slate-100 */
+      background-color: rgb(2 6 23);/* slate-950-ish */
+    }
+  }
+
+  /* Staggered animation for grid items */
+  .netflix-stagger-1 { animation-delay: 0.1s; }
+  .netflix-stagger-2 { animation-delay: 0.2s; }
+  .netflix-stagger-3 { animation-delay: 0.3s; }
+  .netflix-stagger-4 { animation-delay: 0.4s; }
+  .netflix-stagger-5 { animation-delay: 0.5s; }
+  .netflix-stagger-6 { animation-delay: 0.6s; }
+
+  /* Hard wrap long URLs/words inside preview boxes just in case */
+  .snippet-prewrap {
+    white-space: pre-wrap;      /* preserve spaces/newlines */
+    word-break: break-word;     /* break long tokens */
+    overflow-wrap: anywhere;    /* modern fallback */
+  }
+
+  /* Smooth image loading */
+  @keyframes netflix-image-load {
+    from {
+      opacity: 0;
+      filter: blur(8px);
+    }
+    to {
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+
+  .netflix-image-load {
+    animation: netflix-image-load 0.8s ease-out;
+  }
+
+  /* Pulse animation for loading states */
+  @keyframes netflix-pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  .netflix-pulse {
+    animation: netflix-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Shimmer effect for loading cards */
+  @keyframes netflix-shimmer {
+    0% {
+      background-position: -468px 0;
+    }
+    100% {
+      background-position: 468px 0;
+    }
+  }
+
+  .netflix-shimmer {
+    background: linear-gradient(90deg, #1a1a1a 25%, #2d2d2d 50%, #1a1a1a 75%);
+    background-size: 400% 100%;
+    animation: netflix-shimmer 1.2s ease-in-out infinite;
+  }
+
+  /* Sophisticated button hover */
+  .netflix-button-hover {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .netflix-button-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .netflix-button-hover:hover::before {
+    left: 100%;
+  }
+
+  /* Text reveal animation */
+  @keyframes netflix-text-reveal {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .netflix-text-reveal {
+    animation: netflix-text-reveal 0.4s ease-out;
+  }
+
+  /* Scroll-triggered fade in */
+  .scroll-fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .scroll-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Enhanced focus states for accessibility */
+  .netflix-focus:focus-visible {
+    outline: 2px solid #e50914;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Smooth transitions for all interactive elements */
+  .netflix-smooth {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Advanced backdrop blur */
+  .netflix-backdrop {
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+  }
+
+  /* Line clamp utilities for consistent text truncation */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  /* CRO Animation Classes */
+  @keyframes slide-down {
+    from {
+      transform: translateY(-100%) translateX(-50%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0) translateX(-50%);
+      opacity: 1;
+    }
+  }
+
+  @keyframes scale-up {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-down {
+    animation: slide-down 0.3s ease-out;
+  }
+
+  .animate-scale-up {
+    animation: scale-up 0.3s ease-out;
+  }
+}
+
+/* ---- BLOG PROSE STYLING (REPLACES @tailwindcss/typography) ------------- */
+
+.prose-blog {
+  color: rgb(24 24 27); /* zinc-900 */
+  line-height: 1.6;
+}
+
+.prose-blog h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  scroll-margin-top: 6rem;
+}
+
+.prose-blog h2 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  scroll-margin-top: 6rem;
+}
+
+.prose-blog h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  scroll-margin-top: 6rem;
+}
+
+.prose-blog p {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.7;
+}
+
+.prose-blog ul, .prose-blog ol {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.prose-blog ul {
+  list-style-type: disc;
+}
+
+.prose-blog ol {
+  list-style-type: decimal;
+}
+
+.prose-blog li {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-blog blockquote {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+  border-left: 4px solid #d1d5db;
+  font-style: italic;
+  color: rgb(75 85 99); /* gray-600 */
+}
+
+.prose-blog table {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.prose-blog th, .prose-blog td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+.prose-blog th {
+  background-color: #f9fafb;
+  font-weight: 600;
+}
+
+/* ---- BLOG READABILITY GUARD (LIGHT MODE) ------------------------------- */
+
+/* If anything inside prose uses text-white, force it back to a dark readable color */
+.prose-blog :where(.text-white, [style*="color:white"], [style*="color: #fff"], [style*="color:#fff"]) {
+  color: rgb(24 24 27) !important;
+}
+
+/* Inline code: light background + dark text (readable on white) */
+.prose-blog code:not(pre code) {
+  background: #f6f7f8;
+  color: #111827;
+  padding: .2rem .35rem;
+  border-radius: .35rem;
+  font-size: 0.875rem;
+}
+
+/* Code blocks: make sure text and bg have contrast */
+.prose-blog pre {
+  background: #0b0e14;     /* dark slate */
+  color: #f3f4f6;          /* off-white text */
+  border-radius: .5rem;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.prose-blog pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* Links readable in light theme */
+.prose-blog a { 
+  color: #6e38ff; 
+  text-decoration: underline;
+}
+.prose-blog a:hover { 
+  color: #592dce; 
+}
+
+/* Strong and emphasis */
+.prose-blog strong {
+  font-weight: 600;
+}
+
+.prose-blog em {
+  font-style: italic;
+}
+
+/* Force rebuild timestamp: 15 Sep 2025 07:07:13 */

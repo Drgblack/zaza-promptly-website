@@ -1,0 +1,17 @@
+[
+  {
+    "content": "**Zaza Promptly Pricing:**\n\n• **Free:** 5 messages/day with Zara assistant\n• **Pro Plan:** €149/year (€12.40/month) - Unlimited messages, full Promptly access, batch exports, priority support\n• **Starter Plan:** €99/year (€8.25/month) - Comment Coach, Report Bank, Plan templates\n\n**Risk-free:** 30-day money-back guarantee on all plans. Cancel anytime, no questions asked.",
+    "priority": 1.0,
+    "source": "pricing"
+  },
+  {
+    "content": "**Free Trial:** You can try Promptly free for 30 days with full Pro features. No credit card required to start.\n\nAfter trial, choose:\n• Starter (€99/year) - Core tools\n• Pro (€149/year) - Full suite + priority support\n\nAll plans include: EU data protection, no student data stored, secure payments via Stripe.",
+    "priority": 0.9,
+    "source": "pricing"
+  },
+  {
+    "content": "**Annual vs Monthly:** Annual plans save 15% compared to monthly billing. Annual Pro = €149/year vs €17/month. Annual Starter = €99/year vs €12/month.\n\nBoth include the same features, just different billing cycles.",
+    "priority": 0.8,
+    "source": "pricing"
+  }
+]
