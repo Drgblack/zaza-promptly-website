@@ -235,12 +235,13 @@ export async function generateSlots(parsed: ParsedData): Promise<SlotOutput> {
     `I'm pleased to share some positive news about ${name}.` : 
     openers[0]; // Always use first for consistency
   
+  // Special handling for lateness + homework combination (used in multiple places)
+  const hasLateness = concerns.includes('lateness');
+  const hasHomework = concerns.includes('missing_homework');
+  
   // Build observation based on concerns and examples
   let observation = '';
   if (concerns.length > 0) {
-    // Special handling for lateness + homework combination
-    const hasLateness = concerns.includes('lateness');
-    const hasHomework = concerns.includes('missing_homework');
     
     if (hasLateness && hasHomework) {
       observation = `${pronouns.subj.charAt(0).toUpperCase() + pronouns.subj.slice(1)} has been arriving late to class, and some homework has been incomplete. This affects settling-in time and the chance to hear the first instructions.`;
@@ -272,10 +273,9 @@ export async function generateSlots(parsed: ParsedData): Promise<SlotOutput> {
           additionalDetail = ` For example, ${pronouns.subj} ${examples[0]}.`;
         }
         
-        // Add more specific timing/context details to reach word count
-        const timeContext = getTimeContext(concerns[0]);
-        observation = `${concernDesc}.${additionalDetail} ${impact} ${timeContext}`;
-      }
+      // Add more specific timing/context details to reach word count
+      const timeContext = getTimeContext(concerns[0]);
+      observation = `${concernDesc}.${additionalDetail} ${impact} ${timeContext}`;
     }
   } else {
     observation = `${pronouns.subj.charAt(0).toUpperCase() + pronouns.subj.slice(1)} demonstrated excellent engagement and positive contributions to our classroom community. ${pronouns.possAdj.charAt(0).toUpperCase() + pronouns.possAdj.slice(1)} enthusiasm and effort have been noticed by both peers and staff.`;
