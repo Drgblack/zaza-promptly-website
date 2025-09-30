@@ -227,6 +227,17 @@ export function fixPronounAgreement(text: string, p: PronounSet): string {
         return `${pronoun} ${plural}`;
       });
     });
+    
+    // Fix "they [verb]s" → "they [verb]" (remove third person singular -s)
+    fixed = fixed.replace(/\bthey ([a-z]+)s\b/gi, (match, verb) => {
+      const cap = match[0] === match[0].toUpperCase();
+      const pronoun = cap ? 'They' : 'they';
+      // Special cases: has → have, does → do, is → are
+      if (verb.toLowerCase() === 'ha') return `${pronoun} have`;
+      if (verb.toLowerCase() === 'doe') return `${pronoun} do`;
+      if (verb.toLowerCase() === 'i') return `${pronoun} are`;
+      return `${pronoun} ${verb}`;
+    });
   }
   
   return fixed;
@@ -236,16 +247,13 @@ export function fixPronounAgreement(text: string, p: PronounSet): string {
 export function fixSentenceSeams(text: string): string {
   let fixed = text;
   
-  // Fix capitalization after periods
-  fixed = fixed.replace(/(\.\s+)([a-z])/g, (match, punct, letter) => 
+  // Fix capitalization after periods (but not after paragraph breaks)
+  fixed = fixed.replace(/(\.\s+)([a-z])(?!\n)/g, (match, punct, letter) => 
     punct + letter.toUpperCase()
   );
   
-  // Ensure sentences end with punctuation (but preserve paragraph breaks)
+  // Ensure paragraphs end with punctuation (but preserve paragraph structure)
   fixed = fixed.replace(/([^.!?\n])\s*\n\n/g, '$1.\n\n');
-  
-  // Remove single line breaks within paragraphs (but preserve double breaks)
-  fixed = fixed.replace(/([^.\n])\n([a-z])/g, '$1 $2');
   
   // Normalize paragraph spacing (exactly two newlines)
   fixed = fixed.replace(/\n{3,}/g, '\n\n');

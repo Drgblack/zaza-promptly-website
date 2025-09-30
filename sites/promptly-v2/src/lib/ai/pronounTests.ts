@@ -17,34 +17,34 @@ export const PRONOUN_TESTS: PronounTestCase[] = [
   {
     id: 'GT-PRONOUN-001',
     name: 'Sandra - She/Her Consistency',
-    input: 'Sandra has been late to class and disrupted other students. She needs support with focus.',
+    input: 'Sandra is naughty in class and bad at maths and is lazy and late for school and does not do homework.',
     expectedPronouns: 'she',
     mustNotContain: ['he', 'him', 'his', 'they', 'them', 'their'],
     description: 'Sandra (she) uses only she/her/hers throughout - no mixed pronouns'
   },
   {
     id: 'GT-PRONOUN-002', 
-    name: 'Marcus - He/Him Consistency',
-    input: 'Marcus forgot his homework again. He seems tired and unfocused during lessons.',
+    name: 'John - He/Him Consistency',
+    input: 'John helps others but forgets homework.',
     expectedPronouns: 'he',
     mustNotContain: ['she', 'her', 'hers', 'they', 'them', 'their'],
-    description: 'Marcus (he) uses only he/him/his throughout - no mixed pronouns'
+    description: 'John (he) uses only he/him/his throughout - no mixed pronouns'
   },
   {
     id: 'GT-PRONOUN-003',
     name: 'Alex - They/Them Consistency', 
-    input: 'Alex has been excellent this week. They helped peers and completed all work.',
+    input: 'Alex talks with friends during lessons and misses instructions.',
     expectedPronouns: 'they',
     mustNotContain: ['he', 'him', 'his', 'she', 'her', 'hers'],
     description: 'Alex (they) uses only they/them/their throughout - no mixed pronouns'
   },
   {
     id: 'GT-PRONOUN-004',
-    name: 'Jamie - Auto-Inference Edge Case',
-    input: 'Jamie threw items during group work and used inappropriate language.',
-    expectedPronouns: 'they', // Unisex name should default to they
-    mustNotContain: ['he', 'him', 'his', 'she', 'her', 'hers'],
-    description: 'Jamie (unisex name) defaults to they/them/their - no singular pronouns'
+    name: 'Johnny - Auto-Inference',
+    input: 'Johnny is late and sometimes forgets homework.',
+    expectedPronouns: 'he', // Johnny should resolve to he via CSV
+    mustNotContain: ['she', 'her', 'hers', 'they', 'them', 'their'],
+    description: 'Johnny (auto) resolves to he/him/his via knowledge/data/first-names-en-de.csv'
   }
 ];
 

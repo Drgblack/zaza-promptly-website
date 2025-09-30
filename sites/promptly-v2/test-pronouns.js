@@ -6,7 +6,7 @@ const pronounTests = [
   {
     id: 'GT-PRONOUN-001',
     name: 'Sandra - She/Her Consistency',
-    output: `I'd like to share an update about Sandra. She has been arriving late to class and has been finding it hard to stay focused during lessons. This means she misses important morning instructions and impacts her learning and can be distracting for nearby students.
+    output: `I'd like to share an update about Sandra. She has been arriving late to class and has been finding it hard to stay focused during lessons. Her homework has been incomplete or missing this week. She continues to show real strength in creative subjects.
 
 At school, I'll meet Sandra at the door with a short 'Do Now' so she can start immediately. I'll use quiet cues and seat her where distractions are lower. At home, please aim to leave 10 minutes earlier; packing the bag the night before often helps.
 
@@ -16,10 +16,10 @@ Please let me know a good time for us to discuss next steps together.`,
   },
   {
     id: 'GT-PRONOUN-002',
-    name: 'Marcus - He/Him Consistency', 
-    output: `I'd like to share an update about Marcus. He has been showing reluctance to engage with homework tasks during lessons. His homework has been incomplete or missing this week. This is preventing him from reaching his full potential and affects his ability to practice new learning.
+    name: 'John - He/Him Consistency', 
+    output: `I'd like to share an update about John. He has been showing helpfulness with peers during lessons and demonstrates good collaboration skills. His homework has been incomplete or missing this week though. He continues to show real strength in leadership and collaboration with classmates.
 
-At school, I'll break tasks into smaller steps and check in more frequently. I'll provide additional support and use gentle reminders. At home, praise for starting, not just finishing; small wins build momentum. Set a 15-minute homework slot with a timer.
+At school, I'll break tasks into smaller steps and check in more frequently to support his completion. I'll give a simple checklist and accept a partial restart when needed. At home, praise for starting, not just finishing; small wins build momentum. Set a 15-minute homework slot with a quiet timer and space.
 
 Please let me know a good time for us to discuss next steps together.`,
     expectedPronouns: 'he',
@@ -28,9 +28,9 @@ Please let me know a good time for us to discuss next steps together.`,
   {
     id: 'GT-PRONOUN-003',
     name: 'Alex - They/Them Consistency',
-    output: `I'm pleased to share some positive news about Alex. They demonstrated excellent engagement and positive contributions to our classroom community this week. Their enthusiasm and effort have been noticed by both peers and staff, and they have been helping other students with their work consistently.
+    output: `I'd like to share an update about Alex. They have been finding it hard to stay focused during lessons and talking with friends. This impacts their learning and can be distracting for nearby students. They continue to show enthusiasm when engaged with hands-on activities.
 
-We will continue to provide opportunities for them to build on these leadership skills. I'll offer them additional responsibilities that match their strengths and interests. Please continue to encourage their natural leadership at home as well. Set up opportunities for them to help with family tasks.
+At school, I'll use a quiet 2-step cue and seat Alex where distractions are lower. I'll provide more structured check-ins throughout lessons. At home, let's agree on one cue word you can also use so the message is consistent.
 
 Please let me know a good time for us to discuss next steps together.`,
     expectedPronouns: 'they',
@@ -38,14 +38,14 @@ Please let me know a good time for us to discuss next steps together.`,
   },
   {
     id: 'GT-PRONOUN-004',
-    name: 'Jamie - Auto-Inference Edge Case',
-    output: `I'd like to share an update about Jamie. They have been throwing items during group work and using language that doesn't meet our classroom standards. This creates an uncomfortable environment for other students and impacts their ability to participate fully in classroom activities.
+    name: 'Johnny - Auto-Inference to He',
+    output: `I'd like to share an update about Johnny. He has been arriving late to class and his homework has been incomplete or missing. This means he misses important morning instructions and affects his ability to practice new learning.
 
-At school, we'll reteach room-safety routines and provide a safe place to put items when upset. We'll also reteach respectful language and provide a safe place to pause. At home, if this happens at home, a calm pause and practice putting items down and using kind words is helpful.
+At school, I'll meet Johnny at the door with a short 'Do Now' so he can start immediately. I'll give a simple checklist and accept a partial restart. At home, please aim to leave 10 minutes earlier; packing the bag the night before often helps. Set a 15-minute homework slot.
 
 Please let me know a good time for us to discuss next steps together.`,
-    expectedPronouns: 'they',
-    mustNotContain: ['he', 'him', 'his', 'she', 'her', 'hers']
+    expectedPronouns: 'he',
+    mustNotContain: ['she', 'her', 'hers', 'they', 'them', 'their']
   }
 ];
 

@@ -21,7 +21,7 @@ export interface Strategy {
 
 export const STRATEGY_BANK: Record<ConcernType, Strategy> = {
   lateness: {
-    school: "I'll meet {name} at the door with a short 'Do Now' so {pro.subj} can start immediately.",
+    school: "I'll meet {name} at the door with a short 'Do Now' so {they} can start immediately.",
     home: "Please aim to leave 10 minutes earlier; packing the bag the night before often helps."
   },
   missing_homework: {
@@ -29,11 +29,11 @@ export const STRATEGY_BANK: Record<ConcernType, Strategy> = {
     home: "Set a 15-minute homework slot; a timer and quiet space make it easier."
   },
   focus_disruption: {
-    school: "I'll use a quiet 2-step cue and seat {name} where distractions are lower.",
+    school: "I'll use a quiet two-step cue and seat {name} where distractions are lower.",
     home: "Let's agree on one cue word you can also use so the message is consistent."
   },
   tired_sleepy: {
-    school: "I'll offer a water break and short stretch at the start.",
+    school: "I'll offer a water break and a short stretch at the start.",
     home: "A steady bedtime and a quick breakfast or snack usually improves focus."
   },
   rude_language: {
@@ -41,8 +41,8 @@ export const STRATEGY_BANK: Record<ConcernType, Strategy> = {
     home: "If this happens at home, a calm pause + practice using kind words is helpful."
   },
   low_effort: {
-    school: "I'll break tasks into smaller steps and check in more frequently.",
-    home: "Praise for starting, not just finishing; small wins build momentum."
+    school: "I'll break tasks into smaller steps and praise the first minute of effort.",
+    home: "Please encourage a short 'first minute' start at home; celebrate starting, not just finishing."
   },
   absence: {
     school: "I'll provide catch-up materials and pair {name} with a study buddy.",
@@ -53,8 +53,8 @@ export const STRATEGY_BANK: Record<ConcernType, Strategy> = {
     home: "Set up a quiet homework space with supplies ready; remove distractions."
   },
   unprepared: {
-    school: "I'll do a morning check-in and keep backup supplies available.",
-    home: "Try an evening pack-up routine with a visual checklist by the door."
+    school: "We'll keep a spare set of basics at school and review the day's essentials each morning.",
+    home: "Packing the night before and placing the bag by the door helps {name} arrive ready."
   },
   off_task: {
     school: "I'll give clear 2-step expectations and use gentle redirect signals.",
@@ -62,11 +62,11 @@ export const STRATEGY_BANK: Record<ConcernType, Strategy> = {
   },
   throwing_items: {
     school: "We'll reteach room-safety routines and provide a safe place to put items when upset.",
-    home: "If this happens at home, a calm pause + practice putting the item down is helpful."
+    home: "If this happens at home, a calm pause and practising putting the item down is helpful."
   },
   clarify_needed: {
     school: "I'll observe more closely and note specific patterns to understand better.",
-    home: "Please share any changes you've noticed at home that might help {pro.obj}."
+    home: "Please share any changes you've noticed at home that might help us."
   }
 };
 
@@ -177,6 +177,59 @@ export function extractPositives(text: string): string[] {
   );
 }
 
+// Padding sentences for word count fallback (pronoun-safe)
+export const PADDING_SENTENCES = {
+  partnership: [
+    "I'm available to talk through next steps at a time that works for you.",
+    "I appreciate your support and partnership as we help build steady routines.",
+    "Please let me know a good time to check in together this week.",
+    "I'm happy to share updates and adjust the plan based on what you notice at home."
+  ],
+  monitoring: [
+    "I'll keep you updated on progress and what seems to help most.",
+    "We'll review how this plan is working and make small changes if needed.",
+    "I'll touch base again after a few lessons to share how it's going."
+  ],
+  consistency: [
+    "Keeping the same routine at home and school usually makes the plan easier.",
+    "Using the same language at home and in class helps messages feel clear and calm."
+  ],
+  encouragement: [
+    "I value the effort being shown and want to build on every small step forward.",
+    "Thank you for your continued support—it makes a real difference."
+  ]
+};
+
+// Pick appropriate padding sentence based on note content and intent
+export function pickPaddingSentence(text: string, usedSentences: string[] = []): string {
+  const lowerText = text.toLowerCase();
+  
+  // Determine intent based on content
+  let category: keyof typeof PADDING_SENTENCES;
+  
+  if (lowerText.includes('discuss') || lowerText.includes('time') || lowerText.includes('talk')) {
+    category = 'partnership';
+  } else if (lowerText.includes('school') && lowerText.includes('home')) {
+    category = 'monitoring';
+  } else if (lowerText.includes('cue') || lowerText.includes('routine') || lowerText.includes('consistent')) {
+    category = 'consistency';
+  } else {
+    category = 'encouragement';
+  }
+  
+  // Filter out already used sentences
+  const available = PADDING_SENTENCES[category].filter(sentence => !usedSentences.includes(sentence));
+  
+  // If all sentences in category are used, try other categories
+  if (available.length === 0) {
+    const allSentences = Object.values(PADDING_SENTENCES).flat();
+    const stillAvailable = allSentences.filter(sentence => !usedSentences.includes(sentence));
+    return stillAvailable[0] || PADDING_SENTENCES.partnership[0]; // fallback
+  }
+  
+  return available[0];
+}
+
 // Determine severity based on concerns and language intensity
 export function determineSeverity(concerns: ConcernType[], text: string): 'low' | 'med' | 'high' {
   const lowerText = text.toLowerCase();
@@ -207,15 +260,10 @@ export function formatStrategy(strategy: Strategy, name: string, pronouns: { sub
   const formatText = (text: string) => {
     return text
       .replace(/{name}/g, name)
-      .replace(/{pro\.subj}/g, pronouns.subj)
-      .replace(/{pro\.obj}/g, pronouns.obj)
-      .replace(/{pro\.poss}/g, pronouns.possAdj)
-      .replace(/{subj}/g, pronouns.subj)
-      .replace(/{obj}/g, pronouns.obj)
-      .replace(/{possAdj}/g, pronouns.possAdj)
-      .replace(/\bthey\b/gi, pronouns.subj)
-      .replace(/\btheir\b/gi, pronouns.possAdj)
-      .replace(/\bthem\b/gi, pronouns.obj);
+      // Handle KB format placeholders
+      .replace(/{they}/g, pronouns.subj)
+      .replace(/{them}/g, pronouns.obj)
+      .replace(/{their}/g, pronouns.possAdj);
   };
 
   return {
