@@ -1,0 +1,17 @@
+[
+  {
+    "content": "**About Zaza Promptly:**\n\nPromptly is an AI-powered assistant designed specifically for teachers. Created by educators, for educators, it helps you:\n\n• Write better parent communications in minutes\n• Generate personalized student feedback\n• Save 3-5 hours per week on admin tasks\n• Maintain professional tone across all communications\n• Support multilingual families with instant translation",
+    "priority": 1.0,
+    "source": "general"
+  },
+  {
+    "content": "**Who We Help:**\n\n• **Primary Teachers:** Early years through elementary\n• **Secondary Teachers:** Middle and high school educators\n• **Special Education:** SEND coordinators and specialists\n• **International Schools:** Multi-language support\n• **School Leaders:** Administrators and coordinators\n\nUsed by 10,000+ teachers across 50+ countries.",
+    "priority": 0.8,
+    "source": "general"
+  },
+  {
+    "content": "**Quick Start Guide:**\n\n1. **Sign up:** Create free account at zazapromptly.com\n2. **Choose plan:** Start with free trial or pick annual plan\n3. **Import students:** Upload class roster (optional)\n4. **Start writing:** Use Comment Coach or Email Assistant\n5. **Export results:** Download to Word/PDF or copy to clipboard",
+    "priority": 0.7,
+    "source": "general"
+  }
+]

@@ -1,0 +1,49 @@
+import type { ReactNode } from 'react';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+import { Header } from '@/components/site/header';
+import { Footer } from '@/components/site/footer';
+import { ZaraRouteIntegration } from '@/components/zara/ZaraRouteIntegration';
+import { SkipNavigation } from '@/components/accessibility/skip-navigation';
+import { Inter } from 'next/font/google';
+import { notFound } from 'next/navigation';
+import { locales } from '@/i18n';
+import '../globals.css';
+
+const inter = Inter({ subsets: ["latin"] });
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
+export default async function LocaleLayout({
+  children, params: { locale }
+}: { children: ReactNode; params: { locale: string } }) {
+  if (!locales.includes(locale as any)) {
+    notFound();
+  }
+
+  const messages = await getMessages();
+  return (
+    <html lang={locale}>
+      <head><meta charSet="utf-8" /></head>
+      <body className={inter.className}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <SkipNavigation />
+          <Header />
+          <main id="main-content" tabIndex={-1} className="focus:outline-none">
+            {children}
+          </main>
+          <Footer />
+          {process.env.NEXT_PUBLIC_SHOW_ZARA === '1' && <ZaraRouteIntegration />}
+          
+          {/* Build stamp for QA */}
+          <div data-build-stamp className="text-xs text-gray-500/70 text-center py-6">
+            {process.env.VERCEL_ENV ?? 'local'} · {process.env.VERCEL_GIT_COMMIT_REF ?? 'dev'} · Build:{' '}
+            {process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) ?? 'local'}
+          </div>
+        </NextIntlClientProvider>
+      </body>
+    </html>
+  );
+}
