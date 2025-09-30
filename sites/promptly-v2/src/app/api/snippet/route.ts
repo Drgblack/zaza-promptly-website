@@ -139,14 +139,19 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const userIP = getClientIP(req);
     
-    // Check generation limit
-    const genLimit = checkLimit(`gen:${userIP}`, DAILY_FREE_GEN);
-    if (genLimit.limited) {
-      return NextResponse.json({ 
-        limited: true, 
-        message: "Daily generation limit reached. Start a free trial for unlimited access.",
-        remaining: 0
-      }, { status: 429 });
+    // QA bypass for testing
+    const qaBypass = process.env.NEXT_PUBLIC_QA_BYPASS_SNIPPET_LIMIT === '1';
+    
+    // Check generation limit (skip if QA bypass is enabled)
+    if (!qaBypass) {
+      const genLimit = checkLimit(`gen:${userIP}`, DAILY_FREE_GEN);
+      if (genLimit.limited) {
+        return NextResponse.json({ 
+          limited: true, 
+          message: "Daily generation limit reached. Start a free trial for unlimited access.",
+          remaining: 0
+        }, { status: 429 });
+      }
     }
 
     const userPrompt = buildUserPrompt(body);

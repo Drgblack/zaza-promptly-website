@@ -113,7 +113,11 @@ export default function TrySnippet() {
   };
 
   const handleGenerate = async (type: 'generate' | 'improve' | 'variation' = 'generate') => {
-    if (generation.remaining <= 0) {
+    // QA bypass for testing
+    const qaBypass = process.env.NEXT_PUBLIC_QA_BYPASS_SNIPPET_LIMIT === '1';
+    const urlBypass = typeof window !== 'undefined' && window.location.search.includes('qa=1') && qaBypass;
+    
+    if (!qaBypass && !urlBypass && generation.remaining <= 0) {
       setShowLimitModal(true);
       return;
     }

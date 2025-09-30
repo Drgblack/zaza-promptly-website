@@ -3,6 +3,29 @@ import { z } from 'zod';
 import type { PronounSet } from '@/lib/text/pronouns';
 import { enforcePronouns, extractStudentName, inferPronouns } from '@/lib/text/pronouns';
 import { extractConcerns, extractPositives, determineSeverity, getStrategy, formatStrategy, pickPaddingSentence, type ConcernType } from '@/lib/strategies';
+
+// Pronoun resolution: explicit choice beats auto-inference
+type Pronoun = 'he' | 'she' | 'they';
+function resolvePronoun({toggle, name}: {toggle: 'auto' | 'he' | 'she' | 'they', name?: string}): Pronoun {
+  if (toggle === 'he' || toggle === 'she' || toggle === 'they') return toggle;     // explicit > auto ✔
+  // auto path only:
+  const inferred = inferFromCsv(name); // returns 'he'|'she'|undefined
+  return inferred ?? 'they';
+}
+
+function inferFromCsv(name?: string): 'he' | 'she' | undefined {
+  if (!name) return undefined;
+  
+  // Simple name-to-gender mapping based on common names
+  const maleNames = ['john', 'johnny', 'jack', 'liam', 'noah', 'michael', 'benjamin', 'james', 'joseph', 'charles', 'matthew', 'andrew', 'lucas', 'daniel', 'henry', 'william', 'oliver'];
+  const femaleNames = ['sandra', 'emma', 'olivia', 'ava', 'sophia', 'isabella', 'amelia', 'mia', 'charlotte', 'abigail', 'emily', 'hannah', 'elizabeth', 'katherine', 'lilly', 'kate', 'abby', 'sarah', 'beth', 'liza'];
+  
+  const lowerName = name.toLowerCase().trim();
+  
+  if (maleNames.includes(lowerName)) return 'he';
+  if (femaleNames.includes(lowerName)) return 'she';
+  return undefined;
+}
 import { qualityGate, fixPronounAgreement, fixSentenceSeams } from '@/lib/quality/qualityGate';
 
 // Parse results (deterministic first, model second)
@@ -49,7 +72,7 @@ const SlotOutputSchema = z.object({
 // Stage A: Deterministic parsing  
 export function parsePromptlyInput(
   roughNote: string, 
-  pronouns?: PronounSet, 
+  toggle: 'auto' | 'he' | 'she' | 'they' = 'auto',
   preset?: 'behaviour' | 'praise' | 'missing' | 'attendance'
 ): ParsedData {
   // Sanitize input first
@@ -59,8 +82,13 @@ export function parsePromptlyInput(
   const extractedName = extractStudentName(sanitized);
   const name = extractedName || "your child";
   
-  // Use provided pronouns or infer from name
-  const finalPronouns = pronouns || inferPronouns(extractedName, 'auto');
+  // Resolve pronouns using explicit override logic
+  const resolvedPronoun = resolvePronoun({toggle, name: extractedName});
+  const finalPronouns: PronounSet = {
+    subj: resolvedPronoun,
+    obj: resolvedPronoun === 'he' ? 'him' : resolvedPronoun === 'she' ? 'her' : 'them',
+    possAdj: resolvedPronoun === 'he' ? 'his' : resolvedPronoun === 'she' ? 'her' : 'their'
+  };
   
   // Extract concerns and positives deterministically
   const concerns = extractConcerns(sanitized);
@@ -233,7 +261,7 @@ export async function generateSlots(parsed: ParsedData): Promise<SlotOutput> {
     observation = `${pronouns.subj.charAt(0).toUpperCase() + pronouns.subj.slice(1)} demonstrated excellent engagement and positive contributions to our classroom community. ${pronouns.possAdj.charAt(0).toUpperCase() + pronouns.possAdj.slice(1)} enthusiasm and effort have been noticed by both peers and staff.`;
   }
   
-  // Strength section
+  // Strength section - always include one for concern cases
   const strength = positives.length > 0 ? 
     `${pronouns.subj.charAt(0).toUpperCase() + pronouns.subj.slice(1)} continues to show real strength in ${
       positives.includes('sport') || positives.includes('sports') ? 'physical activities' : 
@@ -242,7 +270,7 @@ export async function generateSlots(parsed: ParsedData): Promise<SlotOutput> {
       positives.includes('led') || positives.includes('leadership') || positives.includes('leading') ? 'leadership and collaboration' :
       'creative subjects'
     }.` : 
-    '';
+    concerns.length > 0 ? `${pronouns.subj.charAt(0).toUpperCase() + pronouns.subj.slice(1)} continues to show effort and engagement in classroom activities.` : '';
   
   // Adjust strategies for praise-only cases
   const isPraiseOnly = concerns.length === 0 && positives.length > 0;
@@ -256,7 +284,7 @@ export async function generateSlots(parsed: ParsedData): Promise<SlotOutput> {
       `At school, ${formattedStrategy.school}`,
     nextStepHome: isPraiseOnly ? 
       `Please continue to encourage ${pronouns.possAdj} natural leadership at home as well.` :
-      `At home, ${formattedStrategy.home}`,
+      `At home, ${formattedStrategy.home.charAt(0).toLowerCase() + formattedStrategy.home.slice(1)}`,
     invite: "Please let me know a good time for us to discuss next steps together."
   };
 }
@@ -415,11 +443,11 @@ export function reviewAndRepair(output: PromptlyOutput): { isValid: boolean; err
 // Main pipeline
 export async function runPromptlyPipeline(
   roughNote: string,
-  pronouns?: PronounSet,
+  toggle: 'auto' | 'he' | 'she' | 'they' = 'auto',
   preset?: 'behaviour' | 'praise' | 'missing' | 'attendance'
 ): Promise<PromptlyOutput> {
   // Stage A: Parse
-  const parsed = parsePromptlyInput(roughNote, pronouns, preset);
+  const parsed = parsePromptlyInput(roughNote, toggle, preset);
   
   // Stage B: Generate slots
   const slots = await generateSlots(parsed);
