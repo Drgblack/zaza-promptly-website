@@ -21,7 +21,7 @@ export interface Strategy {
 
 export const STRATEGY_BANK: Record<ConcernType, Strategy> = {
   lateness: {
-    school: "I'll meet {name} at the door with a short 'Do Now' so they can start immediately.",
+    school: "I'll meet {name} at the door with a short 'Do Now' so {pro.subj} can start immediately.",
     home: "Please aim to leave 10 minutes earlier; packing the bag the night before often helps."
   },
   missing_homework: {
@@ -66,7 +66,7 @@ export const STRATEGY_BANK: Record<ConcernType, Strategy> = {
   },
   clarify_needed: {
     school: "I'll observe more closely and note specific patterns to understand better.",
-    home: "Please share any changes you've noticed at home that might help us."
+    home: "Please share any changes you've noticed at home that might help {pro.obj}."
   }
 };
 
@@ -207,6 +207,9 @@ export function formatStrategy(strategy: Strategy, name: string, pronouns: { sub
   const formatText = (text: string) => {
     return text
       .replace(/{name}/g, name)
+      .replace(/{pro\.subj}/g, pronouns.subj)
+      .replace(/{pro\.obj}/g, pronouns.obj)
+      .replace(/{pro\.poss}/g, pronouns.possAdj)
       .replace(/{subj}/g, pronouns.subj)
       .replace(/{obj}/g, pronouns.obj)
       .replace(/{possAdj}/g, pronouns.possAdj)

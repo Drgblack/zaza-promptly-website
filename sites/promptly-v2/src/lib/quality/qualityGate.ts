@@ -18,6 +18,7 @@ export type GateResult = {
     paragraphs: number;
     actionVerbHits: string[];
     pronounMismatches: string[];
+    mixedPronouns: string[];
     hasDelighted: boolean;
     gradeLevel: number;
   };
@@ -94,6 +95,38 @@ function pronounAgreementIssues(text: string, p: PronounSet): string[] {
   return issues;
 }
 
+// Check for mixed pronouns (post-composition enforcement)
+function checkMixedPronouns(text: string, targetPronoun: PronounSet): string[] {
+  const issues: string[] = [];
+  const lower = text.toLowerCase();
+  
+  // Define all possible pronouns
+  const allPronouns = {
+    he: ['he', 'him', 'his'],
+    she: ['she', 'her', 'hers'],
+    they: ['they', 'them', 'their', 'theirs']
+  };
+  
+  // Get target pronoun type
+  const targetType = targetPronoun.subj === 'he' ? 'he' : 
+                    targetPronoun.subj === 'she' ? 'she' : 'they';
+  
+  // Check for any pronouns that don't match the target
+  Object.entries(allPronouns).forEach(([type, pronouns]) => {
+    if (type !== targetType) {
+      pronouns.forEach(pronoun => {
+        // Use word boundaries to avoid false positives (e.g., "the" containing "he")
+        const regex = new RegExp(`\\b${pronoun}\\b`, 'gi');
+        if (regex.test(text)) {
+          issues.push(`mixed_pronoun_found_${pronoun}`);
+        }
+      });
+    }
+  });
+  
+  return issues;
+}
+
 function hasDelighted(text: string): boolean {
   return /\bdelighted\b/i.test(text);
 }
@@ -117,6 +150,7 @@ export function qualityGate(
   const bannedHits = findBanned(text, banned);
   const actionHits = findActionVerbs(text, verbs);
   const pronounIssues = pronounAgreementIssues(text, pronouns);
+  const mixedPronounIssues = checkMixedPronouns(text, pronouns);
   const delighted = hasDelighted(text);
   const gradeLevel = estimateGradeLevel(text);
 
@@ -127,6 +161,7 @@ export function qualityGate(
   if (bannedHits.length) errors.push(`banned:${bannedHits.join(',')}`);
   if (actionHits.length < 2) errors.push('not_enough_actions');
   if (pronounIssues.length) errors.push(...pronounIssues);
+  if (mixedPronounIssues.length) errors.push(...mixedPronounIssues);
   // if any concern slots were present upstream, block "delighted"
   if (delighted) errors.push('tone_exaggerated_delighted');
   // Check readability: Grade 6-8 range
@@ -140,6 +175,7 @@ export function qualityGate(
       paragraphs: paras.length,
       actionVerbHits: actionHits,
       pronounMismatches: pronounIssues,
+      mixedPronouns: mixedPronounIssues,
       hasDelighted: delighted,
       gradeLevel: Math.round(gradeLevel * 10) / 10 // Round to 1 decimal
     }
