@@ -16,14 +16,23 @@ function resolvePronoun({toggle, name}: {toggle: 'auto' | 'he' | 'she' | 'they',
 function inferFromCsv(name?: string): 'he' | 'she' | undefined {
   if (!name) return undefined;
   
-  // Simple name-to-gender mapping based on common names
+  // Enhanced name normalization
+  const normalized = name
+    .toLowerCase()
+    .trim()
+    .replace(/[^\p{L}\s-]/gu, '') // Remove punctuation/emoji/dots, keep Unicode letters
+    .split(/[\s-]+/)[0] // First token only (handles "Mary-Jane" → "mary")
+    .normalize('NFD') // Decompose accents
+    .replace(/[\u0300-\u036f]/g, ''); // Remove accent marks
+  
+  if (!normalized) return undefined;
+  
+  // Updated name mappings including Mary
   const maleNames = ['john', 'johnny', 'jack', 'liam', 'noah', 'michael', 'benjamin', 'james', 'joseph', 'charles', 'matthew', 'andrew', 'lucas', 'daniel', 'henry', 'william', 'oliver'];
-  const femaleNames = ['sandra', 'emma', 'olivia', 'ava', 'sophia', 'isabella', 'amelia', 'mia', 'charlotte', 'abigail', 'emily', 'hannah', 'elizabeth', 'katherine', 'lilly', 'kate', 'abby', 'sarah', 'beth', 'liza'];
+  const femaleNames = ['sandra', 'mary', 'emma', 'olivia', 'ava', 'sophia', 'isabella', 'amelia', 'mia', 'charlotte', 'abigail', 'emily', 'hannah', 'elizabeth', 'katherine', 'lilly', 'kate', 'abby', 'sarah', 'beth', 'liza'];
   
-  const lowerName = name.toLowerCase().trim();
-  
-  if (maleNames.includes(lowerName)) return 'he';
-  if (femaleNames.includes(lowerName)) return 'she';
+  if (maleNames.includes(normalized)) return 'he';
+  if (femaleNames.includes(normalized)) return 'she';
   return undefined;
 }
 import { qualityGate, fixPronounAgreement, fixSentenceSeams } from '@/lib/quality/qualityGate';
@@ -138,6 +147,8 @@ function sanitizeInput(text: string): string {
     'refuses to work': 'reluctant to engage',
     "won't listen": 'needs reminders',
     "doesn't care": 'not fully engaged',
+    'without excuses': 'without a note from home or the office',
+    'without any excuses': 'without a note from home or the office',
     'terrible': 'concerning',
     'awful': 'challenging',
     'horrible': 'difficult',
@@ -227,36 +238,45 @@ export async function generateSlots(parsed: ParsedData): Promise<SlotOutput> {
   // Build observation based on concerns and examples
   let observation = '';
   if (concerns.length > 0) {
-    const concernDesc = getConcernDescription(concerns[0], pronouns);
-    const impact = getImpactDescription(concerns[0], pronouns);
+    // Special handling for lateness + homework combination
+    const hasLateness = concerns.includes('lateness');
+    const hasHomework = concerns.includes('missing_homework');
     
-    // Add specific examples or additional concerns for richer content
-    let additionalDetail = '';
-    if (concerns.length > 1) {
-      // Build a simpler additional concern description
-      const secondConcern = concerns[1];
-      let secondDesc = '';
-      switch (secondConcern) {
-        case 'missing_homework':
-          secondDesc = `${pronouns.possAdj} homework has often been incomplete`;
-          break;
-        case 'throwing_items':
-          secondDesc = `${pronouns.subj} has thrown items during group work`;
-          break;
-        case 'focus_disruption':
-          secondDesc = `${pronouns.subj} has had difficulty maintaining focus`;
-          break;
-        default:
-          secondDesc = `${pronouns.subj} has also shown other challenging behaviors`;
+    if (hasLateness && hasHomework) {
+      observation = `${pronouns.subj.charAt(0).toUpperCase() + pronouns.subj.slice(1)} has been arriving late to class, and some homework has been incomplete. This affects settling-in time and the chance to hear the first instructions.`;
+    } else {
+      const concernDesc = getConcernDescription(concerns[0], pronouns);
+      const impact = getImpactDescription(concerns[0], pronouns);
+      
+        // Add specific examples or additional concerns for richer content
+        let additionalDetail = '';
+        if (concerns.length > 1) {
+          // Build a simpler additional concern description
+          const secondConcern = concerns[1];
+          let secondDesc = '';
+          switch (secondConcern) {
+            case 'missing_homework':
+              secondDesc = `${pronouns.possAdj} homework has often been incomplete`;
+              break;
+            case 'throwing_items':
+              secondDesc = `${pronouns.subj} has thrown items during group work`;
+              break;
+            case 'focus_disruption':
+              secondDesc = `${pronouns.subj} has had difficulty maintaining focus`;
+              break;
+            default:
+              secondDesc = `${pronouns.subj} has also shown other challenging behaviors`;
+          }
+          additionalDetail = ` ${secondDesc}.`;
+        } else if (examples.length > 0) {
+          additionalDetail = ` For example, ${pronouns.subj} ${examples[0]}.`;
+        }
+        
+        // Add more specific timing/context details to reach word count
+        const timeContext = getTimeContext(concerns[0]);
+        observation = `${concernDesc}.${additionalDetail} ${impact} ${timeContext}`;
       }
-      additionalDetail = ` ${secondDesc}.`;
-    } else if (examples.length > 0) {
-      additionalDetail = ` For example, ${pronouns.subj} ${examples[0]}.`;
     }
-    
-    // Add more specific timing/context details to reach word count
-    const timeContext = getTimeContext(concerns[0]);
-    observation = `${concernDesc}.${additionalDetail} ${impact} ${timeContext}`;
   } else {
     observation = `${pronouns.subj.charAt(0).toUpperCase() + pronouns.subj.slice(1)} demonstrated excellent engagement and positive contributions to our classroom community. ${pronouns.possAdj.charAt(0).toUpperCase() + pronouns.possAdj.slice(1)} enthusiasm and effort have been noticed by both peers and staff.`;
   }
@@ -272,20 +292,31 @@ export async function generateSlots(parsed: ParsedData): Promise<SlotOutput> {
     }.` : 
     concerns.length > 0 ? `${pronouns.subj.charAt(0).toUpperCase() + pronouns.subj.slice(1)} continues to show effort and engagement in classroom activities.` : '';
   
-  // Adjust strategies for praise-only cases
+  // Adjust strategies for praise-only cases and specific combinations
   const isPraiseOnly = concerns.length === 0 && positives.length > 0;
+  const hasLatenessAndHomework = hasLateness && hasHomework;
+  
+  let nextStepSchool: string;
+  let nextStepHome: string;
+  
+  if (isPraiseOnly) {
+    nextStepSchool = `We will continue to provide opportunities for ${pronouns.obj} to build on these leadership skills.`;
+    nextStepHome = `Please continue to encourage ${pronouns.possAdj} natural leadership at home as well.`;
+  } else if (hasLatenessAndHomework) {
+    nextStepSchool = `At school, I'll meet ${name} at the door and have a one-minute "Do Now" ready so ${pronouns.subj} can start immediately. I'll also prompt ${pronouns.obj} to note homework clearly before leaving.`;
+    nextStepHome = `At home, please aim to leave 10 minutes earlier and pack the bag the night before. A quiet, short homework slot (about 15 minutes) most days works well.`;
+  } else {
+    nextStepSchool = `At school, ${formattedStrategy.school}`;
+    nextStepHome = `At home, ${formattedStrategy.home.charAt(0).toLowerCase() + formattedStrategy.home.slice(1)}`;
+  }
   
   return {
     opener,
     observation,
     strength,
-    nextStepSchool: isPraiseOnly ? 
-      `We will continue to provide opportunities for ${pronouns.obj} to build on these leadership skills.` :
-      `At school, ${formattedStrategy.school}`,
-    nextStepHome: isPraiseOnly ? 
-      `Please continue to encourage ${pronouns.possAdj} natural leadership at home as well.` :
-      `At home, ${formattedStrategy.home.charAt(0).toLowerCase() + formattedStrategy.home.slice(1)}`,
-    invite: "Please let me know a good time for us to discuss next steps together."
+    nextStepSchool,
+    nextStepHome,
+    invite: "Please let me know a good time to talk through next steps together."
   };
 }
 

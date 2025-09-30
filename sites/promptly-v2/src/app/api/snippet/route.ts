@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { snippetSystem, buildUserPrompt } from "@/lib/snippetPrompt";
+import { runPromptlyPipeline } from "@/lib/ai/promptlyPipeline";
 
 const DAILY_FREE_GEN = 3;
 const DAILY_FREE_COPIES = 2;
@@ -143,8 +144,9 @@ export async function POST(req: NextRequest) {
     const qaBypass = process.env.NEXT_PUBLIC_QA_BYPASS_SNIPPET_LIMIT === '1';
     
     // Check generation limit (skip if QA bypass is enabled)
+    let genLimit = { remaining: 999 }; // Default for QA bypass
     if (!qaBypass) {
-      const genLimit = checkLimit(`gen:${userIP}`, DAILY_FREE_GEN);
+      genLimit = checkLimit(`gen:${userIP}`, DAILY_FREE_GEN);
       if (genLimit.limited) {
         return NextResponse.json({ 
           limited: true, 
@@ -154,16 +156,25 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    const userPrompt = buildUserPrompt(body);
-    const text = await generateWithLLM({ 
-      system: snippetSystem, 
-      user: userPrompt 
-    });
+    // Build rough note from form inputs
+    const roughNote = `${body.student ? `${body.student} ` : ''}${body.positives ? body.positives + '. ' : ''}${body.focus ? body.focus : ''}`;
+    
+    // Use new pipeline
+    const result = await runPromptlyPipeline(
+      roughNote, 
+      body.pronounToggle || 'auto'
+    );
+    
+    // Generate debug info for pronouns
+    const debugInfo = process.env.NEXT_PUBLIC_DEBUG_SNIPPET === '1' ? {
+      pronounDebug: `Pronoun: ${body.pronounToggle === 'auto' ? 'auto-csv' : 'explicit'} → using pronoun system`
+    } : {};
 
     return NextResponse.json({
-      text,
+      text: result.polished,
       remaining: genLimit.remaining,
-      watermark: true
+      watermark: true,
+      ...debugInfo
     });
     
   } catch (error) {

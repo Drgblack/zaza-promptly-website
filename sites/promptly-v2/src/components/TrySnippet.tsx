@@ -37,6 +37,7 @@ export default function TrySnippet() {
   const [tone, setTone] = useState<string>(PRESETS[0].tone);
   const [language, setLanguage] = useState<string>(PRESETS[0].language);
   const [length, setLength] = useState<number>(110);
+  const [pronounToggle, setPronounToggle] = useState<'auto' | 'he' | 'she' | 'they'>('auto');
   const [positives, setPositives] = useState<string>(PRESETS[0].seed.positives || '');
   const [focus, setFocus] = useState<string>(PRESETS[0].seed.focus || '');
   const [next, setNext] = useState<string>(PRESETS[0].seed.next || '');
@@ -46,6 +47,7 @@ export default function TrySnippet() {
   const [currentOutput, setCurrentOutput] = useState<string>('');
   const [variations, setVariations] = useState<GeneratedContent[]>([]);
   const [activeTab, setActiveTab] = useState<string>('output');
+  const [pronounDebug, setPronounDebug] = useState<string>('');
   
   // UI state
   const [generation, setGeneration] = useState<GenerationState>({
@@ -131,6 +133,7 @@ export default function TrySnippet() {
         language,
         tone,
         length,
+        pronounToggle,
         positives: positives.trim(),
         focus: focus.trim(),
         next: next.trim(),
@@ -169,6 +172,7 @@ export default function TrySnippet() {
         setActiveTab('variations');
       } else {
         setCurrentOutput(data.text);
+        setPronounDebug(data.pronounDebug || '');
         setActiveTab('output');
       }
 
@@ -332,20 +336,37 @@ export default function TrySnippet() {
                   </div>
                 </div>
 
-                <div>
-                  <Label htmlFor="language" className="text-sm font-medium">Language</Label>
-                  <Select value={language} onValueChange={setLanguage}>
-                    <SelectTrigger className="mt-1">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="English">English</SelectItem>
-                      <SelectItem value="German">German</SelectItem>
-                      <SelectItem value="Spanish">Spanish</SelectItem>
-                      <SelectItem value="French">French</SelectItem>
-                      <SelectItem value="Italian">Italian</SelectItem>
-                    </SelectContent>
-                  </Select>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="language" className="text-sm font-medium">Language</Label>
+                    <Select value={language} onValueChange={setLanguage}>
+                      <SelectTrigger className="mt-1">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="English">English</SelectItem>
+                        <SelectItem value="German">German</SelectItem>
+                        <SelectItem value="Spanish">Spanish</SelectItem>
+                        <SelectItem value="French">French</SelectItem>
+                        <SelectItem value="Italian">Italian</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="pronouns" className="text-sm font-medium">Pronouns</Label>
+                    <Select value={pronounToggle} onValueChange={(value: 'auto' | 'he' | 'she' | 'they') => setPronounToggle(value)}>
+                      <SelectTrigger className="mt-1">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="auto">Auto</SelectItem>
+                        <SelectItem value="he">He/Him</SelectItem>
+                        <SelectItem value="she">She/Her</SelectItem>
+                        <SelectItem value="they">They/Them</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
 
                 {/* More Options */}
@@ -491,6 +512,12 @@ export default function TrySnippet() {
                   <div className="space-y-4">
                     <h3 className="font-medium">Message about {student || 'your child'}</h3>
                     
+                    {process.env.NEXT_PUBLIC_DEBUG_SNIPPET === '1' && pronounDebug && (
+                      <div className="text-xs text-muted-foreground font-mono bg-yellow-50 dark:bg-yellow-900/20 px-2 py-1 rounded">
+                        {pronounDebug}
+                      </div>
+                    )}
+                    
                     <div className="relative bg-slate-50 dark:bg-slate-800 rounded-lg p-4 min-h-[300px]">
                       {generation.loading ? (
                         <div className="flex items-center justify-center h-[200px]">
@@ -513,7 +540,11 @@ export default function TrySnippet() {
                       
                       {currentOutput && (
                         <div className="absolute bottom-2 right-2 text-xs text-muted-foreground/70 font-mono">
-                          Made with Promptly - free demo
+                          {process.env.NEXT_PUBLIC_DEBUG_SNIPPET === '1' ? (
+                            <>Pipeline v2.1 • KB 411cf90 • Build fdfb890</>
+                          ) : (
+                            <>Made with Promptly - free demo</>
+                          )}
                         </div>
                       )}
                     </div>

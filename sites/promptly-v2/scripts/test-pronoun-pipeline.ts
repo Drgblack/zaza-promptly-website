@@ -38,6 +38,26 @@ async function testPronounPipeline() {
       name: 'PRAISE-ONLY: Alex (They/Them)',
       input: "Alex led the group brilliantly.",
       toggle: 'they' as const
+    },
+    {
+      name: 'GOLDEN-1: Mary (Auto → She)',
+      input: "Mary is lazy and often late to class without any excuses and no homework done.",
+      toggle: 'auto' as const
+    },
+    {
+      name: 'GOLDEN-2: Mary (Explicit She)', 
+      input: "Mary is lazy and often late to class without any excuses and no homework done.",
+      toggle: 'she' as const
+    },
+    {
+      name: 'GOLDEN-3: Johnny (Auto → He)',
+      input: "Johnny is late and sometimes forgets homework. He tries hard in sports and is popular with classmates.",
+      toggle: 'auto' as const
+    },
+    {
+      name: 'GOLDEN-4: Alex Mixed (They)',
+      input: "Alex talks with friends during lessons and finds it hard to stay focused. They are creative and good at art projects.",
+      toggle: 'they' as const
     }
   ];
 
