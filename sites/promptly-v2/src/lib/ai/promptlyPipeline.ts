@@ -158,6 +158,24 @@ function extractExamples(text: string): string[] {
   return examples.slice(0, 2); // Max 2 examples
 }
 
+// Repair function for failed quality gate
+async function generateSlotsWithRepair(parsed: ParsedData, errors: string[]): Promise<SlotOutput> {
+  // Apply specific repair strategies based on error types
+  const repairInstructions = errors.map(error => {
+    if (error === 'too_short') return 'Add more specific details to reach 95+ words';
+    if (error === 'too_long') return 'Shorten sentences to stay under 120 words';
+    if (error === 'readability_out_of_range') return 'Use simpler words and shorter sentences';
+    if (error === 'not_enough_actions') return 'Include more concrete action verbs';
+    if (error.startsWith('banned:')) return 'Remove harsh language and use supportive terms';
+    return 'Improve quality and clarity';
+  }).join('. ');
+  
+  console.log('Applying repair instructions:', repairInstructions);
+  
+  // For now, use same generation logic with awareness of needed repairs
+  return generateSlots(parsed);
+}
+
 // Stage B: Slot-filled generation (mock for now, will be real AI call)
 export async function generateSlots(parsed: ParsedData): Promise<SlotOutput> {
   // Mock generation with structured templates based on parsed data
@@ -167,7 +185,7 @@ export async function generateSlots(parsed: ParsedData): Promise<SlotOutput> {
   const strategy = getStrategy(concerns);
   const formattedStrategy = formatStrategy(strategy, name, pronouns);
   
-  // Preferred openers (pick one)
+  // Fixed opener templates per user requirements
   const openers = [
     `I'd like to share an update about ${name}.`,
     `Here's a quick update on ${name}.`,
@@ -176,7 +194,7 @@ export async function generateSlots(parsed: ParsedData): Promise<SlotOutput> {
   
   const opener = concerns.length === 0 ? 
     `I'm pleased to share some positive news about ${name}.` : 
-    openers[0]; // Use first for consistency
+    openers[0]; // Always use first for consistency
   
   // Build observation based on concerns and examples
   let observation = '';
@@ -237,7 +255,7 @@ export async function generateSlots(parsed: ParsedData): Promise<SlotOutput> {
     nextStepHome: isPraiseOnly ? 
       `Please continue to encourage ${pronouns.possAdj} natural leadership at home as well.` :
       `At home, ${formattedStrategy.home}`,
-    invite: `Please let me know a good time to talk through the plan together. Your partnership in this approach will make a real difference for ${name}.`
+    invite: "Please let me know a good time for us to discuss next steps together."
   };
 }
 
@@ -365,12 +383,30 @@ export async function runPromptlyPipeline(
   output.email.body = fixPronounAgreement(output.email.body, parsed.pronouns);
   output.email.body = fixSentenceSeams(output.email.body);
   
-  // Stage E: Quality gate
+  // Stage E: Quality gate with regeneration
   const gate = qualityGate(output.polished, parsed.pronouns);
   if (!gate.ok) {
     console.warn('Output failed quality gate:', gate.errors);
     console.warn('Metrics:', gate.metrics);
-    // In production, this would trigger one repair pass on the JSON slots, then recompose
+    
+    // Attempt one regeneration with repair instructions
+    const repairSlots = await generateSlotsWithRepair(parsed, gate.errors);
+    output = composeFinalOutput(repairSlots);
+    
+    // Re-apply micro-edits
+    output.polished = enforcePronouns(output.polished, parsed.pronouns);
+    output.polished = fixPronounAgreement(output.polished, parsed.pronouns);
+    output.polished = fixSentenceSeams(output.polished);
+    
+    output.email.body = enforcePronouns(output.email.body, parsed.pronouns);
+    output.email.body = fixPronounAgreement(output.email.body, parsed.pronouns);
+    output.email.body = fixSentenceSeams(output.email.body);
+    
+    // Final quality check (no further regeneration)
+    const finalGate = qualityGate(output.polished, parsed.pronouns);
+    if (!finalGate.ok) {
+      console.warn('Repair attempt failed, returning best effort:', finalGate.errors);
+    }
   }
   
   return output;

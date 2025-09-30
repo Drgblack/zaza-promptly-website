@@ -21,7 +21,7 @@ export interface Strategy {
 
 export const STRATEGY_BANK: Record<ConcernType, Strategy> = {
   lateness: {
-    school: "I'll meet {name} at the door with a short 'Do Now' so {subj} can start immediately.",
+    school: "I'll meet {name} at the door with a short 'Do Now' so they can start immediately.",
     home: "Please aim to leave 10 minutes earlier; packing the bag the night before often helps."
   },
   missing_homework: {

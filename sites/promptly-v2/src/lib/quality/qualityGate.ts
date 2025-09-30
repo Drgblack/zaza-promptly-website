@@ -19,6 +19,7 @@ export type GateResult = {
     actionVerbHits: string[];
     pronounMismatches: string[];
     hasDelighted: boolean;
+    gradeLevel: number;
   };
 };
 
@@ -39,6 +40,25 @@ export const ACTION_VERBS = [
 
 const wordCount = (s: string) => (s.trim().match(/\b[\w'']+\b/g)?.length ?? 0);
 const paraSplit = (s: string) => s.trim().split(/\n{2,}/).map(p => p.trim()).filter(Boolean);
+
+// Simple readability estimate (Flesch-Kincaid grade level approximation)
+function estimateGradeLevel(text: string): number {
+  const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+  const words = text.match(/\b[\w'']+\b/g) || [];
+  const syllables = words.reduce((total, word) => {
+    // Simple syllable counting: vowel groups
+    const vowelGroups = word.toLowerCase().match(/[aeiouy]+/g) || [];
+    return total + Math.max(1, vowelGroups.length);
+  }, 0);
+  
+  if (sentences.length === 0 || words.length === 0) return 0;
+  
+  const avgWordsPerSentence = words.length / sentences.length;
+  const avgSyllablesPerWord = syllables / words.length;
+  
+  // Simplified Flesch-Kincaid formula
+  return 0.39 * avgWordsPerSentence + 11.8 * avgSyllablesPerWord - 15.59;
+}
 
 function findBanned(text: string, banned: string[]): string[] {
   const lower = text.toLowerCase();
@@ -98,6 +118,7 @@ export function qualityGate(
   const actionHits = findActionVerbs(text, verbs);
   const pronounIssues = pronounAgreementIssues(text, pronouns);
   const delighted = hasDelighted(text);
+  const gradeLevel = estimateGradeLevel(text);
 
   const errors: string[] = [];
   if (words < minWords) errors.push('too_short');
@@ -108,6 +129,8 @@ export function qualityGate(
   if (pronounIssues.length) errors.push(...pronounIssues);
   // if any concern slots were present upstream, block "delighted"
   if (delighted) errors.push('tone_exaggerated_delighted');
+  // Check readability: Grade 6-8 range
+  if (gradeLevel < 6 || gradeLevel > 8) errors.push('readability_out_of_range');
 
   return {
     ok: errors.length === 0,
@@ -117,7 +140,8 @@ export function qualityGate(
       paragraphs: paras.length,
       actionVerbHits: actionHits,
       pronounMismatches: pronounIssues,
-      hasDelighted: delighted
+      hasDelighted: delighted,
+      gradeLevel: Math.round(gradeLevel * 10) / 10 // Round to 1 decimal
     }
   };
 }
