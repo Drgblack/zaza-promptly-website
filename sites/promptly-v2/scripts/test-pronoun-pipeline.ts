@@ -58,6 +58,16 @@ async function testPronounPipeline() {
       name: 'GOLDEN-4: Alex Mixed (They)',
       input: "Alex talks with friends during lessons and finds it hard to stay focused. They are creative and good at art projects.",
       toggle: 'they' as const
+    },
+    {
+      name: 'GT-NAME-LOCK-001: Name present → always use it',
+      input: "Alex is struggling with focus in class.",
+      toggle: 'auto' as const
+    },
+    {
+      name: 'GT-PUNCT-001: Sentence boundaries',
+      input: "Alex talks with friends during lessons and finds it hard to stay focused. They are creative and good at art projects.",
+      toggle: 'they' as const
     }
   ];
 

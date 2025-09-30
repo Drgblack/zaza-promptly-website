@@ -166,8 +166,12 @@ export async function POST(req: NextRequest) {
     );
     
     // Generate debug info for pronouns
+    const pronounUsed = result.polished.toLowerCase().includes(' she ') || result.polished.toLowerCase().includes('her') ? 'she' :
+                       result.polished.toLowerCase().includes(' he ') || result.polished.toLowerCase().includes('his') ? 'he' : 'they';
+    const source = body.pronounToggle === 'auto' ? 'auto-csv' : 'explicit';
+    
     const debugInfo = process.env.NEXT_PUBLIC_DEBUG_SNIPPET === '1' ? {
-      pronounDebug: `Pronoun: ${body.pronounToggle === 'auto' ? 'auto-csv' : 'explicit'} → using pronoun system`
+      pronounDebug: `Pronoun: ${pronounUsed} | source: ${source}`
     } : {};
 
     return NextResponse.json({

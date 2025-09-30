@@ -247,6 +247,16 @@ export function fixPronounAgreement(text: string, p: PronounSet): string {
 export function fixSentenceSeams(text: string): string {
   let fixed = text;
   
+  // Fix missing period before capital letter (e.g., "students This" → "students. This")
+  // But preserve cases where it's part of a proper noun or abbreviation
+  fixed = fixed.replace(/([a-z])(\s+)([A-Z][a-z]+\s+(?:is|has|was|were|had|did|does|will|would|can|could|should|this|these|that|those|it|we|they|he|she|i'll|i've|i|at|in|on|for|with|from|during|after|before))/g, 
+    (match, lastChar, space, capitalStart) => {
+      // Don't add period if it's already there or if it's after other punctuation
+      if ('.!?:;,'.includes(lastChar)) return match;
+      return lastChar + '.' + space + capitalStart;
+    }
+  );
+  
   // Fix capitalization after periods (but not after paragraph breaks)
   fixed = fixed.replace(/(\.\s+)([a-z])(?!\n)/g, (match, punct, letter) => 
     punct + letter.toUpperCase()

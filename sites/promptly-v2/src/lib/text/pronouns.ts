@@ -68,7 +68,7 @@ export function enforcePronouns(text: string, p: PronounSet): string {
 // Extract first name from text (helper for pipeline)
 export function extractStudentName(text: string): string {
   // Look for capitalized words that appear before common verbs or contexts
-  const namePattern = /\b([A-Z][a-z]+)\s+(?:is|has|was|were|had|did|does|will|would|can|could|should|needs|seems|appears|shows|struggles|helped|improved|completed|finished|started|began|helps|falls|misses|led)/;
+  const namePattern = /\b([A-Z][a-z]+)\s+(?:is|has|was|were|had|did|does|will|would|can|could|should|needs|seems|appears|shows|struggles|helped|improved|completed|finished|started|began|helps|falls|misses|led|talks|finds|arrives|tries|works|plays|reads|writes|learns|forgets|disrupts|continues)/;
   const match = text.match(namePattern);
   return match ? match[1] : '';
 }
