@@ -659,8 +659,8 @@ export function postComposeGrammarRepair(text: string, pronounKey: 'he' | 'she' 
   // \\s+\\. → .
   fixed = fixed.replace(/\s+\./g, '.');
   
-  // Fix double spaces
-  fixed = fixed.replace(/\s{2,}/g, ' ');
+  // Fix double spaces (but preserve paragraph breaks)
+  fixed = fixed.replace(/[ \t]{2,}/g, ' ');
   
   // 4. Sentence casing (careful not to touch names/abbreviations)
   // Ensure first char after . starts upper-case

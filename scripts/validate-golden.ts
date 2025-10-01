@@ -13,7 +13,7 @@ const FIXTURE_DIR = path.resolve("tests/golden");
  *  Default assumes localhost; override with GOLDEN_ENDPOINT env var.
  *  Expected response: { polished: string, emailReady: string }
  */
-const GENERATE_URL = process.env.GOLDEN_ENDPOINT ?? "http://localhost:3000/api/snippet";
+const GENERATE_URL = process.env.GOLDEN_ENDPOINT ?? "http://localhost:3010/api/snippet";
 
 const fixtureSchema = z.object({
   id: z.string(),

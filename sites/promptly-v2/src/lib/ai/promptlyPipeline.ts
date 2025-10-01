@@ -383,14 +383,9 @@ function getImpactDescription(concern: ConcernType, pronouns: PronounSet): strin
 // Stage C: Compose final output (without KB opener/closer - added later)
 export function composeFinalOutput(slots: SlotOutput): PromptlyOutput {
   // Core content without opener/closer (will be added from KB)
-  const para1 = slots.strength ? 
-    `${slots.observation} ${slots.strength}` :
-    slots.observation;
-    
-  const para2 = `${slots.nextStepSchool} ${slots.nextStepHome}`;
-  
-  // Initial composition (without opener/closer)
-  let coreContent = `${para1.trim()}\n\n${para2.trim()}`;
+  // Combine all core content into single paragraph for 3-paragraph structure
+  const strengthPart = slots.strength ? ` ${slots.strength}` : '';
+  const coreContent = `${slots.observation}${strengthPart} ${slots.nextStepSchool} ${slots.nextStepHome}`.trim();
   
   // Ensure email body has same content as polished
   return {
@@ -531,7 +526,7 @@ export async function runPromptlyPipeline(
   // Stage H: Quality gate (final check - no regeneration)
   const gate = qualityGate(output.polished, parsed.pronouns);
   
-  // Debug logging
+  // Debug logging (only when debug mode enabled)
   if (process.env.NEXT_PUBLIC_DEBUG_SNIPPET === '1') {
     console.log('🔍 KB-Aligned Pipeline:', {
       pronounKey,
