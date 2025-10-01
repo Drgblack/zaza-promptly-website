@@ -1,0 +1,23 @@
+{
+  "id": "NEG-GRAMMAR-002", 
+  "input": {
+    "text": "Johnny is bad at statistics and lazy. Not good student.",
+    "name": "Johnny",
+    "pronoun_choice": "auto"
+  },
+  "expectations": {
+    "paragraphs": 3,
+    "word_count": { "min": 95, "max": 120 },
+    "allowed_pronouns": ["he","him","his"],
+    "forbidden_pronouns": ["she","her","hers","they","them","their"],
+    "opener_must_contain": "Johnny has been finding statistics challenging",
+    "must_contain_any": ["has been finding", "has been showing difficulty staying motivated"],
+    "closer_any": ["agree one cue word", "consistent between home and school"],
+    "banned_words": ["bad","lazy","stupid","naughty"],
+    "grammar_requirements": {
+      "no_verb_errors": ["he have", "he do", "he continue", "he find", "he are"],
+      "proper_tense": true,
+      "subject_verb_agreement": true
+    }
+  }
+}

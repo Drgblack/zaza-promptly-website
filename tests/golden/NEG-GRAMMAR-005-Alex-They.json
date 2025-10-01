@@ -1,0 +1,24 @@
+{
+  "id": "NEG-GRAMMAR-005-Alex-They",
+  "input": {
+    "text": "Alex talk with friends during lessons and finds it hard to stay focused. They are creative and good at art projects.",
+    "name": "Alex",
+    "pronoun_choice": "they"
+  },
+  "expectations": {
+    "paragraphs": 3,
+    "word_count": { "min": 95, "max": 120 },
+    "allowed_pronouns": ["they","them","their"],
+    "forbidden_pronouns": ["he","him","his","she","her","hers"],
+    "opener_must_contain": "Alex has been finding it hard to stay focused",
+    "must_contain_any": ["talks with friends", "are creative", "good at art"],
+    "closer_any": ["agree one cue word", "consistent between home and school"],
+    "banned_words": ["bad","lazy","stupid","naughty"],
+    "grammar_requirements": {
+      "no_verb_errors": ["they is", "they was", "they has", "they does", "they talks"],
+      "proper_tense": true,
+      "subject_verb_agreement": true
+    },
+    "debugMustContain": "Pronoun: they | source: explicit"
+  }
+}

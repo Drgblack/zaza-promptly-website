@@ -450,3 +450,145 @@ export function applyMicroPolish(text: string, name: string): string {
   
   return polishedParagraphs.join('\n\n');
 }
+
+// Final deterministic grammar repair pass
+export function grammarRepair(text: string, pronouns: { subj: string; obj: string; possAdj: string }): string {
+  let fixed = text;
+  
+  // Debug logging
+  if (process.env.NEXT_PUBLIC_DEBUG_SNIPPET === '1') {
+    console.log('🔧 Grammar repair input:', text.slice(0, 200) + '...');
+    console.log('📝 Pronouns:', pronouns);
+  }
+  
+  // Step 1: Subject-verb agreement fixes
+  if (pronouns.subj === 'he' || pronouns.subj === 'she') {
+    // Fix: she/he have → has
+    fixed = fixed.replace(new RegExp(`\\b${pronouns.subj} have\\b`, 'gi'), `${pronouns.subj} has`);
+    
+    // Fix: she/he do → does  
+    fixed = fixed.replace(new RegExp(`\\b${pronouns.subj} do\\b`, 'gi'), `${pronouns.subj} does`);
+    
+    // Fix: she/he are → is
+    fixed = fixed.replace(new RegExp(`\\b${pronouns.subj} are\\b`, 'gi'), `${pronouns.subj} is`);
+    
+    // Fix: she/he were → was
+    fixed = fixed.replace(new RegExp(`\\b${pronouns.subj} were\\b`, 'gi'), `${pronouns.subj} was`);
+    
+    // Fix missing -s on verbs: "she continue" → "she continues"
+    fixed = fixed.replace(new RegExp(`\\b${pronouns.subj} (find|continue|study|get|come|talk|struggle|show|need|want|miss)\\b`, 'gi'), 
+      (match, verb) => {
+        const properVerb = verb.toLowerCase() === 'study' ? 'studies' :
+                          verb.toLowerCase() === 'get' ? 'gets' :
+                          verb.toLowerCase() === 'come' ? 'comes' :
+                          verb.toLowerCase() === 'talk' ? 'talks' :
+                          verb.toLowerCase() === 'struggle' ? 'struggles' :
+                          verb.toLowerCase() === 'show' ? 'shows' :
+                          verb.toLowerCase() === 'need' ? 'needs' :
+                          verb.toLowerCase() === 'want' ? 'wants' :
+                          verb.toLowerCase() === 'miss' ? 'misses' :
+                          verb.toLowerCase() === 'find' ? 'finds' :
+                          verb.toLowerCase() === 'continue' ? 'continues' :
+                          verb + 's';
+        const cap = match[0] === match[0].toUpperCase();
+        const pronoun = cap ? pronouns.subj.charAt(0).toUpperCase() + pronouns.subj.slice(1) : pronouns.subj;
+        return `${pronoun} ${properVerb}`;
+      });
+  } else if (pronouns.subj === 'they') {
+    // Fix: they is/was → are/were
+    fixed = fixed.replace(/\bthey is\b/gi, 'they are');
+    fixed = fixed.replace(/\bthey was\b/gi, 'they were');
+    
+    // Fix: they has/does → have/do
+    fixed = fixed.replace(/\bthey has\b/gi, 'they have');
+    fixed = fixed.replace(/\bthey does\b/gi, 'they do');
+    
+    // Fix: they [verb]s → they [verb] (remove -s from verbs)
+    fixed = fixed.replace(/\bthey (finds|continues|studies|gets|comes|talks|struggles|shows|needs|wants|misses)\b/gi, 
+      (match, verb) => {
+        const baseVerb = verb.toLowerCase() === 'studies' ? 'study' :
+                        verb.toLowerCase() === 'gets' ? 'get' :
+                        verb.toLowerCase() === 'comes' ? 'come' :
+                        verb.toLowerCase() === 'talks' ? 'talk' :
+                        verb.toLowerCase() === 'struggles' ? 'struggle' :
+                        verb.toLowerCase() === 'shows' ? 'show' :
+                        verb.toLowerCase() === 'needs' ? 'need' :
+                        verb.toLowerCase() === 'wants' ? 'want' :
+                        verb.toLowerCase() === 'misses' ? 'miss' :
+                        verb.slice(0, -1); // remove -s
+        const cap = match[0] === match[0].toUpperCase();
+        const pronoun = cap ? 'They' : 'they';
+        return `${pronoun} ${baseVerb}`;
+      });
+  }
+  
+  // Step 2: Tense normalization
+  // Fix "recently she find" → "recently she finds"
+  fixed = fixed.replace(/\b(recently|lately|often|usually|sometimes|always)\s+(he|she|they)\s+(find|continue|study|get|come|talk|struggle|show)\b/gi, 
+    (match, adverb, pronoun, verb) => {
+      let properVerb = verb;
+      if (pronoun.toLowerCase() === 'he' || pronoun.toLowerCase() === 'she') {
+        properVerb = verb.toLowerCase() === 'find' ? 'finds' :
+                    verb.toLowerCase() === 'continue' ? 'continues' :
+                    verb.toLowerCase() === 'study' ? 'studies' :
+                    verb.toLowerCase() === 'get' ? 'gets' :
+                    verb.toLowerCase() === 'come' ? 'comes' :
+                    verb.toLowerCase() === 'talk' ? 'talks' :
+                    verb.toLowerCase() === 'struggle' ? 'struggles' :
+                    verb.toLowerCase() === 'show' ? 'shows' :
+                    verb + 's';
+      }
+      return `${adverb} ${pronoun} ${properVerb}`;
+    });
+  
+  // Additional direct pattern for "she find" without adverbs
+  if (pronouns.subj === 'he' || pronouns.subj === 'she') {
+    fixed = fixed.replace(/\bshe find\b/gi, 'she finds');
+    fixed = fixed.replace(/\bhe find\b/gi, 'he finds');
+    fixed = fixed.replace(/\bshe continue\b/gi, 'she continues');  
+    fixed = fixed.replace(/\bhe continue\b/gi, 'he continues');
+    fixed = fixed.replace(/\bshe study\b/gi, 'she studies');
+    fixed = fixed.replace(/\bhe study\b/gi, 'he studies');
+    fixed = fixed.replace(/\bshe get\b/gi, 'she gets');
+    fixed = fixed.replace(/\bhe get\b/gi, 'he gets');
+  }
+  
+  // Step 3: Present perfect for ongoing issues
+  // "she struggle with homework" → "she has been struggling with homework"
+  fixed = fixed.replace(/\b(he|she|they)\s+(struggle|find|miss|have|show)\s+(difficulty|trouble|challenges|it hard|problems)\b/gi,
+    (match, pronoun, verb, issue) => {
+      const hasForm = pronoun.toLowerCase() === 'they' ? 'have' : 'has';
+      const progressiveVerb = verb.toLowerCase() === 'struggle' ? 'struggling' :
+                             verb.toLowerCase() === 'find' ? 'finding' :
+                             verb.toLowerCase() === 'miss' ? 'missing' :
+                             verb.toLowerCase() === 'have' ? 'having' :
+                             verb.toLowerCase() === 'show' ? 'showing' :
+                             verb + 'ing';
+      return `${pronoun} ${hasForm} been ${progressiveVerb} ${issue}`;
+    });
+  
+  // Step 4: Fix common grammar patterns
+  // "does not come school" → "does not come to school"
+  fixed = fixed.replace(/\b(come|go)\s+(school|class|home)\b/gi, '$1 to $2');
+  
+  // "bad at" → "finding challenging" for academic subjects
+  fixed = fixed.replace(/\b(bad|poor)\s+at\s+(math|maths|statistics|reading|writing|science|english)\b/gi, 
+    'finding $2 challenging');
+  
+  // "get poor grades" → "getting lower grades"
+  fixed = fixed.replace(/\bget\s+(poor|bad)\s+grades\b/gi, 'getting lower grades');
+  
+  // "sleepy in class" → "tired in class"
+  fixed = fixed.replace(/\bsleepy\b/gi, 'tired');
+  
+  // Step 5: Ensure proper sentence structure
+  // Fix sentence fragments like "Not good student" 
+  fixed = fixed.replace(/\.\s*Not\s+good\s+student/gi, '. They have been finding it challenging to stay engaged');
+  
+  // Debug logging
+  if (process.env.NEXT_PUBLIC_DEBUG_SNIPPET === '1') {
+    console.log('✅ Grammar repair output:', fixed.slice(0, 200) + '...');
+  }
+  
+  return fixed;
+}

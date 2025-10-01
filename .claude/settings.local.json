@@ -68,7 +68,18 @@
       "Bash(npm run type-check:*)",
       "Bash(npm run:*)",
       "Bash(npx tsc:*)",
-      "Bash(gh pr edit:*)"
+      "Bash(gh pr edit:*)",
+      "Bash(git rm:*)",
+      "Bash(true)",
+      "WebFetch(domain:vercel.com)",
+      "WebFetch(domain:zaza-promptly-website-feat-promptly-gold-pass.vercel.app)",
+      "WebFetch(domain:zaza-promptly-website-git-feat-promptly-gold-pass-drgblacks-projects.vercel.app)",
+      "Bash(gh pr create:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh run view:*)",
+      "WebFetch(domain:zaza-site-base-git-feat-promptly-gold-pass-zaza-d3c15292.vercel.app)",
+      "Bash(GOLDEN_ENDPOINT=\"http://localhost:3010/api/snippet\" npm run test:golden)"
     ],
     "deny": []
   }

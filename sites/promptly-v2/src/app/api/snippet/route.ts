@@ -165,17 +165,41 @@ export async function POST(req: NextRequest) {
       body.pronounToggle || 'auto'
     );
     
-    // Generate debug info for pronouns
-    const pronounUsed = result.polished.toLowerCase().includes(' she ') || result.polished.toLowerCase().includes('her') ? 'she' :
-                       result.polished.toLowerCase().includes(' he ') || result.polished.toLowerCase().includes('his') ? 'he' : 'they';
-    const source = body.pronounToggle === 'auto' ? 'auto-csv' : 'explicit';
+    // Generate enhanced debug info using parsed data
+    const pronounUsed = result.parsed.pronouns.subj;
+    const source = result.parsed.pronounSource;
+    
+    // Check enforcement quality
+    const hasProperPronouns = (() => {
+      const text = result.polished.toLowerCase();
+      if (pronounUsed === 'they') {
+        return !text.includes(' he ') && !text.includes(' she ') && !text.includes('his') && !text.includes('her');
+      } else if (pronounUsed === 'he') {
+        return !text.includes(' she ') && !text.includes(' they ') && !text.includes('her') && !text.includes('their');
+      } else if (pronounUsed === 'she') {
+        return !text.includes(' he ') && !text.includes(' they ') && !text.includes('his') && !text.includes('their');
+      }
+      return false;
+    })();
+    
+    // Detect opener/closer variants (simplified detection)
+    const openerType = (() => {
+      const start = result.polished.toLowerCase();
+      if (start.includes("getting in touch about") || start.includes("challenges with") && start.includes("arriving")) return 'attendance';
+      if (start.includes("quick note about homework") || start.includes("flag a pattern")) return 'homework';
+      if (start.includes("managing focus") || start.includes("observed") && start.includes("distracted")) return 'focus';
+      if (start.includes("pleased to share") || start.includes("showing real effort")) return 'praise';
+      return 'general';
+    })();
     
     const debugInfo = process.env.NEXT_PUBLIC_DEBUG_SNIPPET === '1' ? {
-      pronounDebug: `Pronoun: ${pronounUsed} | source: ${source}`
+      pronounDebug: `Pronoun: ${pronounUsed} | source: ${source} | enforcement: ${hasProperPronouns ? '✓' : '✗'} | opener: ${openerType} | pipeline: v3.1-GRAMMAR`
     } : {};
 
     return NextResponse.json({
-      text: result.polished,
+      polished: result.polished,
+      emailReady: result.email.body,
+      text: result.polished, // Keep for backward compatibility
       remaining: genLimit.remaining,
       watermark: true,
       ...debugInfo

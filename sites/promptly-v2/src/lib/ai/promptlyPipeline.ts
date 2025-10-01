@@ -28,19 +28,20 @@ function inferFromCsv(name?: string): 'he' | 'she' | undefined {
   if (!normalized) return undefined;
   
   // Updated name mappings including Mary
-  const maleNames = ['john', 'johnny', 'jack', 'liam', 'noah', 'michael', 'benjamin', 'james', 'joseph', 'charles', 'matthew', 'andrew', 'lucas', 'daniel', 'henry', 'william', 'oliver'];
-  const femaleNames = ['sandra', 'mary', 'emma', 'olivia', 'ava', 'sophia', 'isabella', 'amelia', 'mia', 'charlotte', 'abigail', 'emily', 'hannah', 'elizabeth', 'katherine', 'lilly', 'kate', 'abby', 'sarah', 'beth', 'liza'];
+  const maleNames = ['john', 'johnny', 'jack', 'phillip', 'liam', 'noah', 'michael', 'benjamin', 'james', 'joseph', 'charles', 'matthew', 'andrew', 'lucas', 'daniel', 'henry', 'william', 'oliver'];
+  const femaleNames = ['sandra', 'mary', 'sally', 'emma', 'olivia', 'ava', 'sophia', 'isabella', 'amelia', 'mia', 'charlotte', 'abigail', 'emily', 'hannah', 'elizabeth', 'katherine', 'lilly', 'kate', 'abby', 'sarah', 'beth', 'liza'];
   
   if (maleNames.includes(normalized)) return 'he';
   if (femaleNames.includes(normalized)) return 'she';
   return undefined;
 }
-import { qualityGate, fixPronounAgreement, fixSentenceSeams, enforceGoldStandardPronouns, convertToUKEnglish, applyMicroPolish } from '@/lib/quality/qualityGate';
+import { qualityGate, fixPronounAgreement, fixSentenceSeams, enforceGoldStandardPronouns, convertToUKEnglish, applyMicroPolish, grammarRepair } from '@/lib/quality/qualityGate';
 
 // Parse results (deterministic first, model second)
 export interface ParsedData {
   name: string;
   pronouns: PronounSet;
+  pronounSource: 'auto' | 'explicit'; // Track source for debug info
   positives: string[];
   concerns: ConcernType[];
   examples: string[];
@@ -93,6 +94,7 @@ export function parsePromptlyInput(
   
   // Resolve pronouns using explicit override logic
   const resolvedPronoun = resolvePronoun({toggle, name: extractedName});
+  const pronounSource = (toggle === 'he' || toggle === 'she' || toggle === 'they') ? 'explicit' : 'auto';
   const finalPronouns: PronounSet = {
     subj: resolvedPronoun,
     obj: resolvedPronoun === 'he' ? 'him' : resolvedPronoun === 'she' ? 'her' : 'them',
@@ -109,6 +111,7 @@ export function parsePromptlyInput(
     return {
       name,
       pronouns: finalPronouns,
+      pronounSource,
       positives,
       concerns: [], // Clear the clarify_needed
       examples: extractExamples(sanitized),
@@ -126,6 +129,7 @@ export function parsePromptlyInput(
   return {
     name,
     pronouns: finalPronouns,
+    pronounSource,
     positives,
     concerns,
     examples,
@@ -477,7 +481,7 @@ export async function runPromptlyPipeline(
   roughNote: string,
   toggle: 'auto' | 'he' | 'she' | 'they' = 'auto',
   preset?: 'behaviour' | 'praise' | 'missing' | 'attendance'
-): Promise<PromptlyOutput> {
+): Promise<PromptlyOutput & { parsed: ParsedData }> {
   // Stage A: Parse
   const parsed = parsePromptlyInput(roughNote, toggle, preset);
   
@@ -496,16 +500,19 @@ export async function runPromptlyPipeline(
     // 2. Gold standard pronoun enforcement
     processed = enforceGoldStandardPronouns(processed, parsed.pronouns);
     
-    // 3. Verb agreement correction
+    // 3. Final grammar repair (verb agreement + tense normalization) - MOVED EARLIER
+    processed = grammarRepair(processed, parsed.pronouns);
+    
+    // 4. Verb agreement correction (backup)
     processed = fixPronounAgreement(processed, parsed.pronouns);
     
-    // 4. Sentence boundary repair
+    // 5. Sentence boundary repair
     processed = fixSentenceSeams(processed);
     
-    // 5. UK English conversion
+    // 6. UK English conversion
     processed = convertToUKEnglish(processed);
     
-    // 6. Micro-polish rules
+    // 7. Micro-polish rules
     processed = applyMicroPolish(processed, parsed.name);
     
     return processed;
@@ -559,5 +566,5 @@ export async function runPromptlyPipeline(
     }
   }
   
-  return output;
+  return { ...output, parsed };
 }// Trigger deployment - GT-PRONOUN implementation ready

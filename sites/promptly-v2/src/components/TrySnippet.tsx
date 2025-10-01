@@ -541,7 +541,7 @@ export default function TrySnippet() {
                       {currentOutput && (
                         <div className="absolute bottom-2 right-2 text-xs text-muted-foreground/70 font-mono">
                           {process.env.NEXT_PUBLIC_DEBUG_SNIPPET === '1' ? (
-                            <>Pipeline v2.1 • KB 411cf90 • Build fdfb890</>
+                            <>Pipeline v3.0-GOLD • KB 411cf90 • Build {'{latest}'}</>
                           ) : (
                             <>Made with Promptly - free demo</>
                           )}

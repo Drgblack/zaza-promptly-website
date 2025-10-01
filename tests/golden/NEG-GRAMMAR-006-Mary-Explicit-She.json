@@ -1,0 +1,24 @@
+{
+  "id": "NEG-GRAMMAR-006-Mary-Explicit-She",
+  "input": {
+    "text": "Mary does not come school each day and have trouble with homework. She are often late.",
+    "name": "Mary",
+    "pronoun_choice": "she"
+  },
+  "expectations": {
+    "paragraphs": 3,
+    "word_count": { "min": 95, "max": 120 },
+    "allowed_pronouns": ["she","her","hers"],
+    "forbidden_pronouns": ["he","him","his","they","them","their"],
+    "opener_must_contain": "Mary has been arriving late",
+    "must_contain_any": ["has been missing school", "has been finding homework challenging"],
+    "closer_any": ["morning routine", "attendance"],
+    "banned_words": ["bad","lazy","stupid","naughty","trouble"],
+    "grammar_requirements": {
+      "no_verb_errors": ["she have", "she are", "she do", "she continue"],
+      "proper_tense": true,
+      "subject_verb_agreement": true
+    },
+    "debugMustContain": "Pronoun: she | source: explicit"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "NEG-GRAMMAR-004",
+  "input": {
+    "text": "Phillip study hard but get poor grades. He is sleepy in class.",
+    "name": "Phillip",
+    "pronoun_choice": "auto"
+  },
+  "expectations": {
+    "paragraphs": 3,
+    "word_count": { "min": 95, "max": 120 },
+    "allowed_pronouns": ["he","him","his"],
+    "forbidden_pronouns": ["she","her","hers","they","them","their"],
+    "opener_must_contain": "Phillip studies hard but has been getting lower grades",
+    "must_contain_any": ["studies hard", "has been getting", "often feels tired"],
+    "closer_any": ["agree one cue word", "consistent between home and school"],
+    "banned_words": ["bad","lazy","stupid","poor","sleepy"],
+    "grammar_requirements": {
+      "no_verb_errors": ["he have", "he do", "he continue", "he study", "he get"],
+      "proper_tense": true,
+      "subject_verb_agreement": true
+    }
+  }
+}
