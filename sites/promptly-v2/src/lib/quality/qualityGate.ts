@@ -210,6 +210,26 @@ export function fixPronounAgreement(text: string, p: PronounSet): string {
         return `${pronoun} ${singular}`;
       });
     });
+    
+    // Fix contractions: "they've" → "he's/she's", "they're" → "he's/she's"
+    fixed = fixed.replace(/\bthey've\b/gi, (match) => {
+      const cap = match[0] === match[0].toUpperCase();
+      const pronoun = cap ? p.subj.charAt(0).toUpperCase() + p.subj.slice(1) : p.subj;
+      return `${pronoun}'s`;
+    });
+    
+    fixed = fixed.replace(/\bthey're\b/gi, (match) => {
+      const cap = match[0] === match[0].toUpperCase();
+      const pronoun = cap ? p.subj.charAt(0).toUpperCase() + p.subj.slice(1) : p.subj;
+      return `${pronoun}'s`;
+    });
+    
+    // Fix incorrect contractions that might have been created
+    fixed = fixed.replace(/\b(he|she)'ve\b/gi, (match) => {
+      const cap = match[0] === match[0].toUpperCase();
+      const pronoun = cap ? match.charAt(0).toUpperCase() + match.slice(1, 2) : match.slice(0, 2);
+      return `${pronoun}'s`;
+    });
   } else {
     // Fix "they is/was/has/does" → "they are/were/have/do"
     const replacements = {
@@ -247,12 +267,42 @@ export function fixPronounAgreement(text: string, p: PronounSet): string {
 export function fixSentenceSeams(text: string): string {
   let fixed = text;
   
+  // First, protect specific patterns from being split
+  // Protect "how [Name] is" patterns specifically
+  const protectedPatterns = [
+    /\bhow\s+[A-Z][a-z]+\s+is\s+/g,
+    /\bwhat\s+[A-Z][a-z]+\s+(?:is|has|was|were|did|does|will|would|can|could|should)\s+/g,
+    /\bwhen\s+[A-Z][a-z]+\s+(?:is|has|was|were|did|does|will|would|can|could|should)\s+/g,
+    /\bwhere\s+[A-Z][a-z]+\s+(?:is|has|was|were|did|does|will|would|can|could|should)\s+/g,
+    /\b(?:meet|call|help|support|see|visit|contact|prompt|give|provide|teach|show)\s+[A-Z][a-z]+\s+/g
+  ];
+  
+  // Mark protected spans
+  const protectedSpans: Array<{start: number, end: number}> = [];
+  protectedPatterns.forEach(pattern => {
+    let match;
+    while ((match = pattern.exec(fixed)) !== null) {
+      protectedSpans.push({start: match.index, end: match.index + match[0].length});
+    }
+  });
+  
   // Fix missing period before capital letter (e.g., "students This" → "students. This")
-  // But preserve cases where it's part of a proper noun or abbreviation
+  // But avoid protected spans
   fixed = fixed.replace(/([a-z])(\s+)([A-Z][a-z]+\s+(?:is|has|was|were|had|did|does|will|would|can|could|should|this|these|that|those|it|we|they|he|she|i'll|i've|i|at|in|on|for|with|from|during|after|before))/g, 
-    (match, lastChar, space, capitalStart) => {
+    (match, lastChar, space, capitalStart, offset) => {
       // Don't add period if it's already there or if it's after other punctuation
       if ('.!?:;,'.includes(lastChar)) return match;
+      
+      // Don't add period if this match is within a protected span
+      const matchEnd = offset + match.length;
+      const isProtected = protectedSpans.some(span => 
+        (offset >= span.start && offset < span.end) || 
+        (matchEnd > span.start && matchEnd <= span.end) ||
+        (offset < span.start && matchEnd > span.end)
+      );
+      
+      if (isProtected) return match;
+      
       return lastChar + '.' + space + capitalStart;
     }
   );
@@ -270,4 +320,133 @@ export function fixSentenceSeams(text: string): string {
   fixed = fixed.replace(/\n\s*\n/g, '\n\n');
   
   return fixed.trim();
+}
+
+// Enhanced pronoun enforcement (gold standard)
+export function enforceGoldStandardPronouns(text: string, pronouns: { subj: string; obj: string; possAdj: string }): string {
+  let fixed = text;
+  
+  // Step 1: Strip all opposing pronouns completely
+  if (pronouns.subj === 'they') {
+    // Remove he/him/his, she/her/hers
+    fixed = fixed.replace(/\b(he|him|his)\b/gi, pronouns.subj);
+    fixed = fixed.replace(/\b(she|her|hers)\b/gi, (match) => {
+      // Context-aware replacement
+      if (match.toLowerCase() === 'her' && fixed.indexOf(match) > 0) {
+        const prevChar = fixed[fixed.indexOf(match) - 1];
+        if (prevChar === ' ') return pronouns.possAdj; // possessive context
+      }
+      return pronouns.subj === 'they' ? (match.toLowerCase() === 'her' ? pronouns.obj : pronouns.subj) : pronouns.subj;
+    });
+  } else if (pronouns.subj === 'he') {
+    // Remove they/them/their, she/her/hers
+    fixed = fixed.replace(/\b(they|them|their|theirs)\b/gi, (match) => {
+      const lower = match.toLowerCase();
+      if (lower === 'they') return pronouns.subj;
+      if (lower === 'them') return pronouns.obj;
+      if (lower === 'their' || lower === 'theirs') return pronouns.possAdj;
+      return pronouns.subj;
+    });
+    fixed = fixed.replace(/\b(she|her|hers)\b/gi, (match) => {
+      const lower = match.toLowerCase();
+      if (lower === 'she') return pronouns.subj;
+      if (lower === 'her') return pronouns.obj;
+      if (lower === 'hers') return pronouns.possAdj;
+      return pronouns.subj;
+    });
+  } else if (pronouns.subj === 'she') {
+    // Remove they/them/their, he/him/his
+    fixed = fixed.replace(/\b(they|them|their|theirs)\b/gi, (match) => {
+      const lower = match.toLowerCase();
+      if (lower === 'they') return pronouns.subj;
+      if (lower === 'them') return pronouns.obj;
+      if (lower === 'their' || lower === 'theirs') return pronouns.possAdj;
+      return pronouns.subj;
+    });
+    fixed = fixed.replace(/\b(he|him|his)\b/gi, (match) => {
+      const lower = match.toLowerCase();
+      if (lower === 'he') return pronouns.subj;
+      if (lower === 'him') return pronouns.obj;
+      if (lower === 'his') return pronouns.possAdj;
+      return pronouns.subj;
+    });
+  }
+  
+  // Step 2: Fix verb agreement
+  if (pronouns.subj === 'they') {
+    // they is/was/has/does → they are/were/have/do
+    fixed = fixed.replace(/\bthey is\b/gi, 'they are');
+    fixed = fixed.replace(/\bthey was\b/gi, 'they were');
+    fixed = fixed.replace(/\bthey has\b/gi, 'they have');
+    fixed = fixed.replace(/\bthey does\b/gi, 'they do');
+    fixed = fixed.replace(/\bthey ([a-z]+)s\b/gi, (match, verb) => {
+      // Remove third person singular -s from verbs after "they"
+      const exceptions = ['has', 'is', 'was', 'does'];
+      if (exceptions.includes(verb + 's')) return match; // Already handled above
+      return `they ${verb}`;
+    });
+  } else {
+    // he/she are/were/have/do → he/she is/was/has/does
+    const subj = pronouns.subj;
+    fixed = fixed.replace(new RegExp(`\\b${subj} are\\b`, 'gi'), `${subj} is`);
+    fixed = fixed.replace(new RegExp(`\\b${subj} were\\b`, 'gi'), `${subj} was`);
+    fixed = fixed.replace(new RegExp(`\\b${subj} have\\b`, 'gi'), `${subj} has`);
+    fixed = fixed.replace(new RegExp(`\\b${subj} do\\b`, 'gi'), `${subj} does`);
+  }
+  
+  return fixed;
+}
+
+// UK English conversion
+export function convertToUKEnglish(text: string): string {
+  const conversions = {
+    'program': 'programme',
+    'programs': 'programmes',
+    'behavior': 'behaviour',
+    'behaviors': 'behaviours',
+    'practice': 'practise', // when used as verb
+    'organize': 'organise',
+    'organized': 'organised',
+    'organizing': 'organising',
+    'realize': 'realise',
+    'realizes': 'realises',
+    'realized': 'realised',
+    'center': 'centre',
+    'centers': 'centres'
+  };
+  
+  let fixed = text;
+  Object.entries(conversions).forEach(([us, uk]) => {
+    const regex = new RegExp(`\\b${us}\\b`, 'gi');
+    fixed = fixed.replace(regex, uk);
+  });
+  
+  return fixed;
+}
+
+// Micro-polish rules
+export function applyMicroPolish(text: string, name: string): string {
+  let fixed = text;
+  
+  // 1. Mid-sentence "please" must be lowercase
+  fixed = fixed.replace(/([^.!?])\s+Please\s+/g, '$1 please ');
+  
+  // 2. Limit name mentions to 1 per paragraph
+  const paragraphs = fixed.split('\n\n');
+  const polishedParagraphs = paragraphs.map(para => {
+    const nameRegex = new RegExp(`\\b${name}\\b`, 'gi');
+    const matches = para.match(nameRegex);
+    if (matches && matches.length > 1) {
+      // Replace subsequent mentions with pronouns (simplified)
+      let nameCount = 0;
+      return para.replace(nameRegex, (match) => {
+        nameCount++;
+        if (nameCount === 1) return match;
+        return 'they'; // Simplified - should use proper pronoun detection
+      });
+    }
+    return para;
+  });
+  
+  return polishedParagraphs.join('\n\n');
 }

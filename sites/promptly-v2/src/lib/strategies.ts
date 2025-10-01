@@ -72,11 +72,17 @@ export const STRATEGY_BANK: Record<ConcernType, Strategy> = {
 
 // Keywords that map to concerns
 export const CONCERN_KEYWORDS: Record<string, ConcernType> = {
-  'late': 'lateness',
   'lateness': 'lateness',
   'tardy': 'lateness',
   'arrived late': 'lateness',
+  'arriving late': 'lateness',
   'getting in late': 'lateness',
+  'comes in late': 'lateness',
+  'late to class': 'lateness',
+  'late arrival': 'lateness',
+  'has been late': 'lateness',
+  'have been late': 'lateness',
+  'been late': 'lateness',
   
   'homework': 'missing_homework', 
   'assignment': 'missing_homework',
@@ -116,6 +122,7 @@ export const CONCERN_KEYWORDS: Record<string, ConcernType> = {
   'gave up': 'low_effort',
   'not trying': 'low_effort',
   'unmotivated': 'low_effort',
+  'finding it hard to stay motivated': 'low_effort',
   
   'absent': 'absence',
   'absence': 'absence',
@@ -136,6 +143,7 @@ export const CONCERN_KEYWORDS: Record<string, ConcernType> = {
   'wandering': 'off_task',
   'not following': 'off_task',
   'doing other things': 'off_task',
+  'showing challenging behaviour': 'off_task',
   
   'throwing': 'throwing_items',
   'threw': 'throwing_items',
@@ -270,4 +278,77 @@ export function formatStrategy(strategy: Strategy, name: string, pronouns: { sub
     school: formatText(strategy.school),
     home: formatText(strategy.home)
   };
+}
+
+// Opener variants based on concern clusters
+export const OPENER_VARIANTS = {
+  attendance: [
+    "I'm getting in touch about {name}'s mornings. Over the past week {they}'ve been arriving late...",
+    "We've noticed some challenges with {name} arriving on time recently, and I'd like to discuss ways to support smoother starts..."
+  ],
+  homework: [
+    "A quick note about homework for {name}: several tasks have been incomplete or missing...",
+    "I want to flag a pattern with {name}'s homework so we can support consistent study habits together..."
+  ],
+  focus: [
+    "I'd like to share how {name} is managing focus during lessons. Recently {they} find it harder to stay settled...",
+    "We've observed {name} sometimes distracted in class, which makes instructions harder to follow. Let's plan some strategies..."
+  ],
+  praise: [
+    "I'm pleased to share something positive about {name} while we also look at next steps...",
+    "{name} has been showing real effort in class, and I'd like to highlight that while we plan additional support..."
+  ],
+  general: [
+    "I'd like to share an update about {name}."
+  ]
+};
+
+// Closer variants based on context
+export const CLOSER_VARIANTS = {
+  general: [
+    "If you're free this week, I'd love to share ideas and hear what works at home.",
+    "We can touch base by phone or email — whichever works best for you."
+  ],
+  attendance: [
+    "Could we agree a quick plan that fits your morning routine?",
+    "Let's review progress after a week and see if mornings feel smoother."
+  ],
+  homework: [
+    "Shall we try this routine for two weeks and review together?",
+    "Please let me know if you'd like extra resources for home study."
+  ],
+  focus: [
+    "I can call after school to share ideas and agree one cue word we can both use.",
+    "Let's schedule a quick chat so we're consistent between home and school."
+  ]
+};
+
+// Determine concern cluster from concerns array
+export function getConcernCluster(concerns: ConcernType[]): keyof typeof OPENER_VARIANTS {
+  if (concerns.includes('lateness') || concerns.includes('absence')) return 'attendance';
+  // Prioritize behavioral/focus concerns over homework issues
+  if (concerns.includes('focus_disruption') || concerns.includes('off_task') || concerns.includes('rude_language') || concerns.includes('low_effort')) return 'focus';
+  if (concerns.includes('missing_homework') || concerns.includes('incomplete_work')) return 'homework';
+  if (concerns.length === 0) return 'praise';
+  return 'general';
+}
+
+// Select opener variant
+export function selectOpener(concerns: ConcernType[], name: string, pronouns: { subj: string; obj: string; possAdj: string }): string {
+  const cluster = getConcernCluster(concerns);
+  const variants = OPENER_VARIANTS[cluster];
+  const selected = variants[0]; // Use first variant for consistency
+  
+  return selected
+    .replace(/{name}/g, name)
+    .replace(/{they}/g, pronouns.subj)
+    .replace(/{them}/g, pronouns.obj)
+    .replace(/{their}/g, pronouns.possAdj);
+}
+
+// Select closer variant
+export function selectCloser(concerns: ConcernType[]): string {
+  const cluster = getConcernCluster(concerns);
+  const variants = CLOSER_VARIANTS[cluster] || CLOSER_VARIANTS.general;
+  return variants[0]; // Use first variant for consistency
 }

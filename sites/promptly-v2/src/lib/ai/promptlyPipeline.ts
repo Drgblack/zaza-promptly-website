@@ -2,7 +2,7 @@
 import { z } from 'zod';
 import type { PronounSet } from '@/lib/text/pronouns';
 import { enforcePronouns, extractStudentName, inferPronouns } from '@/lib/text/pronouns';
-import { extractConcerns, extractPositives, determineSeverity, getStrategy, formatStrategy, pickPaddingSentence, type ConcernType } from '@/lib/strategies';
+import { extractConcerns, extractPositives, determineSeverity, getStrategy, formatStrategy, pickPaddingSentence, selectOpener, selectCloser, getConcernCluster, type ConcernType } from '@/lib/strategies';
 
 // Pronoun resolution: explicit choice beats auto-inference
 type Pronoun = 'he' | 'she' | 'they';
@@ -35,7 +35,7 @@ function inferFromCsv(name?: string): 'he' | 'she' | undefined {
   if (femaleNames.includes(normalized)) return 'she';
   return undefined;
 }
-import { qualityGate, fixPronounAgreement, fixSentenceSeams } from '@/lib/quality/qualityGate';
+import { qualityGate, fixPronounAgreement, fixSentenceSeams, enforceGoldStandardPronouns, convertToUKEnglish, applyMicroPolish } from '@/lib/quality/qualityGate';
 
 // Parse results (deterministic first, model second)
 export interface ParsedData {
@@ -136,12 +136,14 @@ export function parsePromptlyInput(
 
 function sanitizeInput(text: string): string {
   const replacements = {
-    'lazy': 'struggles with motivation',
-    'naughty': 'not following expectations', 
+    'lazy': 'finding it hard to stay motivated',
+    'naughty': 'showing challenging behaviour', 
+    'bad': 'showing challenging behaviour',
     'bad at': 'finding {subject} challenging',
+    'naughty boy': 'child showing challenging behaviour',
+    'bad kid': 'child showing challenging behaviour',
     'stupid': 'needs additional support',
     'dumb': 'needs additional support', 
-    'bad kid': 'child who needs support',
     'rude': 'using inappropriate language',
     'disruptive': 'finding it hard to stay focused',
     'refuses to work': 'reluctant to engage',
@@ -149,12 +151,13 @@ function sanitizeInput(text: string): string {
     "doesn't care": 'not fully engaged',
     'without excuses': 'without a note from home or the office',
     'without any excuses': 'without a note from home or the office',
+    'no excuses': 'without a note from home or the office',
     'terrible': 'concerning',
     'awful': 'challenging',
     'horrible': 'difficult',
     'always': 'often',
-    'never': 'sometimes',
-    'very naughty': 'not following expectations'
+    'never': 'rarely',
+    'very naughty': 'showing challenging behaviour'
   };
 
   let sanitized = text;
@@ -224,16 +227,8 @@ export async function generateSlots(parsed: ParsedData): Promise<SlotOutput> {
   const strategy = getStrategy(concerns);
   const formattedStrategy = formatStrategy(strategy, name, pronouns);
   
-  // Fixed opener templates per user requirements
-  const openers = [
-    `I'd like to share an update about ${name}.`,
-    `Here's a quick update on ${name}.`,
-    `I wanted to let you know how ${name} has been doing.`
-  ];
-  
-  const opener = concerns.length === 0 ? 
-    `I'm pleased to share some positive news about ${name}.` : 
-    openers[0]; // Always use first for consistency
+  // Use context-aware opener variants
+  const opener = selectOpener(concerns, name, pronouns);
   
   // Special handling for lateness + homework combination (used in multiple places)
   const hasLateness = concerns.includes('lateness');
@@ -264,6 +259,12 @@ export async function generateSlots(parsed: ParsedData): Promise<SlotOutput> {
               break;
             case 'focus_disruption':
               secondDesc = `${pronouns.subj} has had difficulty maintaining focus`;
+              break;
+            case 'low_effort':
+              secondDesc = `${pronouns.subj} is finding it hard to stay motivated`;
+              break;
+            case 'off_task':
+              secondDesc = `${pronouns.subj} is showing challenging behaviour`;
               break;
             default:
               secondDesc = `${pronouns.subj} has also shown other challenging behaviors`;
@@ -316,7 +317,7 @@ export async function generateSlots(parsed: ParsedData): Promise<SlotOutput> {
     strength,
     nextStepSchool,
     nextStepHome,
-    invite: "Please let me know a good time to talk through next steps together."
+    invite: selectCloser(concerns)
   };
 }
 
@@ -345,11 +346,11 @@ function getConcernDescription(concern: ConcernType, pronouns: PronounSet): stri
     focus_disruption: `${pronouns.subj.charAt(0).toUpperCase() + pronouns.subj.slice(1)} has been finding it hard to stay focused during lessons`,
     tired_sleepy: `${pronouns.subj.charAt(0).toUpperCase() + pronouns.subj.slice(1)} appears tired and has difficulty maintaining alertness`,
     rude_language: `${pronouns.subj.charAt(0).toUpperCase() + pronouns.subj.slice(1)} has used language that doesn't meet our classroom standards`,
-    low_effort: `${pronouns.subj.charAt(0).toUpperCase() + pronouns.subj.slice(1)} has been showing reluctance to engage with tasks`,
+    low_effort: `${pronouns.subj.charAt(0).toUpperCase() + pronouns.subj.slice(1)} is finding it hard to stay motivated`,
     absence: `${pronouns.subj.charAt(0).toUpperCase() + pronouns.subj.slice(1)} has missed several days recently`,
     incomplete_work: `${pronouns.possAdj.charAt(0).toUpperCase() + pronouns.possAdj.slice(1)} work has been consistently unfinished`,
     unprepared: `${pronouns.subj.charAt(0).toUpperCase() + pronouns.subj.slice(1)} has been arriving without necessary materials`,
-    off_task: `${pronouns.subj.charAt(0).toUpperCase() + pronouns.subj.slice(1)} has been having difficulty following classroom routines`,
+    off_task: `${pronouns.subj.charAt(0).toUpperCase() + pronouns.subj.slice(1)} has been showing challenging behaviour`,
     clarify_needed: `${pronouns.subj.charAt(0).toUpperCase() + pronouns.subj.slice(1)} needs some additional support with classroom engagement`
   };
   
@@ -486,14 +487,33 @@ export async function runPromptlyPipeline(
   // Stage C: Compose
   let output = composeFinalOutput(slots);
   
-  // Stage D: Micro-edit passes
-  output.polished = enforcePronouns(output.polished, parsed.pronouns);
-  output.polished = fixPronounAgreement(output.polished, parsed.pronouns);
-  output.polished = fixSentenceSeams(output.polished);
+  // Stage D: Gold Standard Quality Pipeline (apply to both outputs)
+  function applyGoldStandardPipeline(text: string): string {
+    let processed = text;
+    
+    // 1. Pad to 95-120 words if needed (already done in compose)
+    
+    // 2. Gold standard pronoun enforcement
+    processed = enforceGoldStandardPronouns(processed, parsed.pronouns);
+    
+    // 3. Verb agreement correction
+    processed = fixPronounAgreement(processed, parsed.pronouns);
+    
+    // 4. Sentence boundary repair
+    processed = fixSentenceSeams(processed);
+    
+    // 5. UK English conversion
+    processed = convertToUKEnglish(processed);
+    
+    // 6. Micro-polish rules
+    processed = applyMicroPolish(processed, parsed.name);
+    
+    return processed;
+  }
   
-  output.email.body = enforcePronouns(output.email.body, parsed.pronouns);
-  output.email.body = fixPronounAgreement(output.email.body, parsed.pronouns);
-  output.email.body = fixSentenceSeams(output.email.body);
+  // Apply to both outputs
+  output.polished = applyGoldStandardPipeline(output.polished);
+  output.email.body = applyGoldStandardPipeline(output.email.body);
   
   // Stage E: Quality gate with regeneration
   const gate = qualityGate(output.polished, parsed.pronouns);

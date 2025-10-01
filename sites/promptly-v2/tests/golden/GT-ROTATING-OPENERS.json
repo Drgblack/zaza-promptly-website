@@ -1,0 +1,28 @@
+{
+  "id": "GT-ROTATING-OPENERS",
+  "description": "Mary lateness case uses an Attendance opener (not the generic update line).",
+  "input": {
+    "text": "Mary has arrived late on several days this week and missed the start instructions.",
+    "name": "Mary",
+    "pronoun_choice": "auto"
+  },
+  "expectations": {
+    "all_tabs": {
+      "paragraphs": 3,
+      "word_count": { "min": 95, "max": 120 },
+      "allowed_pronouns": ["she", "her", "hers"],
+      "opener_starts_one_of": [
+        "I'm getting in touch about Mary's mornings",
+        "We've noticed some challenges with Mary arriving on time"
+      ],
+      "forbidden_starts_with": [
+        "I'd like to share an update about Mary"
+      ],
+      "closer_contains_one_of": [
+        "agree a quick plan that fits your morning routine",
+        "review progress after a week"
+      ],
+      "banned_words": ["lazy", "naughty", "bad", "always", "never", "no excuses"]
+    }
+  }
+}
