@@ -592,3 +592,131 @@ export function grammarRepair(text: string, pronouns: { subj: string; obj: strin
   
   return fixed;
 }
+
+// Post-composition grammar repair (run after padding, before QA)
+export function postComposeGrammarRepair(text: string, pronounKey: 'he' | 'she' | 'they'): string {
+  let fixed = text;
+  
+  // 1. Singular agreement fixes (she/he/it)
+  if (pronounKey === 'he' || pronounKey === 'she') {
+    // (\\b)(she|he|it) have\\b → $1$2 has
+    fixed = fixed.replace(/(\b)(she|he|it) have\b/gi, '$1$2 has');
+    
+    // (\\b)(she|he|it) do\\b → $1$2 does  
+    fixed = fixed.replace(/(\b)(she|he|it) do\b/gi, '$1$2 does');
+    
+    // (\\b)(she|he|it) continue\\b → $1$2 continues
+    fixed = fixed.replace(/(\b)(she|he|it) continue\b/gi, '$1$2 continues');
+    
+    // (\\b)(she|he|it) find\\b(?!\\w) → $1$2 finds
+    fixed = fixed.replace(/(\b)(she|he|it) find\b(?!\w)/gi, '$1$2 finds');
+    
+    // (\\b)(she|he|it) are\\b → $1$2 is
+    fixed = fixed.replace(/(\b)(she|he|it) are\b/gi, '$1$2 is');
+    
+    // Additional common verbs
+    fixed = fixed.replace(/(\b)(she|he|it) study\b/gi, '$1$2 studies');
+    fixed = fixed.replace(/(\b)(she|he|it) get\b/gi, '$1$2 gets');
+    fixed = fixed.replace(/(\b)(she|he|it) come\b/gi, '$1$2 comes');
+    fixed = fixed.replace(/(\b)(she|he|it) talk\b/gi, '$1$2 talks');
+    fixed = fixed.replace(/(\b)(she|he|it) struggle\b/gi, '$1$2 struggles');
+    fixed = fixed.replace(/(\b)(she|he|it) show\b/gi, '$1$2 shows');
+    fixed = fixed.replace(/(\b)(she|he|it) need\b/gi, '$1$2 needs');
+    fixed = fixed.replace(/(\b)(she|he|it) want\b/gi, '$1$2 wants');
+    fixed = fixed.replace(/(\b)(she|he|it) miss\b/gi, '$1$2 misses');
+  }
+  
+  // 2. They/them plural fixes
+  if (pronounKey === 'they') {
+    // \\bthey is\\b → they are
+    fixed = fixed.replace(/\bthey is\b/gi, 'they are');
+    
+    // \\bthey was\\b → they were  
+    fixed = fixed.replace(/\bthey was\b/gi, 'they were');
+    
+    // \\bthey has\\b → they have
+    fixed = fixed.replace(/\bthey has\b/gi, 'they have');
+    
+    // \\bthey does\\b → they do
+    fixed = fixed.replace(/\bthey does\b/gi, 'they do');
+    
+    // Remove -s from verbs after they
+    fixed = fixed.replace(/\bthey (finds|continues|studies|gets|comes|talks|struggles|shows|needs|wants|misses)\b/gi, 
+      (match, verb) => {
+        const baseVerb = verb.toLowerCase().replace(/s$/, '');
+        const correctedVerb = baseVerb === 'studie' ? 'study' :
+                             baseVerb === 'come' ? 'come' :
+                             baseVerb === 'misse' ? 'miss' :
+                             baseVerb;
+        return `they ${correctedVerb}`;
+      });
+  }
+  
+  // 3. Article/space tidy-ups
+  // \\bthe the\\b → the
+  fixed = fixed.replace(/\bthe the\b/gi, 'the');
+  
+  // \\s+\\. → .
+  fixed = fixed.replace(/\s+\./g, '.');
+  
+  // Fix double spaces
+  fixed = fixed.replace(/\s{2,}/g, ' ');
+  
+  // 4. Sentence casing (careful not to touch names/abbreviations)
+  // Ensure first char after . starts upper-case
+  fixed = fixed.replace(/(\.\s+)([a-z])/g, (match, punct, letter) => {
+    return punct + letter.toUpperCase();
+  });
+  
+  // Ensure first character of text is uppercase
+  fixed = fixed.replace(/^([a-z])/, (match, letter) => letter.toUpperCase());
+  
+  return fixed.trim();
+}
+
+// Word count guard - cap at 120 words
+export function enforceWordLimit(text: string, maxWords: number = 120): string {
+  const wordCount = (s: string) => (s.trim().match(/\b[\w'']+\b/g)?.length ?? 0);
+  
+  if (wordCount(text) <= maxWords) {
+    return text;
+  }
+  
+  // Split into paragraphs
+  const paragraphs = text.split('\n\n');
+  if (paragraphs.length < 3) {
+    return text; // Don't modify if less than 3 paragraphs
+  }
+  
+  // Try removing sentences from the end of the last paragraph (before closer)
+  let lastPara = paragraphs[paragraphs.length - 1];
+  let sentences = lastPara.split(/(?<=[.!?])\s+/);
+  
+  // Keep at least the closer sentence
+  while (sentences.length > 1 && wordCount(paragraphs.slice(0, -1).join('\n\n') + '\n\n' + sentences.join(' ')) > maxWords) {
+    sentences.splice(-2, 1); // Remove second-to-last sentence, keeping closer
+  }
+  
+  paragraphs[paragraphs.length - 1] = sentences.join(' ');
+  let result = paragraphs.join('\n\n');
+  
+  // If still over limit, try removing padding from middle paragraph
+  if (wordCount(result) > maxWords && paragraphs.length >= 3) {
+    let middlePara = paragraphs[1];
+    let middleSentences = middlePara.split(/(?<=[.!?])\s+/);
+    
+    // Keep at least 2 sentences in middle paragraph
+    while (middleSentences.length > 2 && wordCount(result) > maxWords) {
+      middleSentences.pop();
+      paragraphs[1] = middleSentences.join(' ');
+      result = paragraphs.join('\n\n');
+    }
+  }
+  
+  // Last resort: trim trailing adverbs from padding sentences
+  if (wordCount(result) > maxWords) {
+    result = result.replace(/\s+(together|over time|consistently|gradually|carefully)\b/gi, '');
+  }
+  
+  return result;
+}

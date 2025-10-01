@@ -1,0 +1,17 @@
+{
+  "id": "HE-OPENERS-001",
+  "input": {
+    "text": "John has been arriving late and missing homework assignments regularly.",
+    "name": "John",
+    "pronoun_choice": "he"
+  },
+  "expectations": {
+    "paragraphs": 3,
+    "word_count": { "min": 95, "max": 120 },
+    "allowed_pronouns": ["he","him","his"],
+    "forbidden_pronouns": ["she","her","hers","they","them","their"],
+    "opener_must_contain": "I'm getting in touch about John's mornings. Over the past week he's been arriving late and his homework has been incomplete or missing.",
+    "banned_words": ["bad","lazy","stupid","naughty"],
+    "debugMustContain": "Pronoun: he | source: explicit"
+  }
+}

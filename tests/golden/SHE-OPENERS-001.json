@@ -1,0 +1,17 @@
+{
+  "id": "SHE-OPENERS-001",
+  "input": {
+    "text": "Mary talks with friends during lessons and finds it hard to stay focused.",
+    "name": "Mary",
+    "pronoun_choice": "she"
+  },
+  "expectations": {
+    "paragraphs": 3,
+    "word_count": { "min": 95, "max": 120 },
+    "allowed_pronouns": ["she","her","hers"],
+    "forbidden_pronouns": ["he","him","his","they","them","their"],
+    "opener_must_contain": "I'd like to share how Mary is managing focus during lessons. Recently she finds it harder to stay settled and sometimes talks with friends during instruction time.",
+    "banned_words": ["bad","lazy","stupid","naughty"],
+    "debugMustContain": "Pronoun: she | source: explicit"
+  }
+}

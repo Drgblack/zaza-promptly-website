@@ -1,0 +1,17 @@
+{
+  "id": "HE-CLOSERS-001",
+  "input": {
+    "text": "John has been arriving late and missing homework assignments regularly.",
+    "name": "John", 
+    "pronoun_choice": "he"
+  },
+  "expectations": {
+    "paragraphs": 3,
+    "word_count": { "min": 95, "max": 120 },
+    "allowed_pronouns": ["he","him","his"],
+    "forbidden_pronouns": ["she","her","hers","they","them","their"],
+    "closer_must_contain": "Could we agree a quick plan that fits your morning routine and supports his homework habits?",
+    "banned_words": ["bad","lazy","stupid","naughty"],
+    "debugMustContain": "Pronoun: he | source: explicit"
+  }
+}

@@ -35,7 +35,8 @@ function inferFromCsv(name?: string): 'he' | 'she' | undefined {
   if (femaleNames.includes(normalized)) return 'she';
   return undefined;
 }
-import { qualityGate, fixPronounAgreement, fixSentenceSeams, enforceGoldStandardPronouns, convertToUKEnglish, applyMicroPolish, grammarRepair } from '@/lib/quality/qualityGate';
+import { qualityGate, fixPronounAgreement, fixSentenceSeams, enforceGoldStandardPronouns, convertToUKEnglish, applyMicroPolish, grammarRepair, postComposeGrammarRepair, enforceWordLimit } from '@/lib/quality/qualityGate';
+import { pickOpener, pickCloser, getConcernKey, getPronounKey, type PronounKey, type ConcernKey } from '@/lib/knowledgeBase';
 
 // Parse results (deterministic first, model second)
 export interface ParsedData {
@@ -379,58 +380,24 @@ function getImpactDescription(concern: ConcernType, pronouns: PronounSet): strin
   return impacts[concern] || impacts.clarify_needed;
 }
 
-// Stage C: Compose final output with padding fallback
+// Stage C: Compose final output (without KB opener/closer - added later)
 export function composeFinalOutput(slots: SlotOutput): PromptlyOutput {
-  // Assemble exactly 3 paragraphs with proper spacing
+  // Core content without opener/closer (will be added from KB)
   const para1 = slots.strength ? 
-    `${slots.opener} ${slots.observation} ${slots.strength}` :
-    `${slots.opener} ${slots.observation}`;
+    `${slots.observation} ${slots.strength}` :
+    slots.observation;
     
   const para2 = `${slots.nextStepSchool} ${slots.nextStepHome}`;
   
-  let para3 = slots.invite;
-  
-  // Initial composition
-  let polished = `${para1.trim()}\n\n${para2.trim()}\n\n${para3.trim()}`;
-  
-  // Word count padding fallback (KB requirement)
-  const MIN_WORDS = 95;
-  const MAX_WORDS = 120;
-  let wordCount = polished.split(/\s+/).filter(w => w.length > 0).length;
-  const usedPadding: string[] = [];
-  
-  // If < 95 words, append padding sentences
-  if (wordCount < MIN_WORDS) {
-    const pad1 = pickPaddingSentence(polished, usedPadding);
-    const testText1 = `${polished} ${pad1}`;
-    const testWordCount1 = testText1.split(/\s+/).filter(w => w.length > 0).length;
-    
-    if (testWordCount1 <= MAX_WORDS) {
-      polished = testText1;
-      wordCount = testWordCount1;
-      usedPadding.push(pad1);
-    }
-    
-    // If still < 95, try second padding sentence
-    if (wordCount < MIN_WORDS) {
-      const pad2 = pickPaddingSentence(polished, usedPadding);
-      const testText2 = `${polished} ${pad2}`;
-      const testWordCount2 = testText2.split(/\s+/).filter(w => w.length > 0).length;
-      
-      if (testWordCount2 <= MAX_WORDS) {
-        polished = testText2;
-        wordCount = testWordCount2;
-        usedPadding.push(pad2);
-      }
-    }
-  }
+  // Initial composition (without opener/closer)
+  let coreContent = `${para1.trim()}\n\n${para2.trim()}`;
   
   // Ensure email body has same content as polished
   return {
-    polished,
+    polished: coreContent,
     email: {
       greeting: "Hi there,",
-      body: polished, // Same enforced text
+      body: coreContent, // Same enforced text
       closing: "Warm regards,",
       signature: "Ms. Johnson"
     }
@@ -476,7 +443,7 @@ export function reviewAndRepair(output: PromptlyOutput): { isValid: boolean; err
   };
 }
 
-// Main pipeline
+// Main pipeline - deterministic KB-aligned with correct order
 export async function runPromptlyPipeline(
   roughNote: string,
   toggle: 'auto' | 'he' | 'she' | 'they' = 'auto',
@@ -485,86 +452,101 @@ export async function runPromptlyPipeline(
   // Stage A: Parse
   const parsed = parsePromptlyInput(roughNote, toggle, preset);
   
-  // Stage B: Generate slots
+  // Stage B: Generate slots (core content only)
   const slots = await generateSlots(parsed);
   
-  // Stage C: Compose
+  // Stage C: Compose core content (without opener/closer)
   let output = composeFinalOutput(slots);
   
-  // Stage D: Gold Standard Quality Pipeline (apply to both outputs)
-  function applyGoldStandardPipeline(text: string): string {
+  // Stage D: Insert deterministic KB opener/closer
+  const pronounKey = getPronounKey(parsed.pronouns);
+  const concernKey = getConcernKey(parsed.concerns, parsed.positives.length > 0);
+  
+  const opener = pickOpener(pronounKey, concernKey, parsed.name);
+  const closer = pickCloser(pronounKey, concernKey);
+  
+  // Combine: opener + core content + closer
+  const withKB = `${opener}\n\n${output.polished}\n\n${closer}`;
+  
+  // Stage E: Add padding if needed (95-120 words)
+  function addPaddingIfNeeded(text: string): string {
+    const wordCount = (s: string) => (s.trim().match(/\b[\w'']+\b/g)?.length ?? 0);
+    const MIN_WORDS = 95;
+    const MAX_WORDS = 120;
+    
+    if (wordCount(text) >= MIN_WORDS) {
+      return text;
+    }
+    
+    const usedPadding: string[] = [];
+    let paddedText = text;
+    
+    // Add first padding sentence
+    const pad1 = pickPaddingSentence(paddedText, usedPadding);
+    const testText1 = `${paddedText} ${pad1}`;
+    
+    if (wordCount(testText1) <= MAX_WORDS) {
+      paddedText = testText1;
+      usedPadding.push(pad1);
+    }
+    
+    // Add second padding if still needed
+    if (wordCount(paddedText) < MIN_WORDS) {
+      const pad2 = pickPaddingSentence(paddedText, usedPadding);
+      const testText2 = `${paddedText} ${pad2}`;
+      
+      if (wordCount(testText2) <= MAX_WORDS) {
+        paddedText = testText2;
+      }
+    }
+    
+    return paddedText;
+  }
+  
+  let paddedContent = addPaddingIfNeeded(withKB);
+  
+  // Stage F: Word count guard (cap at 120)
+  paddedContent = enforceWordLimit(paddedContent, 120);
+  
+  // Stage G: Post-composition grammar repair
+  function applyFinalProcessing(text: string): string {
     let processed = text;
     
-    // 1. Pad to 95-120 words if needed (already done in compose)
+    // 1. Post-composition grammar repair (after padding, before QA)
+    processed = postComposeGrammarRepair(processed, pronounKey);
     
-    // 2. Gold standard pronoun enforcement
-    processed = enforceGoldStandardPronouns(processed, parsed.pronouns);
-    
-    // 3. Final grammar repair (verb agreement + tense normalization) - MOVED EARLIER
-    processed = grammarRepair(processed, parsed.pronouns);
-    
-    // 4. Verb agreement correction (backup)
-    processed = fixPronounAgreement(processed, parsed.pronouns);
-    
-    // 5. Sentence boundary repair
-    processed = fixSentenceSeams(processed);
-    
-    // 6. UK English conversion
+    // 2. UK English conversion
     processed = convertToUKEnglish(processed);
     
-    // 7. Micro-polish rules
-    processed = applyMicroPolish(processed, parsed.name);
+    // 3. Final sentence cleanup
+    processed = fixSentenceSeams(processed);
     
     return processed;
   }
   
-  // Apply to both outputs
-  output.polished = applyGoldStandardPipeline(output.polished);
-  output.email.body = applyGoldStandardPipeline(output.email.body);
+  // Apply final processing to both outputs
+  output.polished = applyFinalProcessing(paddedContent);
+  output.email.body = applyFinalProcessing(paddedContent);
   
-  // Stage E: Quality gate with regeneration
+  // Stage H: Quality gate (final check - no regeneration)
   const gate = qualityGate(output.polished, parsed.pronouns);
   
-  // Debug logging (only in development)
+  // Debug logging
   if (process.env.NEXT_PUBLIC_DEBUG_SNIPPET === '1') {
-    console.log('🔍 Quality Gate Telemetry:', {
-      pronounSelected: parsed.pronouns,
-      pronounCounts: {
-        sheHerHers: (output.polished.match(/\b(she|her|hers)\b/gi) || []).length,
-        heHimHis: (output.polished.match(/\b(he|him|his)\b/gi) || []).length,
-        theyThemTheir: (output.polished.match(/\b(they|them|their|theirs)\b/gi) || []).length
-      },
-      mixedPronouns: gate.metrics.mixedPronouns,
-      wordCount: gate.metrics.words,
-      paragraphs: gate.metrics.paragraphs,
-      actionVerbHits: gate.metrics.actionVerbHits,
-      gradeLevel: gate.metrics.gradeLevel
+    console.log('🔍 KB-Aligned Pipeline:', {
+      pronounKey,
+      concernKey,
+      wordCount: (output.polished.match(/\b[\w'']+\b/g) || []).length,
+      paragraphs: output.polished.split('\n\n').length,
+      qualityGate: gate.ok ? 'PASS' : 'FAIL',
+      errors: gate.errors
     });
   }
   
   if (!gate.ok) {
-    console.warn('Output failed quality gate:', gate.errors);
+    console.warn('Final output failed quality gate:', gate.errors);
     console.warn('Metrics:', gate.metrics);
-    
-    // Attempt one regeneration with repair instructions
-    const repairSlots = await generateSlotsWithRepair(parsed, gate.errors);
-    output = composeFinalOutput(repairSlots);
-    
-    // Re-apply micro-edits
-    output.polished = enforcePronouns(output.polished, parsed.pronouns);
-    output.polished = fixPronounAgreement(output.polished, parsed.pronouns);
-    output.polished = fixSentenceSeams(output.polished);
-    
-    output.email.body = enforcePronouns(output.email.body, parsed.pronouns);
-    output.email.body = fixPronounAgreement(output.email.body, parsed.pronouns);
-    output.email.body = fixSentenceSeams(output.email.body);
-    
-    // Final quality check (no further regeneration)
-    const finalGate = qualityGate(output.polished, parsed.pronouns);
-    if (!finalGate.ok) {
-      console.warn('Repair attempt failed, returning best effort:', finalGate.errors);
-    }
   }
   
   return { ...output, parsed };
-}// Trigger deployment - GT-PRONOUN implementation ready
+}
