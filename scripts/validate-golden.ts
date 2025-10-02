@@ -20,7 +20,7 @@ const fixtureSchema = z.object({
   description: z.string().optional(),
   input: z.object({
     text: z.string(),
-    name: z.string().nullish(),
+    name: z.string().optional(),
     pronoun_choice: z.enum(["auto", "he", "she", "they"])
   }),
   expectations: z.object({
@@ -32,6 +32,7 @@ const fixtureSchema = z.object({
     opener_must_contain: z.string().optional(),
     closer_any: z.array(z.string()).optional(),
     closer_must_contain: z.string().optional(),
+    closer_must_contain_one_of: z.array(z.string()).optional(),
     must_contain_any: z.array(z.string()).optional(),
     banned_words: z.array(z.string()).optional(),
     grammar_requirements: z.object({
@@ -119,6 +120,7 @@ async function runFixture(fx: Fixture) {
     if (exp.opener_must_contain && !txt.toLowerCase().includes(exp.opener_must_contain.toLowerCase())) v.push(`opener must contain: ${exp.opener_must_contain}`);
     if (exp.closer_any && !containsAny(paras.at(-1) ?? "", exp.closer_any)) v.push(`closer missing one of: ${exp.closer_any.join(" | ")}`);
     if (exp.closer_must_contain && !txt.toLowerCase().includes(exp.closer_must_contain.toLowerCase())) v.push(`closer must contain: ${exp.closer_must_contain}`);
+    if (exp.closer_must_contain_one_of && !exp.closer_must_contain_one_of.some(closer => txt.toLowerCase().includes(closer.toLowerCase()))) v.push(`closer must contain one of: ${exp.closer_must_contain_one_of.join(" | ")}`);
     if (exp.must_contain_any && !containsAny(txt, exp.must_contain_any)) v.push(`must contain one of: ${exp.must_contain_any.join(" | ")}`);
 
     // Grammar checks

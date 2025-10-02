@@ -1,0 +1,37 @@
+{
+  "id": "GT-THEY-BOTH-TABS",
+  "description": "Alex (explicit They). Both Polished & Email-ready must use only they/them/their with correct verb agreement.",
+  "input": {
+    "text": "Alex talks with friends during lessons and finds it hard to stay focused. They are creative and good at art projects.",
+    "name": "Alex",
+    "pronoun_choice": "they"
+  },
+  "expectations": {
+    "all_tabs": {
+      "paragraphs": 3,
+      "word_count": { "min": 95, "max": 120 },
+      "allowed_pronouns": ["they", "them", "their", "theirs", "themself"],
+      "forbidden_pronouns": ["he", "him", "his", "she", "her", "hers"],
+      "forbidden_phrases": ["they is", "they has"],
+      "required_phrases_any": [
+        "they are",
+        "they have"
+      ],
+      "opener_starts_one_of": [
+        "I'd like to share how Alex is managing focus",
+        "We've observed Alex sometimes distracted in class",
+        "I'd like to share an update about Alex"
+      ],
+      "closer_contains_one_of": [
+        "agree one cue word",
+        "schedule a quick chat so we're consistent",
+        "touch base by phone or email"
+      ],
+      "banned_words": ["lazy", "naughty", "bad", "always", "never", "no excuses"]
+    },
+    "tabs": [
+      { "tab": "Polished" },
+      { "tab": "Email-ready" }
+    ]
+  }
+}
