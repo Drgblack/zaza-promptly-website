@@ -1,4 +1,14 @@
 {
   "framework": "nextjs",
-  "installCommand": "npm install"
+  "buildCommand": "cd sites/promptly-v2 && npm install && npm run build",
+  "outputDirectory": "sites/promptly-v2/.next",
+  "installCommand": "cd sites/promptly-v2 && npm install",
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD sites/promptly-v2/",
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/en",
+      "statusCode": 308
+    }
+  ]
 }
