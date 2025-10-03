@@ -149,7 +149,7 @@ export function generateOrganizationSchema(siteUrl: string): object {
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
-      email: 'support@zazapromptly.com'
+      email: 'help@zazatechnologies.com'
     },
     sameAs: [
       'https://linkedin.com/company/zaza-technologies',

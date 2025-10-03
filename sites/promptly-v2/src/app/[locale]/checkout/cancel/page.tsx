@@ -121,7 +121,7 @@ export default function CheckoutCancel() {
           </p>
           <div className="flex justify-center space-x-6 text-sm">
             <a 
-              href="mailto:support@zazapromptly.com" 
+              href="mailto:help@zazatechnologies.com" 
               className="flex items-center text-blue-600 hover:text-blue-800"
             >
               <Mail className="w-4 h-4 mr-1" />

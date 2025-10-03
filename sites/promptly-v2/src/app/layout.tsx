@@ -9,22 +9,22 @@ import { ErrorBoundary } from '@/components/ErrorBoundary'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Zaza Promptly – AI for Teachers & Parent Communication',
-  description: 'Save hours with Zaza Promptly – the hallucination-safe AI built for teachers. Write reports, parent messages, and professional emails faster.',
+  title: 'Zaza Draft – The writing partner for teachers',
+  description: 'Beat the blank page, save hours, and stay in control — for parent emails, student reports, and staff notes.',
   keywords: 'AI for teachers, AI teacher reports, AI parent communication, safe AI for teachers, teacher AI tool, hallucination-safe AI, teacher report writing',
   authors: [{ name: 'Zaza Technologies' }],
   creator: 'Zaza Technologies',
   publisher: 'Zaza Technologies',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://promptly.zazatechnologies.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_DRAFT_URL ?? process.env.NEXT_PUBLIC_SITE_URL ?? 'https://zazadraft.com'),
   viewport: 'width=device-width, initial-scale=1',
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Zaza Promptly – AI for Teachers & Parent Communication',
-    description: 'Save hours with Zaza Promptly – the hallucination-safe AI built for teachers. Write reports, parent messages, and professional emails faster.',
+    title: 'Zaza Draft – The writing partner for teachers',
+    description: 'Beat the blank page, save hours, and stay in control — for parent emails, student reports, and staff notes.',
     url: '/',
-    siteName: 'Zaza Promptly',
+    siteName: 'Zaza Draft',
     locale: 'en_US',
     type: 'website',
     images: [
@@ -32,14 +32,14 @@ export const metadata: Metadata = {
         url: '/images/og/zaza-og.png',
         width: 1200,
         height: 630,
-        alt: 'Zaza Promptly - AI Comments for Teachers',
+        alt: 'Zaza Draft - The writing partner for teachers',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Zaza Promptly – AI for Teachers & Parent Communication',
-    description: 'Save hours with Zaza Promptly – the hallucination-safe AI built for teachers. Write reports, parent messages, and professional emails faster.',
+    title: 'Zaza Draft – The writing partner for teachers',
+    description: 'Beat the blank page, save hours, and stay in control — for parent emails, student reports, and staff notes.',
     images: ['/images/og/zaza-og.png'],
   },
   robots: {
@@ -70,7 +70,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#2563eb" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="Zaza Promptly" />
+        <meta name="apple-mobile-web-app-title" content="Zaza Draft" />
         
         {/* Preconnect to Stripe for pricing page performance */}
         <link rel="preconnect" href="https://js.stripe.com" />
