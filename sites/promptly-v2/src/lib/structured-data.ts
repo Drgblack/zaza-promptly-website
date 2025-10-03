@@ -179,7 +179,7 @@ export function generateSoftwareSchema(siteUrl: string): object {
   return {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: 'Zaza Promptly',
+    name: 'Zaza Draft',
     applicationCategory: 'EducationalApplication',
     operatingSystem: 'Web Browser',
     url: siteUrl,
@@ -279,7 +279,7 @@ export function generateKeywordsFromContent(title: string, description: string, 
   }
   
   // Always include brand keywords
-  keywords.add('Zaza Promptly')
+  keywords.add('Zaza Draft')
   keywords.add('AI teaching assistant')
   
   return Array.from(keywords).slice(0, 15) // Limit to 15 keywords

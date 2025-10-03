@@ -6,17 +6,17 @@ import Journey from '@/components/about/Journey';
 import Testimonial from '@/components/about/Testimonial';
 import ActionBand from '@/components/about/ActionBand';
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazadraft.com'
 
 export const metadata: Metadata = {
-  title: 'About the Founder – Dr. Greg Blackburn | Zaza Promptly',
+  title: 'About the Founder – Dr. Greg Blackburn | Zaza Draft',
   description:
     'PhD-qualified educator with 20+ years in EdTech, building teacher-first AI that reduces workload while protecting privacy and professional judgement.',
   alternates: {
     canonical: `${baseUrl}/about`,
   },
   openGraph: {
-    title: 'About the Founder – Dr. Greg Blackburn | Zaza Promptly',
+    title: 'About the Founder – Dr. Greg Blackburn | Zaza Draft',
     description: 'PhD-qualified educator with 20+ years in EdTech, building teacher-first AI that reduces workload while protecting privacy and professional judgement.',
     url: `${baseUrl}/about`,
     images: [
@@ -24,15 +24,15 @@ export const metadata: Metadata = {
         url: '/og-default.png',
         width: 1200,
         height: 630,
-        alt: 'About Dr. Greg Blackburn - Founder of Promptly',
+        alt: 'About Dr. Greg Blackburn - Founder of Zaza Draft',
       },
     ],
-    siteName: 'Promptly',
+    siteName: 'Zaza Draft',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About the Founder – Dr. Greg Blackburn | Zaza Promptly',
+    title: 'About the Founder – Dr. Greg Blackburn | Zaza Draft',
     description: 'PhD-qualified educator with 20+ years in EdTech, building teacher-first AI that reduces workload while protecting privacy and professional judgement.',
     images: ['/og-default.png'],
   },
@@ -69,10 +69,10 @@ export default function FounderPage() {
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-100 dark:text-white">Why I built Zaza Promptly</h2>
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-100 dark:text-white">Why I built Zaza Draft</h2>
             <p className="mt-6 text-xl leading-8 text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              After decades of seeing EdTech that adds clicks and stress, I built Zaza Promptly to do the opposite. It's grounded in
-              classroom realities and designed to save time, not create more work. Promptly suggests; teachers decide.
+              After decades of seeing EdTech that adds clicks and stress, I built Zaza Draft to do the opposite. It's grounded in
+              classroom realities and designed to save time, not create more work. Zara suggests; teachers decide.
             </p>
           </div>
         </div>

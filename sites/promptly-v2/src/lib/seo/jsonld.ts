@@ -6,7 +6,7 @@ interface BaseSchemaProps {
 }
 
 export function generateOrganizationSchema({ url, inLanguage = 'en' }: BaseSchemaProps) {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://zazadraft.com'
   
   return {
     '@context': 'https://schema.org',
@@ -15,7 +15,7 @@ export function generateOrganizationSchema({ url, inLanguage = 'en' }: BaseSchem
     name: 'Zaza Technologies',
     url: baseUrl,
     logo: `${baseUrl}/og-default.png`,
-    description: 'Educational technology company providing AI tools for teachers, including Promptly for parent communication and report writing.',
+    description: 'Educational technology company providing AI tools for teachers, including Draft for parent communication and report writing.',
     foundingDate: '2023',
     founder: {
       '@type': 'Person',
@@ -23,7 +23,7 @@ export function generateOrganizationSchema({ url, inLanguage = 'en' }: BaseSchem
       jobTitle: 'PhD, Professional Education'
     },
     sameAs: [
-      'https://twitter.com/zazapromptly',
+      'https://twitter.com/zazateachapp',
       'https://www.linkedin.com/company/zaza-technologies'
     ],
     contactPoint: {
@@ -37,13 +37,13 @@ export function generateOrganizationSchema({ url, inLanguage = 'en' }: BaseSchem
 }
 
 export function generateWebsiteSchema({ url, inLanguage = 'en' }: BaseSchemaProps) {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://zazadraft.com'
   
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     '@id': `${baseUrl}/#website`,
-    name: 'Promptly - AI Tools for Teachers',
+    name: 'Zaza Draft - AI Tools for Teachers',
     url: baseUrl,
     publisher: {
       '@id': `${baseUrl}/#organization`
@@ -75,7 +75,7 @@ export function generateProductSchema({
   offers,
   inLanguage = 'en' 
 }: ProductSchemaProps) {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://zazadraft.com'
   
   return {
     '@context': 'https://schema.org',
@@ -139,7 +139,7 @@ export function generateBlogPostSchema({
   image,
   inLanguage = 'en'
 }: BlogPostSchemaProps) {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://zazadraft.com'
   
   return {
     '@context': 'https://schema.org',
@@ -153,7 +153,7 @@ export function generateBlogPostSchema({
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Promptly',
+      name: 'Zaza Draft',
       logo: {
         '@type': 'ImageObject',
         url: `${baseUrl}/og-default.png`
@@ -187,7 +187,7 @@ export function generatePersonSchema({
   sameAs = [],
   inLanguage = 'en'
 }: PersonSchemaProps) {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://zazadraft.com'
   
   return {
     '@context': 'https://schema.org',

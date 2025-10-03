@@ -8,8 +8,8 @@ Disallow: /test/
 Disallow: *.json
 
 # Host
-Host: https://www.zazapromptly.com
+Host: https://zazadraft.com
 
 # Sitemaps
-Sitemap: https://www.zazapromptly.com/sitemap.xml
+Sitemap: https://zazadraft.com/sitemap.xml
 Sitemap: /sitemap.xml

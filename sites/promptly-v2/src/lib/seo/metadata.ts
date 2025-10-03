@@ -38,7 +38,7 @@ export function generateSEOMetadata(config: SEOPageConfig): Metadata {
       title: config.ogTitle || config.title,
       description: config.ogDescription || config.description,
       url: `${baseUrl}${config.url}`,
-      siteName: 'Promptly',
+      siteName: 'Zaza Draft',
       type: 'website',
       locale: 'en_GB',
       images: [
@@ -46,7 +46,7 @@ export function generateSEOMetadata(config: SEOPageConfig): Metadata {
           url: '/og-default.png',
           width: 1200,
           height: 630,
-          alt: 'Promptly - AI Tools for Teachers',
+          alt: 'Zaza Draft - AI Tools for Teachers',
         },
       ],
     },
@@ -74,7 +74,7 @@ export function generateSEOMetadata(config: SEOPageConfig): Metadata {
 export const seoConfigs: Record<string, SEOPageConfig> = {
   home: {
     title: 'AI for Teacher Reports & Parent Communication | Safe AI Writing Helper for Teachers',
-    description: 'Save hours with Promptly – hallucination-safe AI for teacher report writing and parent communication. GDPR-compliant AI writing assistant designed by educators, trusted by 12,000+ teachers.',
+    description: 'Save hours with Draft – hallucination-safe AI for teacher report writing and parent communication. GDPR-compliant AI writing assistant designed by educators, trusted by 12,000+ teachers.',
     keywords: [
       'ai for teacher report writing',
       'teacher report comments helper',
@@ -86,7 +86,7 @@ export const seoConfigs: Record<string, SEOPageConfig> = {
       'ai writing assistant for educators'
     ],
     url: '/',
-    ogTitle: 'Promptly – AI Tool for Teacher Reports & Parent Communication',
+    ogTitle: 'Draft – AI Tool for Teacher Reports & Parent Communication',
     ogDescription: 'Hallucination-safe AI that helps teachers write better parent communications and report comments. Save hours weekly while maintaining your caring teacher voice.',
   },
 
@@ -151,11 +151,11 @@ export const seoConfigs: Record<string, SEOPageConfig> = {
   },
 
   aboutFounder: {
-    title: 'About Dr. Greg Blackburn | PhD Educator & Promptly Founder',
-    description: 'Meet Dr. Greg Blackburn, PhD in Professional Education and founder of Promptly. 20+ years in EdTech, building safe AI for classroom communication and teacher productivity.',
+    title: 'About Dr. Greg Blackburn | PhD Educator & Draft Founder',
+    description: 'Meet Dr. Greg Blackburn, PhD in Professional Education and founder of Draft. 20+ years in EdTech, building safe AI for classroom communication and teacher productivity.',
     keywords: [
       'dr greg blackburn',
-      'promptly founder',
+      'draft founder',
       'safe ai for classroom communication',
       'phd education technology',
       'teacher productivity ai expert',
@@ -180,7 +180,7 @@ export const seoConfigs: Record<string, SEOPageConfig> = {
 
   support: {
     title: 'Teacher AI Support | Help with GDPR-Compliant Educational AI Tools',
-    description: 'Get help with Promptly AI tools for teachers. Technical support, GDPR compliance questions, and guidance for safe AI use in education. Dedicated teacher support team.',
+    description: 'Get help with Draft AI tools for teachers. Technical support, GDPR compliance questions, and guidance for safe AI use in education. Dedicated teacher support team.',
     keywords: [
       'gdpr compliant ai for schools support',
       'safe ai for education help',

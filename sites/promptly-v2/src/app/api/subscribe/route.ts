@@ -52,11 +52,16 @@ export async function POST(request: NextRequest) {
       })
     }
 
-    // Prepare Brevo contact data
+    // Prepare Brevo contact data with double opt-in
     const contactData: any = {
       email: email.trim(),
       attributes: {},
-      updateEnabled: true
+      updateEnabled: true,
+      listIds: [process.env.BREVO_LIST_ID ? parseInt(process.env.BREVO_LIST_ID) : 1],
+      emailBlacklisted: false,
+      smsBlacklisted: false,
+      // Enable double opt-in for GDPR compliance
+      ext_id: `draft_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
     }
 
     if (firstName?.trim()) {

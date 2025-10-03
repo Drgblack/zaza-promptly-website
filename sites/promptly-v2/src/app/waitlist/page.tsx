@@ -2,8 +2,8 @@ import { Metadata } from 'next'
 import WaitlistForm from '@/components/WaitlistForm'
 
 export const metadata: Metadata = {
-  title: 'Join the Waitlist | Promptly - AI Comments for Teachers',
-  description: 'Be the first to access Promptly when it launches. Join thousands of educators already on our waitlist.',
+  title: 'Join the Waitlist | Zaza Draft - AI Comments for Teachers',
+  description: 'Be the first to access Draft when it launches. Join thousands of educators already on our waitlist.',
 }
 
 export default function WaitlistPage() {

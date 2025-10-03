@@ -6,19 +6,19 @@ export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 export const metadata: Metadata = {
-  title: 'Zaza Promptly – AI for Teachers & Parent Communication',
-  description: 'Save hours with Zaza Promptly – the hallucination-safe AI built for teachers. Write reports, parent messages, and professional emails faster.',
+  title: 'Zaza Draft – The writing partner for teachers',
+  description: 'Beat the blank page, save hours, and stay in control — for parent emails, student reports, and staff notes. Try Zaza Draft free.',
   keywords: 'AI for teachers, AI teacher reports, AI parent communication, safe AI for teachers, teacher AI tool, hallucination-safe AI, teacher report writing',
   openGraph: {
-    title: 'Zaza Promptly – AI for Teachers & Parent Communication',
-    description: 'Save hours with Zaza Promptly – the hallucination-safe AI built for teachers. Write reports, parent messages, and professional emails faster.',
+    title: 'Zaza Draft – The writing partner for teachers',
+    description: 'Beat the blank page, save hours, and stay in control — for parent emails, student reports, and staff notes. Try Zaza Draft free.',
     images: ['/images/og/zaza-og.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Zaza Promptly – AI for Teachers & Parent Communication',
-    description: 'Save hours with Zaza Promptly – the hallucination-safe AI built for teachers. Write reports, parent messages, and professional emails faster.',
+    title: 'Zaza Draft – The writing partner for teachers',
+    description: 'Beat the blank page, save hours, and stay in control — for parent emails, student reports, and staff notes. Try Zaza Draft free.',
     images: ['/images/og/zaza-og.png'],
   },
 };

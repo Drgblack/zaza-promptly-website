@@ -1,33 +1,33 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazadraft.com'
 
 export const metadata: Metadata = {
-  title: 'Thank You | Promptly',
-  description: 'Welcome to Promptly! Your subscription is confirmed and you&apos;re ready to transform your teaching with AI.',
+  title: 'Thank You | Zaza Draft',
+  description: 'Welcome to Draft! Your subscription is confirmed and you&apos;re ready to transform your teaching with AI.',
   alternates: {
     canonical: '/thank-you',
   },
   openGraph: {
-    title: 'Thank You | Promptly',
-    description: 'Welcome to Promptly! Your subscription is confirmed and you&apos;re ready to transform your teaching with AI.',
+    title: 'Thank You | Zaza Draft',
+    description: 'Welcome to Draft! Your subscription is confirmed and you&apos;re ready to transform your teaching with AI.',
     url: `${baseUrl}/thank-you`,
     images: [
       {
         url: '/og-default.png',
         width: 1200,
         height: 630,
-        alt: 'Welcome to Promptly - AI Tools for Teachers',
+        alt: 'Welcome to Zaza Draft - AI Tools for Teachers',
       },
     ],
-    siteName: 'Promptly',
+    siteName: 'Zaza Draft',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Thank You | Promptly',
-    description: 'Welcome to Promptly! Your subscription is confirmed and you&apos;re ready to transform your teaching with AI.',
+    title: 'Thank You | Zaza Draft',
+    description: 'Welcome to Draft! Your subscription is confirmed and you&apos;re ready to transform your teaching with AI.',
     images: ['/og-default.png'],
   },
   robots: {
@@ -60,7 +60,7 @@ export default function ThankYouPage() {
 
         {/* Main Content */}
         <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-6">
-          Welcome to Promptly! 🎉
+          Welcome to Draft! 🎉
         </h1>
         
         <p className="text-xl text-slate-300 mb-8 max-w-[600px] mx-auto">
@@ -122,7 +122,7 @@ export default function ThankYouPage() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link 
-            href="https://app.zazapromptly.com"
+            href="https://app.zazadraft.com"
             className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-purple-600 hover:bg-purple-700 text-white font-medium transition-colors shadow-lg"
           >
             Access Your Dashboard

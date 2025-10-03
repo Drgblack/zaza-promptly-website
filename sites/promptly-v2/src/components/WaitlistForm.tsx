@@ -138,7 +138,7 @@ export default function WaitlistForm() {
             You&apos;re on the waitlist! 🎉
           </h2>
           <p className="text-gray-600 dark:text-gray-300 mb-6">
-            Thanks for joining over 12,000 educators who are excited about Promptly.
+            Thanks for joining over 12,000 educators who are excited about Draft.
           </p>
           
           <div className="bg-blue-50 dark:bg-blue-900/30 rounded-lg p-4 mb-6">
@@ -196,7 +196,7 @@ export default function WaitlistForm() {
           Join the Waitlist
         </h1>
         <p className="text-gray-600 dark:text-gray-300 mb-8">
-          Be the first to know when Promptly launches. Join over 12,000 educators who are already signed up.
+          Be the first to know when Draft launches. Join over 12,000 educators who are already signed up.
         </p>
         
         <form onSubmit={handleSubmit} className="space-y-4">

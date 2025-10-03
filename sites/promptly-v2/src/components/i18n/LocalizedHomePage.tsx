@@ -6,7 +6,7 @@ import ScrollReveal from '@/components/animations/ScrollReveal'
 import EmailSignupForm from '@/components/forms/EmailSignupForm'
 import TrustBadges from '@/components/trust/TrustBadges'
 import TestimonialsSection from '@/components/testimonials/TestimonialsSection'
-import TextImprovementDemo from '@/components/sections/TextImprovementDemo'
+import DemoTabs from '@/components/sections/DemoTabs'
 import ZaraAssistant from '@/components/snippet/ZaraAssistant'
 import { useState } from 'react'
 
@@ -66,6 +66,14 @@ export default function LocalizedHomePage({ locale: propLocale }: LocalizedHomeP
               <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
                 <Link
                   href={hasStripe ? `/${currentLocale}/pricing#free` : `/${currentLocale}/waitlist`}
+                  onClick={() => {
+                    if (typeof window !== 'undefined' && (window as any).gtag) {
+                      (window as any).gtag('event', 'cta_click', {
+                        location: 'hero',
+                        locale: currentLocale
+                      })
+                    }
+                  }}
                   className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold rounded-lg transition-all hover:scale-105 shadow-xl"
                 >
                   Try Zaza Draft Free →
@@ -112,7 +120,7 @@ export default function LocalizedHomePage({ locale: propLocale }: LocalizedHomeP
         </div>
       </section>
 
-      {/* "See Promptly Transform" Section */}
+      {/* "See Draft Transform" Section */}
       <section className="py-20 bg-slate-900">
         <div className="container">
           <ScrollReveal>
@@ -194,7 +202,7 @@ export default function LocalizedHomePage({ locale: propLocale }: LocalizedHomeP
                 />
                 
                 {/* Demo Tool */}
-                <TextImprovementDemo />
+                <DemoTabs />
                 
                 <div className="text-center mt-8">
                   <p className="text-slate-400 text-sm mb-4">
@@ -315,7 +323,7 @@ export default function LocalizedHomePage({ locale: propLocale }: LocalizedHomeP
         </div>
       </section>
 
-      {/* Promptly vs ChatGPT Comparison */}
+      {/* Draft vs ChatGPT Comparison */}
       <section className="py-20 bg-slate-800/50">
         <div className="container">
           <ScrollReveal>
@@ -459,6 +467,14 @@ export default function LocalizedHomePage({ locale: propLocale }: LocalizedHomeP
               <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
                 <Link 
                   href={hasStripe ? `/${currentLocale}/pricing#free` : `/${currentLocale}/waitlist`}
+                  onClick={() => {
+                    if (typeof window !== 'undefined' && (window as any).gtag) {
+                      (window as any).gtag('event', 'cta_click', {
+                        location: 'final',
+                        locale: currentLocale
+                      })
+                    }
+                  }}
                   className="inline-flex items-center px-10 py-5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors shadow-2xl text-xl"
                 >
                   Start Your Free Trial

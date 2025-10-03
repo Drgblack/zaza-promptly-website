@@ -15,7 +15,7 @@ export function generateAlternateLanguages(
   path: string,
   enabledLocales: SupportedLocale[] = ['en']
 ): AlternateLanguages {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://zazadraft.com'
   
   // For now, only return English
   // TODO: When i18n is enabled, expand this function to include all locales
@@ -42,7 +42,7 @@ export function generateAlternateLanguages(
 }
 
 export function generateCanonical(path: string, locale: SupportedLocale = 'en'): string {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://zazadraft.com'
   
   // For now, always return English canonical
   // TODO: When i18n is enabled, include locale in path for non-English
