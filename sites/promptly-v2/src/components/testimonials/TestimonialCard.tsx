@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { Testimonial } from '@/content/testimonials'
 
 interface TestimonialCardProps {
@@ -19,10 +20,19 @@ export default function TestimonialCard({
         <blockquote className="text-slate-300 text-sm mb-3 leading-relaxed">
           &ldquo;{testimonial.quote}&rdquo;
         </blockquote>
-        <div className="text-xs text-slate-400">
-          <span className="font-medium text-slate-300">{testimonial.name}</span>
-          <span className="mx-1">•</span>
-          <span>{testimonial.role}</span>
+        <div className="flex items-center gap-2">
+          <Image
+            src={testimonial.avatar}
+            alt={`${testimonial.name} headshot`}
+            width={24}
+            height={24}
+            className="rounded-full"
+          />
+          <div className="text-xs text-slate-400">
+            <span className="font-medium text-slate-300">{testimonial.name}</span>
+            <span className="mx-1">•</span>
+            <span>{testimonial.role}</span>
+          </div>
         </div>
       </div>
     )
@@ -42,16 +52,22 @@ export default function TestimonialCard({
           &ldquo;{testimonial.quote}&rdquo;
         </blockquote>
 
-        <div className="flex items-start justify-between">
-          <div>
+        <div className="flex items-start gap-4">
+          <Image
+            src={testimonial.avatar}
+            alt={`${testimonial.name} headshot`}
+            width={64}
+            height={64}
+            className="rounded-full flex-shrink-0"
+          />
+          <div className="flex-1">
             <div className="font-semibold text-white text-lg">{testimonial.name}</div>
             <div className="text-purple-400 font-medium">{testimonial.role}</div>
             <div className="text-slate-400 text-sm">{testimonial.location}</div>
-          </div>
-          
-          <div className="text-right text-sm text-slate-400">
-            <div className="font-medium text-purple-400">{testimonial.impact}</div>
-            <div>{testimonial.timeframe}</div>
+            <div className="mt-2 text-right text-sm text-slate-400">
+              <div className="font-medium text-purple-400">{testimonial.impact}</div>
+              <div>{testimonial.timeframe}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -65,16 +81,22 @@ export default function TestimonialCard({
         &ldquo;{testimonial.quote}&rdquo;
       </blockquote>
       
-      <div className="flex items-start justify-between text-sm">
-        <div>
+      <div className="flex items-start gap-3">
+        <Image
+          src={testimonial.avatar}
+          alt={`${testimonial.name} headshot`}
+          width={48}
+          height={48}
+          className="rounded-full flex-shrink-0"
+        />
+        <div className="flex-1">
           <div className="font-semibold text-white">{testimonial.name}</div>
-          <div className="text-slate-400">{testimonial.role}</div>
+          <div className="text-slate-400 text-sm">{testimonial.role}</div>
           <div className="text-slate-500 text-xs">{testimonial.location}</div>
-        </div>
-        
-        <div className="text-right text-xs text-slate-500">
-          <div className="font-medium text-slate-400">{testimonial.impact}</div>
-          <div>{testimonial.timeframe}</div>
+          <div className="mt-2 text-xs text-slate-500">
+            <div className="font-medium text-slate-400">{testimonial.impact}</div>
+            <div>{testimonial.timeframe}</div>
+          </div>
         </div>
       </div>
       

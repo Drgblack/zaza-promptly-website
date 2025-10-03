@@ -15,7 +15,7 @@ interface TestimonialsSectionProps {
 export default function TestimonialsSection({ 
   variant = 'full',
   title = "Trusted by Teachers Worldwide",
-  subtitle = "Real educators sharing their experience with Promptly",
+  subtitle = "Real educators sharing their experience with Draft",
   className = '',
   limit
 }: TestimonialsSectionProps) {
@@ -100,7 +100,7 @@ export default function TestimonialsSection({
         <ScrollReveal duration={0.24} delay={0.2}>
           <div className="text-center mt-12">
             <p className="text-slate-400 text-sm mb-4">
-              Join over 12,000 educators saving time with Promptly
+              Join over 12,000 educators saving time with Draft
             </p>
             <div className="flex justify-center gap-4">
               <a
