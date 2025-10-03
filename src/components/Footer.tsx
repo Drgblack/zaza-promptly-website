@@ -17,7 +17,6 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Product</h4>
             <ul className="space-y-2">
-              <li><Link href="/en/features" className="text-gray-400 hover:text-white transition-colors">Features</Link></li>
               <li><Link href="/en/pricing" className="text-gray-400 hover:text-white transition-colors">Pricing</Link></li>
               <li><Link href="/en/blog" className="text-gray-400 hover:text-white transition-colors">Blog</Link></li>
             </ul>
@@ -27,7 +26,6 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Resources</h4>
             <ul className="space-y-2">
               <li><Link href="/en/resources" className="text-gray-400 hover:text-white transition-colors">Teaching Resources</Link></li>
-              <li><Link href="/en/guides" className="text-gray-400 hover:text-white transition-colors">Guides</Link></li>
               <li><Link href="/en/support" className="text-gray-400 hover:text-white transition-colors">Support</Link></li>
             </ul>
           </div>
@@ -48,7 +46,7 @@ export function Footer() {
               <p className="text-gray-400 text-sm">&copy; 2025 Zaza Promptly. All rights reserved.</p>
               <div className="flex items-center gap-4 text-sm">
                 <a 
-                  href="https://zazatechnologies.com" 
+                  href="https://zazateach.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"

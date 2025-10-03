@@ -1,0 +1,17 @@
+[
+  {
+    "content": "**Promptly Core Features:**\n\n• **Smart Comment Generator:** Create personalized feedback in seconds\n• **Parent Email Assistant:** Draft professional, warm communications\n• **Multi-language Support:** Translate to 12+ languages instantly\n• **Report Writing Tools:** Streamline progress reports and assessments\n• **Tone Adjustment:** Choose warm, professional, or supportive voice\n• **Privacy-First:** No student data stored, FERPA/GDPR compliant",
+    "priority": 1.0,
+    "source": "features"
+  },
+  {
+    "content": "**Integration & Export:**\n\n• Export to DOC/PDF for easy sharing\n• Works with Google Classroom, Canvas, Schoology\n• CSV import/export for gradebooks\n• Batch processing for multiple students\n• Offline templates for backup",
+    "priority": 0.9,
+    "source": "features"
+  },
+  {
+    "content": "**AI Teaching Assistant (Zara):**\n\n• Get practical classroom management advice\n• Ask about differentiation strategies\n• Help with lesson planning and assessment\n• Parent communication templates\n• Evidence-based teaching strategies",
+    "priority": 0.8,
+    "source": "features"
+  }
+]

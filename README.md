@@ -1,6 +1,17 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Site Moved - This Repository is Archived
 
-## Zaza Promptly - AI Communication Assistant for Teachers
+**This site has moved to Zaza Draft** - all traffic is redirected to https://zazadraft.com
+
+This repository contains the legacy Zaza Promptly codebase. The product has been rebranded and relocated:
+
+- **New URL**: https://zazadraft.com
+- **Old URL**: zazapromptly.com (automatically redirects)
+
+---
+
+## Legacy: Zaza Promptly - AI Communication Assistant for Teachers
+
+*This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).*
 
 ## Getting Started
 

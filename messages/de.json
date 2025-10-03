@@ -9,7 +9,13 @@
     "faq": "FAQ",
     "company": "Unternehmen",
     "press": "Presse",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "ourSolutions": "Unsere Lösungen",
+    "learningCentre": "Lernzentrum",
+    "aboutUs": "Über uns",
+    "tryZazaPromptly": "Zaza Promptly testen",
+    "tryZazaTeach": "Zaza Teach testen",
+    "language": "Sprache"
   },
   "hero": {
     "title": "KI-gestützte Tools für moderne Pädagogen",
@@ -42,8 +48,7 @@
   },
   "footer": {
     "tagline": "Von Pädagogen für Pädagogen entwickelt",
-    "copyright": "© 2024 Zaza Technologies. Alle Rechte vorbehalten.",
-    "address": "Zaza Technologies, Gumbertstraße 150, 40229 Düsseldorf, Deutschland"
+    "copyright": "© 2024 Zaza Technologies. Alle Rechte vorbehalten."
   },
   "blog": {
     "title": "Blog für Pädagogen",
@@ -57,7 +62,11 @@
     "published": "Veröffentlicht",
     "category": "Kategorie",
     "share": "Teilen",
-    "related_posts": "Verwandte Beiträge"
+    "related_posts": "Verwandte Beiträge",
+    "breadcrumb": {
+      "home": "Startseite",
+      "blog": "Blog"
+    }
   },
   "resources": {
     "title": "Ressourcen für Pädagogen",
@@ -65,7 +74,16 @@
     "download": "Herunterladen",
     "view": "Ansehen",
     "free": "Kostenlos",
-    "premium": "Premium"
+    "premium": "Premium",
+    "breadcrumb": {
+      "home": "Startseite",
+      "resources": "Ressourcen"
+    },
+    "usageNote": "Diese Ressourcen sind kostenlos für den Einsatz im Klassenzimmer. Bitte behalten Sie die Fußszeile bei und verkaufen Sie sie nicht weiter.",
+    "downloadTip": {
+      "label": "Tipp:",
+      "text": "Klicken Sie auf 'Ansehen & Drucken', um in einem neuen Tab zu öffnen, dann verwenden Sie Strg+P (Cmd+P auf Mac) und wählen 'Als PDF speichern' für Ihre eigene PDF-Kopie."
+    }
   },
   "about": {
     "title": "Über Zaza Promptly",
@@ -88,7 +106,11 @@
   },
   "faq": {
     "title": "Häufig gestellte Fragen",
-    "subtitle": "Alles, was Sie über Zaza Promptly wissen müssen"
+    "subtitle": "Alles, was Sie über Zaza Promptly wissen müssen",
+    "breadcrumb": {
+      "home": "Startseite",
+      "faqs": "FAQ"
+    }
   },
   "community": {
     "title": "Community",
@@ -115,5 +137,105 @@
     "clear": "Löschen",
     "apply": "Anwenden",
     "reset": "Zurücksetzen"
+  },
+  "aboutFounder": {
+    "metaTitle": "Über den Gründer - Dr. Greg Blackburn | Zaza Teach",
+    "metaDescription": "Dr. Greg Blackburn, Gründer und CEO von Zaza Technologies. Vom tasmanischen Handwerk zur Promotion an der City, University of London - eine Karriere, die sich der Unterstützung von Lehrern widmet.",
+    "ogDescription": "Bildung hat Gregs Leben verändert. Seine Mission ist es nun, Lehrern zu helfen - mit empathischer, pädagogisch fundierter KI.",
+    "ogImageAlt": "Dr. Greg Blackburn, Gründer von Zaza Technologies",
+    "jobTitle": "Gründer und CEO",
+    "personDescription": "Bildungstechnologie-Unternehmer mit Promotion in Berufsbildung und über 20 Jahren Erfahrung in Lernen und Entwicklung.",
+    "breadcrumb": {
+      "home": "Startseite",
+      "aboutFounder": "Über den Gründer"
+    }
+  },
+  "community": {
+    "title": "Gemeinschaft",
+    "subtitle": "Verbinde dich mit anderen Pädagogen",
+    "description": "Schließe dich Tausenden von Pädagogen an, die KI nutzen, um ihre Unterrichtspraxis zu transformieren. Teile Ressourcen, erhalte Unterstützung und lerne von den Erfahrungen anderer.",
+    "impact": {
+      "badge": "Globaler Gemeinschaftseinfluss",
+      "title": "Einen Unterschied machen",
+      "desc": "Sieh, wie unsere globale Gemeinschaft von Pädagogen Klassenzimmer transformiert und kostbare Zeit spart",
+      "teachers": "Aktive Lehrer",
+      "resources": "Geteilte Ressourcen",
+      "downloads": "Gesamte Downloads",
+      "rating": "Durchschnittliche Bewertung",
+      "countries": "Länder",
+      "time_saved": "Zeit gespart"
+    },
+    "contributors": {
+      "badge": "Gemeinschafts-Spotlight",
+      "title": "Top-Beitragszahler",
+      "desc": "Lerne die unglaublichen Pädagogen kennen, die unsere Gemeinschaft anführen und Tausende von Lehrern weltweit inspirieren"
+    },
+    "cta": {
+      "title": "Bereit, dein Unterrichten zu transformieren?",
+      "desc": "Schließe dich Tausenden von Pädagogen an, die bereits KI nutzen, um Zeit zu sparen, die Kommunikation zu verbessern und das Lernen der Schüler zu verbessern.",
+      "primary": "Heute loslegen",
+      "secondary": "Ressourcen ansehen"
+    },
+    "stats": {
+      "teachers": "Aktive Lehrer",
+      "resources": "Geteilte Ressourcen",
+      "success_stories": "Erfolgsgeschichten"
+    }
+  },
+  "home": {
+    "pricing_banner_title": "Einfache Pläne für jedes Klassenzimmer",
+    "pricing_banner_copy": "Jeder Lehrer verdient seine Zeit zurück. Wähle den Plan, der zu deinen Bedürfnissen passt.",
+    "pricing_primary_cta": "Kostenlos testen",
+    "pricing_secondary_cta": "Pläne anzeigen",
+    "zaza_pass_microcopy": "Jährlich spart dir ~2 Monate gegenüber monatlich.",
+    "problem_heading": "Lehrer sind überfordert.",
+    "problem_body": "Eltern-E-Mails stapeln sich. Berichte ziehen sich ins Wochenende. Die Arbeit hört nie auf - und deine Zeit mit der Familie schwindet immer mehr. Du bist nicht Lehrer geworden, um Nächte vor deinem Posteingang zu verbringen.",
+    "solution_heading": "Wie kann Promptly wirklich helfen?",
+    "solution_card1_title": "Intelligenter Nachrichten-Schreiber",
+    "solution_card1_desc": "Entwerfe sofort professionelle Antworten - kein Grübeln, keine verschwendeten Minuten.",
+    "solution_card2_title": "Umschreiben mit dem richtigen Ton",
+    "solution_card2_desc": "Wähle unterstützende, bestimmte oder neutrale Stimme je nach Situation.",
+    "solution_card3_title": "Sofort übersetzen",
+    "solution_card3_desc": "Antworte Eltern in ihrer bevorzugten Sprache mit einem Klick.",
+    "outcomes_heading": "Sieh den Unterschied jede Woche.",
+    "outcomes_item1": "Spare 2-3 Stunden Verwaltungszeit jede Woche",
+    "outcomes_item2": "Keine nächtlichen Schuldgefühle über unvollendete Nachrichten mehr",
+    "outcomes_item3": "Vertrauen in jede Antwort - auch bei den schwierigen",
+    "testimonials_heading": "Vertrauen von Lehrern, die ihre Zeit schätzen",
+    "testimonials_1_quote": "Promptly hat meine Sonntag-E-Mail-Zeit halbiert.",
+    "testimonials_1_name": "Emma",
+    "testimonials_1_role": "Grundschullehrerin 5. Klasse",
+    "testimonials_2_quote": "Antworten, die früher 30 Minuten dauerten, brauchen jetzt 2. Ich klappe endlich pünktlich meinen Laptop zu.",
+    "testimonials_2_name": "James",
+    "testimonials_2_role": "Gymnasium Englischlehrer",
+    "testimonials_3_quote": "Promptly hat die Elternkommunikation weniger stressig und professioneller gemacht.",
+    "testimonials_3_name": "Aisha",
+    "testimonials_3_role": "Mittelschule Naturwissenschaften",
+    "compare_heading": "Promptly vs ChatGPT für Lehrer",
+    "compare_subhead": "Beide schreiben Text. Nur Promptly versteht das Klassenzimmer.",
+    "closing_heading": "Stell dir freie Sonntagnachmittage vor.",
+    "closing_body": "Deine Arbeit ist erledigt. Dein Kopf ist frei. Und deine Zeit gehört wieder dir. Promptly macht es möglich.",
+    "closing_cta_primary": "Promptly kostenlos testen",
+    "closing_cta_secondary": "Pläne anzeigen",
+    "closing_tagline": "Schließe dich Tausenden von Lehrern an, die bereits ihre Zeit zurückgewonnen haben"
+  },
+  "footer": {
+    "products": "Produkte",
+    "resources": "Ressourcen", 
+    "company": "Unternehmen",
+    "blog": "Blog",
+    "freeResources": "Kostenlose Ressourcen",
+    "faqs": "Häufig gestellte Fragen",
+    "support": "Unterstützung",
+    "contact": "Kontakt",
+    "aboutFounder": "Über den Gründer",
+    "visionMission": "Vision & Mission",
+    "productList": "Zaza-Produktliste",
+    "featureRequest": "Funktionsanfrage",
+    "privacy": "Datenschutzrichtlinie",
+    "terms": "Nutzungsbedingungen",
+    "comingSoon": "Demnächst verfügbar",
+    "copyright": "© 2025 Zaza Technologies UG (haftungsbeschränkt). Alle Rechte vorbehalten.",
+    "tagline": "Mit 💙 von Lehrern für Lehrer gemacht."
   }
 }

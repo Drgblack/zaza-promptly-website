@@ -1,0 +1,18 @@
+﻿{
+    "brand":  "Zaza Promptly · ES",
+    "nav":  {
+                "home":  "Home",
+                "resources":  "Resources",
+                "blog":  "Blog",
+                "community":  "Community",
+                "pricing":  "Pricing"
+            },
+    "hero":  {
+  "headline": "Write parent messages in minutes, not hours",
+  "headline_highlight": "Save time. Reduce stress.",
+  "tagline": "AI tools for modern educators",
+  "subtitle": "Draft clearer parent emails, report comments and student feedback in a fraction of the time.",
+  "cta_primary": "Try Promptly Free",
+  "cta_secondary": "See how it works"
+             }
+}

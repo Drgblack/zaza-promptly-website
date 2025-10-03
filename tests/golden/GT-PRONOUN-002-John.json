@@ -1,0 +1,17 @@
+{
+  "id": "GT-PRONOUN-002-John",
+  "input": {
+    "text": "John helps others but forgets homework sometimes. He's good at explaining things to classmates.",
+    "name": "John",
+    "pronoun_choice": "he"
+  },
+  "expectations": {
+    "paragraphs": 3,
+    "word_count": { "min": 95, "max": 120 },
+    "allowed_pronouns": ["he","him","his"],
+    "forbidden_pronouns": ["she","her","hers","they","them","their"],
+    "opener_any": ["I'd like to share an update about John", "I’d like to share an update about John"],
+    "closer_any": ["Please let me know a good time", "Please let me know a time that works"],
+    "banned_words": ["lazy","naughty","stupid"]
+  }
+}

@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /draft/
+Disallow: /demo/
+
+# Allow blog content for SEO
+Allow: /*/blog/
+Allow: /*/blog/*
+
+Sitemap: https://zazapromptly.com/sitemap.xml
+
+# Crawl-delay for well-behaved bots
+Crawl-delay: 1

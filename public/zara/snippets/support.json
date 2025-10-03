@@ -1,0 +1,17 @@
+[
+  {
+    "content": "**Privacy & Data Security:**\n\n• **Zero Student Data Storage:** We never store student names, grades, or personal information\n• **FERPA & GDPR Compliant:** Full compliance with education privacy laws\n• **End-to-End Encryption:** All communications secured\n• **EU-Based Servers:** Data processed in European Union\n• **Regular Security Audits:** Quarterly third-party security reviews",
+    "priority": 1.0,
+    "source": "support"
+  },
+  {
+    "content": "**Getting Help:**\n\n• **Email Support:** help@zazapromptly.com (24-48hr response)\n• **FAQ Section:** Comprehensive help articles\n• **Video Tutorials:** Step-by-step guides\n• **Live Chat:** Available during EU business hours\n• **Community Forum:** Connect with other teachers",
+    "priority": 0.9,
+    "source": "support"
+  },
+  {
+    "content": "**Technical Requirements:**\n\n• **Browser:** Chrome, Firefox, Safari, Edge (latest versions)\n• **Internet:** Basic broadband connection\n• **No Downloads:** Fully web-based, works on any device\n• **Mobile Friendly:** Optimized for phones and tablets\n• **Offline Mode:** Basic templates available without internet",
+    "priority": 0.7,
+    "source": "support"
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "id": "GT-REFRAME-HARSH",
+  "description": "Harsh tokens must be reframed; none may appear in output.",
+  "input": {
+    "text": "Johnny is a naughty boy who is always lazy and never brings homework. He disrupts the class.",
+    "name": "Johnny",
+    "pronoun_choice": "he"
+  },
+  "expectations": {
+    "all_tabs": {
+      "paragraphs": 3,
+      "word_count": { "min": 95, "max": 120 },
+      "allowed_pronouns": ["he", "him", "his"],
+      "banned_words": ["lazy", "naughty", "bad", "always", "never", "no excuses"],
+      "required_phrases_any": [
+        "finding it hard to stay motivated",
+        "showing challenging behaviour"
+      ],
+      "forbidden_phrases": [
+        "naughty", "lazy", "always", "never"
+      ],
+      "opener_starts_one_of": [
+        "I'd like to share how Johnny is managing focus",
+        "We've observed Johnny sometimes distracted in class"
+      ],
+      "closer_contains_one_of": [
+        "agree one cue word",
+        "schedule a quick chat so we're consistent"
+      ]
+    }
+  }
+}

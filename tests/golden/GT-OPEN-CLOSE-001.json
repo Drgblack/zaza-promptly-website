@@ -1,0 +1,21 @@
+{
+  "id": "GT-OPEN-CLOSE-001",
+  "input": {
+    "text": "Mary is lazy and often late to class with no homework.",
+    "name": "Mary",
+    "pronoun_choice": "she"
+  },
+  "expectations": {
+    "paragraphs": 3,
+    "word_count": { "min": 95, "max": 120 },
+    "opener_must_contain": "I'd like to share an update about Mary. She has been finding it hard to stay focused during lessons.",
+    "closer_must_contain_one_of": [
+      "Please let me know a good time for us to discuss next steps together.",
+      "Could we agree a quick plan that fits your morning routine and supports her homework habits?"
+    ],
+    "allowed_pronouns": ["she", "her", "hers"],
+    "forbidden_pronouns": ["he", "him", "his", "they", "them", "their"],
+    "banned_words": ["lazy", "naughty", "bad", "stupid"],
+    "debugMustContain": "Pronoun: she | source: explicit"
+  }
+}

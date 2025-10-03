@@ -1,0 +1,18 @@
+{
+  "id": "GT-ATTENDANCE-001",
+  "input": {
+    "text": "Sally has been arriving late and missing homework assignments regularly.",
+    "name": "Sally",
+    "pronoun_choice": "she"
+  },
+  "expectations": {
+    "paragraphs": 3,
+    "word_count": { "min": 95, "max": 120 },
+    "opener_must_contain": "I'd like to share an update about Sally. Over the past week she has been arriving late to class, and some homework has been incomplete.",
+    "closer_must_contain": "Could we agree a quick plan that fits your morning routine and supports her homework habits?",
+    "allowed_pronouns": ["she", "her", "hers"],
+    "forbidden_pronouns": ["he", "him", "his", "they", "them", "their"],
+    "banned_words": ["lazy", "naughty", "bad", "stupid"],
+    "debugMustContain": "Pronoun: she | source: explicit"
+  }
+}

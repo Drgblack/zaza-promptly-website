@@ -1,0 +1,305 @@
+{
+  "draft": {
+    "hero": {
+      "title": "Der Schreib-Partner für Lehrkräfte.",
+      "sub": "Schluss mit der leeren Seite: sparen Sie Stunden und behalten Sie die Kontrolle — für Eltern-E-Mails, Zeugnis-kommentare und interne Schreiben.",
+      "ctaPrimary": "Zaza Draft gratis testen →",
+      "ctaSecondary": "Beispiele ansehen",
+      "safety": "Sichere Technologie für die Schule – Sie entscheiden jedes Wort.",
+      "cred": "Entwickelt von einem promovierten Pädagogen. DSGVO-konform.",
+      "trustBar": "10k+ erstellte Entwürfe | 4,9/5 Durchschnittsbewertung | 95% sparen Stunden"
+    },
+    "pillars": {
+      "saveTime": { "title": "Stunden sparen", "body": "Aus Stichpunkten werden Entwürfe in Minuten." },
+      "soundRight": { "title": "Klingt richtig", "body": "Professionell, wertschätzend – passend für die Schule." },
+      "control": { "title": "Sie entscheiden", "body": "Sie prüfen, bearbeiten und versenden – Draft sendet nie automatisch." }
+    },
+    "useCases": {
+      "parent": "Eltern-Informationen",
+      "reports": "Zeugnis-kommentare",
+      "staff": "Interne Schreiben",
+      "docs": "Dokumentation"
+    },
+    "demo": {
+      "title": "In 30 Sekunden ausprobieren",
+      "subtitle": "Heute Elternkommunikation – mehr in der App.",
+      "type": "Entwurfstyp",
+      "submit": "Entwurf erstellen",
+      "tabs": {
+        "parent": "Eltern-Kommunikation",
+        "reports": "Zeugnis-Kommentare",
+        "staff": "Interne Schreiben",
+        "docs": "Dokumentation"
+      },
+      "form": {
+        "student": "Name der Schülerin / des Schülers",
+        "context": "Worum geht es?",
+        "tone": "Ton",
+        "toneOpts": { "pro":"Professionell", "warm":"Wertschätzend", "concise":"Kurz & prägnant" },
+        "length": "Länge",
+        "lengthOpts": { "short":"Kurz", "med":"Mittel" },
+        "submit": "Entwurf erstellen",
+        "privacyNote": "Bitte keine sensiblen oder personenbezogenen Schüler*innendaten eingeben.",
+        "resultLabel": "Entwurf",
+        "copy": "Kopieren"
+      },
+      "upsell": {
+        "title": {
+          "reports": "Zeugnis-Kommentare – Entwürfe in Minuten.",
+          "staff": "Interne Schreiben – professionell und klar.",
+          "docs": "Dokumentation – Gliederungen & Zusammenfassungen schnell."
+        },
+        "body": "Diese Demo zeigt Elternkommunikation. In der Vollversion erstellen Sie auch {{feature}} in Sekunden – immer mit Lehrkraft-Kontrolle und schulischer Datensicherheit.",
+        "cta": "Zaza Draft gratis testen",
+        "examples": "Beispiele ansehen"
+      }
+    },
+    "whySchools": {
+      "title": "Warum Draft für Schulen entwickelt ist",
+      "items": ["Lehrplan-bewusste Prompts","DSGVO & Datenschutz","Lehrer-Ton-Vorlagen","Prüfen vor dem Senden","Sofort nutzbare Templates"]
+    },
+    "finalCta": {
+      "title": "Stellen Sie sich freie Sonntagnachmittage vor.",
+      "cta": "Kostenlos starten"
+    }
+  },
+  "navigation": {
+    "home": "Startseite",
+    "blog": "Blog",
+    "resources": "Ressourcen",
+    "about": "Über uns",
+    "pricing": "Preise",
+    "community": "Community",
+    "faq": "FAQ",
+    "company": "Unternehmen",
+    "press": "Presse",
+    "contact": "Kontakt",
+    "ourSolutions": "Unsere Lösungen",
+    "learningCentre": "Lernzentrum",
+    "aboutUs": "Über uns",
+    "tryZazaDraft": "Zaza Draft gratis testen",
+    "tryZazaTeach": "Zaza Teach testen",
+    "language": "Sprache"
+  },
+  "hero": {
+    "title": "KI-gestützte Tools für moderne Pädagogen",
+    "subtitle": "Sparen Sie 5+ Stunden pro Woche mit intelligenter Unterrichtsplanung, Bewertungshilfen und Klassenverwaltung.",
+    "cta_primary": "Zaza Teach ausprobieren",
+    "cta_secondary": "Warteliste beitreten",
+    "tagline": "KI für Pädagogen"
+  },
+  "features": {
+    "title": "Warum Zaza Promptly?",
+    "subtitle": "Von Pädagogen, für Pädagogen entwickelt",
+    "instant_feedback": {
+      "title": "Sofortiges Feedback",
+      "description": "Erstellen Sie personalisierte Kommentare und Feedback in Sekunden"
+    },
+    "time_saving": {
+      "title": "Zeit sparen",
+      "description": "Reduzieren Sie die Bewertungszeit um bis zu 80% mit KI-Unterstützung"
+    },
+    "student_focused": {
+      "title": "Schülerfokussiert",
+      "description": "Behalten Sie persönliche Verbindungen bei und vergrößern Sie gleichzeitig Ihren Einfluss"
+    }
+  },
+  "snippet_tool": {
+    "title": "Live-Demo: Snippet-Tool",
+    "description": "Probieren Sie unseren KI-gestützten Kommentar-Generator aus",
+    "placeholder": "Geben Sie das Aufgabenthema oder eine Schülerarbeits-Probe ein...",
+    "generate": "Kommentare generieren"
+  },
+  "footer": {
+    "tagline": "Von Pädagogen für Pädagogen entwickelt",
+    "copyright": "© 2024 Zaza Technologies. Alle Rechte vorbehalten."
+  },
+  "blog": {
+    "title": "Blog für Pädagogen",
+    "subtitle": "Praktische Tipps, KI-Tools und Bildungseinblicke",
+    "read_more": "Weiterlesen",
+    "subscribe": "Kostenlos abonnieren",
+    "search_placeholder": "Blog durchsuchen...",
+    "all_categories": "Alle Kategorien",
+    "no_posts": "Keine Beiträge gefunden",
+    "reading_time": "Min. Lesezeit",
+    "published": "Veröffentlicht",
+    "category": "Kategorie",
+    "share": "Teilen",
+    "related_posts": "Verwandte Beiträge",
+    "breadcrumb": {
+      "home": "Startseite",
+      "blog": "Blog"
+    }
+  },
+  "resources": {
+    "title": "Ressourcen für Pädagogen",
+    "subtitle": "Kostenloses Material, um Ihren Unterricht zu verbessern",
+    "download": "Herunterladen",
+    "view": "Ansehen",
+    "free": "Kostenlos",
+    "premium": "Premium",
+    "breadcrumb": {
+      "home": "Startseite",
+      "resources": "Ressourcen"
+    },
+    "usageNote": "Diese Ressourcen sind kostenlos für den Einsatz im Klassenzimmer. Bitte behalten Sie die Fußszeile bei und verkaufen Sie sie nicht weiter.",
+    "downloadTip": {
+      "label": "Tipp:",
+      "text": "Klicken Sie auf 'Ansehen & Drucken', um in einem neuen Tab zu öffnen, dann verwenden Sie Strg+P (Cmd+P auf Mac) und wählen 'Als PDF speichern' für Ihre eigene PDF-Kopie."
+    }
+  },
+  "about": {
+    "title": "Über Zaza Promptly",
+    "subtitle": "Unsere Mission ist es, Pädagogen mit KI-Tools zu stärken",
+    "our_story": "Unsere Geschichte",
+    "our_team": "Unser Team",
+    "our_values": "Unsere Werte"
+  },
+  "pricing": {
+    "title": "Preise",
+    "subtitle": "Wählen Sie den Plan, der für Sie am besten geeignet ist",
+    "free_plan": "Kostenloser Plan",
+    "pro_plan": "Pro-Plan",
+    "enterprise_plan": "Enterprise-Plan",
+    "monthly": "Monatlich",
+    "yearly": "Jährlich",
+    "save": "Sparen Sie",
+    "get_started": "Loslegen",
+    "contact_sales": "Vertrieb kontaktieren"
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "subtitle": "Alles, was Sie über Zaza Promptly wissen müssen",
+    "breadcrumb": {
+      "home": "Startseite",
+      "faqs": "FAQ"
+    }
+  },
+  "community": {
+    "title": "Community",
+    "subtitle": "Verbinden Sie sich mit anderen Pädagogen",
+    "join_discord": "Discord beitreten",
+    "join_facebook": "Facebook-Gruppe beitreten"
+  },
+  "common": {
+    "loading": "Wird geladen...",
+    "error": "Fehler",
+    "success": "Erfolg",
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen",
+    "save": "Speichern",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "close": "Schließen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "previous": "Vorherige",
+    "search": "Suchen",
+    "filter": "Filter",
+    "sort": "Sortieren",
+    "clear": "Löschen",
+    "apply": "Anwenden",
+    "reset": "Zurücksetzen"
+  },
+  "aboutFounder": {
+    "metaTitle": "Über den Gründer - Dr. Greg Blackburn | Zaza Teach",
+    "metaDescription": "Dr. Greg Blackburn, Gründer und CEO von Zaza Technologies. Vom tasmanischen Handwerk zur Promotion an der City, University of London - eine Karriere, die sich der Unterstützung von Lehrern widmet.",
+    "ogDescription": "Bildung hat Gregs Leben verändert. Seine Mission ist es nun, Lehrern zu helfen - mit empathischer, pädagogisch fundierter KI.",
+    "ogImageAlt": "Dr. Greg Blackburn, Gründer von Zaza Technologies",
+    "jobTitle": "Gründer und CEO",
+    "personDescription": "Bildungstechnologie-Unternehmer mit Promotion in Berufsbildung und über 20 Jahren Erfahrung in Lernen und Entwicklung.",
+    "breadcrumb": {
+      "home": "Startseite",
+      "aboutFounder": "Über den Gründer"
+    }
+  },
+  "community": {
+    "title": "Gemeinschaft",
+    "subtitle": "Verbinde dich mit anderen Pädagogen",
+    "description": "Schließe dich Tausenden von Pädagogen an, die KI nutzen, um ihre Unterrichtspraxis zu transformieren. Teile Ressourcen, erhalte Unterstützung und lerne von den Erfahrungen anderer.",
+    "impact": {
+      "badge": "Globaler Gemeinschaftseinfluss",
+      "title": "Einen Unterschied machen",
+      "desc": "Sieh, wie unsere globale Gemeinschaft von Pädagogen Klassenzimmer transformiert und kostbare Zeit spart",
+      "teachers": "Aktive Lehrer",
+      "resources": "Geteilte Ressourcen",
+      "downloads": "Gesamte Downloads",
+      "rating": "Durchschnittliche Bewertung",
+      "countries": "Länder",
+      "time_saved": "Zeit gespart"
+    },
+    "contributors": {
+      "badge": "Gemeinschafts-Spotlight",
+      "title": "Top-Beitragszahler",
+      "desc": "Lerne die unglaublichen Pädagogen kennen, die unsere Gemeinschaft anführen und Tausende von Lehrern weltweit inspirieren"
+    },
+    "cta": {
+      "title": "Bereit, dein Unterrichten zu transformieren?",
+      "desc": "Schließe dich Tausenden von Pädagogen an, die bereits KI nutzen, um Zeit zu sparen, die Kommunikation zu verbessern und das Lernen der Schüler zu verbessern.",
+      "primary": "Heute loslegen",
+      "secondary": "Ressourcen ansehen"
+    },
+    "stats": {
+      "teachers": "Aktive Lehrer",
+      "resources": "Geteilte Ressourcen",
+      "success_stories": "Erfolgsgeschichten"
+    }
+  },
+  "home": {
+    "pricing_banner_title": "Einfache Pläne für jedes Klassenzimmer",
+    "pricing_banner_copy": "Jeder Lehrer verdient seine Zeit zurück. Wähle den Plan, der zu deinen Bedürfnissen passt.",
+    "pricing_primary_cta": "Kostenlos testen",
+    "pricing_secondary_cta": "Pläne anzeigen",
+    "zaza_pass_microcopy": "Jährlich spart dir ~2 Monate gegenüber monatlich.",
+    "problem_heading": "Lehrer sind überfordert.",
+    "problem_body": "Eltern-E-Mails stapeln sich. Berichte ziehen sich ins Wochenende. Die Arbeit hört nie auf - und deine Zeit mit der Familie schwindet immer mehr. Du bist nicht Lehrer geworden, um Nächte vor deinem Posteingang zu verbringen.",
+    "solution_heading": "Wie kann Promptly wirklich helfen?",
+    "solution_card1_title": "Intelligenter Nachrichten-Schreiber",
+    "solution_card1_desc": "Entwerfe sofort professionelle Antworten - kein Grübeln, keine verschwendeten Minuten.",
+    "solution_card2_title": "Umschreiben mit dem richtigen Ton",
+    "solution_card2_desc": "Wähle unterstützende, bestimmte oder neutrale Stimme je nach Situation.",
+    "solution_card3_title": "Sofort übersetzen",
+    "solution_card3_desc": "Antworte Eltern in ihrer bevorzugten Sprache mit einem Klick.",
+    "outcomes_heading": "Sieh den Unterschied jede Woche.",
+    "outcomes_item1": "Spare 2-3 Stunden Verwaltungszeit jede Woche",
+    "outcomes_item2": "Keine nächtlichen Schuldgefühle über unvollendete Nachrichten mehr",
+    "outcomes_item3": "Vertrauen in jede Antwort - auch bei den schwierigen",
+    "testimonials_heading": "Vertrauen von Lehrern, die ihre Zeit schätzen",
+    "testimonials_1_quote": "Promptly hat meine Sonntag-E-Mail-Zeit halbiert.",
+    "testimonials_1_name": "Emma",
+    "testimonials_1_role": "Grundschullehrerin 5. Klasse",
+    "testimonials_2_quote": "Antworten, die früher 30 Minuten dauerten, brauchen jetzt 2. Ich klappe endlich pünktlich meinen Laptop zu.",
+    "testimonials_2_name": "James",
+    "testimonials_2_role": "Gymnasium Englischlehrer",
+    "testimonials_3_quote": "Promptly hat die Elternkommunikation weniger stressig und professioneller gemacht.",
+    "testimonials_3_name": "Aisha",
+    "testimonials_3_role": "Mittelschule Naturwissenschaften",
+    "compare_heading": "Promptly vs ChatGPT für Lehrer",
+    "compare_subhead": "Beide schreiben Text. Nur Promptly versteht das Klassenzimmer.",
+    "closing_heading": "Stell dir freie Sonntagnachmittage vor.",
+    "closing_body": "Deine Arbeit ist erledigt. Dein Kopf ist frei. Und deine Zeit gehört wieder dir. Promptly macht es möglich.",
+    "closing_cta_primary": "Promptly kostenlos testen",
+    "closing_cta_secondary": "Pläne anzeigen",
+    "closing_tagline": "Schließe dich Tausenden von Lehrern an, die bereits ihre Zeit zurückgewonnen haben"
+  },
+  "footer": {
+    "products": "Produkte",
+    "resources": "Ressourcen", 
+    "company": "Unternehmen",
+    "blog": "Blog",
+    "freeResources": "Kostenlose Ressourcen",
+    "faqs": "Häufig gestellte Fragen",
+    "support": "Unterstützung",
+    "contact": "Kontakt",
+    "aboutFounder": "Über den Gründer",
+    "visionMission": "Vision & Mission",
+    "productList": "Zaza-Produktliste",
+    "featureRequest": "Funktionsanfrage",
+    "privacy": "Datenschutzrichtlinie",
+    "terms": "Nutzungsbedingungen",
+    "comingSoon": "Demnächst verfügbar",
+    "copyright": "© 2025 Zaza Technologies UG (haftungsbeschränkt). Alle Rechte vorbehalten.",
+    "tagline": "Mit 💙 von Lehrern für Lehrer gemacht."
+  }
+}

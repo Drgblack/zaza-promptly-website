@@ -1,0 +1,23 @@
+{
+  "id": "NEG-GRAMMAR-001",
+  "input": {
+    "text": "Sally is naughty in class and does not do homework",
+    "name": "Sally",
+    "pronoun_choice": "auto"
+  },
+  "expectations": {
+    "paragraphs": 3,
+    "word_count": { "min": 95, "max": 120 },
+    "allowed_pronouns": ["she","her","hers"],
+    "forbidden_pronouns": ["he","him","his","they","them","their"],
+    "opener_must_contain": "Sally has been finding it hard to stay focused",
+    "must_contain_any": ["has been finding", "has been struggling"],
+    "closer_any": ["agree one cue word", "consistent between home and school"],
+    "banned_words": ["naughty","bad","lazy","stupid"],
+    "grammar_requirements": {
+      "no_verb_errors": ["she have", "she do", "she continue", "she find"],
+      "proper_tense": true,
+      "subject_verb_agreement": true
+    }
+  }
+}

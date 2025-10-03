@@ -3,9 +3,9 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/",
-      "destination": "/en",
-      "statusCode": 308
+      "source": "/:path*",
+      "destination": "https://zazadraft.com/:path*",
+      "permanent": true
     }
   ]
 }

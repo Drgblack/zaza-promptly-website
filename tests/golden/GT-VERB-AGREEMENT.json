@@ -1,0 +1,30 @@
+{
+  "id": "GT-VERB-AGREEMENT",
+  "description": "John (auto→he). Check correct he/him/his only and verb agreement (he is/has).",
+  "input": {
+    "text": "John helps others but forgets homework sometimes. He finishes late and is often tired.",
+    "name": "John",
+    "pronoun_choice": "auto"
+  },
+  "expectations": {
+    "all_tabs": {
+      "paragraphs": 3,
+      "word_count": { "min": 95, "max": 120 },
+      "allowed_pronouns": ["he", "him", "his"],
+      "forbidden_pronouns": ["she", "her", "hers", "they", "them", "their", "theirs"],
+      "required_phrases_any": ["he is", "he has"],
+      "forbidden_phrases": ["he are", "he have", "they continues", "they is", "they has"],
+      "opener_starts_one_of": [
+        "A quick note about homework for John",
+        "I want to flag a pattern with John's homework",
+        "I'd like to share an update about John"
+      ],
+      "closer_contains_one_of": [
+        "try this routine for two weeks",
+        "extra resources for home study",
+        "touch base by phone or email"
+      ],
+      "banned_words": ["lazy", "naughty", "bad", "always", "never", "no excuses"]
+    }
+  }
+}

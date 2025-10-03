@@ -1,0 +1,18 @@
+{
+  "id": "GT-NAME-LOCK-001",
+  "input": {
+    "text": "Johnny is late and forgets homework.",
+    "name": "Johnny",
+    "pronoun_choice": "he"
+  },
+  "expectations": {
+    "paragraphs": 3,
+    "word_count": { "min": 95, "max": 120 },
+    "allowed_pronouns": ["he", "him", "his"],
+    "forbidden_pronouns": ["she", "her", "hers", "they", "them", "their"],
+    "must_contain_any": ["Johnny"],
+    "banned_words": ["your child", "lazy", "naughty", "bad", "stupid"],
+    "opener_must_contain": "I'd like to share an update about Johnny",
+    "debugMustContain": "Pronoun: he | source: explicit"
+  }
+}
