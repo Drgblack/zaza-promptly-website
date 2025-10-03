@@ -118,7 +118,7 @@ export default function LocalizedHomePage({ locale: propLocale }: LocalizedHomeP
           <ScrollReveal>
             <div className="max-w-4xl mx-auto text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                See Promptly transform your communication
+                See Draft transform your communication
               </h2>
               <p className="text-xl text-slate-300 max-w-2xl mx-auto">
                 From rushed drafts to professional messages that parents appreciate — in seconds, not hours.
@@ -134,7 +134,7 @@ export default function LocalizedHomePage({ locale: propLocale }: LocalizedHomeP
                   <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
-                  Before Promptly
+                  Before Draft
                 </div>
                 <blockquote className="text-slate-300 mb-6 italic">
                   "Hi, your child has been disruptive in class today and needs to focus more on their work instead of talking to friends..."
@@ -152,7 +152,7 @@ export default function LocalizedHomePage({ locale: propLocale }: LocalizedHomeP
                   <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  After Promptly
+                  After Draft
                 </div>
                 <blockquote className="text-slate-300 mb-6">
                   "I wanted to touch base about [Child's name]'s social engagement in class. While their enthusiasm for connecting with peers shows wonderful social skills, I'd love to work with you on channeling this energy..."
@@ -178,7 +178,7 @@ export default function LocalizedHomePage({ locale: propLocale }: LocalizedHomeP
                   Try it yourself — improve any comment instantly
                 </h2>
                 <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-                  Paste your draft, choose your tone, and watch Promptly make it better. This is just a demo — the real tool does much more.
+                  Paste your draft, choose your tone, and watch Draft make it better. This is just a demo — the real tool does much more.
                 </p>
               </div>
             </ScrollReveal>
@@ -198,7 +198,7 @@ export default function LocalizedHomePage({ locale: propLocale }: LocalizedHomeP
                 
                 <div className="text-center mt-8">
                   <p className="text-slate-400 text-sm mb-4">
-                    This is just a taste. The real Promptly includes parent email templates, report generators, and 25+ languages.{' '}
+                    This is just a taste. The real Draft includes parent email templates, report generators, and 25+ languages.{' '}
                     <a href="#" className="text-purple-400 hover:text-purple-300">Learn more about Zara →</a>
                   </p>
                   <Link
@@ -321,7 +321,7 @@ export default function LocalizedHomePage({ locale: propLocale }: LocalizedHomeP
           <ScrollReveal>
             <div className="max-w-4xl mx-auto text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Why teachers choose Promptly over ChatGPT
+                Why teachers choose Draft over ChatGPT
               </h2>
               <p className="text-xl text-slate-300 max-w-2xl mx-auto">
                 Both are AI tools, but only one is built specifically for education with safety guardrails.
@@ -335,7 +335,7 @@ export default function LocalizedHomePage({ locale: propLocale }: LocalizedHomeP
                 <thead className="bg-slate-800/60">
                   <tr>
                     <th className="text-left px-6 py-4 text-slate-300 font-medium">Feature</th>
-                    <th className="text-center px-6 py-4 text-white font-semibold bg-blue-600/20">Promptly</th>
+                    <th className="text-center px-6 py-4 text-white font-semibold bg-blue-600/20">Draft</th>
                     <th className="text-center px-6 py-4 text-white font-semibold">ChatGPT Plus</th>
                   </tr>
                 </thead>
@@ -406,7 +406,7 @@ export default function LocalizedHomePage({ locale: propLocale }: LocalizedHomeP
       <TestimonialsSection 
         variant="quick" 
         title="Trusted by 12,000+ teachers worldwide"
-        subtitle="Real educators sharing how Promptly transformed their practice"
+        subtitle="Real educators sharing how Draft transformed their practice"
         className="bg-slate-900"
       />
 
@@ -425,7 +425,7 @@ export default function LocalizedHomePage({ locale: propLocale }: LocalizedHomeP
                       Built by an educator who understands your challenges
                     </h3>
                     <p className="text-slate-300 mb-6 leading-relaxed">
-                      "I'm Dr. Greg Blackburn, PhD in Professional Education. After 20+ years building tools for teachers, I created Promptly because educators deserve AI that actually understands education — not generic tools that might get things wrong."
+                      "I'm Dr. Greg Blackburn, PhD in Professional Education. After 20+ years building tools for teachers, I created Draft because educators deserve AI that actually understands education — not generic tools that might get things wrong."
                     </p>
                     <Link 
                       href="/about-founder"

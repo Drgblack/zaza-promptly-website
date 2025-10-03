@@ -19,7 +19,7 @@
     "getTheBundle": "Get the bundle",
     "joinFreeToday": "Join Free Today →",
     "getTeacherTips": "Get Teacher Tips",
-    "tryPromptlyFree": "Try Promptly Free",
+    "tryDraftFree": "Try Draft Free",
     "startSavingHours": "Start saving hours today",
     "readyToSaveHours": "Ready to save hours each week?"
   },
@@ -35,11 +35,11 @@
       "description": "You stay up past midnight rewriting the same parent messages, second-guessing your tone, and copy-pasting from last year's reports. Generic AI can hallucinate, misstate facts, or sound robotic. Teachers deserve better."
     },
     "solution": {
-      "title": "Promptly gives you trusted, ready-to-send drafts in your own professional voice - in seconds",
+      "title": "Draft gives you trusted, ready-to-send drafts in your own professional voice - in seconds",
       "subtitle": "Experience safe AI for teachers. Write your draft and let our hallucination-safe AI enhance it with perfect tone, length, and reading level."
     },
     "differentiation": {
-      "title": "Why teachers choose Promptly over ChatGPT",
+      "title": "Why teachers choose Draft over ChatGPT",
       "subtitle": "Built specifically for education with the safety and accuracy teachers require.",
       "features": {
         "safe": {
@@ -64,7 +64,7 @@
       "title": "Trusted by teachers worldwide",
       "subtitle": "Join thousands of educators who've transformed their practice with AI writing assistance designed specifically for teachers.",
       "stats": {
-        "teachers": "12,000+ Teachers using Promptly",
+        "teachers": "12,000+ Teachers using Draft",
         "faster": "10x Faster than manual writing",
         "timeSaved": "5 mins Average time saved per comment"
       }
