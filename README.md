@@ -172,3 +172,4 @@ npm test -- --coverage
 Add to `.env.local` for detailed logging:
 ```bash
 STRIPE_DEBUG=true
+# Deployment trigger
