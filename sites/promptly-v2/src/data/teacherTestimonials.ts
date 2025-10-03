@@ -14,7 +14,7 @@ export interface TeacherTestimonial {
 export const teacherTestimonials: TeacherTestimonial[] = [
   {
     id: 'sarah-manchester',
-    quote: 'Promptly has given me back my evenings. I used to spend 3-4 hours every Sunday writing reports. Now it takes me 45 minutes and the quality is actually better - more consistent and empathetic.',
+    quote: 'Draft has given me back my evenings. I used to spend 3-4 hours every Sunday writing reports. Now it takes me 45 minutes and the quality is actually better - more consistent and empathetic.',
     author: 'Sarah Mitchell',
     role: 'Year 3 Teacher',
     location: 'Manchester, UK',
@@ -23,7 +23,7 @@ export const teacherTestimonials: TeacherTestimonial[] = [
   },
   {
     id: 'james-london',
-    quote: 'As a head teacher, I was sceptical about AI in schools. But seeing how Promptly helps my teachers write clearer parent communications while maintaining their authentic voice - it\'s transformed our parent engagement.',
+    quote: 'As a head teacher, I was sceptical about AI in schools. But seeing how Draft helps my teachers write clearer parent communications while maintaining their authentic voice - it\'s transformed our parent engagement.',
     author: 'James Richardson',
     role: 'Head Teacher',
     location: 'London, UK', 
@@ -32,7 +32,7 @@ export const teacherTestimonials: TeacherTestimonial[] = [
   },
   {
     id: 'maria-berlin',
-    quote: 'The GDPR compliance gives me peace of mind. As a teacher in Germany, data protection is crucial. Promptly helps me communicate with international parents professionally while keeping everything secure.',
+    quote: 'The GDPR compliance gives me peace of mind. As a teacher in Germany, data protection is crucial. Draft helps me communicate with international parents professionally while keeping everything secure.',
     author: 'Maria Schmidt',
     role: 'International School Teacher',
     location: 'Berlin, Germany',
@@ -41,7 +41,7 @@ export const teacherTestimonials: TeacherTestimonial[] = [
   },
   {
     id: 'david-chicago',
-    quote: 'Parent emails used to stress me out - finding the right tone, being professional but warm. Promptly helps me write emails that actually strengthen parent-teacher relationships.',
+    quote: 'Parent emails used to stress me out - finding the right tone, being professional but warm. Draft helps me write emails that actually strengthen parent-teacher relationships.',
     author: 'David Chen',
     role: 'High School Teacher',
     location: 'Chicago, USA',
@@ -50,7 +50,7 @@ export const teacherTestimonials: TeacherTestimonial[] = [
   },
   {
     id: 'emma-edinburgh',
-    quote: 'I teach students with additional support needs. Promptly helps me write sensitive, strength-based reports that celebrate each child\'s unique progress. Parents love the positive, specific feedback.',
+    quote: 'I teach students with additional support needs. Draft helps me write sensitive, strength-based reports that celebrate each child\'s unique progress. Parents love the positive, specific feedback.',
     author: 'Emma Watson',
     role: 'Special Education Teacher',
     location: 'Edinburgh, UK',
@@ -77,7 +77,7 @@ export const teacherTestimonials: TeacherTestimonial[] = [
   },
   {
     id: 'anna-stockholm',
-    quote: 'As an ESL teacher, finding the right words in English for difficult conversations was challenging. Promptly helps me communicate clearly and sensitively with all families.',
+    quote: 'As an ESL teacher, finding the right words in English for difficult conversations was challenging. Draft helps me communicate clearly and sensitively with all families.',
     author: 'Anna Lindqvist',
     role: 'ESL Teacher',
     location: 'Stockholm, Sweden',
