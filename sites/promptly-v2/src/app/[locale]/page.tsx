@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Check, MessageCircle, Clock, Shield, GraduationCap, Heart, Zap, Calculator } from 'lucide-react';
 import { SimplifiedSnippetTool } from '@/components/snippet-tool/SimplifiedSnippetTool';
+import { DraftDemo } from '@/components/demo/DraftDemo';
 import { CrossAppCTA } from '@/components/site/cross-app-cta';
 import HeroCarousel from '@/components/site/HeroCarousel';
 // Removed ImageCarousel and heroImages imports
@@ -50,15 +51,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
   return generatePageMetadata('home', locale, {
     alternates: {
-      canonical: `https://zazapromptly.com/${locale === 'en' ? '' : locale}`,
+      canonical: `https://zazadraft.com/${locale === 'en' ? '' : locale}`,
       // If only EN is enabled in your UI right now, keep languages restricted to 'en'
       languages: {
-        en: 'https://zazapromptly.com',
+        en: 'https://zazadraft.com',
         // Re-enable other locales once their message bundles are live:
-        // de: 'https://zazapromptly.com/de',
-        // fr: 'https://zazapromptly.com/fr',
-        // es: 'https://zazapromptly.com/es',
-        // it: 'https://zazapromptly.com/it',
+        // de: 'https://zazadraft.com/de',
+        // fr: 'https://zazadraft.com/fr',
+        // es: 'https://zazadraft.com/es',
+        // it: 'https://zazadraft.com/it',
       },
     },
   });
@@ -68,6 +69,7 @@ export default async function HomePage({ params }: Props) {
   const { locale } = params;
   setRequestLocale(locale);
 
+  const draft = await getTranslations('draft');
   const hero = await getTranslations('hero');
   const home = await getTranslations('home');
 
@@ -84,46 +86,20 @@ export default async function HomePage({ params }: Props) {
             {/* Left side - Content */}
             <div className="text-center lg:text-left space-y-8">
               <div className="space-y-6">
-                {/* Category Definition - What is this? */}
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm border border-purple-200/50 dark:border-purple-700/50 text-sm font-medium text-purple-700 dark:text-purple-300 mb-4">
-                  <GraduationCap className="w-4 h-4 mr-2" />
-                  {hero('tagline')}
-                </div>
-
-                {/* Anthony Pierri Framework Headline - Updated copy */}
+                {/* New benefit-first headline */}
                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl text-slate-900 dark:text-white leading-tight">
-                  {hero('headline')}{' '}
-                  <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                    {hero('headline_highlight')}
-                  </span>
+                  {draft('hero.title')}
                 </h1>
 
-                {/* Social proof - Above the fold */}
-                <div className="flex flex-col sm:flex-row items-center gap-4 text-slate-600 dark:text-slate-300 mb-4">
-                  <div className="flex items-center gap-2">
-                    <div className="flex -space-x-2">
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 flex items-center justify-center text-white text-xs font-bold">T</div>
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-400 to-cyan-500 flex items-center justify-center text-white text-xs font-bold">M</div>
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-400 to-violet-500 flex items-center justify-center text-white text-xs font-bold">S</div>
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-r from-orange-400 to-amber-500 flex items-center justify-center text-white text-xs font-bold">+</div>
-                    </div>
-                    <span className="font-medium">Trusted by teachers who save hours every week - and finally reclaim their evenings</span>
-                  </div>
-                  <div className="hidden sm:block text-slate-400">•</div>
-                  <div className="flex items-center gap-1">
-                    <div className="flex" role="img" aria-label="4.9 out of 5 stars rating">
-                      {[...Array(5)].map((_, i) => (
-                        <span key={i} className="w-4 h-4 text-yellow-400" aria-hidden="true">★</span>
-                      ))}
-                    </div>
-                    <span className="font-medium">4.9/5 rating</span>
-                  </div>
-                </div>
-
-                {/* Anthony Pierri Subheadline */}
+                {/* Benefit-focused subheadline */}
                 <p className="max-w-[600px] text-slate-600 md:text-xl dark:text-slate-300 mx-auto lg:mx-0 leading-relaxed">
-                  {hero('subtitle')}
+                  {draft('hero.sub')}
                 </p>
+
+                {/* Trust bar - slim and under copy */}
+                <div className="text-sm text-slate-500 border-t pt-4 mt-6">
+                  {draft('hero.trustBar')}
+                </div>
 
               </div>
 
@@ -133,9 +109,9 @@ export default async function HomePage({ params }: Props) {
                   className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ring-2 ring-purple-600/20 hover:ring-purple-600/40"
                   asChild
                 >
-                  <a href="#snippet-tool">
+                  <a href="#demo">
                     <Zap className="w-5 h-5 mr-2" />
-                    {hero('cta_primary')}
+                    {draft('hero.ctaPrimary')}
                   </a>
                 </Button>
 
@@ -145,10 +121,16 @@ export default async function HomePage({ params }: Props) {
                   className="px-8 py-4 text-lg font-semibold rounded-xl border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-300"
                   asChild
                 >
-                  <a href="#snippet-tool">
-                    {hero('cta_secondary')}
+                  <a href="#demo">
+                    {draft('hero.ctaSecondary')}
                   </a>
                 </Button>
+              </div>
+
+              {/* Safety kicker and cred line */}
+              <div className="space-y-2 text-sm text-slate-500">
+                <p>{draft('hero.safety')}</p>
+                <p>{draft('hero.cred')}</p>
               </div>
 
               {/* Trust indicators */}
@@ -374,8 +356,10 @@ export default async function HomePage({ params }: Props) {
         </div>
       </section>
 
-      {/* 3.5. Interactive Demo - Snippet Tool */}
-      {process.env.NEXT_PUBLIC_SHOW_SNIPPET === '1' && <SimplifiedSnippetTool />}
+      {/* 3.5. Interactive Demo - Draft Tool */}
+      <div id="demo">
+        <DraftDemo />
+      </div>
 
       {/* 3.6. ROI Calculator */}
       <section className="py-24 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 dark:from-green-950/30 dark:via-emerald-950/30 dark:to-teal-950/30">

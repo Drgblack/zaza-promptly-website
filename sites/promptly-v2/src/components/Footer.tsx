@@ -7,11 +7,19 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <h3 className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Zaza Promptly
+              Zaza Draft
             </h3>
             <p className="text-gray-400 text-sm">
-              AI-powered tools for modern educators. Save time and teach better.
+              The writing partner for teachers. Beat the blank page, save hours, and stay in control.
             </p>
+            <div className="flex flex-col gap-2">
+              <a 
+                href="mailto:help@zazatechnologies.com?subject=Zaza Draft Support" 
+                className="text-gray-400 hover:text-white transition-colors text-sm"
+              >
+                help@zazatechnologies.com
+              </a>
+            </div>
           </div>
           
           <div>
@@ -43,24 +51,33 @@ export function Footer() {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex flex-col md:flex-row items-center gap-4">
-              <p className="text-gray-400 text-sm">&copy; 2025 Zaza Promptly. All rights reserved.</p>
+              <p className="text-gray-400 text-sm">&copy; 2025 Zaza Draft. All rights reserved.</p>
               <div className="flex items-center gap-4 text-sm">
+                <a 
+                  href="https://zazadraft.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Zaza Draft
+                </a>
+                <span className="text-gray-600">•</span>
                 <a 
                   href="https://zazateach.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Zaza Technologies
+                  Zaza Teach
                 </a>
                 <span className="text-gray-600">•</span>
                 <a 
-                  href="https://realtyclose.com" 
+                  href="https://zazatechnologies.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  RealtyClose
+                  Zaza Technologies
                 </a>
               </div>
             </div>

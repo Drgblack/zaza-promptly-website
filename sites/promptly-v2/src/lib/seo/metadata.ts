@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 // Base URL for all metadata
-const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://zazapromptly.com';
+const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://zazadraft.com';
 
 // SEO-optimized metadata configurations for all pages and locales
 // Designed for both Google/Bing and AI Answer Engines
@@ -10,20 +10,20 @@ export const seoMetadata = {
   // English metadata
   en: {
     home: {
-      title: 'Write better parent messages in minutes - not hours | Zaza Promptly',
-      description: 'Promptly helps teachers cut admin time so you can focus on teaching - with warmth, clarity, and confidence. Save 5+ hours per week writing parent messages and reports.',
-      keywords: 'AI teacher tools, parent communication templates, teacher AI assistant, automated report cards, education AI software, teacher productivity tools',
+      title: 'Zaza Draft — The writing partner for teachers',
+      description: 'Beat the blank page. Save hours on parent emails, student reports, and staff notes — safe, teacher-first, GDPR compliant.',
+      keywords: 'writing partner teachers, AI draft assistant, parent communication, student reports, teacher productivity tools',
       openGraph: {
-        title: 'AI Communication Assistant for Teachers | Zaza Promptly',
-        description: 'Hallucination-safe AI that helps teachers write better parent messages, report cards, and professional notes in minutes - not hours.'
+        title: 'Zaza Draft — The writing partner for teachers',
+        description: 'Beat the blank page, save hours, and stay in control — for parent emails, student reports, and staff notes.'
       }
     },
     pricing: {
-      title: 'Teacher-Friendly Pricing - Start Free | Zaza Promptly',
+      title: 'Teacher-Friendly Pricing - Start Free | Zaza Draft',
       description: 'Simple, affordable pricing for teachers. Free plan available. Pro plans from €99/year. No lock-ins, cancel anytime. Built by educators for educators.',
-      keywords: 'teacher AI pricing, affordable education software, teacher budget software, education AI cost',
+      keywords: 'teacher draft pricing, affordable writing assistant, teacher budget software, draft AI cost',
       openGraph: {
-        title: 'Affordable AI Tools for Teachers | Pricing',
+        title: 'Affordable Writing Partner for Teachers | Pricing',
         description: 'Teacher-friendly pricing starting free. Pro features from just €8.25/month. No contracts, cancel anytime.'
       }
     },
@@ -224,7 +224,7 @@ export function generatePageMetadata(
       title: pageData.openGraph.title,
       description: pageData.openGraph.description,
       url: `${BASE_URL}/${locale === 'en' ? '' : locale}${page === 'home' ? '' : `/${page}`}`,
-      siteName: 'Zaza Promptly',
+      siteName: 'Zaza Draft',
       images: [
         {
           url: `${BASE_URL}/og/hero-og.png`,
@@ -279,13 +279,13 @@ export function generateArticleMetadata(
   modifiedDate?: string
 ): Metadata {
   return {
-    title: `${title} | Zaza Promptly Blog`,
+    title: `${title} | Zaza Draft Blog`,
     description,
     openGraph: {
       title,
       description,
       url: `${BASE_URL}/${locale}/blog/${slug}`,
-      siteName: 'Zaza Promptly',
+      siteName: 'Zaza Draft',
       images: [
         {
           url: `${BASE_URL}/og/blog-${slug}-og.png`,

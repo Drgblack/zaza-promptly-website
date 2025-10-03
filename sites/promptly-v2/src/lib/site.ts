@@ -7,10 +7,10 @@ export const canonical = (path = "/") =>
 
 // Site metadata constants
 export const siteConfig = {
-  name: "Zaza Promptly",
-  description: "Educator-first AI for lesson planning, report comments, and parent communication—saving teachers 3–5 hours/week.",
+  name: "Zaza Draft",
+  description: "The writing partner for teachers. Beat the blank page, save hours, and stay in control — for parent emails, student reports, and staff notes.",
   url: siteUrl,
-  ogImage: `${siteUrl}/images/og/zaza-promptly.jpg`,
+  ogImage: `${siteUrl}/images/og/zaza-draft.jpg`,
   author: {
     name: "Dr. Greg Blackburn",
     url: `${siteUrl}/about`,
@@ -23,6 +23,6 @@ export const siteConfig = {
   },
   social: {
     linkedin: "https://www.linkedin.com/company/zaza-technologies",
-    tiktok: "https://www.tiktok.com/@zazapromptly"
+    tiktok: "https://www.tiktok.com/@zazatechnologies"
   }
 } as const;

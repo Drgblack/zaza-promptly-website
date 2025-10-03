@@ -1,4 +1,68 @@
 {
+  "draft": {
+    "hero": {
+      "title": "Der Schreib-Partner für Lehrkräfte.",
+      "sub": "Schluss mit der leeren Seite: sparen Sie Stunden und behalten Sie die Kontrolle — für Eltern-E-Mails, Zeugnis-kommentare und interne Schreiben.",
+      "ctaPrimary": "Zaza Draft gratis testen →",
+      "ctaSecondary": "Beispiele ansehen",
+      "safety": "Sichere Technologie für die Schule – Sie entscheiden jedes Wort.",
+      "cred": "Entwickelt von einem promovierten Pädagogen. DSGVO-konform.",
+      "trustBar": "10k+ erstellte Entwürfe | 4,9/5 Durchschnittsbewertung | 95% sparen Stunden"
+    },
+    "pillars": {
+      "saveTime": { "title": "Stunden sparen", "body": "Aus Stichpunkten werden Entwürfe in Minuten." },
+      "soundRight": { "title": "Klingt richtig", "body": "Professionell, wertschätzend – passend für die Schule." },
+      "control": { "title": "Sie entscheiden", "body": "Sie prüfen, bearbeiten und versenden – Draft sendet nie automatisch." }
+    },
+    "useCases": {
+      "parent": "Eltern-Informationen",
+      "reports": "Zeugnis-kommentare",
+      "staff": "Interne Schreiben",
+      "docs": "Dokumentation"
+    },
+    "demo": {
+      "title": "In 30 Sekunden ausprobieren",
+      "subtitle": "Heute Elternkommunikation – mehr in der App.",
+      "type": "Entwurfstyp",
+      "submit": "Entwurf erstellen",
+      "tabs": {
+        "parent": "Eltern-Kommunikation",
+        "reports": "Zeugnis-Kommentare",
+        "staff": "Interne Schreiben",
+        "docs": "Dokumentation"
+      },
+      "form": {
+        "student": "Name der Schülerin / des Schülers",
+        "context": "Worum geht es?",
+        "tone": "Ton",
+        "toneOpts": { "pro":"Professionell", "warm":"Wertschätzend", "concise":"Kurz & prägnant" },
+        "length": "Länge",
+        "lengthOpts": { "short":"Kurz", "med":"Mittel" },
+        "submit": "Entwurf erstellen",
+        "privacyNote": "Bitte keine sensiblen oder personenbezogenen Schüler*innendaten eingeben.",
+        "resultLabel": "Entwurf",
+        "copy": "Kopieren"
+      },
+      "upsell": {
+        "title": {
+          "reports": "Zeugnis-Kommentare – Entwürfe in Minuten.",
+          "staff": "Interne Schreiben – professionell und klar.",
+          "docs": "Dokumentation – Gliederungen & Zusammenfassungen schnell."
+        },
+        "body": "Diese Demo zeigt Elternkommunikation. In der Vollversion erstellen Sie auch {{feature}} in Sekunden – immer mit Lehrkraft-Kontrolle und schulischer Datensicherheit.",
+        "cta": "Zaza Draft gratis testen",
+        "examples": "Beispiele ansehen"
+      }
+    },
+    "whySchools": {
+      "title": "Warum Draft für Schulen entwickelt ist",
+      "items": ["Lehrplan-bewusste Prompts","DSGVO & Datenschutz","Lehrer-Ton-Vorlagen","Prüfen vor dem Senden","Sofort nutzbare Templates"]
+    },
+    "finalCta": {
+      "title": "Stellen Sie sich freie Sonntagnachmittage vor.",
+      "cta": "Kostenlos starten"
+    }
+  },
   "navigation": {
     "home": "Startseite",
     "blog": "Blog",
@@ -13,7 +77,7 @@
     "ourSolutions": "Unsere Lösungen",
     "learningCentre": "Lernzentrum",
     "aboutUs": "Über uns",
-    "tryZazaPromptly": "Zaza Promptly testen",
+    "tryZazaDraft": "Zaza Draft gratis testen",
     "tryZazaTeach": "Zaza Teach testen",
     "language": "Sprache"
   },

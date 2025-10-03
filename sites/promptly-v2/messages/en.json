@@ -1,4 +1,68 @@
 {
+  "draft": {
+    "hero": {
+      "title": "The writing partner for teachers.",
+      "sub": "Beat the blank page, save hours, and stay in control — for parent emails, student reports, and staff notes.",
+      "ctaPrimary": "Try Zaza Draft Free →",
+      "ctaSecondary": "See real examples",
+      "safety": "Powered by classroom-safe technology — you approve every word.",
+      "cred": "Built by a PhD educator. GDPR compliant.",
+      "trustBar": "10k+ drafts created | 4.9/5 avg rating | 95% say it saves hours"
+    },
+    "pillars": {
+      "saveTime": { "title": "Save hours", "body": "Turn rough notes into drafts in minutes." },
+      "soundRight": { "title": "Sound right", "body": "Professional, caring tone that fits teachers." },
+      "control": { "title": "Stay in control", "body": "You review, edit, and send — Draft never sends without you." }
+    },
+    "useCases": {
+      "parent": "Parent updates",
+      "reports": "Student reports", 
+      "staff": "Staff notes",
+      "docs": "Documentation"
+    },
+    "demo": {
+      "title": "Try a draft in 30 seconds",
+      "subtitle": "Parent communication today — and more in the app.",
+      "type": "Draft type",
+      "submit": "Generate draft",
+      "tabs": {
+        "parent": "Parent Comms",
+        "reports": "Student Reports",
+        "staff": "Staff Notes",
+        "docs": "Documentation"
+      },
+      "form": {
+        "student": "Student name",
+        "context": "What do you need to say?",
+        "tone": "Tone",
+        "toneOpts": { "pro":"Professional", "warm":"Warm", "concise":"Concise" },
+        "length": "Length",
+        "lengthOpts": { "short":"Short", "med":"Medium" },
+        "submit": "Generate draft",
+        "privacyNote": "Please don't enter sensitive or student-identifying data.",
+        "resultLabel": "Draft",
+        "copy": "Copy"
+      },
+      "upsell": {
+        "title": {
+          "reports": "Student reports — drafts in minutes.",
+          "staff": "Staff notes — professional and clear.",
+          "docs": "Documentation — outlines and summaries fast."
+        },
+        "body": "This demo shows Parent Comms. In the full app you'll also draft {{feature}} in seconds — always with teacher control and school-safe privacy.",
+        "cta": "Try Zaza Draft Free",
+        "examples": "See examples"
+      }
+    },
+    "whySchools": {
+      "title": "Why Draft is built for schools",
+      "items": ["Curriculum-aware prompts","GDPR & school privacy","Teacher tone presets","Review before send","Ready-to-use templates"]
+    },
+    "finalCta": {
+      "title": "Imagine Sunday afternoons free.",
+      "cta": "Start free"
+    }
+  },
   "navigation": {
     "home": "Home",
     "blog": "Blog",
@@ -13,7 +77,7 @@
     "ourSolutions": "Our Solutions",
     "learningCentre": "Learning Centre",
     "aboutUs": "About Us",
-    "tryZazaPromptly": "Try Zaza Promptly",
+    "tryZazaDraft": "Try Zaza Draft Free",
     "tryZazaTeach": "Try Zaza Teach",
     "language": "Language"
   },
