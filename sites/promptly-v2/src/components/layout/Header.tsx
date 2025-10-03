@@ -35,12 +35,12 @@ export default function Header() {
           <Link href="/" className="flex items-center space-x-3">
             <Image
               src="/images/logo/zaza-logo-icon.svg"
-              alt="Zaza Promptly"
+              alt="Zaza Draft"
               width={32}
               height={32}
               className="w-8 h-8"
             />
-            <span className="text-xl font-bold text-gray-900">Zaza Promptly</span>
+            <span className="text-xl font-bold text-gray-900">Zaza Draft</span>
           </Link>
 
           {/* Desktop Navigation */}

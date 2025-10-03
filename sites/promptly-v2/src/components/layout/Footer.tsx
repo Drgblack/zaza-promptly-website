@@ -81,7 +81,7 @@ export default function Footer() {
               <span className="text-xl font-bold">Zaza Draft</span>
             </Link>
             <p className="text-slate-300 mb-4">
-              AI-powered teaching assistant that helps teachers write student comments and parent messages 10x faster.
+              The writing partner for teachers. Beat the blank page, save hours, and stay in control — for parent emails, student reports, and staff notes.
             </p>
             <div className="flex space-x-4">
               <a 

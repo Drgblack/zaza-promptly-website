@@ -59,7 +59,7 @@ export default function LocalizedHomePage({ locale: propLocale }: LocalizedHomeP
               
               {/* Subtext */}
               <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Write better parent messages and report comments in half the time. Hallucination-safe AI designed by teachers, for teachers.
+                Beat the blank page, save hours, and stay in control — for parent emails, student reports, and staff notes.
               </p>
               
               {/* CTA Buttons */}
@@ -68,7 +68,7 @@ export default function LocalizedHomePage({ locale: propLocale }: LocalizedHomeP
                   href={hasStripe ? `/${currentLocale}/pricing#free` : `/${currentLocale}/waitlist`}
                   className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold rounded-lg transition-all hover:scale-105 shadow-xl"
                 >
-                  Start Free Today
+                  Try Zaza Draft Free →
                   <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
@@ -77,7 +77,7 @@ export default function LocalizedHomePage({ locale: propLocale }: LocalizedHomeP
                   href="#demo"
                   className="inline-flex items-center justify-center px-8 py-4 border-2 border-slate-600 text-slate-300 hover:bg-slate-800/50 text-lg font-semibold rounded-lg transition-all hover:scale-105"
                 >
-                  See How It Works
+                  See real examples
                 </Link>
               </div>
             </ScrollReveal>

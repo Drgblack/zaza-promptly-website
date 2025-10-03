@@ -44,7 +44,7 @@ const content = {
         title: 'Email Support',
         description: 'Get help from our support team within 24 hours',
         action: 'Send Email',
-        href: 'mailto:support@zazapromptly.com',
+        href: 'mailto:help@zazatechnologies.com',
         icon: '📧',
         availability: 'Response within 24 hours'
       },
@@ -124,7 +124,7 @@ const content = {
         title: 'E-Mail-Support',
         description: 'Erhalten Sie Hilfe von unserem Support-Team innerhalb von 24 Stunden',
         action: 'E-Mail senden',
-        href: 'mailto:support@zazapromptly.com',
+        href: 'mailto:help@zazatechnologies.com',
         icon: '📧',
         availability: 'Antwort innerhalb von 24 Stunden'
       },
@@ -333,7 +333,7 @@ export default function SupportClient() {
             </p>
             
             <a
-              href="mailto:support@zazapromptly.com"
+              href="mailto:help@zazatechnologies.com"
               className="inline-flex items-center px-8 py-4 bg-white text-brand-600 font-semibold rounded-lg hover:bg-gray-50 transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-600"
             >
               {copy.contactButton}
