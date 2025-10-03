@@ -56,13 +56,13 @@ async function sendBrevoEmail(contactData: ContactData) {
       },
       body: JSON.stringify({
         sender: {
-          name: 'Promptly Contact Form',
+          name: 'Draft Contact Form',
           email: 'noreply@zazapromptly.com'
         },
         to: [
           {
             email: 'hello@zazapromptly.com',
-            name: 'Promptly Team'
+            name: 'Draft Team'
           }
         ],
         subject: `Contact Form: ${contactData.subject}`,
@@ -84,7 +84,7 @@ async function sendBrevoEmail(contactData: ContactData) {
             
             <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e0e0e0; font-size: 12px; color: #666;">
               <p>Submitted: ${new Date().toLocaleString('en-GB', { timeZone: 'Europe/London' })} GMT</p>
-              <p>From: Promptly V2 Contact Form</p>
+              <p>From: Draft V2 Contact Form</p>
             </div>
           </div>
         `,
@@ -100,7 +100,7 @@ Message:
 ${contactData.message}
 
 Submitted: ${new Date().toLocaleString('en-GB', { timeZone: 'Europe/London' })} GMT
-From: Promptly V2 Contact Form
+From: Draft V2 Contact Form
         `
       })
     })

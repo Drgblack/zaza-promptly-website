@@ -168,7 +168,7 @@ function FinalCTA() {
                   Ready to Reclaim Your Evenings?
                 </h2>
                 <p className="text-lg text-slate-300 mb-6 leading-relaxed">
-                  "I built Promptly because I understand how overwhelming teaching can feel. You shouldn't have to choose between great feedback and personal time."
+                  "I built Draft because I understand how overwhelming teaching can feel. You shouldn't have to choose between great feedback and personal time."
                 </p>
                 <p className="text-sm text-slate-400 mb-6">
                   <strong className="text-white">{founder.name}</strong> • {founder.title}

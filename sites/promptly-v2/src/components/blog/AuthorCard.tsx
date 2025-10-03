@@ -125,7 +125,7 @@ export default function AuthorCard({
               <div className="mt-3">
                 {isFounder ? (
                   <p className="text-slate-300 text-sm leading-relaxed">
-                    Dr. Greg Blackburn is the founder of Zaza Technologies and creator of Promptly. With over 20 years of experience building educational tools and a PhD in Professional Education, he understands the daily challenges teachers face and is passionate about creating AI solutions that truly serve educators.
+                    Dr. Greg Blackburn is the founder of Zaza Technologies and creator of Draft. With over 20 years of experience building educational tools and a PhD in Professional Education, he understands the daily challenges teachers face and is passionate about creating AI solutions that truly serve educators.
                   </p>
                 ) : authorMeta?.bio ? (
                   <p className="text-slate-300 text-sm leading-relaxed">
@@ -133,7 +133,7 @@ export default function AuthorCard({
                   </p>
                 ) : (
                   <p className="text-slate-300 text-sm leading-relaxed">
-                    Part of the Promptly team, dedicated to creating AI tools that help teachers save time while maintaining the personal touch that makes great education possible.
+                    Part of the Draft team, dedicated to creating AI tools that help teachers save time while maintaining the personal touch that makes great education possible.
                   </p>
                 )}
               </div>

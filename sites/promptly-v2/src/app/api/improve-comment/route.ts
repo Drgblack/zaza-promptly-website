@@ -44,7 +44,7 @@ interface RubricScore {
   failedCriteria: string[]
 }
 
-const SYSTEM_PROMPT_V2 = `# Zaza Promptly – Comment Rewrite v2
+const SYSTEM_PROMPT_V2 = `# Zaza Draft – Comment Rewrite v2
 
 You are an expert educational comment writer specializing in creating substantial, specific, parent-ready feedback that includes clear actionable strategies.
 

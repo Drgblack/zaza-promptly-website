@@ -14,7 +14,7 @@ interface ZaraResponse {
 
 // Safety-first prompt system
 const SYSTEM_PROMPTS = {
-  base: `You are Zara, an AI assistant helping teachers with Promptly. You prioritize student privacy and safety above all else.
+  base: `You are Zara, an AI assistant helping teachers with Draft. You prioritize student privacy and safety above all else.
 
 SAFETY RULES (NEVER violate):
 1. NEVER ask for or process student names, addresses, grades, or personal details
@@ -28,7 +28,7 @@ Your responses should be:
 - Encouraging and supportive
 - Brief and actionable (2-3 sentences max)`,
 
-  snippetTool: `You are helping with comment improvement in Promptly's Snippet Tool.
+  snippetTool: `You are helping with comment improvement in Draft's Snippet Tool.
 
 Focus on:
 - Explaining pedagogical reasoning behind edits
@@ -41,11 +41,11 @@ NEVER:
 - Request personal information
 - Suggest identifying details in comments`,
 
-  general: `You are a general teaching assistant helping with Promptly.
+  general: `You are a general teaching assistant helping with Draft.
 
 You can help with:
 - General teaching strategies
-- Using Promptly's features
+- Using Draft's features
 - Communication best practices
 - Technology in education
 
@@ -93,13 +93,13 @@ function generateMockResponse(request: ZaraRequest): ZaraResponse {
   } else {
     // General context
     if (message.toLowerCase().includes('help') || message.toLowerCase().includes('how')) {
-      response = 'I can help with teaching strategies, using Promptly\'s features, and communication best practices. What specific area would you like guidance on?'
+      response = 'I can help with teaching strategies, using Draft\'s features, and communication best practices. What specific area would you like guidance on?'
       suggestions = ['Improve my comments', 'Communication tips', 'Teaching strategies']
     } else if (message.toLowerCase().includes('comment') || message.toLowerCase().includes('feedback')) {
       response = 'Effective feedback is specific, actionable, and encouraging. Focus on what students did well and provide clear next steps for improvement.'
       suggestions = ['Try the Snippet Tool', 'Learn about tone options', 'Parent communication tips']
     } else {
-      response = 'I\'m here to support your teaching practice. Feel free to ask about comment writing, parent communication, or using Promptly\'s features.'
+      response = 'I\'m here to support your teaching practice. Feel free to ask about comment writing, parent communication, or using Draft\'s features.'
       suggestions = ['How do I write better comments?', 'What tone should I use?', 'How can I save time?']
     }
   }

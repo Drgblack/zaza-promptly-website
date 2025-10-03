@@ -8,7 +8,7 @@ import LanguageSelect from '@/components/common/LanguageSelect';
 export default function SiteFooter() {
   // Navigation data for easy editing
   const productLinks = [
-    { name: 'Promptly', href: '/' },
+    { name: 'Draft', href: '/' },
     { name: 'Quick Comment Helper', href: '#' }, // TODO(route): find existing route
     { name: 'Zaza Notably', href: 'https://zazanotably.com' },
     { name: 'Classroom Tool', href: '#' }, // TODO(route): find existing route

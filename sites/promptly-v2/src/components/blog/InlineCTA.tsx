@@ -76,8 +76,8 @@ export function SaveTimeCTA({ className = '' }: { className?: string }) {
     <InlineCTA
       variant="tip"
       title="💡 Save Time Today"
-      description="Join thousands of teachers who are already saving 3+ hours per week with Promptly's AI-powered writing assistant."
-      ctaText="Try Promptly Free"
+      description="Join thousands of teachers who are already saving 3+ hours per week with Draft's AI-powered writing assistant."
+      ctaText="Try Draft Free"
       ctaLink="/waitlist"
       className={className}
       icon={
@@ -94,7 +94,7 @@ export function GetStartedCTA({ className = '' }: { className?: string }) {
     <InlineCTA
       variant="success"
       title="🚀 Ready to Transform Your Teaching?"
-      description="See how Promptly can help you write better reports, emails, and feedback in half the time."
+      description="See how Draft can help you write better reports, emails, and feedback in half the time."
       ctaText="Get Started Free"
       ctaLink="/waitlist"
       className={className}

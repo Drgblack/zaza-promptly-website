@@ -110,7 +110,7 @@
     "plans": {
       "free": {
         "name": "Free",
-        "description": "Perfect for trying Promptly",
+        "description": "Perfect for trying Draft",
         "price": "€0",
         "period": "/month",
         "features": [
@@ -155,8 +155,8 @@
       "title": "Frequently asked questions",
       "questions": {
         "safety": {
-          "q": "What makes Promptly safer than ChatGPT?",
-          "a": "Promptly is specifically designed for education with hallucination-safe AI that won't generate false information. Unlike ChatGPT, it's trained on educational contexts and includes safety guardrails to ensure accurate, appropriate content for school communications."
+          "q": "What makes Draft safer than ChatGPT?",
+          "a": "Draft is specifically designed for education with hallucination-safe AI that won't generate false information. Unlike ChatGPT, it's trained on educational contexts and includes safety guardrails to ensure accurate, appropriate content for school communications."
         },
         "cancel": {
           "q": "Can I cancel anytime?",
@@ -164,7 +164,7 @@
         },
         "refunds": {
           "q": "Do you offer refunds?",
-          "a": "We offer a 30-day money-back guarantee. If you're not satisfied with Promptly for any reason within your first 30 days, contact us for a full refund."
+          "a": "We offer a 30-day money-back guarantee. If you're not satisfied with Draft for any reason within your first 30 days, contact us for a full refund."
         },
         "privacy": {
           "q": "Is my data private?",
@@ -172,7 +172,7 @@
         },
         "bundle": {
           "q": "What's included in the bundle?",
-          "a": "The bundle includes full access to both Promptly (unlimited comments, translations, priority support) and Zaza Teach (lesson planning, resource library, curriculum alignment tools) at a discounted rate."
+          "a": "The bundle includes full access to both Draft (unlimited comments, translations, priority support) and Zaza Teach (lesson planning, resource library, curriculum alignment tools) at a discounted rate."
         },
         "changePlans": {
           "q": "Can I upgrade or downgrade plans?",
