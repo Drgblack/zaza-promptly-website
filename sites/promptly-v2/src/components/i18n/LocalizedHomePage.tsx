@@ -54,7 +54,7 @@ export default function LocalizedHomePage({ locale: propLocale }: LocalizedHomeP
               
               {/* Main Headline */}
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                Safe AI that saves teachers hours — without losing empathy
+                The writing partner for <span className="bg-gradient-to-r from-pink-400 via-pink-500 to-purple-500 bg-clip-text text-transparent">teachers.</span>
               </h1>
               
               {/* Subtext */}

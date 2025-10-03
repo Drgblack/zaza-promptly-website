@@ -40,9 +40,8 @@ export default function Footer() {
       title: 'Zaza Ecosystem',
       links: [
         { name: 'Zaza Teach', href: 'https://zazateach.com', external: true },
-        { name: 'Zaza Promptly', href: 'https://zazapromptly.com', external: true },
+        { name: 'Zaza Draft', href: 'https://zazadraft.com', external: true },
         { name: 'Zaza Technologies', href: 'https://zazatechnologies.com', external: true },
-        { name: 'RealtyClose', href: 'https://realtyclose.com', external: true }
       ]
     },
     resources: {
@@ -74,12 +73,12 @@ export default function Footer() {
             <Link href="/" className="flex items-center space-x-3 mb-4">
               <Image
                 src="/images/logo/zaza-logo-icon.svg"
-                alt="Zaza Promptly"
+                alt="Zaza Draft"
                 width={32}
                 height={32}
                 className="w-8 h-8"
               />
-              <span className="text-xl font-bold">Zaza Promptly</span>
+              <span className="text-xl font-bold">Zaza Draft</span>
             </Link>
             <p className="text-slate-300 mb-4">
               AI-powered teaching assistant that helps teachers write student comments and parent messages 10x faster.

@@ -11,7 +11,7 @@ interface SEOPageConfig {
   twitterDescription?: string
 }
 
-export const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
+export const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazadraft.com'
 
 export function generateSEOMetadata(config: SEOPageConfig): Metadata {
   return {

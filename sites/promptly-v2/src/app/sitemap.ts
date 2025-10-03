@@ -4,7 +4,7 @@ import { CASE_STUDIES } from '@/content/case-studies'
 import { supportedLocales } from '@/lib/i18n'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://www.zazapromptly.com'
+  const baseUrl = 'https://www.zazadraft.com'
   const slugs = getPostSlugs()
   const tags = await getAllTags()
   const authors = await getAllAuthors()
