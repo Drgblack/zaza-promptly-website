@@ -176,3 +176,6 @@ STRIPE_DEBUG=true
 
 > 🔒 This is the CANONICAL Promptly v2.0 Draft repo (2025-10-04).
 
+
+> This is the CANONICAL Promptly v2.0 Draft repo (2025-10-04).
+
