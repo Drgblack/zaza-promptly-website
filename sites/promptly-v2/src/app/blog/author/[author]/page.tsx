@@ -34,10 +34,10 @@ export async function generateMetadata({ params }: AuthorPageProps): Promise<Met
   }
 
   return {
-    title: `${authorName} | Promptly Blog`,
+    title: `${authorName} | Draft Blog`,
     description: `Browse all articles by ${authorName}. Discover insights, tips, and best practices for educators using AI-powered tools.`,
     openGraph: {
-      title: `${authorName} | Promptly Blog`,
+      title: `${authorName} | Draft Blog`,
       description: `Browse all articles by ${authorName}. Discover insights, tips, and best practices for educators using AI-powered tools.`,
       url: `/blog/author/${params.author}`,
     },
