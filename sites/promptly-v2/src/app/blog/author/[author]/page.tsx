@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: AuthorPageProps): Promise<Met
   
   if (posts.length === 0) {
     return {
-      title: 'Author Not Found | Promptly Blog'
+      title: 'Author Not Found | Draft Blog'
     }
   }
 

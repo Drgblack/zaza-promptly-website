@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
 export const metadata: Metadata = {
-  title: 'Browse by Tag | Promptly Blog',
+  title: 'Browse by Tag | Draft Blog',
   description: 'Discover articles by topic. Browse our comprehensive collection of education and AI teaching insights organized by tag.',
 }
 

@@ -29,12 +29,12 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
   
   if (isNaN(page) || page < 1) {
     return {
-      title: 'Page Not Found | Promptly Blog'
+      title: 'Page Not Found | Draft Blog'
     }
   }
 
   return {
-    title: `Blog - Page ${page} | Promptly - Education Insights & Tips`,
+    title: `Blog - Page ${page} | Draft - Education Insights & Tips`,
     description: `Latest insights, tips, and best practices for educators using AI-powered tools in the classroom. Page ${page}`,
     robots: page === 1 ? 'index, follow' : 'noindex, follow',
   }

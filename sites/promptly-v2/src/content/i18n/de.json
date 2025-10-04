@@ -12,10 +12,10 @@
     },
     "solution": {
       "title": "Intelligente Schreibhilfe, die Ihren Ton trifft",
-      "subtitle": "Promptly verwendet fortschrittliche KI, um Ihnen beim Schreiben zu helfen, während es Ihren authentischen Lehrstil und professionellen Ton beibehält."
+      "subtitle": "Draft verwendet fortschrittliche KI, um Ihnen beim Schreiben zu helfen, während es Ihren authentischen Lehrstil und professionellen Ton beibehält."
     },
     "differentiation": {
-      "title": "Warum Promptly anders ist",
+      "title": "Warum Draft anders ist",
       "subtitle": "Entwickelt speziell für Lehrer, mit Bildungsexpertise und KI-Sicherheit im Fokus.",
       "features": {
         "safe": {
@@ -38,11 +38,11 @@
     },
     "finalCTA": {
       "title": "Bereit, Ihre Schreibzeit zu reduzieren?",
-      "subtitle": "Schließen Sie sich Tausenden von Lehrern an, die ihre Arbeitsbelastung mit Promptly reduziert haben."
+      "subtitle": "Schließen Sie sich Tausenden von Lehrern an, die ihre Arbeitsbelastung mit Draft reduziert haben."
     }
   },
   "cta": {
-    "tryPromptlyFree": "Promptly kostenlos testen",
+    "tryDraftFree": "Draft kostenlos testen",
     "seeHowItWorks": "Funktionsweise ansehen",
     "viewPricing": "Preise anzeigen"
   }

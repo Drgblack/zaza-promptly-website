@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Page Not Found | Promptly',
+  title: 'Page Not Found | Draft',
   description: 'The page you are looking for could not be found. Explore our blog, free resources, and AI tools for teachers.',
   robots: 'noindex, follow',
 }

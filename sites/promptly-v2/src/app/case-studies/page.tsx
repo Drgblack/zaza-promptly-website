@@ -9,13 +9,13 @@ export const revalidate = 0
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.zazapromptly.com'
 
 export const metadata: Metadata = {
-  title: 'Case Studies | Promptly - Real Stories from Educators',
-  description: 'Discover how teachers worldwide are saving time, improving feedback, and transforming their practice with Promptly. Real stories, measurable results.',
+  title: 'Case Studies | Draft - Real Stories from Educators',
+  description: 'Discover how teachers worldwide are saving time, improving feedback, and transforming their practice with Draft. Real stories, measurable results.',
   alternates: {
     canonical: `${baseUrl}/case-studies`,
   },
   openGraph: {
-    title: 'Case Studies | Promptly',
+    title: 'Case Studies | Draft',
     description: 'Real stories from educators transforming their practice with AI-powered teaching tools',
     type: 'website',
     url: 'https://www.zazapromptly.com/case-studies',
@@ -70,7 +70,7 @@ export default async function CaseStudiesPage() {
               Real Stories from the Classroom
             </h1>
             <p className="mt-3 text-slate-300">
-              Discover how educators worldwide are transforming their practice with Promptly.
+              Discover how educators worldwide are transforming their practice with Draft.
             </p>
           </header>
 
@@ -100,7 +100,7 @@ export default async function CaseStudiesPage() {
           {/* CTA band */}
           <section className="mx-auto mt-14 mb-12 max-w-3xl rounded-2xl border border-white/10 bg-slate-900/50 p-6 text-center">
             <h2 className="text-lg font-semibold text-white">Ready to write your success story?</h2>
-            <p className="mt-2 text-slate-300">Join thousands of educators saving hours every week with Promptly.</p>
+            <p className="mt-2 text-slate-300">Join thousands of educators saving hours every week with Draft.</p>
             <div className="mt-4 flex justify-center gap-3">
               <a className="rounded-xl bg-indigo-500 px-4 py-2 text-white hover:bg-indigo-400" href="/waitlist">Get Started</a>
               <a className="rounded-xl border border-white/10 px-4 py-2 text-slate-100 hover:bg-white/5" href="/blog">Read Our Blog</a>

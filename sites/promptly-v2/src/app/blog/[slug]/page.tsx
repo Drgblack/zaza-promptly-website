@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   
   if (!postMeta) {
     return {
-      title: 'Post Not Found | Promptly Blog',
+      title: 'Post Not Found | Draft Blog',
       alternates: {
         canonical: '/404',
       },

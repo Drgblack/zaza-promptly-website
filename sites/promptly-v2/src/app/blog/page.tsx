@@ -9,20 +9,20 @@ export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
 export const metadata: Metadata = {
-  title: 'Zaza Promptly Blog – AI Teaching Tips, Strategies & Research',
+  title: 'Zaza Draft Blog – AI Teaching Tips, Strategies & Research',
   description: 'Practical advice, research-backed insights, and AI strategies to reduce teacher workload, improve parent communication, and future-proof education.',
   keywords: 'AI teaching tips, teacher AI strategies, AI for parent communication, teacher productivity tips, AI lesson planning, education AI research, safe AI for teachers',
   alternates: {
     canonical: '/blog',
   },
   openGraph: {
-    title: 'Zaza Promptly Blog – AI Teaching Tips, Strategies & Research',
+    title: 'Zaza Draft Blog – AI Teaching Tips, Strategies & Research',
     description: 'Practical advice, research-backed insights, and AI strategies to reduce teacher workload, improve parent communication, and future-proof education.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Zaza Promptly Blog – AI Teaching Tips, Strategies & Research',
+    title: 'Zaza Draft Blog – AI Teaching Tips, Strategies & Research',
     description: 'Practical advice, research-backed insights, and AI strategies to reduce teacher workload, improve parent communication, and future-proof education.',
   },
 }

@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   
   if (!caseStudy) {
     return {
-      title: 'Case Study Not Found | Promptly',
+      title: 'Case Study Not Found | Draft',
       alternates: {
         canonical: '/404',
       },
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const caseStudyUrl = `${baseUrl}/case-studies/${params.slug}`
 
   return {
-    title: `${caseStudy.title} | Promptly Case Studies`,
+    title: `${caseStudy.title} | Draft Case Studies`,
     description: caseStudy.excerpt,
     authors: [{ name: caseStudy.author }],
     alternates: {
@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           alt: caseStudy.heroAlt || caseStudy.title,
         },
       ],
-      siteName: 'Promptly',
+      siteName: 'Draft',
     },
     twitter: {
       card: 'summary_large_image',
@@ -305,7 +305,7 @@ export default async function CaseStudyPage({ params }: Props) {
               Ready to Transform Your Teaching?
             </h2>
             <p className="text-xl text-slate-300 mb-8">
-              Join {caseStudy.author} and thousands of other educators saving time with Promptly.
+              Join {caseStudy.author} and thousands of other educators saving time with Draft.
             </p>
             <Link 
               href="/waitlist"
