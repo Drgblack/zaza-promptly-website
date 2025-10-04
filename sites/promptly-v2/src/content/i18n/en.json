@@ -26,9 +26,59 @@
   "home": {
     "hero": {
       "title": "The writing partner for teachers.",
-      "subtitle": "Beat the blank page, save hours, and stay in control — for parent emails, student reports, and staff notes.",
-      "tryFree": "Try it free - 5 comments this month",
-      "credibility": "Created by Dr. Greg Blackburn, PhD in Professional Education • Trusted by 12,000+ teachers"
+      "subtitle": "Beat the blank page, save hours, and stay in control.",
+      "tryFree": "Try Zaza Draft free",
+      "credibility": "Trusted by 12,000+ teachers worldwide",
+      "safetyMicroline": "Powered by the world's first safe AI — built for education. You stay in control."
+    },
+    "hook": {
+      "hole": {
+        "title": "The hole",
+        "description": "Parent emails and reports are stealing your evenings."
+      },
+      "turn": {
+        "title": "The turn", 
+        "description": "Try Zaza Draft—get a teacher-appropriate draft in minutes."
+      },
+      "change": {
+        "title": "The change",
+        "description": "Evenings back. Lower stress. Professional tone, every time."
+      }
+    },
+    "productBullets": {
+      "title": "Everything you need",
+      "features": [
+        "Rewrite & polish in one click",
+        "Built-in tone & style guide (teacher-appropriate)",
+        "Instant translations",
+        "Smart closing-line suggestions",
+        "GDPR-compliant. You approve every word."
+      ]
+    },
+    "socialProof": {
+      "title": "Real teachers, real time saved.",
+      "quotes": [
+        "I got my Sundays back.",
+        "Emails no longer drain me.", 
+        "Faster, calmer, more professional."
+      ]
+    },
+    "faq": {
+      "title": "Quick answers",
+      "questions": [
+        {
+          "question": "Is my data safe?",
+          "answer": "GDPR-compliant, teacher-controlled, not used to train models."
+        },
+        {
+          "question": "Do I need to be techy?",
+          "answer": "No."
+        },
+        {
+          "question": "Can I cancel?",
+          "answer": "Anytime; start free, no credit card required."
+        }
+      ]
     },
     "problem": {
       "title": "You're not alone in this struggle",

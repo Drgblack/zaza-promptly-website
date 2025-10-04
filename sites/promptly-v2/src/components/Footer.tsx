@@ -19,7 +19,7 @@ const FOOTER_SECTIONS: FooterSection[] = [
   {
     title: 'Zaza Ecosystem',
     links: [
-      { title: 'Zaza Promptly', href: '/' },
+      { title: 'Zaza Draft', href: '/' },
       { title: 'Zaza Teach', href: 'https://zazateach.com' },
       { title: 'Zaza Notably', href: 'https://zazanotably.com' },
     ]
@@ -27,7 +27,7 @@ const FOOTER_SECTIONS: FooterSection[] = [
   {
     title: 'Products',
     links: [
-      { title: 'Promptly', href: '/' },
+      { title: 'Draft', href: '/' },
       { title: 'Pricing', href: '/pricing' },
       { title: 'Quick Comment Helper', href: '/quick-comment-helper' },
       { title: 'Try Free Classroom Tool', href: '/tools/classroom' }, // TODO: Create placeholder page

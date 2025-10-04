@@ -7,15 +7,15 @@ export default function GlobalSchema({ type = "website" }: GlobalSchemaProps) {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Zaza Technologies",
-    "alternateName": "Zaza Promptly",
-    "description": "AI-powered teaching assistant that helps teachers generate professional student comments, parent messages, and reports 10x faster.",
-    "url": "https://promptly.zazatechnologies.com",
-    "logo": "https://promptly.zazatechnologies.com/images/logo/zaza-logo.png",
+    "alternateName": "Zaza Draft",
+    "description": "The writing partner for teachers. Beat the blank page, save hours, and stay in control with the world's first safe AI built for education.",
+    "url": "https://zazadraft.com",
+    "logo": "https://zazadraft.com/images/logo/zaza-logo.png",
     "founder": {
       "@type": "Person",
       "name": "Dr. Greg Blackburn",
       "jobTitle": "Founder & PhD Professional Education",
-      "url": "https://promptly.zazatechnologies.com/about-founder"
+      "url": "https://zazadraft.com/about-founder"
     },
     "sameAs": [
       "https://www.linkedin.com/company/zaza-technologies",
@@ -32,8 +32,8 @@ export default function GlobalSchema({ type = "website" }: GlobalSchemaProps) {
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "Zaza Promptly",
-    "description": "Hallucination-safe AI built for teachers. Write reports, parent messages, and professional emails faster.",
+    "name": "Zaza Draft",
+    "description": "The writing partner for teachers. Rewrite & polish in one click with built-in tone & style guide. GDPR-compliant with instant translations."
     "applicationCategory": "EducationalApplication",
     "operatingSystem": "Web",
     "offers": {

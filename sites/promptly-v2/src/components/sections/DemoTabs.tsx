@@ -148,10 +148,9 @@ export default function DemoTabs() {
   }
 
   const tabs: DemoTab[] = [
-    { id: 'parent-comms', label: 'Parent Communication', isActive: true },
+    { id: 'parent-comms', label: 'Parent Comms', isActive: true },
     { id: 'reports', label: 'Report Comments', isActive: false },
-    { id: 'staff', label: 'Staff Notes', isActive: false },
-    { id: 'docs', label: 'Documentation', isActive: false }
+    { id: 'staff', label: 'Staff Notes', isActive: false }
   ]
 
   const getUpsellContent = () => {

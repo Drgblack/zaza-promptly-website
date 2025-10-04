@@ -114,7 +114,7 @@ export default function Header() {
                     className="block px-4 py-3 text-sm text-gray-700 hover:text-purple-600 hover:bg-purple-50 transition-colors border-l-2 border-purple-500 bg-purple-50/50"
                     onClick={() => setIsDropdownOpen(false)}
                   >
-                    <div className="font-medium">Zaza Promptly</div>
+                    <div className="font-medium">Zaza Draft</div>
                     <div className="text-xs text-gray-500">AI comment generator</div>
                   </Link>
                 </div>
@@ -157,7 +157,7 @@ export default function Header() {
               href="/why-zaza-promptly" 
               className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
             >
-              Why Zaza Promptly?
+              Why Zaza Draft?
             </Link>
             
             <Link 
@@ -237,7 +237,7 @@ export default function Header() {
                   className="block px-2 py-2 text-sm font-medium text-purple-700 bg-purple-50 rounded-lg transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Zaza Promptly
+                  Zaza Draft
                 </Link>
               </div>
 
@@ -273,7 +273,7 @@ export default function Header() {
                 className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Why Zaza Promptly?
+                Why Zaza Draft?
               </Link>
               <Link 
                 href="/about-founder" 

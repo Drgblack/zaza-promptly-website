@@ -2,9 +2,59 @@
   "home": {
     "hero": {
       "title": "Der Schreibpartner für Lehrkräfte.",
-      "subtitle": "Überwinden Sie die leere Seite, sparen Sie Stunden und behalten Sie die Kontrolle — für Eltern-E-Mails, Schülerberichte und Notizen für Kollegen.",
-      "tryFree": "Kostenlos testen",
-      "credibility": "Vertraut von über 12.000 Lehrern weltweit"
+      "subtitle": "Schluss mit der leeren Seite – sparen Sie Zeit und behalten Sie die Kontrolle.",
+      "tryFree": "Zaza Draft kostenlos testen",
+      "credibility": "Vertraut von über 12.000 Lehrern weltweit",
+      "safetyMicroline": "Angetrieben von der weltweit ersten sicheren KI – speziell für Bildung. Sie behalten die Kontrolle."
+    },
+    "hook": {
+      "hole": {
+        "title": "Das Loch",
+        "description": "Elternmails und Berichte rauben Ihre Abende."
+      },
+      "turn": {
+        "title": "Die Wende",
+        "description": "Testen Sie Zaza Draft – in Minuten liegt ein passender Entwurf vor."
+      },
+      "change": {
+        "title": "Die Veränderung", 
+        "description": "Abende zurück. Weniger Stress. Immer der richtige Ton."
+      }
+    },
+    "productBullets": {
+      "title": "Alles was Sie brauchen",
+      "features": [
+        "Überarbeiten & verfeinern mit einem Klick",
+        "Integrierter Ton- & Stil-Leitfaden (lehrkraftgerecht)",
+        "Sofortige Übersetzungen", 
+        "Intelligente Schluss-Formulierungen",
+        "DSGVO-konform. Sie geben jedes Wort frei."
+      ]
+    },
+    "socialProof": {
+      "title": "Echte Lehrkräfte, echte Zeitersparnis.",
+      "quotes": [
+        "Ich habe meine Sonntage zurück.",
+        "E-Mails laugen mich nicht mehr aus.",
+        "Schneller, ruhiger, professioneller."
+      ]
+    },
+    "faq": {
+      "title": "Schnelle Antworten",
+      "questions": [
+        {
+          "question": "Ist meine Daten sicher?",
+          "answer": "DSGVO-konform, lehrkraftkontrolliert, nicht zum Trainieren von Modellen verwendet."
+        },
+        {
+          "question": "Muss ich technikaffin sein?",
+          "answer": "Nein."
+        },
+        {
+          "question": "Kann ich kündigen?",
+          "answer": "Jederzeit; starten Sie kostenlos, keine Kreditkarte erforderlich."
+        }
+      ]
     },
     "problem": {
       "title": "Zu viel Schreibarbeit, zu wenig Zeit",
