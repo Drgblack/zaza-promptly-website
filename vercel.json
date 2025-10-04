@@ -1,8 +1,8 @@
 {
-  "buildCommand": "ls -la && ls -la sites/ && cd sites/promptly-v2 && npm install && npm run build",
-  "outputDirectory": "sites/promptly-v2/.next",
-  "installCommand": "ls -la && ls -la sites/ && cd sites/promptly-v2 && npm install",
   "framework": "nextjs",
+  "installCommand": "npm run vercel:install",
+  "buildCommand": "npm run vercel:build",
+  "outputDirectory": "sites/promptly-v2/.next",
   "redirects": [
     { "source": "/blog/tag/ai%20comments", "destination": "/blog/tag/ai-comments", "statusCode": 301 },
     { "source": "/blog/tag/ai%20tools", "destination": "/blog/tag/ai-tools", "statusCode": 301 },
