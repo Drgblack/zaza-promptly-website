@@ -1,14 +1,12 @@
 {
-  "framework": "nextjs",
   "buildCommand": "cd sites/promptly-v2 && npm install && npm run build",
   "outputDirectory": "sites/promptly-v2/.next",
   "installCommand": "cd sites/promptly-v2 && npm install",
-  "ignoreCommand": "git diff --quiet HEAD^ HEAD sites/promptly-v2/",
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "/en",
-      "statusCode": 308
+  "devCommand": "cd sites/promptly-v2 && npm run dev",
+  "framework": null,
+  "functions": {
+    "sites/promptly-v2/src/app/**/*.ts": {
+      "runtime": "nodejs22.x"
     }
-  ]
+  }
 }

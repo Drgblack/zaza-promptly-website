@@ -1,0 +1,7 @@
+# Ignore everything except sites/promptly-v2
+*
+!sites/
+!sites/promptly-v2/
+!sites/promptly-v2/**
+!vercel.json
+!.env*
