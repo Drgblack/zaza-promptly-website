@@ -173,3 +173,6 @@ Add to `.env.local` for detailed logging:
 ```bash
 STRIPE_DEBUG=true
 # Deployment trigger
+
+> 🔒 This is the CANONICAL Promptly v2.0 Draft repo (2025-10-04).
+
