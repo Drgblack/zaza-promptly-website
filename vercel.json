@@ -1,8 +1,9 @@
 {
-  "buildCommand": "npm ci --prefix sites/promptly-v2 && npm run build --prefix sites/promptly-v2",
-  "outputDirectory": "sites/promptly-v2/.next",
-  "installCommand": "npm ci --prefix sites/promptly-v2",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "installCommand": "npm install",
   "framework": "nextjs",
+  "rootDirectory": "sites/promptly-v2",
   "redirects": [
     { "source": "/blog/tag/ai%20comments", "destination": "/blog/tag/ai-comments", "statusCode": 301 },
     { "source": "/blog/tag/ai%20tools", "destination": "/blog/tag/ai-tools", "statusCode": 301 },
