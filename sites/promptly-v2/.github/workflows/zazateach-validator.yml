@@ -1,0 +1,101 @@
+﻿name: ZazaTeach Gold Validator
+
+on:
+  pull_request:
+    branches: [ main, master ]
+  push:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install python-docx pillow
+
+      - name: Verify spec & validator present
+        run: |
+          test -f zazateach_lesson_spec.json || (echo "::error ::Missing zazateach_lesson_spec.json"; exit 1)
+          test -f zazateach_validator.py || (echo "::error ::Missing zazateach_validator.py"; exit 1)
+
+      - name: Validate DOCX Gold plans (word ranges, images, callouts)
+        run: |
+          set -e
+          shopt -s nullglob
+          failures=0
+          for f in *_gold_full.docx; do
+            echo "Validating DOCX: "
+            python zazateach_validator.py --doc "" --spec zazateach_lesson_spec.json --out "report_.json" || failures=
+          done
+          if [ "" -gt 0 ]; then
+            echo "::error ::DOCX validation failed on  file(s)"
+            exit 1
+          fi
+
+      - name: Validate JSON lessons against contract (light checks)
+        run: |
+          python - << 'PY'
+          import json, glob, sys
+          spec = json.load(open('zazateach_lesson_spec.json','r',encoding='utf-8'))
+          rules = { s['name']: (s['min_words'], s['max_words']) for s in spec['rules']['sections'] }
+          required_sections = set(rules.keys())
+          min_images = spec['rules'].get('min_images', 2)
+          required_callouts = set(spec['rules'].get('callouts_required', []))
+          problems = 0
+          for path in glob.glob("*_modern.json"):
+              data = json.load(open(path,'r',encoding='utf-8'))
+              msgs = []
+              for k in ['metadata','sections','images','validation']:
+                  if k not in data:
+                      msgs.append(f"Missing top-level key: {k}")
+              names = [s.get('name','') for s in data.get('sections',[])]
+              missing = sorted(required_sections - set(names))
+              if missing:
+                  msgs.append(f"Missing sections: {', '.join(missing)}")
+              if len(data.get('images',[])) < min_images:
+                  msgs.append(f"Only {len(data.get('images',[]))} lesson-level images; need >= {min_images}")
+              all_callouts = set()
+              for s in data.get('sections',[]):
+                  for k,v in (s.get('callouts') or {}).items():
+                      if isinstance(v, list) and v:
+                          all_callouts.add(k.lower())
+              missing_callouts = sorted(required_callouts - all_callouts)
+              if missing_callouts:
+                  msgs.append(f"Missing required callouts somewhere in lesson: {', '.join(missing_callouts)}")
+              for s in data.get('sections',[]):
+                  nm = s.get('name','')
+                  if nm in rules:
+                      lo, hi = rules[nm]
+                      wc = len((s.get('content_md') or "").split())
+                      if not (lo <= wc <= hi):
+                          msgs.append(f"Section '{nm}' out of range: {wc} words (expected {lo}-{hi})")
+              if msgs:
+                  problems += 1
+                  print(f"::group::❌ JSON Validation: {path}")
+                  for m in msgs:
+                      print(f"::error ::{m}")
+                  print("::endgroup::")
+              else:
+                  print(f"✅ {path} passed JSON checks.")
+          if problems:
+              sys.exit(1)
+          PY
+
+      - name: Upload validation reports (DOCX)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zazateach-validation-reports
+          path: report_*.json
+          if-no-files-found: ignore
